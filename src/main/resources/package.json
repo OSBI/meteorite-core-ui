@@ -35,6 +35,8 @@
     "webpack": "^1.12.2"
   },
   "dependencies": {
-    "react": "^0.13.3"
+    "backbone": "^1.2.3",
+    "react": "^0.13.3",
+    "underscore": "^1.8.3"
   }
 }
