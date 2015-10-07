@@ -22,10 +22,10 @@ gulp.task('fontAwesome', function() {
 
 gulp.task('foundation', function() {
 	gulp.src([config.bowerDir + '/foundation/css/foundation.min.css',
-		      config.bowerDir + '/foundation/css/normalize.min.css'])
+			  config.bowerDir + '/foundation/css/normalize.min.css'])
 		.pipe(gulp.dest('./dist/assets/css'))
 	gulp.src([config.bowerDir + '/foundation/js/foundation.min.js',
-		      config.bowerDir + '/foundation/js/vendor/modernizr.js'])
+			  config.bowerDir + '/foundation/js/vendor/modernizr.js'])
 		.pipe(gulp.dest('./dist/assets/js'));
 });
 
@@ -34,6 +34,17 @@ gulp.task('jquery', function() {
 		.pipe(gulp.dest('./dist/assets/js'));
 });
 
+gulp.task('css', function() {
+	gulp.src('./src/styl/**/*.styl')
+		.pipe(stylus())
+		.pipe(minifycss())
+		.pipe(gulp.dest('./dist/assets/css'));
+});
+
+gulp.task('watch', function() {
+	gulp.watch('./src/stylus/**/*.styl', ['css']);
+});
+
 gulp.task('bowerInstall', ['bower', 'fontAwesome', 'foundation', 'jquery']);
 
-gulp.task('default', ['bowerInstall']);
+gulp.task('default', ['bowerInstall', 'watch']);
