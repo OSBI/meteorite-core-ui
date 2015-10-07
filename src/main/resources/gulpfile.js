@@ -34,4 +34,6 @@ gulp.task('jquery', function() {
 		.pipe(gulp.dest('./dist/assets/js'));
 });
 
-gulp.task('default', ['bower', 'fontAwesome', 'foundation', 'jquery']);
+gulp.task('bowerInstall', ['bower', 'fontAwesome', 'foundation', 'jquery']);
+
+gulp.task('default', ['bowerInstall']);
