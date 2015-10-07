@@ -1,9 +1,9 @@
 'use strict';
 
 module.exports = {
-	entry: '',
+	entry: 'src/js/saiku/index.jsx',
 	output: {
-		filename: ''
+		filename: 'dist/saiku/saiku.js'
 	},
 	module: {
 		loaders: [
