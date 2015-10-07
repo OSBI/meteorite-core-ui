@@ -393,3 +393,6 @@ FakesAssemblies/
 
 # Grunt Dist directory
 dist/
+
+# Bower
+bower_components/
