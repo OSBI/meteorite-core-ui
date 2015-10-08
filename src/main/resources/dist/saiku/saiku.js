@@ -20442,16 +20442,14 @@
 		displayName: 'MenuBar',
 
 		render: function render() {
-			var data = this.props.data;
-
-			var menuBarItem = data.item.map(function (item) {
-				return React.createElement(MenuBarItem, { key: item.id, item: item });
+			var itemNode = this.props.data.item.map(function (item) {
+				return React.createElement(MenuBarItem, { item: item });
 			});
 
 			return React.createElement(
 				'nav',
 				{ className: 'top-bar', 'data-topbar': true, role: 'navigation' },
-				menuBarItem
+				itemNode
 			);
 		}
 	});
