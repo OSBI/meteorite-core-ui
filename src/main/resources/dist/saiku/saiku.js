@@ -49,7 +49,9 @@
 	var React = __webpack_require__(1);
 	var MenuBar = __webpack_require__(157);
 
-	React.render(React.createElement(MenuBar, null), document.getElementById('content'));
+	var data = { "item": [{ "name": "File", "visible": true, "subitem": [{ "name": "Dropdown Option 1", "visible": true }, { "name": "Dropdown Option 2", "visible": true }, { "name": "Dropdown Option 3", "visible": true }] }, { "name": "Edit", "visible": true, "subitem": [{ "name": "Dropdown Option 1", "visible": true }, { "name": "Dropdown Option 2", "visible": true }, { "name": "Dropdown Option 3", "visible": true }] }, { "name": "Tools", "visible": true, "subitem": [{ "name": "Dropdown Option 1", "visible": true }, { "name": "Dropdown Option 2", "visible": true }, { "name": "Dropdown Option 3", "visible": true }] }] };
+
+	React.render(React.createElement(MenuBar, { data: data }), document.getElementById('content'));
 
 /***/ },
 /* 1 */
@@ -20440,10 +20442,16 @@
 		displayName: 'MenuBar',
 
 		render: function render() {
+			var data = this.props.data;
+
+			var menuBarItem = data.item.map(function (item) {
+				return React.createElement(MenuBarItem, { key: item.id, item: item });
+			});
+
 			return React.createElement(
 				'nav',
 				{ className: 'top-bar', 'data-topbar': true, role: 'navigation' },
-				React.createElement(MenuBarItem, null)
+				menuBarItem
 			);
 		}
 	});
@@ -20463,6 +20471,8 @@
 		displayName: 'MenuBarItem',
 
 		render: function render() {
+			var item = this.props.item;
+
 			return React.createElement(
 				'section',
 				{ className: 'top-bar-section' },
@@ -20475,9 +20485,9 @@
 						React.createElement(
 							'a',
 							{ className: 'active', href: '#' },
-							'File'
+							item.name
 						),
-						React.createElement(MenuBarSubItem, null)
+						React.createElement(MenuBarSubItem, { item: item.subitem })
 					)
 				)
 			);
@@ -20498,36 +20508,22 @@
 		displayName: 'MenuBarSubItem',
 
 		render: function render() {
+			var item = this.props.item;
+
 			return React.createElement(
 				'ul',
 				{ className: 'dropdown' },
-				React.createElement(
-					'li',
-					null,
-					React.createElement(
-						'a',
-						{ href: '#' },
-						'Dropdown Option 1'
-					)
-				),
-				React.createElement(
-					'li',
-					null,
-					React.createElement(
-						'a',
-						{ href: '#' },
-						'Dropdown Option 2'
-					)
-				),
-				React.createElement(
-					'li',
-					null,
-					React.createElement(
-						'a',
-						{ href: '#' },
-						'Dropdown Option 3'
-					)
-				)
+				item.map(function (item) {
+					return React.createElement(
+						'li',
+						null,
+						React.createElement(
+							'a',
+							{ href: '#' },
+							item.name
+						)
+					);
+				})
 			);
 		}
 	});

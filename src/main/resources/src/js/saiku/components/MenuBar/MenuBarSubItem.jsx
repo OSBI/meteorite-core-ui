@@ -4,11 +4,13 @@ var React = require('react');
 
 var MenuBarSubItem = React.createClass({
 	render: function() {
+		var item = this.props.item;
+
 		return (
 			<ul className="dropdown">
-				<li><a href="#">Dropdown Option 1</a></li>
-				<li><a href="#">Dropdown Option 2</a></li>
-				<li><a href="#">Dropdown Option 3</a></li>
+				{item.map(function(item) {
+					return <li><a href="#">{item.name}</a></li>;
+				})}
 			</ul>
 		);
 	}
