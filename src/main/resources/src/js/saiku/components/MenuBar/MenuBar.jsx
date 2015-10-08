@@ -1,11 +1,9 @@
-/** @jsx React.DOM  */
-
 'use strict';
 
 var React = require('react');
 var MenuBarItem = require('./MenuBarItem');
 
-module.export = React.createClass({
+var MenuBar = React.createClass({
 	render: function() {
 		return (
 			<nav className="top-bar" data-topbar role="navigation">
@@ -14,3 +12,5 @@ module.export = React.createClass({
 		);
 	}
 });
+
+module.exports = MenuBar;

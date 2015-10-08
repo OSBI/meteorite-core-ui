@@ -1,8 +1,6 @@
-/** @jsx React.DOM  */
-
 'use strict';
 
 var React = require('react');
-var MenuBar = require('./MenuBar/MenuBar');
+var MenuBar = require('./components/MenuBar/MenuBar');
 
-React.renderComponent(<MenuBar />, document.getElementById('content'));
+React.render(<MenuBar />, document.getElementById('content'));

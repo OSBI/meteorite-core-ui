@@ -1,9 +1,9 @@
 'use strict';
 
 module.exports = {
-	entry: 'src/js/saiku/index.jsx',
+	entry: './src/js/saiku/index.jsx',
 	output: {
-		filename: 'dist/saiku/saiku.js'
+		filename: './dist/saiku/saiku.js'
 	},
 	module: {
 		loaders: [
@@ -13,5 +13,8 @@ module.exports = {
 				loader: 'babel'
 			}
 		]
-	}
+	},
+    resolve: {
+        extensions: ['', '.js', '.jsx']
+    }
 };
