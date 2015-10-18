@@ -1,10 +1,17 @@
 'use strict';
 
+var path    = require('path');
+var webpack = require('webpack');
+
 module.exports = {
-	entry: './src/js/saiku/index.jsx',
-	output: {
-		filename: './dist/saiku/saiku.js'
-	},
+    cache: true,
+    debug: true,
+    devtool: 'eval',
+    entry: './src/js/saiku/index.jsx',
+    output: {
+        path: path.join(__dirname, 'saiku'),
+        filename: 'saiku.min.js'
+    },
 	module: {
 		loaders: [
 			{
@@ -15,6 +22,6 @@ module.exports = {
 		]
 	},
     resolve: {
-        extensions: ['', '.js', '.jsx']
+    	extensions: ['', '.js', '.jsx']
     }
 };
