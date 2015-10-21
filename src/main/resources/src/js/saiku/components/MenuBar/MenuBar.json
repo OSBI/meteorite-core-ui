@@ -6,15 +6,18 @@
             "subitem": [
                 {
                     "name": "Dropdown Option 1",
-                    "visible": true
+                    "visible": true,
+                    "action": "#"
                 },
                 {
                     "name": "Dropdown Option 2",
-                    "visible": true
+                    "visible": true,
+                    "action": "#"
                 },
                 {
                     "name": "Dropdown Option 3",
-                    "visible": true
+                    "visible": true,
+                    "action": "#"
                 }
             ]
         },
@@ -24,15 +27,18 @@
             "subitem": [
                 {
                     "name": "Dropdown Option 1",
-                    "visible": true
+                    "visible": true,
+                    "action": "#"
                 },
                 {
                     "name": "Dropdown Option 2",
-                    "visible": true
+                    "visible": true,
+                    "action": "#"
                 },
                 {
                     "name": "Dropdown Option 3",
-                    "visible": true
+                    "visible": true,
+                    "action": "#"
                 }
             ]
         },
@@ -42,15 +48,18 @@
             "subitem": [
                 {
                     "name": "Dropdown Option 1",
-                    "visible": true
+                    "visible": true,
+                    "action": "#"
                 },
                 {
                     "name": "Dropdown Option 2",
-                    "visible": true
+                    "visible": true,
+                    "action": "#"
                 },
                 {
                     "name": "Dropdown Option 3",
-                    "visible": true
+                    "visible": true,
+                    "action": "#"
                 }
             ]
         }

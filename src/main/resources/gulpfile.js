@@ -94,4 +94,5 @@ gulp.task('bowerInstall', ['bower', 'fontAwesome', 'foundation', 'jquery']);
 
 // gulp.task('default', ['bowerInstall', 'watch']);
 
+// http://localhost:8080/webpack-dev-server/index.html
 gulp.task('default', ['webpack-dev-server', 'watch']);

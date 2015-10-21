@@ -9,7 +9,7 @@ var MenuBarSubItem = React.createClass({
 		return (
 			<ul className="dropdown">
 				{item.map(function(item) {
-					return <li><a href="#">{item.name}</a></li>;
+					return <li className={!item.visible ? 'hide' : ''}><a href={item.action}>{item.name}</a></li>;
 				})}
 			</ul>
 		);

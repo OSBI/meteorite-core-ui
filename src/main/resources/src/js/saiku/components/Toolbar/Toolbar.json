@@ -1,0 +1,16 @@
+{
+    "item": [
+        {
+            "name": "New query",
+            "visible": true
+        },
+        {
+            "name": "Open query",
+            "visible": true
+        },
+        {
+            "name": "Logout",
+            "visible": true
+        }
+    ]
+}
