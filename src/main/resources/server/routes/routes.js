@@ -1,6 +1,7 @@
 var jsonfile = require('jsonfile');
 
 var fileMenuBar = './src/js/saiku/components/MenuBar/MenuBar.json';
+var fileToolbar = './src/js/saiku/components/Toolbar/Toolbar.json';
 
 var appRouter = function(app) {
 	app.get('/', function(req, res) {
@@ -29,6 +30,14 @@ var appRouter = function(app) {
 		var dataMock;
 
 		dataMock = jsonfile.readFileSync(fileMenuBar);
+
+		return res.send(dataMock);
+	});
+
+	app.get('/toolbar', function(req, res) {
+		var dataMock;
+
+		dataMock = jsonfile.readFileSync(fileToolbar);
 
 		return res.send(dataMock);
 	});
