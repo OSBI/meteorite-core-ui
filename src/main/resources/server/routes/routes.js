@@ -1,3 +1,7 @@
+var jsonfile = require('jsonfile');
+
+var fileMenuBar = './server/data/MenuBar.json';
+
 var appRouter = function(app) {
 	app.get('/', function(req, res) {
 		res.send('Hello World!!');
@@ -19,6 +23,14 @@ var appRouter = function(app) {
 		else {
 			return res.send(accountMock);
 		}
+	});
+
+	app.get('/menubar', function(req, res) {
+		var dataMock;
+
+		dataMock = jsonfile.readFileSync(fileMenuBar);
+
+		return res.send(dataMock);
 	});
 };
 

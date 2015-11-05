@@ -38,6 +38,7 @@
     "gulp-stylus": "^2.1.0",
     "gulp-uglify": "^1.4.2",
     "gulp-util": "^3.0.6",
+    "jsonfile": "^2.2.3",
     "webpack": "^1.12.2",
     "webpack-dev-server": "^1.12.1",
     "webpack-stream": "^2.1.1"
