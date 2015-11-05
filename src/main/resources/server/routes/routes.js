@@ -1,6 +1,6 @@
 var jsonfile = require('jsonfile');
 
-var fileMenuBar = './server/data/MenuBar.json';
+var fileMenuBar = './src/js/saiku/components/MenuBar/MenuBar.json';
 
 var appRouter = function(app) {
 	app.get('/', function(req, res) {
