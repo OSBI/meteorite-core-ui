@@ -1,0 +1,39 @@
+{
+    "item": [
+        {
+            "name": "New query",
+            "visible": true,
+            "icon": "fa fa-file"
+        },
+        {
+            "name": "Open query",
+            "visible": true,
+            "icon": "fa fa-folder-open"
+        },
+        {
+            "name": "Logout",
+            "visible": true,
+            "icon": "fa fa-power-off"
+        },
+        {
+            "name": "About",
+            "visible": true,
+            "icon": "fa fa-info-circle"
+        },
+        {
+            "name": "Admin Console",
+            "visible": true,
+            "icon": "fa fa-cog"
+        },
+        {
+            "name": "Schema Designer",
+            "visible": true,
+            "icon": "fa fa-cube"
+        },
+        {
+            "name": "Dashboards",
+            "visible": true,
+            "icon": "fa fa-tachometer"
+        }
+    ]
+}

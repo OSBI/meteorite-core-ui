@@ -7,7 +7,24 @@
                 {
                     "name": "Dropdown Option 1",
                     "visible": true,
-                    "action": "#"
+                    "action": "#",
+                    "subitemlist": [
+                        {
+                            "name": "Dropdown Option 1",
+                            "visible": true,
+                            "action": "#"
+                        },
+                        {
+                            "name": "Dropdown Option 2",
+                            "visible": true,
+                            "action": "#"
+                        },
+                        {
+                            "name": "Dropdown Option 3",
+                            "visible": true,
+                            "action": "#"
+                        }
+                    ]   
                 },
                 {
                     "name": "Dropdown Option 2",

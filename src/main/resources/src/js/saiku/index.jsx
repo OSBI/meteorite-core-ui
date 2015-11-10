@@ -9,6 +9,7 @@ var Main = React.createClass({
 		return (
 			<div>
 				<MenuBar />
+				<Toolbar />
 			</div>
 		);
 	}
