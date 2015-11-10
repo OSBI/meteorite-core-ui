@@ -16,11 +16,11 @@ var MenuBar = React.createClass({
 
 	componentDidMount: function() {
 		this.collection.fetch({
-			success: this.handleFetchSuccess
+			success: this.handleFetch
 		});
 	},
 
-	handleFetchSuccess: function(collection) {
+	handleFetch: function(collection) {
 		this.setState({
 			models: collection.models
 		});
