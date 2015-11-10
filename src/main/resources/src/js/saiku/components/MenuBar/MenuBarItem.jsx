@@ -1,17 +1,17 @@
 'use strict';
 
-var React = require('react');
+var React          = require('react');
 var MenuBarSubItem = require('./MenuBarSubItem');
 
 var MenuBarItem = React.createClass({
 	render: function() {
 		var item = this.props.item;
-		var isVisible = !item.visible ? 'hide' : '';
+		var isItemVisible = !item.visible ? 'hide' : '';
 
 		return (
 			<section className="top-bar-section">
 				<ul className="left">
-					<li className={"has-dropdown " + isVisible}>
+					<li className={"has-dropdown " + isItemVisible}>
 						<a className="active" href="#">{item.name}</a>
 						<MenuBarSubItem item={item.subitem} />
 					</li>

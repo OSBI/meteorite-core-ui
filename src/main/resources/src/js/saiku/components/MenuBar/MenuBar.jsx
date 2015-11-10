@@ -1,9 +1,9 @@
 'use strict';
 
-var _ = require('underscore');
-var React = require('react');
+var _                 = require('underscore');
+var React             = require('react');
 var MenuBarCollection = require('./MenuBarCollection');
-var MenuBarItem = require('./MenuBarItem');
+var MenuBarItem       = require('./MenuBarItem');
 
 var MenuBar = React.createClass({
 	collection: new MenuBarCollection(),

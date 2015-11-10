@@ -1,6 +1,6 @@
-var jsonfile = require('jsonfile');
-var fileMenuBar = './src/js/saiku/components/MenuBar/MenuBar.json';
-var fileToolbar = './src/js/saiku/components/Toolbar/Toolbar.json';
+var jsonfile    = require('jsonfile');
+var fileMenuBar = './src/js/saiku/components/MenuBar/data.json';
+var fileToolbar = './src/js/saiku/components/Toolbar/data.json';
 var dataMock;
 
 var appRouter = function(app) {

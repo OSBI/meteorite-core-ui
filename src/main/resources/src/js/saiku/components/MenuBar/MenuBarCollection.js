@@ -1,8 +1,8 @@
 'use strict';
 
-var jquery = require('jquery');
-var _ = require('underscore');
-var Backbone = require('backbone');
+var jquery       = require('jquery');
+var _            = require('underscore');
+var Backbone     = require('backbone');
 var MenuBarModel = require('./MenuBarModel');
 
 var MenuBarCollection = Backbone.Collection.extend({
