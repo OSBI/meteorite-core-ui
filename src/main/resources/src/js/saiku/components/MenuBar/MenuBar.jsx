@@ -1,15 +1,16 @@
 'use strict';
 
+var _ = require('underscore');
 var React = require('react');
-var MenuBarModelCollection = require('./collection');
+var MenuBarCollection = require('./MenuBarCollection');
 var MenuBarItem = require('./MenuBarItem');
 
 var MenuBar = React.createClass({
-	collection: new MenuBarModelCollection(),
+	collection: new MenuBarCollection(),
 
 	getInitialState: function() {
 		return {
-			models: this.collection.models
+			models: ''
 		}
 	},
 
@@ -27,15 +28,9 @@ var MenuBar = React.createClass({
 
 	render: function() {
 		var itemNode;
-		
-		if (this.state.models[0]) {
-			console.log(this.state.models[0]);
-			console.log(this.state.models[0].cid);
-			console.log(this.state.models[0].get('item'));
 
-			// var itemNode = this.props.data.item.map(function(item) {
-			itemNode = this.state.models[0].get('item').map(function(item) {
-			// var itemNode = this.state.data.item.map(function(item) {
+		if (this.state && !(_.isEmpty(this.state.models))) {
+			itemNode = this.state.models[0].getItem().map(function(item) {
 				return <MenuBarItem item={item} />
 			});
 		}
