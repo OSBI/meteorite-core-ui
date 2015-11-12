@@ -51,10 +51,12 @@ gulp.task('jquery', function() {
 });
 
 gulp.task('css', function() {
-	gulp.src('./src/styl/**/*.styl')
+	// gulp.src('./src/styl/**/*.styl')
+	gulp.src('./src/styl/style.styl')
 		.pipe(stylus())
 		.pipe(minifycss())
-		.pipe(gulp.dest('./dist/assets/css'));
+		// .pipe(gulp.dest('./dist/assets/css'));
+		.pipe(gulp.dest('./dist/saiku'));
 });
 
 gulp.task('webpack', [], function() {
