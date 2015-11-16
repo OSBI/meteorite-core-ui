@@ -4,6 +4,7 @@ var _                 = require('underscore');
 var ToolbarCollection = require('./ToolbarCollection');
 var React             = require('react');
 var ToolbarItem       = require('./ToolbarItem');
+var Dropdown          = require('../Dropdown/Dropdown');
 
 var Toolbar = React.createClass({
 	collection: new ToolbarCollection(),
@@ -27,17 +28,23 @@ var Toolbar = React.createClass({
 	},
 
 	render: function() {
-		var itemNode;
+		var toolbarItem;
+		var dropdown;
 
 		if (this.state && !(_.isEmpty(this.state.models))) {
-			itemNode = this.state.models[0].getItem().map(function(item) {
+			toolbarItem = this.state.models[0].getItem().map(function(item) {
 				return <ToolbarItem item={item} />
+			});
+
+			dropdown = this.state.models[0].getItem().map(function(item) {
+				return item.dropdown ? <Dropdown item={item} /> : null
 			});
 		}
 
 		return (
 			<div className="icon-bar seven-up">
-				{itemNode}
+				{toolbarItem}
+				{dropdown}
 			</div>
 		);
 	}

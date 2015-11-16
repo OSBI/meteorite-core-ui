@@ -8,7 +8,7 @@ var ToolbarItem = React.createClass({
 		var isItemVisible = !item.visible ? 'sku-force-hide' : '';
 
 		return (
-			<a className={"item " + isItemVisible}>
+			<a className={"item " + isItemVisible} data-dropdown={item.drop} aria-controls={item.drop} aria-expanded="false">
 				<i className={item.icon}></i>
 			</a>
 		);
