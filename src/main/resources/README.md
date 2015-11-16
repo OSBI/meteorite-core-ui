@@ -11,10 +11,12 @@ In order to run it locally you'll need a basic server setup.
 	$ npm install
 	```
 3. Run server:
+
 	```sh
 	$ npm start
 	```
 4. Run tasks and serve:
+
 	```sh
 	$ gulp
 	```
