@@ -30,5 +30,17 @@ gulp.task('bootstrap', function() {
     .pipe(gulp.dest(paths.build.js));
 });
 
+gulp.task('html5shiv', function() {
+  gulp.src(paths.source.bowerDir + '/html5shiv/dist/html5shiv.min.js')
+    .pipe(plumber())
+    .pipe(gulp.dest(paths.build.js));
+});
+
+gulp.task('respond', function() {
+  gulp.src(paths.source.bowerDir + '/Respond/dest/respond.min.js')
+    .pipe(plumber())
+    .pipe(gulp.dest(paths.build.js));
+});
+
 // Call Bower Install
-module.exports = gulp.task('bower-install', ['bower', 'jquery', 'bootstrap']);
+module.exports = gulp.task('bower-install', ['bower', 'jquery', 'bootstrap', 'html5shiv', 'respond']);
