@@ -19,7 +19,8 @@ if (env === 'build') {
 }
 
 var config = {
-  entry: './src/js/saiku/test/index.js',
+  // entry: './src/js/saiku/test/index.js',
+  entry: './src/js/saiku/index.js',
   devtool: 'source-map',
   output: {
     path: __dirname + '/dist/saiku',
