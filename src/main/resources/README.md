@@ -21,11 +21,16 @@ In order to run it locally you'll need a basic server setup.
 	$ gulp
 	```
 
+## Usage
+
+- Run `npm run build` to build the project
+- Run `npm run dev` to build the project, start watching files and run the local server
+- Run `npm test` to run the tests once
+- Run `npm run test:ci` to watch the `src` directory for changes and run the tests
+
 ## Tasks
 
 - `gulp`: Initialize watch for changes and a server(localhost:8080/webpack-dev-server/index.html)
 - `gulp bower-install`: Move dependencies to folder `dist/assets/`
 - `gulp stylus`: Compile stylus files
 - `gulp watch`: Call for watch files
-- `gulp webpack`: Build files ReactJS
-- `gulp webpack-dev-server`: Uses the webpack-dev-middleware to serve a webpack bundle
