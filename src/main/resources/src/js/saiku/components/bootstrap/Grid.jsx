@@ -1,22 +1,13 @@
 import React from 'react';
 import classNames from 'classnames';
+// import { autobind } from 'core-decorators';
 
-const Grid = React.createClass({
-  propTypes: {
-    onRender: React.PropTypes.func,
-    className: React.PropTypes.string,
-    children: React.PropTypes.node.isRequired,
-    fluid: React.PropTypes.bool
-  },
-
-  getDefaultProps() {
-    return {
-      fluid: false
-    };
-  },
-
+// @autobind
+class Grid extends React.Component {
   render() {
     let className = this.props.fluid ? 'container-fluid' : 'container';
+
+    console.log(this.props);
 
     if (this.props.onRender) {
       this.props.onRender();
@@ -27,6 +18,22 @@ const Grid = React.createClass({
       </div>
     );
   }
-});
+}
+
+Grid.propTypes = {
+  onRender: React.PropTypes.func,
+  className: React.PropTypes.string,
+  children: React.PropTypes.node.isRequired,
+ /**
+  * Turn any fixed-width grid layout into a full-width layout by this property.
+  *
+  * Adds `container-fluid` class.
+  */
+  fluid: React.PropTypes.bool
+};
+
+Grid.defaultProps = {
+  fluid: false
+};
 
 export default Grid;
