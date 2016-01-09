@@ -1,4 +1,5 @@
 import Grid from '../src/js/saiku/components/bootstrap/Grid.jsx';
+import Row from '../src/js/saiku/components/bootstrap/Row.jsx';
 import React from 'react/addons';
 
 const TestUtils = React.addons.TestUtils;
@@ -11,13 +12,13 @@ describe('Given an instance of the Component', () => {
     before(() => {
       component = TestUtils.renderIntoDocument(
           <Grid onRender={ spy }>
-            <div className="row">
-              <p>My Grid</p>
-            </div>
+            <Row>
+              <p>My Row</p>
+            </Row>
           </Grid>
         );
     });
-    it('should render a <Grid />', () => {
+    it('should render a <Row />', () => {
       var div = TestUtils.scryRenderedDOMComponentsWithTag(component, 'div');
 
       expect(div).to.have.length.above(0, 'Expected to have element with tag <div>');
