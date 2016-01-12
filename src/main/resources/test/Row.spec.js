@@ -7,7 +7,7 @@ const TestUtils = React.addons.TestUtils;
 var component;
 var spy = sinon.spy();
 
-describe('Given an instance of the Component', () => {
+describe('Given an instance of the <Row />', () => {
   describe('when we render the component', () => {
     before(() => {
       component = TestUtils.renderIntoDocument(
@@ -18,7 +18,7 @@ describe('Given an instance of the Component', () => {
           </Grid>
         );
     });
-    it('should render a <Row />', () => {
+    it('should render a <div class="row">...</div>', () => {
       var div = TestUtils.scryRenderedDOMComponentsWithTag(component, 'div');
 
       expect(div).to.have.length.above(0, 'Expected to have element with tag <div>');

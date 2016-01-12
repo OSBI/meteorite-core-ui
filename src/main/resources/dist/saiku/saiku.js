@@ -75,7 +75,7 @@
 	window.onload = function () {
 	  _reactDom2['default'].render(_react2['default'].createElement(
 	    _componentsBootstrapGrid2['default'],
-	    null,
+	    { fluid: true },
 	    _react2['default'].createElement(
 	      _componentsBootstrapRow2['default'],
 	      null,

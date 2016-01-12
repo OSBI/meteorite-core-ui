@@ -15,7 +15,7 @@ import Row from './components/bootstrap/Row';
 
 window.onload = () => {
   ReactDOM.render(
-    <Grid>
+    <Grid fluid>
       <Row>
         <p>Test</p>
       </Row>
