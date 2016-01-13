@@ -5,6 +5,7 @@ import ReactDOM from 'react-dom';
 import Grid from './components/bootstrap/Grid';
 import Row from './components/bootstrap/Row';
 import Col from './components/bootstrap/Col';
+import Button from './components/bootstrap/Button';
 
 // class Button extends React.Component {
 //   render() {
@@ -20,6 +21,8 @@ window.onload = () => {
       <Row>
         <Col xs={12} md={8}>
           <p>Hello!!</p>
+          <Button type="button" className="btn btn-default">Default</Button>
+          <a href="#" className="btn btn-primary btn-lg active">Primary link</a>
         </Col>
       </Row>
     </Grid>,
