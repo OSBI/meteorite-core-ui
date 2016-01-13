@@ -64,6 +64,10 @@
 	
 	var _componentsBootstrapRow2 = _interopRequireDefault(_componentsBootstrapRow);
 	
+	var _componentsBootstrapCol = __webpack_require__(162);
+	
+	var _componentsBootstrapCol2 = _interopRequireDefault(_componentsBootstrapCol);
+	
 	// class Button extends React.Component {
 	//   render() {
 	//     return (
@@ -75,14 +79,18 @@
 	window.onload = function () {
 	  _reactDom2['default'].render(_react2['default'].createElement(
 	    _componentsBootstrapGrid2['default'],
-	    { fluid: true },
+	    null,
 	    _react2['default'].createElement(
 	      _componentsBootstrapRow2['default'],
 	      null,
 	      _react2['default'].createElement(
-	        'p',
-	        null,
-	        'Test'
+	        _componentsBootstrapCol2['default'],
+	        { xs: 12, md: 8 },
+	        _react2['default'].createElement(
+	          'p',
+	          null,
+	          'Hello!!'
+	        )
 	      )
 	    )
 	  ), document.getElementsByClassName('container')[0]);
@@ -19868,6 +19876,283 @@
 	};
 	
 	exports['default'] = Row;
+	module.exports = exports['default'];
+
+/***/ },
+/* 162 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+	
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+	
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+	
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _classnames = __webpack_require__(160);
+	
+	var _classnames2 = _interopRequireDefault(_classnames);
+	
+	var _styleMaps = __webpack_require__(163);
+	
+	var _styleMaps2 = _interopRequireDefault(_styleMaps);
+	
+	var Col = (function (_React$Component) {
+	  _inherits(Col, _React$Component);
+	
+	  function Col() {
+	    _classCallCheck(this, Col);
+	
+	    _get(Object.getPrototypeOf(Col.prototype), 'constructor', this).apply(this, arguments);
+	  }
+	
+	  _createClass(Col, [{
+	    key: 'render',
+	    value: function render() {
+	      var _this = this;
+	
+	      var classes = {};
+	
+	      Object.keys(_styleMaps2['default'].SIZES).forEach(function (key) {
+	        var size = _styleMaps2['default'].SIZES[key];
+	        var prop = size;
+	        var classPart = size + '-';
+	
+	        if (_this.props[prop]) {
+	          classes['col-' + classPart + _this.props[prop]] = true;
+	        }
+	
+	        classes['hidden-' + size] = _this.props[size + 'Hidden'];
+	
+	        prop = size + 'Offset';
+	        classPart = size + '-offset-';
+	
+	        console.log(classes);
+	      }, this);
+	
+	      if (this.props.onRender) {
+	        this.props.onRender();
+	      }
+	      return _react2['default'].createElement(
+	        'div',
+	        _extends({}, this.props, {
+	          className: (0, _classnames2['default'])(this.props.className, classes) }),
+	        this.props.children
+	      );
+	    }
+	  }]);
+	
+	  return Col;
+	})(_react2['default'].Component);
+	
+	Col.propTypes = {
+	  onRender: _react2['default'].PropTypes.func,
+	  className: _react2['default'].PropTypes.string,
+	  children: _react2['default'].PropTypes.node.isRequired,
+	  /**
+	   * The number of columns you wish to span
+	   *
+	   * for Extra small devices Phones (<768px)
+	   *
+	   * class-prefix `col-xs-`
+	   */
+	  xs: _react2['default'].PropTypes.number,
+	  /**
+	   * The number of columns you wish to span
+	   *
+	   * for Small devices Tablets (≥768px)
+	   *
+	   * class-prefix `col-sm-`
+	   */
+	  sm: _react2['default'].PropTypes.number,
+	  /**
+	   * The number of columns you wish to span
+	   *
+	   * for Medium devices Desktops (≥992px)
+	   *
+	   * class-prefix `col-md-`
+	   */
+	  md: _react2['default'].PropTypes.number,
+	  /**
+	   * The number of columns you wish to span
+	   *
+	   * for Large devices Desktops (≥1200px)
+	   *
+	   * class-prefix `col-lg-`
+	   */
+	  lg: _react2['default'].PropTypes.number,
+	  /**
+	   * Hide column
+	   *
+	   * on Extra small devices Phones
+	   *
+	   * adds class `hidden-xs`
+	   */
+	  xsHidden: _react2['default'].PropTypes.bool,
+	  /**
+	   * Hide column
+	   *
+	   * on Small devices Tablets
+	   *
+	   * adds class `hidden-sm`
+	   */
+	  smHidden: _react2['default'].PropTypes.bool,
+	  /**
+	   * Hide column
+	   *
+	   * on Medium devices Desktops
+	   *
+	   * adds class `hidden-md`
+	   */
+	  mdHidden: _react2['default'].PropTypes.bool,
+	  /**
+	   * Hide column
+	   *
+	   * on Large devices Desktops
+	   *
+	   * adds class `hidden-lg`
+	   */
+	  lgHidden: _react2['default'].PropTypes.bool,
+	  /**
+	   * Move columns to the right
+	   *
+	   * for Extra small devices Phones
+	   *
+	   * class-prefix `col-xs-offset-`
+	   */
+	  xsOffset: _react2['default'].PropTypes.number,
+	  /**
+	   * Move columns to the right
+	   *
+	   * for Small devices Tablets
+	   *
+	   * class-prefix `col-sm-offset-`
+	   */
+	  smOffset: _react2['default'].PropTypes.number,
+	  /**
+	   * Move columns to the right
+	   *
+	   * for Medium devices Desktops
+	   *
+	   * class-prefix `col-md-offset-`
+	   */
+	  mdOffset: _react2['default'].PropTypes.number,
+	  /**
+	   * Move columns to the right
+	   *
+	   * for Large devices Desktops
+	   *
+	   * class-prefix `col-lg-offset-`
+	   */
+	  lgOffset: _react2['default'].PropTypes.number,
+	  /**
+	   * Change the order of grid columns to the right
+	   *
+	   * for Extra small devices Phones
+	   *
+	   * class-prefix `col-xs-push-`
+	   */
+	  xsPush: _react2['default'].PropTypes.number,
+	  /**
+	   * Change the order of grid columns to the right
+	   *
+	   * for Small devices Tablets
+	   *
+	   * class-prefix `col-sm-push-`
+	   */
+	  smPush: _react2['default'].PropTypes.number,
+	  /**
+	   * Change the order of grid columns to the right
+	   *
+	   * for Medium devices Desktops
+	   *
+	   * class-prefix `col-md-push-`
+	   */
+	  mdPush: _react2['default'].PropTypes.number,
+	  /**
+	   * Change the order of grid columns to the right
+	   *
+	   * for Large devices Desktops
+	   *
+	   * class-prefix `col-lg-push-`
+	   */
+	  lgPush: _react2['default'].PropTypes.number,
+	  /**
+	   * Change the order of grid columns to the left
+	   *
+	   * for Extra small devices Phones
+	   *
+	   * class-prefix `col-xs-pull-`
+	   */
+	  xsPull: _react2['default'].PropTypes.number,
+	  /**
+	   * Change the order of grid columns to the left
+	   *
+	   * for Small devices Tablets
+	   *
+	   * class-prefix `col-sm-pull-`
+	   */
+	  smPull: _react2['default'].PropTypes.number,
+	  /**
+	   * Change the order of grid columns to the left
+	   *
+	   * for Medium devices Desktops
+	   *
+	   * class-prefix `col-md-pull-`
+	   */
+	  mdPull: _react2['default'].PropTypes.number,
+	  /**
+	   * Change the order of grid columns to the left
+	   *
+	   * for Large devices Desktops
+	   *
+	   * class-prefix `col-lg-pull-`
+	   */
+	  lgPull: _react2['default'].PropTypes.number
+	};
+	
+	exports['default'] = Col;
+	module.exports = exports['default'];
+
+/***/ },
+/* 163 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+	var styleMaps = {
+	  SIZES: {
+	    'large': 'lg',
+	    'medium': 'md',
+	    'small': 'sm',
+	    'xsmall': 'xs',
+	    'lg': 'lg',
+	    'md': 'md',
+	    'sm': 'sm',
+	    'xs': 'xs'
+	  },
+	  GRID_COLUMNS: 12
+	};
+	
+	exports['default'] = styleMaps;
 	module.exports = exports['default'];
 
 /***/ }

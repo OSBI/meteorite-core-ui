@@ -4,6 +4,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Grid from './components/bootstrap/Grid';
 import Row from './components/bootstrap/Row';
+import Col from './components/bootstrap/Col';
 
 // class Button extends React.Component {
 //   render() {
@@ -15,9 +16,11 @@ import Row from './components/bootstrap/Row';
 
 window.onload = () => {
   ReactDOM.render(
-    <Grid fluid>
+    <Grid>
       <Row>
-        <p>Test</p>
+        <Col xs={12} md={8}>
+          <p>Hello!!</p>
+        </Col>
       </Row>
     </Grid>,
     document.getElementsByClassName('container')[0]
