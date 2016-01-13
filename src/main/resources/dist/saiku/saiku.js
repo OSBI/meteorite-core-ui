@@ -19941,8 +19941,21 @@
 	
 	        prop = size + 'Offset';
 	        classPart = size + '-offset-';
+	        if (_this.props[prop] >= 0) {
+	          classes['col-' + classPart + _this.props[prop]] = true;
+	        }
 	
-	        console.log(classes);
+	        prop = size + 'Push';
+	        classPart = size + '-push-';
+	        if (_this.props[prop] >= 0) {
+	          classes['col-' + classPart + _this.props[prop]] = true;
+	        }
+	
+	        prop = size + 'Pull';
+	        classPart = size + '-pull-';
+	        if (_this.props[prop] >= 0) {
+	          classes['col-' + classPart + _this.props[prop]] = true;
+	        }
 	      }, this);
 	
 	      if (this.props.onRender) {

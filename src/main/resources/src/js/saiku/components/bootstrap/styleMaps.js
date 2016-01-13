@@ -1,4 +1,4 @@
-const styleMaps = {
+let styleMaps = {
   SIZES: {
     'large': 'lg',
     'medium': 'md',

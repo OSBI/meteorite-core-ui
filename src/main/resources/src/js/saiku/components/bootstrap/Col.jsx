@@ -19,9 +19,21 @@ class Col extends React.Component {
 
       prop = size + 'Offset';
       classPart = size + '-offset-';
+      if (this.props[prop] >= 0) {
+        classes['col-' + classPart + this.props[prop]] = true;
+      }
 
-      console.log(classes);
+      prop = size + 'Push';
+      classPart = size + '-push-';
+      if (this.props[prop] >= 0) {
+        classes['col-' + classPart + this.props[prop]] = true;
+      }
 
+      prop = size + 'Pull';
+      classPart = size + '-pull-';
+      if (this.props[prop] >= 0) {
+        classes['col-' + classPart + this.props[prop]] = true;
+      }
     }, this);
 
     if (this.props.onRender) {
