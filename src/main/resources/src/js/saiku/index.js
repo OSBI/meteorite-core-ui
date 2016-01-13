@@ -21,8 +21,10 @@ window.onload = () => {
       <Row>
         <Col xs={12} md={8}>
           <p>Hello!!</p>
-          <Button type="button" className="btn btn-default">Default</Button>
-          <a href="#" className="btn btn-primary btn-lg active">Primary link</a>
+          <Button>Default</Button>
+          <Button bsStyle="primary">Primary</Button>
+          <Button href="#" bsStyle="primary" bsSize="large" className="active">Primary link</Button>
+          <Button bsStyle="primary" bsSize="large">Large button</Button>
         </Col>
       </Row>
     </Grid>,

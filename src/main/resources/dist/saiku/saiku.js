@@ -97,13 +97,23 @@
 	        ),
 	        _react2['default'].createElement(
 	          _componentsBootstrapButton2['default'],
-	          { type: 'button', className: 'btn btn-default' },
+	          null,
 	          'Default'
 	        ),
 	        _react2['default'].createElement(
-	          'a',
-	          { href: '#', className: 'btn btn-primary btn-lg active' },
+	          _componentsBootstrapButton2['default'],
+	          { bsStyle: 'primary' },
+	          'Primary'
+	        ),
+	        _react2['default'].createElement(
+	          _componentsBootstrapButton2['default'],
+	          { href: '#', bsStyle: 'primary', bsSize: 'large', className: 'active' },
 	          'Primary link'
+	        ),
+	        _react2['default'].createElement(
+	          _componentsBootstrapButton2['default'],
+	          { bsStyle: 'primary', bsSize: 'large' },
+	          'Large button'
 	        )
 	      )
 	    )
@@ -20179,8 +20189,16 @@
 	  GRID_COLUMNS: 12
 	};
 	
+	var DEFAULT = 'default';
+	exports.DEFAULT = DEFAULT;
+	var PRIMARY = 'primary';
+	exports.PRIMARY = PRIMARY;
+	var LINK = 'link';
+	exports.LINK = LINK;
+	var INVERSE = 'inverse';
+	
+	exports.INVERSE = INVERSE;
 	exports['default'] = styleMaps;
-	module.exports = exports['default'];
 
 /***/ },
 /* 164 */
@@ -20212,7 +20230,9 @@
 	
 	var _classnames2 = _interopRequireDefault(_classnames);
 	
-	// import styleMaps from './styleMaps';
+	var _styleMaps = __webpack_require__(163);
+	
+	var _styleMaps2 = _interopRequireDefault(_styleMaps);
 	
 	var TYPES = ['button', 'reset', 'submit'];
 	
@@ -20227,26 +20247,26 @@
 	
 	  _createClass(Button, [{
 	    key: 'renderAnchor',
-	    value: function renderAnchor() {
+	    value: function renderAnchor(classes) {
 	      var href = this.props.href || '#';
 	
 	      return _react2['default'].createElement(
 	        'a',
 	        _extends({}, this.props, {
 	          href: href,
-	          className: (0, _classnames2['default'])(this.props.className),
+	          className: (0, _classnames2['default'])('btn', this.props.className, classes),
 	          role: 'button' }),
 	        this.props.children
 	      );
 	    }
 	  }, {
 	    key: 'renderButton',
-	    value: function renderButton() {
+	    value: function renderButton(classes) {
 	      return _react2['default'].createElement(
 	        'button',
 	        _extends({}, this.props, {
 	          type: this.props.type || 'button',
-	          className: (0, _classnames2['default'])(this.props.className) }),
+	          className: (0, _classnames2['default'])('btn', this.props.className, classes) }),
 	        this.props.children
 	      );
 	    }
@@ -20254,8 +20274,16 @@
 	    key: 'render',
 	    value: function render() {
 	      var renderFuncName = this.props.href || this.props.target ? 'renderAnchor' : 'renderButton';
+	      var size = _styleMaps2['default'].SIZES[this.props.bsSize];
+	      var classes = {};
 	
-	      return this[renderFuncName]();
+	      classes['btn-' + (this.props.bsStyle ? this.props.bsStyle : _styleMaps.DEFAULT)] = true;
+	
+	      if (this.props.bsSize) {
+	        classes['btn-' + size] = true;
+	      }
+	
+	      return this[renderFuncName](classes);
 	    }
 	  }]);
 	
@@ -20269,7 +20297,9 @@
 	  disabled: _react2['default'].PropTypes.bool,
 	  href: _react2['default'].PropTypes.string,
 	  target: _react2['default'].PropTypes.string,
-	  type: _react2['default'].PropTypes.oneOf(TYPES)
+	  type: _react2['default'].PropTypes.oneOf(TYPES),
+	  bsStyle: _react2['default'].PropTypes.string,
+	  bsSize: _react2['default'].PropTypes.string
 	};
 	
 	exports['default'] = Button;

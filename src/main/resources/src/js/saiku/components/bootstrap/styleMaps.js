@@ -12,4 +12,9 @@ let styleMaps = {
   GRID_COLUMNS: 12
 };
 
+export const DEFAULT = 'default';
+export const PRIMARY = 'primary';
+export const LINK = 'link';
+export const INVERSE = 'inverse';
+
 export default styleMaps;
