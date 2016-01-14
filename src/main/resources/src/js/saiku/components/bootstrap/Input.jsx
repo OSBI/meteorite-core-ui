@@ -6,7 +6,7 @@ class Input extends React.Component {
     return (
       <input
         {...this.props}
-        className={classNames(this.props.className, 'form-control')}
+        className={classNames('form-control', this.props.className)}
       />
     );
   }
