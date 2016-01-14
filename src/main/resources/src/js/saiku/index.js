@@ -6,6 +6,7 @@ import Grid from './components/bootstrap/Grid';
 import Row from './components/bootstrap/Row';
 import Col from './components/bootstrap/Col';
 import Button from './components/bootstrap/Button';
+import Input from './components/bootstrap/Input';
 
 // class Button extends React.Component {
 //   render() {
@@ -24,7 +25,8 @@ window.onload = () => {
           <Button>Default</Button>
           <Button bsStyle="primary" block>Primary</Button>
           <Button href="#" bsStyle="primary" bsSize="large" disabled>Primary link</Button>
-          <Button bsStyle="primary" bsSize="large">Large button</Button>
+          <Button bsStyle="primary" bsSize="large" active>Large button</Button>
+          <Input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email" />
         </Col>
       </Row>
     </Grid>,

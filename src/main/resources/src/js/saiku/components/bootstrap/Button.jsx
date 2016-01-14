@@ -48,9 +48,7 @@ class Button extends React.Component {
       classes['btn-block'] = true;
     }
 
-    if (this.props.active) {
-      classes['active'] = true;
-    }
+    classes.active = this.props.active;
 
     return this[renderFuncName](classes);
   }
