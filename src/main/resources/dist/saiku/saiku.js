@@ -102,12 +102,12 @@
 	        ),
 	        _react2['default'].createElement(
 	          _componentsBootstrapButton2['default'],
-	          { bsStyle: 'primary' },
+	          { bsStyle: 'primary', block: true },
 	          'Primary'
 	        ),
 	        _react2['default'].createElement(
 	          _componentsBootstrapButton2['default'],
-	          { href: '#', bsStyle: 'primary', bsSize: 'large', className: 'active' },
+	          { href: '#', bsStyle: 'primary', bsSize: 'large', disabled: true },
 	          'Primary link'
 	        ),
 	        _react2['default'].createElement(
@@ -20250,6 +20250,8 @@
 	    value: function renderAnchor(classes) {
 	      var href = this.props.href || '#';
 	
+	      classes.disabled = this.props.disabled;
+	
 	      return _react2['default'].createElement(
 	        'a',
 	        _extends({}, this.props, {
@@ -20283,6 +20285,14 @@
 	        classes['btn-' + size] = true;
 	      }
 	
+	      if (this.props.block) {
+	        classes['btn-block'] = true;
+	      }
+	
+	      if (this.props.active) {
+	        classes['active'] = true;
+	      }
+	
 	      return this[renderFuncName](classes);
 	    }
 	  }]);
@@ -20299,7 +20309,15 @@
 	  target: _react2['default'].PropTypes.string,
 	  type: _react2['default'].PropTypes.oneOf(TYPES),
 	  bsStyle: _react2['default'].PropTypes.string,
-	  bsSize: _react2['default'].PropTypes.string
+	  bsSize: _react2['default'].PropTypes.string,
+	  block: _react2['default'].PropTypes.bool,
+	  active: _react2['default'].PropTypes.bool
+	};
+	
+	Button.defaultProps = {
+	  active: false,
+	  block: false,
+	  disabled: false
 	};
 	
 	exports['default'] = Button;

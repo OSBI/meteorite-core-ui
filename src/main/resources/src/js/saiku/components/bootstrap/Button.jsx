@@ -8,6 +8,8 @@ class Button extends React.Component {
   renderAnchor(classes) {
     let href = this.props.href || '#';
 
+    classes.disabled = this.props.disabled;
+
     return (
       <a
       {...this.props}
@@ -42,6 +44,14 @@ class Button extends React.Component {
       classes['btn-' + size] = true;
     }
 
+    if (this.props.block) {
+      classes['btn-block'] = true;
+    }
+
+    if (this.props.active) {
+      classes['active'] = true;
+    }
+
     return this[renderFuncName](classes);
   }
 }
@@ -55,7 +65,15 @@ Button.propTypes = {
   target: React.PropTypes.string,
   type: React.PropTypes.oneOf(TYPES),
   bsStyle: React.PropTypes.string,
-  bsSize: React.PropTypes.string
+  bsSize: React.PropTypes.string,
+  block: React.PropTypes.bool,
+  active: React.PropTypes.bool
+};
+
+Button.defaultProps = {
+  active: false,
+  block: false,
+  disabled: false
 };
 
 export default Button;

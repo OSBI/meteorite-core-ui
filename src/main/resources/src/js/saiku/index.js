@@ -22,8 +22,8 @@ window.onload = () => {
         <Col xs={12} md={8}>
           <p>Hello!!</p>
           <Button>Default</Button>
-          <Button bsStyle="primary">Primary</Button>
-          <Button href="#" bsStyle="primary" bsSize="large" className="active">Primary link</Button>
+          <Button bsStyle="primary" block>Primary</Button>
+          <Button href="#" bsStyle="primary" bsSize="large" disabled>Primary link</Button>
           <Button bsStyle="primary" bsSize="large">Large button</Button>
         </Col>
       </Row>
