@@ -11,6 +11,15 @@ gulp.task('bower', function() {
     .pipe(gulp.dest(paths.source.bowerDir));
 });
 
+gulp.task('fontAwesome', function() {
+  gulp.src(paths.source.bowerDir + '/font-awesome/css/font-awesome.min.css')
+    .pipe(plumber())
+    .pipe(gulp.dest(paths.build.css));
+  gulp.src(paths.source.bowerDir + '/font-awesome/fonts/**.*')
+    .pipe(plumber())
+    .pipe(gulp.dest(paths.build.fonts));
+});
+
 gulp.task('jquery', function() {
   gulp.src(paths.source.bowerDir + '/jquery/dist/jquery.min.js')
     .pipe(plumber())
