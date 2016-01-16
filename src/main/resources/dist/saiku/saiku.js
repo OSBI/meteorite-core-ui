@@ -19954,9 +19954,9 @@
 	
 	var _classnames2 = _interopRequireDefault(_classnames);
 	
-	var _styleMaps = __webpack_require__(163);
+	var _utilsStyleMaps = __webpack_require__(163);
 	
-	var _styleMaps2 = _interopRequireDefault(_styleMaps);
+	var _utilsStyleMaps2 = _interopRequireDefault(_utilsStyleMaps);
 	
 	var Col = (function (_React$Component) {
 	  _inherits(Col, _React$Component);
@@ -19974,8 +19974,8 @@
 	
 	      var classes = {};
 	
-	      Object.keys(_styleMaps2['default'].SIZES).forEach(function (key) {
-	        var size = _styleMaps2['default'].SIZES[key];
+	      Object.keys(_utilsStyleMaps2['default'].SIZES).forEach(function (key) {
+	        var size = _utilsStyleMaps2['default'].SIZES[key];
 	        var prop = size;
 	        var classPart = size + '-';
 	
@@ -20252,9 +20252,9 @@
 	
 	var _classnames2 = _interopRequireDefault(_classnames);
 	
-	var _styleMaps = __webpack_require__(163);
+	var _utilsStyleMaps = __webpack_require__(163);
 	
-	var _styleMaps2 = _interopRequireDefault(_styleMaps);
+	var _utilsStyleMaps2 = _interopRequireDefault(_utilsStyleMaps);
 	
 	var TYPES = ['button', 'reset', 'submit'];
 	
@@ -20298,10 +20298,10 @@
 	    key: 'render',
 	    value: function render() {
 	      var renderFuncName = this.props.href || this.props.target ? 'renderAnchor' : 'renderButton';
-	      var size = _styleMaps2['default'].SIZES[this.props.bsSize];
+	      var size = _utilsStyleMaps2['default'].SIZES[this.props.bsSize];
 	      var classes = {};
 	
-	      classes['btn-' + (this.props.bsStyle ? this.props.bsStyle : _styleMaps.DEFAULT)] = true;
+	      classes['btn-' + (this.props.bsStyle ? this.props.bsStyle : _utilsStyleMaps.DEFAULT)] = true;
 	
 	      if (this.props.bsSize) {
 	        classes['btn-' + size] = true;

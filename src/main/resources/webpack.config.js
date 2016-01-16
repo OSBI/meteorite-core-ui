@@ -1,21 +1,37 @@
 var webpack = require('webpack');
 var UglifyJsPlugin = webpack.optimize.UglifyJsPlugin;
 var env = process.env.WEBPACK_ENV;
+var BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 var WebpackDevServer = require('webpack-dev-server');
 var path = require('path');
 
 var appName = 'saiku';
-var host = '127.0.0.1';
-var port = '9999';
+var host = 'localhost';
+var port = 3000;
+var contentBase = './';
 
 var plugins = [];
 var outputFile;
 
 if (env === 'build') {
-  plugins.push(new UglifyJsPlugin({ minimize: true }));
   outputFile = appName + '.min.js';
-} else {
+  plugins.push(new UglifyJsPlugin({ minimize: true }));
+} 
+else {
   outputFile = appName + '.js';
+  plugins.push(
+    // browse to http://localhost:3001/ during development
+    new BrowserSyncPlugin(
+      {
+        host: host,
+        port: port,
+        server: contentBase
+      },
+      {
+        reload: true
+      }
+    )
+  );
 }
 
 var config = {
@@ -25,7 +41,7 @@ var config = {
   output: {
     path: __dirname + '/dist/saiku',
     filename: outputFile,
-    publicPath: './'
+    publicPath: contentBase
   },
   module: {
     loaders: [
@@ -49,9 +65,10 @@ var config = {
 };
 
 if (env === 'dev') {
+  // browse to http://localhost:3000/ during development
   new WebpackDevServer(webpack(config), {
-    contentBase: './',
-    hot: true,
+    contentBase: contentBase,
+    hot: false,
     debug: true
   }).listen(port, host, function(err, result) {
     if (err) {

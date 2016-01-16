@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-import styleMaps, { DEFAULT } from './styleMaps';
+import styleMaps, { DEFAULT } from './utils/styleMaps';
 
 const TYPES = ['button', 'reset', 'submit'];
 

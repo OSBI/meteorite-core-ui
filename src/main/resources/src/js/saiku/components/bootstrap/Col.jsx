@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-import styleMaps from './styleMaps';
+import styleMaps from './utils/styleMaps';
 
 class Col extends React.Component {
   render() {
