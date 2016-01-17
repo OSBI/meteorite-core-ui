@@ -19,5 +19,5 @@ module.exports = gulp.task('postcss', function() {
   return gulp.src(paths.source.files.css)
     .pipe(plumber())
     .pipe(postcss(processors))
-    .pipe(gulp.dest(paths.build.css));
+    .pipe(gulp.dest(paths.build.app));
 });

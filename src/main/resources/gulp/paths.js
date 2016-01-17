@@ -7,7 +7,7 @@ module.exports = {
     styl: './src/styl/**/*',
     files: {
       styl: './src/styl/saiku.styl',
-      css: './dist/assets/css/saiku.css',
+      css: './dist/saiku/saiku.css',
     }
   },
 
