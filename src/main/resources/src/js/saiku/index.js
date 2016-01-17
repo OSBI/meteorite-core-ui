@@ -9,14 +9,6 @@ import Button from './components/bootstrap/Button';
 import Input from './components/bootstrap/Input';
 import FormGroup from './components/bootstrap/FormGroup';
 
-// class Button extends React.Component {
-//   render() {
-//     return (
-//       <button type="button" className="btn btn-primary">Primary</button>
-//     );
-//   }
-// }
-
 window.onload = () => {
   ReactDOM.render(
     <Grid>
@@ -36,6 +28,6 @@ window.onload = () => {
         </Col>
       </Row>
     </Grid>,
-    document.getElementsByClassName('container')[0]
+    document.getElementsByClassName('saiku-app')[0]
   );
 };

@@ -80,14 +80,6 @@
 	
 	var _componentsBootstrapFormGroup2 = _interopRequireDefault(_componentsBootstrapFormGroup);
 	
-	// class Button extends React.Component {
-	//   render() {
-	//     return (
-	//       <button type="button" className="btn btn-primary">Primary</button>
-	//     );
-	//   }
-	// }
-	
 	window.onload = function () {
 	  _reactDom2['default'].render(_react2['default'].createElement(
 	    _componentsBootstrapGrid2['default'],
@@ -139,7 +131,7 @@
 	        )
 	      )
 	    )
-	  ), document.getElementsByClassName('container')[0]);
+	  ), document.getElementsByClassName('saiku-app')[0]);
 	};
 
 /***/ },

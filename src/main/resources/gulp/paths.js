@@ -3,7 +3,8 @@
 module.exports = {
   source: {
     bowerDir: './bower_components',
-    react: ['src/js/saiku/**/*.js', 'src/js/saiku/**/*.jsx'],
+    react: ['./src/js/saiku/**/*.js', './src/js/saiku/**/*.jsx'],
+    styl: './src/styl/**/*',
     files: {
       styl: './src/styl/saiku.styl'
     }

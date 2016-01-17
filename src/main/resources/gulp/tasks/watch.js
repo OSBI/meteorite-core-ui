@@ -6,5 +6,5 @@ var paths = require('../paths');
 
 // Call Watch
 module.exports = gulp.task('watch', function() {
-  gulp.watch('./dist/assets/css/**/*', ['stylus']);
+  gulp.watch(paths.source.styl, ['stylus']);
 });
