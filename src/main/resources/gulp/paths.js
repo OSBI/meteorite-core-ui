@@ -6,7 +6,8 @@ module.exports = {
     react: ['./src/js/saiku/**/*.js', './src/js/saiku/**/*.jsx'],
     styl: './src/styl/**/*',
     files: {
-      styl: './src/styl/saiku.styl'
+      styl: './src/styl/saiku.styl',
+      css: './dist/assets/css/saiku.css',
     }
   },
 
