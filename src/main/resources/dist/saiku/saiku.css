@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Noto+Sans:400,700");
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700,300");
 /* =========================================================================
-   Core
+   CORE
    ========================================================================= */
 * {
   outline: none !important;
@@ -87,6 +87,20 @@ a:focus {
   margin-bottom: 20px;
   background: #fff;
   background-clip: padding-box;
+}
+.wrapper-page {
+  margin: 5% auto;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+.wrapper-page .content-box {
+  border: 1px solid rgba(54,64,74,0.1);
+}
+.background-page {
+  position: absolute;
+  height: 100%;
+  width: 100%;
 }
 .p-0 {
   padding: 0px !important;
@@ -532,4 +546,47 @@ textarea.form-control {
 }
 a.waves-effect .waves-ripple {
   z-index: -1;
+}
+/* =========================================================================
+   BUTTON
+   ========================================================================= */
+.btn {
+  border-radius: 3px;
+  outline: none !important;
+}
+/* =========================================================================
+   PANELS
+   ========================================================================= */
+.panel {
+  border: none;
+  margin-bottom: 20px;
+}
+.panel .panel-body {
+  padding: 20px;
+}
+.panel .panel-body p {
+  margin: 0;
+}
+.panel .panel-body p + p {
+  margin-top: 15px;
+}
+.panel-heading {
+  border: none !important;
+  padding: 10px 20px;
+}
+/* =========================================================================
+   RESPONSIVE
+   ========================================================================= */
+@media (min-width: 768px) and (max-width: 991px) {
+  body {
+    overflow-x: hidden;
+  }
+}
+@media (max-width: 767px) {
+  body {
+    overflow-x: hidden;
+  }
+  .wrapper-page {
+    width: 90%;
+  }
 }
