@@ -1,5 +1,8 @@
 @import url("https://fonts.googleapis.com/css?family=Noto+Sans:400,700");
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700,300");
+/* =========================================================================
+   Core
+   ========================================================================= */
 * {
   outline: none !important;
 }
@@ -241,6 +244,9 @@ a:focus {
   height: 88px;
   width: 88px;
 }
+/* =========================================================================
+   BOOTSTRAP CUSTOM
+   ========================================================================= */
 .row {
   margin-right: -10px;
   margin-left: -10px;
@@ -295,4 +301,68 @@ a:focus {
 .col-xs-9 {
   padding-left: 10px;
   padding-right: 10px;
+}
+/* BACKGROUND COLORS
+   ========================================================================= */
+.bg-custom {
+  background-color: #58c9c7 !important;
+}
+.bg-primary {
+  background-color: #5d9cec !important;
+}
+.bg-success {
+  background-color: #81c868 !important;
+}
+.bg-info {
+  background-color: #34d3eb !important;
+}
+.bg-warning {
+  background-color: #ffbd4a !important;
+}
+.bg-danger {
+  background-color: #f05050 !important;
+}
+.bg-inverse {
+  background-color: #4c5667 !important;
+}
+.bg-muted {
+  background-color: #98a6ad !important;
+}
+.bg-white {
+  background-color: #fff !important;
+}
+.bg-lightdark {
+  background-color: #f4f8fb !important;
+}
+/* TEXT COLORS
+   ========================================================================= */
+.text-custom {
+  color: #58c9c7;
+}
+.text-primary {
+  color: #5d9cec;
+}
+.text-success {
+  color: #81c868;
+}
+.text-info {
+  color: #34d3eb;
+}
+.text-warning {
+  color: #ffbd4a;
+}
+.text-danger {
+  color: #f05050;
+}
+.text-inverse {
+  color: #4c5667;
+}
+.text-muted {
+  color: #98a6ad;
+}
+.text-white {
+  color: #fff;
+}
+.text-dark {
+  color: #797979 !important;
 }
