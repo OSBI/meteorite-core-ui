@@ -1,15 +1,16 @@
 *
-  outline none
+  outline none !important
   
 html
   position relative
   min-height $height
-  background $light2
+  background $light3
 
 body
-  background $light2
+  background $light3
   font-family $font-primary
   margin 0
+  font-weight 400
   overflow-x hidden
   color #797979
   
@@ -60,7 +61,7 @@ a
 .container
   width auto
   
-.container
+.container-alt
   margin-left auto
   margin-right auto
   padding-left 15px
@@ -71,3 +72,11 @@ a
   height $height
   width $width
   
+.content-box
+  padding 20px
+  border 1px solid rgba(54, 64, 74, 0.05)
+  box-shadow 0 1px 1px 0 rgba(0, 0, 0, 0.1), 0 -1px 4px 0 rgba(0, 0, 0, 0.08)
+  border-radius 5px
+  margin-bottom 20px
+  background $white
+  background-clip padding-box
