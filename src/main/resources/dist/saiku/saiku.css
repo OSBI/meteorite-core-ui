@@ -366,3 +366,31 @@ a:focus {
 .text-dark {
   color: #797979 !important;
 }
+/* =========================================================================
+   FORM
+   ========================================================================= */
+textarea.form-control {
+  min-height: 90px;
+}
+.form-control {
+  background: #fff;
+  border: 1px solid #e3e3e3;
+  border-radius: 4px;
+  color: #565656;
+  padding: 7px 12px;
+  height: 38px;
+  max-width: 100%;
+  box-shadow: none;
+  transition: all 300ms linear;
+}
+.form-control:focus {
+  background: #fff;
+  border: 1px solid #aaa;
+  box-shadow: none;
+  outline: 0 !important;
+  color: #333;
+}
+.form-horizontal .form-group {
+  margin-left: -10px;
+  margin-right: -10px;
+}
