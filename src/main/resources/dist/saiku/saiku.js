@@ -24577,7 +24577,12 @@
 	                    { xs: 12 },
 	                    _react2['default'].createElement(
 	                      _bootstrapButton2['default'],
-	                      { className: 'btn-block text-uppercase waves-effect waves-light', type: 'submit' },
+	                      {
+	                        type: 'submit',
+	                        bsStyle: 'default',
+	                        className: 'text-uppercase waves-effect waves-light',
+	                        block: true
+	                      },
 	                      'Login'
 	                    )
 	                  )

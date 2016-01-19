@@ -51,7 +51,14 @@ class Login extends React.Component {
                 </FormGroup>
                 <FormGroup className="text-center m-t-40">
                   <Col xs={12}>
-                    <Button className="btn-block text-uppercase waves-effect waves-light" type="submit">Login</Button>
+                    <Button
+                      type="submit"
+                      bsStyle="default"
+                      className="text-uppercase waves-effect waves-light"
+                      block
+                    >
+                      Login
+                    </Button>
                   </Col>
                 </FormGroup>
               </form>
