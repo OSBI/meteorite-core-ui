@@ -12,11 +12,11 @@ class Button extends React.Component {
 
     return (
       <a
-      {...this.props}
-      href={href}
-      className={classNames('btn', this.props.className, classes)}
-      role="button">
-      {this.props.children}
+        {...this.props}
+        href={href}
+        className={classNames('btn', this.props.className, classes)}
+        role="button">
+        {this.props.children}
       </a>
     );
   }
@@ -24,10 +24,10 @@ class Button extends React.Component {
   renderButton(classes) {
     return (
       <button
-      {...this.props}
-      type={this.props.type || 'button'}
-      className={classNames('btn', this.props.className, classes)}>
-      {this.props.children}
+        {...this.props}
+        type={this.props.type || 'button'}
+        className={classNames('btn', this.props.className, classes)}>
+        {this.props.children}
       </button>
     );
   }

@@ -1,10 +1,5 @@
 import React from 'react';
-import Row from '../bootstrap/Row';
-import Col from '../bootstrap/Col';
-import FormGroup from '../bootstrap/FormGroup';
-import Input from '../bootstrap/Input';
-import Button from '../bootstrap/Button';
-import Clearfix from '../bootstrap/Clearfix';
+import { Row, Col, FormGroup, Input, Button, Clearfix } from '../bootstrap/index';
 
 class Login extends React.Component {
   render() {

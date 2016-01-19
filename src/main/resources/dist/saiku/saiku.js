@@ -24443,29 +24443,7 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _bootstrapRow = __webpack_require__(218);
-	
-	var _bootstrapRow2 = _interopRequireDefault(_bootstrapRow);
-	
-	var _bootstrapCol = __webpack_require__(212);
-	
-	var _bootstrapCol2 = _interopRequireDefault(_bootstrapCol);
-	
-	var _bootstrapFormGroup = __webpack_require__(215);
-	
-	var _bootstrapFormGroup2 = _interopRequireDefault(_bootstrapFormGroup);
-	
-	var _bootstrapInput = __webpack_require__(216);
-	
-	var _bootstrapInput2 = _interopRequireDefault(_bootstrapInput);
-	
-	var _bootstrapButton = __webpack_require__(217);
-	
-	var _bootstrapButton2 = _interopRequireDefault(_bootstrapButton);
-	
-	var _bootstrapClearfix = __webpack_require__(219);
-	
-	var _bootstrapClearfix2 = _interopRequireDefault(_bootstrapClearfix);
+	var _bootstrapIndex = __webpack_require__(220);
 	
 	var Login = (function (_React$Component) {
 	  _inherits(Login, _React$Component);
@@ -24483,7 +24461,7 @@
 	        'div',
 	        null,
 	        _react2['default'].createElement('div', { className: 'bg-page' }),
-	        _react2['default'].createElement(_bootstrapClearfix2['default'], null),
+	        _react2['default'].createElement(_bootstrapIndex.Clearfix, null),
 	        _react2['default'].createElement(
 	          'div',
 	          { className: 'wrapper-page' },
@@ -24494,12 +24472,12 @@
 	              'div',
 	              { className: 'panel-heading' },
 	              _react2['default'].createElement(
-	                _bootstrapCol2['default'],
+	                _bootstrapIndex.Col,
 	                { xs: 3 },
 	                _react2['default'].createElement('img', { src: 'assets/images/logo-small.png', width: '40', height: '40' })
 	              ),
 	              _react2['default'].createElement(
-	                _bootstrapCol2['default'],
+	                _bootstrapIndex.Col,
 	                { xs: 9 },
 	                _react2['default'].createElement(
 	                  'h4',
@@ -24512,7 +24490,7 @@
 	                  )
 	                )
 	              ),
-	              _react2['default'].createElement(_bootstrapClearfix2['default'], null)
+	              _react2['default'].createElement(_bootstrapIndex.Clearfix, null)
 	            ),
 	            _react2['default'].createElement(
 	              'div',
@@ -24521,33 +24499,33 @@
 	                'form',
 	                { className: 'form-horizontal m-t-20' },
 	                _react2['default'].createElement(
-	                  _bootstrapFormGroup2['default'],
+	                  _bootstrapIndex.FormGroup,
 	                  null,
 	                  _react2['default'].createElement(
-	                    _bootstrapCol2['default'],
+	                    _bootstrapIndex.Col,
 	                    { xs: 12 },
-	                    _react2['default'].createElement(_bootstrapInput2['default'], { type: 'text', placeholder: 'Username' })
+	                    _react2['default'].createElement(_bootstrapIndex.Input, { type: 'text', placeholder: 'Username' })
 	                  )
 	                ),
 	                _react2['default'].createElement(
-	                  _bootstrapFormGroup2['default'],
+	                  _bootstrapIndex.FormGroup,
 	                  null,
 	                  _react2['default'].createElement(
-	                    _bootstrapCol2['default'],
+	                    _bootstrapIndex.Col,
 	                    { xs: 12 },
-	                    _react2['default'].createElement(_bootstrapInput2['default'], { type: 'password', placeholder: 'Password' })
+	                    _react2['default'].createElement(_bootstrapIndex.Input, { type: 'password', placeholder: 'Password' })
 	                  )
 	                ),
 	                _react2['default'].createElement(
-	                  _bootstrapFormGroup2['default'],
+	                  _bootstrapIndex.FormGroup,
 	                  null,
 	                  _react2['default'].createElement(
-	                    _bootstrapCol2['default'],
+	                    _bootstrapIndex.Col,
 	                    { xs: 6 },
 	                    _react2['default'].createElement(
 	                      'div',
 	                      { className: 'checkbox checkbox-primary' },
-	                      _react2['default'].createElement(_bootstrapInput2['default'], { id: 'checkbox-signup', type: 'checkbox' }),
+	                      _react2['default'].createElement(_bootstrapIndex.Input, { id: 'checkbox-signup', type: 'checkbox' }),
 	                      _react2['default'].createElement(
 	                        'label',
 	                        { htmlFor: 'checkbox-signup' },
@@ -24556,7 +24534,7 @@
 	                    )
 	                  ),
 	                  _react2['default'].createElement(
-	                    _bootstrapCol2['default'],
+	                    _bootstrapIndex.Col,
 	                    { xs: 6, className: 'text-right' },
 	                    _react2['default'].createElement(
 	                      'div',
@@ -24570,13 +24548,13 @@
 	                  )
 	                ),
 	                _react2['default'].createElement(
-	                  _bootstrapFormGroup2['default'],
+	                  _bootstrapIndex.FormGroup,
 	                  { className: 'text-center m-t-40' },
 	                  _react2['default'].createElement(
-	                    _bootstrapCol2['default'],
+	                    _bootstrapIndex.Col,
 	                    { xs: 12 },
 	                    _react2['default'].createElement(
-	                      _bootstrapButton2['default'],
+	                      _bootstrapIndex.Button,
 	                      {
 	                        type: 'submit',
 	                        bsStyle: 'default',
@@ -24591,10 +24569,10 @@
 	            )
 	          ),
 	          _react2['default'].createElement(
-	            _bootstrapRow2['default'],
+	            _bootstrapIndex.Row,
 	            null,
 	            _react2['default'].createElement(
-	              _bootstrapCol2['default'],
+	              _bootstrapIndex.Col,
 	              { sm: 12, className: 'text-center' },
 	              _react2['default'].createElement(
 	                'p',
@@ -25335,6 +25313,122 @@
 	};
 	
 	exports['default'] = Clearfix;
+	module.exports = exports['default'];
+
+/***/ },
+/* 220 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	
+	var _Grid = __webpack_require__(221);
+	
+	var _Grid2 = _interopRequireDefault(_Grid);
+	
+	var _Row = __webpack_require__(218);
+	
+	var _Row2 = _interopRequireDefault(_Row);
+	
+	var _Col = __webpack_require__(212);
+	
+	var _Col2 = _interopRequireDefault(_Col);
+	
+	var _FormGroup = __webpack_require__(215);
+	
+	var _FormGroup2 = _interopRequireDefault(_FormGroup);
+	
+	var _Input = __webpack_require__(216);
+	
+	var _Input2 = _interopRequireDefault(_Input);
+	
+	var _Button = __webpack_require__(217);
+	
+	var _Button2 = _interopRequireDefault(_Button);
+	
+	var _Clearfix = __webpack_require__(219);
+	
+	var _Clearfix2 = _interopRequireDefault(_Clearfix);
+	
+	exports['default'] = { Grid: _Grid2['default'], Row: _Row2['default'], Col: _Col2['default'], FormGroup: _FormGroup2['default'], Input: _Input2['default'], Button: _Button2['default'], Clearfix: _Clearfix2['default'] };
+	module.exports = exports['default'];
+
+/***/ },
+/* 221 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+	
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+	
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+	
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _classnames = __webpack_require__(213);
+	
+	var _classnames2 = _interopRequireDefault(_classnames);
+	
+	var Grid = (function (_React$Component) {
+	  _inherits(Grid, _React$Component);
+	
+	  function Grid() {
+	    _classCallCheck(this, Grid);
+	
+	    _get(Object.getPrototypeOf(Grid.prototype), 'constructor', this).apply(this, arguments);
+	  }
+	
+	  _createClass(Grid, [{
+	    key: 'render',
+	    value: function render() {
+	      var className = this.props.fluid ? 'container-fluid' : 'container';
+	
+	      if (this.props.onRender) {
+	        this.props.onRender();
+	      }
+	      return _react2['default'].createElement(
+	        'div',
+	        _extends({}, this.props, {
+	          className: (0, _classnames2['default'])(this.props.className, className) }),
+	        this.props.children
+	      );
+	    }
+	  }]);
+	
+	  return Grid;
+	})(_react2['default'].Component);
+	
+	Grid.propTypes = {
+	  onRender: _react2['default'].PropTypes.func,
+	  className: _react2['default'].PropTypes.string,
+	  children: _react2['default'].PropTypes.node.isRequired,
+	  fluid: _react2['default'].PropTypes.bool
+	};
+	
+	Grid.defaultProps = {
+	  fluid: false
+	};
+	
+	exports['default'] = Grid;
 	module.exports = exports['default'];
 
 /***/ }
