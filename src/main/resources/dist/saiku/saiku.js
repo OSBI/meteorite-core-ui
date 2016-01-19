@@ -24463,6 +24463,10 @@
 	
 	var _bootstrapButton2 = _interopRequireDefault(_bootstrapButton);
 	
+	var _bootstrapClearfix = __webpack_require__(219);
+	
+	var _bootstrapClearfix2 = _interopRequireDefault(_bootstrapClearfix);
+	
 	var Login = (function (_React$Component) {
 	  _inherits(Login, _React$Component);
 	
@@ -24479,7 +24483,7 @@
 	        'div',
 	        null,
 	        _react2['default'].createElement('div', { className: 'bg-page' }),
-	        _react2['default'].createElement('div', { className: 'clearfix' }),
+	        _react2['default'].createElement(_bootstrapClearfix2['default'], null),
 	        _react2['default'].createElement(
 	          'div',
 	          { className: 'wrapper-page' },
@@ -24508,7 +24512,7 @@
 	                  )
 	                )
 	              ),
-	              _react2['default'].createElement('div', { className: 'clearfix' })
+	              _react2['default'].createElement(_bootstrapClearfix2['default'], null)
 	            ),
 	            _react2['default'].createElement(
 	              'div',
@@ -25269,6 +25273,63 @@
 	};
 	
 	exports['default'] = Row;
+	module.exports = exports['default'];
+
+/***/ },
+/* 219 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+	
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+	
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+	
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _classnames = __webpack_require__(213);
+	
+	var _classnames2 = _interopRequireDefault(_classnames);
+	
+	var Clearfix = (function (_React$Component) {
+	  _inherits(Clearfix, _React$Component);
+	
+	  function Clearfix() {
+	    _classCallCheck(this, Clearfix);
+	
+	    _get(Object.getPrototypeOf(Clearfix.prototype), 'constructor', this).apply(this, arguments);
+	  }
+	
+	  _createClass(Clearfix, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2['default'].createElement('div', _extends({}, this.props, {
+	        className: (0, _classnames2['default'])(this.props.className, 'clearfix') }));
+	    }
+	  }]);
+	
+	  return Clearfix;
+	})(_react2['default'].Component);
+	
+	Clearfix.propTypes = {
+	  className: _react2['default'].PropTypes.string
+	};
+	
+	exports['default'] = Clearfix;
 	module.exports = exports['default'];
 
 /***/ }

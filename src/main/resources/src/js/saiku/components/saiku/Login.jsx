@@ -4,13 +4,14 @@ import Col from '../bootstrap/Col';
 import FormGroup from '../bootstrap/FormGroup';
 import Input from '../bootstrap/Input';
 import Button from '../bootstrap/Button';
+import Clearfix from '../bootstrap/Clearfix';
 
 class Login extends React.Component {
   render() {
     return (
       <div>
         <div className="bg-page"></div>
-        <div className="clearfix"></div>
+        <Clearfix />
 
         <div className="wrapper-page">
           <div className="content-box">
@@ -21,7 +22,7 @@ class Login extends React.Component {
               <Col xs={9}>
                 <h4 className="text-left">Sign In to <strong>Saiku Analytics</strong></h4>
               </Col>
-              <div className="clearfix"></div>
+              <Clearfix />
             </div>
             <div className="panel-body">
               <form className="form-horizontal m-t-20">

@@ -1,9 +1,13 @@
 import React from 'react';
+import classNames from 'classnames';
 
 class Clearfix extends React.Component {
   render() {
     return (
-      <div className={'clearfix'}></div>
+      <div
+        {...this.props}
+        className={classNames(this.props.className, 'clearfix')}>
+      </div>
     );
   }
 }
