@@ -24543,7 +24543,7 @@
 	                    _react2['default'].createElement(
 	                      'div',
 	                      { className: 'checkbox checkbox-primary' },
-	                      _react2['default'].createElement('input', { id: 'checkbox-signup', type: 'checkbox' }),
+	                      _react2['default'].createElement(_bootstrapInput2['default'], { id: 'checkbox-signup', type: 'checkbox' }),
 	                      _react2['default'].createElement(
 	                        'label',
 	                        { htmlFor: 'checkbox-signup' },

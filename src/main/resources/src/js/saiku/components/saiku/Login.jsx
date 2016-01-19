@@ -38,7 +38,7 @@ class Login extends React.Component {
                 <FormGroup>
                   <Col xs={6}>
                     <div className="checkbox checkbox-primary">
-                      <input id="checkbox-signup" type="checkbox" />
+                      <Input id="checkbox-signup" type="checkbox" />
                       <label htmlFor="checkbox-signup">Remember me</label>
                     </div>
                   </Col>
