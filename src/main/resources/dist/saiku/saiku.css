@@ -90,9 +90,8 @@ a:focus {
 }
 .wrapper-page {
   margin: 5% auto;
-  position: absolute;
-  height: 100%;
-  width: 100%;
+  position: relative;
+  width: 420px;
 }
 .wrapper-page .content-box {
   border: 1px solid rgba(54,64,74,0.1);
