@@ -64,6 +64,8 @@
 	
 	var _componentsSaikuLogin2 = _interopRequireDefault(_componentsSaikuLogin);
 	
+	__webpack_require__(222);
+	
 	var routes = _react2['default'].createElement(
 	  _reactRouter.Router,
 	  { history: (0, _history.createHistory)() },
@@ -25430,6 +25432,357 @@
 	
 	exports['default'] = Clearfix;
 	module.exports = exports['default'];
+
+/***/ },
+/* 222 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+	
+	// load the styles
+	var content = __webpack_require__(223);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(225)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../node_modules/css-loader/index.js!./saiku.css", function() {
+				var newContent = require("!!./../../node_modules/css-loader/index.js!./saiku.css");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 223 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(224)();
+	// imports
+	exports.push([module.id, "@import url(https://fonts.googleapis.com/css?family=Noto+Sans:400,700);", ""]);
+	exports.push([module.id, "@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700,300);", ""]);
+	
+	// module
+	exports.push([module.id, "/* =========================================================================\n   CORE\n   ========================================================================= */\n* {\n  outline: none !important;\n}\nhtml {\n  position: relative;\n  min-height: 100%;\n  background: #f3f3f3;\n}\nbody {\n  background: #f3f3f3;\n  font-family: \"Noto Sans\", \"Helvetica Neue\", Helvetica, Arial, sans-serif;\n  margin: 0;\n  font-weight: 400;\n  overflow-x: hidden;\n  color: #797979;\n}\nh1,\nh2,\nh3,\nh4,\nh5,\nh6 {\n  color: #505458;\n  font-family: \"Source Sans Pro\", \"Helvetica Neue\", Helvetica, Arial, sans-serif;\n  margin: 10px 0;\n}\nh1 {\n  line-height: 43px;\n}\nh2 {\n  line-height: 35px;\n}\nh3 {\n  line-height: 30px;\n}\nh3 small {\n  color: #444;\n}\nh4 {\n  line-height: 22px;\n}\nh4 small {\n  color: #444;\n}\nh5 {\n  line-height: 15px;\n}\nh5 small {\n  color: #444;\n}\np {\n  line-height: 1.6;\n}\nb {\n  font-weight: 600;\n}\na:hover,\na:active,\na:focus {\n  outline: 0;\n  text-decoration: none;\n}\n.container {\n  width: auto;\n}\n.container-alt {\n  margin-left: auto;\n  margin-right: auto;\n  padding-left: 15px;\n  padding-right: 15px;\n}\n.wrapper {\n  overflow: hidden;\n  height: 100%;\n  width: 100%;\n}\n.content-box {\n  padding: 20px;\n  box-shadow: 0 1px 1px 0 rgba(0,0,0,0.1), 0 -1px 4px 0 rgba(0,0,0,0.08);\n  border-radius: 5px;\n  margin-bottom: 20px;\n  background: #fff;\n  background-clip: padding-box;\n}\n.wrapper-page {\n  margin: 5% auto;\n  position: relative;\n  width: 420px;\n}\n.wrapper-page .content-box {\n  border: 1px solid rgba(54,64,74,0.1);\n}\n.bg-page {\n  position: absolute;\n  height: 100%;\n  width: 100%;\n}\n.p-0 {\n  padding: 0px !important;\n}\n.p-20 {\n  padding: 20px !important;\n}\n.p-30 {\n  padding: 30px !important;\n}\n.p-l-0 {\n  padding-left: 0px !important;\n}\n.p-r-0 {\n  padding-right: 0px !important;\n}\n.p-t-0 {\n  padding-top: 0px !important;\n}\n.p-t-10 {\n  padding-top: 10px !important;\n}\n.p-b-10 {\n  padding-bottom: 10px !important;\n}\n.p-l-r-10 {\n  padding-left: 10px;\n  padding-right: 10px;\n}\n.m-0 {\n  margin: 0px !important;\n}\n.m-r-5 {\n  margin-right: 5px !important;\n}\n.m-r-10 {\n  margin-right: 10px !important;\n}\n.m-r-15 {\n  margin-right: 15px !important;\n}\n.m-l-5 {\n  margin-left: 5px !important;\n}\n.m-l-10 {\n  margin-left: 10px !important;\n}\n.m-l-15 {\n  margin-left: 15px !important;\n}\n.m-t-5 {\n  margin-top: 5px !important;\n}\n.m-t-0 {\n  margin-top: 0px !important;\n}\n.m-t-10 {\n  margin-top: 10px !important;\n}\n.m-t-15 {\n  margin-top: 15px !important;\n}\n.m-t-20 {\n  margin-top: 20px !important;\n}\n.m-t-30 {\n  margin-top: 30px !important;\n}\n.m-t-40 {\n  margin-top: 40px !important;\n}\n.m-b-0 {\n  margin-bottom: 0px !important;\n}\n.m-b-5 {\n  margin-bottom: 5px !important;\n}\n.m-b-10 {\n  margin-bottom: 10px !important;\n}\n.m-b-15 {\n  margin-bottom: 15px !important;\n}\n.m-b-20 {\n  margin-bottom: 20px !important;\n}\n.m-b-30 {\n  margin-bottom: 30px !important;\n}\n.w-xs {\n  min-width: 80px;\n}\n.w-sm {\n  min-width: 95px;\n}\n.w-md {\n  min-width: 110px;\n}\n.w-lg {\n  min-width: 140px;\n}\n.m-h-40 {\n  min-height: 40px;\n}\n.m-h-50 {\n  min-height: 50px;\n}\n.l-h-34 {\n  line-height: 34px;\n}\n.font-600 {\n  font-weight: 600;\n}\n.font-bold {\n  font-weight: 700;\n}\n.font-normal {\n  font-weight: normal;\n}\n.font-light {\n  font-weight: 300;\n}\n.font-13 {\n  font-size: 13px !important;\n}\n.wrapper-md {\n  padding: 20px;\n}\n.pull-in {\n  margin-left: -15px;\n  margin-right: -15px;\n}\n.b-0 {\n  border: none !important;\n}\n.vertical-middle {\n  vertical-align: middle;\n}\n.bx-shadow {\n  box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.1);\n}\n.mx-box {\n  max-height: 380px;\n  min-height: 380px;\n}\n.thumb-sm {\n  height: 32px;\n  width: 32px;\n}\n.thumb-md {\n  height: 48px;\n  width: 48px;\n}\n.thumb-lg {\n  height: 88px;\n  width: 88px;\n}\n/* =========================================================================\n   BOOTSTRAP CUSTOM\n   ========================================================================= */\n.row {\n  margin-right: -10px;\n  margin-left: -10px;\n}\n.col-lg-1,\n.col-lg-10,\n.col-lg-11,\n.col-lg-12,\n.col-lg-2,\n.col-lg-3,\n.col-lg-4,\n.col-lg-5,\n.col-lg-6,\n.col-lg-7,\n.col-lg-8,\n.col-lg-9,\n.col-md-1,\n.col-md-10,\n.col-md-11,\n.col-md-12,\n.col-md-2,\n.col-md-3,\n.col-md-4,\n.col-md-5,\n.col-md-6,\n.col-md-7,\n.col-md-8,\n.col-md-9,\n.col-sm-1,\n.col-sm-10,\n.col-sm-11,\n.col-sm-12,\n.col-sm-2,\n.col-sm-3,\n.col-sm-4,\n.col-sm-5,\n.col-sm-6,\n.col-sm-7,\n.col-sm-8,\n.col-sm-9,\n.col-xs-1,\n.col-xs-10,\n.col-xs-11,\n.col-xs-12,\n.col-xs-2,\n.col-xs-3,\n.col-xs-4,\n.col-xs-5,\n.col-xs-6,\n.col-xs-7,\n.col-xs-8,\n.col-xs-9 {\n  padding-left: 10px;\n  padding-right: 10px;\n}\n/* BACKGROUND COLORS\n   ========================================================================= */\n.bg-custom {\n  background-color: #58c9c7 !important;\n}\n.bg-primary {\n  background-color: #5d9cec !important;\n}\n.bg-success {\n  background-color: #81c868 !important;\n}\n.bg-info {\n  background-color: #34d3eb !important;\n}\n.bg-warning {\n  background-color: #ffbd4a !important;\n}\n.bg-danger {\n  background-color: #f05050 !important;\n}\n.bg-inverse {\n  background-color: #4c5667 !important;\n}\n.bg-muted {\n  background-color: #98a6ad !important;\n}\n.bg-white {\n  background-color: #fff !important;\n}\n.bg-lightdark {\n  background-color: #f4f8fb !important;\n}\n/* TEXT COLORS\n   ========================================================================= */\n.text-custom {\n  color: #58c9c7;\n}\n.text-primary {\n  color: #5d9cec;\n}\n.text-success {\n  color: #81c868;\n}\n.text-info {\n  color: #34d3eb;\n}\n.text-warning {\n  color: #ffbd4a;\n}\n.text-danger {\n  color: #f05050;\n}\n.text-inverse {\n  color: #4c5667;\n}\n.text-muted {\n  color: #98a6ad;\n}\n.text-white {\n  color: #fff;\n}\n.text-dark {\n  color: #797979 !important;\n}\n/* =========================================================================\n   FORM\n   ========================================================================= */\ntextarea.form-control {\n  min-height: 90px;\n}\n.form-control {\n  background: #fff;\n  border: 1px solid #e3e3e3;\n  border-radius: 4px;\n  color: #565656;\n  padding: 7px 12px;\n  height: 38px;\n  max-width: 100%;\n  box-shadow: none;\n  transition: all 300ms linear;\n}\n.form-control:focus {\n  background: #fff;\n  border: 1px solid #aaa;\n  box-shadow: none;\n  outline: 0 !important;\n  color: #333;\n}\n.form-horizontal .form-group {\n  margin-left: -10px;\n  margin-right: -10px;\n}\n/*\n * Waves v0.7.4\n * http://fian.my.id/Waves \n * \n * Copyright 2014 Alfiana E. Sibuea and other contributors \n * Released under the MIT license \n * https://github.com/fians/Waves/blob/master/LICENSE \n */\n.waves-effect {\n  position: relative;\n  cursor: pointer;\n  display: inline-block;\n  overflow: hidden;\n  -webkit-user-select: none;\n  -moz-user-select: none;\n  -ms-user-select: none;\n  user-select: none;\n  -webkit-tap-highlight-color: transparent;\n}\n.waves-effect .waves-ripple {\n  position: absolute;\n  border-radius: 50%;\n  width: 100px;\n  height: 100px;\n  margin-top: -50px;\n  margin-left: -50px;\n  opacity: 0;\n  background: rgba(0,0,0,0.2);\n  background: -webkit-radial-gradient(rgba(0,0,0,0.2) 0, rgba(0,0,0,0.3) 40%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.5) 60%, rgba(255,255,255,0) 70%);\n  background: -o-radial-gradient(rgba(0,0,0,0.2) 0, rgba(0,0,0,0.3) 40%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.5) 60%, rgba(255,255,255,0) 70%);\n  background: -moz-radial-gradient(rgba(0,0,0,0.2) 0, rgba(0,0,0,0.3) 40%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.5) 60%, rgba(255,255,255,0) 70%);\n  background: radial-gradient(rgba(0,0,0,0.2) 0, rgba(0,0,0,0.3) 40%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.5) 60%, rgba(255,255,255,0) 70%);\n  -webkit-transition: all 0.5s ease-out;\n  -moz-transition: all 0.5s ease-out;\n  -o-transition: all 0.5s ease-out;\n  transition: all 0.5s ease-out;\n  -webkit-transition-property: -webkit-transform, opacity;\n  -moz-transition-property: -moz-transform, opacity;\n  -o-transition-property: -o-transform, opacity;\n  transition-property: transform, opacity;\n  -webkit-transform: scale(0) translate(0, 0);\n  -moz-transform: scale(0) translate(0, 0);\n  -ms-transform: scale(0) translate(0, 0);\n  -o-transform: scale(0) translate(0, 0);\n  transform: scale(0) translate(0, 0);\n  pointer-events: none;\n}\n.waves-effect.waves-light .waves-ripple {\n  background: rgba(255,255,255,0.4);\n  background: -webkit-radial-gradient(rgba(255,255,255,0.2) 0, rgba(255,255,255,0.3) 40%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0.5) 60%, rgba(255,255,255,0) 70%);\n  background: -o-radial-gradient(rgba(255,255,255,0.2) 0, rgba(255,255,255,0.3) 40%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0.5) 60%, rgba(255,255,255,0) 70%);\n  background: -moz-radial-gradient(rgba(255,255,255,0.2) 0, rgba(255,255,255,0.3) 40%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0.5) 60%, rgba(255,255,255,0) 70%);\n  background: radial-gradient(rgba(255,255,255,0.2) 0, rgba(255,255,255,0.3) 40%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0.5) 60%, rgba(255,255,255,0) 70%);\n}\n.waves-effect.waves-classic .waves-ripple {\n  background: rgba(0,0,0,0.2);\n}\n.waves-effect.waves-classic.waves-light .waves-ripple {\n  background: rgba(255,255,255,0.4);\n}\n.waves-notransition {\n  -webkit-transition: none !important;\n  -moz-transition: none !important;\n  -o-transition: none !important;\n  transition: none !important;\n}\n.waves-button,\n.waves-circle {\n  -webkit-transform: translateZ(0);\n  -moz-transform: translateZ(0);\n  -ms-transform: translateZ(0);\n  -o-transform: translateZ(0);\n  transform: translateZ(0);\n  -webkit-mask-image: -webkit-radial-gradient(circle, #fff 100%, #000 100%);\n}\n.waves-button,\n.waves-button:hover,\n.waves-button:visited,\n.waves-button-input {\n  white-space: nowrap;\n  vertical-align: middle;\n  cursor: pointer;\n  border: none;\n  outline: none;\n  color: inherit;\n  background-color: rgba(0,0,0,0);\n  font-size: 1em;\n  line-height: 1em;\n  text-align: center;\n  text-decoration: none;\n  z-index: 1;\n}\n.waves-button {\n  padding: 0.85em 1.1em;\n  border-radius: 0.2em;\n}\n.waves-button-input {\n  margin: 0;\n  padding: 0.85em 1.1em;\n}\n.waves-input-wrapper {\n  border-radius: 0.2em;\n  vertical-align: bottom;\n}\n.waves-input-wrapper.waves-button {\n  padding: 0;\n}\n.waves-input-wrapper .waves-button-input {\n  position: relative;\n  top: 0;\n  left: 0;\n  z-index: 1;\n}\n.waves-circle {\n  text-align: center;\n  width: 2.5em;\n  height: 2.5em;\n  line-height: 2.5em;\n  border-radius: 50%;\n}\n.waves-float {\n  -webkit-mask-image: none;\n  -webkit-box-shadow: 0px 1px 1.5px 1px rgba(0,0,0,0.12);\n  box-shadow: 0px 1px 1.5px 1px rgba(0,0,0,0.12);\n  -webkit-transition: all 300ms;\n  -moz-transition: all 300ms;\n  -o-transition: all 300ms;\n  transition: all 300ms;\n}\n.waves-float:active {\n  -webkit-box-shadow: 0px 8px 20px 1px rgba(0,0,0,0.3);\n  box-shadow: 0px 8px 20px 1px rgba(0,0,0,0.3);\n}\n.waves-block {\n  display: block;\n}\na.waves-effect .waves-ripple {\n  z-index: -1;\n}\n/* =========================================================================\n   BUTTON\n   ========================================================================= */\n.btn {\n  border-radius: 3px;\n  outline: none !important;\n}\n/* =========================================================================\n   CHECKBOX\n   ========================================================================= */\n.checkbox {\n  padding-left: 20px;\n}\n.checkbox label {\n  display: inline-block;\n  padding-left: 5px;\n  position: relative;\n}\n.checkbox label::before {\n  background: #fff;\n  border-radius: 3px;\n  border: 1px solid #ccc;\n  content: \"\";\n  display: inline-block;\n  height: 17px;\n  left: 0;\n  margin-left: -20px;\n  position: absolute;\n  transition: 0.3s ease-in-out;\n  width: 17px;\n  outline: none !important;\n}\n.checkbox label::after {\n  color: #555;\n  display: inline-block;\n  font-size: 11px;\n  height: 16px;\n  left: 0;\n  margin-left: -20px;\n  padding-left: 3px;\n  padding-top: 1px;\n  position: absolute;\n  top: 0;\n  width: 16px;\n}\n.checkbox input[type=\"checkbox\"] {\n  cursor: pointer;\n  opacity: 0;\n  z-index: 1;\n  outline: none !important;\n}\n.checkbox input[type=\"checkbox\"]:disabled + label {\n  opacity: 0.65;\n}\n.checkbox input[type=\"checkbox\"]:focus + label::before {\n  outline-offset: -2px;\n  outline: none;\n  outline: thin dotted;\n}\n.checkbox input[type=\"checkbox\"]:checked + label::after {\n  content: \"\\F00C\";\n  font-family: \"FontAwesome\";\n}\n.checkbox input[type=\"checkbox\"]:disabled + label::before {\n  background: #eee;\n  cursor: not-allowed;\n}\n.checkbox-primary input[type=\"checkbox\"]:checked + label::before {\n  background: #5d9cec;\n  border-color: #5d9cec;\n}\n.checkbox-primary input[type=\"checkbox\"]:checked + label::after {\n  color: #fff;\n}\n/* =========================================================================\n   PANELS\n   ========================================================================= */\n.panel {\n  border: none;\n  margin-bottom: 20px;\n}\n.panel .panel-body {\n  padding: 20px;\n}\n.panel .panel-body p {\n  margin: 0;\n}\n.panel .panel-body p + p {\n  margin-top: 15px;\n}\n.panel-heading {\n  border: none !important;\n  padding: 10px 20px;\n}\n/* =========================================================================\n   RESPONSIVE\n   ========================================================================= */\n@media (min-width: 768px) and (max-width: 991px) {\n  body {\n    overflow-x: hidden;\n  }\n}\n@media (max-width: 767px) {\n  body {\n    overflow-x: hidden;\n  }\n  .wrapper-page {\n    width: 90%;\n  }\n}\n", ""]);
+	
+	// exports
+
+
+/***/ },
+/* 224 */
+/***/ function(module, exports) {
+
+	/*
+		MIT License http://www.opensource.org/licenses/mit-license.php
+		Author Tobias Koppers @sokra
+	*/
+	// css base code, injected by the css-loader
+	module.exports = function() {
+		var list = [];
+	
+		// return the list of modules as css string
+		list.toString = function toString() {
+			var result = [];
+			for(var i = 0; i < this.length; i++) {
+				var item = this[i];
+				if(item[2]) {
+					result.push("@media " + item[2] + "{" + item[1] + "}");
+				} else {
+					result.push(item[1]);
+				}
+			}
+			return result.join("");
+		};
+	
+		// import a list of modules into the list
+		list.i = function(modules, mediaQuery) {
+			if(typeof modules === "string")
+				modules = [[null, modules, ""]];
+			var alreadyImportedModules = {};
+			for(var i = 0; i < this.length; i++) {
+				var id = this[i][0];
+				if(typeof id === "number")
+					alreadyImportedModules[id] = true;
+			}
+			for(i = 0; i < modules.length; i++) {
+				var item = modules[i];
+				// skip already imported module
+				// this implementation is not 100% perfect for weird media query combinations
+				//  when a module is imported multiple times with different media queries.
+				//  I hope this will never occur (Hey this way we have smaller bundles)
+				if(typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
+					if(mediaQuery && !item[2]) {
+						item[2] = mediaQuery;
+					} else if(mediaQuery) {
+						item[2] = "(" + item[2] + ") and (" + mediaQuery + ")";
+					}
+					list.push(item);
+				}
+			}
+		};
+		return list;
+	};
+
+
+/***/ },
+/* 225 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/*
+		MIT License http://www.opensource.org/licenses/mit-license.php
+		Author Tobias Koppers @sokra
+	*/
+	var stylesInDom = {},
+		memoize = function(fn) {
+			var memo;
+			return function () {
+				if (typeof memo === "undefined") memo = fn.apply(this, arguments);
+				return memo;
+			};
+		},
+		isOldIE = memoize(function() {
+			return /msie [6-9]\b/.test(window.navigator.userAgent.toLowerCase());
+		}),
+		getHeadElement = memoize(function () {
+			return document.head || document.getElementsByTagName("head")[0];
+		}),
+		singletonElement = null,
+		singletonCounter = 0,
+		styleElementsInsertedAtTop = [];
+	
+	module.exports = function(list, options) {
+		if(false) {
+			if(typeof document !== "object") throw new Error("The style-loader cannot be used in a non-browser environment");
+		}
+	
+		options = options || {};
+		// Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
+		// tags it will allow on a page
+		if (typeof options.singleton === "undefined") options.singleton = isOldIE();
+	
+		// By default, add <style> tags to the bottom of <head>.
+		if (typeof options.insertAt === "undefined") options.insertAt = "bottom";
+	
+		var styles = listToStyles(list);
+		addStylesToDom(styles, options);
+	
+		return function update(newList) {
+			var mayRemove = [];
+			for(var i = 0; i < styles.length; i++) {
+				var item = styles[i];
+				var domStyle = stylesInDom[item.id];
+				domStyle.refs--;
+				mayRemove.push(domStyle);
+			}
+			if(newList) {
+				var newStyles = listToStyles(newList);
+				addStylesToDom(newStyles, options);
+			}
+			for(var i = 0; i < mayRemove.length; i++) {
+				var domStyle = mayRemove[i];
+				if(domStyle.refs === 0) {
+					for(var j = 0; j < domStyle.parts.length; j++)
+						domStyle.parts[j]();
+					delete stylesInDom[domStyle.id];
+				}
+			}
+		};
+	}
+	
+	function addStylesToDom(styles, options) {
+		for(var i = 0; i < styles.length; i++) {
+			var item = styles[i];
+			var domStyle = stylesInDom[item.id];
+			if(domStyle) {
+				domStyle.refs++;
+				for(var j = 0; j < domStyle.parts.length; j++) {
+					domStyle.parts[j](item.parts[j]);
+				}
+				for(; j < item.parts.length; j++) {
+					domStyle.parts.push(addStyle(item.parts[j], options));
+				}
+			} else {
+				var parts = [];
+				for(var j = 0; j < item.parts.length; j++) {
+					parts.push(addStyle(item.parts[j], options));
+				}
+				stylesInDom[item.id] = {id: item.id, refs: 1, parts: parts};
+			}
+		}
+	}
+	
+	function listToStyles(list) {
+		var styles = [];
+		var newStyles = {};
+		for(var i = 0; i < list.length; i++) {
+			var item = list[i];
+			var id = item[0];
+			var css = item[1];
+			var media = item[2];
+			var sourceMap = item[3];
+			var part = {css: css, media: media, sourceMap: sourceMap};
+			if(!newStyles[id])
+				styles.push(newStyles[id] = {id: id, parts: [part]});
+			else
+				newStyles[id].parts.push(part);
+		}
+		return styles;
+	}
+	
+	function insertStyleElement(options, styleElement) {
+		var head = getHeadElement();
+		var lastStyleElementInsertedAtTop = styleElementsInsertedAtTop[styleElementsInsertedAtTop.length - 1];
+		if (options.insertAt === "top") {
+			if(!lastStyleElementInsertedAtTop) {
+				head.insertBefore(styleElement, head.firstChild);
+			} else if(lastStyleElementInsertedAtTop.nextSibling) {
+				head.insertBefore(styleElement, lastStyleElementInsertedAtTop.nextSibling);
+			} else {
+				head.appendChild(styleElement);
+			}
+			styleElementsInsertedAtTop.push(styleElement);
+		} else if (options.insertAt === "bottom") {
+			head.appendChild(styleElement);
+		} else {
+			throw new Error("Invalid value for parameter 'insertAt'. Must be 'top' or 'bottom'.");
+		}
+	}
+	
+	function removeStyleElement(styleElement) {
+		styleElement.parentNode.removeChild(styleElement);
+		var idx = styleElementsInsertedAtTop.indexOf(styleElement);
+		if(idx >= 0) {
+			styleElementsInsertedAtTop.splice(idx, 1);
+		}
+	}
+	
+	function createStyleElement(options) {
+		var styleElement = document.createElement("style");
+		styleElement.type = "text/css";
+		insertStyleElement(options, styleElement);
+		return styleElement;
+	}
+	
+	function createLinkElement(options) {
+		var linkElement = document.createElement("link");
+		linkElement.rel = "stylesheet";
+		insertStyleElement(options, linkElement);
+		return linkElement;
+	}
+	
+	function addStyle(obj, options) {
+		var styleElement, update, remove;
+	
+		if (options.singleton) {
+			var styleIndex = singletonCounter++;
+			styleElement = singletonElement || (singletonElement = createStyleElement(options));
+			update = applyToSingletonTag.bind(null, styleElement, styleIndex, false);
+			remove = applyToSingletonTag.bind(null, styleElement, styleIndex, true);
+		} else if(obj.sourceMap &&
+			typeof URL === "function" &&
+			typeof URL.createObjectURL === "function" &&
+			typeof URL.revokeObjectURL === "function" &&
+			typeof Blob === "function" &&
+			typeof btoa === "function") {
+			styleElement = createLinkElement(options);
+			update = updateLink.bind(null, styleElement);
+			remove = function() {
+				removeStyleElement(styleElement);
+				if(styleElement.href)
+					URL.revokeObjectURL(styleElement.href);
+			};
+		} else {
+			styleElement = createStyleElement(options);
+			update = applyToTag.bind(null, styleElement);
+			remove = function() {
+				removeStyleElement(styleElement);
+			};
+		}
+	
+		update(obj);
+	
+		return function updateStyle(newObj) {
+			if(newObj) {
+				if(newObj.css === obj.css && newObj.media === obj.media && newObj.sourceMap === obj.sourceMap)
+					return;
+				update(obj = newObj);
+			} else {
+				remove();
+			}
+		};
+	}
+	
+	var replaceText = (function () {
+		var textStore = [];
+	
+		return function (index, replacement) {
+			textStore[index] = replacement;
+			return textStore.filter(Boolean).join('\n');
+		};
+	})();
+	
+	function applyToSingletonTag(styleElement, index, remove, obj) {
+		var css = remove ? "" : obj.css;
+	
+		if (styleElement.styleSheet) {
+			styleElement.styleSheet.cssText = replaceText(index, css);
+		} else {
+			var cssNode = document.createTextNode(css);
+			var childNodes = styleElement.childNodes;
+			if (childNodes[index]) styleElement.removeChild(childNodes[index]);
+			if (childNodes.length) {
+				styleElement.insertBefore(cssNode, childNodes[index]);
+			} else {
+				styleElement.appendChild(cssNode);
+			}
+		}
+	}
+	
+	function applyToTag(styleElement, obj) {
+		var css = obj.css;
+		var media = obj.media;
+		var sourceMap = obj.sourceMap;
+	
+		if(media) {
+			styleElement.setAttribute("media", media)
+		}
+	
+		if(styleElement.styleSheet) {
+			styleElement.styleSheet.cssText = css;
+		} else {
+			while(styleElement.firstChild) {
+				styleElement.removeChild(styleElement.firstChild);
+			}
+			styleElement.appendChild(document.createTextNode(css));
+		}
+	}
+	
+	function updateLink(linkElement, obj) {
+		var css = obj.css;
+		var media = obj.media;
+		var sourceMap = obj.sourceMap;
+	
+		if(sourceMap) {
+			// http://stackoverflow.com/a/26603875
+			css += "\n/*# sourceMappingURL=data:application/json;base64," + btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))) + " */";
+		}
+	
+		var blob = new Blob([css], { type: "text/css" });
+	
+		var oldSrc = linkElement.href;
+	
+		linkElement.href = URL.createObjectURL(blob);
+	
+		if(oldSrc)
+			URL.revokeObjectURL(oldSrc);
+	}
+
 
 /***/ }
 /******/ ]);

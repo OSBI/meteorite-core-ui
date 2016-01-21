@@ -45,6 +45,10 @@ var config = {
   module: {
     loaders: [
       {
+        test: /\.css$/,
+        loader: 'style-loader!css-loader'
+      },
+      {
         test: /(\.jsx|\.js)$/,
         loader: 'babel',
         exclude: /(node_modules|bower_components)/
