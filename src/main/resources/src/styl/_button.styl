@@ -5,3 +5,66 @@
 .btn
   border-radius 3px
   outline none !important
+  
+/*! =========================================================================
+   CHECKBOX
+   ========================================================================= */
+   
+.checkbox
+  padding-left 20px
+  label
+    display inline-block
+    padding-left 5px
+    position relative
+    &::before
+      background $white
+      border-radius 3px
+      border 1px solid $lightdark-alt
+      content ""
+      display inline-block
+      height 17px
+      left 0
+      margin-left -20px
+      position absolute
+      transition 0.3s ease-in-out
+      width 17px
+      outline none !important
+    &::after
+      color $lightdark5
+      display inline-block
+      font-size 11px
+      height 16px
+      left 0
+      margin-left -20px
+      padding-left 3px
+      padding-top 1px
+      position absolute
+      top 0
+      width 16px
+  input[type="checkbox"]
+    cursor pointer
+    opacity 0
+    z-index 1
+    outline none !important
+    &:disabled + label
+      opacity 0.65
+    &:focus + label::before
+      outline-offset -2px
+      outline none
+      outline thin dotted
+    &:checked + label
+      &::after
+        content "\f00c"
+        font-family "FontAwesome"
+    &:disabled + label
+      &::before
+        background #eee
+        cursor not-allowed
+      
+.checkbox-primary
+  input[type="checkbox"]:checked + label
+    &::before
+      background $primary
+      border-color $primary
+    &::after
+      color $white

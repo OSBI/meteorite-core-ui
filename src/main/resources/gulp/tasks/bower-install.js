@@ -59,4 +59,4 @@ gulp.task('waves', function() {
 
 // Call Bower Install
 module.exports = gulp.task('bower-install', 
-  ['bower', 'jquery', 'bootstrap', 'html5shiv', 'respond', 'waves']);
+  ['bower', 'fontAwesome', 'jquery', 'bootstrap', 'html5shiv', 'respond', 'waves']);
