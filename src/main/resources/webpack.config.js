@@ -1,9 +1,10 @@
 var webpack = require('webpack');
 var UglifyJsPlugin = webpack.optimize.UglifyJsPlugin;
-var env = process.env.WEBPACK_ENV;
 var BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 var WebpackDevServer = require('webpack-dev-server');
+var autoprefixer = require('autoprefixer');
 var path = require('path');
+var env = process.env.WEBPACK_ENV;
 
 var appName = 'saiku';
 var host = 'localhost';
@@ -45,8 +46,12 @@ var config = {
   module: {
     loaders: [
       {
+        test: /\.html$/,
+        loader: 'html-loader'
+      },
+      {
         test: /\.css$/,
-        loader: 'style-loader!css-loader'
+        loader: 'style-loader!css-loader!postcss-loader'
       },
       {
         test: /(\.jsx|\.js)$/,
@@ -59,6 +64,9 @@ var config = {
         exclude: /node_modules/
       }
     ]
+  },
+  postcss: function() {
+    return [autoprefixer];
   },
   resolve: {
     root: path.resolve('./src'),
