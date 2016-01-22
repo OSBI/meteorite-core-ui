@@ -81,7 +81,7 @@
 /* 1 */
 /***/ function(module, exports) {
 
-	module.exports = "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n  <title>Saiku 4</title>\n  <link rel=\"stylesheet\" href=\"dist/assets/css/bootstrap.min.css\">\n  <link rel=\"stylesheet\" href=\"dist/assets/css/font-awesome.min.css\">\n  <link rel=\"stylesheet\" href=\"dist/saiku/saiku.css\">\n  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->\n  <!--[if lt IE 9]>\n    <script src=\"dist/assets/js/html5shiv.js\"></script>\n    <script src=\"dist/assets/js/respond.min.js\"></script>\n  <![endif]-->\n</head>\n<body>\n  <div id=\"main\"></div>\n  <script src=\"dist/assets/js/jquery.min.js\"></script>\n  <script src=\"dist/assets/js/bootstrap.min.js\"></script>\n  <script src=\"dist/saiku/saiku.js\"></script>\n</body>\n</html>";
+	module.exports = "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n  <title>Saiku 4</title>\n  <link rel=\"shortcut icon\" href=\"dist/assets/images/favicon.ico\">\n  <link rel=\"stylesheet\" href=\"dist/assets/css/bootstrap.min.css\">\n  <link rel=\"stylesheet\" href=\"dist/assets/css/font-awesome.min.css\">\n  <link rel=\"stylesheet\" href=\"dist/saiku/saiku.css\">\n  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->\n  <!--[if lt IE 9]>\n    <script src=\"dist/assets/js/html5shiv.js\"></script>\n    <script src=\"dist/assets/js/respond.min.js\"></script>\n  <![endif]-->\n</head>\n<body>\n  <div id=\"main\"></div>\n  <script src=\"dist/assets/js/jquery.min.js\"></script>\n  <script src=\"dist/assets/js/bootstrap.min.js\"></script>\n  <script src=\"dist/saiku/saiku.js\"></script>\n</body>\n</html>";
 
 /***/ },
 /* 2 */
@@ -24836,7 +24836,7 @@
 	              _react2['default'].createElement(
 	                _bootstrapIndex.Col,
 	                { xs: 3 },
-	                _react2['default'].createElement('img', { src: 'assets/images/logo-small.png', width: '40', height: '40' })
+	                _react2['default'].createElement('img', { src: 'dist/assets/images/saiku/logo-small.png', width: '40', height: '40' })
 	              ),
 	              _react2['default'].createElement(
 	                _bootstrapIndex.Col,
@@ -24900,7 +24900,7 @@
 	                    { xs: 6, className: 'text-right' },
 	                    _react2['default'].createElement(
 	                      'div',
-	                      { className: 'checkbox checkbox-primary' },
+	                      { className: 'checkbox' },
 	                      _react2['default'].createElement(
 	                        'a',
 	                        { href: '#' },

@@ -12,7 +12,7 @@ class Login extends React.Component {
           <div className="content-box">
             <div className="panel-heading">
               <Col xs={3}>
-                <img src="assets/images/logo-small.png" width="40" height="40" />
+                <img src="dist/assets/images/saiku/logo-small.png" width="40" height="40" />
               </Col>
               <Col xs={9}>
                 <h4 className="text-left">Sign In to <strong>Saiku Analytics</strong></h4>
@@ -39,7 +39,7 @@ class Login extends React.Component {
                     </div>
                   </Col>
                   <Col xs={6} className="text-right">
-                    <div className="checkbox checkbox-primary">
+                    <div className="checkbox">
                       <a href="#">Evaluation Login</a>
                     </div>
                   </Col>
