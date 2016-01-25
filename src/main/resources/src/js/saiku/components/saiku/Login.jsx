@@ -1,7 +1,26 @@
 import React from 'react';
+import { History } from 'react-router';
+import reactMixin from 'react-mixin';
 import { Row, Col, FormGroup, Input, Button, Clearfix } from '../bootstrap/index';
+import Session from './Session';
 
 class Login extends React.Component {
+  login(event) {
+    event.preventDefault();
+
+    let credentials = {
+      username: this.refs.username.getValue(),
+      password: this.refs.password.getValue()
+    };
+
+    // console.log(credentials);
+    // console.log(this.props.session.test());
+    this.props.session.login(credentials, this);
+
+    this.refs.loginForm.reset();
+    // this.history.pushState(null, '/workspace/');
+  }
+
   render() {
     return (
       <div>
@@ -20,15 +39,15 @@ class Login extends React.Component {
               <Clearfix />
             </div>
             <div className="panel-body">
-              <form className="form-horizontal m-t-20">
+              <form className="form-horizontal m-t-20" ref="loginForm" onSubmit={this.login.bind(this)}>
                 <FormGroup>
                   <Col xs={12}>
-                    <Input type="text" placeholder="Username" />
+                    <Input type="text" ref="username" placeholder="Username" />
                   </Col>
                 </FormGroup>
                 <FormGroup>
                   <Col xs={12}>
-                    <Input type="password" placeholder="Password" />
+                    <Input type="password" ref="password" placeholder="Password" />
                   </Col>
                 </FormGroup>
                 <FormGroup>
@@ -69,5 +88,11 @@ class Login extends React.Component {
     );
   }
 }
+
+reactMixin.onClass(Login, History);
+
+Login.defaultProps = {
+  session: new Session()
+};
 
 export default Login;
