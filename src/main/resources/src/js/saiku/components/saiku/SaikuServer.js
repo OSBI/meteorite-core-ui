@@ -97,7 +97,7 @@ Backbone.sync = (method, model, options) => {
     crossDomain: true,
     async: async,
     beforeSend: (request) => {
-      let auth = 'Basic a2FyYWY6a2FyYWY=';
+      let auth = 'Basic YWRtaW46YWRtaW4=';
 
       request.setRequestHeader('Authorization', auth);
       // return true;

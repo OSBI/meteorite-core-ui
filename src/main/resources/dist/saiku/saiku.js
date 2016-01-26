@@ -64,19 +64,19 @@
 	
 	var _componentsSaikuLogin2 = _interopRequireDefault(_componentsSaikuLogin);
 	
-	var _componentsSaikuWorkspace = __webpack_require__(229);
+	var _componentsSaikuWorkspace = __webpack_require__(231);
 	
 	var _componentsSaikuWorkspace2 = _interopRequireDefault(_componentsSaikuWorkspace);
 	
-	var _componentsSaikuNotFound = __webpack_require__(230);
+	var _componentsSaikuNotFound = __webpack_require__(232);
 	
 	var _componentsSaikuNotFound2 = _interopRequireDefault(_componentsSaikuNotFound);
 	
 	// webpack loaders
 	
-	__webpack_require__(231);
+	__webpack_require__(233);
 	
-	__webpack_require__(232);
+	__webpack_require__(234);
 	
 	var routes = _react2['default'].createElement(
 	  _reactRouter.Router,
@@ -25908,7 +25908,7 @@
 	
 	var _backbone2 = _interopRequireDefault(_backbone);
 	
-	var _SaikuServer = __webpack_require__(236);
+	var _SaikuServer = __webpack_require__(229);
 	
 	var _SaikuServer2 = _interopRequireDefault(_SaikuServer);
 	
@@ -25945,7 +25945,7 @@
 	      //   console.log(options);
 	      // }});
 	
-	      this.save({ username: 'test2', password: 'pass' }, { success: function success(model, response, options) {
+	      this.save({ username: 'admin', password: 'admin' }, { success: function success(model, response, options) {
 	          console.log(model);
 	          console.log(response);
 	          console.log(options);
@@ -39266,6 +39266,176 @@
 	  value: true
 	});
 	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	
+	var _jquery = __webpack_require__(226);
+	
+	var _jquery2 = _interopRequireDefault(_jquery);
+	
+	var _underscore = __webpack_require__(227);
+	
+	var _underscore2 = _interopRequireDefault(_underscore);
+	
+	var _backbone = __webpack_require__(228);
+	
+	var _backbone2 = _interopRequireDefault(_backbone);
+	
+	var _Settings = __webpack_require__(230);
+	
+	var _Settings2 = _interopRequireDefault(_Settings);
+	
+	_backbone2['default'].sync = function (method, model, options) {
+	  var params = undefined;
+	  var methodMap = {
+	    'create': 'POST',
+	    'read': 'GET',
+	    'update': 'PUT',
+	    'delete': 'DELETE'
+	  };
+	  // Generate AJAX action
+	  var type = methodMap[method];
+	  // let url = '/cxf/rest/core/user';
+	  var url = 'http://localhost:8181/cxf/rest/core/user';
+	
+	  // Prepare for failure
+	  if (typeof _Settings2['default'].ERRORS === 'undefined') {
+	    _Settings2['default'].ERRORS = 0;
+	  }
+	
+	  var errorLogout = function errorLogout() {
+	    _Settings2['default'].ERRORS++;
+	    if (_Settings2['default'].ERRORS < _Settings2['default'].ERROR_TOLERANCE) {
+	      console.log('Logout!!');
+	    } else {
+	      console.log('Communication problem with the server. Please reload the application...');
+	    }
+	  };
+	
+	  var statuscode = {
+	    0: function _() {
+	      errorLogout();
+	    },
+	    401: function _() {
+	      errorLogout();
+	    }
+	  };
+	
+	  var failure = function failure(jqXHR, textStatus, errorThrown) {
+	    if (typeof console !== 'undefined' && console && console.error) {
+	      console.error('Error performing ' + type + ' on ' + url);
+	      console.error(errorThrown);
+	    }
+	    if (options.error) {
+	      options.error(jqXHR, textStatus, errorThrown);
+	    }
+	  };
+	
+	  var success = function success(data, textStatus, jqXHR) {
+	    _Settings2['default'].ERRORS = 0;
+	    options.success(data, textStatus, jqXHR);
+	  };
+	
+	  var async = true;
+	
+	  if (options.async === false) {
+	    async = false;
+	  }
+	
+	  var dataType = 'json';
+	
+	  if (typeof options.dataType !== 'undefined') {
+	    dataType = options.dataType;
+	  }
+	
+	  var contentType = 'application/x-www-form-urlencoded';
+	  // let contentType = 'application/json';
+	
+	  if (typeof options.contentType !== 'undefined') {
+	    contentType = options.contentType;
+	  }
+	
+	  var data = model.attributes;
+	
+	  if (typeof options.data !== 'undefined') {
+	    data = options.data;
+	  }
+	
+	  // options.headers = {
+	  //   'Authorization': 'Basic a2FyYWY6a2FyYWY='
+	  // };
+	
+	  // Default JSON-request options.
+	  params = {
+	    url: url,
+	    type: type,
+	    cache: false,
+	    data: data,
+	    contentType: contentType,
+	    dataType: dataType,
+	    success: success,
+	    statusCode: statuscode,
+	    error: failure,
+	    crossDomain: true,
+	    async: async,
+	    beforeSend: function beforeSend(request) {
+	      var auth = 'Basic YWRtaW46YWRtaW4=';
+	
+	      request.setRequestHeader('Authorization', auth);
+	      // return true;
+	    }
+	  };
+	
+	  if (options.processData === false) {
+	    params.processData = false;
+	  }
+	
+	  // For older servers, emulate HTTP by mimicking the HTTP method with `_method`
+	  // And an `X-HTTP-Method-Override` header.
+	  if (_backbone2['default'].emulateHTTP) {
+	    if (type === 'PUT' || type === 'DELETE') {
+	      if (_backbone2['default'].emulateHTTP) {
+	        params.data._method = type;
+	      }
+	      params.type = 'POST';
+	      params.beforeSend = function (xhr) {
+	        xhr.setRequestHeader('X-HTTP-Method-Override', type);
+	      };
+	    }
+	  }
+	
+	  // Make the request
+	  _jquery2['default'].ajax(params);
+	};
+	
+	exports['default'] = _backbone2['default'];
+	module.exports = exports['default'];
+
+/***/ },
+/* 230 */
+/***/ function(module, exports) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	var Settings = {
+	  ERROR_TOLERANCE: 3
+	};
+	
+	exports["default"] = Settings;
+	module.exports = exports["default"];
+
+/***/ },
+/* 231 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+	
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 	
 	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
@@ -39307,7 +39477,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 230 */
+/* 232 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -39357,22 +39527,22 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 231 */
+/* 233 */
 /***/ function(module, exports) {
 
 	module.exports = "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n  <title>Saiku 4</title>\n  <link rel=\"shortcut icon\" href=\"dist/assets/images/favicon.ico\">\n  <link rel=\"stylesheet\" href=\"dist/assets/css/bootstrap.min.css\">\n  <link rel=\"stylesheet\" href=\"dist/assets/css/font-awesome.min.css\">\n  <link rel=\"stylesheet\" href=\"dist/saiku/saiku.css\">\n  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->\n  <!--[if lt IE 9]>\n    <script src=\"dist/assets/js/html5shiv.js\"></script>\n    <script src=\"dist/assets/js/respond.min.js\"></script>\n  <![endif]-->\n</head>\n<body>\n  <div id=\"main\"></div>\n  <script src=\"dist/assets/js/jquery.min.js\"></script>\n  <script src=\"dist/assets/js/bootstrap.min.js\"></script>\n  <script src=\"dist/saiku/saiku.js\"></script>\n</body>\n</html>";
 
 /***/ },
-/* 232 */
+/* 234 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(233);
+	var content = __webpack_require__(235);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(235)(content, {});
+	var update = __webpack_require__(237)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -39389,10 +39559,10 @@
 	}
 
 /***/ },
-/* 233 */
+/* 235 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(234)();
+	exports = module.exports = __webpack_require__(236)();
 	// imports
 	exports.push([module.id, "@import url(https://fonts.googleapis.com/css?family=Noto+Sans:400,700);", ""]);
 	exports.push([module.id, "@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700,300);", ""]);
@@ -39404,7 +39574,7 @@
 
 
 /***/ },
-/* 234 */
+/* 236 */
 /***/ function(module, exports) {
 
 	/*
@@ -39460,7 +39630,7 @@
 
 
 /***/ },
-/* 235 */
+/* 237 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -39712,176 +39882,6 @@
 			URL.revokeObjectURL(oldSrc);
 	}
 
-
-/***/ },
-/* 236 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, '__esModule', {
-	  value: true
-	});
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-	
-	var _jquery = __webpack_require__(226);
-	
-	var _jquery2 = _interopRequireDefault(_jquery);
-	
-	var _underscore = __webpack_require__(227);
-	
-	var _underscore2 = _interopRequireDefault(_underscore);
-	
-	var _backbone = __webpack_require__(228);
-	
-	var _backbone2 = _interopRequireDefault(_backbone);
-	
-	var _Settings = __webpack_require__(237);
-	
-	var _Settings2 = _interopRequireDefault(_Settings);
-	
-	_backbone2['default'].sync = function (method, model, options) {
-	  var params = undefined;
-	  var methodMap = {
-	    'create': 'POST',
-	    'read': 'GET',
-	    'update': 'PUT',
-	    'delete': 'DELETE'
-	  };
-	  // Generate AJAX action
-	  var type = methodMap[method];
-	  // let url = '/cxf/rest/core/user';
-	  var url = 'http://localhost:8181/cxf/rest/core/user';
-	
-	  // Prepare for failure
-	  if (typeof _Settings2['default'].ERRORS === 'undefined') {
-	    _Settings2['default'].ERRORS = 0;
-	  }
-	
-	  var errorLogout = function errorLogout() {
-	    _Settings2['default'].ERRORS++;
-	    if (_Settings2['default'].ERRORS < _Settings2['default'].ERROR_TOLERANCE) {
-	      console.log('Logout!!');
-	    } else {
-	      console.log('Communication problem with the server. Please reload the application...');
-	    }
-	  };
-	
-	  var statuscode = {
-	    0: function _() {
-	      errorLogout();
-	    },
-	    401: function _() {
-	      errorLogout();
-	    }
-	  };
-	
-	  var failure = function failure(jqXHR, textStatus, errorThrown) {
-	    if (typeof console !== 'undefined' && console && console.error) {
-	      console.error('Error performing ' + type + ' on ' + url);
-	      console.error(errorThrown);
-	    }
-	    if (options.error) {
-	      options.error(jqXHR, textStatus, errorThrown);
-	    }
-	  };
-	
-	  var success = function success(data, textStatus, jqXHR) {
-	    _Settings2['default'].ERRORS = 0;
-	    options.success(data, textStatus, jqXHR);
-	  };
-	
-	  var async = true;
-	
-	  if (options.async === false) {
-	    async = false;
-	  }
-	
-	  var dataType = 'json';
-	
-	  if (typeof options.dataType !== 'undefined') {
-	    dataType = options.dataType;
-	  }
-	
-	  var contentType = 'application/x-www-form-urlencoded';
-	  // let contentType = 'application/json';
-	
-	  if (typeof options.contentType !== 'undefined') {
-	    contentType = options.contentType;
-	  }
-	
-	  var data = model.attributes;
-	
-	  if (typeof options.data !== 'undefined') {
-	    data = options.data;
-	  }
-	
-	  // options.headers = {
-	  //   'Authorization': 'Basic a2FyYWY6a2FyYWY='
-	  // };
-	
-	  // Default JSON-request options.
-	  params = {
-	    url: url,
-	    type: type,
-	    cache: false,
-	    data: data,
-	    contentType: contentType,
-	    dataType: dataType,
-	    success: success,
-	    statusCode: statuscode,
-	    error: failure,
-	    crossDomain: true,
-	    async: async,
-	    beforeSend: function beforeSend(request) {
-	      var auth = 'Basic a2FyYWY6a2FyYWY=';
-	
-	      request.setRequestHeader('Authorization', auth);
-	      // return true;
-	    }
-	  };
-	
-	  if (options.processData === false) {
-	    params.processData = false;
-	  }
-	
-	  // For older servers, emulate HTTP by mimicking the HTTP method with `_method`
-	  // And an `X-HTTP-Method-Override` header.
-	  if (_backbone2['default'].emulateHTTP) {
-	    if (type === 'PUT' || type === 'DELETE') {
-	      if (_backbone2['default'].emulateHTTP) {
-	        params.data._method = type;
-	      }
-	      params.type = 'POST';
-	      params.beforeSend = function (xhr) {
-	        xhr.setRequestHeader('X-HTTP-Method-Override', type);
-	      };
-	    }
-	  }
-	
-	  // Make the request
-	  _jquery2['default'].ajax(params);
-	};
-	
-	exports['default'] = _backbone2['default'];
-	module.exports = exports['default'];
-
-/***/ },
-/* 237 */
-/***/ function(module, exports) {
-
-	"use strict";
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	var Settings = {
-	  ERROR_TOLERANCE: 3
-	};
-	
-	exports["default"] = Settings;
-	module.exports = exports["default"];
 
 /***/ }
 /******/ ]);

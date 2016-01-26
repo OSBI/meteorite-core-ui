@@ -25,7 +25,7 @@ class Session extends Backbone.Model {
     //   console.log(options);
     // }});
 
-    this.save({username: 'test2', password: 'pass'}, { success: function(model, response, options) {
+    this.save({username: 'admin', password: 'admin'}, { success: function(model, response, options) {
       console.log(model);
       console.log(response);
       console.log(options);
