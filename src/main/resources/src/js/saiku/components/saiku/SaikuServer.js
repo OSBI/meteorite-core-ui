@@ -15,6 +15,8 @@ Backbone.sync = (method, model, options) => {
   let type = methodMap[method];
   // let url = '/cxf/rest/core/user';
   let url = 'http://localhost:8181/cxf/rest/core/user';
+  // let url = 'http://81.174.164.218:8181/cxf/rest/core/user';
+  // let url = 'http://localhost:9999/account?username=breno';
 
   // Prepare for failure
   if (typeof Settings.ERRORS === 'undefined') {
@@ -96,6 +98,9 @@ Backbone.sync = (method, model, options) => {
     error: failure,
     crossDomain: true,
     async: async,
+    // xhrFields: {
+    //   withCredentials: true
+    // },
     beforeSend: (request) => {
       let auth = 'Basic YWRtaW46YWRtaW4=';
 

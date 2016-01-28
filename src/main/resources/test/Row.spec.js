@@ -1,28 +1,32 @@
-import Grid from '../src/js/saiku/components/bootstrap/Grid.jsx';
-import Row from '../src/js/saiku/components/bootstrap/Row.jsx';
-import React from 'react/addons';
+import React from 'react';
+import ReactTestUtils from 'react/lib/ReactTestUtils';
+import ReactDOM from 'react-dom';
 
-const TestUtils = React.addons.TestUtils;
+import Row from '../src/js/saiku/components/bootstrap/Row';
 
-var component;
-var spy = sinon.spy();
+describe('Row', () => {
+  it('uses "div" by default', () => {
+    let instance = ReactTestUtils.renderIntoDocument(
+      <Row>Row content</Row>
+    );
 
-describe('Given an instance of the <Row />', () => {
-  describe('when we render the component', () => {
-    before(() => {
-      component = TestUtils.renderIntoDocument(
-          <Grid>
-            <Row onRender={ spy }>
-              <p>My Row</p>
-            </Row>
-          </Grid>
-        );
-    });
-    it('should render a <div class="row">...</div>', () => {
-      var div = TestUtils.scryRenderedDOMComponentsWithTag(component, 'div');
+    assert.equal(ReactDOM.findDOMNode(instance).nodeName, 'DIV');
+  });
 
-      expect(div).to.have.length.above(0, 'Expected to have element with tag <div>');
-      expect(spy).to.be.calledOnce;
-    });
+  it('has "row" class', () => {
+    let instance = ReactTestUtils.renderIntoDocument(
+      <Row>Row content</Row>
+    );
+
+    assert.equal(ReactDOM.findDOMNode(instance).className, 'row');
+  });
+
+  it('Should merge additional classes', () => {
+    let instance = ReactTestUtils.renderIntoDocument(
+      <Row className="foo">Row content</Row>
+    );
+
+    assert.ok(ReactDOM.findDOMNode(instance).className.match(/\bfoo\b/));
+    assert.ok(ReactDOM.findDOMNode(instance).className.match(/\brow\b/));
   });
 });

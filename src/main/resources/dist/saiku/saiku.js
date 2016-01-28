@@ -25925,6 +25925,8 @@
 	    key: 'url',
 	    value: function url() {
 	      return 'http://localhost:8181/cxf/rest/core/user';
+	      // return 'http://81.174.164.218:8181/cxf/rest/core/user';
+	      // return 'http://localhost:9999/account?username=breno';
 	    }
 	  }, {
 	    key: 'login',
@@ -25932,24 +25934,24 @@
 	      // console.log(component);
 	      // console.log(credentials);
 	
-	      // this.fetch({ success: function (model, response, options) {
-	      //   console.log('SUCCESS');
-	      //   console.log(model);
-	      //   console.log(response);
-	      //   console.log(options);
-	      // },
-	      // error: function (model, response, options) {
-	      //   console.log('ERROR');
-	      //   console.log(model);
-	      //   console.log(response);
-	      //   console.log(options);
-	      // }});
-	
-	      this.save({ username: 'admin', password: 'admin' }, { success: function success(model, response, options) {
+	      this.fetch({ success: function success(model, response, options) {
+	          console.log('SUCCESS');
+	          console.log(model);
+	          console.log(response);
+	          console.log(options);
+	        },
+	        error: function error(model, response, options) {
+	          console.log('ERROR');
 	          console.log(model);
 	          console.log(response);
 	          console.log(options);
 	        } });
+	
+	      // this.save({username: 'admin', password: 'admin'}, { success: function(model, response, options) {
+	      //   console.log(model);
+	      //   console.log(response);
+	      //   console.log(options);
+	      // }});
 	    }
 	  }, {
 	    key: 'test',
@@ -39296,6 +39298,8 @@
 	  var type = methodMap[method];
 	  // let url = '/cxf/rest/core/user';
 	  var url = 'http://localhost:8181/cxf/rest/core/user';
+	  // let url = 'http://81.174.164.218:8181/cxf/rest/core/user';
+	  // let url = 'http://localhost:9999/account?username=breno';
 	
 	  // Prepare for failure
 	  if (typeof _Settings2['default'].ERRORS === 'undefined') {
@@ -39377,6 +39381,9 @@
 	    error: failure,
 	    crossDomain: true,
 	    async: async,
+	    // xhrFields: {
+	    //   withCredentials: true
+	    // },
 	    beforeSend: function beforeSend(request) {
 	      var auth = 'Basic YWRtaW46YWRtaW4=';
 	

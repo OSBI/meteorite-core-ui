@@ -1,16 +1,17 @@
-var webpack = require('webpack');
-var UglifyJsPlugin = webpack.optimize.UglifyJsPlugin;
+var webpack           = require('webpack');
 var BrowserSyncPlugin = require('browser-sync-webpack-plugin');
-var WebpackDevServer = require('webpack-dev-server');
-var autoprefixer = require('autoprefixer');
-var path = require('path');
-var env = process.env.WEBPACK_ENV;
+var WebpackDevServer  = require('webpack-dev-server');
+var autoprefixer      = require('autoprefixer');
+var path              = require('path');
+var figlet            = require('figlet');
+var chalk             = require('chalk');
+var UglifyJsPlugin    = webpack.optimize.UglifyJsPlugin;
+var env               = process.env.WEBPACK_ENV;
 
 var appName = 'saiku';
 var host = 'localhost';
 var port = 3000;
 var contentBase = './';
-
 var plugins = [];
 var outputFile;
 
@@ -18,10 +19,10 @@ if (env === 'build') {
   outputFile = appName + '.min.js';
   plugins.push(new UglifyJsPlugin({ minimize: true }));
 } 
-else {
+else if (env === 'dev') {
   outputFile = appName + '.js';
   plugins.push(
-    // browse to http://localhost:3001/ during development
+    // browse to http://localhost:3001 during development
     new BrowserSyncPlugin(
       {
         host: host,
@@ -76,7 +77,7 @@ var config = {
 };
 
 if (env === 'dev') {
-  // browse to http://localhost:3000/ during development
+  // browse to http://localhost:3000 during development
   new WebpackDevServer(webpack(config), {
     contentBase: contentBase,
     hot: false,
@@ -86,9 +87,18 @@ if (env === 'dev') {
       console.log(err);
     }
   });
-  console.log('----------------------------------------------------');
-  console.log('Local web server runs at http://' + host + ':' + port);
-  console.log('----------------------------------------------------');
+
+  figlet(' Meteorite Core UI', {
+      font: 'Slant'
+    }, function(err, data) {
+    console.log(chalk.red(data) + '\n');
+    console.log(chalk.bold(' Access URLs:'));
+    console.log(chalk.blue(' -------------------------------------------------'));
+    console.log(' Webpack server runs at:     ' + chalk.blue('http://' + host + ':' + port));
+    console.log(' BrowserSync server runs at: ' + chalk.blue('http://' + host + ':3001'));
+    console.log(chalk.blue(' -------------------------------------------------\n'));
+    console.log(' Hit \'' + chalk.blue('<ctrl-c>') + '\' to shutdown.\n');
+  });
 }
 
 module.exports = config;

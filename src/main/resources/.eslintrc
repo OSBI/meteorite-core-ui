@@ -20,6 +20,7 @@
     "describe": true,
     "before": true,
     "it": true,
+    "assert": true,
     "expect": true,
     "sinon": true
   },

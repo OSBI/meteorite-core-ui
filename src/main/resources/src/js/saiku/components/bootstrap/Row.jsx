@@ -9,7 +9,7 @@ class Row extends React.Component {
     return (
       <div
         {...this.props}
-        className={classNames(this.props.className, 'row')}>
+        className={classNames('row', this.props.className)}>
         {this.props.children}
       </div>
     );
