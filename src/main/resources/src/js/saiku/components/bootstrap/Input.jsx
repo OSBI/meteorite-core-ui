@@ -22,7 +22,6 @@ class Input extends React.Component {
 }
 
 Input.propTypes = {
-  onRender: React.PropTypes.func,
   className: React.PropTypes.string,
   type: React.PropTypes.string,
   id: React.PropTypes.string,

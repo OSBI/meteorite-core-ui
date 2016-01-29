@@ -4,14 +4,11 @@ import classNames from 'classnames';
 class Grid extends React.Component {
   render() {
     let className = this.props.fluid ? 'container-fluid' : 'container';
-
-    if (this.props.onRender) {
-      this.props.onRender();
-    }
+    
     return (
       <div
         {...this.props}
-        className={classNames(this.props.className, className)}>
+        className={classNames(className, this.props.className)}>
         {this.props.children}
       </div>
     );
@@ -19,7 +16,6 @@ class Grid extends React.Component {
 }
 
 Grid.propTypes = {
-  onRender: React.PropTypes.func,
   className: React.PropTypes.string,
   children: React.PropTypes.node.isRequired,
   fluid: React.PropTypes.bool

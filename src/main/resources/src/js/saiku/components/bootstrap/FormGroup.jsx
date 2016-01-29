@@ -14,7 +14,6 @@ class FormGroup extends React.Component {
 }
 
 FormGroup.propTypes = {
-  onRender: React.PropTypes.func,
   className: React.PropTypes.string,
   children: React.PropTypes.node.isRequired
 };

@@ -36,13 +36,10 @@ class Col extends React.Component {
       }
     }, this);
 
-    if (this.props.onRender) {
-      this.props.onRender();
-    }
     return (
       <div
         {...this.props}
-        className={classNames(this.props.className, classes)}>
+        className={classNames(classes, this.props.className)}>
         {this.props.children}
       </div>
     );
@@ -50,7 +47,6 @@ class Col extends React.Component {
 }
 
 Col.propTypes = {
-  onRender: React.PropTypes.func,
   className: React.PropTypes.string,
   children: React.PropTypes.node.isRequired,
   /**

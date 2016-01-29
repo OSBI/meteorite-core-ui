@@ -55,7 +55,6 @@ class Button extends React.Component {
 }
 
 Button.propTypes = {
-  onRender: React.PropTypes.func,
   className: React.PropTypes.string,
   children: React.PropTypes.node.isRequired,
   disabled: React.PropTypes.bool,

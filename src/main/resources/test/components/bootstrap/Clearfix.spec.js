@@ -2,31 +2,32 @@ import React from 'react';
 import ReactTestUtils from 'react/lib/ReactTestUtils';
 import ReactDOM from 'react-dom';
 
-import Row from '../src/js/saiku/components/bootstrap/Row';
+import Clearfix from '../../../src/js/saiku/components/bootstrap/Clearfix';
 
-describe('Row', () => {
+describe('Clearfix', () => {
   it('uses "div" by default', () => {
     let instance = ReactTestUtils.renderIntoDocument(
-      <Row>Row content</Row>
+      <Clearfix />
     );
 
     assert.equal(ReactDOM.findDOMNode(instance).nodeName, 'DIV');
   });
 
-  it('has "row" class', () => {
+  it('has "clearfix" class by default', () => {
     let instance = ReactTestUtils.renderIntoDocument(
-      <Row>Row content</Row>
+      <Clearfix />
     );
 
-    assert.equal(ReactDOM.findDOMNode(instance).className, 'row');
+    assert.equal(ReactDOM.findDOMNode(instance).className, 'clearfix');
   });
 
   it('Should merge additional classes', () => {
     let instance = ReactTestUtils.renderIntoDocument(
-      <Row className="foo">Row content</Row>
+      <Clearfix className="foo" />
     );
+    let instanceClassName = ReactDOM.findDOMNode(instance).className;
 
-    assert.ok(ReactDOM.findDOMNode(instance).className.match(/\bfoo\b/));
-    assert.ok(ReactDOM.findDOMNode(instance).className.match(/\brow\b/));
+    assert.ok(instanceClassName.match(/\bfoo\b/));
+    assert.ok(instanceClassName.match(/\bclearfix\b/));
   });
 });

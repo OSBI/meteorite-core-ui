@@ -6,7 +6,7 @@ class Clearfix extends React.Component {
     return (
       <div
         {...this.props}
-        className={classNames(this.props.className, 'clearfix')}>
+        className={classNames('clearfix', this.props.className)}>
       </div>
     );
   }
