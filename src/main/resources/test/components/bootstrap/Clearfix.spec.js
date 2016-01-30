@@ -2,7 +2,7 @@ import React from 'react';
 import ReactTestUtils from 'react/lib/ReactTestUtils';
 import ReactDOM from 'react-dom';
 
-import Clearfix from '../../../src/js/saiku/components/bootstrap/Clearfix';
+import Clearfix from '../../../src/js/components/bootstrap/Clearfix';
 
 describe('Clearfix', () => {
   it('uses "div" by default', () => {

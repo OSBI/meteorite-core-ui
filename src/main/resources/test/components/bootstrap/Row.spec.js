@@ -2,7 +2,7 @@ import React from 'react';
 import ReactTestUtils from 'react/lib/ReactTestUtils';
 import ReactDOM from 'react-dom';
 
-import Row from '../../../src/js/saiku/components/bootstrap/Row';
+import Row from '../../../src/js/components/bootstrap/Row';
 
 describe('Row', () => {
   it('uses "div" by default', () => {

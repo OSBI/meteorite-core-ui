@@ -2,7 +2,7 @@ import React from 'react';
 import { History } from 'react-router';
 import reactMixin from 'react-mixin';
 import { Row, Col, FormGroup, Input, Button, Clearfix } from '../bootstrap/index';
-import Session from './Session';
+import Session from '../../models/Session';
 
 class Login extends React.Component {
   login(event) {

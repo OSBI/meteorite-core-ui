@@ -2,7 +2,7 @@ import React from 'react';
 import ReactTestUtils from 'react/lib/ReactTestUtils';
 import ReactDOM from 'react-dom';
 
-import Input from '../../../src/js/saiku/components/bootstrap/Input';
+import Input from '../../../src/js/components/bootstrap/Input';
 
 describe('Input', () => {
   it('uses "input" by default', () => {
@@ -44,7 +44,6 @@ describe('Input', () => {
     let instance = ReactTestUtils.renderIntoDocument(
       <Input type="text" defaultValue="admin" placeholder="Username" />
     );
-    let node = ReactTestUtils.findRenderedDOMComponentWithTag(instance, 'input');
 
     assert.equal(instance.getValue(), 'admin');
   });

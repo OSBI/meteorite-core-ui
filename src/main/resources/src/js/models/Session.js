@@ -1,11 +1,12 @@
 import jquery from 'jquery';
 import _ from 'underscore';
 import Backbone from 'backbone';
-import SaikuServer from './SaikuServer';
+import SaikuServer from '../adapters/SaikuServer';
 
 class Session extends Backbone.Model {
   url() {
-    return 'http://localhost:8181/cxf/rest/core/user';
+    return 'user';
+    // return 'http://localhost:8181/cxf/rest/core/user';
     // return 'http://81.174.164.218:8181/cxf/rest/core/user';
     // return 'http://localhost:9999/account?username=breno';
   }

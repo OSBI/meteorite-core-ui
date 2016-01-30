@@ -4,7 +4,7 @@ import classNames from 'classnames';
 class Grid extends React.Component {
   render() {
     let className = this.props.fluid ? 'container-fluid' : 'container';
-    
+
     return (
       <div
         {...this.props}

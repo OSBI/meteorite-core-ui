@@ -33,7 +33,7 @@
 
   "rules": {
     "block-scoped-var": 2,
-    "brace-style": [2, "1tbs", { "allowSingleLine": true }],
+    "brace-style": [2, "stroustrup"],
     "camelcase": [2, { "properties": "always" }],
     "comma-dangle": [2, "never"],
     "comma-spacing": [2, { "before": false, "after": true }],

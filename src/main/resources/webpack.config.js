@@ -5,6 +5,7 @@ var autoprefixer      = require('autoprefixer');
 var path              = require('path');
 var figlet            = require('figlet');
 var chalk             = require('chalk');
+var os                = require('os');
 var UglifyJsPlugin    = webpack.optimize.UglifyJsPlugin;
 var env               = process.env.WEBPACK_ENV;
 
@@ -20,6 +21,7 @@ if (env === 'build') {
   plugins.push(new UglifyJsPlugin({ minimize: true }));
 } 
 else if (env === 'dev') {
+  var chromeBrowser = (os.type() === 'Linux' ? 'chromium-browser' : 'google chrome');
   outputFile = appName + '.js';
   plugins.push(
     // browse to http://localhost:3001 during development
@@ -27,7 +29,8 @@ else if (env === 'dev') {
       {
         host: host,
         port: port,
-        server: contentBase
+        server: contentBase,
+        browser: chromeBrowser
       },
       {
         reload: true
@@ -37,7 +40,7 @@ else if (env === 'dev') {
 }
 
 var config = {
-  entry: './src/js/saiku/index.js',
+  entry: './src/js/app.js',
   devtool: 'source-map',
   output: {
     path: __dirname + '/dist/saiku',

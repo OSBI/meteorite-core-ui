@@ -2,7 +2,7 @@ import React from 'react';
 import ReactTestUtils from 'react/lib/ReactTestUtils';
 import ReactDOM from 'react-dom';
 
-import Grid from '../../../src/js/saiku/components/bootstrap/Grid';
+import Grid from '../../../src/js/components/bootstrap/Grid';
 
 describe('Grid', () => {
   it('uses "div" by default', () => {

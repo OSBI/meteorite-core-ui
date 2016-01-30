@@ -1,7 +1,7 @@
-import jquery from 'jquery';
+import $ from 'jquery';
 import _ from 'underscore';
 import Backbone from 'backbone';
-import Settings from './Settings';
+import Settings from '../utils/Settings';
 
 Backbone.sync = (method, model, options) => {
   let params;
@@ -11,12 +11,10 @@ Backbone.sync = (method, model, options) => {
     'update': 'PUT',
     'delete': 'DELETE'
   };
+
   // Generate AJAX action
   let type = methodMap[method];
-  // let url = '/cxf/rest/core/user';
-  let url = 'http://localhost:8181/cxf/rest/core/user';
-  // let url = 'http://81.174.164.218:8181/cxf/rest/core/user';
-  // let url = 'http://localhost:9999/account?username=breno';
+  let url = Settings.REST_URL + (_.isFunction(model.url) ? model.url() : model.url);
 
   // Prepare for failure
   if (typeof Settings.ERRORS === 'undefined') {
@@ -26,8 +24,10 @@ Backbone.sync = (method, model, options) => {
   let errorLogout = () => {
     Settings.ERRORS++;
     if (Settings.ERRORS < Settings.ERROR_TOLERANCE) {
-      console.log('Logout!!');
-    } else {
+      // TODO: Add method logout() in Session.js.
+      console.log('Logout...');
+    }
+    else {
       console.log('Communication problem with the server. Please reload the application...');
     }
   };
@@ -69,7 +69,6 @@ Backbone.sync = (method, model, options) => {
   }
 
   let contentType = 'application/x-www-form-urlencoded';
-  // let contentType = 'application/json';
 
   if (typeof options.contentType !== 'undefined') {
     contentType = options.contentType;
@@ -80,10 +79,6 @@ Backbone.sync = (method, model, options) => {
   if (typeof options.data !== 'undefined') {
     data = options.data;
   }
-
-  // options.headers = {
-  //   'Authorization': 'Basic a2FyYWY6a2FyYWY='
-  // };
 
   // Default JSON-request options.
   params = {
@@ -98,20 +93,13 @@ Backbone.sync = (method, model, options) => {
     error: failure,
     crossDomain: true,
     async: async,
-    // xhrFields: {
-    //   withCredentials: true
-    // },
     beforeSend: (request) => {
       let auth = 'Basic YWRtaW46YWRtaW4=';
 
       request.setRequestHeader('Authorization', auth);
-      // return true;
+      return true;
     }
   };
-
-  if (options.processData === false) {
-    params.processData = false;
-  }
 
   // For older servers, emulate HTTP by mimicking the HTTP method with `_method`
   // And an `X-HTTP-Method-Override` header.
@@ -128,7 +116,7 @@ Backbone.sync = (method, model, options) => {
   }
 
   // Make the request
-  jquery.ajax(params);
+  $.ajax(params);
 };
 
 export default Backbone;

@@ -86,7 +86,7 @@
 	  _react2['default'].createElement(_reactRouter.Route, { path: '*', component: _componentsSaikuNotFound2['default'] })
 	);
 	
-	_reactDom2['default'].render(routes, document.querySelector('#main'));
+	_reactDom2['default'].render(routes, document.querySelector('#app'));
 
 /***/ },
 /* 1 */
@@ -24467,9 +24467,9 @@
 	
 	var _bootstrapIndex = __webpack_require__(215);
 	
-	var _Session = __webpack_require__(225);
+	var _modelsSession = __webpack_require__(239);
 	
-	var _Session2 = _interopRequireDefault(_Session);
+	var _modelsSession2 = _interopRequireDefault(_modelsSession);
 	
 	var Login = (function (_React$Component) {
 	  _inherits(Login, _React$Component);
@@ -24635,7 +24635,7 @@
 	_reactMixin2['default'].onClass(Login, _reactRouter.History);
 	
 	Login.defaultProps = {
-	  session: new _Session2['default']()
+	  session: new _modelsSession2['default']()
 	};
 	
 	exports['default'] = Login;
@@ -25113,13 +25113,10 @@
 	    value: function render() {
 	      var className = this.props.fluid ? 'container-fluid' : 'container';
 	
-	      if (this.props.onRender) {
-	        this.props.onRender();
-	      }
 	      return _react2['default'].createElement(
 	        'div',
 	        _extends({}, this.props, {
-	          className: (0, _classnames2['default'])(this.props.className, className) }),
+	          className: (0, _classnames2['default'])(className, this.props.className) }),
 	        this.props.children
 	      );
 	    }
@@ -25129,7 +25126,6 @@
 	})(_react2['default'].Component);
 	
 	Grid.propTypes = {
-	  onRender: _react2['default'].PropTypes.func,
 	  className: _react2['default'].PropTypes.string,
 	  children: _react2['default'].PropTypes.node.isRequired,
 	  fluid: _react2['default'].PropTypes.bool
@@ -25238,13 +25234,10 @@
 	  _createClass(Row, [{
 	    key: 'render',
 	    value: function render() {
-	      if (this.props.onRender) {
-	        this.props.onRender();
-	      }
 	      return _react2['default'].createElement(
 	        'div',
 	        _extends({}, this.props, {
-	          className: (0, _classnames2['default'])(this.props.className, 'row') }),
+	          className: (0, _classnames2['default'])('row', this.props.className) }),
 	        this.props.children
 	      );
 	    }
@@ -25254,7 +25247,6 @@
 	})(_react2['default'].Component);
 	
 	Row.propTypes = {
-	  onRender: _react2['default'].PropTypes.func,
 	  className: _react2['default'].PropTypes.string,
 	  children: _react2['default'].PropTypes.node.isRequired
 	};
@@ -25342,13 +25334,10 @@
 	        }
 	      }, this);
 	
-	      if (this.props.onRender) {
-	        this.props.onRender();
-	      }
 	      return _react2['default'].createElement(
 	        'div',
 	        _extends({}, this.props, {
-	          className: (0, _classnames2['default'])(this.props.className, classes) }),
+	          className: (0, _classnames2['default'])(classes, this.props.className) }),
 	        this.props.children
 	      );
 	    }
@@ -25358,7 +25347,6 @@
 	})(_react2['default'].Component);
 	
 	Col.propTypes = {
-	  onRender: _react2['default'].PropTypes.func,
 	  className: _react2['default'].PropTypes.string,
 	  children: _react2['default'].PropTypes.node.isRequired,
 	  /**
@@ -25615,7 +25603,6 @@
 	})(_react2['default'].Component);
 	
 	FormGroup.propTypes = {
-	  onRender: _react2['default'].PropTypes.func,
 	  className: _react2['default'].PropTypes.string,
 	  children: _react2['default'].PropTypes.node.isRequired
 	};
@@ -25686,7 +25673,6 @@
 	})(_react2['default'].Component);
 	
 	Input.propTypes = {
-	  onRender: _react2['default'].PropTypes.func,
 	  className: _react2['default'].PropTypes.string,
 	  type: _react2['default'].PropTypes.string,
 	  id: _react2['default'].PropTypes.string,
@@ -25797,7 +25783,6 @@
 	})(_react2['default'].Component);
 	
 	Button.propTypes = {
-	  onRender: _react2['default'].PropTypes.func,
 	  className: _react2['default'].PropTypes.string,
 	  children: _react2['default'].PropTypes.node.isRequired,
 	  disabled: _react2['default'].PropTypes.bool,
@@ -25862,7 +25847,7 @@
 	    key: 'render',
 	    value: function render() {
 	      return _react2['default'].createElement('div', _extends({}, this.props, {
-	        className: (0, _classnames2['default'])(this.props.className, 'clearfix') }));
+	        className: (0, _classnames2['default'])('clearfix', this.props.className) }));
 	    }
 	  }]);
 	
@@ -25877,96 +25862,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 225 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, '__esModule', {
-	  value: true
-	});
-	
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-	
-	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var _jquery = __webpack_require__(226);
-	
-	var _jquery2 = _interopRequireDefault(_jquery);
-	
-	var _underscore = __webpack_require__(227);
-	
-	var _underscore2 = _interopRequireDefault(_underscore);
-	
-	var _backbone = __webpack_require__(228);
-	
-	var _backbone2 = _interopRequireDefault(_backbone);
-	
-	var _SaikuServer = __webpack_require__(229);
-	
-	var _SaikuServer2 = _interopRequireDefault(_SaikuServer);
-	
-	var Session = (function (_Backbone$Model) {
-	  _inherits(Session, _Backbone$Model);
-	
-	  function Session() {
-	    _classCallCheck(this, Session);
-	
-	    _get(Object.getPrototypeOf(Session.prototype), 'constructor', this).apply(this, arguments);
-	  }
-	
-	  _createClass(Session, [{
-	    key: 'url',
-	    value: function url() {
-	      return 'http://localhost:8181/cxf/rest/core/user';
-	      // return 'http://81.174.164.218:8181/cxf/rest/core/user';
-	      // return 'http://localhost:9999/account?username=breno';
-	    }
-	  }, {
-	    key: 'login',
-	    value: function login(credentials, component) {
-	      // console.log(component);
-	      // console.log(credentials);
-	
-	      this.fetch({ success: function success(model, response, options) {
-	          console.log('SUCCESS');
-	          console.log(model);
-	          console.log(response);
-	          console.log(options);
-	        },
-	        error: function error(model, response, options) {
-	          console.log('ERROR');
-	          console.log(model);
-	          console.log(response);
-	          console.log(options);
-	        } });
-	
-	      // this.save({username: 'admin', password: 'admin'}, { success: function(model, response, options) {
-	      //   console.log(model);
-	      //   console.log(response);
-	      //   console.log(options);
-	      // }});
-	    }
-	  }, {
-	    key: 'test',
-	    value: function test() {
-	      return 'Hello!!';
-	    }
-	  }]);
-	
-	  return Session;
-	})(_backbone2['default'].Model);
-	
-	exports['default'] = Session;
-	module.exports = exports['default'];
-
-/***/ },
+/* 225 */,
 /* 226 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -39259,181 +39155,8 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 229 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, '__esModule', {
-	  value: true
-	});
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-	
-	var _jquery = __webpack_require__(226);
-	
-	var _jquery2 = _interopRequireDefault(_jquery);
-	
-	var _underscore = __webpack_require__(227);
-	
-	var _underscore2 = _interopRequireDefault(_underscore);
-	
-	var _backbone = __webpack_require__(228);
-	
-	var _backbone2 = _interopRequireDefault(_backbone);
-	
-	var _Settings = __webpack_require__(230);
-	
-	var _Settings2 = _interopRequireDefault(_Settings);
-	
-	_backbone2['default'].sync = function (method, model, options) {
-	  var params = undefined;
-	  var methodMap = {
-	    'create': 'POST',
-	    'read': 'GET',
-	    'update': 'PUT',
-	    'delete': 'DELETE'
-	  };
-	  // Generate AJAX action
-	  var type = methodMap[method];
-	  // let url = '/cxf/rest/core/user';
-	  var url = 'http://localhost:8181/cxf/rest/core/user';
-	  // let url = 'http://81.174.164.218:8181/cxf/rest/core/user';
-	  // let url = 'http://localhost:9999/account?username=breno';
-	
-	  // Prepare for failure
-	  if (typeof _Settings2['default'].ERRORS === 'undefined') {
-	    _Settings2['default'].ERRORS = 0;
-	  }
-	
-	  var errorLogout = function errorLogout() {
-	    _Settings2['default'].ERRORS++;
-	    if (_Settings2['default'].ERRORS < _Settings2['default'].ERROR_TOLERANCE) {
-	      console.log('Logout!!');
-	    } else {
-	      console.log('Communication problem with the server. Please reload the application...');
-	    }
-	  };
-	
-	  var statuscode = {
-	    0: function _() {
-	      errorLogout();
-	    },
-	    401: function _() {
-	      errorLogout();
-	    }
-	  };
-	
-	  var failure = function failure(jqXHR, textStatus, errorThrown) {
-	    if (typeof console !== 'undefined' && console && console.error) {
-	      console.error('Error performing ' + type + ' on ' + url);
-	      console.error(errorThrown);
-	    }
-	    if (options.error) {
-	      options.error(jqXHR, textStatus, errorThrown);
-	    }
-	  };
-	
-	  var success = function success(data, textStatus, jqXHR) {
-	    _Settings2['default'].ERRORS = 0;
-	    options.success(data, textStatus, jqXHR);
-	  };
-	
-	  var async = true;
-	
-	  if (options.async === false) {
-	    async = false;
-	  }
-	
-	  var dataType = 'json';
-	
-	  if (typeof options.dataType !== 'undefined') {
-	    dataType = options.dataType;
-	  }
-	
-	  var contentType = 'application/x-www-form-urlencoded';
-	  // let contentType = 'application/json';
-	
-	  if (typeof options.contentType !== 'undefined') {
-	    contentType = options.contentType;
-	  }
-	
-	  var data = model.attributes;
-	
-	  if (typeof options.data !== 'undefined') {
-	    data = options.data;
-	  }
-	
-	  // options.headers = {
-	  //   'Authorization': 'Basic a2FyYWY6a2FyYWY='
-	  // };
-	
-	  // Default JSON-request options.
-	  params = {
-	    url: url,
-	    type: type,
-	    cache: false,
-	    data: data,
-	    contentType: contentType,
-	    dataType: dataType,
-	    success: success,
-	    statusCode: statuscode,
-	    error: failure,
-	    crossDomain: true,
-	    async: async,
-	    // xhrFields: {
-	    //   withCredentials: true
-	    // },
-	    beforeSend: function beforeSend(request) {
-	      var auth = 'Basic YWRtaW46YWRtaW4=';
-	
-	      request.setRequestHeader('Authorization', auth);
-	      // return true;
-	    }
-	  };
-	
-	  if (options.processData === false) {
-	    params.processData = false;
-	  }
-	
-	  // For older servers, emulate HTTP by mimicking the HTTP method with `_method`
-	  // And an `X-HTTP-Method-Override` header.
-	  if (_backbone2['default'].emulateHTTP) {
-	    if (type === 'PUT' || type === 'DELETE') {
-	      if (_backbone2['default'].emulateHTTP) {
-	        params.data._method = type;
-	      }
-	      params.type = 'POST';
-	      params.beforeSend = function (xhr) {
-	        xhr.setRequestHeader('X-HTTP-Method-Override', type);
-	      };
-	    }
-	  }
-	
-	  // Make the request
-	  _jquery2['default'].ajax(params);
-	};
-	
-	exports['default'] = _backbone2['default'];
-	module.exports = exports['default'];
-
-/***/ },
-/* 230 */
-/***/ function(module, exports) {
-
-	"use strict";
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	var Settings = {
-	  ERROR_TOLERANCE: 3
-	};
-	
-	exports["default"] = Settings;
-	module.exports = exports["default"];
-
-/***/ },
+/* 229 */,
+/* 230 */,
 /* 231 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -39537,7 +39260,7 @@
 /* 233 */
 /***/ function(module, exports) {
 
-	module.exports = "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n  <title>Saiku 4</title>\n  <link rel=\"shortcut icon\" href=\"dist/assets/images/favicon.ico\">\n  <link rel=\"stylesheet\" href=\"dist/assets/css/bootstrap.min.css\">\n  <link rel=\"stylesheet\" href=\"dist/assets/css/font-awesome.min.css\">\n  <link rel=\"stylesheet\" href=\"dist/saiku/saiku.css\">\n  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->\n  <!--[if lt IE 9]>\n    <script src=\"dist/assets/js/html5shiv.js\"></script>\n    <script src=\"dist/assets/js/respond.min.js\"></script>\n  <![endif]-->\n</head>\n<body>\n  <div id=\"main\"></div>\n  <script src=\"dist/assets/js/jquery.min.js\"></script>\n  <script src=\"dist/assets/js/bootstrap.min.js\"></script>\n  <script src=\"dist/saiku/saiku.js\"></script>\n</body>\n</html>";
+	module.exports = "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n  <title>Saiku 4</title>\n  <link rel=\"shortcut icon\" href=\"dist/assets/images/favicon.ico\">\n  <link rel=\"stylesheet\" href=\"dist/assets/css/bootstrap.min.css\">\n  <link rel=\"stylesheet\" href=\"dist/assets/css/font-awesome.min.css\">\n  <link rel=\"stylesheet\" href=\"dist/saiku/saiku.css\">\n  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->\n  <!--[if lt IE 9]>\n    <script src=\"dist/assets/js/html5shiv.js\"></script>\n    <script src=\"dist/assets/js/respond.min.js\"></script>\n  <![endif]-->\n</head>\n<body>\n  <div id=\"app\"></div>\n  <script src=\"dist/assets/js/jquery.min.js\"></script>\n  <script src=\"dist/assets/js/bootstrap.min.js\"></script>\n  <script src=\"dist/saiku/saiku.js\"></script>\n</body>\n</html>";
 
 /***/ },
 /* 234 */
@@ -39889,6 +39612,263 @@
 			URL.revokeObjectURL(oldSrc);
 	}
 
+
+/***/ },
+/* 238 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	
+	var _jquery = __webpack_require__(226);
+	
+	var _jquery2 = _interopRequireDefault(_jquery);
+	
+	var _underscore = __webpack_require__(227);
+	
+	var _underscore2 = _interopRequireDefault(_underscore);
+	
+	var _backbone = __webpack_require__(228);
+	
+	var _backbone2 = _interopRequireDefault(_backbone);
+	
+	var _utilsSettings = __webpack_require__(240);
+	
+	var _utilsSettings2 = _interopRequireDefault(_utilsSettings);
+	
+	_backbone2['default'].sync = function (method, model, options) {
+	  var params = undefined;
+	  var methodMap = {
+	    'create': 'POST',
+	    'read': 'GET',
+	    'update': 'PUT',
+	    'delete': 'DELETE'
+	  };
+	
+	  // Generate AJAX action
+	  var type = methodMap[method];
+	  var url = _utilsSettings2['default'].REST_URL + (_underscore2['default'].isFunction(model.url) ? model.url() : model.url);
+	
+	  // Prepare for failure
+	  if (typeof _utilsSettings2['default'].ERRORS === 'undefined') {
+	    _utilsSettings2['default'].ERRORS = 0;
+	  }
+	
+	  var errorLogout = function errorLogout() {
+	    _utilsSettings2['default'].ERRORS++;
+	    if (_utilsSettings2['default'].ERRORS < _utilsSettings2['default'].ERROR_TOLERANCE) {
+	      // TODO: Add method logout() in Session.js.
+	      console.log('Logout...');
+	    } else {
+	      console.log('Communication problem with the server. Please reload the application...');
+	    }
+	  };
+	
+	  var statuscode = {
+	    0: function _() {
+	      errorLogout();
+	    },
+	    401: function _() {
+	      errorLogout();
+	    }
+	  };
+	
+	  var failure = function failure(jqXHR, textStatus, errorThrown) {
+	    if (typeof console !== 'undefined' && console && console.error) {
+	      console.error('Error performing ' + type + ' on ' + url);
+	      console.error(errorThrown);
+	    }
+	    if (options.error) {
+	      options.error(jqXHR, textStatus, errorThrown);
+	    }
+	  };
+	
+	  var success = function success(data, textStatus, jqXHR) {
+	    _utilsSettings2['default'].ERRORS = 0;
+	    options.success(data, textStatus, jqXHR);
+	  };
+	
+	  var async = true;
+	
+	  if (options.async === false) {
+	    async = false;
+	  }
+	
+	  var dataType = 'json';
+	
+	  if (typeof options.dataType !== 'undefined') {
+	    dataType = options.dataType;
+	  }
+	
+	  var contentType = 'application/x-www-form-urlencoded';
+	
+	  if (typeof options.contentType !== 'undefined') {
+	    contentType = options.contentType;
+	  }
+	
+	  var data = model.attributes;
+	
+	  if (typeof options.data !== 'undefined') {
+	    data = options.data;
+	  }
+	
+	  // Default JSON-request options.
+	  params = {
+	    url: url,
+	    type: type,
+	    cache: false,
+	    data: data,
+	    contentType: contentType,
+	    dataType: dataType,
+	    success: success,
+	    statusCode: statuscode,
+	    error: failure,
+	    crossDomain: true,
+	    async: async,
+	    beforeSend: function beforeSend(request) {
+	      var auth = 'Basic YWRtaW46YWRtaW4=';
+	
+	      request.setRequestHeader('Authorization', auth);
+	      return true;
+	    }
+	  };
+	
+	  // For older servers, emulate HTTP by mimicking the HTTP method with `_method`
+	  // And an `X-HTTP-Method-Override` header.
+	  if (_backbone2['default'].emulateHTTP) {
+	    if (type === 'PUT' || type === 'DELETE') {
+	      if (_backbone2['default'].emulateHTTP) {
+	        params.data._method = type;
+	      }
+	      params.type = 'POST';
+	      params.beforeSend = function (xhr) {
+	        xhr.setRequestHeader('X-HTTP-Method-Override', type);
+	      };
+	    }
+	  }
+	
+	  // Make the request
+	  _jquery2['default'].ajax(params);
+	};
+	
+	exports['default'] = _backbone2['default'];
+	module.exports = exports['default'];
+
+/***/ },
+/* 239 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+	
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+	
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var _jquery = __webpack_require__(226);
+	
+	var _jquery2 = _interopRequireDefault(_jquery);
+	
+	var _underscore = __webpack_require__(227);
+	
+	var _underscore2 = _interopRequireDefault(_underscore);
+	
+	var _backbone = __webpack_require__(228);
+	
+	var _backbone2 = _interopRequireDefault(_backbone);
+	
+	var _adaptersSaikuServer = __webpack_require__(238);
+	
+	var _adaptersSaikuServer2 = _interopRequireDefault(_adaptersSaikuServer);
+	
+	var Session = (function (_Backbone$Model) {
+	  _inherits(Session, _Backbone$Model);
+	
+	  function Session() {
+	    _classCallCheck(this, Session);
+	
+	    _get(Object.getPrototypeOf(Session.prototype), 'constructor', this).apply(this, arguments);
+	  }
+	
+	  _createClass(Session, [{
+	    key: 'url',
+	    value: function url() {
+	      return 'user';
+	      // return 'http://localhost:8181/cxf/rest/core/user';
+	      // return 'http://81.174.164.218:8181/cxf/rest/core/user';
+	      // return 'http://localhost:9999/account?username=breno';
+	    }
+	  }, {
+	    key: 'login',
+	    value: function login(credentials, component) {
+	      // console.log(component);
+	      // console.log(credentials);
+	
+	      this.fetch({ success: function success(model, response, options) {
+	          console.log('SUCCESS');
+	          console.log(model);
+	          console.log(response);
+	          console.log(options);
+	        },
+	        error: function error(model, response, options) {
+	          console.log('ERROR');
+	          console.log(model);
+	          console.log(response);
+	          console.log(options);
+	        } });
+	
+	      // this.save({username: 'admin', password: 'admin'}, { success: function(model, response, options) {
+	      //   console.log(model);
+	      //   console.log(response);
+	      //   console.log(options);
+	      // }});
+	    }
+	  }, {
+	    key: 'test',
+	    value: function test() {
+	      return 'Hello!!';
+	    }
+	  }]);
+	
+	  return Session;
+	})(_backbone2['default'].Model);
+	
+	exports['default'] = Session;
+	module.exports = exports['default'];
+
+/***/ },
+/* 240 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+	var Settings = {
+	  KARAF_WEBAPP: '/cxf',
+	  REST_MOUNT_POINT: '/rest/core/',
+	  ERROR_TOLERANCE: 3
+	};
+	
+	Settings.REST_URL = Settings.KARAF_WEBAPP + Settings.REST_MOUNT_POINT;
+	
+	exports['default'] = Settings;
+	module.exports = exports['default'];
 
 /***/ }
 /******/ ]);

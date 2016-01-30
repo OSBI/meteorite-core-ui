@@ -2,7 +2,7 @@ import React from 'react';
 import ReactTestUtils from 'react/lib/ReactTestUtils';
 import ReactDOM from 'react-dom';
 
-import FormGroup from '../../../src/js/saiku/components/bootstrap/FormGroup';
+import FormGroup from '../../../src/js/components/bootstrap/FormGroup';
 
 describe('FormGroup', () => {
   it('uses "div" by default', () => {

@@ -7,8 +7,8 @@ import Workspace from './components/saiku/Workspace';
 import NotFound from './components/saiku/NotFound';
 
 // webpack loaders
-import '../../../index.html';
-import '../../../dist/saiku/saiku.css';
+import '../../index.html';
+import '../../dist/saiku/saiku.css';
 
 var routes = (
   <Router history={createHistory()}>
@@ -18,4 +18,4 @@ var routes = (
   </Router>
 );
 
-ReactDOM.render(routes, document.querySelector('#main'));
+ReactDOM.render(routes, document.querySelector('#app'));
