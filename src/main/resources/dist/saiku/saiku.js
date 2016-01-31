@@ -39641,6 +39641,10 @@
 	
 	var _utilsSettings2 = _interopRequireDefault(_utilsSettings);
 	
+	var _utilsBase64 = __webpack_require__(241);
+	
+	var _utilsBase642 = _interopRequireDefault(_utilsBase64);
+	
 	_backbone2['default'].sync = function (method, model, options) {
 	  var params = undefined;
 	  var methodMap = {
@@ -39665,7 +39669,7 @@
 	      // TODO: Add method logout() in Session.js.
 	      console.log('Logout...');
 	    } else {
-	      console.log('Communication problem with the server. Please reload the application...');
+	      console.log('Communication problem with the server. ' + 'Please reload the application...');
 	    }
 	  };
 	
@@ -39717,6 +39721,19 @@
 	    data = options.data;
 	  }
 	
+	  var btoa = window.btoa;
+	
+	  var encode = function encode(credentials) {
+	    // Use Base64 encoding to create the authentication details
+	    // Using unescape and encodeURIComponent to allow for Unicode strings
+	    // https://developer.mozilla.org/en-US/docs/Web/API/window.btoa
+	    if (btoa) {
+	      return btoa(unescape(encodeURIComponent([credentials.username, credentials.password].join(':'))));
+	    }
+	
+	    return _utilsBase642['default'].encode([credentials.username, credentials.password].join(':'));
+	  };
+	
 	  // Default JSON-request options.
 	  params = {
 	    url: url,
@@ -39731,12 +39748,18 @@
 	    crossDomain: true,
 	    async: async,
 	    beforeSend: function beforeSend(request) {
-	      var auth = 'Basic YWRtaW46YWRtaW4=';
+	      if (data.username && data.password) {
+	        var auth = 'Basic ' + encode(data);
 	
-	      request.setRequestHeader('Authorization', auth);
-	      return true;
+	        request.setRequestHeader('Authorization', auth);
+	        return true;
+	      }
 	    }
 	  };
+	
+	  if (options.processData === false) {
+	    params.processData = false;
+	  }
 	
 	  // For older servers, emulate HTTP by mimicking the HTTP method with `_method`
 	  // And an `X-HTTP-Method-Override` header.
@@ -39868,6 +39891,71 @@
 	Settings.REST_URL = Settings.KARAF_WEBAPP + Settings.REST_MOUNT_POINT;
 	
 	exports['default'] = Settings;
+	module.exports = exports['default'];
+
+/***/ },
+/* 241 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+	var Base64 = (function (window) {
+	  var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=';
+	  var INVALID_CHARACTER_ERR = (function () {
+	    // Fabricate a suitable error object
+	    try {
+	      document.createElement('$');
+	    } catch (error) {
+	      return error;
+	    }
+	  })();
+	
+	  // Encoder
+	  window.Base64 || (window.Base64 = {
+	    encode: function encode(string) {
+	      var len = string.length;
+	      var max = Math.max;
+	      var result = '';
+	      var i = 0;
+	      var a = undefined,
+	          b = undefined,
+	          b1 = undefined,
+	          b2 = undefined,
+	          b3 = undefined,
+	          b4 = undefined,
+	          c = undefined;
+	
+	      while (i < len) {
+	        a = string.charCodeAt(i++) || 0;
+	        b = string.charCodeAt(i++) || 0;
+	        c = string.charCodeAt(i++) || 0;
+	
+	        if (max(a, b, c) > 0xFF) {
+	          throw INVALID_CHARACTER_ERR;
+	        }
+	
+	        b1 = a >> 2 & 0x3F;
+	        b2 = (a & 0x3) << 4 | b >> 4 & 0xF;
+	        b3 = (b & 0xF) << 2 | c >> 6 & 0x3;
+	        b4 = c & 0x3F;
+	
+	        if (!b) {
+	          b3 = b4 = 64;
+	        } else if (!c) {
+	          b4 = 64;
+	        }
+	        result += characters.charAt(b1) + characters.charAt(b2) + characters.charAt(b3) + characters.charAt(b4);
+	      }
+	
+	      return result;
+	    }
+	  });
+	})(window);
+	
+	exports['default'] = Base64;
 	module.exports = exports['default'];
 
 /***/ }

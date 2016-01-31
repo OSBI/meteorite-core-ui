@@ -2,6 +2,7 @@ import $ from 'jquery';
 import _ from 'underscore';
 import Backbone from 'backbone';
 import Settings from '../utils/Settings';
+import Base64 from '../utils/Base64';
 
 Backbone.sync = (method, model, options) => {
   let params;
@@ -14,7 +15,8 @@ Backbone.sync = (method, model, options) => {
 
   // Generate AJAX action
   let type = methodMap[method];
-  let url = Settings.REST_URL + (_.isFunction(model.url) ? model.url() : model.url);
+  let url = Settings.REST_URL +
+    (_.isFunction(model.url) ? model.url() : model.url);
 
   // Prepare for failure
   if (typeof Settings.ERRORS === 'undefined') {
@@ -28,7 +30,8 @@ Backbone.sync = (method, model, options) => {
       console.log('Logout...');
     }
     else {
-      console.log('Communication problem with the server. Please reload the application...');
+      console.log('Communication problem with the server. ' +
+        'Please reload the application...');
     }
   };
 
@@ -80,6 +83,22 @@ Backbone.sync = (method, model, options) => {
     data = options.data;
   }
 
+  let btoa = window.btoa;
+
+  let encode = (credentials) => {
+    // Use Base64 encoding to create the authentication details
+    // Using unescape and encodeURIComponent to allow for Unicode strings
+    // https://developer.mozilla.org/en-US/docs/Web/API/window.btoa
+    if (btoa) {
+      return btoa(unescape(encodeURIComponent(
+        [credentials.username, credentials.password].join(':'))));
+    }
+
+    return Base64.encode(
+      [credentials.username, credentials.password].join(':')
+    );
+  };
+
   // Default JSON-request options.
   params = {
     url: url,
@@ -94,12 +113,18 @@ Backbone.sync = (method, model, options) => {
     crossDomain: true,
     async: async,
     beforeSend: (request) => {
-      let auth = 'Basic YWRtaW46YWRtaW4=';
+      if (data.username && data.password) {
+        let auth = 'Basic ' + encode(data);
 
-      request.setRequestHeader('Authorization', auth);
-      return true;
+        request.setRequestHeader('Authorization', auth);
+        return true;
+      }
     }
   };
+
+  if (options.processData === false) {
+    params.processData = false;
+  }
 
   // For older servers, emulate HTTP by mimicking the HTTP method with `_method`
   // And an `X-HTTP-Method-Override` header.
