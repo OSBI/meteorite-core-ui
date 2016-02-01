@@ -1,7 +1,7 @@
 const Base64 = ((window) => {
   let characters =
     'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=';
-  let INVALID_CHARACTER_ERR = (() => {
+  const INVALID_CHARACTER_ERR = (() => {
     // Fabricate a suitable error object
     try {
       document.createElement('$');

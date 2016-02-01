@@ -29,8 +29,8 @@ else if (env === 'dev') {
       {
         host: host,
         port: port,
-        server: contentBase,
-        browser: chromeBrowser
+        server: contentBase
+        // browser: chromeBrowser
       },
       {
         reload: true

@@ -38,7 +38,8 @@ class Button extends React.Component {
     let size = styleMaps.SIZES[this.props.bsSize];
     let classes = {};
 
-    classes['btn-' + (this.props.bsStyle ? this.props.bsStyle : DEFAULT)] = true;
+    classes['btn-' +
+      (this.props.bsStyle ? this.props.bsStyle : DEFAULT)] = true;
 
     if (this.props.bsSize) {
       classes['btn-' + size] = true;

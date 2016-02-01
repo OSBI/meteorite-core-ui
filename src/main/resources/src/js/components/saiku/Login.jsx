@@ -1,10 +1,23 @@
 import React from 'react';
 import { History } from 'react-router';
 import reactMixin from 'react-mixin';
-import { Row, Col, FormGroup, Input, Button, Clearfix } from '../bootstrap/index';
 import Session from '../../models/Session';
+import {
+  Row,
+  Col,
+  FormGroup,
+  Input,
+  Button,
+  Clearfix
+} from '../bootstrap/index';
 
 class Login extends React.Component {
+  constructor() {
+    super();
+
+    this.session = new Session();
+  }
+
   login(event) {
     event.preventDefault();
 
@@ -13,9 +26,7 @@ class Login extends React.Component {
       password: this.refs.password.getValue()
     };
 
-    // console.log(credentials);
-    // console.log(this.props.session.test());
-    this.props.session.login(credentials, this);
+    this.session.login(credentials, this);
 
     this.refs.loginForm.reset();
     // this.history.pushState(null, '/workspace/');
@@ -31,23 +42,43 @@ class Login extends React.Component {
           <div className="content-box">
             <div className="panel-heading">
               <Col xs={3}>
-                <img src="dist/assets/images/saiku/logo-small.png" width="40" height="40" />
+                <img
+                  src="dist/assets/images/saiku/logo-small.png"
+                  width="40"
+                  height="40"
+                />
               </Col>
               <Col xs={9}>
-                <h4 className="text-left">Sign In to <strong>Saiku Analytics</strong></h4>
+                <h4 className="text-left">
+                  Sign In to <strong>Saiku Analytics</strong>
+                </h4>
               </Col>
               <Clearfix />
             </div>
             <div className="panel-body">
-              <form className="form-horizontal m-t-20" ref="loginForm" onSubmit={this.login.bind(this)}>
+              <form
+                className="form-horizontal m-t-20"
+                ref="loginForm"
+                onSubmit={this.login.bind(this)}
+              >
                 <FormGroup>
                   <Col xs={12}>
-                    <Input type="text" ref="username" placeholder="Username" />
+                    <Input
+                      type="text"
+                      ref="username"
+                      placeholder="Username"
+                      required
+                    />
                   </Col>
                 </FormGroup>
                 <FormGroup>
                   <Col xs={12}>
-                    <Input type="password" ref="password" placeholder="Password" />
+                    <Input
+                      type="password"
+                      ref="password"
+                      placeholder="Password"
+                      required
+                    />
                   </Col>
                 </FormGroup>
                 <FormGroup>
@@ -90,9 +121,5 @@ class Login extends React.Component {
 }
 
 reactMixin.onClass(Login, History);
-
-Login.defaultProps = {
-  session: new Session()
-};
 
 export default Login;
