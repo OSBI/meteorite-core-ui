@@ -33,7 +33,9 @@ describe('Col', () => {
     assert.ok(instanceClassName.match(/\bcol-md-8\b/));
   });
 
-  it('Should set "col-xs-*", "col-sm-*" and "col-md-*" (Mobile, tablet, desktop)', () => {
+  it('Should set "col-xs-*", "col-sm-*" and "col-md-*"' +
+    '(Mobile, tablet, desktop)', () => {
+
     let instance = ReactTestUtils.renderIntoDocument(
       <Col xs={12} sm={6} md={8}>Col content</Col>
     );

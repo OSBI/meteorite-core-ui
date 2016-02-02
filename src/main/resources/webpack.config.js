@@ -28,7 +28,7 @@ else if (env === 'dev') {
     new BrowserSyncPlugin(
       {
         host: host,
-        port: port,
+        port: 3001,
         server: contentBase
         // browser: chromeBrowser
       },
@@ -58,12 +58,16 @@ var config = {
         loader: 'style-loader!css-loader!postcss-loader'
       },
       {
-        test: /(\.jsx|\.js)$/,
+        test: /\.(png|jpg)$/,
+        loader: 'file-loader?name=[path][name].[ext]?[hash]'
+      },
+      {
+        test: /\.(jsx|js)$/,
         loader: 'babel',
         exclude: /(node_modules|bower_components)/
       },
       {
-        test: /(\.jsx|\.js)$/,
+        test: /\.(jsx|js)$/,
         loader: 'eslint-loader',
         exclude: /node_modules/
       }
@@ -85,7 +89,7 @@ if (env === 'dev') {
     contentBase: contentBase,
     hot: false,
     debug: true
-  }).listen(port, host, function(err, result) {
+  }).listen(3000, host, function(err, result) {
     if (err) {
       console.log(err);
     }
@@ -97,7 +101,7 @@ if (env === 'dev') {
     console.log(chalk.red(data) + '\n');
     console.log(chalk.bold(' Access URLs:'));
     console.log(chalk.blue(' -------------------------------------------------'));
-    console.log(' Webpack server runs at:     ' + chalk.blue('http://' + host + ':' + port));
+    console.log(' Webpack server runs at:     ' + chalk.blue('http://' + host + ':3000'));
     console.log(' BrowserSync server runs at: ' + chalk.blue('http://' + host + ':3001'));
     console.log(chalk.blue(' -------------------------------------------------\n'));
     console.log(' Hit \'' + chalk.blue('<ctrl-c>') + '\' to shutdown.\n');

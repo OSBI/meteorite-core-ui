@@ -35,7 +35,8 @@ describe('Input', () => {
     let instance = ReactTestUtils.renderIntoDocument(
       <Input type="text" placeholder="Username" />
     );
-    let node = ReactTestUtils.findRenderedDOMComponentWithTag(instance, 'input');
+    let node =
+      ReactTestUtils.findRenderedDOMComponentWithTag(instance, 'input');
 
     assert.equal(node.getAttribute('type'), 'text');
   });
