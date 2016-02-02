@@ -1,3 +1,5 @@
+# Meteorite Core UI [![Build Status](https://travis-ci.org/OSBI/meteorite-core-ui.svg?branch=master)](https://travis-ci.org/OSBI/meteorite-core-ui)
+
 To install:
 
 mvn clean install
