@@ -60,6 +60,7 @@ class Login extends React.Component {
                 className="form-horizontal m-t-20"
                 ref="loginForm"
                 onSubmit={this.login.bind(this)}
+                role="form"
               >
                 <FormGroup>
                   <Col xs={12}>
