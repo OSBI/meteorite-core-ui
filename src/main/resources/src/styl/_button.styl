@@ -13,49 +13,49 @@
 .checkbox
   padding-left 20px
   label
+    position relative
     display inline-block
     padding-left 5px
-    position relative
     &::before
-      background $white
-      border-radius 3px
-      border 1px solid $lightdark-alt
-      content ""
-      display inline-block
-      height 17px
-      left 0
-      margin-left -20px
       position absolute
-      transition 0.3s ease-in-out
-      width 17px
-      outline none !important
-    &::after
-      color $lightdark5
-      display inline-block
-      font-size 11px
-      height 16px
       left 0
+      display inline-block
+      width 17px
+      height 17px
       margin-left -20px
-      padding-left 3px
-      padding-top 1px
+      border 1px solid $lightdark-alt
+      border-radius 3px
+      outline none !important
+      background $white
+      content ""
+      transition 0.3s ease-in-out
+    &::after
       position absolute
       top 0
+      left 0
+      display inline-block
       width 16px
+      height 16px
+      margin-left -20px
+      padding-top 1px
+      padding-left 3px
+      font-size 11px
+      color $lightdark5
   input[type="checkbox"]
-    cursor pointer
-    opacity 0
     z-index 1
+    opacity 0
     outline none !important
+    cursor pointer
     &:disabled + label
       opacity 0.65
     &:focus + label::before
-      outline-offset -2px
       outline none
       outline thin dotted
+      outline-offset -2px
     &:checked + label
       &::after
-        content "\f00c"
         font-family "FontAwesome"
+        content "\f00c"
     &:disabled + label
       &::before
         background #eee
@@ -64,7 +64,7 @@
 .checkbox-primary
   input[type="checkbox"]:checked + label
     &::before
-      background $primary
       border-color $primary
+      background $primary
     &::after
       color $white
