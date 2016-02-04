@@ -1,0 +1,75 @@
+/*
+ *   Copyright 2016 OSBI Ltd
+ *
+ *   Licensed under the Apache License, Version 2.0 (the "License");
+ *   you may not use this file except in compliance with the License.
+ *   You may obtain a copy of the License at
+ *
+ *       http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *   Unless required by applicable law or agreed to in writing, software
+ *   distributed under the License is distributed on an "AS IS" BASIS,
+ *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *   See the License for the specific language governing permissions and
+ *   limitations under the License.
+ */
+
+/*! =========================================================================
+   TOPBAR
+   ========================================================================= */
+   
+.topbar
+  position fixed
+  z-index 9999
+  top 0
+  right 0
+  left 0
+  .topbar-left
+    position relative
+    z-index 1
+    float left
+    width 240px
+    
+.logo
+  // TODO: Remove `line-height`
+  line-height 60px
+  
+.navbar-default
+  margin-bottom 0
+  border none
+  border-radius 0
+  background-color $white
+  .badge
+    position absolute
+    top 12px
+    right 7px
+   
+.navbar-nav
+  margin 0
+
+.nav >
+  li >
+    a
+      position relative
+      padding 0 15px
+      line-height 60px
+      color $white
+      i
+        font-size 16px
+        
+.profile
+  img
+    width 36px
+    height 36px
+    border 2px solid #edf0f0
+
+.button-menu-mobile
+  padding 0px 15px
+  font-size 21px
+  line-height 60px
+  color #ccc
+  border none
+  background transparent
+  &:hover
+    color: $white
+  

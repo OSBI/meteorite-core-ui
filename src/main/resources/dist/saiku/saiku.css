@@ -405,6 +405,60 @@ a:focus {
 .text-dark {
   color: #797979 !important;
 }
+/* DROPDOWN
+   ========================================================================= */
+.dropdown-menu {
+  padding: 4px 0;
+  border: 0;
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
+  -webkit-transition: all 300ms ease;
+          transition: all 300ms ease;
+}
+.dropdown-menu > li > a {
+  padding: 6px 20px;
+}
+.dropdown-menu > .active > a,
+.dropdown-menu > .active a:hover,
+.dropdown-menu > .active a:focus {
+  color: #36404a;
+  background-color: #f3f3f3;
+}
+/* BADGE
+   ========================================================================= */
+.badge {
+  margin-top: 1px;
+  padding: 3px 5px;
+  font-size: 12px;
+  font-weight: 600;
+  background-color: #5fbeaa;
+  text-transform: uppercase;
+}
+.badge-xs {
+  font-size: 9px;
+}
+.badge-xs,
+.badge-sm {
+  -webkit-transform: translate(0, -2px);
+          transform: translate(0, -2px);
+}
+.badge-primary {
+  background-color: #5d9cec;
+}
+.badge-success {
+  background-color: #81c868;
+}
+.badge-info {
+  background-color: #34d3eb;
+}
+.badge-warning {
+  background-color: #ffbd4a;
+}
+.badge-danger {
+  background-color: #f05050;
+}
+.badge-inverse {
+  background-color: #4c5667;
+}
 /* =========================================================================
    FORM
    ========================================================================= */
@@ -678,6 +732,64 @@ a.waves-effect .waves-ripple {
   border: none !important;
 }
 /* =========================================================================
+   TOPBAR
+   ========================================================================= */
+.topbar {
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  right: 0;
+  left: 0;
+}
+.topbar .topbar-left {
+  position: relative;
+  z-index: 1;
+  float: left;
+  width: 240px;
+}
+.logo {
+  line-height: 60px;
+}
+.navbar-default {
+  margin-bottom: 0;
+  border: none;
+  border-radius: 0;
+  background-color: #fff;
+}
+.navbar-default .badge {
+  position: absolute;
+  top: 12px;
+  right: 7px;
+}
+.navbar-nav {
+  margin: 0;
+}
+.nav > li > a {
+  position: relative;
+  padding: 0 15px;
+  line-height: 60px;
+  color: #fff;
+}
+.nav > li > a i {
+  font-size: 16px;
+}
+.profile img {
+  width: 36px;
+  height: 36px;
+  border: 2px solid #edf0f0;
+}
+.button-menu-mobile {
+  padding: 0 15px;
+  font-size: 21px;
+  line-height: 60px;
+  color: #ccc;
+  border: none;
+  background: transparent;
+}
+.button-menu-mobile:hover {
+  color: #fff;
+}
+/* =========================================================================
    RESPONSIVE
    ========================================================================= */
 @media (min-width: 768px) and (max-width: 991px) {
@@ -691,5 +803,15 @@ a.waves-effect .waves-ripple {
   }
   .wrapper-page {
     width: 90%;
+  }
+}
+@media (max-width: 480px) {
+  .button-menu-mobile {
+    display: block;
+  }
+}
+@media (max-width: 419px) {
+  .topbar-left {
+    width: 70px !important;
   }
 }

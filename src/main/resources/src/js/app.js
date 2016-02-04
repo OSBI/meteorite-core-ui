@@ -20,7 +20,6 @@ import { Router, Route } from 'react-router';
 import { createHistory } from 'history';
 import Login from './components/saiku/Login';
 // import LockScreen from './components/saiku/LockScreen';
-import Toolbar from './components/saiku/Toolbar';
 import Workspace from './components/saiku/Workspace';
 import NotFound from './components/saiku/NotFound';
 

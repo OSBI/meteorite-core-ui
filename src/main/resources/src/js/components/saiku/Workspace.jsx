@@ -15,11 +15,12 @@
  */
 
 import React from 'react';
+import Toolbar from './Toolbar';
 
 class Workspace extends React.Component {
   render() {
     return (
-      <h1>Workspace</h1>
+      <Toolbar />
     );
   }
 }
