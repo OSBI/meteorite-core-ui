@@ -20,6 +20,7 @@ import { Router, Route } from 'react-router';
 import { createHistory } from 'history';
 import Login from './components/saiku/Login';
 // import LockScreen from './components/saiku/LockScreen';
+import Toolbar from './components/saiku/Toolbar';
 import Workspace from './components/saiku/Workspace';
 import NotFound from './components/saiku/NotFound';
 
@@ -29,7 +30,7 @@ import '../../dist/saiku/saiku.css';
 
 var routes = (
   <Router history={createHistory()}>
-    <Route path="/" component={Login} />
+    <Route path="/" component={Toolbar} />
     <Route path="/workspace/" component={Workspace} />
     <Route path="*" component={NotFound} />
   </Router>

@@ -44,6 +44,22 @@
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
+	/*
+	 *   Copyright 2016 OSBI Ltd
+	 *
+	 *   Licensed under the Apache License, Version 2.0 (the "License");
+	 *   you may not use this file except in compliance with the License.
+	 *   You may obtain a copy of the License at
+	 *
+	 *       http://www.apache.org/licenses/LICENSE-2.0
+	 *
+	 *   Unless required by applicable law or agreed to in writing, software
+	 *   distributed under the License is distributed on an "AS IS" BASIS,
+	 *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	 *   See the License for the specific language governing permissions and
+	 *   limitations under the License.
+	 */
+	
 	'use strict';
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
@@ -66,6 +82,10 @@
 	
 	// import LockScreen from './components/saiku/LockScreen';
 	
+	var _componentsSaikuToolbar = __webpack_require__(239);
+	
+	var _componentsSaikuToolbar2 = _interopRequireDefault(_componentsSaikuToolbar);
+	
 	var _componentsSaikuWorkspace = __webpack_require__(232);
 	
 	var _componentsSaikuWorkspace2 = _interopRequireDefault(_componentsSaikuWorkspace);
@@ -83,7 +103,7 @@
 	var routes = _react2['default'].createElement(
 	  _reactRouter.Router,
 	  { history: (0, _history.createHistory)() },
-	  _react2['default'].createElement(_reactRouter.Route, { path: '/', component: _componentsSaikuLogin2['default'] }),
+	  _react2['default'].createElement(_reactRouter.Route, { path: '/', component: _componentsSaikuToolbar2['default'] }),
 	  _react2['default'].createElement(_reactRouter.Route, { path: '/workspace/', component: _componentsSaikuWorkspace2['default'] }),
 	  _react2['default'].createElement(_reactRouter.Route, { path: '*', component: _componentsSaikuNotFound2['default'] })
 	);
@@ -24447,6 +24467,22 @@
 /* 211 */
 /***/ function(module, exports, __webpack_require__) {
 
+	/*
+	 *   Copyright 2016 OSBI Ltd
+	 *
+	 *   Licensed under the Apache License, Version 2.0 (the "License");
+	 *   you may not use this file except in compliance with the License.
+	 *   You may obtain a copy of the License at
+	 *
+	 *       http://www.apache.org/licenses/LICENSE-2.0
+	 *
+	 *   Unless required by applicable law or agreed to in writing, software
+	 *   distributed under the License is distributed on an "AS IS" BASIS,
+	 *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	 *   See the License for the specific language governing permissions and
+	 *   limitations under the License.
+	 */
+	
 	'use strict';
 	
 	Object.defineProperty(exports, '__esModule', {
@@ -25053,6 +25089,22 @@
 /* 215 */
 /***/ function(module, exports, __webpack_require__) {
 
+	/*
+	 *   Copyright 2016 OSBI Ltd
+	 *
+	 *   Licensed under the Apache License, Version 2.0 (the "License");
+	 *   you may not use this file except in compliance with the License.
+	 *   You may obtain a copy of the License at
+	 *
+	 *       http://www.apache.org/licenses/LICENSE-2.0
+	 *
+	 *   Unless required by applicable law or agreed to in writing, software
+	 *   distributed under the License is distributed on an "AS IS" BASIS,
+	 *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	 *   See the License for the specific language governing permissions and
+	 *   limitations under the License.
+	 */
+	
 	'use strict';
 	
 	Object.defineProperty(exports, '__esModule', {
@@ -25138,6 +25190,22 @@
 /* 216 */
 /***/ function(module, exports, __webpack_require__) {
 
+	/*
+	 *   Copyright 2016 OSBI Ltd
+	 *
+	 *   Licensed under the Apache License, Version 2.0 (the "License");
+	 *   you may not use this file except in compliance with the License.
+	 *   You may obtain a copy of the License at
+	 *
+	 *       http://www.apache.org/licenses/LICENSE-2.0
+	 *
+	 *   Unless required by applicable law or agreed to in writing, software
+	 *   distributed under the License is distributed on an "AS IS" BASIS,
+	 *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	 *   See the License for the specific language governing permissions and
+	 *   limitations under the License.
+	 */
+	
 	'use strict';
 	
 	Object.defineProperty(exports, '__esModule', {
@@ -38599,6 +38667,22 @@
 /* 220 */
 /***/ function(module, exports) {
 
+	/*
+	 *   Copyright 2016 OSBI Ltd
+	 *
+	 *   Licensed under the Apache License, Version 2.0 (the "License");
+	 *   you may not use this file except in compliance with the License.
+	 *   You may obtain a copy of the License at
+	 *
+	 *       http://www.apache.org/licenses/LICENSE-2.0
+	 *
+	 *   Unless required by applicable law or agreed to in writing, software
+	 *   distributed under the License is distributed on an "AS IS" BASIS,
+	 *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	 *   See the License for the specific language governing permissions and
+	 *   limitations under the License.
+	 */
+	
 	'use strict';
 	
 	Object.defineProperty(exports, '__esModule', {
@@ -38619,6 +38703,22 @@
 /* 221 */
 /***/ function(module, exports) {
 
+	/*
+	 *   Copyright 2016 OSBI Ltd
+	 *
+	 *   Licensed under the Apache License, Version 2.0 (the "License");
+	 *   you may not use this file except in compliance with the License.
+	 *   You may obtain a copy of the License at
+	 *
+	 *       http://www.apache.org/licenses/LICENSE-2.0
+	 *
+	 *   Unless required by applicable law or agreed to in writing, software
+	 *   distributed under the License is distributed on an "AS IS" BASIS,
+	 *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	 *   See the License for the specific language governing permissions and
+	 *   limitations under the License.
+	 */
+	
 	'use strict';
 	
 	Object.defineProperty(exports, '__esModule', {
@@ -38684,6 +38784,22 @@
 /* 222 */
 /***/ function(module, exports, __webpack_require__) {
 
+	/*
+	 *   Copyright 2016 OSBI Ltd
+	 *
+	 *   Licensed under the Apache License, Version 2.0 (the "License");
+	 *   you may not use this file except in compliance with the License.
+	 *   You may obtain a copy of the License at
+	 *
+	 *       http://www.apache.org/licenses/LICENSE-2.0
+	 *
+	 *   Unless required by applicable law or agreed to in writing, software
+	 *   distributed under the License is distributed on an "AS IS" BASIS,
+	 *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	 *   See the License for the specific language governing permissions and
+	 *   limitations under the License.
+	 */
+	
 	'use strict';
 	
 	Object.defineProperty(exports, '__esModule', {
@@ -38727,6 +38843,22 @@
 /* 223 */
 /***/ function(module, exports, __webpack_require__) {
 
+	/*
+	 *   Copyright 2016 OSBI Ltd
+	 *
+	 *   Licensed under the Apache License, Version 2.0 (the "License");
+	 *   you may not use this file except in compliance with the License.
+	 *   You may obtain a copy of the License at
+	 *
+	 *       http://www.apache.org/licenses/LICENSE-2.0
+	 *
+	 *   Unless required by applicable law or agreed to in writing, software
+	 *   distributed under the License is distributed on an "AS IS" BASIS,
+	 *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	 *   See the License for the specific language governing permissions and
+	 *   limitations under the License.
+	 */
+	
 	'use strict';
 	
 	Object.defineProperty(exports, '__esModule', {
@@ -38850,6 +38982,22 @@
 /* 225 */
 /***/ function(module, exports, __webpack_require__) {
 
+	/*
+	 *   Copyright 2016 OSBI Ltd
+	 *
+	 *   Licensed under the Apache License, Version 2.0 (the "License");
+	 *   you may not use this file except in compliance with the License.
+	 *   You may obtain a copy of the License at
+	 *
+	 *       http://www.apache.org/licenses/LICENSE-2.0
+	 *
+	 *   Unless required by applicable law or agreed to in writing, software
+	 *   distributed under the License is distributed on an "AS IS" BASIS,
+	 *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	 *   See the License for the specific language governing permissions and
+	 *   limitations under the License.
+	 */
+	
 	'use strict';
 	
 	Object.defineProperty(exports, '__esModule', {
@@ -38912,6 +39060,22 @@
 /* 226 */
 /***/ function(module, exports, __webpack_require__) {
 
+	/*
+	 *   Copyright 2016 OSBI Ltd
+	 *
+	 *   Licensed under the Apache License, Version 2.0 (the "License");
+	 *   you may not use this file except in compliance with the License.
+	 *   You may obtain a copy of the License at
+	 *
+	 *       http://www.apache.org/licenses/LICENSE-2.0
+	 *
+	 *   Unless required by applicable law or agreed to in writing, software
+	 *   distributed under the License is distributed on an "AS IS" BASIS,
+	 *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	 *   See the License for the specific language governing permissions and
+	 *   limitations under the License.
+	 */
+	
 	'use strict';
 	
 	Object.defineProperty(exports, '__esModule', {
@@ -39172,6 +39336,22 @@
 /* 227 */
 /***/ function(module, exports) {
 
+	/*
+	 *   Copyright 2016 OSBI Ltd
+	 *
+	 *   Licensed under the Apache License, Version 2.0 (the "License");
+	 *   you may not use this file except in compliance with the License.
+	 *   You may obtain a copy of the License at
+	 *
+	 *       http://www.apache.org/licenses/LICENSE-2.0
+	 *
+	 *   Unless required by applicable law or agreed to in writing, software
+	 *   distributed under the License is distributed on an "AS IS" BASIS,
+	 *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	 *   See the License for the specific language governing permissions and
+	 *   limitations under the License.
+	 */
+	
 	'use strict';
 	
 	Object.defineProperty(exports, '__esModule', {
@@ -39206,6 +39386,22 @@
 /* 228 */
 /***/ function(module, exports, __webpack_require__) {
 
+	/*
+	 *   Copyright 2016 OSBI Ltd
+	 *
+	 *   Licensed under the Apache License, Version 2.0 (the "License");
+	 *   you may not use this file except in compliance with the License.
+	 *   You may obtain a copy of the License at
+	 *
+	 *       http://www.apache.org/licenses/LICENSE-2.0
+	 *
+	 *   Unless required by applicable law or agreed to in writing, software
+	 *   distributed under the License is distributed on an "AS IS" BASIS,
+	 *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	 *   See the License for the specific language governing permissions and
+	 *   limitations under the License.
+	 */
+	
 	'use strict';
 	
 	Object.defineProperty(exports, '__esModule', {
@@ -39268,6 +39464,22 @@
 /* 229 */
 /***/ function(module, exports, __webpack_require__) {
 
+	/*
+	 *   Copyright 2016 OSBI Ltd
+	 *
+	 *   Licensed under the Apache License, Version 2.0 (the "License");
+	 *   you may not use this file except in compliance with the License.
+	 *   You may obtain a copy of the License at
+	 *
+	 *       http://www.apache.org/licenses/LICENSE-2.0
+	 *
+	 *   Unless required by applicable law or agreed to in writing, software
+	 *   distributed under the License is distributed on an "AS IS" BASIS,
+	 *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	 *   See the License for the specific language governing permissions and
+	 *   limitations under the License.
+	 */
+	
 	'use strict';
 	
 	Object.defineProperty(exports, '__esModule', {
@@ -39342,6 +39554,22 @@
 /* 230 */
 /***/ function(module, exports, __webpack_require__) {
 
+	/*
+	 *   Copyright 2016 OSBI Ltd
+	 *
+	 *   Licensed under the Apache License, Version 2.0 (the "License");
+	 *   you may not use this file except in compliance with the License.
+	 *   You may obtain a copy of the License at
+	 *
+	 *       http://www.apache.org/licenses/LICENSE-2.0
+	 *
+	 *   Unless required by applicable law or agreed to in writing, software
+	 *   distributed under the License is distributed on an "AS IS" BASIS,
+	 *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	 *   See the License for the specific language governing permissions and
+	 *   limitations under the License.
+	 */
+	
 	'use strict';
 	
 	Object.defineProperty(exports, '__esModule', {
@@ -39462,6 +39690,22 @@
 /* 231 */
 /***/ function(module, exports, __webpack_require__) {
 
+	/*
+	 *   Copyright 2016 OSBI Ltd
+	 *
+	 *   Licensed under the Apache License, Version 2.0 (the "License");
+	 *   you may not use this file except in compliance with the License.
+	 *   You may obtain a copy of the License at
+	 *
+	 *       http://www.apache.org/licenses/LICENSE-2.0
+	 *
+	 *   Unless required by applicable law or agreed to in writing, software
+	 *   distributed under the License is distributed on an "AS IS" BASIS,
+	 *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	 *   See the License for the specific language governing permissions and
+	 *   limitations under the License.
+	 */
+	
 	'use strict';
 	
 	Object.defineProperty(exports, '__esModule', {
@@ -39519,6 +39763,22 @@
 /* 232 */
 /***/ function(module, exports, __webpack_require__) {
 
+	/*
+	 *   Copyright 2016 OSBI Ltd
+	 *
+	 *   Licensed under the Apache License, Version 2.0 (the "License");
+	 *   you may not use this file except in compliance with the License.
+	 *   You may obtain a copy of the License at
+	 *
+	 *       http://www.apache.org/licenses/LICENSE-2.0
+	 *
+	 *   Unless required by applicable law or agreed to in writing, software
+	 *   distributed under the License is distributed on an "AS IS" BASIS,
+	 *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	 *   See the License for the specific language governing permissions and
+	 *   limitations under the License.
+	 */
+	
 	'use strict';
 	
 	Object.defineProperty(exports, '__esModule', {
@@ -39569,6 +39829,22 @@
 /* 233 */
 /***/ function(module, exports, __webpack_require__) {
 
+	/*
+	 *   Copyright 2016 OSBI Ltd
+	 *
+	 *   Licensed under the Apache License, Version 2.0 (the "License");
+	 *   you may not use this file except in compliance with the License.
+	 *   You may obtain a copy of the License at
+	 *
+	 *       http://www.apache.org/licenses/LICENSE-2.0
+	 *
+	 *   Unless required by applicable law or agreed to in writing, software
+	 *   distributed under the License is distributed on an "AS IS" BASIS,
+	 *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	 *   See the License for the specific language governing permissions and
+	 *   limitations under the License.
+	 */
+	
 	'use strict';
 	
 	Object.defineProperty(exports, '__esModule', {
@@ -39619,7 +39895,7 @@
 /* 234 */
 /***/ function(module, exports) {
 
-	module.exports = "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n  <title>Saiku 4</title>\n  <link rel=\"shortcut icon\" href=\"dist/assets/images/favicon.ico\">\n  <link rel=\"stylesheet\" href=\"dist/assets/css/bootstrap.min.css\">\n  <link rel=\"stylesheet\" href=\"dist/assets/css/font-awesome.min.css\">\n  <link rel=\"stylesheet\" href=\"dist/saiku/saiku.css\">\n  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->\n  <!--[if lt IE 9]>\n    <script src=\"dist/assets/js/html5shiv.js\"></script>\n    <script src=\"dist/assets/js/respond.min.js\"></script>\n  <![endif]-->\n</head>\n<body>\n  <div id=\"app\"></div>\n  <script src=\"dist/assets/js/jquery.min.js\"></script>\n  <script src=\"dist/assets/js/bootstrap.min.js\"></script>\n  <script src=\"dist/saiku/saiku.js\"></script>\n</body>\n</html>";
+	module.exports = "<!--  \n  Copyright 2016 OSBI Ltd\n\n  Licensed under the Apache License, Version 2.0 (the \"License\");\n  you may not use this file except in compliance with the License.\n  You may obtain a copy of the License at\n\n      http://www.apache.org/licenses/LICENSE-2.0\n\n  Unless required by applicable law or agreed to in writing, software\n  distributed under the License is distributed on an \"AS IS\" BASIS,\n  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n  See the License for the specific language governing permissions and\n  limitations under the License.\n-->\n\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <title>Saiku - Next Generation Open Source Analytics</title>\n\n  <!-- Meta -->\n  <meta charset=\"UTF-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n\n  <!-- Favicon -->\n  <link rel=\"shortcut icon\" href=\"dist/assets/images/favicon.ico\">\n\n  <!-- CSS -->\n  <link rel=\"stylesheet\" href=\"dist/assets/css/bootstrap.min.css\">\n  <link rel=\"stylesheet\" href=\"dist/assets/css/font-awesome.min.css\">\n  <link rel=\"stylesheet\" href=\"dist/saiku/saiku.css\">\n\n  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->\n  <!--[if lt IE 9]>\n    <script src=\"dist/assets/js/html5shiv.js\"></script>\n    <script src=\"dist/assets/js/respond.min.js\"></script>\n  <![endif]-->\n</head>\n<body>\n  <div id=\"app\"></div>\n\n  <!-- JS -->\n  <script src=\"dist/assets/js/jquery.min.js\"></script>\n  <script src=\"dist/assets/js/bootstrap.min.js\"></script>\n  <script src=\"dist/saiku/saiku.js\"></script>\n</body>\n</html>";
 
 /***/ },
 /* 235 */
@@ -39657,7 +39933,7 @@
 	exports.push([module.id, "@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700,300);", ""]);
 	
 	// module
-	exports.push([module.id, "/* =========================================================================\n   CORE\n   ========================================================================= */\n* {\n  outline: none !important;\n}\nhtml {\n  position: relative;\n  min-height: 100%;\n  background: #f3f3f3;\n}\nbody {\n  overflow-x: hidden;\n  margin: 0;\n  font-family: \"Noto Sans\", \"Helvetica Neue\", Helvetica, Arial, sans-serif;\n  font-weight: 400;\n  color: #797979;\n  background: #f3f3f3;\n}\nh1,\nh2,\nh3,\nh4,\nh5,\nh6 {\n  margin: 10px 0;\n  font-family: \"Source Sans Pro\", \"Helvetica Neue\", Helvetica, Arial, sans-serif;\n  color: #505458;\n}\nh1 {\n  line-height: 43px;\n}\nh2 {\n  line-height: 35px;\n}\nh3 {\n  line-height: 30px;\n}\nh3 small {\n  color: #444;\n}\nh4 {\n  line-height: 22px;\n}\nh4 small {\n  color: #444;\n}\nh5 {\n  line-height: 15px;\n}\nh5 small {\n  color: #444;\n}\np {\n  line-height: 1.6;\n}\nb {\n  font-weight: 600;\n}\na:hover,\na:active,\na:focus {\n  outline: 0;\n  text-decoration: none;\n}\n.container {\n  width: auto;\n}\n.container-alt {\n  margin-right: auto;\n  margin-left: auto;\n  padding-right: 15px;\n  padding-left: 15px;\n}\n.wrapper {\n  overflow: hidden;\n  width: 100%;\n  height: 100%;\n}\n.content-box {\n  margin-bottom: 20px;\n  padding: 20px;\n  border-radius: 5px;\n  background: #fff;\n  background-clip: padding-box;\n  box-shadow: 0 1px 1px 0 rgba(0,0,0,.1), 0 -1px 4px 0 rgba(0,0,0,.08);\n}\n.wrapper-page {\n  position: relative;\n  width: 420px;\n  margin: 5% auto;\n}\n.wrapper-page .content-box {\n  border: 1px solid rgba(54,64,74,.1);\n}\n.bg-page {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n}\n.user-thumb {\n  position: relative;\n  z-index: 999;\n}\n.user-thumb img {\n  width: 88px;\n  height: 88px;\n  margin: 0 auto;\n}\n.p-0 {\n  padding: 0 !important;\n}\n.p-20 {\n  padding: 20px !important;\n}\n.p-30 {\n  padding: 30px !important;\n}\n.p-l-0 {\n  padding-left: 0 !important;\n}\n.p-r-0 {\n  padding-right: 0 !important;\n}\n.p-t-0 {\n  padding-top: 0 !important;\n}\n.p-t-10 {\n  padding-top: 10px !important;\n}\n.p-b-10 {\n  padding-bottom: 10px !important;\n}\n.p-l-r-10 {\n  padding-right: 10px;\n  padding-left: 10px;\n}\n.m-0 {\n  margin: 0 !important;\n}\n.m-r-5 {\n  margin-right: 5px !important;\n}\n.m-r-10 {\n  margin-right: 10px !important;\n}\n.m-r-15 {\n  margin-right: 15px !important;\n}\n.m-l-5 {\n  margin-left: 5px !important;\n}\n.m-l-10 {\n  margin-left: 10px !important;\n}\n.m-l-15 {\n  margin-left: 15px !important;\n}\n.m-t-5 {\n  margin-top: 5px !important;\n}\n.m-t-0 {\n  margin-top: 0 !important;\n}\n.m-t-10 {\n  margin-top: 10px !important;\n}\n.m-t-15 {\n  margin-top: 15px !important;\n}\n.m-t-20 {\n  margin-top: 20px !important;\n}\n.m-t-30 {\n  margin-top: 30px !important;\n}\n.m-t-40 {\n  margin-top: 40px !important;\n}\n.m-b-0 {\n  margin-bottom: 0 !important;\n}\n.m-b-5 {\n  margin-bottom: 5px !important;\n}\n.m-b-10 {\n  margin-bottom: 10px !important;\n}\n.m-b-15 {\n  margin-bottom: 15px !important;\n}\n.m-b-20 {\n  margin-bottom: 20px !important;\n}\n.m-b-30 {\n  margin-bottom: 30px !important;\n}\n.w-xs {\n  min-width: 80px;\n}\n.w-sm {\n  min-width: 95px;\n}\n.w-md {\n  min-width: 110px;\n}\n.w-lg {\n  min-width: 140px;\n}\n.m-h-40 {\n  min-height: 40px;\n}\n.m-h-50 {\n  min-height: 50px;\n}\n.l-h-34 {\n  line-height: 34px;\n}\n.font-600 {\n  font-weight: 600;\n}\n.font-bold {\n  font-weight: 700;\n}\n.font-normal {\n  font-weight: normal;\n}\n.font-light {\n  font-weight: 300;\n}\n.font-13 {\n  font-size: 13px !important;\n}\n.wrapper-md {\n  padding: 20px;\n}\n.pull-in {\n  margin-right: -15px;\n  margin-left: -15px;\n}\n.b-0 {\n  border: none !important;\n}\n.vertical-middle {\n  vertical-align: middle;\n}\n.bx-shadow {\n  box-shadow: 0 1px 2px 0 rgba(0,0,0,.1);\n}\n.mx-box {\n  min-height: 380px;\n  max-height: 380px;\n}\n.thumb-sm {\n  width: 32px;\n  height: 32px;\n}\n.thumb-md {\n  width: 48px;\n  height: 48px;\n}\n.thumb-lg {\n  width: 88px;\n  height: 88px;\n}\n/* =========================================================================\n   BOOTSTRAP CUSTOM\n   ========================================================================= */\n.row {\n  margin-right: -10px;\n  margin-left: -10px;\n}\n.col-lg-1,\n.col-lg-10,\n.col-lg-11,\n.col-lg-12,\n.col-lg-2,\n.col-lg-3,\n.col-lg-4,\n.col-lg-5,\n.col-lg-6,\n.col-lg-7,\n.col-lg-8,\n.col-lg-9,\n.col-md-1,\n.col-md-10,\n.col-md-11,\n.col-md-12,\n.col-md-2,\n.col-md-3,\n.col-md-4,\n.col-md-5,\n.col-md-6,\n.col-md-7,\n.col-md-8,\n.col-md-9,\n.col-sm-1,\n.col-sm-10,\n.col-sm-11,\n.col-sm-12,\n.col-sm-2,\n.col-sm-3,\n.col-sm-4,\n.col-sm-5,\n.col-sm-6,\n.col-sm-7,\n.col-sm-8,\n.col-sm-9,\n.col-xs-1,\n.col-xs-10,\n.col-xs-11,\n.col-xs-12,\n.col-xs-2,\n.col-xs-3,\n.col-xs-4,\n.col-xs-5,\n.col-xs-6,\n.col-xs-7,\n.col-xs-8,\n.col-xs-9 {\n  padding-right: 10px;\n  padding-left: 10px;\n}\n/* BACKGROUND COLORS\n   ========================================================================= */\n.bg-custom {\n  background-color: #58c9c7 !important;\n}\n.bg-primary {\n  background-color: #5d9cec !important;\n}\n.bg-success {\n  background-color: #81c868 !important;\n}\n.bg-info {\n  background-color: #34d3eb !important;\n}\n.bg-warning {\n  background-color: #ffbd4a !important;\n}\n.bg-danger {\n  background-color: #f05050 !important;\n}\n.bg-inverse {\n  background-color: #4c5667 !important;\n}\n.bg-muted {\n  background-color: #98a6ad !important;\n}\n.bg-white {\n  background-color: #fff !important;\n}\n.bg-lightdark {\n  background-color: #f4f8fb !important;\n}\n/* TEXT COLORS\n   ========================================================================= */\n.text-custom {\n  color: #58c9c7;\n}\n.text-primary {\n  color: #5d9cec;\n}\n.text-success {\n  color: #81c868;\n}\n.text-info {\n  color: #34d3eb;\n}\n.text-warning {\n  color: #ffbd4a;\n}\n.text-danger {\n  color: #f05050;\n}\n.text-inverse {\n  color: #4c5667;\n}\n.text-muted {\n  color: #98a6ad;\n}\n.text-white {\n  color: #fff;\n}\n.text-dark {\n  color: #797979 !important;\n}\n/* =========================================================================\n   FORM\n   ========================================================================= */\ntextarea.form-control {\n  min-height: 90px;\n}\n.form-control {\n  max-width: 100%;\n  height: 38px;\n  padding: 7px 12px;\n  color: #565656;\n  border: 1px solid #e3e3e3;\n  border-radius: 4px;\n  background: #fff;\n  box-shadow: none;\n  -webkit-transition: all 300ms linear;\n          transition: all 300ms linear;\n}\n.form-control:focus {\n  color: #333;\n  border: 1px solid #aaa;\n  outline: 0 !important;\n  background: #fff;\n  box-shadow: none;\n}\n.form-horizontal .form-group {\n  margin-right: -10px;\n  margin-left: -10px;\n}\n.input-lg {\n  height: 46px;\n  padding: 10px 16px;\n  font-size: 18px;\n  line-height: 1.3333333;\n  border-radius: 6px;\n}\n.input-sm {\n  height: 30px;\n  padding: 5px 10px;\n  font-size: 12px;\n  line-height: 1.5;\n  border-radius: 3px;\n}\n.input-group-btn .btn {\n  padding: 8px 12px;\n}\n.input-group-btn .btn-sm {\n  padding: 5px 10px;\n}\n.input-group-btn .btn-lg {\n  padding: 10px 17px;\n}\n/*\n * Waves v0.7.4\n * http://fian.my.id/Waves \n * \n * Copyright 2014 Alfiana E. Sibuea and other contributors \n * Released under the MIT license \n * https://github.com/fians/Waves/blob/master/LICENSE \n */\n.waves-effect {\n  position: relative;\n  display: inline-block;\n  overflow: hidden;\n  cursor: pointer;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none;\n\n  -webkit-tap-highlight-color: transparent;\n}\n.waves-effect .waves-ripple {\n  position: absolute;\n  width: 100px;\n  height: 100px;\n  margin-top: -50px;\n  margin-left: -50px;\n  opacity: 0;\n  border-radius: 50%;\n  background: rgba(0,0,0,.2);\n  background: -webkit-radial-gradient(rgba(0,0,0,.2) 0, rgba(0,0,0,.3) 40%, rgba(0,0,0,.4) 50%, rgba(0,0,0,.5) 60%, rgba(255,255,255,0) 70%);\n  background:         radial-gradient(rgba(0,0,0,.2) 0, rgba(0,0,0,.3) 40%, rgba(0,0,0,.4) 50%, rgba(0,0,0,.5) 60%, rgba(255,255,255,0) 70%);\n  -webkit-transition: all .5s ease-out;\n          transition: all .5s ease-out;\n  -webkit-transition-property: -webkit-transform, opacity;\n  -webkit-transition-property: opacity, -webkit-transform;\n          transition-property: opacity, -webkit-transform;\n          transition-property:         transform, opacity;\n          transition-property:         transform, opacity, -webkit-transform;\n  -webkit-transform: scale(0) translate(0, 0);\n          transform: scale(0) translate(0, 0);\n  pointer-events: none;\n}\n.waves-effect.waves-light .waves-ripple {\n  background: rgba(255,255,255,.4);\n  background: -webkit-radial-gradient(rgba(255,255,255,.2) 0, rgba(255,255,255,.3) 40%, rgba(255,255,255,.4) 50%, rgba(255,255,255,.5) 60%, rgba(255,255,255,0) 70%);\n  background:         radial-gradient(rgba(255,255,255,.2) 0, rgba(255,255,255,.3) 40%, rgba(255,255,255,.4) 50%, rgba(255,255,255,.5) 60%, rgba(255,255,255,0) 70%);\n}\n.waves-effect.waves-classic .waves-ripple {\n  background: rgba(0,0,0,.2);\n}\n.waves-effect.waves-classic.waves-light .waves-ripple {\n  background: rgba(255,255,255,.4);\n}\n.waves-notransition {\n  -webkit-transition: none !important;\n          transition: none !important;\n}\n.waves-button,\n.waves-circle {\n  -webkit-transform: translateZ(0);\n          transform: translateZ(0);\n\n  -webkit-mask-image: -webkit-radial-gradient(circle, #fff 100%, #000 100%);\n}\n.waves-button,\n.waves-button:hover,\n.waves-button:visited,\n.waves-button-input {\n  z-index: 1;\n  font-size: 1em;\n  line-height: 1em;\n  color: inherit;\n  border: none;\n  outline: none;\n  background-color: rgba(0,0,0,0);\n  cursor: pointer;\n  text-align: center;\n  vertical-align: middle;\n  white-space: nowrap;\n  text-decoration: none;\n}\n.waves-button {\n  padding: .85em 1.1em;\n  border-radius: .2em;\n}\n.waves-button-input {\n  margin: 0;\n  padding: .85em 1.1em;\n}\n.waves-input-wrapper {\n  border-radius: .2em;\n  vertical-align: bottom;\n}\n.waves-input-wrapper.waves-button {\n  padding: 0;\n}\n.waves-input-wrapper .waves-button-input {\n  position: relative;\n  z-index: 1;\n  top: 0;\n  left: 0;\n}\n.waves-circle {\n  width: 2.5em;\n  height: 2.5em;\n  line-height: 2.5em;\n  border-radius: 50%;\n  text-align: center;\n}\n.waves-float {\n  box-shadow: 0 1px 1.5px 1px rgba(0,0,0,.12);\n  -webkit-transition: all 300ms;\n          transition: all 300ms;\n\n  -webkit-mask-image: none;\n}\n.waves-float:active {\n  box-shadow: 0 8px 20px 1px rgba(0,0,0,.3);\n}\n.waves-block {\n  display: block;\n}\na.waves-effect .waves-ripple {\n  z-index: -1;\n}\n/* =========================================================================\n   BUTTON\n   ========================================================================= */\n.btn {\n  border-radius: 3px;\n  outline: none !important;\n}\n/* =========================================================================\n   CHECKBOX\n   ========================================================================= */\n.checkbox {\n  padding-left: 20px;\n}\n.checkbox label {\n  position: relative;\n  display: inline-block;\n  padding-left: 5px;\n}\n.checkbox label::before {\n  position: absolute;\n  left: 0;\n  display: inline-block;\n  width: 17px;\n  height: 17px;\n  margin-left: -20px;\n  border: 1px solid #ccc;\n  border-radius: 3px;\n  outline: none !important;\n  background: #fff;\n  content: \"\";\n  -webkit-transition: .3s ease-in-out;\n          transition: .3s ease-in-out;\n}\n.checkbox label::after {\n  position: absolute;\n  top: 0;\n  left: 0;\n  display: inline-block;\n  width: 16px;\n  height: 16px;\n  margin-left: -20px;\n  padding-top: 1px;\n  padding-left: 3px;\n  font-size: 11px;\n  color: #555;\n}\n.checkbox input[type=\"checkbox\"] {\n  z-index: 1;\n  opacity: 0;\n  outline: none !important;\n  cursor: pointer;\n}\n.checkbox input[type=\"checkbox\"]:disabled + label {\n  opacity: .65;\n}\n.checkbox input[type=\"checkbox\"]:focus + label::before {\n  outline: none;\n  outline: thin dotted;\n  outline-offset: -2px;\n}\n.checkbox input[type=\"checkbox\"]:checked + label::after {\n  font-family: \"FontAwesome\";\n  content: \"\\F00C\";\n}\n.checkbox input[type=\"checkbox\"]:disabled + label::before {\n  background: #eee;\n  cursor: not-allowed;\n}\n.checkbox-primary input[type=\"checkbox\"]:checked + label::before {\n  border-color: #5d9cec;\n  background: #5d9cec;\n}\n.checkbox-primary input[type=\"checkbox\"]:checked + label::after {\n  color: #fff;\n}\n/* =========================================================================\n   PANELS\n   ========================================================================= */\n.panel {\n  margin-bottom: 20px;\n  border: none;\n}\n.panel .panel-body {\n  padding: 20px;\n}\n.panel .panel-body p {\n  margin: 0;\n}\n.panel .panel-body p + p {\n  margin-top: 15px;\n}\n.panel-heading {\n  padding: 10px 20px;\n  border: none !important;\n}\n/* =========================================================================\n   RESPONSIVE\n   ========================================================================= */\n@media (min-width: 768px) and (max-width: 991px) {\n  body {\n    overflow-x: hidden;\n  }\n}\n@media (max-width: 767px) {\n  body {\n    overflow-x: hidden;\n  }\n  .wrapper-page {\n    width: 90%;\n  }\n}\n", ""]);
+	exports.push([module.id, "/*  \n *   Copyright 2016 OSBI Ltd\n *\n *   Licensed under the Apache License, Version 2.0 (the \"License\");\n *   you may not use this file except in compliance with the License.\n *   You may obtain a copy of the License at\n *\n *       http://www.apache.org/licenses/LICENSE-2.0\n *\n *   Unless required by applicable law or agreed to in writing, software\n *   distributed under the License is distributed on an \"AS IS\" BASIS,\n *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n *   See the License for the specific language governing permissions and\n *   limitations under the License.\n */\n/* =========================================================================\n   CORE\n   ========================================================================= */\n* {\n  outline: none !important;\n}\nhtml {\n  position: relative;\n  min-height: 100%;\n  background: #f3f3f3;\n}\nbody {\n  overflow-x: hidden;\n  margin: 0;\n  font-family: \"Noto Sans\", \"Helvetica Neue\", Helvetica, Arial, sans-serif;\n  font-weight: 400;\n  color: #797979;\n  background: #f3f3f3;\n}\nh1,\nh2,\nh3,\nh4,\nh5,\nh6 {\n  margin: 10px 0;\n  font-family: \"Source Sans Pro\", \"Helvetica Neue\", Helvetica, Arial, sans-serif;\n  color: #505458;\n}\nh1 {\n  line-height: 43px;\n}\nh2 {\n  line-height: 35px;\n}\nh3 {\n  line-height: 30px;\n}\nh3 small {\n  color: #444;\n}\nh4 {\n  line-height: 22px;\n}\nh4 small {\n  color: #444;\n}\nh5 {\n  line-height: 15px;\n}\nh5 small {\n  color: #444;\n}\np {\n  line-height: 1.6;\n}\nb {\n  font-weight: 600;\n}\na:hover,\na:active,\na:focus {\n  outline: 0;\n  text-decoration: none;\n}\n.container {\n  width: auto;\n}\n.container-alt {\n  margin-right: auto;\n  margin-left: auto;\n  padding-right: 15px;\n  padding-left: 15px;\n}\n.wrapper {\n  overflow: hidden;\n  width: 100%;\n  height: 100%;\n}\n.content-box {\n  margin-bottom: 20px;\n  padding: 20px;\n  border-radius: 5px;\n  background: #fff;\n  background-clip: padding-box;\n  box-shadow: 0 1px 1px 0 rgba(0,0,0,.1), 0 -1px 4px 0 rgba(0,0,0,.08);\n}\n.wrapper-page {\n  position: relative;\n  width: 420px;\n  margin: 5% auto;\n}\n.wrapper-page .content-box {\n  border: 1px solid rgba(54,64,74,.1);\n}\n.bg-page {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n}\n.user-thumb {\n  position: relative;\n  z-index: 9999;\n}\n.user-thumb img {\n  width: 88px;\n  height: 88px;\n  margin: 0 auto;\n}\n/* =========================================================================\n   HELPERS\n   ========================================================================= */\n.p-0 {\n  padding: 0 !important;\n}\n.p-20 {\n  padding: 20px !important;\n}\n.p-30 {\n  padding: 30px !important;\n}\n.p-l-0 {\n  padding-left: 0 !important;\n}\n.p-r-0 {\n  padding-right: 0 !important;\n}\n.p-t-0 {\n  padding-top: 0 !important;\n}\n.p-t-10 {\n  padding-top: 10px !important;\n}\n.p-b-10 {\n  padding-bottom: 10px !important;\n}\n.p-l-r-10 {\n  padding-right: 10px;\n  padding-left: 10px;\n}\n.m-0 {\n  margin: 0 !important;\n}\n.m-r-5 {\n  margin-right: 5px !important;\n}\n.m-r-10 {\n  margin-right: 10px !important;\n}\n.m-r-15 {\n  margin-right: 15px !important;\n}\n.m-l-5 {\n  margin-left: 5px !important;\n}\n.m-l-10 {\n  margin-left: 10px !important;\n}\n.m-l-15 {\n  margin-left: 15px !important;\n}\n.m-t-5 {\n  margin-top: 5px !important;\n}\n.m-t-0 {\n  margin-top: 0 !important;\n}\n.m-t-10 {\n  margin-top: 10px !important;\n}\n.m-t-15 {\n  margin-top: 15px !important;\n}\n.m-t-20 {\n  margin-top: 20px !important;\n}\n.m-t-30 {\n  margin-top: 30px !important;\n}\n.m-t-40 {\n  margin-top: 40px !important;\n}\n.m-b-0 {\n  margin-bottom: 0 !important;\n}\n.m-b-5 {\n  margin-bottom: 5px !important;\n}\n.m-b-10 {\n  margin-bottom: 10px !important;\n}\n.m-b-15 {\n  margin-bottom: 15px !important;\n}\n.m-b-20 {\n  margin-bottom: 20px !important;\n}\n.m-b-30 {\n  margin-bottom: 30px !important;\n}\n.w-xs {\n  min-width: 80px;\n}\n.w-sm {\n  min-width: 95px;\n}\n.w-md {\n  min-width: 110px;\n}\n.w-lg {\n  min-width: 140px;\n}\n.m-h-40 {\n  min-height: 40px;\n}\n.m-h-50 {\n  min-height: 50px;\n}\n.l-h-34 {\n  line-height: 34px;\n}\n.font-600 {\n  font-weight: 600;\n}\n.font-bold {\n  font-weight: 700;\n}\n.font-normal {\n  font-weight: normal;\n}\n.font-light {\n  font-weight: 300;\n}\n.font-13 {\n  font-size: 13px !important;\n}\n.wrapper-md {\n  padding: 20px;\n}\n.pull-in {\n  margin-right: -15px;\n  margin-left: -15px;\n}\n.b-0 {\n  border: none !important;\n}\n.vertical-middle {\n  vertical-align: middle;\n}\n.bx-shadow {\n  box-shadow: 0 1px 2px 0 rgba(0,0,0,.1);\n}\n.mx-box {\n  min-height: 380px;\n  max-height: 380px;\n}\n.thumb-sm {\n  width: 32px;\n  height: 32px;\n}\n.thumb-md {\n  width: 48px;\n  height: 48px;\n}\n.thumb-lg {\n  width: 88px;\n  height: 88px;\n}\n/* =========================================================================\n   BOOTSTRAP CUSTOM\n   ========================================================================= */\n.row {\n  margin-right: -10px;\n  margin-left: -10px;\n}\n.col-lg-1,\n.col-lg-10,\n.col-lg-11,\n.col-lg-12,\n.col-lg-2,\n.col-lg-3,\n.col-lg-4,\n.col-lg-5,\n.col-lg-6,\n.col-lg-7,\n.col-lg-8,\n.col-lg-9,\n.col-md-1,\n.col-md-10,\n.col-md-11,\n.col-md-12,\n.col-md-2,\n.col-md-3,\n.col-md-4,\n.col-md-5,\n.col-md-6,\n.col-md-7,\n.col-md-8,\n.col-md-9,\n.col-sm-1,\n.col-sm-10,\n.col-sm-11,\n.col-sm-12,\n.col-sm-2,\n.col-sm-3,\n.col-sm-4,\n.col-sm-5,\n.col-sm-6,\n.col-sm-7,\n.col-sm-8,\n.col-sm-9,\n.col-xs-1,\n.col-xs-10,\n.col-xs-11,\n.col-xs-12,\n.col-xs-2,\n.col-xs-3,\n.col-xs-4,\n.col-xs-5,\n.col-xs-6,\n.col-xs-7,\n.col-xs-8,\n.col-xs-9 {\n  padding-right: 10px;\n  padding-left: 10px;\n}\n/* BACKGROUND COLORS\n   ========================================================================= */\n.bg-custom {\n  background-color: #58c9c7 !important;\n}\n.bg-primary {\n  background-color: #5d9cec !important;\n}\n.bg-success {\n  background-color: #81c868 !important;\n}\n.bg-info {\n  background-color: #34d3eb !important;\n}\n.bg-warning {\n  background-color: #ffbd4a !important;\n}\n.bg-danger {\n  background-color: #f05050 !important;\n}\n.bg-inverse {\n  background-color: #4c5667 !important;\n}\n.bg-muted {\n  background-color: #98a6ad !important;\n}\n.bg-white {\n  background-color: #fff !important;\n}\n.bg-lightdark {\n  background-color: #f4f8fb !important;\n}\n/* TEXT COLORS\n   ========================================================================= */\n.text-custom {\n  color: #58c9c7;\n}\n.text-primary {\n  color: #5d9cec;\n}\n.text-success {\n  color: #81c868;\n}\n.text-info {\n  color: #34d3eb;\n}\n.text-warning {\n  color: #ffbd4a;\n}\n.text-danger {\n  color: #f05050;\n}\n.text-inverse {\n  color: #4c5667;\n}\n.text-muted {\n  color: #98a6ad;\n}\n.text-white {\n  color: #fff;\n}\n.text-dark {\n  color: #797979 !important;\n}\n/* =========================================================================\n   FORM\n   ========================================================================= */\ntextarea.form-control {\n  min-height: 90px;\n}\n.form-control {\n  max-width: 100%;\n  height: 38px;\n  padding: 7px 12px;\n  color: #565656;\n  border: 1px solid #e3e3e3;\n  border-radius: 4px;\n  background: #fff;\n  box-shadow: none;\n  -webkit-transition: all 300ms linear;\n          transition: all 300ms linear;\n}\n.form-control:focus {\n  color: #333;\n  border: 1px solid #aaa;\n  outline: 0 !important;\n  background: #fff;\n  box-shadow: none;\n}\n.form-horizontal .form-group {\n  margin-right: -10px;\n  margin-left: -10px;\n}\n.input-lg {\n  height: 46px;\n  padding: 10px 16px;\n  font-size: 18px;\n  line-height: 1.3333333;\n  border-radius: 6px;\n}\n.input-sm {\n  height: 30px;\n  padding: 5px 10px;\n  font-size: 12px;\n  line-height: 1.5;\n  border-radius: 3px;\n}\n.input-group-btn .btn {\n  padding: 8px 12px;\n}\n.input-group-btn .btn-sm {\n  padding: 5px 10px;\n}\n.input-group-btn .btn-lg {\n  padding: 10px 17px;\n}\n/*\n * Waves v0.7.4\n * http://fian.my.id/Waves \n * \n * Copyright 2014 Alfiana E. Sibuea and other contributors \n * Released under the MIT license \n * https://github.com/fians/Waves/blob/master/LICENSE \n */\n.waves-effect {\n  position: relative;\n  display: inline-block;\n  overflow: hidden;\n  cursor: pointer;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none;\n\n  -webkit-tap-highlight-color: transparent;\n}\n.waves-effect .waves-ripple {\n  position: absolute;\n  width: 100px;\n  height: 100px;\n  margin-top: -50px;\n  margin-left: -50px;\n  opacity: 0;\n  border-radius: 50%;\n  background: rgba(0,0,0,.2);\n  background: -webkit-radial-gradient(rgba(0,0,0,.2) 0, rgba(0,0,0,.3) 40%, rgba(0,0,0,.4) 50%, rgba(0,0,0,.5) 60%, rgba(255,255,255,0) 70%);\n  background:         radial-gradient(rgba(0,0,0,.2) 0, rgba(0,0,0,.3) 40%, rgba(0,0,0,.4) 50%, rgba(0,0,0,.5) 60%, rgba(255,255,255,0) 70%);\n  -webkit-transition: all .5s ease-out;\n          transition: all .5s ease-out;\n  -webkit-transition-property: -webkit-transform, opacity;\n  -webkit-transition-property: opacity, -webkit-transform;\n          transition-property: opacity, -webkit-transform;\n          transition-property:         transform, opacity;\n          transition-property:         transform, opacity, -webkit-transform;\n  -webkit-transform: scale(0) translate(0, 0);\n          transform: scale(0) translate(0, 0);\n  pointer-events: none;\n}\n.waves-effect.waves-light .waves-ripple {\n  background: rgba(255,255,255,.4);\n  background: -webkit-radial-gradient(rgba(255,255,255,.2) 0, rgba(255,255,255,.3) 40%, rgba(255,255,255,.4) 50%, rgba(255,255,255,.5) 60%, rgba(255,255,255,0) 70%);\n  background:         radial-gradient(rgba(255,255,255,.2) 0, rgba(255,255,255,.3) 40%, rgba(255,255,255,.4) 50%, rgba(255,255,255,.5) 60%, rgba(255,255,255,0) 70%);\n}\n.waves-effect.waves-classic .waves-ripple {\n  background: rgba(0,0,0,.2);\n}\n.waves-effect.waves-classic.waves-light .waves-ripple {\n  background: rgba(255,255,255,.4);\n}\n.waves-notransition {\n  -webkit-transition: none !important;\n          transition: none !important;\n}\n.waves-button,\n.waves-circle {\n  -webkit-transform: translateZ(0);\n          transform: translateZ(0);\n\n  -webkit-mask-image: -webkit-radial-gradient(circle, #fff 100%, #000 100%);\n}\n.waves-button,\n.waves-button:hover,\n.waves-button:visited,\n.waves-button-input {\n  z-index: 1;\n  font-size: 1em;\n  line-height: 1em;\n  color: inherit;\n  border: none;\n  outline: none;\n  background-color: rgba(0,0,0,0);\n  cursor: pointer;\n  text-align: center;\n  vertical-align: middle;\n  white-space: nowrap;\n  text-decoration: none;\n}\n.waves-button {\n  padding: .85em 1.1em;\n  border-radius: .2em;\n}\n.waves-button-input {\n  margin: 0;\n  padding: .85em 1.1em;\n}\n.waves-input-wrapper {\n  border-radius: .2em;\n  vertical-align: bottom;\n}\n.waves-input-wrapper.waves-button {\n  padding: 0;\n}\n.waves-input-wrapper .waves-button-input {\n  position: relative;\n  z-index: 1;\n  top: 0;\n  left: 0;\n}\n.waves-circle {\n  width: 2.5em;\n  height: 2.5em;\n  line-height: 2.5em;\n  border-radius: 50%;\n  text-align: center;\n}\n.waves-float {\n  box-shadow: 0 1px 1.5px 1px rgba(0,0,0,.12);\n  -webkit-transition: all 300ms;\n          transition: all 300ms;\n\n  -webkit-mask-image: none;\n}\n.waves-float:active {\n  box-shadow: 0 8px 20px 1px rgba(0,0,0,.3);\n}\n.waves-block {\n  display: block;\n}\na.waves-effect .waves-ripple {\n  z-index: -1;\n}\n/* =========================================================================\n   BUTTON\n   ========================================================================= */\n.btn {\n  border-radius: 3px;\n  outline: none !important;\n}\n/* =========================================================================\n   CHECKBOX\n   ========================================================================= */\n.checkbox {\n  padding-left: 20px;\n}\n.checkbox label {\n  position: relative;\n  display: inline-block;\n  padding-left: 5px;\n}\n.checkbox label::before {\n  position: absolute;\n  left: 0;\n  display: inline-block;\n  width: 17px;\n  height: 17px;\n  margin-left: -20px;\n  border: 1px solid #ccc;\n  border-radius: 3px;\n  outline: none !important;\n  background: #fff;\n  content: \"\";\n  -webkit-transition: .3s ease-in-out;\n          transition: .3s ease-in-out;\n}\n.checkbox label::after {\n  position: absolute;\n  top: 0;\n  left: 0;\n  display: inline-block;\n  width: 16px;\n  height: 16px;\n  margin-left: -20px;\n  padding-top: 1px;\n  padding-left: 3px;\n  font-size: 11px;\n  color: #555;\n}\n.checkbox input[type=\"checkbox\"] {\n  z-index: 1;\n  opacity: 0;\n  outline: none !important;\n  cursor: pointer;\n}\n.checkbox input[type=\"checkbox\"]:disabled + label {\n  opacity: .65;\n}\n.checkbox input[type=\"checkbox\"]:focus + label::before {\n  outline: none;\n  outline: thin dotted;\n  outline-offset: -2px;\n}\n.checkbox input[type=\"checkbox\"]:checked + label::after {\n  font-family: \"FontAwesome\";\n  content: \"\\F00C\";\n}\n.checkbox input[type=\"checkbox\"]:disabled + label::before {\n  background: #eee;\n  cursor: not-allowed;\n}\n.checkbox-primary input[type=\"checkbox\"]:checked + label::before {\n  border-color: #5d9cec;\n  background: #5d9cec;\n}\n.checkbox-primary input[type=\"checkbox\"]:checked + label::after {\n  color: #fff;\n}\n/* =========================================================================\n   PANELS\n   ========================================================================= */\n.panel {\n  margin-bottom: 20px;\n  border: none;\n}\n.panel .panel-body {\n  padding: 20px;\n}\n.panel .panel-body p {\n  margin: 0;\n}\n.panel .panel-body p + p {\n  margin-top: 15px;\n}\n.panel-heading {\n  padding: 10px 20px;\n  border: none !important;\n}\n/* =========================================================================\n   RESPONSIVE\n   ========================================================================= */\n@media (min-width: 768px) and (max-width: 991px) {\n  body {\n    overflow-x: hidden;\n  }\n}\n@media (max-width: 767px) {\n  body {\n    overflow-x: hidden;\n  }\n  .wrapper-page {\n    width: 90%;\n  }\n}\n", ""]);
 	
 	// exports
 
@@ -39971,6 +40247,118 @@
 			URL.revokeObjectURL(oldSrc);
 	}
 
+
+/***/ },
+/* 239 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/*
+	 *   Copyright 2016 OSBI Ltd
+	 *
+	 *   Licensed under the Apache License, Version 2.0 (the "License");
+	 *   you may not use this file except in compliance with the License.
+	 *   You may obtain a copy of the License at
+	 *
+	 *       http://www.apache.org/licenses/LICENSE-2.0
+	 *
+	 *   Unless required by applicable law or agreed to in writing, software
+	 *   distributed under the License is distributed on an "AS IS" BASIS,
+	 *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	 *   See the License for the specific language governing permissions and
+	 *   limitations under the License.
+	 */
+	
+	'use strict';
+	
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+	
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+	
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _bootstrapIndex = __webpack_require__(222);
+	
+	var Toolbar = (function (_React$Component) {
+	  _inherits(Toolbar, _React$Component);
+	
+	  function Toolbar() {
+	    _classCallCheck(this, Toolbar);
+	
+	    _get(Object.getPrototypeOf(Toolbar.prototype), 'constructor', this).apply(this, arguments);
+	  }
+	
+	  _createClass(Toolbar, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2['default'].createElement(
+	        'div',
+	        { className: 'wrapper' },
+	        _react2['default'].createElement(
+	          'div',
+	          { className: 'topbar' },
+	          _react2['default'].createElement(
+	            'div',
+	            { className: 'topbar-left' },
+	            _react2['default'].createElement(
+	              'div',
+	              { className: 'text-center' },
+	              _react2['default'].createElement(
+	                'a',
+	                { href: '#', className: 'logo' },
+	                _react2['default'].createElement('img', {
+	                  src: 'dist/assets/images/saiku/logo-small.png',
+	                  width: '40',
+	                  height: '40'
+	                })
+	              )
+	            )
+	          ),
+	          _react2['default'].createElement(
+	            'div',
+	            { className: 'navbar navbar-default', role: 'navigation' },
+	            _react2['default'].createElement(
+	              _bootstrapIndex.Grid,
+	              null,
+	              _react2['default'].createElement(
+	                'div',
+	                { className: '' },
+	                _react2['default'].createElement(
+	                  'div',
+	                  { className: 'pull-left' },
+	                  _react2['default'].createElement(
+	                    _bootstrapIndex.Button,
+	                    {
+	                      className: 'button-menu-mobile open-left waves-effect'
+	                    },
+	                    _react2['default'].createElement('i', { className: 'fa fa-navicon' })
+	                  ),
+	                  _react2['default'].createElement(_bootstrapIndex.Clearfix, null)
+	                )
+	              )
+	            )
+	          )
+	        )
+	      );
+	    }
+	  }]);
+	
+	  return Toolbar;
+	})(_react2['default'].Component);
+	
+	exports['default'] = Toolbar;
+	module.exports = exports['default'];
 
 /***/ }
 /******/ ]);
