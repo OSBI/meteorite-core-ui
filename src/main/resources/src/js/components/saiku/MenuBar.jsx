@@ -20,163 +20,160 @@ import {
   Button,
   Clearfix
 } from '../bootstrap/index';
-import Wrapper from './Wrapper';
 
 class MenuBar extends React.Component {
   render() {
     return (
-      <Wrapper>
-        <div className="topbar">
-          <div className="topbar-left">
-            <div className="text-center">
-              <a href="#" className="logo">
-                <img
-                  src="dist/assets/images/saiku/logo-small.png"
-                  width="40"
-                  height="40"
-                />
-              </a>
-            </div>
-          </div>
-
-          <div className="navbar navbar-default" role="navigation">
-            <Grid>
-              <div className="">
-                <div className="pull-left">
-                  <Button
-                    className="button-menu-mobile open-left waves-effect"
-                  >
-                    <i className="fa fa-navicon"></i>
-                  </Button>
-                  <Clearfix />
-                </div>
-                <ul className="nav navbar-nav hidden-xs">
-                  <li className="dropdown">
-                    <a
-                      href="#"
-                      className="dropdown-toggle waves-effect"
-                      data-toggle="dropdown"
-                      role="button"
-                      aria-haspopup="true"
-                      aria-expanded="false"
-                    >
-                      File <span className="caret"></span>
-                    </a>
-                    <ul className="dropdown-menu dropdown-menu-animate">
-                      <li><a href="#">Option 1</a></li>
-                      <li><a href="#">Option 2</a></li>
-                      <li><a href="#">Option 3</a></li>
-                    </ul>
-                  </li>
-                  <li className="dropdown">
-                    <a
-                      href="#"
-                      className="dropdown-toggle waves-effect"
-                      data-toggle="dropdown"
-                      role="button"
-                      aria-haspopup="true"
-                      aria-expanded="false"
-                    >
-                      Edit <span className="caret"></span>
-                    </a>
-                    <ul className="dropdown-menu dropdown-menu-animate">
-                      <li><a href="#">Option 1</a></li>
-                      <li><a href="#">Option 2</a></li>
-                      <li><a href="#">Option 3</a></li>
-                    </ul>
-                  </li>
-                  <li className="dropdown">
-                    <a
-                      href="#"
-                      className="dropdown-toggle waves-effect"
-                      data-toggle="dropdown"
-                      role="button"
-                      aria-haspopup="true"
-                      aria-expanded="false"
-                    >
-                      Tools <span className="caret"></span>
-                    </a>
-                    <ul className="dropdown-menu dropdown-menu-animate">
-                      <li><a href="#">Option 1</a></li>
-                      <li><a href="#">Option 2</a></li>
-                      <li><a href="#">Option 3</a></li>
-                    </ul>
-                  </li>
-                  <li className="dropdown">
-                    <a
-                      href="#"
-                      className="dropdown-toggle waves-effect"
-                      data-toggle="dropdown"
-                      role="button"
-                      aria-haspopup="true"
-                      aria-expanded="false"
-                    >
-                      Views <span className="caret"></span>
-                    </a>
-                    <ul className="dropdown-menu dropdown-menu-animate">
-                      <li><a href="#">Option 1</a></li>
-                      <li><a href="#">Option 2</a></li>
-                      <li><a href="#">Option 3</a></li>
-                    </ul>
-                  </li>
-                </ul>
-                <ul className="nav navbar-nav navbar-right pull-right">
-                  <li className="dropdown hidden-xs">
-                    <a
-                      href="#"
-                      className=""
-                      data-target="#"
-                      data-toggle="dropdown"
-                      aria-expanded="true"
-                    >
-                      <i className="fa fa-bell-o"></i>
-                      <span className="badge badge-xs badge-danger">3</span>
-                    </a>
-                  </li>
-                  <li className="dropdown">
-                    <a
-                      href="#"
-                      className="dropdown-toggle profile waves-effect"
-                      data-toggle="dropdown"
-                      aria-expanded="true"
-                    >
-                      <img
-                        src="dist/assets/images/users/user2.jpg"
-                        className="img-circle"
-                      />
-                    </a>
-                    <ul
-                      className="dropdown-menu dropdown-menu-animate
-                        drop-menu-right"
-                    >
-                      <li>
-                        <a href="#">
-                          <i className="fa fa-navicon"></i> Profile
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#">
-                          <i className="fa fa-navicon"></i> Settings
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#">
-                          <i className="fa fa-navicon"></i> Lock Screen
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#">
-                          <i className="fa fa-navicon"></i> Logout
-                        </a>
-                      </li>
-                    </ul>
-                  </li>
-                </ul>
-              </div>
-            </Grid>
+      <div className="topbar">
+        <div className="topbar-left">
+          <div className="text-center">
+            <a href="#" className="logo">
+              <img
+                src="dist/assets/images/saiku/logo-small.png"
+                width="40"
+                height="40"
+              />
+            </a>
           </div>
         </div>
-      </Wrapper>
+
+        <div className="navbar navbar-default" role="navigation">
+          <Grid>
+            <div className="">
+              <div className="pull-left">
+                <Button
+                  className="button-menu-mobile open-left waves-effect"
+                >
+                  <i className="fa fa-navicon"></i>
+                </Button>
+                <Clearfix />
+              </div>
+              <ul className="nav navbar-nav hidden-xs">
+                <li className="dropdown">
+                  <a
+                    href="#"
+                    className="dropdown-toggle waves-effect"
+                    data-toggle="dropdown"
+                    role="button"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                  >
+                    File <span className="caret"></span>
+                  </a>
+                  <ul className="dropdown-menu dropdown-menu-animate">
+                    <li><a href="#">Option 1</a></li>
+                    <li><a href="#">Option 2</a></li>
+                    <li><a href="#">Option 3</a></li>
+                  </ul>
+                </li>
+                <li className="dropdown">
+                  <a
+                    href="#"
+                    className="dropdown-toggle waves-effect"
+                    data-toggle="dropdown"
+                    role="button"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                  >
+                    Edit <span className="caret"></span>
+                  </a>
+                  <ul className="dropdown-menu dropdown-menu-animate">
+                    <li><a href="#">Option 1</a></li>
+                    <li><a href="#">Option 2</a></li>
+                    <li><a href="#">Option 3</a></li>
+                  </ul>
+                </li>
+                <li className="dropdown">
+                  <a
+                    href="#"
+                    className="dropdown-toggle waves-effect"
+                    data-toggle="dropdown"
+                    role="button"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                  >
+                    Tools <span className="caret"></span>
+                  </a>
+                  <ul className="dropdown-menu dropdown-menu-animate">
+                    <li><a href="#">Option 1</a></li>
+                    <li><a href="#">Option 2</a></li>
+                    <li><a href="#">Option 3</a></li>
+                  </ul>
+                </li>
+                <li className="dropdown">
+                  <a
+                    href="#"
+                    className="dropdown-toggle waves-effect"
+                    data-toggle="dropdown"
+                    role="button"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                  >
+                    Views <span className="caret"></span>
+                  </a>
+                  <ul className="dropdown-menu dropdown-menu-animate">
+                    <li><a href="#">Option 1</a></li>
+                    <li><a href="#">Option 2</a></li>
+                    <li><a href="#">Option 3</a></li>
+                  </ul>
+                </li>
+              </ul>
+              <ul className="nav navbar-nav navbar-right pull-right">
+                <li className="dropdown hidden-xs">
+                  <a
+                    href="#"
+                    className=""
+                    data-target="#"
+                    data-toggle="dropdown"
+                    aria-expanded="true"
+                  >
+                    <i className="fa fa-bell-o"></i>
+                    <span className="badge badge-xs badge-danger">3</span>
+                  </a>
+                </li>
+                <li className="dropdown">
+                  <a
+                    href="#"
+                    className="dropdown-toggle profile waves-effect"
+                    data-toggle="dropdown"
+                    aria-expanded="true"
+                  >
+                    <img
+                      src="dist/assets/images/users/user2.jpg"
+                      className="img-circle"
+                    />
+                  </a>
+                  <ul
+                    className="dropdown-menu dropdown-menu-animate
+                      drop-menu-right"
+                  >
+                    <li>
+                      <a href="#">
+                        <i className="fa fa-navicon"></i> Profile
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <i className="fa fa-navicon"></i> Settings
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <i className="fa fa-navicon"></i> Lock Screen
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <i className="fa fa-navicon"></i> Logout
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </Grid>
+        </div>
+      </div>
     );
   }
 }

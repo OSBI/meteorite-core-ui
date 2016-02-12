@@ -82,24 +82,24 @@
 	
 	// import LockScreen from './components/saiku/LockScreen';
 	
-	var _componentsSaikuWorkspace = __webpack_require__(232);
+	var _componentsSaikuWorkspace = __webpack_require__(233);
 	
 	var _componentsSaikuWorkspace2 = _interopRequireDefault(_componentsSaikuWorkspace);
 	
-	var _componentsSaikuNotFound = __webpack_require__(234);
+	var _componentsSaikuNotFound = __webpack_require__(237);
 	
 	var _componentsSaikuNotFound2 = _interopRequireDefault(_componentsSaikuNotFound);
 	
 	// webpack loaders
 	
-	__webpack_require__(235);
+	__webpack_require__(238);
 	
-	__webpack_require__(236);
+	__webpack_require__(239);
 	
 	var routes = _react2['default'].createElement(
 	  _reactRouter.Router,
 	  { history: (0, _history.createHistory)() },
-	  _react2['default'].createElement(_reactRouter.Route, { path: '/', component: _componentsSaikuLogin2['default'] }),
+	  _react2['default'].createElement(_reactRouter.Route, { path: '/', component: _componentsSaikuWorkspace2['default'] }),
 	  _react2['default'].createElement(_reactRouter.Route, { path: '/workspace/', component: _componentsSaikuWorkspace2['default'] }),
 	  _react2['default'].createElement(_reactRouter.Route, { path: '*', component: _componentsSaikuNotFound2['default'] })
 	);
@@ -24511,7 +24511,7 @@
 	
 	var _bootstrapIndex = __webpack_require__(222);
 	
-	var _Wrapper = __webpack_require__(240);
+	var _Wrapper = __webpack_require__(232);
 	
 	var _Wrapper2 = _interopRequireDefault(_Wrapper);
 	
@@ -39785,6 +39785,8 @@
 	  value: true
 	});
 	
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+	
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 	
 	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
@@ -39799,39 +39801,47 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _MenuBar = __webpack_require__(233);
+	var _classnames = __webpack_require__(224);
 	
-	var _MenuBar2 = _interopRequireDefault(_MenuBar);
+	var _classnames2 = _interopRequireDefault(_classnames);
 	
-	var _Toolbar = __webpack_require__(241);
+	var Wrapper = (function (_React$Component) {
+	  _inherits(Wrapper, _React$Component);
 	
-	var _Toolbar2 = _interopRequireDefault(_Toolbar);
+	  function Wrapper() {
+	    _classCallCheck(this, Wrapper);
 	
-	var Workspace = (function (_React$Component) {
-	  _inherits(Workspace, _React$Component);
-	
-	  function Workspace() {
-	    _classCallCheck(this, Workspace);
-	
-	    _get(Object.getPrototypeOf(Workspace.prototype), 'constructor', this).apply(this, arguments);
+	    _get(Object.getPrototypeOf(Wrapper.prototype), 'constructor', this).apply(this, arguments);
 	  }
 	
-	  _createClass(Workspace, [{
+	  _createClass(Wrapper, [{
 	    key: 'render',
 	    value: function render() {
+	      var className = this.props.page ? 'wrapper-page' : 'wrapper-page';
+	
 	      return _react2['default'].createElement(
 	        'div',
-	        null,
-	        _react2['default'].createElement(_MenuBar2['default'], null),
-	        _react2['default'].createElement(_Toolbar2['default'], null)
+	        _extends({}, this.props, {
+	          className: (0, _classnames2['default'])(className, this.props.className) }),
+	        this.props.children
 	      );
 	    }
 	  }]);
 	
-	  return Workspace;
+	  return Wrapper;
 	})(_react2['default'].Component);
 	
-	exports['default'] = Workspace;
+	Wrapper.propTypes = {
+	  className: _react2['default'].PropTypes.string,
+	  children: _react2['default'].PropTypes.node.isRequired,
+	  page: _react2['default'].PropTypes.bool
+	};
+	
+	Wrapper.defaultProps = {
+	  page: false
+	};
+	
+	exports['default'] = Wrapper;
 	module.exports = exports['default'];
 
 /***/ },
@@ -39874,11 +39884,86 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _bootstrapIndex = __webpack_require__(222);
-	
-	var _Wrapper = __webpack_require__(240);
+	var _Wrapper = __webpack_require__(232);
 	
 	var _Wrapper2 = _interopRequireDefault(_Wrapper);
+	
+	var _MenuBar = __webpack_require__(234);
+	
+	var _MenuBar2 = _interopRequireDefault(_MenuBar);
+	
+	var _Toolbar = __webpack_require__(235);
+	
+	var _Toolbar2 = _interopRequireDefault(_Toolbar);
+	
+	var Workspace = (function (_React$Component) {
+	  _inherits(Workspace, _React$Component);
+	
+	  function Workspace() {
+	    _classCallCheck(this, Workspace);
+	
+	    _get(Object.getPrototypeOf(Workspace.prototype), 'constructor', this).apply(this, arguments);
+	  }
+	
+	  _createClass(Workspace, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2['default'].createElement(
+	        _Wrapper2['default'],
+	        null,
+	        _react2['default'].createElement(_MenuBar2['default'], null),
+	        _react2['default'].createElement(_Toolbar2['default'], null)
+	      );
+	    }
+	  }]);
+	
+	  return Workspace;
+	})(_react2['default'].Component);
+	
+	exports['default'] = Workspace;
+	module.exports = exports['default'];
+
+/***/ },
+/* 234 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/*
+	 *   Copyright 2016 OSBI Ltd
+	 *
+	 *   Licensed under the Apache License, Version 2.0 (the "License");
+	 *   you may not use this file except in compliance with the License.
+	 *   You may obtain a copy of the License at
+	 *
+	 *       http://www.apache.org/licenses/LICENSE-2.0
+	 *
+	 *   Unless required by applicable law or agreed to in writing, software
+	 *   distributed under the License is distributed on an "AS IS" BASIS,
+	 *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	 *   See the License for the specific language governing permissions and
+	 *   limitations under the License.
+	 */
+	
+	'use strict';
+	
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+	
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+	
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _bootstrapIndex = __webpack_require__(222);
 	
 	var MenuBar = (function (_React$Component) {
 	  _inherits(MenuBar, _React$Component);
@@ -39893,328 +39978,324 @@
 	    key: 'render',
 	    value: function render() {
 	      return _react2['default'].createElement(
-	        _Wrapper2['default'],
-	        null,
+	        'div',
+	        { className: 'topbar' },
 	        _react2['default'].createElement(
 	          'div',
-	          { className: 'topbar' },
+	          { className: 'topbar-left' },
 	          _react2['default'].createElement(
 	            'div',
-	            { className: 'topbar-left' },
+	            { className: 'text-center' },
+	            _react2['default'].createElement(
+	              'a',
+	              { href: '#', className: 'logo' },
+	              _react2['default'].createElement('img', {
+	                src: 'dist/assets/images/saiku/logo-small.png',
+	                width: '40',
+	                height: '40'
+	              })
+	            )
+	          )
+	        ),
+	        _react2['default'].createElement(
+	          'div',
+	          { className: 'navbar navbar-default', role: 'navigation' },
+	          _react2['default'].createElement(
+	            _bootstrapIndex.Grid,
+	            null,
 	            _react2['default'].createElement(
 	              'div',
-	              { className: 'text-center' },
-	              _react2['default'].createElement(
-	                'a',
-	                { href: '#', className: 'logo' },
-	                _react2['default'].createElement('img', {
-	                  src: 'dist/assets/images/saiku/logo-small.png',
-	                  width: '40',
-	                  height: '40'
-	                })
-	              )
-	            )
-	          ),
-	          _react2['default'].createElement(
-	            'div',
-	            { className: 'navbar navbar-default', role: 'navigation' },
-	            _react2['default'].createElement(
-	              _bootstrapIndex.Grid,
-	              null,
+	              { className: '' },
 	              _react2['default'].createElement(
 	                'div',
-	                { className: '' },
+	                { className: 'pull-left' },
 	                _react2['default'].createElement(
-	                  'div',
-	                  { className: 'pull-left' },
-	                  _react2['default'].createElement(
-	                    _bootstrapIndex.Button,
-	                    {
-	                      className: 'button-menu-mobile open-left waves-effect'
-	                    },
-	                    _react2['default'].createElement('i', { className: 'fa fa-navicon' })
-	                  ),
-	                  _react2['default'].createElement(_bootstrapIndex.Clearfix, null)
+	                  _bootstrapIndex.Button,
+	                  {
+	                    className: 'button-menu-mobile open-left waves-effect'
+	                  },
+	                  _react2['default'].createElement('i', { className: 'fa fa-navicon' })
 	                ),
+	                _react2['default'].createElement(_bootstrapIndex.Clearfix, null)
+	              ),
+	              _react2['default'].createElement(
+	                'ul',
+	                { className: 'nav navbar-nav hidden-xs' },
 	                _react2['default'].createElement(
-	                  'ul',
-	                  { className: 'nav navbar-nav hidden-xs' },
+	                  'li',
+	                  { className: 'dropdown' },
 	                  _react2['default'].createElement(
-	                    'li',
-	                    { className: 'dropdown' },
-	                    _react2['default'].createElement(
-	                      'a',
-	                      {
-	                        href: '#',
-	                        className: 'dropdown-toggle waves-effect',
-	                        'data-toggle': 'dropdown',
-	                        role: 'button',
-	                        'aria-haspopup': 'true',
-	                        'aria-expanded': 'false'
-	                      },
-	                      'File ',
-	                      _react2['default'].createElement('span', { className: 'caret' })
-	                    ),
-	                    _react2['default'].createElement(
-	                      'ul',
-	                      { className: 'dropdown-menu dropdown-menu-animate' },
-	                      _react2['default'].createElement(
-	                        'li',
-	                        null,
-	                        _react2['default'].createElement(
-	                          'a',
-	                          { href: '#' },
-	                          'Option 1'
-	                        )
-	                      ),
-	                      _react2['default'].createElement(
-	                        'li',
-	                        null,
-	                        _react2['default'].createElement(
-	                          'a',
-	                          { href: '#' },
-	                          'Option 2'
-	                        )
-	                      ),
-	                      _react2['default'].createElement(
-	                        'li',
-	                        null,
-	                        _react2['default'].createElement(
-	                          'a',
-	                          { href: '#' },
-	                          'Option 3'
-	                        )
-	                      )
-	                    )
+	                    'a',
+	                    {
+	                      href: '#',
+	                      className: 'dropdown-toggle waves-effect',
+	                      'data-toggle': 'dropdown',
+	                      role: 'button',
+	                      'aria-haspopup': 'true',
+	                      'aria-expanded': 'false'
+	                    },
+	                    'File ',
+	                    _react2['default'].createElement('span', { className: 'caret' })
 	                  ),
 	                  _react2['default'].createElement(
-	                    'li',
-	                    { className: 'dropdown' },
+	                    'ul',
+	                    { className: 'dropdown-menu dropdown-menu-animate' },
 	                    _react2['default'].createElement(
-	                      'a',
-	                      {
-	                        href: '#',
-	                        className: 'dropdown-toggle waves-effect',
-	                        'data-toggle': 'dropdown',
-	                        role: 'button',
-	                        'aria-haspopup': 'true',
-	                        'aria-expanded': 'false'
-	                      },
-	                      'Edit ',
-	                      _react2['default'].createElement('span', { className: 'caret' })
-	                    ),
-	                    _react2['default'].createElement(
-	                      'ul',
-	                      { className: 'dropdown-menu dropdown-menu-animate' },
+	                      'li',
+	                      null,
 	                      _react2['default'].createElement(
-	                        'li',
-	                        null,
-	                        _react2['default'].createElement(
-	                          'a',
-	                          { href: '#' },
-	                          'Option 1'
-	                        )
-	                      ),
-	                      _react2['default'].createElement(
-	                        'li',
-	                        null,
-	                        _react2['default'].createElement(
-	                          'a',
-	                          { href: '#' },
-	                          'Option 2'
-	                        )
-	                      ),
-	                      _react2['default'].createElement(
-	                        'li',
-	                        null,
-	                        _react2['default'].createElement(
-	                          'a',
-	                          { href: '#' },
-	                          'Option 3'
-	                        )
+	                        'a',
+	                        { href: '#' },
+	                        'Option 1'
 	                      )
-	                    )
-	                  ),
-	                  _react2['default'].createElement(
-	                    'li',
-	                    { className: 'dropdown' },
-	                    _react2['default'].createElement(
-	                      'a',
-	                      {
-	                        href: '#',
-	                        className: 'dropdown-toggle waves-effect',
-	                        'data-toggle': 'dropdown',
-	                        role: 'button',
-	                        'aria-haspopup': 'true',
-	                        'aria-expanded': 'false'
-	                      },
-	                      'Tools ',
-	                      _react2['default'].createElement('span', { className: 'caret' })
 	                    ),
 	                    _react2['default'].createElement(
-	                      'ul',
-	                      { className: 'dropdown-menu dropdown-menu-animate' },
+	                      'li',
+	                      null,
 	                      _react2['default'].createElement(
-	                        'li',
-	                        null,
-	                        _react2['default'].createElement(
-	                          'a',
-	                          { href: '#' },
-	                          'Option 1'
-	                        )
-	                      ),
-	                      _react2['default'].createElement(
-	                        'li',
-	                        null,
-	                        _react2['default'].createElement(
-	                          'a',
-	                          { href: '#' },
-	                          'Option 2'
-	                        )
-	                      ),
-	                      _react2['default'].createElement(
-	                        'li',
-	                        null,
-	                        _react2['default'].createElement(
-	                          'a',
-	                          { href: '#' },
-	                          'Option 3'
-	                        )
+	                        'a',
+	                        { href: '#' },
+	                        'Option 2'
 	                      )
-	                    )
-	                  ),
-	                  _react2['default'].createElement(
-	                    'li',
-	                    { className: 'dropdown' },
-	                    _react2['default'].createElement(
-	                      'a',
-	                      {
-	                        href: '#',
-	                        className: 'dropdown-toggle waves-effect',
-	                        'data-toggle': 'dropdown',
-	                        role: 'button',
-	                        'aria-haspopup': 'true',
-	                        'aria-expanded': 'false'
-	                      },
-	                      'Views ',
-	                      _react2['default'].createElement('span', { className: 'caret' })
 	                    ),
 	                    _react2['default'].createElement(
-	                      'ul',
-	                      { className: 'dropdown-menu dropdown-menu-animate' },
+	                      'li',
+	                      null,
 	                      _react2['default'].createElement(
-	                        'li',
-	                        null,
-	                        _react2['default'].createElement(
-	                          'a',
-	                          { href: '#' },
-	                          'Option 1'
-	                        )
-	                      ),
-	                      _react2['default'].createElement(
-	                        'li',
-	                        null,
-	                        _react2['default'].createElement(
-	                          'a',
-	                          { href: '#' },
-	                          'Option 2'
-	                        )
-	                      ),
-	                      _react2['default'].createElement(
-	                        'li',
-	                        null,
-	                        _react2['default'].createElement(
-	                          'a',
-	                          { href: '#' },
-	                          'Option 3'
-	                        )
+	                        'a',
+	                        { href: '#' },
+	                        'Option 3'
 	                      )
 	                    )
 	                  )
 	                ),
 	                _react2['default'].createElement(
-	                  'ul',
-	                  { className: 'nav navbar-nav navbar-right pull-right' },
+	                  'li',
+	                  { className: 'dropdown' },
 	                  _react2['default'].createElement(
-	                    'li',
-	                    { className: 'dropdown hidden-xs' },
-	                    _react2['default'].createElement(
-	                      'a',
-	                      {
-	                        href: '#',
-	                        className: '',
-	                        'data-target': '#',
-	                        'data-toggle': 'dropdown',
-	                        'aria-expanded': 'true'
-	                      },
-	                      _react2['default'].createElement('i', { className: 'fa fa-bell-o' }),
-	                      _react2['default'].createElement(
-	                        'span',
-	                        { className: 'badge badge-xs badge-danger' },
-	                        '3'
-	                      )
-	                    )
+	                    'a',
+	                    {
+	                      href: '#',
+	                      className: 'dropdown-toggle waves-effect',
+	                      'data-toggle': 'dropdown',
+	                      role: 'button',
+	                      'aria-haspopup': 'true',
+	                      'aria-expanded': 'false'
+	                    },
+	                    'Edit ',
+	                    _react2['default'].createElement('span', { className: 'caret' })
 	                  ),
 	                  _react2['default'].createElement(
-	                    'li',
-	                    { className: 'dropdown' },
+	                    'ul',
+	                    { className: 'dropdown-menu dropdown-menu-animate' },
 	                    _react2['default'].createElement(
-	                      'a',
-	                      {
-	                        href: '#',
-	                        className: 'dropdown-toggle profile waves-effect',
-	                        'data-toggle': 'dropdown',
-	                        'aria-expanded': 'true'
-	                      },
-	                      _react2['default'].createElement('img', {
-	                        src: 'dist/assets/images/users/user2.jpg',
-	                        className: 'img-circle'
-	                      })
+	                      'li',
+	                      null,
+	                      _react2['default'].createElement(
+	                        'a',
+	                        { href: '#' },
+	                        'Option 1'
+	                      )
 	                    ),
 	                    _react2['default'].createElement(
-	                      'ul',
-	                      {
-	                        className: 'dropdown-menu dropdown-menu-animate drop-menu-right'
-	                      },
+	                      'li',
+	                      null,
 	                      _react2['default'].createElement(
-	                        'li',
-	                        null,
-	                        _react2['default'].createElement(
-	                          'a',
-	                          { href: '#' },
-	                          _react2['default'].createElement('i', { className: 'fa fa-navicon' }),
-	                          ' Profile'
-	                        )
-	                      ),
+	                        'a',
+	                        { href: '#' },
+	                        'Option 2'
+	                      )
+	                    ),
+	                    _react2['default'].createElement(
+	                      'li',
+	                      null,
 	                      _react2['default'].createElement(
-	                        'li',
-	                        null,
-	                        _react2['default'].createElement(
-	                          'a',
-	                          { href: '#' },
-	                          _react2['default'].createElement('i', { className: 'fa fa-navicon' }),
-	                          ' Settings'
-	                        )
-	                      ),
+	                        'a',
+	                        { href: '#' },
+	                        'Option 3'
+	                      )
+	                    )
+	                  )
+	                ),
+	                _react2['default'].createElement(
+	                  'li',
+	                  { className: 'dropdown' },
+	                  _react2['default'].createElement(
+	                    'a',
+	                    {
+	                      href: '#',
+	                      className: 'dropdown-toggle waves-effect',
+	                      'data-toggle': 'dropdown',
+	                      role: 'button',
+	                      'aria-haspopup': 'true',
+	                      'aria-expanded': 'false'
+	                    },
+	                    'Tools ',
+	                    _react2['default'].createElement('span', { className: 'caret' })
+	                  ),
+	                  _react2['default'].createElement(
+	                    'ul',
+	                    { className: 'dropdown-menu dropdown-menu-animate' },
+	                    _react2['default'].createElement(
+	                      'li',
+	                      null,
 	                      _react2['default'].createElement(
-	                        'li',
-	                        null,
-	                        _react2['default'].createElement(
-	                          'a',
-	                          { href: '#' },
-	                          _react2['default'].createElement('i', { className: 'fa fa-navicon' }),
-	                          ' Lock Screen'
-	                        )
-	                      ),
+	                        'a',
+	                        { href: '#' },
+	                        'Option 1'
+	                      )
+	                    ),
+	                    _react2['default'].createElement(
+	                      'li',
+	                      null,
 	                      _react2['default'].createElement(
-	                        'li',
-	                        null,
-	                        _react2['default'].createElement(
-	                          'a',
-	                          { href: '#' },
-	                          _react2['default'].createElement('i', { className: 'fa fa-navicon' }),
-	                          ' Logout'
-	                        )
+	                        'a',
+	                        { href: '#' },
+	                        'Option 2'
+	                      )
+	                    ),
+	                    _react2['default'].createElement(
+	                      'li',
+	                      null,
+	                      _react2['default'].createElement(
+	                        'a',
+	                        { href: '#' },
+	                        'Option 3'
+	                      )
+	                    )
+	                  )
+	                ),
+	                _react2['default'].createElement(
+	                  'li',
+	                  { className: 'dropdown' },
+	                  _react2['default'].createElement(
+	                    'a',
+	                    {
+	                      href: '#',
+	                      className: 'dropdown-toggle waves-effect',
+	                      'data-toggle': 'dropdown',
+	                      role: 'button',
+	                      'aria-haspopup': 'true',
+	                      'aria-expanded': 'false'
+	                    },
+	                    'Views ',
+	                    _react2['default'].createElement('span', { className: 'caret' })
+	                  ),
+	                  _react2['default'].createElement(
+	                    'ul',
+	                    { className: 'dropdown-menu dropdown-menu-animate' },
+	                    _react2['default'].createElement(
+	                      'li',
+	                      null,
+	                      _react2['default'].createElement(
+	                        'a',
+	                        { href: '#' },
+	                        'Option 1'
+	                      )
+	                    ),
+	                    _react2['default'].createElement(
+	                      'li',
+	                      null,
+	                      _react2['default'].createElement(
+	                        'a',
+	                        { href: '#' },
+	                        'Option 2'
+	                      )
+	                    ),
+	                    _react2['default'].createElement(
+	                      'li',
+	                      null,
+	                      _react2['default'].createElement(
+	                        'a',
+	                        { href: '#' },
+	                        'Option 3'
+	                      )
+	                    )
+	                  )
+	                )
+	              ),
+	              _react2['default'].createElement(
+	                'ul',
+	                { className: 'nav navbar-nav navbar-right pull-right' },
+	                _react2['default'].createElement(
+	                  'li',
+	                  { className: 'dropdown hidden-xs' },
+	                  _react2['default'].createElement(
+	                    'a',
+	                    {
+	                      href: '#',
+	                      className: '',
+	                      'data-target': '#',
+	                      'data-toggle': 'dropdown',
+	                      'aria-expanded': 'true'
+	                    },
+	                    _react2['default'].createElement('i', { className: 'fa fa-bell-o' }),
+	                    _react2['default'].createElement(
+	                      'span',
+	                      { className: 'badge badge-xs badge-danger' },
+	                      '3'
+	                    )
+	                  )
+	                ),
+	                _react2['default'].createElement(
+	                  'li',
+	                  { className: 'dropdown' },
+	                  _react2['default'].createElement(
+	                    'a',
+	                    {
+	                      href: '#',
+	                      className: 'dropdown-toggle profile waves-effect',
+	                      'data-toggle': 'dropdown',
+	                      'aria-expanded': 'true'
+	                    },
+	                    _react2['default'].createElement('img', {
+	                      src: 'dist/assets/images/users/user2.jpg',
+	                      className: 'img-circle'
+	                    })
+	                  ),
+	                  _react2['default'].createElement(
+	                    'ul',
+	                    {
+	                      className: 'dropdown-menu dropdown-menu-animate drop-menu-right'
+	                    },
+	                    _react2['default'].createElement(
+	                      'li',
+	                      null,
+	                      _react2['default'].createElement(
+	                        'a',
+	                        { href: '#' },
+	                        _react2['default'].createElement('i', { className: 'fa fa-navicon' }),
+	                        ' Profile'
+	                      )
+	                    ),
+	                    _react2['default'].createElement(
+	                      'li',
+	                      null,
+	                      _react2['default'].createElement(
+	                        'a',
+	                        { href: '#' },
+	                        _react2['default'].createElement('i', { className: 'fa fa-navicon' }),
+	                        ' Settings'
+	                      )
+	                    ),
+	                    _react2['default'].createElement(
+	                      'li',
+	                      null,
+	                      _react2['default'].createElement(
+	                        'a',
+	                        { href: '#' },
+	                        _react2['default'].createElement('i', { className: 'fa fa-navicon' }),
+	                        ' Lock Screen'
+	                      )
+	                    ),
+	                    _react2['default'].createElement(
+	                      'li',
+	                      null,
+	                      _react2['default'].createElement(
+	                        'a',
+	                        { href: '#' },
+	                        _react2['default'].createElement('i', { className: 'fa fa-navicon' }),
+	                        ' Logout'
 	                      )
 	                    )
 	                  )
@@ -40234,7 +40315,336 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 234 */
+/* 235 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/*
+	 *   Copyright 2016 OSBI Ltd
+	 *
+	 *   Licensed under the Apache License, Version 2.0 (the "License");
+	 *   you may not use this file except in compliance with the License.
+	 *   You may obtain a copy of the License at
+	 *
+	 *       http://www.apache.org/licenses/LICENSE-2.0
+	 *
+	 *   Unless required by applicable law or agreed to in writing, software
+	 *   distributed under the License is distributed on an "AS IS" BASIS,
+	 *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	 *   See the License for the specific language governing permissions and
+	 *   limitations under the License.
+	 */
+	
+	'use strict';
+	
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+	
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+	
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _bootstrapIndex = __webpack_require__(222);
+	
+	var _Icon = __webpack_require__(236);
+	
+	var _Icon2 = _interopRequireDefault(_Icon);
+	
+	var Toolbar = (function (_React$Component) {
+	  _inherits(Toolbar, _React$Component);
+	
+	  function Toolbar() {
+	    _classCallCheck(this, Toolbar);
+	
+	    _get(Object.getPrototypeOf(Toolbar.prototype), 'constructor', this).apply(this, arguments);
+	  }
+	
+	  _createClass(Toolbar, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2['default'].createElement(
+	        'div',
+	        { className: 'side-menu left' },
+	        _react2['default'].createElement(
+	          'div',
+	          { className: 'sidebar-inner slimscrollleft' },
+	          _react2['default'].createElement(
+	            'div',
+	            { className: 'sidebar-menu' },
+	            _react2['default'].createElement(
+	              'ul',
+	              null,
+	              _react2['default'].createElement(
+	                'li',
+	                null,
+	                _react2['default'].createElement(
+	                  'a',
+	                  { href: '#', className: 'waves-effect waves-light' },
+	                  _react2['default'].createElement(_Icon2['default'], { name: 'home' }),
+	                  _react2['default'].createElement(
+	                    'span',
+	                    null,
+	                    ' Home '
+	                  )
+	                )
+	              ),
+	              _react2['default'].createElement(
+	                'li',
+	                null,
+	                _react2['default'].createElement(
+	                  'a',
+	                  { href: '#', className: 'waves-effect waves-light' },
+	                  _react2['default'].createElement(_Icon2['default'], { name: 'plus-square' }),
+	                  _react2['default'].createElement(
+	                    'span',
+	                    null,
+	                    ' New Query '
+	                  )
+	                )
+	              ),
+	              _react2['default'].createElement(
+	                'li',
+	                null,
+	                _react2['default'].createElement(
+	                  'a',
+	                  { href: '#', className: 'waves-effect waves-light' },
+	                  _react2['default'].createElement(_Icon2['default'], { name: 'folder-open-o' }),
+	                  _react2['default'].createElement(
+	                    'span',
+	                    null,
+	                    ' Open Query '
+	                  )
+	                )
+	              ),
+	              _react2['default'].createElement(
+	                'li',
+	                null,
+	                _react2['default'].createElement(
+	                  'a',
+	                  { href: '#', className: 'waves-effect waves-light' },
+	                  _react2['default'].createElement(_Icon2['default'], { name: 'file-text-o' }),
+	                  _react2['default'].createElement(
+	                    'span',
+	                    null,
+	                    ' Reporting '
+	                  )
+	                )
+	              ),
+	              _react2['default'].createElement(
+	                'li',
+	                null,
+	                _react2['default'].createElement(
+	                  'a',
+	                  { href: '#', className: 'waves-effect waves-light' },
+	                  _react2['default'].createElement(_Icon2['default'], { name: 'dashboard' }),
+	                  _react2['default'].createElement(
+	                    'span',
+	                    null,
+	                    ' Dashboard '
+	                  )
+	                )
+	              ),
+	              _react2['default'].createElement(
+	                'li',
+	                null,
+	                _react2['default'].createElement(
+	                  'a',
+	                  { href: '#', className: 'waves-effect waves-light' },
+	                  _react2['default'].createElement(_Icon2['default'], { name: 'cube' }),
+	                  _react2['default'].createElement(
+	                    'span',
+	                    null,
+	                    ' Schema Designer '
+	                  )
+	                )
+	              ),
+	              _react2['default'].createElement(
+	                'li',
+	                null,
+	                _react2['default'].createElement(
+	                  'a',
+	                  { href: '#', className: 'waves-effect waves-light' },
+	                  _react2['default'].createElement(_Icon2['default'], { name: 'globe' }),
+	                  _react2['default'].createElement(
+	                    'span',
+	                    null,
+	                    ' Translate '
+	                  )
+	                )
+	              ),
+	              _react2['default'].createElement(
+	                'li',
+	                null,
+	                _react2['default'].createElement(
+	                  'a',
+	                  { href: '#', className: 'waves-effect waves-light' },
+	                  _react2['default'].createElement(_Icon2['default'], { name: 'gear' }),
+	                  _react2['default'].createElement(
+	                    'span',
+	                    null,
+	                    ' Admin Console '
+	                  )
+	                )
+	              ),
+	              _react2['default'].createElement(
+	                'li',
+	                null,
+	                _react2['default'].createElement(
+	                  'a',
+	                  { href: '#', className: 'waves-effect waves-light' },
+	                  _react2['default'].createElement(_Icon2['default'], { name: 'bug' }),
+	                  _react2['default'].createElement(
+	                    'span',
+	                    null,
+	                    ' Send a bug '
+	                  )
+	                )
+	              )
+	            ),
+	            _react2['default'].createElement(_bootstrapIndex.Clearfix, null)
+	          ),
+	          _react2['default'].createElement(_bootstrapIndex.Clearfix, null)
+	        )
+	      );
+	    }
+	  }]);
+	
+	  return Toolbar;
+	})(_react2['default'].Component);
+	
+	exports['default'] = Toolbar;
+	module.exports = exports['default'];
+
+/***/ },
+/* 236 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/*
+	 *   Copyright 2016 OSBI Ltd
+	 *
+	 *   Licensed under the Apache License, Version 2.0 (the "License");
+	 *   you may not use this file except in compliance with the License.
+	 *   You may obtain a copy of the License at
+	 *
+	 *       http://www.apache.org/licenses/LICENSE-2.0
+	 *
+	 *   Unless required by applicable law or agreed to in writing, software
+	 *   distributed under the License is distributed on an "AS IS" BASIS,
+	 *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	 *   See the License for the specific language governing permissions and
+	 *   limitations under the License.
+	 */
+	
+	'use strict';
+	
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+	
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+	
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+	
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	
+	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+	
+	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _classnames = __webpack_require__(224);
+	
+	var _classnames2 = _interopRequireDefault(_classnames);
+	
+	var Icon = (function (_React$Component) {
+	  _inherits(Icon, _React$Component);
+	
+	  function Icon() {
+	    _classCallCheck(this, Icon);
+	
+	    _get(Object.getPrototypeOf(Icon.prototype), 'constructor', this).apply(this, arguments);
+	  }
+	
+	  _createClass(Icon, [{
+	    key: 'render',
+	    value: function render() {
+	      var _classNames;
+	
+	      var _props = this.props;
+	      var name = _props.name;
+	      var fixed = _props.fixed;
+	      var spin = _props.spin;
+	      var pulse = _props.pulse;
+	      var size = _props.size;
+	      var rotate = _props.rotate;
+	      var flip = _props.flip;
+	
+	      var props = _objectWithoutProperties(_props, ['name', 'fixed', 'spin', 'pulse', 'size', 'rotate', 'flip']);
+	
+	      var className = (0, _classnames2['default'])(this.props.className, (_classNames = {}, _defineProperty(_classNames, this.props.faClass, true), _defineProperty(_classNames, 'fa-' + name, true), _defineProperty(_classNames, 'fa-fw', fixed), _defineProperty(_classNames, 'fa-spin', spin), _defineProperty(_classNames, 'fa-pulse', pulse), _classNames));
+	
+	      if (size) {
+	        className = className + ' fa-' + size;
+	      }
+	
+	      if (rotate) {
+	        className = className + ' fa-rotate-' + rotate;
+	      }
+	
+	      if (flip) {
+	        className = className + ' fa-flip-' + flip;
+	      }
+	
+	      return _react2['default'].createElement('i', _extends({}, props, { className: className }));
+	    }
+	  }]);
+	
+	  return Icon;
+	})(_react2['default'].Component);
+	
+	Icon.propTypes = {
+	  className: _react.PropTypes.string,
+	  faClass: _react.PropTypes.string,
+	  name: _react.PropTypes.string.isRequired,
+	  fixed: _react.PropTypes.bool,
+	  spin: _react.PropTypes.bool,
+	  pulse: _react.PropTypes.bool,
+	  size: _react.PropTypes.oneOf(['lg', '2x', '3x', '4x', '5x']),
+	  rotate: _react.PropTypes.oneOf(['45', '90', '135', '180', '225', '270', '315']),
+	  flip: _react.PropTypes.oneOf(['horizontal', 'vertical'])
+	};
+	
+	Icon.defaultProps = {
+	  faClass: 'fa',
+	  fixed: false,
+	  spin: false,
+	  pulse: false
+	};
+	
+	exports['default'] = Icon;
+	module.exports = exports['default'];
+
+/***/ },
+/* 237 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -40300,22 +40710,22 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 235 */
+/* 238 */
 /***/ function(module, exports) {
 
 	module.exports = "<!--  \n  Copyright 2016 OSBI Ltd\n\n  Licensed under the Apache License, Version 2.0 (the \"License\");\n  you may not use this file except in compliance with the License.\n  You may obtain a copy of the License at\n\n      http://www.apache.org/licenses/LICENSE-2.0\n\n  Unless required by applicable law or agreed to in writing, software\n  distributed under the License is distributed on an \"AS IS\" BASIS,\n  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n  See the License for the specific language governing permissions and\n  limitations under the License.\n-->\n\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <title>Saiku - Next Generation Open Source Analytics</title>\n\n  <!-- Meta -->\n  <meta charset=\"UTF-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n\n  <!-- Favicon -->\n  <link rel=\"shortcut icon\" href=\"dist/assets/images/favicon.ico\">\n\n  <!-- CSS -->\n  <link rel=\"stylesheet\" href=\"dist/assets/css/bootstrap.min.css\">\n  <link rel=\"stylesheet\" href=\"dist/assets/css/font-awesome.min.css\">\n  <link rel=\"stylesheet\" href=\"dist/saiku/saiku.css\">\n\n  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->\n  <!--[if lt IE 9]>\n    <script src=\"dist/assets/js/html5shiv.js\"></script>\n    <script src=\"dist/assets/js/respond.min.js\"></script>\n  <![endif]-->\n</head>\n<body>\n  <div id=\"app\"></div>\n\n  <!-- JS -->\n  <script src=\"dist/assets/js/jquery.min.js\"></script>\n  <script src=\"dist/assets/js/bootstrap.min.js\"></script>\n  <script src=\"dist/saiku/saiku.js\"></script>\n</body>\n</html>";
 
 /***/ },
-/* 236 */
+/* 239 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(237);
+	var content = __webpack_require__(240);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(239)(content, {});
+	var update = __webpack_require__(242)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -40332,10 +40742,10 @@
 	}
 
 /***/ },
-/* 237 */
+/* 240 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(238)();
+	exports = module.exports = __webpack_require__(241)();
 	// imports
 	exports.push([module.id, "@import url(https://fonts.googleapis.com/css?family=Noto+Sans:400,700);", ""]);
 	exports.push([module.id, "@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700,300);", ""]);
@@ -40347,7 +40757,7 @@
 
 
 /***/ },
-/* 238 */
+/* 241 */
 /***/ function(module, exports) {
 
 	/*
@@ -40403,7 +40813,7 @@
 
 
 /***/ },
-/* 239 */
+/* 242 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -40655,312 +41065,6 @@
 			URL.revokeObjectURL(oldSrc);
 	}
 
-
-/***/ },
-/* 240 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/*
-	 *   Copyright 2016 OSBI Ltd
-	 *
-	 *   Licensed under the Apache License, Version 2.0 (the "License");
-	 *   you may not use this file except in compliance with the License.
-	 *   You may obtain a copy of the License at
-	 *
-	 *       http://www.apache.org/licenses/LICENSE-2.0
-	 *
-	 *   Unless required by applicable law or agreed to in writing, software
-	 *   distributed under the License is distributed on an "AS IS" BASIS,
-	 *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-	 *   See the License for the specific language governing permissions and
-	 *   limitations under the License.
-	 */
-	
-	'use strict';
-	
-	Object.defineProperty(exports, '__esModule', {
-	  value: true
-	});
-	
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-	
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-	
-	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var _react = __webpack_require__(1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _classnames = __webpack_require__(224);
-	
-	var _classnames2 = _interopRequireDefault(_classnames);
-	
-	var Wrapper = (function (_React$Component) {
-	  _inherits(Wrapper, _React$Component);
-	
-	  function Wrapper() {
-	    _classCallCheck(this, Wrapper);
-	
-	    _get(Object.getPrototypeOf(Wrapper.prototype), 'constructor', this).apply(this, arguments);
-	  }
-	
-	  _createClass(Wrapper, [{
-	    key: 'render',
-	    value: function render() {
-	      var className = this.props.page ? 'wrapper-page' : 'wrapper-page';
-	
-	      return _react2['default'].createElement(
-	        'div',
-	        _extends({}, this.props, {
-	          className: (0, _classnames2['default'])(className, this.props.className) }),
-	        this.props.children
-	      );
-	    }
-	  }]);
-	
-	  return Wrapper;
-	})(_react2['default'].Component);
-	
-	Wrapper.propTypes = {
-	  className: _react2['default'].PropTypes.string,
-	  children: _react2['default'].PropTypes.node.isRequired,
-	  page: _react2['default'].PropTypes.bool
-	};
-	
-	Wrapper.defaultProps = {
-	  page: false
-	};
-	
-	exports['default'] = Wrapper;
-	module.exports = exports['default'];
-
-/***/ },
-/* 241 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/*
-	 *   Copyright 2016 OSBI Ltd
-	 *
-	 *   Licensed under the Apache License, Version 2.0 (the "License");
-	 *   you may not use this file except in compliance with the License.
-	 *   You may obtain a copy of the License at
-	 *
-	 *       http://www.apache.org/licenses/LICENSE-2.0
-	 *
-	 *   Unless required by applicable law or agreed to in writing, software
-	 *   distributed under the License is distributed on an "AS IS" BASIS,
-	 *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-	 *   See the License for the specific language governing permissions and
-	 *   limitations under the License.
-	 */
-	
-	'use strict';
-	
-	Object.defineProperty(exports, '__esModule', {
-	  value: true
-	});
-	
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-	
-	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var _react = __webpack_require__(1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _Icon = __webpack_require__(242);
-	
-	var _Icon2 = _interopRequireDefault(_Icon);
-	
-	var _Wrapper = __webpack_require__(240);
-	
-	var _Wrapper2 = _interopRequireDefault(_Wrapper);
-	
-	var Toolbar = (function (_React$Component) {
-	  _inherits(Toolbar, _React$Component);
-	
-	  function Toolbar() {
-	    _classCallCheck(this, Toolbar);
-	
-	    _get(Object.getPrototypeOf(Toolbar.prototype), 'constructor', this).apply(this, arguments);
-	  }
-	
-	  _createClass(Toolbar, [{
-	    key: 'render',
-	    value: function render() {
-	      return _react2['default'].createElement(
-	        _Wrapper2['default'],
-	        null,
-	        _react2['default'].createElement(
-	          'div',
-	          { className: 'left side-menu' },
-	          _react2['default'].createElement(
-	            'div',
-	            { className: 'sidebar-inner slimscrollleft' },
-	            _react2['default'].createElement(
-	              'div',
-	              { className: 'sidebar-menu' },
-	              _react2['default'].createElement(
-	                'ul',
-	                null,
-	                _react2['default'].createElement(
-	                  'li',
-	                  { className: '' },
-	                  _react2['default'].createElement(
-	                    'a',
-	                    { href: '#', className: 'waves-effect waves-light' },
-	                    _react2['default'].createElement(_Icon2['default'], { name: 'home' }),
-	                    _react2['default'].createElement(
-	                      'span',
-	                      null,
-	                      ' Home '
-	                    )
-	                  )
-	                )
-	              )
-	            )
-	          )
-	        )
-	      );
-	    }
-	  }]);
-	
-	  return Toolbar;
-	})(_react2['default'].Component);
-	
-	exports['default'] = Toolbar;
-	module.exports = exports['default'];
-
-/***/ },
-/* 242 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/*
-	 *   Copyright 2016 OSBI Ltd
-	 *
-	 *   Licensed under the Apache License, Version 2.0 (the "License");
-	 *   you may not use this file except in compliance with the License.
-	 *   You may obtain a copy of the License at
-	 *
-	 *       http://www.apache.org/licenses/LICENSE-2.0
-	 *
-	 *   Unless required by applicable law or agreed to in writing, software
-	 *   distributed under the License is distributed on an "AS IS" BASIS,
-	 *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-	 *   See the License for the specific language governing permissions and
-	 *   limitations under the License.
-	 */
-	
-	'use strict';
-	
-	Object.defineProperty(exports, '__esModule', {
-	  value: true
-	});
-	
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-	
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-	
-	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-	
-	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
-	
-	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var _react = __webpack_require__(1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _classnames = __webpack_require__(224);
-	
-	var _classnames2 = _interopRequireDefault(_classnames);
-	
-	var Icon = (function (_React$Component) {
-	  _inherits(Icon, _React$Component);
-	
-	  function Icon() {
-	    _classCallCheck(this, Icon);
-	
-	    _get(Object.getPrototypeOf(Icon.prototype), 'constructor', this).apply(this, arguments);
-	  }
-	
-	  _createClass(Icon, [{
-	    key: 'render',
-	    value: function render() {
-	      var _classNames;
-	
-	      var _props = this.props;
-	      var name = _props.name;
-	      var fixed = _props.fixed;
-	      var spin = _props.spin;
-	      var pulse = _props.pulse;
-	      var size = _props.size;
-	      var rotate = _props.rotate;
-	      var flip = _props.flip;
-	
-	      var props = _objectWithoutProperties(_props, ['name', 'fixed', 'spin', 'pulse', 'size', 'rotate', 'flip']);
-	
-	      var className = (0, _classnames2['default'])(this.props.className, (_classNames = {}, _defineProperty(_classNames, this.props.faClass, true), _defineProperty(_classNames, 'fa-' + name, true), _defineProperty(_classNames, 'fa-fw', fixed), _defineProperty(_classNames, 'fa-spin', spin), _defineProperty(_classNames, 'fa-pulse', pulse), _classNames));
-	
-	      if (size) {
-	        className = className + ' fa-' + size;
-	      }
-	
-	      if (rotate) {
-	        className = className + ' fa-rotate-' + rotate;
-	      }
-	
-	      if (flip) {
-	        className = className + ' fa-flip-' + flip;
-	      }
-	
-	      return _react2['default'].createElement('i', _extends({}, props, { className: className }));
-	    }
-	  }]);
-	
-	  return Icon;
-	})(_react2['default'].Component);
-	
-	Icon.propTypes = {
-	  className: _react.PropTypes.string,
-	  faClass: _react.PropTypes.string,
-	  name: _react.PropTypes.string.isRequired,
-	  fixed: _react.PropTypes.bool,
-	  spin: _react.PropTypes.bool,
-	  pulse: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['lg', '2x', '3x', '4x', '5x']),
-	  rotate: _react.PropTypes.oneOf(['45', '90', '135', '180', '225', '270', '315']),
-	  flip: _react.PropTypes.oneOf(['horizontal', 'vertical'])
-	};
-	
-	Icon.defaultProps = {
-	  faClass: 'fa',
-	  fixed: false,
-	  spin: false,
-	  pulse: false
-	};
-	
-	exports['default'] = Icon;
-	module.exports = exports['default'];
 
 /***/ }
 /******/ ]);

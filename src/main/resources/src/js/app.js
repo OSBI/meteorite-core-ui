@@ -29,7 +29,7 @@ import '../../dist/saiku/saiku.css';
 
 var routes = (
   <Router history={createHistory()}>
-    <Route path="/" component={Login} />
+    <Route path="/" component={Workspace} />
     <Route path="/workspace/" component={Workspace} />
     <Route path="*" component={NotFound} />
   </Router>
