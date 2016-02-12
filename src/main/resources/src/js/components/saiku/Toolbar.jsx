@@ -21,68 +21,70 @@ import Icon from './Icon';
 class Toolbar extends React.Component {
   render() {
     return (
-      <div className="side-menu left">
-        <div className="sidebar-inner slimscrollleft">
-          <div className="sidebar-menu">
-            <ul>
-              <li>
-                <a href="#" className="waves-effect waves-light">
-                  <Icon name="home" />
-                  <span> Home </span>
-                </a>
-              </li>
-              <li>
-                <a href="#" className="waves-effect waves-light">
-                  <Icon name="plus-square" />
-                  <span> New Query </span>
-                </a>
-              </li>
-              <li>
-                <a href="#" className="waves-effect waves-light">
-                  <Icon name="folder-open-o" />
-                  <span> Open Query </span>
-                </a>
-              </li>
-              <li>
-                <a href="#" className="waves-effect waves-light">
-                  <Icon name="file-text-o" />
-                  <span> Reporting </span>
-                </a>
-              </li>
-              <li>
-                <a href="#" className="waves-effect waves-light">
-                  <Icon name="dashboard" />
-                  <span> Dashboard </span>
-                </a>
-              </li>
-              <li>
-                <a href="#" className="waves-effect waves-light">
-                  <Icon name="cube" />
-                  <span> Schema Designer </span>
-                </a>
-              </li>
-              <li>
-                <a href="#" className="waves-effect waves-light">
-                  <Icon name="globe" />
-                  <span> Translate </span>
-                </a>
-              </li>
-              <li>
-                <a href="#" className="waves-effect waves-light">
-                  <Icon name="gear" />
-                  <span> Admin Console </span>
-                </a>
-              </li>
-              <li>
-                <a href="#" className="waves-effect waves-light">
-                  <Icon name="bug" />
-                  <span> Send a bug </span>
-                </a>
-              </li>
-            </ul>
+      <div className="fixed-left">
+        <div className="side-menu left">
+          <div className="sidebar-inner slimscrollleft">
+            <div className="sidebar-menu">
+              <ul>
+                <li>
+                  <a href="#" className="waves-effect waves-light">
+                    <Icon name="home" />
+                    <span> Home </span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="waves-effect waves-light">
+                    <Icon name="plus-square" />
+                    <span> New Query </span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="waves-effect waves-light">
+                    <Icon name="folder-open-o" />
+                    <span> Open Query </span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="waves-effect waves-light">
+                    <Icon name="file-text-o" />
+                    <span> Reporting </span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="waves-effect waves-light">
+                    <Icon name="dashboard" />
+                    <span> Dashboard </span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="waves-effect waves-light">
+                    <Icon name="cube" />
+                    <span> Schema Designer </span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="waves-effect waves-light">
+                    <Icon name="globe" />
+                    <span> Translate </span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="waves-effect waves-light">
+                    <Icon name="gear" />
+                    <span> Admin Console </span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="waves-effect waves-light">
+                    <Icon name="bug" />
+                    <span> Send a bug </span>
+                  </a>
+                </li>
+              </ul>
+              <Clearfix />
+            </div>
             <Clearfix />
           </div>
-          <Clearfix />
         </div>
       </div>
     );

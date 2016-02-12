@@ -804,9 +804,10 @@ a.waves-effect .waves-ripple {
   background: #fff;
   box-shadow: 0 1px 1px rgba(0,0,0,.1);
 }
-body.fixed-left .side-menu.left {
+.fixed-left .side-menu.left {
   position: fixed;
   bottom: 50px;
+  left: 0;
   height: 100%;
   margin-top: 0;
   margin-bottom: -70px;
@@ -814,11 +815,6 @@ body.fixed-left .side-menu.left {
 }
 .sidebar-inner {
   height: 100%;
-}
-.sidebar-menu {
-  width: 100%;
-  padding-top: 30px;
-  padding-bottom: 30px;
 }
 .sidebar-menu,
 .sidebar-menu ul,
@@ -832,6 +828,11 @@ body.fixed-left .side-menu.left {
   list-style: none;
   border: 0;
   text-decoration: none;
+}
+.sidebar-menu {
+  width: 100%;
+  padding-top: 30px;
+  padding-bottom: 30px;
 }
 .sidebar-menu a {
   line-height: 1.3;

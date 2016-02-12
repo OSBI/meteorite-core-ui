@@ -29,11 +29,12 @@
     background $white
     box-shadow 0 1px 1px rgba(0, 0, 0, 0.1)
 
-body.fixed-left
+.fixed-left
   .side-menu
     &.left
       position fixed
       bottom 50px
+      left 0
       height 100%
       margin-top 0
       margin-bottom -70px
@@ -41,11 +42,6 @@ body.fixed-left
       
 .sidebar-inner
   height 100%
-  
-.sidebar-menu
-  padding-top 30px
-  padding-bottom 30px
-  width 100%
 
 // TODO: Refactor `.sidebar-menu`
 .sidebar-menu
@@ -60,6 +56,11 @@ body.fixed-left
   list-style none
   border 0
   text-decoration none
+  
+.sidebar-menu
+  padding-top 30px
+  padding-bottom 30px
+  width 100%
   
 .sidebar-menu
   a
