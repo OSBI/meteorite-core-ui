@@ -15,29 +15,34 @@
  */
 
 import React from 'react';
-import Wrapper from './Wrapper';
+import classNames from 'classnames';
 
-class Toolbar extends React.Component {
+class Icon extends React.Component {
   render() {
+    let className = classNames(this.props.className, {
+      [this.props.faClass]: true,
+      ['fa-' + this.props.name]: true
+    });
+
     return (
-      <Wrapper>
-        <div className="left side-menu">
-          <div className="sidebar-inner slimscrollleft">
-            <div className="sidebar-menu">
-              <ul>
-                <li className="">
-                  <a href="#" className="waves-effect waves-light">
-                    <i className="fa fa-home"></i>
-                    <span> Home </span>
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </Wrapper>
+      <i
+        {...this.props} 
+        className={className}>
+        {this.props.children}
+      </i>
     );
   }
 }
 
-export default Toolbar;
+Icon.propTypes = {
+  className: React.PropTypes.string,
+  children: React.PropTypes.node,
+  faClass: React.PropTypes.string,
+  name: React.PropTypes.string.isRequired
+};
+
+Icon.defaultProps = {
+  faClass: 'fa'
+};
+
+export default Icon;

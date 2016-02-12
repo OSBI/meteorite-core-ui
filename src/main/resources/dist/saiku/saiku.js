@@ -99,7 +99,7 @@
 	var routes = _react2['default'].createElement(
 	  _reactRouter.Router,
 	  { history: (0, _history.createHistory)() },
-	  _react2['default'].createElement(_reactRouter.Route, { path: '/', component: _componentsSaikuLogin2['default'] }),
+	  _react2['default'].createElement(_reactRouter.Route, { path: '/', component: _componentsSaikuWorkspace2['default'] }),
 	  _react2['default'].createElement(_reactRouter.Route, { path: '/workspace/', component: _componentsSaikuWorkspace2['default'] }),
 	  _react2['default'].createElement(_reactRouter.Route, { path: '*', component: _componentsSaikuNotFound2['default'] })
 	);
@@ -39803,6 +39803,10 @@
 	
 	var _MenuBar2 = _interopRequireDefault(_MenuBar);
 	
+	var _Toolbar = __webpack_require__(241);
+	
+	var _Toolbar2 = _interopRequireDefault(_Toolbar);
+	
 	var Workspace = (function (_React$Component) {
 	  _inherits(Workspace, _React$Component);
 	
@@ -39815,7 +39819,12 @@
 	  _createClass(Workspace, [{
 	    key: 'render',
 	    value: function render() {
-	      return _react2['default'].createElement(_MenuBar2['default'], null);
+	      return _react2['default'].createElement(
+	        'div',
+	        null,
+	        _react2['default'].createElement(_MenuBar2['default'], null),
+	        _react2['default'].createElement(_Toolbar2['default'], null)
+	      );
 	    }
 	  }]);
 	
@@ -40730,6 +40739,105 @@
 	};
 	
 	exports['default'] = Wrapper;
+	module.exports = exports['default'];
+
+/***/ },
+/* 241 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/*
+	 *   Copyright 2016 OSBI Ltd
+	 *
+	 *   Licensed under the Apache License, Version 2.0 (the "License");
+	 *   you may not use this file except in compliance with the License.
+	 *   You may obtain a copy of the License at
+	 *
+	 *       http://www.apache.org/licenses/LICENSE-2.0
+	 *
+	 *   Unless required by applicable law or agreed to in writing, software
+	 *   distributed under the License is distributed on an "AS IS" BASIS,
+	 *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	 *   See the License for the specific language governing permissions and
+	 *   limitations under the License.
+	 */
+	
+	'use strict';
+	
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+	
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+	
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _Wrapper = __webpack_require__(240);
+	
+	var _Wrapper2 = _interopRequireDefault(_Wrapper);
+	
+	var Toolbar = (function (_React$Component) {
+	  _inherits(Toolbar, _React$Component);
+	
+	  function Toolbar() {
+	    _classCallCheck(this, Toolbar);
+	
+	    _get(Object.getPrototypeOf(Toolbar.prototype), 'constructor', this).apply(this, arguments);
+	  }
+	
+	  _createClass(Toolbar, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2['default'].createElement(
+	        _Wrapper2['default'],
+	        null,
+	        _react2['default'].createElement(
+	          'div',
+	          { className: 'left side-menu' },
+	          _react2['default'].createElement(
+	            'div',
+	            { className: 'sidebar-inner slimscrollleft' },
+	            _react2['default'].createElement(
+	              'div',
+	              { className: 'sidebar-menu' },
+	              _react2['default'].createElement(
+	                'ul',
+	                null,
+	                _react2['default'].createElement(
+	                  'li',
+	                  { className: '' },
+	                  _react2['default'].createElement(
+	                    'a',
+	                    { href: '#', className: 'waves-effect waves-light' },
+	                    _react2['default'].createElement('i', { className: 'fa fa-home' }),
+	                    _react2['default'].createElement(
+	                      'span',
+	                      null,
+	                      ' Home '
+	                    )
+	                  )
+	                )
+	              )
+	            )
+	          )
+	        )
+	      );
+	    }
+	  }]);
+	
+	  return Toolbar;
+	})(_react2['default'].Component);
+	
+	exports['default'] = Toolbar;
 	module.exports = exports['default'];
 
 /***/ }

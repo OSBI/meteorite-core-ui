@@ -16,11 +16,15 @@
 
 import React from 'react';
 import MenuBar from './MenuBar';
+import Toolbar from './Toolbar';
 
 class Workspace extends React.Component {
   render() {
     return (
-      <MenuBar />
+      <div>
+        <MenuBar />
+        <Toolbar />
+      </div>
     );
   }
 }
