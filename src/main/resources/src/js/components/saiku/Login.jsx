@@ -26,6 +26,7 @@ import {
   Button,
   Clearfix
 } from '../bootstrap/index';
+import Wrapper from './Wrapper';
 
 class Login extends React.Component {
   constructor() {
@@ -54,7 +55,7 @@ class Login extends React.Component {
         <div className="bg-page"></div>
         <Clearfix />
 
-        <div className="wrapper-page">
+        <Wrapper page>
           <div className="content-box">
             <div className="panel-heading">
               <Col xs={3}>
@@ -131,7 +132,7 @@ class Login extends React.Component {
               <p>Saiku-4.0-SNAPSHOT</p>
             </Col>
           </Row>
-        </div>
+        </Wrapper>
       </div>
     );
   }

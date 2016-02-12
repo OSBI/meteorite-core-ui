@@ -732,7 +732,7 @@ a.waves-effect .waves-ripple {
   border: none !important;
 }
 /* =========================================================================
-   TOPBAR
+   MENUBAR
    ========================================================================= */
 .topbar {
   position: fixed;
@@ -790,6 +790,77 @@ a.waves-effect .waves-ripple {
   color: #fff;
 }
 /* =========================================================================
+   TOOLBAR
+   ========================================================================= */
+.side-menu {
+  z-index: 2;
+  top: 0;
+  bottom: 0;
+  width: 240px;
+}
+.side-menu.left {
+  position: absolute;
+  top: 60px;
+  background: #fff;
+  box-shadow: 0 1px 1px rgba(0,0,0,.1);
+}
+body.fixed-left .side-menu.left {
+  position: fixed;
+  bottom: 50px;
+  height: 100%;
+  margin-top: 0;
+  margin-bottom: -70px;
+  padding-bottom: 70px;
+}
+.sidebar-inner {
+  height: 100%;
+}
+.sidebar-menu {
+  width: 100%;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+.sidebar-menu,
+.sidebar-menu ul,
+.sidebar-menu li,
+.sidebar-menu a {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+  line-height: 1;
+  list-style: none;
+  border: 0;
+  text-decoration: none;
+}
+.sidebar-menu a {
+  line-height: 1.3;
+}
+.sidebar-menu > ul > li > a {
+  display: block;
+  margin: 4px 0;
+  padding: 12px 20px;
+  color: #36404a;
+  border-left: 3px solid #fff;
+}
+.sidebar-menu > ul > li > a:hover {
+  color: #5fbeaa;
+  text-decoration: none;
+}
+.sidebar-menu > ul > li > a > span {
+  vertical-align: middle;
+}
+.sidebar-menu ul li a i {
+  display: inline-block;
+  width: 20px;
+  margin-right: 15px;
+  margin-left: 3px;
+  font-size: 16px;
+  line-height: 17px;
+  text-align: center;
+  vertical-align: middle;
+}
+/* =========================================================================
    RESPONSIVE
    ========================================================================= */
 @media (min-width: 768px) and (max-width: 991px) {
@@ -806,6 +877,9 @@ a.waves-effect .waves-ripple {
   }
 }
 @media (max-width: 480px) {
+  .side-menu {
+    z-index: 10 !important;
+  }
   .button-menu-mobile {
     display: block;
   }

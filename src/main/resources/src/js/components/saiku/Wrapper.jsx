@@ -14,28 +14,31 @@
  *   limitations under the License.
  */
 
-/*! =========================================================================
-   RESPONSIVE
-   ========================================================================= */
+import React from 'react';
+import classNames from 'classnames';
 
-@media (min-width: 768px) and (max-width: 991px)
-  body
-    overflow-x hidden
+class Wrapper extends React.Component {
+  render() {
+    let className = this.props.page ? 'wrapper-page' : 'wrapper-page';
 
-@media (max-width: 767px)
-  body
-    overflow-x hidden
+    return (
+      <div
+        {...this.props}
+        className={classNames(className, this.props.className)}>
+        {this.props.children}
+      </div>
+    );
+  }
+}
 
-  .wrapper-page
-    width 90%
-    
-@media (max-width: 480px)
-  .side-menu
-    z-index 10 !important
+Wrapper.propTypes = {
+  className: React.PropTypes.string,
+  children: React.PropTypes.node.isRequired,
+  page: React.PropTypes.bool
+};
 
-  .button-menu-mobile
-    display block
-    
-@media (max-width: 419px)
-  .topbar-left
-    width 70px !important
+Wrapper.defaultProps = {
+  page: false
+};
+
+export default Wrapper;
