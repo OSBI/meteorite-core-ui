@@ -14,35 +14,59 @@
  *   limitations under the License.
  */
 
-import React from 'react';
+import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 
 class Icon extends React.Component {
   render() {
+    let {
+      name, fixed, spin, pulse,
+      size, rotate, flip, ...props
+    } = this.props;
     let className = classNames(this.props.className, {
       [this.props.faClass]: true,
-      ['fa-' + this.props.name]: true
+      [`fa-${name}`]: true,
+      ['fa-fw']: fixed,
+      ['fa-spin']: spin,
+      ['fa-pulse']: pulse
     });
 
+    if (size) {
+      className = `${className} fa-${size}`;
+    }
+
+    if (rotate) {
+      className = `${className} fa-rotate-${rotate}`;
+    }
+
+    if (flip) {
+      className = `${className} fa-flip-${flip}`;
+    }
+
     return (
-      <i
-        {...this.props} 
-        className={className}>
-        {this.props.children}
-      </i>
+      <i {...props} className={className}></i>
     );
   }
 }
 
 Icon.propTypes = {
-  className: React.PropTypes.string,
-  children: React.PropTypes.node,
-  faClass: React.PropTypes.string,
-  name: React.PropTypes.string.isRequired
+  className: PropTypes.string,
+  faClass: PropTypes.string,
+  name: PropTypes.string.isRequired,
+  fixed: PropTypes.bool,
+  spin: PropTypes.bool,
+  pulse: PropTypes.bool,
+  size: PropTypes.oneOf(['lg', '2x', '3x', '4x', '5x']),
+  rotate: PropTypes.oneOf(['45', '90', '135', '180',
+    '225', '270', '315']),
+  flip: PropTypes.oneOf(['horizontal', 'vertical'])
 };
 
 Icon.defaultProps = {
-  faClass: 'fa'
+  faClass: 'fa',
+  fixed: false,
+  spin: false,
+  pulse: false
 };
 
 export default Icon;

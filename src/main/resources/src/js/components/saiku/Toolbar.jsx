@@ -15,6 +15,7 @@
  */
 
 import React from 'react';
+import Icon from './Icon';
 import Wrapper from './Wrapper';
 
 class Toolbar extends React.Component {
@@ -27,7 +28,7 @@ class Toolbar extends React.Component {
               <ul>
                 <li className="">
                   <a href="#" className="waves-effect waves-light">
-                    <i className="fa fa-home"></i>
+                    <Icon name="home" />
                     <span> Home </span>
                   </a>
                 </li>
