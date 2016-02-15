@@ -71,6 +71,9 @@ gulp.task('waves', function() {
   gulp.src(paths.source.bowerDir + '/Waves/src/stylus/waves.styl')
     .pipe(plumber())
     .pipe(gulp.dest(paths.source.styl.folder));
+  gulp.src(paths.source.bowerDir + '/Waves/src/js/waves.js')
+    .pipe(plumber())
+    .pipe(gulp.dest(paths.build.js));
 });
 
 // Call Bower Install

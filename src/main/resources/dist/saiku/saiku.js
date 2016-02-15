@@ -86,20 +86,20 @@
 	
 	var _componentsSaikuWorkspace2 = _interopRequireDefault(_componentsSaikuWorkspace);
 	
-	var _componentsSaikuNotFound = __webpack_require__(237);
+	var _componentsSaikuNotFound = __webpack_require__(238);
 	
 	var _componentsSaikuNotFound2 = _interopRequireDefault(_componentsSaikuNotFound);
 	
 	// webpack loaders
 	
-	__webpack_require__(238);
-	
 	__webpack_require__(239);
+	
+	__webpack_require__(240);
 	
 	var routes = _react2['default'].createElement(
 	  _reactRouter.Router,
 	  { history: (0, _history.createHistory)() },
-	  _react2['default'].createElement(_reactRouter.Route, { path: '/', component: _componentsSaikuLogin2['default'] }),
+	  _react2['default'].createElement(_reactRouter.Route, { path: '/', component: _componentsSaikuWorkspace2['default'] }),
 	  _react2['default'].createElement(_reactRouter.Route, { path: '/workspace/', component: _componentsSaikuWorkspace2['default'] }),
 	  _react2['default'].createElement(_reactRouter.Route, { path: '*', component: _componentsSaikuNotFound2['default'] })
 	);
@@ -39890,15 +39890,15 @@
 	
 	var _Wrapper2 = _interopRequireDefault(_Wrapper);
 	
-	var _Content = __webpack_require__(243);
+	var _Content = __webpack_require__(234);
 	
 	var _Content2 = _interopRequireDefault(_Content);
 	
-	var _MenuBar = __webpack_require__(234);
+	var _MenuBar = __webpack_require__(235);
 	
 	var _MenuBar2 = _interopRequireDefault(_MenuBar);
 	
-	var _Toolbar = __webpack_require__(235);
+	var _Toolbar = __webpack_require__(237);
 	
 	var _Toolbar2 = _interopRequireDefault(_Toolbar);
 	
@@ -39956,6 +39956,91 @@
 
 /***/ },
 /* 234 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/*
+	 *   Copyright 2016 OSBI Ltd
+	 *
+	 *   Licensed under the Apache License, Version 2.0 (the "License");
+	 *   you may not use this file except in compliance with the License.
+	 *   You may obtain a copy of the License at
+	 *
+	 *       http://www.apache.org/licenses/LICENSE-2.0
+	 *
+	 *   Unless required by pagelicable law or agreed to in writing, software
+	 *   distributed under the License is distributed on an "AS IS" BASIS,
+	 *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	 *   See the License for the specific language governing permissions and
+	 *   limitations under the License.
+	 */
+	
+	'use strict';
+	
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+	
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+	
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+	
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _classnames = __webpack_require__(224);
+	
+	var _classnames2 = _interopRequireDefault(_classnames);
+	
+	var Content = (function (_React$Component) {
+	  _inherits(Content, _React$Component);
+	
+	  function Content() {
+	    _classCallCheck(this, Content);
+	
+	    _get(Object.getPrototypeOf(Content.prototype), 'constructor', this).apply(this, arguments);
+	  }
+	
+	  _createClass(Content, [{
+	    key: 'render',
+	    value: function render() {
+	      var className = this.props.page ? 'content-page' : 'content';
+	
+	      return _react2['default'].createElement(
+	        'div',
+	        _extends({}, this.props, {
+	          className: (0, _classnames2['default'])(className, this.props.className) }),
+	        this.props.children
+	      );
+	    }
+	  }]);
+	
+	  return Content;
+	})(_react2['default'].Component);
+	
+	Content.propTypes = {
+	  className: _react2['default'].PropTypes.string,
+	  children: _react2['default'].PropTypes.node.isRequired,
+	  page: _react2['default'].PropTypes.bool
+	};
+	
+	Content.defaultProps = {
+	  page: false
+	};
+	
+	exports['default'] = Content;
+	module.exports = exports['default'];
+
+/***/ },
+/* 235 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -40350,7 +40435,121 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 235 */
+/* 236 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/*
+	 *   Copyright 2016 OSBI Ltd
+	 *
+	 *   Licensed under the Apache License, Version 2.0 (the "License");
+	 *   you may not use this file except in compliance with the License.
+	 *   You may obtain a copy of the License at
+	 *
+	 *       http://www.apache.org/licenses/LICENSE-2.0
+	 *
+	 *   Unless required by applicable law or agreed to in writing, software
+	 *   distributed under the License is distributed on an "AS IS" BASIS,
+	 *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	 *   See the License for the specific language governing permissions and
+	 *   limitations under the License.
+	 */
+	
+	'use strict';
+	
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+	
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+	
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+	
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	
+	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _classnames = __webpack_require__(224);
+	
+	var _classnames2 = _interopRequireDefault(_classnames);
+	
+	var Icon = (function (_React$Component) {
+	  _inherits(Icon, _React$Component);
+	
+	  function Icon() {
+	    _classCallCheck(this, Icon);
+	
+	    _get(Object.getPrototypeOf(Icon.prototype), 'constructor', this).apply(this, arguments);
+	  }
+	
+	  _createClass(Icon, [{
+	    key: 'render',
+	    value: function render() {
+	      var _classNames;
+	
+	      var _props = this.props;
+	      var name = _props.name;
+	      var fixed = _props.fixed;
+	      var spin = _props.spin;
+	      var pulse = _props.pulse;
+	      var size = _props.size;
+	      var rotate = _props.rotate;
+	      var flip = _props.flip;
+	
+	      var className = (0, _classnames2['default'])(this.props.className, (_classNames = {}, _defineProperty(_classNames, this.props.faClass, true), _defineProperty(_classNames, 'fa-' + name, true), _defineProperty(_classNames, 'fa-fw', fixed), _defineProperty(_classNames, 'fa-spin', spin), _defineProperty(_classNames, 'fa-pulse', pulse), _classNames));
+	
+	      if (size) {
+	        className = className + ' fa-' + size;
+	      }
+	
+	      if (rotate) {
+	        className = className + ' fa-rotate-' + rotate;
+	      }
+	
+	      if (flip) {
+	        className = className + ' fa-flip-' + flip;
+	      }
+	
+	      return _react2['default'].createElement('i', _extends({}, this.props, { className: className }));
+	    }
+	  }]);
+	
+	  return Icon;
+	})(_react2['default'].Component);
+	
+	Icon.propTypes = {
+	  className: _react2['default'].PropTypes.string,
+	  faClass: _react2['default'].PropTypes.string,
+	  name: _react2['default'].PropTypes.string.isRequired,
+	  fixed: _react2['default'].PropTypes.bool,
+	  spin: _react2['default'].PropTypes.bool,
+	  pulse: _react2['default'].PropTypes.bool,
+	  size: _react2['default'].PropTypes.oneOf(['lg', '2x', '3x', '4x', '5x']),
+	  rotate: _react2['default'].PropTypes.oneOf(['45', '90', '135', '180', '225', '270', '315']),
+	  flip: _react2['default'].PropTypes.oneOf(['horizontal', 'vertical'])
+	};
+	
+	Icon.defaultProps = {
+	  faClass: 'fa',
+	  fixed: false,
+	  spin: false,
+	  pulse: false
+	};
+	
+	exports['default'] = Icon;
+	module.exports = exports['default'];
+
+/***/ },
+/* 237 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -40565,125 +40764,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 236 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/*
-	 *   Copyright 2016 OSBI Ltd
-	 *
-	 *   Licensed under the Apache License, Version 2.0 (the "License");
-	 *   you may not use this file except in compliance with the License.
-	 *   You may obtain a copy of the License at
-	 *
-	 *       http://www.apache.org/licenses/LICENSE-2.0
-	 *
-	 *   Unless required by applicable law or agreed to in writing, software
-	 *   distributed under the License is distributed on an "AS IS" BASIS,
-	 *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-	 *   See the License for the specific language governing permissions and
-	 *   limitations under the License.
-	 */
-	
-	'use strict';
-	
-	Object.defineProperty(exports, '__esModule', {
-	  value: true
-	});
-	
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-	
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-	
-	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-	
-	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
-	
-	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var _react = __webpack_require__(1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _classnames = __webpack_require__(224);
-	
-	var _classnames2 = _interopRequireDefault(_classnames);
-	
-	var Icon = (function (_React$Component) {
-	  _inherits(Icon, _React$Component);
-	
-	  function Icon() {
-	    _classCallCheck(this, Icon);
-	
-	    _get(Object.getPrototypeOf(Icon.prototype), 'constructor', this).apply(this, arguments);
-	  }
-	
-	  _createClass(Icon, [{
-	    key: 'render',
-	    value: function render() {
-	      var _classNames;
-	
-	      var _props = this.props;
-	      var name = _props.name;
-	      var fixed = _props.fixed;
-	      var spin = _props.spin;
-	      var pulse = _props.pulse;
-	      var size = _props.size;
-	      var rotate = _props.rotate;
-	      var flip = _props.flip;
-	
-	      var props = _objectWithoutProperties(_props, ['name', 'fixed', 'spin', 'pulse', 'size', 'rotate', 'flip']);
-	
-	      var className = (0, _classnames2['default'])(this.props.className, (_classNames = {}, _defineProperty(_classNames, this.props.faClass, true), _defineProperty(_classNames, 'fa-' + name, true), _defineProperty(_classNames, 'fa-fw', fixed), _defineProperty(_classNames, 'fa-spin', spin), _defineProperty(_classNames, 'fa-pulse', pulse), _classNames));
-	
-	      if (size) {
-	        className = className + ' fa-' + size;
-	      }
-	
-	      if (rotate) {
-	        className = className + ' fa-rotate-' + rotate;
-	      }
-	
-	      if (flip) {
-	        className = className + ' fa-flip-' + flip;
-	      }
-	
-	      return _react2['default'].createElement('i', _extends({}, props, { className: className }));
-	    }
-	  }]);
-	
-	  return Icon;
-	})(_react2['default'].Component);
-	
-	Icon.propTypes = {
-	  className: _react.PropTypes.string,
-	  faClass: _react.PropTypes.string,
-	  name: _react.PropTypes.string.isRequired,
-	  fixed: _react.PropTypes.bool,
-	  spin: _react.PropTypes.bool,
-	  pulse: _react.PropTypes.bool,
-	  size: _react.PropTypes.oneOf(['lg', '2x', '3x', '4x', '5x']),
-	  rotate: _react.PropTypes.oneOf(['45', '90', '135', '180', '225', '270', '315']),
-	  flip: _react.PropTypes.oneOf(['horizontal', 'vertical'])
-	};
-	
-	Icon.defaultProps = {
-	  faClass: 'fa',
-	  fixed: false,
-	  spin: false,
-	  pulse: false
-	};
-	
-	exports['default'] = Icon;
-	module.exports = exports['default'];
-
-/***/ },
-/* 237 */
+/* 238 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -40749,22 +40830,22 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 238 */
+/* 239 */
 /***/ function(module, exports) {
 
-	module.exports = "<!--  \n  Copyright 2016 OSBI Ltd\n\n  Licensed under the Apache License, Version 2.0 (the \"License\");\n  you may not use this file except in compliance with the License.\n  You may obtain a copy of the License at\n\n      http://www.apache.org/licenses/LICENSE-2.0\n\n  Unless required by applicable law or agreed to in writing, software\n  distributed under the License is distributed on an \"AS IS\" BASIS,\n  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n  See the License for the specific language governing permissions and\n  limitations under the License.\n-->\n\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <title>Saiku - Next Generation Open Source Analytics</title>\n\n  <!-- Meta -->\n  <meta charset=\"UTF-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n\n  <!-- Favicon -->\n  <link rel=\"shortcut icon\" href=\"dist/assets/images/favicon.ico\">\n\n  <!-- CSS -->\n  <link rel=\"stylesheet\" href=\"dist/assets/css/bootstrap.min.css\">\n  <link rel=\"stylesheet\" href=\"dist/assets/css/font-awesome.min.css\">\n  <link rel=\"stylesheet\" href=\"dist/saiku/saiku.css\">\n\n  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->\n  <!--[if lt IE 9]>\n    <script src=\"dist/assets/js/html5shiv.js\"></script>\n    <script src=\"dist/assets/js/respond.min.js\"></script>\n  <![endif]-->\n</head>\n<body>\n  <div id=\"app\"></div>\n\n  <!-- JS -->\n  <script src=\"dist/assets/js/jquery.min.js\"></script>\n  <script src=\"dist/assets/js/bootstrap.min.js\"></script>\n  <script src=\"dist/saiku/saiku.js\"></script>\n</body>\n</html>";
+	module.exports = "<!--  \n  Copyright 2016 OSBI Ltd\n\n  Licensed under the Apache License, Version 2.0 (the \"License\");\n  you may not use this file except in compliance with the License.\n  You may obtain a copy of the License at\n\n      http://www.apache.org/licenses/LICENSE-2.0\n\n  Unless required by applicable law or agreed to in writing, software\n  distributed under the License is distributed on an \"AS IS\" BASIS,\n  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n  See the License for the specific language governing permissions and\n  limitations under the License.\n-->\n\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <title>Saiku - Next Generation Open Source Analytics</title>\n\n  <!-- Meta -->\n  <meta charset=\"UTF-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n\n  <!-- Favicon -->\n  <link rel=\"shortcut icon\" href=\"dist/assets/images/favicon.ico\">\n\n  <!-- CSS -->\n  <link rel=\"stylesheet\" href=\"dist/assets/css/bootstrap.min.css\">\n  <link rel=\"stylesheet\" href=\"dist/assets/css/font-awesome.min.css\">\n  <link rel=\"stylesheet\" href=\"dist/saiku/saiku.css\">\n\n  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->\n  <!--[if lt IE 9]>\n    <script src=\"dist/assets/js/html5shiv.js\"></script>\n    <script src=\"dist/assets/js/respond.min.js\"></script>\n  <![endif]-->\n</head>\n<body>\n  <div id=\"app\"></div>\n\n  <!-- JS -->\n  <script src=\"dist/assets/js/jquery.min.js\"></script>\n  <script src=\"dist/assets/js/bootstrap.min.js\"></script>\n  <script src=\"dist/assets/js/waves.js\"></script>\n  <script src=\"dist/saiku/saiku.js\"></script>\n</body>\n</html>";
 
 /***/ },
-/* 239 */
+/* 240 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(240);
+	var content = __webpack_require__(241);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(242)(content, {});
+	var update = __webpack_require__(243)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -40781,10 +40862,10 @@
 	}
 
 /***/ },
-/* 240 */
+/* 241 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(241)();
+	exports = module.exports = __webpack_require__(242)();
 	// imports
 	exports.push([module.id, "@import url(https://fonts.googleapis.com/css?family=Noto+Sans:400,700);", ""]);
 	exports.push([module.id, "@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700,300);", ""]);
@@ -40796,7 +40877,7 @@
 
 
 /***/ },
-/* 241 */
+/* 242 */
 /***/ function(module, exports) {
 
 	/*
@@ -40852,7 +40933,7 @@
 
 
 /***/ },
-/* 242 */
+/* 243 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -41104,91 +41185,6 @@
 			URL.revokeObjectURL(oldSrc);
 	}
 
-
-/***/ },
-/* 243 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/*
-	 *   Copyright 2016 OSBI Ltd
-	 *
-	 *   Licensed under the Apache License, Version 2.0 (the "License");
-	 *   you may not use this file except in compliance with the License.
-	 *   You may obtain a copy of the License at
-	 *
-	 *       http://www.apache.org/licenses/LICENSE-2.0
-	 *
-	 *   Unless required by pagelicable law or agreed to in writing, software
-	 *   distributed under the License is distributed on an "AS IS" BASIS,
-	 *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-	 *   See the License for the specific language governing permissions and
-	 *   limitations under the License.
-	 */
-	
-	'use strict';
-	
-	Object.defineProperty(exports, '__esModule', {
-	  value: true
-	});
-	
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-	
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-	
-	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var _react = __webpack_require__(1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _classnames = __webpack_require__(224);
-	
-	var _classnames2 = _interopRequireDefault(_classnames);
-	
-	var Content = (function (_React$Component) {
-	  _inherits(Content, _React$Component);
-	
-	  function Content() {
-	    _classCallCheck(this, Content);
-	
-	    _get(Object.getPrototypeOf(Content.prototype), 'constructor', this).apply(this, arguments);
-	  }
-	
-	  _createClass(Content, [{
-	    key: 'render',
-	    value: function render() {
-	      var className = this.props.page ? 'content-page' : 'content';
-	
-	      return _react2['default'].createElement(
-	        'div',
-	        _extends({}, this.props, {
-	          className: (0, _classnames2['default'])(className, this.props.className) }),
-	        this.props.children
-	      );
-	    }
-	  }]);
-	
-	  return Content;
-	})(_react2['default'].Component);
-	
-	Content.propTypes = {
-	  className: _react2['default'].PropTypes.string,
-	  children: _react2['default'].PropTypes.node.isRequired,
-	  page: _react2['default'].PropTypes.bool
-	};
-	
-	Content.defaultProps = {
-	  page: false
-	};
-	
-	exports['default'] = Content;
-	module.exports = exports['default'];
 
 /***/ }
 /******/ ]);
