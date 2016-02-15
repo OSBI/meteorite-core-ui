@@ -24,7 +24,7 @@
 html {
   position: relative;
   min-height: 100%;
-  background: #f3f3f3;
+  background: #ebeff2;
 }
 body {
   overflow-x: hidden;
@@ -32,7 +32,7 @@ body {
   font-family: "Noto Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 400;
   color: #797979;
-  background: #f3f3f3;
+  background: #ebeff2;
 }
 h1,
 h2,
@@ -97,18 +97,15 @@ a:focus {
 .content-box {
   margin-bottom: 20px;
   padding: 20px;
+  border: 1px solid rgba(54,64,74,.1);
   border-radius: 5px;
   background: #fff;
   background-clip: padding-box;
-  box-shadow: 0 1px 1px 0 rgba(0,0,0,.1), 0 -1px 4px 0 rgba(0,0,0,.08);
 }
 .wrapper-page {
   position: relative;
   width: 420px;
   margin: 5% auto;
-}
-.wrapper-page .content-box {
-  border: 1px solid rgba(54,64,74,.1);
 }
 .bg-page {
   position: absolute;
@@ -344,34 +341,34 @@ a:focus {
 /* BACKGROUND COLORS
    ========================================================================= */
 .bg-custom {
-  background-color: #58c9c7 !important;
+  background: #58c9c7 !important;
 }
 .bg-primary {
-  background-color: #5d9cec !important;
+  background: #5d9cec !important;
 }
 .bg-success {
-  background-color: #81c868 !important;
+  background: #81c868 !important;
 }
 .bg-info {
-  background-color: #34d3eb !important;
+  background: #34d3eb !important;
 }
 .bg-warning {
-  background-color: #ffbd4a !important;
+  background: #ffbd4a !important;
 }
 .bg-danger {
-  background-color: #f05050 !important;
+  background: #f05050 !important;
 }
 .bg-inverse {
-  background-color: #4c5667 !important;
+  background: #4c5667 !important;
 }
 .bg-muted {
-  background-color: #98a6ad !important;
+  background: #98a6ad !important;
 }
 .bg-white {
-  background-color: #fff !important;
+  background: #fff !important;
 }
 .bg-lightdark {
-  background-color: #f4f8fb !important;
+  background: #f4f8fb !important;
 }
 /* TEXT COLORS
    ========================================================================= */
@@ -421,7 +418,7 @@ a:focus {
 .dropdown-menu > .active a:hover,
 .dropdown-menu > .active a:focus {
   color: #36404a;
-  background-color: #f3f3f3;
+  background: #f3f3f3;
 }
 /* BADGE
    ========================================================================= */
@@ -430,7 +427,7 @@ a:focus {
   padding: 3px 5px;
   font-size: 12px;
   font-weight: 600;
-  background-color: #5fbeaa;
+  background: #5fbeaa;
   text-transform: uppercase;
 }
 .badge-xs {
@@ -442,22 +439,22 @@ a:focus {
           transform: translate(0, -2px);
 }
 .badge-primary {
-  background-color: #5d9cec;
+  background: #5d9cec;
 }
 .badge-success {
-  background-color: #81c868;
+  background: #81c868;
 }
 .badge-info {
-  background-color: #34d3eb;
+  background: #34d3eb;
 }
 .badge-warning {
-  background-color: #ffbd4a;
+  background: #ffbd4a;
 }
 .badge-danger {
-  background-color: #f05050;
+  background: #f05050;
 }
 .badge-inverse {
-  background-color: #4c5667;
+  background: #4c5667;
 }
 /* =========================================================================
    FORM
@@ -754,7 +751,7 @@ a.waves-effect .waves-ripple {
   margin-bottom: 0;
   border: none;
   border-radius: 0;
-  background-color: #fff;
+  background: #fff;
 }
 .navbar-default .badge {
   position: absolute;

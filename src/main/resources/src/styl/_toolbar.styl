@@ -26,7 +26,7 @@
   &.left
     position absolute
     top 60px
-    background $white
+    background white
     box-shadow 0 1px 1px rgba(0, 0, 0, 0.1)
 
 .fixed-left
@@ -35,13 +35,13 @@
       position fixed
       bottom 50px
       left 0
-      height 100%
+      height $height
       margin-top 0
       margin-bottom -70px
       padding-bottom 70px
       
 .sidebar-inner
-  height 100%
+  height $height
 
 // TODO: Refactor `.sidebar-menu`
 .sidebar-menu
@@ -60,7 +60,7 @@
 .sidebar-menu
   padding-top 30px
   padding-bottom 30px
-  width 100%
+  width $width
   
 .sidebar-menu
   a
@@ -74,7 +74,7 @@
         margin 4px 0
         padding 12px 20px
         color #36404a
-        border-left 3px solid $white
+        border-left 3px solid white
         &:hover
           color #5fbeaa
           text-decoration none
