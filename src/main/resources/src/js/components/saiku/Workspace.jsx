@@ -28,7 +28,7 @@ import Toolbar from './Toolbar';
 class Workspace extends React.Component {
   render() {
     return (
-      <Wrapper>
+      <Wrapper className="enlarged forced">
         <MenuBar />
         <Toolbar />
         <Content page>

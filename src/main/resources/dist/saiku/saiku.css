@@ -865,6 +865,57 @@ a.waves-effect .waves-ripple {
   text-align: center;
   vertical-align: middle;
 }
+.wrapper.enlarged .sidebar-menu ul ul {
+  z-index: 9999;
+  margin-top: -5px;
+  padding-top: 5px;
+  border: 2px solid #f4f8fb;
+  background: #fff;
+}
+.wrapper.enlarged .side-menu.left {
+  z-index: 5;
+  width: 70px;
+}
+.wrapper.enlarged .side-menu.left .sidebar-menu > ul > li > a {
+  padding: 15px 20px;
+}
+.wrapper.enlarged .side-menu.left .sidebar-menu > ul > li > a:hover {
+  background: #f4f8fb !important;
+}
+.wrapper.enlarged .side-menu.left .sidebar-menu > ul > li > a:active {
+  background: #f4f8fb !important;
+}
+.wrapper.enlarged .side-menu.left .sidebar-menu > ul > li > a:focus {
+  background: #f4f8fb !important;
+}
+.wrapper.enlarged .side-menu.left .sidebar-menu > ul > li > a i {
+  margin-right: 20px !important;
+  font-size: 20px;
+}
+.wrapper.enlarged .side-menu.left .sidebar-menu ul > li {
+  position: relative;
+  white-space: nowrap;
+}
+.wrapper.enlarged .side-menu.left .sidebar-menu ul > li:hover > a {
+  position: relative;
+  width: 260px;
+  color: #5fbeaa;
+  border-color: #5fbeaa;
+  background: #f4f8fb;
+}
+.wrapper.enlarged .side-menu.left .sidebar-menu ul > li:hover a span {
+  display: inline;
+}
+.wrapper.enlarged .side-menu.left .sidebar-menu ul > li > a span {
+  display: none;
+  padding-left: 10px;
+}
+.wrapper.enlarged .content-page {
+  margin-left: 70px;
+}
+.wrapper.enlarged .topbar .topbar-left {
+  width: 70px !important;
+}
 /* =========================================================================
    RESPONSIVE
    ========================================================================= */

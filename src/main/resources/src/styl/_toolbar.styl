@@ -93,4 +93,55 @@
           line-height 17px
           text-align center
           vertical-align middle
-          
+
+.wrapper
+  &.enlarged
+    .sidebar-menu
+      ul
+        ul
+          z-index 9999
+          margin-top -5px
+          padding-top 5px
+          border 2px solid #f4f8fb
+          background white
+    .side-menu
+      &.left
+        z-index 5
+        width 70px
+        .sidebar-menu
+          > ul
+            > li
+              > a
+                padding 15px 20px
+                &:hover
+                  background #f4f8fb !important
+                &:active
+                  background #f4f8fb !important
+                &:focus
+                  background #f4f8fb !important
+                i
+                  margin-right 20px !important
+                  font-size 20px
+          ul
+            > li
+              position relative
+              white-space nowrap
+              &:hover
+                > a
+                  position relative
+                  width 260px
+                  color #5fbeaa
+                  border-color #5fbeaa
+                  background #f4f8fb
+                a
+                  span
+                    display inline
+              > a
+                span
+                  display none
+                  padding-left 10px
+    .content-page
+      margin-left 70px
+    .topbar
+      .topbar-left
+        width 70px !important
