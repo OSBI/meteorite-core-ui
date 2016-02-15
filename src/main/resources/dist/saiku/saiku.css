@@ -94,6 +94,11 @@ a:focus {
   width: 100%;
   height: 100%;
 }
+.wrapper-page {
+  position: relative;
+  width: 420px;
+  margin: 5% auto;
+}
 .content-box {
   margin-bottom: 20px;
   padding: 20px;
@@ -101,11 +106,6 @@ a:focus {
   border-radius: 5px;
   background: #fff;
   background-clip: padding-box;
-}
-.wrapper-page {
-  position: relative;
-  width: 420px;
-  margin: 5% auto;
 }
 .bg-page {
   position: absolute;
@@ -120,6 +120,14 @@ a:focus {
   width: 88px;
   height: 88px;
   margin: 0 auto;
+}
+.content-page {
+  overflow: hidden;
+  margin-left: 240px;
+}
+.content-page > .content {
+  margin-top: 60px;
+  padding: 20px 5px 15px 5px;
 }
 /* =========================================================================
    HELPERS
@@ -804,7 +812,6 @@ a.waves-effect .waves-ripple {
 .fixed-left .side-menu.left {
   position: fixed;
   bottom: 50px;
-  left: 0;
   height: 100%;
   margin-top: 0;
   margin-bottom: -70px;
@@ -873,6 +880,9 @@ a.waves-effect .waves-ripple {
   .wrapper-page {
     width: 90%;
   }
+  .content-page {
+    margin-left: 0 !important;
+  }
 }
 @media (max-width: 480px) {
   .side-menu {
@@ -885,5 +895,8 @@ a.waves-effect .waves-ripple {
 @media (max-width: 419px) {
   .topbar-left {
     width: 70px !important;
+  }
+  .content-page {
+    margin-left: 70px;
   }
 }

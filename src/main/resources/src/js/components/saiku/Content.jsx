@@ -7,7 +7,7 @@
  *
  *       http://www.apache.org/licenses/LICENSE-2.0
  *
- *   Unless required by applicable law or agreed to in writing, software
+ *   Unless required by pagelicable law or agreed to in writing, software
  *   distributed under the License is distributed on an "AS IS" BASIS,
  *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  *   See the License for the specific language governing permissions and
@@ -17,9 +17,9 @@
 import React from 'react';
 import classNames from 'classnames';
 
-class Wrapper extends React.Component {
+class Content extends React.Component {
   render() {
-    let className = this.props.page ? 'wrapper-page' : 'wrapper';
+    let className = this.props.page ? 'content-page' : 'content';
 
     return (
       <div
@@ -31,14 +31,14 @@ class Wrapper extends React.Component {
   }
 }
 
-Wrapper.propTypes = {
+Content.propTypes = {
   className: React.PropTypes.string,
   children: React.PropTypes.node.isRequired,
   page: React.PropTypes.bool
 };
 
-Wrapper.defaultProps = {
+Content.defaultProps = {
   page: false
 };
 
-export default Wrapper;
+export default Content;

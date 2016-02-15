@@ -18,24 +18,30 @@
    RESPONSIVE
    ========================================================================= */
 
-@media (min-width: 768px) and (max-width: 991px)
+@media (min-width 768px) and (max-width 991px)
   body
     overflow-x hidden
 
-@media (max-width: 767px)
+@media (max-width 767px)
   body
     overflow-x hidden
 
   .wrapper-page
     width 90%
     
-@media (max-width: 480px)
+  .content-page
+    margin-left 0 !important
+    
+@media (max-width 480px)
   .side-menu
     z-index 10 !important
 
   .button-menu-mobile
     display block
     
-@media (max-width: 419px)
+@media (max-width 419px)
   .topbar-left
     width 70px !important
+    
+  .content-page
+    margin-left 70px

@@ -20,6 +20,7 @@ import {
   Button,
   Clearfix
 } from '../bootstrap/index';
+import Icon from './Icon';
 
 class MenuBar extends React.Component {
   render() {
@@ -44,7 +45,7 @@ class MenuBar extends React.Component {
                 <Button
                   className="button-menu-mobile open-left waves-effect"
                 >
-                  <i className="fa fa-navicon"></i>
+                  <Icon name="navicon" />
                 </Button>
                 <Clearfix />
               </div>
@@ -127,7 +128,7 @@ class MenuBar extends React.Component {
                     data-toggle="dropdown"
                     aria-expanded="true"
                   >
-                    <i className="fa fa-bell-o"></i>
+                    <Icon name="bell-o" />
                     <span className="badge badge-xs badge-danger">3</span>
                   </a>
                 </li>
@@ -149,22 +150,22 @@ class MenuBar extends React.Component {
                   >
                     <li>
                       <a href="#">
-                        <i className="fa fa-navicon"></i> Profile
+                        <Icon name="user" /> Profile
                       </a>
                     </li>
                     <li>
                       <a href="#">
-                        <i className="fa fa-navicon"></i> Settings
+                        <Icon name="gear" /> Settings
                       </a>
                     </li>
                     <li>
                       <a href="#">
-                        <i className="fa fa-navicon"></i> Lock Screen
+                        <Icon name="lock" /> Lock screen
                       </a>
                     </li>
                     <li>
                       <a href="#">
-                        <i className="fa fa-navicon"></i> Logout
+                        <Icon name="power-off" /> Logout
                       </a>
                     </li>
                   </ul>

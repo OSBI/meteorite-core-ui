@@ -15,7 +15,13 @@
  */
 
 import React from 'react';
+import {
+  Grid,
+  Row,
+  Col
+} from '../bootstrap/index';
 import Wrapper from './Wrapper';
+import Content from './Content';
 import MenuBar from './MenuBar';
 import Toolbar from './Toolbar';
 
@@ -25,6 +31,17 @@ class Workspace extends React.Component {
       <Wrapper>
         <MenuBar />
         <Toolbar />
+        <Content page>
+          <Content>
+            <Grid>
+              <Row>
+                <Col sm={12}>
+                  <h4>Workspace</h4>
+                </Col>
+              </Row>
+            </Grid>
+          </Content>
+        </Content>
       </Wrapper>
     );
   }
