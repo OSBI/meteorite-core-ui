@@ -24,6 +24,7 @@ import Wrapper from './Wrapper';
 import Content from './Content';
 import MenuBar from './MenuBar';
 import Toolbar from './Toolbar';
+import Tabs, { Panel } from 'react-simpletabs';
 
 class Workspace extends React.Component {
   constructor(props) {
@@ -57,7 +58,17 @@ class Workspace extends React.Component {
             <Grid>
               <Row>
                 <Col sm={12}>
-                  <h4>Workspace</h4>
+                  <Tabs>
+                    <Panel title="Tab #1">
+                      <h2>Content #1</h2>
+                    </Panel>
+                    <Panel title="Tab #2">
+                      <h2>Content #2</h2>
+                    </Panel>
+                    <Panel title="Tab #3">
+                      <h2>Content #3</h2>
+                    </Panel>
+                  </Tabs>
                 </Col>
               </Row>
             </Grid>

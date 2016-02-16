@@ -917,6 +917,48 @@ a.waves-effect .waves-ripple {
   width: 70px !important;
 }
 /* =========================================================================
+   TABS
+   ========================================================================= */
+.tabs-navigation {
+  max-height: 50px;
+  padding: 0 20px;
+  border-bottom: 1px solid #ddd;
+}
+.tabs-menu {
+  display: table;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.tabs-menu-item {
+  float: left;
+}
+.tabs-menu-item a {
+  display: block;
+  height: 50px;
+  padding: 0 40px;
+  line-height: 50px;
+  color: #a9a9a9;
+  border-bottom: 0;
+}
+.tabs-menu-item:not(.is-active) a:hover {
+  color: #3498db;
+}
+.tabs-menu-item.is-active a {
+  color: #333;
+  border: 1px solid #ddd;
+  border-top: 2px solid #3498db;
+  border-bottom: 0;
+  background: #fff;
+}
+.tabs-panel {
+  display: none;
+  padding: 30px;
+}
+.tabs-panel.is-active {
+  display: block;
+}
+/* =========================================================================
    RESPONSIVE
    ========================================================================= */
 @media (min-width: 768px) and (max-width: 991px) {
