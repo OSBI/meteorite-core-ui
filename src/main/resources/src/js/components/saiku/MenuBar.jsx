@@ -23,6 +23,10 @@ import {
 import Icon from './Icon';
 
 class MenuBar extends React.Component {
+  onButtonMenu(event) {
+    this.props.openToolbar();
+  }
+
   render() {
     return (
       <div className="topbar">
@@ -44,6 +48,7 @@ class MenuBar extends React.Component {
               <div className="pull-left">
                 <Button
                   className="button-menu-mobile open-left waves-effect"
+                  onClick={this.onButtonMenu.bind(this)}
                 >
                   <Icon name="navicon" />
                 </Button>
@@ -178,5 +183,9 @@ class MenuBar extends React.Component {
     );
   }
 }
+
+MenuBar.propTypes = {
+  openToolbar: React.PropTypes.func.isRequired
+};
 
 export default MenuBar;

@@ -21,6 +21,13 @@ class Wrapper extends React.Component {
   render() {
     let className = this.props.page ? 'wrapper-page' : 'wrapper';
 
+    if (this.props.isOpenToolbar) {
+      className = `${className} enlarged forced`;
+    }
+    else {
+      className = this.props.page ? 'wrapper-page' : 'wrapper';
+    }
+
     return (
       <div
         {...this.props}
@@ -34,7 +41,8 @@ class Wrapper extends React.Component {
 Wrapper.propTypes = {
   className: React.PropTypes.string,
   children: React.PropTypes.node.isRequired,
-  page: React.PropTypes.bool
+  page: React.PropTypes.bool,
+  isOpenToolbar: React.PropTypes.bool
 };
 
 Wrapper.defaultProps = {

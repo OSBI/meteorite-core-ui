@@ -26,10 +26,32 @@ import MenuBar from './MenuBar';
 import Toolbar from './Toolbar';
 
 class Workspace extends React.Component {
+  constructor() {
+    super();
+
+    this.state = {
+      isOpenToolbar: false
+    };
+  }
+
+  openToolbar() {
+    if (this.state.isOpenToolbar) {
+      this.setState({
+        isOpenToolbar: false
+      });
+    }
+    else {
+      this.setState({
+        isOpenToolbar: true
+      });
+    }
+  }
+
   render() {
     return (
-      <Wrapper className="enlarged forced">
-        <MenuBar />
+      /* <Wrapper className="enlarged forced"> */
+      <Wrapper isOpenToolbar={this.state.isOpenToolbar}>
+        <MenuBar openToolbar={this.openToolbar.bind(this)} />
         <Toolbar />
         <Content page>
           <Content>

@@ -39819,6 +39819,12 @@
 	    value: function render() {
 	      var className = this.props.page ? 'wrapper-page' : 'wrapper';
 	
+	      if (this.props.isOpenToolbar) {
+	        className = className + ' enlarged forced';
+	      } else {
+	        className = this.props.page ? 'wrapper-page' : 'wrapper';
+	      }
+	
 	      return _react2['default'].createElement(
 	        'div',
 	        _extends({}, this.props, {
@@ -39834,7 +39840,8 @@
 	Wrapper.propTypes = {
 	  className: _react2['default'].PropTypes.string,
 	  children: _react2['default'].PropTypes.node.isRequired,
-	  page: _react2['default'].PropTypes.bool
+	  page: _react2['default'].PropTypes.bool,
+	  isOpenToolbar: _react2['default'].PropTypes.bool
 	};
 	
 	Wrapper.defaultProps = {
@@ -39908,36 +39915,56 @@
 	  function Workspace() {
 	    _classCallCheck(this, Workspace);
 	
-	    _get(Object.getPrototypeOf(Workspace.prototype), 'constructor', this).apply(this, arguments);
+	    _get(Object.getPrototypeOf(Workspace.prototype), 'constructor', this).call(this);
+	
+	    this.state = {
+	      isOpenToolbar: false
+	    };
 	  }
 	
 	  _createClass(Workspace, [{
+	    key: 'openToolbar',
+	    value: function openToolbar() {
+	      if (this.state.isOpenToolbar) {
+	        this.setState({
+	          isOpenToolbar: false
+	        });
+	      } else {
+	        this.setState({
+	          isOpenToolbar: true
+	        });
+	      }
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
-	      return _react2['default'].createElement(
-	        _Wrapper2['default'],
-	        { className: 'enlarged forced' },
-	        _react2['default'].createElement(_MenuBar2['default'], null),
-	        _react2['default'].createElement(_Toolbar2['default'], null),
+	      return(
+	        /* <Wrapper className="enlarged forced"> */
 	        _react2['default'].createElement(
-	          _Content2['default'],
-	          { page: true },
+	          _Wrapper2['default'],
+	          { isOpenToolbar: this.state.isOpenToolbar },
+	          _react2['default'].createElement(_MenuBar2['default'], { openToolbar: this.openToolbar.bind(this) }),
+	          _react2['default'].createElement(_Toolbar2['default'], null),
 	          _react2['default'].createElement(
 	            _Content2['default'],
-	            null,
+	            { page: true },
 	            _react2['default'].createElement(
-	              _bootstrapIndex.Grid,
+	              _Content2['default'],
 	              null,
 	              _react2['default'].createElement(
-	                _bootstrapIndex.Row,
+	                _bootstrapIndex.Grid,
 	                null,
 	                _react2['default'].createElement(
-	                  _bootstrapIndex.Col,
-	                  { sm: 12 },
+	                  _bootstrapIndex.Row,
+	                  null,
 	                  _react2['default'].createElement(
-	                    'h4',
-	                    null,
-	                    'Workspace'
+	                    _bootstrapIndex.Col,
+	                    { sm: 12 },
+	                    _react2['default'].createElement(
+	                      'h4',
+	                      null,
+	                      'Workspace'
+	                    )
 	                  )
 	                )
 	              )
@@ -40095,6 +40122,11 @@
 	  }
 	
 	  _createClass(MenuBar, [{
+	    key: 'onButtonMenu',
+	    value: function onButtonMenu(event) {
+	      this.props.openToolbar();
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
 	      return _react2['default'].createElement(
@@ -40132,7 +40164,8 @@
 	                _react2['default'].createElement(
 	                  _bootstrapIndex.Button,
 	                  {
-	                    className: 'button-menu-mobile open-left waves-effect'
+	                    className: 'button-menu-mobile open-left waves-effect',
+	                    onClick: this.onButtonMenu.bind(this)
 	                  },
 	                  _react2['default'].createElement(_Icon2['default'], { name: 'navicon' })
 	                ),
@@ -40430,6 +40463,10 @@
 	
 	  return MenuBar;
 	})(_react2['default'].Component);
+	
+	MenuBar.propTypes = {
+	  openToolbar: _react2['default'].PropTypes.func.isRequired
+	};
 	
 	exports['default'] = MenuBar;
 	module.exports = exports['default'];
