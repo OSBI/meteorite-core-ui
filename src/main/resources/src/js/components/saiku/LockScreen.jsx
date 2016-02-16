@@ -25,6 +25,11 @@ import {
 } from '../bootstrap/index';
 
 class LockScreen extends React.Component {
+  login(event) {
+    event.preventDefault();
+    this.props.history.pushState(null, '/workspace/');
+  }
+
   render() {
     return (
       <div>
@@ -36,7 +41,7 @@ class LockScreen extends React.Component {
             <div className="panel-heading">
               <Col xs={3}>
                 <img
-                  src="dist/assets/images/saiku/logo-small.png"
+                  src="../dist/assets/images/saiku/logo-small.png"
                   width="40"
                   height="40"
                 />
@@ -52,7 +57,7 @@ class LockScreen extends React.Component {
               <form className="text-center" role="form">
                 <div className="user-thumb">
                   <img
-                    src="dist/assets/images/users/user2.jpg"
+                    src="../dist/assets/images/users/user2.jpg"
                     className="img-responsive img-circle img-thumbnail"
                   />
                 </div>
@@ -74,6 +79,7 @@ class LockScreen extends React.Component {
                         bsStyle="default"
                         className="w-sm waves-effect waves-light"
                         block
+                        onClick={this.login.bind(this)}
                       >
                         Unlock
                       </Button>
@@ -98,5 +104,9 @@ class LockScreen extends React.Component {
     );
   }
 }
+
+LockScreen.propTypes = {
+  history: React.PropTypes.func
+};
 
 export default LockScreen;

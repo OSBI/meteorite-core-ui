@@ -26,8 +26,8 @@ import MenuBar from './MenuBar';
 import Toolbar from './Toolbar';
 
 class Workspace extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       isOpenToolbar: false
@@ -49,7 +49,6 @@ class Workspace extends React.Component {
 
   render() {
     return (
-      /* <Wrapper className="enlarged forced"> */
       <Wrapper isOpenToolbar={this.state.isOpenToolbar}>
         <MenuBar openToolbar={this.openToolbar.bind(this)} />
         <Toolbar />

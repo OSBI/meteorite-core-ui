@@ -56,7 +56,7 @@ else if (env === 'dev') {
 }
 
 var config = {
-  entry: './src/js/app.js',
+  entry: './src/js/App.js',
   devtool: 'source-map',
   output: {
     path: __dirname + '/dist/saiku',

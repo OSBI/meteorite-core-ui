@@ -15,6 +15,8 @@
  */
 
 import React from 'react';
+import { History } from 'react-router';
+import reactMixin from 'react-mixin';
 import {
   Grid,
   Button,
@@ -24,7 +26,12 @@ import Icon from './Icon';
 
 class MenuBar extends React.Component {
   onButtonMenu(event) {
+    event.stopPropagation();
     this.props.openToolbar();
+  }
+
+  showLockScreen(event) {
+    this.history.pushState(null, '/lockscreen/');
   }
 
   render() {
@@ -164,8 +171,8 @@ class MenuBar extends React.Component {
                       </a>
                     </li>
                     <li>
-                      <a href="#">
-                        <Icon name="lock" /> Lock screen
+                      <a href="#" onClick={this.showLockScreen.bind(this)}>
+                        <Icon name="lock" /> Lock Screen
                       </a>
                     </li>
                     <li>
@@ -187,5 +194,7 @@ class MenuBar extends React.Component {
 MenuBar.propTypes = {
   openToolbar: React.PropTypes.func.isRequired
 };
+
+reactMixin.onClass(MenuBar, History);
 
 export default MenuBar;

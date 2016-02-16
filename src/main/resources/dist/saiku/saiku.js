@@ -80,7 +80,9 @@
 	
 	var _componentsSaikuLogin2 = _interopRequireDefault(_componentsSaikuLogin);
 	
-	// import LockScreen from './components/saiku/LockScreen';
+	var _componentsSaikuLockScreen = __webpack_require__(244);
+	
+	var _componentsSaikuLockScreen2 = _interopRequireDefault(_componentsSaikuLockScreen);
 	
 	var _componentsSaikuWorkspace = __webpack_require__(233);
 	
@@ -101,6 +103,7 @@
 	  { history: (0, _history.createHistory)() },
 	  _react2['default'].createElement(_reactRouter.Route, { path: '/', component: _componentsSaikuLogin2['default'] }),
 	  _react2['default'].createElement(_reactRouter.Route, { path: '/workspace/', component: _componentsSaikuWorkspace2['default'] }),
+	  _react2['default'].createElement(_reactRouter.Route, { path: '/lockscreen/', component: _componentsSaikuLockScreen2['default'] }),
 	  _react2['default'].createElement(_reactRouter.Route, { path: '*', component: _componentsSaikuNotFound2['default'] })
 	);
 	
@@ -39820,7 +39823,7 @@
 	      var className = this.props.page ? 'wrapper-page' : 'wrapper';
 	
 	      if (this.props.isOpenToolbar) {
-	        className = className + ' enlarged forced';
+	        className = (0, _classnames2['default'])(className, 'enlarged forced');
 	      } else {
 	        className = this.props.page ? 'wrapper-page' : 'wrapper';
 	      }
@@ -39912,10 +39915,10 @@
 	var Workspace = (function (_React$Component) {
 	  _inherits(Workspace, _React$Component);
 	
-	  function Workspace() {
+	  function Workspace(props) {
 	    _classCallCheck(this, Workspace);
 	
-	    _get(Object.getPrototypeOf(Workspace.prototype), 'constructor', this).call(this);
+	    _get(Object.getPrototypeOf(Workspace.prototype), 'constructor', this).call(this, props);
 	
 	    this.state = {
 	      isOpenToolbar: false
@@ -39938,33 +39941,30 @@
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	      return(
-	        /* <Wrapper className="enlarged forced"> */
+	      return _react2['default'].createElement(
+	        _Wrapper2['default'],
+	        { isOpenToolbar: this.state.isOpenToolbar },
+	        _react2['default'].createElement(_MenuBar2['default'], { openToolbar: this.openToolbar.bind(this) }),
+	        _react2['default'].createElement(_Toolbar2['default'], null),
 	        _react2['default'].createElement(
-	          _Wrapper2['default'],
-	          { isOpenToolbar: this.state.isOpenToolbar },
-	          _react2['default'].createElement(_MenuBar2['default'], { openToolbar: this.openToolbar.bind(this) }),
-	          _react2['default'].createElement(_Toolbar2['default'], null),
+	          _Content2['default'],
+	          { page: true },
 	          _react2['default'].createElement(
 	            _Content2['default'],
-	            { page: true },
+	            null,
 	            _react2['default'].createElement(
-	              _Content2['default'],
+	              _bootstrapIndex.Grid,
 	              null,
 	              _react2['default'].createElement(
-	                _bootstrapIndex.Grid,
+	                _bootstrapIndex.Row,
 	                null,
 	                _react2['default'].createElement(
-	                  _bootstrapIndex.Row,
-	                  null,
+	                  _bootstrapIndex.Col,
+	                  { sm: 12 },
 	                  _react2['default'].createElement(
-	                    _bootstrapIndex.Col,
-	                    { sm: 12 },
-	                    _react2['default'].createElement(
-	                      'h4',
-	                      null,
-	                      'Workspace'
-	                    )
+	                    'h4',
+	                    null,
+	                    'Workspace'
 	                  )
 	                )
 	              )
@@ -40106,6 +40106,12 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
+	var _reactRouter = __webpack_require__(159);
+	
+	var _reactMixin = __webpack_require__(212);
+	
+	var _reactMixin2 = _interopRequireDefault(_reactMixin);
+	
 	var _bootstrapIndex = __webpack_require__(222);
 	
 	var _Icon = __webpack_require__(236);
@@ -40124,7 +40130,13 @@
 	  _createClass(MenuBar, [{
 	    key: 'onButtonMenu',
 	    value: function onButtonMenu(event) {
+	      event.stopPropagation();
 	      this.props.openToolbar();
+	    }
+	  }, {
+	    key: 'showLockScreen',
+	    value: function showLockScreen(event) {
+	      this.history.pushState(null, '/lockscreen/');
 	    }
 	  }, {
 	    key: 'render',
@@ -40436,9 +40448,9 @@
 	                      null,
 	                      _react2['default'].createElement(
 	                        'a',
-	                        { href: '#' },
+	                        { href: '#', onClick: this.showLockScreen.bind(this) },
 	                        _react2['default'].createElement(_Icon2['default'], { name: 'lock' }),
-	                        ' Lock screen'
+	                        ' Lock Screen'
 	                      )
 	                    ),
 	                    _react2['default'].createElement(
@@ -40467,6 +40479,8 @@
 	MenuBar.propTypes = {
 	  openToolbar: _react2['default'].PropTypes.func.isRequired
 	};
+	
+	_reactMixin2['default'].onClass(MenuBar, _reactRouter.History);
 	
 	exports['default'] = MenuBar;
 	module.exports = exports['default'];
@@ -41222,6 +41236,202 @@
 			URL.revokeObjectURL(oldSrc);
 	}
 
+
+/***/ },
+/* 244 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/*
+	 *   Copyright 2016 OSBI Ltd
+	 *
+	 *   Licensed under the Apache License, Version 2.0 (the "License");
+	 *   you may not use this file except in compliance with the License.
+	 *   You may obtain a copy of the License at
+	 *
+	 *       http://www.apache.org/licenses/LICENSE-2.0
+	 *
+	 *   Unless required by applicable law or agreed to in writing, software
+	 *   distributed under the License is distributed on an "AS IS" BASIS,
+	 *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	 *   See the License for the specific language governing permissions and
+	 *   limitations under the License.
+	 */
+	
+	'use strict';
+	
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+	
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+	
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _bootstrapIndex = __webpack_require__(222);
+	
+	var LockScreen = (function (_React$Component) {
+	  _inherits(LockScreen, _React$Component);
+	
+	  function LockScreen() {
+	    _classCallCheck(this, LockScreen);
+	
+	    _get(Object.getPrototypeOf(LockScreen.prototype), 'constructor', this).apply(this, arguments);
+	  }
+	
+	  _createClass(LockScreen, [{
+	    key: 'login',
+	    value: function login(event) {
+	      event.preventDefault();
+	      this.props.history.pushState(null, '/workspace/');
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      return _react2['default'].createElement(
+	        'div',
+	        null,
+	        _react2['default'].createElement('div', { className: 'bg-page' }),
+	        _react2['default'].createElement(_bootstrapIndex.Clearfix, null),
+	        _react2['default'].createElement(
+	          'div',
+	          { className: 'wrapper-page' },
+	          _react2['default'].createElement(
+	            'div',
+	            { className: 'content-box' },
+	            _react2['default'].createElement(
+	              'div',
+	              { className: 'panel-heading' },
+	              _react2['default'].createElement(
+	                _bootstrapIndex.Col,
+	                { xs: 3 },
+	                _react2['default'].createElement('img', {
+	                  src: '../dist/assets/images/saiku/logo-small.png',
+	                  width: '40',
+	                  height: '40'
+	                })
+	              ),
+	              _react2['default'].createElement(
+	                _bootstrapIndex.Col,
+	                { xs: 9 },
+	                _react2['default'].createElement(
+	                  'h4',
+	                  { className: 'text-left' },
+	                  'Sign In to ',
+	                  _react2['default'].createElement(
+	                    'strong',
+	                    null,
+	                    'Saiku Analytics'
+	                  )
+	                )
+	              ),
+	              _react2['default'].createElement(_bootstrapIndex.Clearfix, null)
+	            ),
+	            _react2['default'].createElement(
+	              'div',
+	              { className: 'panel-body' },
+	              _react2['default'].createElement(
+	                'form',
+	                { className: 'text-center', role: 'form' },
+	                _react2['default'].createElement(
+	                  'div',
+	                  { className: 'user-thumb' },
+	                  _react2['default'].createElement('img', {
+	                    src: '../dist/assets/images/users/user2.jpg',
+	                    className: 'img-responsive img-circle img-thumbnail'
+	                  })
+	                ),
+	                _react2['default'].createElement(
+	                  _bootstrapIndex.FormGroup,
+	                  null,
+	                  _react2['default'].createElement(
+	                    'h3',
+	                    null,
+	                    'Tom Barber'
+	                  ),
+	                  _react2['default'].createElement(
+	                    'p',
+	                    { className: 'text-muted' },
+	                    'Enter your password to access the Saiku Analytics.'
+	                  ),
+	                  _react2['default'].createElement(
+	                    'div',
+	                    { className: 'input-group m-t-30' },
+	                    _react2['default'].createElement(_bootstrapIndex.Input, {
+	                      type: 'password',
+	                      ref: 'password',
+	                      placeholder: 'Password',
+	                      required: true
+	                    }),
+	                    _react2['default'].createElement(
+	                      'span',
+	                      { className: 'input-group-btn' },
+	                      _react2['default'].createElement(
+	                        _bootstrapIndex.Button,
+	                        {
+	                          type: 'submit',
+	                          bsStyle: 'default',
+	                          className: 'w-sm waves-effect waves-light',
+	                          block: true,
+	                          onClick: this.login.bind(this)
+	                        },
+	                        'Unlock'
+	                      )
+	                    )
+	                  )
+	                ),
+	                _react2['default'].createElement(
+	                  _bootstrapIndex.FormGroup,
+	                  null,
+	                  _react2['default'].createElement(
+	                    _bootstrapIndex.Col,
+	                    { xs: 12, className: 'text-right' },
+	                    _react2['default'].createElement(
+	                      'a',
+	                      { href: '#' },
+	                      'Login with another account'
+	                    )
+	                  )
+	                )
+	              )
+	            )
+	          ),
+	          _react2['default'].createElement(
+	            _bootstrapIndex.Row,
+	            null,
+	            _react2['default'].createElement(
+	              _bootstrapIndex.Col,
+	              { sm: 12, className: 'text-center' },
+	              _react2['default'].createElement(
+	                'p',
+	                null,
+	                'Saiku-4.0-SNAPSHOT'
+	              )
+	            )
+	          )
+	        )
+	      );
+	    }
+	  }]);
+	
+	  return LockScreen;
+	})(_react2['default'].Component);
+	
+	LockScreen.propTypes = {
+	  history: _react2['default'].PropTypes.func
+	};
+	
+	exports['default'] = LockScreen;
+	module.exports = exports['default'];
 
 /***/ }
 /******/ ]);

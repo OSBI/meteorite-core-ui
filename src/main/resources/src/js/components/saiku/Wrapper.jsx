@@ -22,7 +22,7 @@ class Wrapper extends React.Component {
     let className = this.props.page ? 'wrapper-page' : 'wrapper';
 
     if (this.props.isOpenToolbar) {
-      className = `${className} enlarged forced`;
+      className = classNames(className, 'enlarged forced');
     }
     else {
       className = this.props.page ? 'wrapper-page' : 'wrapper';
