@@ -920,8 +920,7 @@ a.waves-effect .waves-ripple {
    TABS
    ========================================================================= */
 .tabs-navigation {
-  max-height: 50px;
-  padding: 0 20px;
+  max-height: 30px;
   border-bottom: 1px solid #ddd;
 }
 .tabs-menu {
@@ -935,11 +934,12 @@ a.waves-effect .waves-ripple {
 }
 .tabs-menu-item a {
   display: block;
-  height: 50px;
-  padding: 0 40px;
-  line-height: 50px;
+  height: 30px;
+  padding: 0 20px;
+  line-height: 30px;
   color: #a9a9a9;
   border-bottom: 0;
+  cursor: pointer;
 }
 .tabs-menu-item:not(.is-active) a:hover {
   color: #3498db;
@@ -947,7 +947,7 @@ a.waves-effect .waves-ripple {
 .tabs-menu-item.is-active a {
   color: #333;
   border: 1px solid #ddd;
-  border-top: 2px solid #3498db;
+  border-top: 2px solid #333;
   border-bottom: 0;
   background: #fff;
 }
