@@ -132,6 +132,9 @@ a:focus {
 /* =========================================================================
    HELPERS
    ========================================================================= */
+.debug {
+  border: 1px solid #000;
+}
 .p-0 {
   padding: 0 !important;
 }
@@ -651,15 +654,12 @@ a.waves-effect .waves-ripple {
 /* =========================================================================
    CHECKBOX
    ========================================================================= */
-.checkbox {
-  padding-left: 20px;
-}
-.checkbox label {
+.checkbox span {
   position: relative;
   display: inline-block;
   padding-left: 5px;
 }
-.checkbox label::before {
+.checkbox span::before {
   position: absolute;
   left: 0;
   display: inline-block;
@@ -674,7 +674,7 @@ a.waves-effect .waves-ripple {
   -webkit-transition: .3s ease-in-out;
           transition: .3s ease-in-out;
 }
-.checkbox label::after {
+.checkbox span::after {
   position: absolute;
   top: 0;
   left: 0;
@@ -693,27 +693,27 @@ a.waves-effect .waves-ripple {
   outline: none !important;
   cursor: pointer;
 }
-.checkbox input[type="checkbox"]:disabled + label {
+.checkbox input[type="checkbox"]:disabled + span {
   opacity: .65;
 }
-.checkbox input[type="checkbox"]:focus + label::before {
+.checkbox input[type="checkbox"]:focus + span::before {
   outline: none;
   outline: thin dotted;
   outline-offset: -2px;
 }
-.checkbox input[type="checkbox"]:checked + label::after {
+.checkbox input[type="checkbox"]:checked + span::after {
   font-family: "FontAwesome";
   content: "\f00c";
 }
-.checkbox input[type="checkbox"]:disabled + label::before {
+.checkbox input[type="checkbox"]:disabled + span::before {
   background: #eee;
   cursor: not-allowed;
 }
-.checkbox-primary input[type="checkbox"]:checked + label::before {
+.checkbox-primary input[type="checkbox"]:checked + span::before {
   border-color: #5d9cec;
   background: #5d9cec;
 }
-.checkbox-primary input[type="checkbox"]:checked + label::after {
+.checkbox-primary input[type="checkbox"]:checked + span::after {
   color: #fff;
 }
 /* =========================================================================

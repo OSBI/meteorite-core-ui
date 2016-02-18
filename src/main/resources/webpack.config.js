@@ -89,6 +89,11 @@ var config = {
       }
     ]
   },
+  node: {
+    dns: 'empty',
+    net: 'empty',
+    tls: 'empty'
+  },
   postcss: function() {
     return [autoprefixer];
   },

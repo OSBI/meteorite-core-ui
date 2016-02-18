@@ -17,36 +17,66 @@
 import React from 'react';
 import { History } from 'react-router';
 import reactMixin from 'react-mixin';
+import Joi from 'joi';
+import validation from 'react-validation-mixin';
+import strategy from 'joi-validation-strategy';
 import Session from '../../models/Session';
 import {
   Row,
   Col,
-  FormGroup,
   Input,
-  Button,
-  Clearfix
-} from '../bootstrap/index';
+  Button
+} from 'react-bootstrap';
+import { FormGroup, Clearfix } from '../bootstrap/index';
 import Wrapper from './Wrapper';
 
 class Login extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
+    this.validatorTypes = {
+      username: Joi.string().required().label('Username'),
+      password: Joi.string().required().label('Password')
+    };
+    this.getValidatorData = this.getValidatorData.bind(this);
+    this.renderHelpText = this.renderHelpText.bind(this);
+    this.getClasses = this.getClasses.bind(this);
+    this.onSubmitLogin = this.onSubmitLogin.bind(this);
     this.session = new Session();
   }
 
-  login(event) {
+  getValidatorData() {
+    return {
+      username: this.refs.username.getValue(),
+      password: this.refs.password.getValue()
+    };
+  }
+
+  renderHelpText(message) {
+    return (
+      <span className="help-block">{message}</span>
+    );
+  }
+
+  getClasses(field) {
+    return !this.props.isValid(field) ? 'has-error' : '';
+  }
+
+  onSubmitLogin(event) {
     event.preventDefault();
 
     let credentials = {
       username: this.refs.username.getValue(),
       password: this.refs.password.getValue()
     };
+    let onValidate = (error) => {
+      if (!error) {
+        this.session.login(credentials, this);
+      }
+    };
 
-    this.session.login(credentials, this);
-
-    this.refs.loginForm.reset();
-    // this.history.pushState(null, '/workspace/');
+    this.props.validate(onValidate);
+    // this.refs.loginForm.reset();
   }
 
   render() {
@@ -76,47 +106,63 @@ class Login extends React.Component {
               <form
                 className="form-horizontal m-t-20"
                 ref="loginForm"
-                onSubmit={this.login.bind(this)}
+                onSubmit={this.onSubmitLogin}
                 role="form"
               >
                 <FormGroup>
                   <Col xs={12}>
-                    <Input
-                      type="text"
-                      ref="username"
-                      placeholder="Username"
-                      required
-                    />
+                    <div className={this.getClasses('username')}>
+                      <Input
+                        type="text"
+                        ref="username"
+                        placeholder="Username"
+                        onBlur={this.props.handleValidation('username')}
+                        standalone
+                      />
+                      {this.renderHelpText(
+                        this.props.getValidationMessages('username')
+                      )}
+                    </div>
                   </Col>
                 </FormGroup>
                 <FormGroup>
                   <Col xs={12}>
-                    <Input
-                      type="password"
-                      ref="password"
-                      placeholder="Password"
-                      required
-                    />
+                    <div className={this.getClasses('password')}>
+                      <Input
+                        type="password"
+                        ref="password"
+                        placeholder="Password"
+                        onBlur={this.props.handleValidation('password')}
+                        standalone
+                      />
+                      {this.renderHelpText(
+                        this.props.getValidationMessages('password')
+                      )}
+                    </div>
                   </Col>
                 </FormGroup>
                 <FormGroup>
                   <Col xs={6}>
-                    <div className="checkbox checkbox-primary">
-                      <Input id="checkbox-signup" type="checkbox" />
-                      <label htmlFor="checkbox-signup">Remember me</label>
-                    </div>
+                    <Input
+                      type="checkbox"
+                      label="Remember me"
+                      labelClassName="checkbox-primary"
+                      standalone
+                    />
                   </Col>
-                  <Col xs={6} className="text-right">
-                    <div className="checkbox">
-                      <a href="#">Evaluation Login</a>
-                    </div>
+                  <Col xs={6}>
+                    <Button
+                      bsStyle="link"
+                      className="pull-right"
+                    >
+                      Evaluation Login
+                    </Button>
                   </Col>
                 </FormGroup>
                 <FormGroup className="text-center m-t-40">
                   <Col xs={12}>
                     <Button
                       type="submit"
-                      bsStyle="default"
                       className="text-uppercase waves-effect waves-light"
                       block
                     >
@@ -138,6 +184,15 @@ class Login extends React.Component {
   }
 }
 
+Login.propTypes = {
+  errors: React.PropTypes.object,
+  validate: React.PropTypes.func,
+  isValid: React.PropTypes.func,
+  handleValidation: React.PropTypes.func,
+  getValidationMessages: React.PropTypes.func,
+  clearValidations: React.PropTypes.func
+};
+
 reactMixin.onClass(Login, History);
 
-export default Login;
+export default validation(strategy)(Login);

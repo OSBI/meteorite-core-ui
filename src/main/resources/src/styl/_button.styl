@@ -27,8 +27,8 @@
    ========================================================================= */
    
 .checkbox
-  padding-left 20px
-  label
+  // padding-left 20px
+  span
     position relative
     display inline-block
     padding-left 5px
@@ -62,23 +62,23 @@
     opacity 0
     outline none !important
     cursor pointer
-    &:disabled + label
+    &:disabled + span
       opacity 0.65
-    &:focus + label::before
+    &:focus + span::before
       outline none
       outline thin dotted
       outline-offset -2px
-    &:checked + label
+    &:checked + span
       &::after
         font-family "FontAwesome"
         content "\f00c"
-    &:disabled + label
+    &:disabled + span
       &::before
         background #eee
         cursor not-allowed
       
 .checkbox-primary
-  input[type="checkbox"]:checked + label
+  input[type="checkbox"]:checked + span
     &::before
       border-color $primary
       background $primary
