@@ -150,13 +150,10 @@ class Login extends React.Component {
                       standalone
                     />
                   </Col>
-                  <Col xs={6}>
-                    <Button
-                      bsStyle="link"
-                      className="pull-right"
-                    >
-                      Evaluation Login
-                    </Button>
+                  <Col xs={6} className="text-right">
+                    <div className="checkbox">
+                      <a href="#">Evaluation Login</a>
+                    </div>
                   </Col>
                 </FormGroup>
                 <FormGroup className="text-center m-t-40">

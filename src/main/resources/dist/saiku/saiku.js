@@ -24701,14 +24701,15 @@
 	                  ),
 	                  _react2['default'].createElement(
 	                    _reactBootstrap.Col,
-	                    { xs: 6 },
+	                    { xs: 6, className: 'text-right' },
 	                    _react2['default'].createElement(
-	                      _reactBootstrap.Button,
-	                      {
-	                        bsStyle: 'link',
-	                        className: 'pull-right'
-	                      },
-	                      'Evaluation Login'
+	                      'div',
+	                      { className: 'checkbox' },
+	                      _react2['default'].createElement(
+	                        'a',
+	                        { href: '#' },
+	                        'Evaluation Login'
+	                      )
 	                    )
 	                  )
 	                ),
@@ -86995,22 +86996,84 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
+	var _reactRouter = __webpack_require__(159);
+	
+	var _reactMixin = __webpack_require__(212);
+	
+	var _reactMixin2 = _interopRequireDefault(_reactMixin);
+	
+	var _joi = __webpack_require__(215);
+	
+	var _joi2 = _interopRequireDefault(_joi);
+	
+	var _reactValidationMixin = __webpack_require__(361);
+	
+	var _reactValidationMixin2 = _interopRequireDefault(_reactValidationMixin);
+	
+	var _joiValidationStrategy = __webpack_require__(387);
+	
+	var _joiValidationStrategy2 = _interopRequireDefault(_joiValidationStrategy);
+	
+	var _reactBootstrap = __webpack_require__(412);
+	
 	var _bootstrapIndex = __webpack_require__(654);
+	
+	var _Wrapper = __webpack_require__(663);
+	
+	var _Wrapper2 = _interopRequireDefault(_Wrapper);
 	
 	var LockScreen = (function (_React$Component) {
 	  _inherits(LockScreen, _React$Component);
 	
-	  function LockScreen() {
+	  function LockScreen(props) {
 	    _classCallCheck(this, LockScreen);
 	
-	    _get(Object.getPrototypeOf(LockScreen.prototype), 'constructor', this).apply(this, arguments);
+	    _get(Object.getPrototypeOf(LockScreen.prototype), 'constructor', this).call(this, props);
+	
+	    this.validatorTypes = {
+	      password: _joi2['default'].string().required().label('Password')
+	    };
+	    this.getValidatorData = this.getValidatorData.bind(this);
+	    this.renderHelpText = this.renderHelpText.bind(this);
+	    this.getClasses = this.getClasses.bind(this);
+	    this.onSubmitLogin = this.onSubmitLogin.bind(this);
 	  }
 	
 	  _createClass(LockScreen, [{
-	    key: 'login',
-	    value: function login(event) {
+	    key: 'getValidatorData',
+	    value: function getValidatorData() {
+	      return {
+	        password: this.refs.password.getValue()
+	      };
+	    }
+	  }, {
+	    key: 'renderHelpText',
+	    value: function renderHelpText(message) {
+	      return _react2['default'].createElement(
+	        'span',
+	        { className: 'help-block' },
+	        message
+	      );
+	    }
+	  }, {
+	    key: 'getClasses',
+	    value: function getClasses(field) {
+	      return !this.props.isValid(field) ? 'has-error' : '';
+	    }
+	  }, {
+	    key: 'onSubmitLogin',
+	    value: function onSubmitLogin(event) {
+	      var _this = this;
+	
 	      event.preventDefault();
-	      this.props.history.pushState(null, '/workspace/');
+	
+	      var onValidate = function onValidate(error) {
+	        if (!error) {
+	          _this.props.history.pushState(null, '/workspace/');
+	        }
+	      };
+	
+	      this.props.validate(onValidate);
 	    }
 	  }, {
 	    key: 'render',
@@ -87021,8 +87084,8 @@
 	        _react2['default'].createElement('div', { className: 'bg-page' }),
 	        _react2['default'].createElement(_bootstrapIndex.Clearfix, null),
 	        _react2['default'].createElement(
-	          'div',
-	          { className: 'wrapper-page' },
+	          _Wrapper2['default'],
+	          { page: true },
 	          _react2['default'].createElement(
 	            'div',
 	            { className: 'content-box' },
@@ -87030,7 +87093,7 @@
 	              'div',
 	              { className: 'panel-heading' },
 	              _react2['default'].createElement(
-	                _bootstrapIndex.Col,
+	                _reactBootstrap.Col,
 	                { xs: 3 },
 	                _react2['default'].createElement('img', {
 	                  src: '../dist/assets/images/saiku/logo-small.png',
@@ -87039,7 +87102,7 @@
 	                })
 	              ),
 	              _react2['default'].createElement(
-	                _bootstrapIndex.Col,
+	                _reactBootstrap.Col,
 	                { xs: 9 },
 	                _react2['default'].createElement(
 	                  'h4',
@@ -87059,7 +87122,11 @@
 	              { className: 'panel-body' },
 	              _react2['default'].createElement(
 	                'form',
-	                { className: 'text-center', role: 'form' },
+	                {
+	                  className: 'text-center',
+	                  onSubmit: this.onSubmitLogin,
+	                  role: 'form'
+	                },
 	                _react2['default'].createElement(
 	                  'div',
 	                  { className: 'user-thumb' },
@@ -87083,35 +87150,39 @@
 	                  ),
 	                  _react2['default'].createElement(
 	                    'div',
-	                    { className: 'input-group m-t-30' },
-	                    _react2['default'].createElement(_bootstrapIndex.Input, {
-	                      type: 'password',
-	                      ref: 'password',
-	                      placeholder: 'Password',
-	                      required: true
-	                    }),
+	                    { className: this.getClasses('password') },
 	                    _react2['default'].createElement(
-	                      'span',
-	                      { className: 'input-group-btn' },
+	                      'div',
+	                      { className: 'input-group m-t-30' },
+	                      _react2['default'].createElement(_reactBootstrap.Input, {
+	                        type: 'password',
+	                        ref: 'password',
+	                        placeholder: 'Password',
+	                        onBlur: this.props.handleValidation('password'),
+	                        standalone: true
+	                      }),
 	                      _react2['default'].createElement(
-	                        _bootstrapIndex.Button,
-	                        {
-	                          type: 'submit',
-	                          bsStyle: 'default',
-	                          className: 'w-sm waves-effect waves-light',
-	                          block: true,
-	                          onClick: this.login.bind(this)
-	                        },
-	                        'Unlock'
+	                        'span',
+	                        { className: 'input-group-btn' },
+	                        _react2['default'].createElement(
+	                          _reactBootstrap.Button,
+	                          {
+	                            type: 'submit',
+	                            className: 'w-sm waves-effect waves-light',
+	                            block: true
+	                          },
+	                          'Unlock'
+	                        )
 	                      )
-	                    )
+	                    ),
+	                    this.renderHelpText(this.props.getValidationMessages('password'))
 	                  )
 	                ),
 	                _react2['default'].createElement(
 	                  _bootstrapIndex.FormGroup,
 	                  null,
 	                  _react2['default'].createElement(
-	                    _bootstrapIndex.Col,
+	                    _reactBootstrap.Col,
 	                    { xs: 12, className: 'text-right' },
 	                    _react2['default'].createElement(
 	                      'a',
@@ -87124,10 +87195,10 @@
 	            )
 	          ),
 	          _react2['default'].createElement(
-	            _bootstrapIndex.Row,
+	            _reactBootstrap.Row,
 	            null,
 	            _react2['default'].createElement(
-	              _bootstrapIndex.Col,
+	              _reactBootstrap.Col,
 	              { sm: 12, className: 'text-center' },
 	              _react2['default'].createElement(
 	                'p',
@@ -87145,10 +87216,18 @@
 	})(_react2['default'].Component);
 	
 	LockScreen.propTypes = {
-	  history: _react2['default'].PropTypes.func
+	  history: _react2['default'].PropTypes.func,
+	  errors: _react2['default'].PropTypes.object,
+	  validate: _react2['default'].PropTypes.func,
+	  isValid: _react2['default'].PropTypes.func,
+	  handleValidation: _react2['default'].PropTypes.func,
+	  getValidationMessages: _react2['default'].PropTypes.func,
+	  clearValidations: _react2['default'].PropTypes.func
 	};
 	
-	exports['default'] = LockScreen;
+	_reactMixin2['default'].onClass(LockScreen, _reactRouter.History);
+	
+	exports['default'] = (0, _reactValidationMixin2['default'])(_joiValidationStrategy2['default'])(LockScreen);
 	module.exports = exports['default'];
 
 /***/ },

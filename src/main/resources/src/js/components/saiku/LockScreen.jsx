@@ -15,19 +15,59 @@
  */
 
 import React from 'react';
+import { History } from 'react-router';
+import reactMixin from 'react-mixin';
+import Joi from 'joi';
+import validation from 'react-validation-mixin';
+import strategy from 'joi-validation-strategy';
 import {
   Row,
   Col,
-  FormGroup,
   Input,
-  Button,
-  Clearfix
-} from '../bootstrap/index';
+  Button
+} from 'react-bootstrap';
+import { FormGroup, Clearfix } from '../bootstrap/index';
+import Wrapper from './Wrapper';
 
 class LockScreen extends React.Component {
-  login(event) {
+  constructor(props) {
+    super(props);
+
+    this.validatorTypes = {
+      password: Joi.string().required().label('Password')
+    };
+    this.getValidatorData = this.getValidatorData.bind(this);
+    this.renderHelpText = this.renderHelpText.bind(this);
+    this.getClasses = this.getClasses.bind(this);
+    this.onSubmitLogin = this.onSubmitLogin.bind(this);
+  }
+
+  getValidatorData() {
+    return {
+      password: this.refs.password.getValue()
+    };
+  }
+
+  renderHelpText(message) {
+    return (
+      <span className="help-block">{message}</span>
+    );
+  }
+
+  getClasses(field) {
+    return !this.props.isValid(field) ? 'has-error' : '';
+  }
+
+  onSubmitLogin(event) {
     event.preventDefault();
-    this.props.history.pushState(null, '/workspace/');
+
+    let onValidate = (error) => {
+      if (!error) {
+        this.props.history.pushState(null, '/workspace/');
+      }
+    };
+
+    this.props.validate(onValidate);
   }
 
   render() {
@@ -36,7 +76,7 @@ class LockScreen extends React.Component {
         <div className="bg-page"></div>
         <Clearfix />
 
-        <div className="wrapper-page">
+        <Wrapper page>
           <div className="content-box">
             <div className="panel-heading">
               <Col xs={3}>
@@ -54,7 +94,11 @@ class LockScreen extends React.Component {
               <Clearfix />
             </div>
             <div className="panel-body">
-              <form className="text-center" role="form">
+              <form
+                className="text-center"
+                onSubmit={this.onSubmitLogin}
+                role="form"
+              >
                 <div className="user-thumb">
                   <img
                     src="../dist/assets/images/users/user2.jpg"
@@ -66,24 +110,28 @@ class LockScreen extends React.Component {
                   <p className="text-muted">
                     Enter your password to access the Saiku Analytics.
                   </p>
-                  <div className="input-group m-t-30">
-                    <Input
-                      type="password"
-                      ref="password"
-                      placeholder="Password"
-                      required
-                    />
-                    <span className="input-group-btn">
-                      <Button
-                        type="submit"
-                        bsStyle="default"
-                        className="w-sm waves-effect waves-light"
-                        block
-                        onClick={this.login.bind(this)}
-                      >
-                        Unlock
-                      </Button>
-                    </span>
+                  <div className={this.getClasses('password')}>
+                    <div className="input-group m-t-30">
+                      <Input
+                        type="password"
+                        ref="password"
+                        placeholder="Password"
+                        onBlur={this.props.handleValidation('password')}
+                        standalone
+                      />
+                      <span className="input-group-btn">
+                        <Button
+                          type="submit"
+                          className="w-sm waves-effect waves-light"
+                          block
+                        >
+                          Unlock
+                        </Button>
+                      </span>
+                    </div>
+                    {this.renderHelpText(
+                      this.props.getValidationMessages('password')
+                    )}
                   </div>
                 </FormGroup>
                 <FormGroup>
@@ -99,14 +147,22 @@ class LockScreen extends React.Component {
               <p>Saiku-4.0-SNAPSHOT</p>
             </Col>
           </Row>
-        </div>
+        </Wrapper>
       </div>
     );
   }
 }
 
 LockScreen.propTypes = {
-  history: React.PropTypes.func
+  history: React.PropTypes.func,
+  errors: React.PropTypes.object,
+  validate: React.PropTypes.func,
+  isValid: React.PropTypes.func,
+  handleValidation: React.PropTypes.func,
+  getValidationMessages: React.PropTypes.func,
+  clearValidations: React.PropTypes.func
 };
 
-export default LockScreen;
+reactMixin.onClass(LockScreen, History);
+
+export default validation(strategy)(LockScreen);
