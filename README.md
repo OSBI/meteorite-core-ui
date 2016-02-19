@@ -51,7 +51,7 @@ In order to run it locally you'll need a basic server setup.
 6. Execute tests (optional):
 
   ```
-  $ npm run test
+  $ npm test
   ```
 
 ## Usage
