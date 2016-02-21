@@ -1,17 +1,24 @@
+var jsonfile    = require('jsonfile');
+var fileMenuBar = './src/js/components/saiku/data/MenuBar.json';
+var fileToolbar = './src/js/components/saiku/data/Toolbar.json';
+var dataMock;
+
 var appRouter = function(app) {
   app.get('/', function(req, res) {
     res.send(
       '<h1>Routes:</h1>' +
       '<ul>' +
-        '<li><a href="/account?username=breno">Account</a></li>' +
+        '<li><a href="/user?username=admin">Login</a></li>' +
+        '<li><a href="/menubar">MenuBar</a></li>' +
+        '<li><a href="/toolbar">Toolbar</a></li>' +
       '</ul>'
     );
   });
 
-  app.get('/account', function(req, res) {
+  app.get('/user', function(req, res) {
     var accountMock = {
-      username: 'breno',
-      password: '123456'
+      username: 'admin',
+      password: 'admin'
     };
 
     if (!req.query.username) {
@@ -23,6 +30,16 @@ var appRouter = function(app) {
     else {
       return res.send(accountMock);
     }
+  });
+
+  app.get('/menubar', function(req, res) {
+    dataMock = jsonfile.readFileSync(fileMenuBar);
+    return res.send(dataMock);
+  });
+
+  app.get('/toolbar', function(req, res) {
+    dataMock = jsonfile.readFileSync(fileToolbar);
+    return res.send(dataMock);
   });
 };
 

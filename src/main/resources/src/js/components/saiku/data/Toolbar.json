@@ -1,0 +1,49 @@
+{
+  "item": [
+    {
+      "name": "Home",
+      "visible": true,
+      "icon": "fa fa-home"
+    },
+    {
+      "name": "New query",
+      "visible": true,
+      "icon": "fa fa-plus-square"
+    },
+    {
+      "name": "Open query",
+      "visible": true,
+      "icon": "fa fa-folder-open-o"
+    },
+    {
+      "name": "Reporting",
+      "visible": true,
+      "icon": "fa fa-file-text-o"
+    },
+    {
+      "name": "Dashboard",
+      "visible": true,
+      "icon": "fa fa-dashboard"
+    },
+    {
+      "name": "Schema Designer",
+      "visible": true,
+      "icon": "fa fa-cube"
+    },
+    {
+      "name": "Translate",
+      "visible": true,
+      "icon": "fa fa-globe"
+    },
+    {
+      "name": "Admin Console",
+      "visible": true,
+      "icon": "fa fa-gear"
+    },
+    {
+      "name": "Send a bug",
+      "visible": true,
+      "icon": "fa fa-bug"
+    }
+  ]
+}
