@@ -35,21 +35,25 @@ class Session extends SaikuServer.Model {
     //   console.log(options);
     // }});
 
-    let self = this;
+    // TODO: Remove "after" these comments for work with Karaf (meteorite-core)
+    // let self = this;
 
-    this.save(
-      {
-        username: credentials.username,
-        password: credentials.password
-      },
-      {
-        dataType: 'text',
-        success: function(model, response, options) {
-          self.loadSession(component);
-        },
-        error: this.loginFailed
-      }
-    );
+    // this.save(
+    //   {
+    //     username: credentials.username,
+    //     password: credentials.password
+    //   },
+    //   {
+    //     dataType: 'text',
+    //     success: function(model, response, options) {
+    //       self.loadSession(component);
+    //     },
+    //     error: this.loginFailed
+    //   }
+    // );
+
+    // TODO: Remove "after" this `history.pushState`
+    component.history.pushState(null, '/workspace/');
   }
 
   loadSession(component) {

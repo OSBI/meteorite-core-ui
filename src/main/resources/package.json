@@ -94,7 +94,6 @@
     "react-dom": "^0.14.6",
     "react-mixin": "^3.0.3",
     "react-router": "^1.0.3",
-    "react-simpletabs": "^0.7.0",
     "react-validation-mixin": "^5.3.4",
     "style-loader": "^0.13.0",
     "underscore": "^1.8.3",

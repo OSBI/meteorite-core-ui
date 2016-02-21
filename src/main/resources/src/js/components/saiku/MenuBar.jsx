@@ -41,7 +41,7 @@ class MenuBar extends React.Component {
           <div className="text-center">
             <a href="#" className="logo">
               <img
-                src="dist/assets/images/saiku/logo-small.png"
+                src="../dist/assets/images/saiku/logo-small.png"
                 width="40"
                 height="40"
               />
@@ -152,7 +152,7 @@ class MenuBar extends React.Component {
                     aria-expanded="true"
                   >
                     <img
-                      src="dist/assets/images/users/user2.jpg"
+                      src="../dist/assets/images/users/user2.jpg"
                       className="img-circle"
                     />
                   </a>

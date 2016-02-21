@@ -15,8 +15,6 @@
  */
 
 import React from 'react';
-import { History } from 'react-router';
-import reactMixin from 'react-mixin';
 import Joi from 'joi';
 import validation from 'react-validation-mixin';
 import strategy from 'joi-validation-strategy';
@@ -162,7 +160,5 @@ LockScreen.propTypes = {
   getValidationMessages: React.PropTypes.func,
   clearValidations: React.PropTypes.func
 };
-
-reactMixin.onClass(LockScreen, History);
 
 export default validation(strategy)(LockScreen);
