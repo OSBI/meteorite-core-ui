@@ -17,9 +17,8 @@
 import React from 'react';
 import { History } from 'react-router';
 import reactMixin from 'react-mixin';
-import Joi from 'joi';
 import validation from 'react-validation-mixin';
-import strategy from 'joi-validation-strategy';
+import strategy from '../../utils/ReactValidatorStrategy';
 import Session from '../../models/Session';
 import {
   Row,
@@ -35,10 +34,10 @@ class Login extends React.Component {
   constructor(props) {
     super(props);
 
-    this.validatorTypes = {
-      username: Joi.string().required().label('Username'),
-      password: Joi.string().required().label('Password')
-    };
+    this.validatorTypes = strategy.createSchema({
+      username: 'required',
+      password: 'required'
+    });
     this.getValidatorData = this.getValidatorData.bind(this);
     this.renderHelpText = this.renderHelpText.bind(this);
     this.getClasses = this.getClasses.bind(this);

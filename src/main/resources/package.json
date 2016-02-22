@@ -72,8 +72,6 @@
     "gulp-stylus": "^2.2.0",
     "history": "^1.17.0",
     "html-loader": "^0.4.0",
-    "joi": "^8.0.1",
-    "joi-validation-strategy": "^0.3.3",
     "jquery": "^2.1.4",
     "jsonfile": "^2.2.3",
     "karma": "^0.13.17",
@@ -99,11 +97,13 @@
     "react-mixin": "^3.0.3",
     "react-router": "^1.0.3",
     "react-validation-mixin": "^5.3.4",
+    "react-validatorjs-strategy": "^0.1.7",
     "style-loader": "^0.13.0",
     "underscore": "^1.8.3",
     "url-loader": "^0.5.7",
+    "validatorjs": "^2.0.5",
     "watch": "^0.17.1",
-    "webpack": "^1.12.9",
+    "webpack": "^1.12.13",
     "webpack-dev-server": "^1.14.0"
   }
 }

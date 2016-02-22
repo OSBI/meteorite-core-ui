@@ -15,9 +15,8 @@
  */
 
 import React from 'react';
-import Joi from 'joi';
 import validation from 'react-validation-mixin';
-import strategy from 'joi-validation-strategy';
+import strategy from '../../utils/ReactValidatorStrategy';
 import {
   Row,
   Col,
@@ -32,9 +31,9 @@ class LockScreen extends React.Component {
   constructor(props) {
     super(props);
 
-    this.validatorTypes = {
-      password: Joi.string().required().label('Password')
-    };
+    this.validatorTypes = strategy.createSchema({
+      password: 'required'
+    });
     this.getValidatorData = this.getValidatorData.bind(this);
     this.renderHelpText = this.renderHelpText.bind(this);
     this.getClasses = this.getClasses.bind(this);
@@ -153,7 +152,7 @@ class LockScreen extends React.Component {
 }
 
 LockScreen.propTypes = {
-  history: React.PropTypes.func,
+  history: React.PropTypes.object,
   errors: React.PropTypes.object,
   validate: React.PropTypes.func,
   isValid: React.PropTypes.func,
