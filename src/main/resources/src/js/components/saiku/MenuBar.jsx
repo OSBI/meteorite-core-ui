@@ -17,11 +17,9 @@
 import React from 'react';
 import { History } from 'react-router';
 import reactMixin from 'react-mixin';
-import {
-  Grid,
-  Button,
-  Clearfix
-} from '../bootstrap/index';
+import Grid from '../bootstrap/Grid';
+import Button from '../bootstrap/Button';
+import Clearfix from '../bootstrap/Clearfix';
 import Icon from './Icon';
 
 class MenuBar extends React.Component {

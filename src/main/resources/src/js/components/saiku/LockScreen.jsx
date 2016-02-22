@@ -24,7 +24,8 @@ import {
   Input,
   Button
 } from 'react-bootstrap';
-import { FormGroup, Clearfix } from '../bootstrap/index';
+import FormGroup from '../bootstrap/FormGroup';
+import Clearfix from '../bootstrap/Clearfix';
 import Wrapper from './Wrapper';
 
 class LockScreen extends React.Component {

@@ -25,7 +25,7 @@ const Base64 = ((window) => {
     catch (error) {
       return error;
     }
-  }());
+  })();
 
   // Encoder
   window.Base64 || (
@@ -65,6 +65,6 @@ const Base64 = ((window) => {
       }
     }
   );
-}(window));
+})(window);
 
 export default Base64;

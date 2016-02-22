@@ -15,7 +15,7 @@
  */
 
 import React from 'react';
-import { Clearfix } from '../bootstrap/index';
+import Clearfix from '../bootstrap/Clearfix';
 import Icon from './Icon';
 
 class Toolbar extends React.Component {
