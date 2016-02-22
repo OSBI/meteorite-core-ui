@@ -72,6 +72,7 @@
     "joi": "^8.0.1",
     "joi-validation-strategy": "^0.3.3",
     "jquery": "^2.1.4",
+    "jsonfile": "^2.2.3",
     "karma": "^0.13.17",
     "karma-chai": "^0.1.0",
     "karma-chai-plugins": "^0.6.1",
