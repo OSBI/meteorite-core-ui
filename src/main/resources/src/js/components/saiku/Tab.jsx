@@ -14,16 +14,9 @@
  *   limitations under the License.
  */
 
-/*! =========================================================================
-   TABS
-   ========================================================================= */
-.nav-tabs
-  background white
-  margin-top 60px
-  li 
-    a[role=tab]
-      color black
-      border 1px solid #CCCCCC
-      line-height 40px
-      &[aria-selected=false]
-        background #CCCCCC
+import {Tab as TBTab} from 'react-bootstrap';
+
+class Tab extends TBTab {
+}
+
+export default Tab;

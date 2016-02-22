@@ -22,6 +22,8 @@ import Wrapper from './Wrapper';
 import Content from './Content';
 import MenuBar from './MenuBar';
 import Toolbar from './Toolbar';
+import Tab from './Tab';
+import Tabs from './Tabs';
 
 class Workspace extends React.Component {
   constructor(props) {
@@ -51,15 +53,25 @@ class Workspace extends React.Component {
         <MenuBar openToolbar={this.openToolbar.bind(this)} />
         <Toolbar />
         <Content page>
-          <Content>
-            <Grid>
-              <Row>
-                <Col sm={12}>
-                  <h4>Workspace</h4>
-                </Col>
-              </Row>
-            </Grid>
-          </Content>
+          <Tabs>
+            <Tab eventKey={1} title="Workspace">
+              <Content>
+                <Grid>
+                  <Row>
+                    <Col sm={12}>
+                      <h4>Workspace</h4>
+                    </Col>
+                  </Row>
+                </Grid>
+              </Content>
+            </Tab>
+            <Tab eventKey={2} title="Tab 2">
+              <Content><h1>Sample Tab 2</h1></Content>
+            </Tab>
+            <Tab eventKey={3} title="Tab 3">
+              <Content><h1>Sample Tab 3</h1></Content><
+            /Tab>
+          </Tabs>
         </Content>
       </Wrapper>
     );
