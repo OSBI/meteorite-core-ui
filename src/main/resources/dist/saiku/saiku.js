@@ -70,13 +70,13 @@
 	
 	var _Workspace2 = _interopRequireDefault(_Workspace);
 	
-	var _NotFound = __webpack_require__(533);
+	var _NotFound = __webpack_require__(528);
 	
 	var _NotFound2 = _interopRequireDefault(_NotFound);
 	
-	__webpack_require__(534);
+	__webpack_require__(529);
 	
-	__webpack_require__(535);
+	__webpack_require__(530);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -62295,39 +62295,29 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _Grid = __webpack_require__(522);
-	
-	var _Grid2 = _interopRequireDefault(_Grid);
-	
-	var _Row = __webpack_require__(523);
-	
-	var _Row2 = _interopRequireDefault(_Row);
-	
-	var _Col = __webpack_require__(524);
-	
-	var _Col2 = _interopRequireDefault(_Col);
+	var _reactBootstrap = __webpack_require__(273);
 	
 	var _Wrapper = __webpack_require__(519);
 	
 	var _Wrapper2 = _interopRequireDefault(_Wrapper);
 	
-	var _Content = __webpack_require__(526);
+	var _Content = __webpack_require__(522);
 	
 	var _Content2 = _interopRequireDefault(_Content);
 	
-	var _MenuBar = __webpack_require__(527);
+	var _MenuBar = __webpack_require__(523);
 	
 	var _MenuBar2 = _interopRequireDefault(_MenuBar);
 	
-	var _Toolbar = __webpack_require__(530);
+	var _Toolbar = __webpack_require__(525);
 	
 	var _Toolbar2 = _interopRequireDefault(_Toolbar);
 	
-	var _Tab = __webpack_require__(531);
+	var _Tab = __webpack_require__(526);
 	
 	var _Tab2 = _interopRequireDefault(_Tab);
 	
-	var _Tabs = __webpack_require__(532);
+	var _Tabs = __webpack_require__(527);
 	
 	var _Tabs2 = _interopRequireDefault(_Tabs);
 	
@@ -62401,13 +62391,13 @@
 	                _Content2.default,
 	                null,
 	                _react2.default.createElement(
-	                  _Grid2.default,
+	                  _reactBootstrap.Grid,
 	                  null,
 	                  _react2.default.createElement(
-	                    _Row2.default,
+	                    _reactBootstrap.Row,
 	                    null,
 	                    _react2.default.createElement(
-	                      _Col2.default,
+	                      _reactBootstrap.Col,
 	                      { sm: 12 },
 	                      _react2.default.createElement(
 	                        'h4',
@@ -62493,482 +62483,6 @@
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *       http://www.apache.org/licenses/LICENSE-2.0
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   Unless required by applicable law or agreed to in writing, software
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   distributed under the License is distributed on an "AS IS" BASIS,
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   See the License for the specific language governing permissions and
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   limitations under the License.
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
-	
-	var Grid = function (_React$Component) {
-	  _inherits(Grid, _React$Component);
-	
-	  function Grid() {
-	    _classCallCheck(this, Grid);
-	
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Grid).apply(this, arguments));
-	  }
-	
-	  _createClass(Grid, [{
-	    key: 'render',
-	    value: function render() {
-	      var className = this.props.fluid ? 'container-fluid' : 'container';
-	
-	      return _react2.default.createElement(
-	        'div',
-	        _extends({}, this.props, {
-	          className: (0, _classnames2.default)(className, this.props.className) }),
-	        this.props.children
-	      );
-	    }
-	  }]);
-	
-	  return Grid;
-	}(_react2.default.Component);
-	
-	Grid.propTypes = {
-	  className: _react2.default.PropTypes.string,
-	  children: _react2.default.PropTypes.node.isRequired,
-	  fluid: _react2.default.PropTypes.bool
-	};
-	
-	Grid.defaultProps = {
-	  fluid: false
-	};
-	
-	exports.default = Grid;
-
-/***/ },
-/* 523 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _react = __webpack_require__(1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _classnames = __webpack_require__(309);
-	
-	var _classnames2 = _interopRequireDefault(_classnames);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /*
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   Copyright 2016 OSBI Ltd
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   Licensed under the Apache License, Version 2.0 (the "License");
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   you may not use this file except in compliance with the License.
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   You may obtain a copy of the License at
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *       http://www.apache.org/licenses/LICENSE-2.0
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   Unless required by applicable law or agreed to in writing, software
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   distributed under the License is distributed on an "AS IS" BASIS,
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   See the License for the specific language governing permissions and
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   limitations under the License.
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
-	
-	var Row = function (_React$Component) {
-	  _inherits(Row, _React$Component);
-	
-	  function Row() {
-	    _classCallCheck(this, Row);
-	
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Row).apply(this, arguments));
-	  }
-	
-	  _createClass(Row, [{
-	    key: 'render',
-	    value: function render() {
-	      return _react2.default.createElement(
-	        'div',
-	        _extends({}, this.props, {
-	          className: (0, _classnames2.default)('row', this.props.className) }),
-	        this.props.children
-	      );
-	    }
-	  }]);
-	
-	  return Row;
-	}(_react2.default.Component);
-	
-	Row.propTypes = {
-	  className: _react2.default.PropTypes.string,
-	  children: _react2.default.PropTypes.node.isRequired
-	};
-	
-	exports.default = Row;
-
-/***/ },
-/* 524 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _react = __webpack_require__(1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _classnames = __webpack_require__(309);
-	
-	var _classnames2 = _interopRequireDefault(_classnames);
-	
-	var _styleMaps = __webpack_require__(525);
-	
-	var _styleMaps2 = _interopRequireDefault(_styleMaps);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /*
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   Copyright 2016 OSBI Ltd
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   Licensed under the Apache License, Version 2.0 (the "License");
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   you may not use this file except in compliance with the License.
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   You may obtain a copy of the License at
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *       http://www.apache.org/licenses/LICENSE-2.0
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   Unless required by applicable law or agreed to in writing, software
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   distributed under the License is distributed on an "AS IS" BASIS,
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   See the License for the specific language governing permissions and
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   limitations under the License.
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
-	
-	var Col = function (_React$Component) {
-	  _inherits(Col, _React$Component);
-	
-	  function Col() {
-	    _classCallCheck(this, Col);
-	
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Col).apply(this, arguments));
-	  }
-	
-	  _createClass(Col, [{
-	    key: 'render',
-	    value: function render() {
-	      var _this2 = this;
-	
-	      var classes = {};
-	
-	      Object.keys(_styleMaps2.default.SIZES).forEach(function (key) {
-	        var size = _styleMaps2.default.SIZES[key];
-	        var prop = size;
-	        var classPart = size + '-';
-	
-	        if (_this2.props[prop]) {
-	          classes['col-' + classPart + _this2.props[prop]] = true;
-	        }
-	
-	        classes['hidden-' + size] = _this2.props[size + 'Hidden'];
-	
-	        prop = size + 'Offset';
-	        classPart = size + '-offset-';
-	        if (_this2.props[prop] >= 0) {
-	          classes['col-' + classPart + _this2.props[prop]] = true;
-	        }
-	
-	        prop = size + 'Push';
-	        classPart = size + '-push-';
-	        if (_this2.props[prop] >= 0) {
-	          classes['col-' + classPart + _this2.props[prop]] = true;
-	        }
-	
-	        prop = size + 'Pull';
-	        classPart = size + '-pull-';
-	        if (_this2.props[prop] >= 0) {
-	          classes['col-' + classPart + _this2.props[prop]] = true;
-	        }
-	      }, this);
-	
-	      return _react2.default.createElement(
-	        'div',
-	        _extends({}, this.props, {
-	          className: (0, _classnames2.default)(classes, this.props.className) }),
-	        this.props.children
-	      );
-	    }
-	  }]);
-	
-	  return Col;
-	}(_react2.default.Component);
-	
-	Col.propTypes = {
-	  className: _react2.default.PropTypes.string,
-	  children: _react2.default.PropTypes.node.isRequired,
-	  /**
-	   * The number of columns you wish to span
-	   *
-	   * for Extra small devices Phones (<768px)
-	   *
-	   * class-prefix `col-xs-`
-	   */
-	  xs: _react2.default.PropTypes.number,
-	  /**
-	   * The number of columns you wish to span
-	   *
-	   * for Small devices Tablets (≥768px)
-	   *
-	   * class-prefix `col-sm-`
-	   */
-	  sm: _react2.default.PropTypes.number,
-	  /**
-	   * The number of columns you wish to span
-	   *
-	   * for Medium devices Desktops (≥992px)
-	   *
-	   * class-prefix `col-md-`
-	   */
-	  md: _react2.default.PropTypes.number,
-	  /**
-	   * The number of columns you wish to span
-	   *
-	   * for Large devices Desktops (≥1200px)
-	   *
-	   * class-prefix `col-lg-`
-	   */
-	  lg: _react2.default.PropTypes.number,
-	  /**
-	   * Hide column
-	   *
-	   * on Extra small devices Phones
-	   *
-	   * adds class `hidden-xs`
-	   */
-	  xsHidden: _react2.default.PropTypes.bool,
-	  /**
-	   * Hide column
-	   *
-	   * on Small devices Tablets
-	   *
-	   * adds class `hidden-sm`
-	   */
-	  smHidden: _react2.default.PropTypes.bool,
-	  /**
-	   * Hide column
-	   *
-	   * on Medium devices Desktops
-	   *
-	   * adds class `hidden-md`
-	   */
-	  mdHidden: _react2.default.PropTypes.bool,
-	  /**
-	   * Hide column
-	   *
-	   * on Large devices Desktops
-	   *
-	   * adds class `hidden-lg`
-	   */
-	  lgHidden: _react2.default.PropTypes.bool,
-	  /**
-	   * Move columns to the right
-	   *
-	   * for Extra small devices Phones
-	   *
-	   * class-prefix `col-xs-offset-`
-	   */
-	  xsOffset: _react2.default.PropTypes.number,
-	  /**
-	   * Move columns to the right
-	   *
-	   * for Small devices Tablets
-	   *
-	   * class-prefix `col-sm-offset-`
-	   */
-	  smOffset: _react2.default.PropTypes.number,
-	  /**
-	   * Move columns to the right
-	   *
-	   * for Medium devices Desktops
-	   *
-	   * class-prefix `col-md-offset-`
-	   */
-	  mdOffset: _react2.default.PropTypes.number,
-	  /**
-	   * Move columns to the right
-	   *
-	   * for Large devices Desktops
-	   *
-	   * class-prefix `col-lg-offset-`
-	   */
-	  lgOffset: _react2.default.PropTypes.number,
-	  /**
-	   * Change the order of grid columns to the right
-	   *
-	   * for Extra small devices Phones
-	   *
-	   * class-prefix `col-xs-push-`
-	   */
-	  xsPush: _react2.default.PropTypes.number,
-	  /**
-	   * Change the order of grid columns to the right
-	   *
-	   * for Small devices Tablets
-	   *
-	   * class-prefix `col-sm-push-`
-	   */
-	  smPush: _react2.default.PropTypes.number,
-	  /**
-	   * Change the order of grid columns to the right
-	   *
-	   * for Medium devices Desktops
-	   *
-	   * class-prefix `col-md-push-`
-	   */
-	  mdPush: _react2.default.PropTypes.number,
-	  /**
-	   * Change the order of grid columns to the right
-	   *
-	   * for Large devices Desktops
-	   *
-	   * class-prefix `col-lg-push-`
-	   */
-	  lgPush: _react2.default.PropTypes.number,
-	  /**
-	   * Change the order of grid columns to the left
-	   *
-	   * for Extra small devices Phones
-	   *
-	   * class-prefix `col-xs-pull-`
-	   */
-	  xsPull: _react2.default.PropTypes.number,
-	  /**
-	   * Change the order of grid columns to the left
-	   *
-	   * for Small devices Tablets
-	   *
-	   * class-prefix `col-sm-pull-`
-	   */
-	  smPull: _react2.default.PropTypes.number,
-	  /**
-	   * Change the order of grid columns to the left
-	   *
-	   * for Medium devices Desktops
-	   *
-	   * class-prefix `col-md-pull-`
-	   */
-	  mdPull: _react2.default.PropTypes.number,
-	  /**
-	   * Change the order of grid columns to the left
-	   *
-	   * for Large devices Desktops
-	   *
-	   * class-prefix `col-lg-pull-`
-	   */
-	  lgPull: _react2.default.PropTypes.number
-	};
-	
-	exports.default = Col;
-
-/***/ },
-/* 525 */
-/***/ function(module, exports) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	/*
-	 *   Copyright 2016 OSBI Ltd
-	 *
-	 *   Licensed under the Apache License, Version 2.0 (the "License");
-	 *   you may not use this file except in compliance with the License.
-	 *   You may obtain a copy of the License at
-	 *
-	 *       http://www.apache.org/licenses/LICENSE-2.0
-	 *
-	 *   Unless required by applicable law or agreed to in writing, software
-	 *   distributed under the License is distributed on an "AS IS" BASIS,
-	 *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-	 *   See the License for the specific language governing permissions and
-	 *   limitations under the License.
-	 */
-	
-	var styleMaps = {
-	  SIZES: {
-	    'large': 'lg',
-	    'medium': 'md',
-	    'small': 'sm',
-	    'xsmall': 'xs',
-	    'lg': 'lg',
-	    'md': 'md',
-	    'sm': 'sm',
-	    'xs': 'xs'
-	  },
-	  GRID_COLUMNS: 12
-	};
-	
-	var DEFAULT = exports.DEFAULT = 'default';
-	var PRIMARY = exports.PRIMARY = 'primary';
-	var LINK = exports.LINK = 'link';
-	var INVERSE = exports.INVERSE = 'inverse';
-	
-	exports.default = styleMaps;
-
-/***/ },
-/* 526 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _react = __webpack_require__(1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _classnames = __webpack_require__(309);
-	
-	var _classnames2 = _interopRequireDefault(_classnames);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /*
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   Copyright 2016 OSBI Ltd
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   Licensed under the Apache License, Version 2.0 (the "License");
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   you may not use this file except in compliance with the License.
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   You may obtain a copy of the License at
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *       http://www.apache.org/licenses/LICENSE-2.0
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   Unless required by pagelicable law or agreed to in writing, software
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   distributed under the License is distributed on an "AS IS" BASIS,
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -63015,7 +62529,7 @@
 	exports.default = Content;
 
 /***/ },
-/* 527 */
+/* 523 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -63036,19 +62550,13 @@
 	
 	var _reactMixin2 = _interopRequireDefault(_reactMixin);
 	
-	var _Grid = __webpack_require__(522);
-	
-	var _Grid2 = _interopRequireDefault(_Grid);
-	
-	var _Button = __webpack_require__(528);
-	
-	var _Button2 = _interopRequireDefault(_Button);
+	var _reactBootstrap = __webpack_require__(273);
 	
 	var _Clearfix = __webpack_require__(518);
 	
 	var _Clearfix2 = _interopRequireDefault(_Clearfix);
 	
-	var _Icon = __webpack_require__(529);
+	var _Icon = __webpack_require__(524);
 	
 	var _Icon2 = _interopRequireDefault(_Icon);
 	
@@ -63118,306 +62626,186 @@
 	          )
 	        ),
 	        _react2.default.createElement(
-	          'div',
-	          { className: 'navbar navbar-default', role: 'navigation' },
+	          _reactBootstrap.Navbar,
+	          { role: 'navigation' },
 	          _react2.default.createElement(
-	            _Grid2.default,
+	            _reactBootstrap.Grid,
 	            null,
 	            _react2.default.createElement(
 	              'div',
-	              { className: '' },
+	              { className: 'pull-left' },
 	              _react2.default.createElement(
-	                'div',
-	                { className: 'pull-left' },
+	                _reactBootstrap.Button,
+	                {
+	                  className: 'button-menu-mobile open-left waves-effect',
+	                  onClick: this.onButtonMenu.bind(this)
+	                },
+	                _react2.default.createElement(_Icon2.default, { name: 'navicon' })
+	              ),
+	              _react2.default.createElement(_Clearfix2.default, null)
+	            ),
+	            _react2.default.createElement(
+	              _reactBootstrap.Nav,
+	              { className: 'hidden-xs' },
+	              _react2.default.createElement(
+	                _reactBootstrap.NavDropdown,
+	                { eventKey: 1, title: 'File', id: 'nav-dropdown-file' },
 	                _react2.default.createElement(
-	                  _Button2.default,
-	                  {
-	                    className: 'button-menu-mobile open-left waves-effect',
-	                    onClick: this.onButtonMenu.bind(this)
-	                  },
-	                  _react2.default.createElement(_Icon2.default, { name: 'navicon' })
+	                  _reactBootstrap.MenuItem,
+	                  { eventKey: 1.1 },
+	                  'Option 1'
 	                ),
-	                _react2.default.createElement(_Clearfix2.default, null)
+	                _react2.default.createElement(
+	                  _reactBootstrap.MenuItem,
+	                  { eventKey: 1.2 },
+	                  'Option 2'
+	                ),
+	                _react2.default.createElement(
+	                  _reactBootstrap.MenuItem,
+	                  { eventKey: 1.3 },
+	                  'Option 3'
+	                )
 	              ),
 	              _react2.default.createElement(
-	                'ul',
-	                { className: 'nav navbar-nav hidden-xs' },
+	                _reactBootstrap.NavDropdown,
+	                { eventKey: 2, title: 'Edit', id: 'nav-dropdown-edit' },
 	                _react2.default.createElement(
-	                  'li',
-	                  { className: 'dropdown' },
-	                  _react2.default.createElement(
-	                    'a',
-	                    {
-	                      href: '#',
-	                      className: 'dropdown-toggle waves-effect',
-	                      'data-toggle': 'dropdown',
-	                      role: 'button',
-	                      'aria-haspopup': 'true',
-	                      'aria-expanded': 'false'
-	                    },
-	                    'File ',
-	                    _react2.default.createElement('span', { className: 'caret' })
-	                  ),
-	                  _react2.default.createElement(
-	                    'ul',
-	                    { className: 'dropdown-menu dropdown-menu-animate' },
-	                    _react2.default.createElement(
-	                      'li',
-	                      null,
-	                      _react2.default.createElement(
-	                        'a',
-	                        { href: '#' },
-	                        'Option 1'
-	                      )
-	                    ),
-	                    _react2.default.createElement(
-	                      'li',
-	                      null,
-	                      _react2.default.createElement(
-	                        'a',
-	                        { href: '#' },
-	                        'Option 2'
-	                      )
-	                    ),
-	                    _react2.default.createElement(
-	                      'li',
-	                      null,
-	                      _react2.default.createElement(
-	                        'a',
-	                        { href: '#' },
-	                        'Option 3'
-	                      )
-	                    )
-	                  )
+	                  _reactBootstrap.MenuItem,
+	                  { eventKey: 2.1 },
+	                  'Option 1'
 	                ),
 	                _react2.default.createElement(
-	                  'li',
-	                  { className: 'dropdown' },
-	                  _react2.default.createElement(
-	                    'a',
-	                    {
-	                      href: '#',
-	                      className: 'dropdown-toggle waves-effect',
-	                      'data-toggle': 'dropdown',
-	                      role: 'button',
-	                      'aria-haspopup': 'true',
-	                      'aria-expanded': 'false'
-	                    },
-	                    'Edit ',
-	                    _react2.default.createElement('span', { className: 'caret' })
-	                  ),
-	                  _react2.default.createElement(
-	                    'ul',
-	                    { className: 'dropdown-menu dropdown-menu-animate' },
-	                    _react2.default.createElement(
-	                      'li',
-	                      null,
-	                      _react2.default.createElement(
-	                        'a',
-	                        { href: '#' },
-	                        'Option 1'
-	                      )
-	                    ),
-	                    _react2.default.createElement(
-	                      'li',
-	                      null,
-	                      _react2.default.createElement(
-	                        'a',
-	                        { href: '#' },
-	                        'Option 2'
-	                      )
-	                    ),
-	                    _react2.default.createElement(
-	                      'li',
-	                      null,
-	                      _react2.default.createElement(
-	                        'a',
-	                        { href: '#' },
-	                        'Option 3'
-	                      )
-	                    )
-	                  )
+	                  _reactBootstrap.MenuItem,
+	                  { eventKey: 2.2 },
+	                  'Option 2'
 	                ),
 	                _react2.default.createElement(
-	                  'li',
-	                  { className: 'dropdown' },
-	                  _react2.default.createElement(
-	                    'a',
-	                    {
-	                      href: '#',
-	                      className: 'dropdown-toggle waves-effect',
-	                      'data-toggle': 'dropdown',
-	                      role: 'button',
-	                      'aria-haspopup': 'true',
-	                      'aria-expanded': 'false'
-	                    },
-	                    'Tools ',
-	                    _react2.default.createElement('span', { className: 'caret' })
-	                  ),
-	                  _react2.default.createElement(
-	                    'ul',
-	                    { className: 'dropdown-menu dropdown-menu-animate' },
-	                    _react2.default.createElement(
-	                      'li',
-	                      null,
-	                      _react2.default.createElement(
-	                        'a',
-	                        { href: '#' },
-	                        'Option 1'
-	                      )
-	                    ),
-	                    _react2.default.createElement(
-	                      'li',
-	                      null,
-	                      _react2.default.createElement(
-	                        'a',
-	                        { href: '#' },
-	                        'Option 2'
-	                      )
-	                    ),
-	                    _react2.default.createElement(
-	                      'li',
-	                      null,
-	                      _react2.default.createElement(
-	                        'a',
-	                        { href: '#' },
-	                        'Option 3'
-	                      )
-	                    )
-	                  )
+	                  _reactBootstrap.MenuItem,
+	                  { eventKey: 2.3 },
+	                  'Option 3'
+	                )
+	              ),
+	              _react2.default.createElement(
+	                _reactBootstrap.NavDropdown,
+	                { eventKey: 3, title: 'Tools', id: 'nav-dropdown-tools' },
+	                _react2.default.createElement(
+	                  _reactBootstrap.MenuItem,
+	                  { eventKey: 3.1 },
+	                  'Option 1'
 	                ),
 	                _react2.default.createElement(
-	                  'li',
-	                  { className: 'dropdown' },
+	                  _reactBootstrap.MenuItem,
+	                  { eventKey: 3.2 },
+	                  'Option 2'
+	                ),
+	                _react2.default.createElement(
+	                  _reactBootstrap.MenuItem,
+	                  { eventKey: 3.3 },
+	                  'Option 3'
+	                )
+	              ),
+	              _react2.default.createElement(
+	                _reactBootstrap.NavDropdown,
+	                { eventKey: 4, title: 'Views', id: 'nav-dropdown-views' },
+	                _react2.default.createElement(
+	                  _reactBootstrap.MenuItem,
+	                  { eventKey: 4.1 },
+	                  'Option 1'
+	                ),
+	                _react2.default.createElement(
+	                  _reactBootstrap.MenuItem,
+	                  { eventKey: 4.2 },
+	                  'Option 2'
+	                ),
+	                _react2.default.createElement(
+	                  _reactBootstrap.MenuItem,
+	                  { eventKey: 4.3 },
+	                  'Option 3'
+	                )
+	              )
+	            ),
+	            _react2.default.createElement(
+	              _reactBootstrap.Nav,
+	              { className: 'navbar-right pull-right' },
+	              _react2.default.createElement(
+	                'li',
+	                { className: 'dropdown hidden-xs' },
+	                _react2.default.createElement(
+	                  'a',
+	                  {
+	                    href: '#',
+	                    className: '',
+	                    'data-target': '#',
+	                    'data-toggle': 'dropdown',
+	                    'aria-expanded': 'true'
+	                  },
+	                  _react2.default.createElement(_Icon2.default, { name: 'bell-o' }),
 	                  _react2.default.createElement(
-	                    'a',
-	                    {
-	                      href: '#',
-	                      className: 'dropdown-toggle waves-effect',
-	                      'data-toggle': 'dropdown',
-	                      role: 'button',
-	                      'aria-haspopup': 'true',
-	                      'aria-expanded': 'false'
-	                    },
-	                    'Views ',
-	                    _react2.default.createElement('span', { className: 'caret' })
-	                  ),
-	                  _react2.default.createElement(
-	                    'ul',
-	                    { className: 'dropdown-menu dropdown-menu-animate' },
-	                    _react2.default.createElement(
-	                      'li',
-	                      null,
-	                      _react2.default.createElement(
-	                        'a',
-	                        { href: '#' },
-	                        'Option 1'
-	                      )
-	                    ),
-	                    _react2.default.createElement(
-	                      'li',
-	                      null,
-	                      _react2.default.createElement(
-	                        'a',
-	                        { href: '#' },
-	                        'Option 2'
-	                      )
-	                    ),
-	                    _react2.default.createElement(
-	                      'li',
-	                      null,
-	                      _react2.default.createElement(
-	                        'a',
-	                        { href: '#' },
-	                        'Option 3'
-	                      )
-	                    )
+	                    'span',
+	                    { className: 'badge badge-xs badge-danger' },
+	                    '3'
 	                  )
 	                )
 	              ),
 	              _react2.default.createElement(
-	                'ul',
-	                { className: 'nav navbar-nav navbar-right pull-right' },
+	                'li',
+	                { className: 'dropdown' },
 	                _react2.default.createElement(
-	                  'li',
-	                  { className: 'dropdown hidden-xs' },
-	                  _react2.default.createElement(
-	                    'a',
-	                    {
-	                      href: '#',
-	                      className: '',
-	                      'data-target': '#',
-	                      'data-toggle': 'dropdown',
-	                      'aria-expanded': 'true'
-	                    },
-	                    _react2.default.createElement(_Icon2.default, { name: 'bell-o' }),
-	                    _react2.default.createElement(
-	                      'span',
-	                      { className: 'badge badge-xs badge-danger' },
-	                      '3'
-	                    )
-	                  )
+	                  'a',
+	                  {
+	                    href: '#',
+	                    className: 'dropdown-toggle profile waves-effect',
+	                    'data-toggle': 'dropdown',
+	                    'aria-expanded': 'true'
+	                  },
+	                  _react2.default.createElement('img', {
+	                    src: '../dist/assets/images/users/user2.jpg',
+	                    className: 'img-circle'
+	                  })
 	                ),
 	                _react2.default.createElement(
-	                  'li',
-	                  { className: 'dropdown' },
+	                  'ul',
+	                  {
+	                    className: 'dropdown-menu dropdown-menu-animate drop-menu-right'
+	                  },
 	                  _react2.default.createElement(
-	                    'a',
-	                    {
-	                      href: '#',
-	                      className: 'dropdown-toggle profile waves-effect',
-	                      'data-toggle': 'dropdown',
-	                      'aria-expanded': 'true'
-	                    },
-	                    _react2.default.createElement('img', {
-	                      src: '../dist/assets/images/users/user2.jpg',
-	                      className: 'img-circle'
-	                    })
+	                    'li',
+	                    null,
+	                    _react2.default.createElement(
+	                      'a',
+	                      { href: '#' },
+	                      _react2.default.createElement(_Icon2.default, { name: 'user' }),
+	                      ' Profile'
+	                    )
 	                  ),
 	                  _react2.default.createElement(
-	                    'ul',
-	                    {
-	                      className: 'dropdown-menu dropdown-menu-animate drop-menu-right'
-	                    },
+	                    'li',
+	                    null,
 	                    _react2.default.createElement(
-	                      'li',
-	                      null,
-	                      _react2.default.createElement(
-	                        'a',
-	                        { href: '#' },
-	                        _react2.default.createElement(_Icon2.default, { name: 'user' }),
-	                        ' Profile'
-	                      )
-	                    ),
+	                      'a',
+	                      { href: '#' },
+	                      _react2.default.createElement(_Icon2.default, { name: 'gear' }),
+	                      ' Settings'
+	                    )
+	                  ),
+	                  _react2.default.createElement(
+	                    'li',
+	                    null,
 	                    _react2.default.createElement(
-	                      'li',
-	                      null,
-	                      _react2.default.createElement(
-	                        'a',
-	                        { href: '#' },
-	                        _react2.default.createElement(_Icon2.default, { name: 'gear' }),
-	                        ' Settings'
-	                      )
-	                    ),
+	                      'a',
+	                      { href: '#', onClick: this.showLockScreen.bind(this) },
+	                      _react2.default.createElement(_Icon2.default, { name: 'lock' }),
+	                      ' Lock Screen'
+	                    )
+	                  ),
+	                  _react2.default.createElement(
+	                    'li',
+	                    null,
 	                    _react2.default.createElement(
-	                      'li',
-	                      null,
-	                      _react2.default.createElement(
-	                        'a',
-	                        { href: '#', onClick: this.showLockScreen.bind(this) },
-	                        _react2.default.createElement(_Icon2.default, { name: 'lock' }),
-	                        ' Lock Screen'
-	                      )
-	                    ),
-	                    _react2.default.createElement(
-	                      'li',
-	                      null,
-	                      _react2.default.createElement(
-	                        'a',
-	                        { href: '#' },
-	                        _react2.default.createElement(_Icon2.default, { name: 'power-off' }),
-	                        ' Logout'
-	                      )
+	                      'a',
+	                      { href: '#' },
+	                      _react2.default.createElement(_Icon2.default, { name: 'power-off' }),
+	                      ' Logout'
 	                    )
 	                  )
 	                )
@@ -63441,140 +62829,7 @@
 	exports.default = MenuBar;
 
 /***/ },
-/* 528 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _react = __webpack_require__(1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _classnames = __webpack_require__(309);
-	
-	var _classnames2 = _interopRequireDefault(_classnames);
-	
-	var _styleMaps = __webpack_require__(525);
-	
-	var _styleMaps2 = _interopRequireDefault(_styleMaps);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /*
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   Copyright 2016 OSBI Ltd
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   Licensed under the Apache License, Version 2.0 (the "License");
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   you may not use this file except in compliance with the License.
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   You may obtain a copy of the License at
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *       http://www.apache.org/licenses/LICENSE-2.0
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   Unless required by applicable law or agreed to in writing, software
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   distributed under the License is distributed on an "AS IS" BASIS,
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   See the License for the specific language governing permissions and
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   limitations under the License.
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
-	
-	var TYPES = ['button', 'reset', 'submit'];
-	
-	var Button = function (_React$Component) {
-	  _inherits(Button, _React$Component);
-	
-	  function Button() {
-	    _classCallCheck(this, Button);
-	
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Button).apply(this, arguments));
-	  }
-	
-	  _createClass(Button, [{
-	    key: 'renderAnchor',
-	    value: function renderAnchor(classes) {
-	      var href = this.props.href || '#';
-	
-	      classes.disabled = this.props.disabled;
-	
-	      return _react2.default.createElement(
-	        'a',
-	        _extends({}, this.props, {
-	          href: href,
-	          className: (0, _classnames2.default)('btn', this.props.className, classes),
-	          role: 'button' }),
-	        this.props.children
-	      );
-	    }
-	  }, {
-	    key: 'renderButton',
-	    value: function renderButton(classes) {
-	      return _react2.default.createElement(
-	        'button',
-	        _extends({}, this.props, {
-	          type: this.props.type || 'button',
-	          className: (0, _classnames2.default)('btn', this.props.className, classes) }),
-	        this.props.children
-	      );
-	    }
-	  }, {
-	    key: 'render',
-	    value: function render() {
-	      var renderFuncName = this.props.href || this.props.target ? 'renderAnchor' : 'renderButton';
-	      var size = _styleMaps2.default.SIZES[this.props.bsSize];
-	      var classes = {};
-	
-	      classes['btn-' + (this.props.bsStyle ? this.props.bsStyle : _styleMaps.DEFAULT)] = true;
-	
-	      if (this.props.bsSize) {
-	        classes['btn-' + size] = true;
-	      }
-	
-	      if (this.props.block) {
-	        classes['btn-block'] = true;
-	      }
-	
-	      classes.active = this.props.active;
-	
-	      return this[renderFuncName](classes);
-	    }
-	  }]);
-	
-	  return Button;
-	}(_react2.default.Component);
-	
-	Button.propTypes = {
-	  className: _react2.default.PropTypes.string,
-	  children: _react2.default.PropTypes.node.isRequired,
-	  disabled: _react2.default.PropTypes.bool,
-	  href: _react2.default.PropTypes.string,
-	  target: _react2.default.PropTypes.string,
-	  type: _react2.default.PropTypes.oneOf(TYPES),
-	  bsStyle: _react2.default.PropTypes.string,
-	  bsSize: _react2.default.PropTypes.string,
-	  block: _react2.default.PropTypes.bool,
-	  active: _react2.default.PropTypes.bool
-	};
-	
-	Button.defaultProps = {
-	  active: false,
-	  block: false,
-	  disabled: false
-	};
-	
-	exports.default = Button;
-
-/***/ },
-/* 529 */
+/* 524 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -63685,7 +62940,7 @@
 	exports.default = Icon;
 
 /***/ },
-/* 530 */
+/* 525 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -63704,7 +62959,7 @@
 	
 	var _Clearfix2 = _interopRequireDefault(_Clearfix);
 	
-	var _Icon = __webpack_require__(529);
+	var _Icon = __webpack_require__(524);
 	
 	var _Icon2 = _interopRequireDefault(_Icon);
 	
@@ -63899,7 +63154,7 @@
 	exports.default = Toolbar;
 
 /***/ },
-/* 531 */
+/* 526 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -63978,7 +63233,7 @@
 	exports.default = Tab;
 
 /***/ },
-/* 532 */
+/* 527 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -64124,7 +63379,7 @@
 	exports.default = Tabs;
 
 /***/ },
-/* 533 */
+/* 528 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -64187,22 +63442,22 @@
 	exports.default = NotFound;
 
 /***/ },
-/* 534 */
+/* 529 */
 /***/ function(module, exports) {
 
 	module.exports = "<!--  \n  Copyright 2016 OSBI Ltd\n\n  Licensed under the Apache License, Version 2.0 (the \"License\");\n  you may not use this file except in compliance with the License.\n  You may obtain a copy of the License at\n\n      http://www.apache.org/licenses/LICENSE-2.0\n\n  Unless required by applicable law or agreed to in writing, software\n  distributed under the License is distributed on an \"AS IS\" BASIS,\n  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n  See the License for the specific language governing permissions and\n  limitations under the License.\n-->\n\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <title>Saiku - Next Generation Open Source Analytics</title>\n\n  <!-- Meta -->\n  <meta charset=\"UTF-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n\n  <!-- Favicon -->\n  <link rel=\"shortcut icon\" href=\"dist/assets/images/favicon.ico\">\n\n  <!-- CSS -->\n  <link rel=\"stylesheet\" href=\"dist/assets/css/bootstrap.min.css\">\n  <link rel=\"stylesheet\" href=\"dist/assets/css/font-awesome.min.css\">\n  <link rel=\"stylesheet\" href=\"dist/saiku/saiku.css\">\n\n  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->\n  <!--[if lt IE 9]>\n    <script src=\"dist/assets/js/html5shiv.js\"></script>\n    <script src=\"dist/assets/js/respond.min.js\"></script>\n  <![endif]-->\n</head>\n<body>\n  <div id=\"app\"></div>\n\n  <!-- JS -->\n  <script src=\"dist/assets/js/jquery.min.js\"></script>\n  <script src=\"dist/assets/js/bootstrap.min.js\"></script>\n  <script src=\"dist/assets/js/waves.js\"></script>\n  <script src=\"dist/saiku/saiku.js\"></script>\n</body>\n</html>";
 
 /***/ },
-/* 535 */
+/* 530 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(536);
+	var content = __webpack_require__(531);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(538)(content, {});
+	var update = __webpack_require__(533)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -64219,10 +63474,10 @@
 	}
 
 /***/ },
-/* 536 */
+/* 531 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(537)();
+	exports = module.exports = __webpack_require__(532)();
 	// imports
 	exports.push([module.id, "@import url(https://fonts.googleapis.com/css?family=Noto+Sans:400,700);", ""]);
 	exports.push([module.id, "@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700,300);", ""]);
@@ -64234,7 +63489,7 @@
 
 
 /***/ },
-/* 537 */
+/* 532 */
 /***/ function(module, exports) {
 
 	/*
@@ -64290,7 +63545,7 @@
 
 
 /***/ },
-/* 538 */
+/* 533 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*

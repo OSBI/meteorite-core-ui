@@ -17,8 +17,14 @@
 import React from 'react';
 import { History } from 'react-router';
 import reactMixin from 'react-mixin';
-import Grid from '../bootstrap/Grid';
-import Button from '../bootstrap/Button';
+import {
+  Grid,
+  Button,
+  Navbar,
+  Nav,
+  NavDropdown,
+  MenuItem
+} from 'react-bootstrap';
 import Clearfix from '../bootstrap/Clearfix';
 import Icon from './Icon';
 
@@ -47,143 +53,93 @@ class MenuBar extends React.Component {
           </div>
         </div>
 
-        <div className="navbar navbar-default" role="navigation">
+        <Navbar role="navigation">
           <Grid>
-            <div className="">
-              <div className="pull-left">
-                <Button
-                  className="button-menu-mobile open-left waves-effect"
-                  onClick={this.onButtonMenu.bind(this)}
-                >
-                  <Icon name="navicon" />
-                </Button>
-                <Clearfix />
-              </div>
-              <ul className="nav navbar-nav hidden-xs">
-                <li className="dropdown">
-                  <a
-                    href="#"
-                    className="dropdown-toggle waves-effect"
-                    data-toggle="dropdown"
-                    role="button"
-                    aria-haspopup="true"
-                    aria-expanded="false"
-                  >
-                    File <span className="caret"></span>
-                  </a>
-                  <ul className="dropdown-menu dropdown-menu-animate">
-                    <li><a href="#">Option 1</a></li>
-                    <li><a href="#">Option 2</a></li>
-                    <li><a href="#">Option 3</a></li>
-                  </ul>
-                </li>
-                <li className="dropdown">
-                  <a
-                    href="#"
-                    className="dropdown-toggle waves-effect"
-                    data-toggle="dropdown"
-                    role="button"
-                    aria-haspopup="true"
-                    aria-expanded="false"
-                  >
-                    Edit <span className="caret"></span>
-                  </a>
-                  <ul className="dropdown-menu dropdown-menu-animate">
-                    <li><a href="#">Option 1</a></li>
-                    <li><a href="#">Option 2</a></li>
-                    <li><a href="#">Option 3</a></li>
-                  </ul>
-                </li>
-                <li className="dropdown">
-                  <a
-                    href="#"
-                    className="dropdown-toggle waves-effect"
-                    data-toggle="dropdown"
-                    role="button"
-                    aria-haspopup="true"
-                    aria-expanded="false"
-                  >
-                    Tools <span className="caret"></span>
-                  </a>
-                  <ul className="dropdown-menu dropdown-menu-animate">
-                    <li><a href="#">Option 1</a></li>
-                    <li><a href="#">Option 2</a></li>
-                    <li><a href="#">Option 3</a></li>
-                  </ul>
-                </li>
-                <li className="dropdown">
-                  <a
-                    href="#"
-                    className="dropdown-toggle waves-effect"
-                    data-toggle="dropdown"
-                    role="button"
-                    aria-haspopup="true"
-                    aria-expanded="false"
-                  >
-                    Views <span className="caret"></span>
-                  </a>
-                  <ul className="dropdown-menu dropdown-menu-animate">
-                    <li><a href="#">Option 1</a></li>
-                    <li><a href="#">Option 2</a></li>
-                    <li><a href="#">Option 3</a></li>
-                  </ul>
-                </li>
-              </ul>
-              <ul className="nav navbar-nav navbar-right pull-right">
-                <li className="dropdown hidden-xs">
-                  <a
-                    href="#"
-                    className=""
-                    data-target="#"
-                    data-toggle="dropdown"
-                    aria-expanded="true"
-                  >
-                    <Icon name="bell-o" />
-                    <span className="badge badge-xs badge-danger">3</span>
-                  </a>
-                </li>
-                <li className="dropdown">
-                  <a
-                    href="#"
-                    className="dropdown-toggle profile waves-effect"
-                    data-toggle="dropdown"
-                    aria-expanded="true"
-                  >
-                    <img
-                      src="../dist/assets/images/users/user2.jpg"
-                      className="img-circle"
-                    />
-                  </a>
-                  <ul
-                    className="dropdown-menu dropdown-menu-animate
-                      drop-menu-right"
-                  >
-                    <li>
-                      <a href="#">
-                        <Icon name="user" /> Profile
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <Icon name="gear" /> Settings
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#" onClick={this.showLockScreen.bind(this)}>
-                        <Icon name="lock" /> Lock Screen
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <Icon name="power-off" /> Logout
-                      </a>
-                    </li>
-                  </ul>
-                </li>
-              </ul>
+            <div className="pull-left">
+              <Button
+                className="button-menu-mobile open-left waves-effect"
+                onClick={this.onButtonMenu.bind(this)}
+              >
+                <Icon name="navicon" />
+              </Button>
+              <Clearfix />
             </div>
+            <Nav className="hidden-xs">
+              <NavDropdown eventKey={1} title="File" id="nav-dropdown-file">
+                <MenuItem eventKey={1.1}>Option 1</MenuItem>
+                <MenuItem eventKey={1.2}>Option 2</MenuItem>
+                <MenuItem eventKey={1.3}>Option 3</MenuItem>
+              </NavDropdown>
+              <NavDropdown eventKey={2} title="Edit" id="nav-dropdown-edit">
+                <MenuItem eventKey={2.1}>Option 1</MenuItem>
+                <MenuItem eventKey={2.2}>Option 2</MenuItem>
+                <MenuItem eventKey={2.3}>Option 3</MenuItem>
+              </NavDropdown>
+              <NavDropdown eventKey={3} title="Tools" id="nav-dropdown-tools">
+                <MenuItem eventKey={3.1}>Option 1</MenuItem>
+                <MenuItem eventKey={3.2}>Option 2</MenuItem>
+                <MenuItem eventKey={3.3}>Option 3</MenuItem>
+              </NavDropdown>
+              <NavDropdown eventKey={4} title="Views" id="nav-dropdown-views">
+                <MenuItem eventKey={4.1}>Option 1</MenuItem>
+                <MenuItem eventKey={4.2}>Option 2</MenuItem>
+                <MenuItem eventKey={4.3}>Option 3</MenuItem>
+              </NavDropdown>
+            </Nav>
+            <Nav className="navbar-right pull-right">
+              <li className="dropdown hidden-xs">
+                <a
+                  href="#"
+                  className=""
+                  data-target="#"
+                  data-toggle="dropdown"
+                  aria-expanded="true"
+                >
+                  <Icon name="bell-o" />
+                  <span className="badge badge-xs badge-danger">3</span>
+                </a>
+              </li>
+              <li className="dropdown">
+                <a
+                  href="#"
+                  className="dropdown-toggle profile waves-effect"
+                  data-toggle="dropdown"
+                  aria-expanded="true"
+                >
+                  <img
+                    src="../dist/assets/images/users/user2.jpg"
+                    className="img-circle"
+                  />
+                </a>
+                <ul
+                  className="dropdown-menu dropdown-menu-animate
+                    drop-menu-right"
+                >
+                  <li>
+                    <a href="#">
+                      <Icon name="user" /> Profile
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <Icon name="gear" /> Settings
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" onClick={this.showLockScreen.bind(this)}>
+                      <Icon name="lock" /> Lock Screen
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <Icon name="power-off" /> Logout
+                    </a>
+                  </li>
+                </ul>
+              </li>
+            </Nav>
           </Grid>
-        </div>
+        </Navbar>
       </div>
     );
   }

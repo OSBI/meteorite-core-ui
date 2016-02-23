@@ -15,9 +15,11 @@
  */
 
 import React from 'react';
-import Grid from '../bootstrap/Grid';
-import Row from '../bootstrap/Row';
-import Col from '../bootstrap/Col';
+import {
+  Grid,
+  Row,
+  Col
+} from 'react-bootstrap';
 import Wrapper from './Wrapper';
 import Content from './Content';
 import MenuBar from './MenuBar';
