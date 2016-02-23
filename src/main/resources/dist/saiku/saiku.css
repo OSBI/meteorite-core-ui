@@ -928,9 +928,6 @@ a.waves-effect .waves-ripple {
   color: #000;
   border: 1px solid #ccc;
 }
-.nav-tabs li a[role=tab][aria-selected=false] {
-  background: #ccc;
-}
 /* =========================================================================
    RESPONSIVE
    ========================================================================= */

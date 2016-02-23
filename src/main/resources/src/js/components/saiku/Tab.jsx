@@ -14,9 +14,32 @@
  *   limitations under the License.
  */
 
-import {Tab as TBTab} from 'react-bootstrap';
+import React from 'react';
 
-class Tab extends TBTab {
+class Tab extends React.Component {
+  render() {
+    if (this.props.isRemoved) return null;
+
+    return (
+      <div role="tabpanel"
+      className={'tab-pane' + (this.props.isSelected ? ' active' : '')}
+      aria-hidden={!this.props.isSelected}>
+        {this.props.children}
+      </div>
+    );
+  }
 }
+
+Tab.propTypes = {
+  title: React.PropTypes.string,
+  tabKey: React.PropTypes.string,
+  isSelected: React.PropTypes.bool,
+  isRemoved: React.PropTypes.bool,
+  children: React.PropTypes.node.isRequired
+};
+
+Tab.defaultProps = {
+  isRemoved: false
+};
 
 export default Tab;

@@ -54,7 +54,7 @@ class Workspace extends React.Component {
         <Toolbar />
         <Content page>
           <Tabs>
-            <Tab eventKey={1} title="Workspace">
+            <Tab tabKey="tab_1" title="Workspace">
               <Content>
                 <Grid>
                   <Row>
@@ -65,12 +65,12 @@ class Workspace extends React.Component {
                 </Grid>
               </Content>
             </Tab>
-            <Tab eventKey={2} title="Tab 2">
+            <Tab tabKey="tab_2" title="Tab 2">
               <Content><h1>Sample Tab 2</h1></Content>
             </Tab>
-            <Tab eventKey={3} title="Tab 3">
-              <Content><h1>Sample Tab 3</h1></Content><
-            /Tab>
+            <Tab tabKey="tab_3" title="Tab 3">
+              <Content><h1>Sample Tab 3</h1></Content>
+            </Tab>
           </Tabs>
         </Content>
       </Wrapper>
