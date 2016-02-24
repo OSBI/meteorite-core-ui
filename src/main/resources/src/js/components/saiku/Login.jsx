@@ -160,7 +160,7 @@ class Login extends React.Component {
                   <Col xs={12}>
                     <Button
                       type="submit"
-                      className="text-uppercase waves-effect waves-light"
+                      className="text-uppercase"
                       block
                     >
                       Login

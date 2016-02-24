@@ -23,7 +23,7 @@ import {
 import Wrapper from './Wrapper';
 import Content from './Content';
 import MenuBar from './MenuBar';
-import Toolbar from './Toolbar';
+import Sidebar from './Sidebar';
 import Tab from './Tab';
 import Tabs from './Tabs';
 
@@ -32,28 +32,28 @@ class Workspace extends React.Component {
     super(props);
 
     this.state = {
-      isOpenToolbar: false
+      isOpenSidebar: false
     };
   }
 
-  openToolbar() {
-    if (this.state.isOpenToolbar) {
+  openSidebar() {
+    if (this.state.isOpenSidebar) {
       this.setState({
-        isOpenToolbar: false
+        isOpenSidebar: false
       });
     }
     else {
       this.setState({
-        isOpenToolbar: true
+        isOpenSidebar: true
       });
     }
   }
 
   render() {
     return (
-      <Wrapper isOpenToolbar={this.state.isOpenToolbar}>
-        <MenuBar openToolbar={this.openToolbar.bind(this)} />
-        <Toolbar />
+      <Wrapper isOpenSidebar={this.state.isOpenSidebar}>
+        <MenuBar openSidebar={this.openSidebar.bind(this)} />
+        <Sidebar />
         <Content page>
           <Tabs>
             <Tab tabKey="tab_1" title="Workspace">

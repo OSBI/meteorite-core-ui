@@ -31,7 +31,7 @@ import Icon from './Icon';
 class MenuBar extends React.Component {
   onButtonMenu(event) {
     event.stopPropagation();
-    this.props.openToolbar();
+    this.props.openSidebar();
   }
 
   showLockScreen(event) {
@@ -57,7 +57,7 @@ class MenuBar extends React.Component {
           <Grid>
             <div className="pull-left">
               <Button
-                className="button-menu-mobile open-left waves-effect"
+                className="button-menu-mobile open-left"
                 onClick={this.onButtonMenu.bind(this)}
               >
                 <Icon name="navicon" />
@@ -102,7 +102,7 @@ class MenuBar extends React.Component {
               <li className="dropdown">
                 <a
                   href="#"
-                  className="dropdown-toggle profile waves-effect"
+                  className="dropdown-toggle profile"
                   data-toggle="dropdown"
                   aria-expanded="true"
                 >
@@ -146,7 +146,7 @@ class MenuBar extends React.Component {
 }
 
 MenuBar.propTypes = {
-  openToolbar: React.PropTypes.func.isRequired
+  openSidebar: React.PropTypes.func.isRequired
 };
 
 reactMixin.onClass(MenuBar, History);

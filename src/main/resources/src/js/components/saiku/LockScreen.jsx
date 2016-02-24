@@ -120,7 +120,7 @@ class LockScreen extends React.Component {
                       <span className="input-group-btn">
                         <Button
                           type="submit"
-                          className="w-sm waves-effect waves-light"
+                          className="w-sm"
                           block
                         >
                           Unlock

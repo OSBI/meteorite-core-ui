@@ -27,55 +27,55 @@ class Toolbar extends React.Component {
             <div className="sidebar-menu">
               <ul>
                 <li>
-                  <a href="#" className="waves-effect waves-light">
+                  <a href="#">
                     <Icon name="home" />
                     <span> Home </span>
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="waves-effect waves-light">
+                  <a href="#">
                     <Icon name="plus-square" />
                     <span> New Query </span>
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="waves-effect waves-light">
+                  <a href="#">
                     <Icon name="folder-open-o" />
                     <span> Open Query </span>
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="waves-effect waves-light">
+                  <a href="#">
                     <Icon name="file-text-o" />
                     <span> Reporting </span>
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="waves-effect waves-light">
+                  <a href="#">
                     <Icon name="dashboard" />
                     <span> Dashboard </span>
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="waves-effect waves-light">
+                  <a href="#">
                     <Icon name="cube" />
                     <span> Schema Designer </span>
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="waves-effect waves-light">
+                  <a href="#">
                     <Icon name="globe" />
                     <span> Translate </span>
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="waves-effect waves-light">
+                  <a href="#">
                     <Icon name="gear" />
                     <span> Admin Console </span>
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="waves-effect waves-light">
+                  <a href="#">
                     <Icon name="bug" />
                     <span> Send a bug </span>
                   </a>
