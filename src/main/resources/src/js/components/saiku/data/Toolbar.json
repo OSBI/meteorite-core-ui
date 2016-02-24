@@ -1,0 +1,74 @@
+{
+  "item": [
+    {
+      "name": "Refresh Cubes (Clear Cache)",
+      "visible": true,
+      "icon": "refresh"
+    },
+    {
+      "name": "Open query",
+      "visible": true,
+      "icon": "folder"
+    },
+    {
+      "name": "Save query",
+      "visible": true,
+      "icon": "save"
+    },
+    {
+      "name": "Reset query",
+      "visible": true,
+      "icon": "file-o"
+    },
+    {
+      "name": "Edit query",
+      "visible": true,
+      "icon": "pencil"
+    },
+    {
+      "name": "Run query",
+      "visible": true,
+      "icon": "play"
+    },
+    {
+      "name": "Automatic execution",
+      "visible": true,
+      "icon": "step-forward"
+    },
+    {
+      "name": "Swap axis",
+      "visible": true,
+      "icon": "retweet"
+    },
+    {
+      "name": "Zoom into table",
+      "visible": true,
+      "icon": "search"
+    },
+    {
+      "name": "Export XLS",
+      "visible": true,
+      "icon": "file-excel-o"
+    },
+    {
+      "name": "Export CSV",
+      "visible": true,
+      "icon": "file-code-o"
+    },
+    {
+      "name": "Export PDF",
+      "visible": true,
+      "icon": "file-pdf-o"
+    },
+    {
+      "name": "Switch to MDX Mode",
+      "visible": true,
+      "icon": "edit"
+    },
+    {
+      "name": "Embed Link",
+      "visible": true,
+      "icon": "link"
+    }
+  ]
+}
