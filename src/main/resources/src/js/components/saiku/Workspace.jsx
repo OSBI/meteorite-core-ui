@@ -24,6 +24,7 @@ import Wrapper from './Wrapper';
 import Content from './Content';
 import MenuBar from './MenuBar';
 import Sidebar from './Sidebar';
+import Toolbar from './Toolbar';
 import Tab from './Tab';
 import Tabs from './Tabs';
 
@@ -58,6 +59,7 @@ class Workspace extends React.Component {
           <Tabs>
             <Tab tabKey="tab_1" title="Workspace">
               <Content>
+                <Toolbar />
                 <Grid>
                   <Row>
                     <Col sm={12}>

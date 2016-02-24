@@ -1,5 +1,6 @@
 var jsonfile    = require('jsonfile');
 var fileMenuBar = './src/js/components/saiku/data/MenuBar.json';
+var fileSidebar = './src/js/components/saiku/data/Sidebar.json';
 var fileToolbar = './src/js/components/saiku/data/Toolbar.json';
 var dataMock;
 
@@ -10,6 +11,7 @@ var appRouter = function(app) {
       '<ul>' +
         '<li><a href="/user?username=admin">Login</a></li>' +
         '<li><a href="/menubar">MenuBar</a></li>' +
+        '<li><a href="/sidebar">Sidebar</a></li>' +
         '<li><a href="/toolbar">Toolbar</a></li>' +
       '</ul>'
     );
@@ -37,8 +39,13 @@ var appRouter = function(app) {
     return res.send(dataMock);
   });
 
+  app.get('/sidebar', function(req, res) {
+    dataMock = jsonfile.readFileSync(fileSidebar);
+    return res.send(dataMock);
+  });
+
   app.get('/toolbar', function(req, res) {
-    dataMock = jsonfile.readFileSync(fileToolbar);
+    dataMock = jsonfile.readFileSync(fileSidebar);
     return res.send(dataMock);
   });
 };
