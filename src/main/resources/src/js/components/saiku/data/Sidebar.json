@@ -3,47 +3,47 @@
     {
       "name": "Home",
       "visible": true,
-      "icon": "fa fa-home"
+      "icon": "home"
     },
     {
       "name": "New query",
       "visible": true,
-      "icon": "fa fa-plus-square"
+      "icon": "plus-square"
     },
     {
       "name": "Open query",
       "visible": true,
-      "icon": "fa fa-folder-open-o"
+      "icon": "folder-open-o"
     },
     {
       "name": "Reporting",
       "visible": true,
-      "icon": "fa fa-file-text-o"
+      "icon": "file-text-o"
     },
     {
       "name": "Dashboard",
       "visible": true,
-      "icon": "fa fa-dashboard"
+      "icon": "dashboard"
     },
     {
       "name": "Schema Designer",
       "visible": true,
-      "icon": "fa fa-cube"
+      "icon": "cube"
     },
     {
       "name": "Translate",
       "visible": true,
-      "icon": "fa fa-globe"
+      "icon": "globe"
     },
     {
       "name": "Admin Console",
       "visible": true,
-      "icon": "fa fa-gear"
+      "icon": "gear"
     },
     {
       "name": "Send a bug",
       "visible": true,
-      "icon": "fa fa-bug"
+      "icon": "bug"
     }
   ]
 }
