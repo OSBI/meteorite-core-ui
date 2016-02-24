@@ -22,6 +22,7 @@ class Tab extends React.Component {
 
     return (
       <div role="tabpanel"
+      id={this.props.tabKey}
       className={'tab-pane' + (this.props.isSelected ? ' active' : '')}
       aria-hidden={!this.props.isSelected}>
         {this.props.children}

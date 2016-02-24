@@ -927,6 +927,13 @@ a.waves-effect .waves-ripple {
   line-height: 40px;
   color: #000;
   border: 1px solid #ccc;
+  background: #fff;
+}
+.nav-tabs li a[role=tab][aria-expanded="true"] {
+  background: #eaeff2;
+}
+.nav-tabs li a[role=tab] .close {
+  padding: 10px 0 0 10px;
 }
 /* =========================================================================
    RESPONSIVE

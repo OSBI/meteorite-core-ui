@@ -24,28 +24,36 @@ class Tabs extends React.Component {
       selectedTab: this.props.children[0],
       removedTabs: {}
     };
+
+    this.id = 'tabs_' + (new Date()).getTime();
   }
 
   selectTab(tab, event) {
-    event.preventDefault();
+    if (event) event.preventDefault();
     this.setState({
       selectedTab: tab
     });
   }
 
   removeTab(tab, event) {
-    event.preventDefault();
+    if (event) event.preventDefault();
+
+    // Mark the tab as removed
     this.state.removedTabs[tab.props.tabKey] = true;
+
+    // Update the component state
     this.setState({
-      selectedTab: null,
       removedTabs: this.state.removedTabs
     });
+
+    // Find the new selected tab and show it
+    this.showTab(this.findAnAvailableTab());
   }
 
   render() {
     return (
       <div>
-        <ul className="nav nav-tabs" role="tablist">
+        <ul className="nav nav-tabs" role="tablist" id={this.id}>
           {React.Children.map(this.props.children, this.renderTabButtons, this)}
         </ul>
         {React.Children.map(this.props.children, this.renderTabPanels, this)}
@@ -54,18 +62,16 @@ class Tabs extends React.Component {
   }
 
   renderTabButtons(tab) {
-    if (this.state.removedTabs[tab.props.tabKey]) {
-      console.log('this tab is removed', tab);
-      return '';
-    }
+    if (this.isRemoved(tab)) return null;
 
     return (
-      <li className={this._isSelected(tab) ? 'active' : ''}
+      <li className={this.isSelected(tab) ? 'active' : ''}
       role="presentation"
       role="tab">
         <a role="tab"
         href={'#' + tab.props.tabKey}
         data-toggle="tab"
+        aria-expanded={this.isSelected(tab)}
         aria-controls={tab.props.tabKey}
         onClick={this.selectTab.bind(this, tab)}>
           <button className="close closeTab" type="button"
@@ -77,21 +83,38 @@ class Tabs extends React.Component {
   }
 
   renderTabPanels(tab) {
-    if (this.state.removedTabs[tab.props.tabKey]) {
-      console.log('this tab is removed', tab);
-      return '';
-    }
+    if (this.isRemoved(tab)) return null;
 
     return (
       <div className="tab-content">
-        {React.cloneElement(tab, {isSelected: this._isSelected(tab)})}
+        {React.cloneElement(tab, {isSelected: this.isSelected(tab)})}
       </div>
     );
   }
 
-  _isSelected(tab) {
+  isSelected(tab) {
     if (!this.state.selectedTab) return false;
     return tab.props.tabKey === this.state.selectedTab.props.tabKey;
+  }
+
+  isRemoved(tab) {
+    return this.state.removedTabs[tab.props.tabKey] === true;
+  }
+
+  findAnAvailableTab() {
+    var availableTab = null;
+
+    React.Children.forEach(this.props.children, (tab) => {
+      if (!availableTab && !this.isRemoved(tab)) {
+        availableTab = tab;
+      }
+    });
+
+    return availableTab;
+  }
+
+  showTab(tab) {
+    setTimeout(this.selectTab.bind(this, tab), 100);
   }
 }
 
