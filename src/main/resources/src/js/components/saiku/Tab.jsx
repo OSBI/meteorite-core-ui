@@ -32,8 +32,8 @@ class Tab extends React.Component {
 }
 
 Tab.propTypes = {
-  title: React.PropTypes.string,
-  tabKey: React.PropTypes.string,
+  title: React.PropTypes.string.isRequired,
+  tabKey: React.PropTypes.string.isRequired,
   isSelected: React.PropTypes.bool,
   isRemoved: React.PropTypes.bool,
   children: React.PropTypes.node.isRequired

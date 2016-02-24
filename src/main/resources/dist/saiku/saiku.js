@@ -63386,8 +63386,8 @@
 	}(_react2.default.Component);
 	
 	Tab.propTypes = {
-	  title: _react2.default.PropTypes.string,
-	  tabKey: _react2.default.PropTypes.string,
+	  title: _react2.default.PropTypes.string.isRequired,
+	  tabKey: _react2.default.PropTypes.string.isRequired,
 	  isSelected: _react2.default.PropTypes.bool,
 	  isRemoved: _react2.default.PropTypes.bool,
 	  children: _react2.default.PropTypes.node.isRequired
