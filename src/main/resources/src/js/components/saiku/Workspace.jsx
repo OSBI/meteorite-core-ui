@@ -33,8 +33,20 @@ class Workspace extends React.Component {
     super(props);
 
     this.state = {
-      isOpenSidebar: false
+      isOpenSidebar: false,
+      tabs: []
     };
+  }
+
+  componentDidMount() {
+    // Simple example showing how to add tabs via function
+    for (let i = 0; i < 5; i++) {
+      this.addTab('New Tab ' + i, (
+        <Content>
+          <h1>Tab {i} added programatically via addTab function</h1>
+        </Content>
+      ));
+    }
   }
 
   openSidebar() {
@@ -48,6 +60,17 @@ class Workspace extends React.Component {
         isOpenSidebar: true
       });
     }
+  }
+
+  addTab(title, component) {
+    this.state.tabs.push({
+      title: title,
+      component: component
+    });
+
+    this.setState({
+      tabs: this.state.tabs
+    });
   }
 
   render() {
@@ -69,16 +92,23 @@ class Workspace extends React.Component {
                 </Grid>
               </Content>
             </Tab>
-            <Tab tabKey="tab_2" title="Tab 2">
-              <Content><h1>Sample Tab 2</h1></Content>
-            </Tab>
-            <Tab tabKey="tab_3" title="Tab 3">
-              <Content><h1>Sample Tab 3</h1></Content>
-            </Tab>
+            {this.renderTabs()}
           </Tabs>
         </Content>
       </Wrapper>
     );
+  }
+
+  renderTabs() {
+    return this.state.tabs.map((tabData, idx) => {
+      let tabKey = 'tab_' + idx + '_' + (new Date()).getTime();
+
+      return (
+        <Tab key={tabKey} tabKey={tabKey} title={tabData.title}>
+          {tabData.component}
+        </Tab>
+      );
+    });
   }
 }
 
