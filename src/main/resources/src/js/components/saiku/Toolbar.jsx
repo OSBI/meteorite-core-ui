@@ -32,25 +32,29 @@ class Toolbar extends React.Component {
       models: ''
     };
 
-    this.collection = new ToolbarCollection();
-    this.handleFetch = this.handleFetch.bind(this);
+    this._toolbarUI = new ToolbarCollection();
+    this._handleFetchUI = this._handleFetchUI.bind(this);
   }
 
   componentDidMount() {
-    this.collection.fetch({
-      success: this.handleFetch
+    this._toolbarUI.fetch({
+      success: this._handleFetchUI
     });
   }
 
-  handleFetch(collection) {
+  _handleFetchUI(toolbarUI) {
     this.setState({
-      models: collection.models[0]
+      models: toolbarUI.models[0]
     });
   }
 
-  renderNavItem(item) {
+  _renderNavItem(item, key) {
+    let isItemVisible = !item.visible ? 'hidden' : '';
+
     return (
-        <NavItem key={item.name} href="#"><Icon name={item.icon} /></NavItem>
+      <NavItem key={key} eventKey={key} className={isItemVisible} href="#">
+        <Icon name={item.icon} />
+      </NavItem>
     );
   }
 
@@ -66,7 +70,7 @@ class Toolbar extends React.Component {
         </Navbar.Header>
         */}
         <Nav>
-          {items.map(this.renderNavItem)}
+          {items.map(this._renderNavItem)}
         </Nav>
       </Navbar>
     );

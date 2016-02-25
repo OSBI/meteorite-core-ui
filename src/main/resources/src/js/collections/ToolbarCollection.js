@@ -25,7 +25,6 @@ class ToolbarCollection extends Backbone.Collection {
   }
 
   url() {
-    // TODO: Add a `const` in Settings.js
     return 'http://localhost:9999/toolbar';
   }
 }

@@ -35,6 +35,12 @@ Backbone.sync = (method, model, options) => {
   //   (_.isFunction(model.url) ? model.url() : model.url);
 
   let url = _.isFunction(model.url) ? model.url() : model.url;
+  // If is a URL of Node mock
+  let matchURL = /:9999/;
+
+  if (!matchURL.test(url)) {
+    url = Settings.REST_URL + url;
+  }
 
   // Prepare for failure
   if (typeof Settings.ERRORS === 'undefined') {

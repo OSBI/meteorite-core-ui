@@ -70,13 +70,13 @@
 	
 	var _Workspace2 = _interopRequireDefault(_Workspace);
 	
-	var _NotFound = __webpack_require__(513);
+	var _NotFound = __webpack_require__(515);
 	
 	var _NotFound2 = _interopRequireDefault(_NotFound);
 	
-	__webpack_require__(514);
+	__webpack_require__(516);
 	
-	__webpack_require__(515);
+	__webpack_require__(517);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -29136,6 +29136,12 @@
 	  //   (_.isFunction(model.url) ? model.url() : model.url);
 	
 	  var url = _underscore2.default.isFunction(model.url) ? model.url() : model.url;
+	  // If is a URL of Node mock
+	  var matchURL = /:9999/;
+	
+	  if (!matchURL.test(url)) {
+	    url = _Settings2.default.REST_URL + url;
+	  }
 	
 	  // Prepare for failure
 	  if (typeof _Settings2.default.ERRORS === 'undefined') {
@@ -60169,11 +60175,11 @@
 	
 	var _Toolbar2 = _interopRequireDefault(_Toolbar);
 	
-	var _Tab = __webpack_require__(511);
+	var _Tab = __webpack_require__(513);
 	
 	var _Tab2 = _interopRequireDefault(_Tab);
 	
-	var _Tabs = __webpack_require__(512);
+	var _Tabs = __webpack_require__(514);
 	
 	var _Tabs2 = _interopRequireDefault(_Tabs);
 	
@@ -61055,7 +61061,7 @@
 	
 	var _Icon2 = _interopRequireDefault(_Icon);
 	
-	var _ToolbarCollection = __webpack_require__(519);
+	var _ToolbarCollection = __webpack_require__(511);
 	
 	var _ToolbarCollection2 = _interopRequireDefault(_ToolbarCollection);
 	
@@ -61093,31 +61099,33 @@
 	      models: ''
 	    };
 	
-	    _this.collection = new _ToolbarCollection2.default();
-	    _this.handleFetch = _this.handleFetch.bind(_this);
+	    _this._toolbarUI = new _ToolbarCollection2.default();
+	    _this._handleFetchUI = _this._handleFetchUI.bind(_this);
 	    return _this;
 	  }
 	
 	  _createClass(Toolbar, [{
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
-	      this.collection.fetch({
-	        success: this.handleFetch
+	      this._toolbarUI.fetch({
+	        success: this._handleFetchUI
 	      });
 	    }
 	  }, {
-	    key: 'handleFetch',
-	    value: function handleFetch(collection) {
+	    key: '_handleFetchUI',
+	    value: function _handleFetchUI(toolbarUI) {
 	      this.setState({
-	        models: collection.models[0]
+	        models: toolbarUI.models[0]
 	      });
 	    }
 	  }, {
-	    key: 'renderNavItem',
-	    value: function renderNavItem(item) {
+	    key: '_renderNavItem',
+	    value: function _renderNavItem(item, key) {
+	      var isItemVisible = !item.visible ? 'hidden' : '';
+	
 	      return _react2.default.createElement(
 	        _reactBootstrap.NavItem,
-	        { key: item.name, href: '#' },
+	        { key: key, eventKey: key, className: isItemVisible, href: '#' },
 	        _react2.default.createElement(_Icon2.default, { name: item.icon })
 	      );
 	    }
@@ -61132,7 +61140,7 @@
 	        _react2.default.createElement(
 	          _reactBootstrap.Nav,
 	          null,
-	          items.map(this.renderNavItem)
+	          items.map(this._renderNavItem)
 	        )
 	      );
 	    }
@@ -61145,6 +61153,131 @@
 
 /***/ },
 /* 511 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _backbone = __webpack_require__(256);
+	
+	var _backbone2 = _interopRequireDefault(_backbone);
+	
+	var _ToolbarModel = __webpack_require__(512);
+	
+	var _ToolbarModel2 = _interopRequireDefault(_ToolbarModel);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /*
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   Copyright 2016 OSBI Ltd
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   Licensed under the Apache License, Version 2.0 (the "License");
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   you may not use this file except in compliance with the License.
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   You may obtain a copy of the License at
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *       http://www.apache.org/licenses/LICENSE-2.0
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   Unless required by applicable law or agreed to in writing, software
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   distributed under the License is distributed on an "AS IS" BASIS,
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   See the License for the specific language governing permissions and
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   limitations under the License.
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
+	
+	var ToolbarCollection = function (_Backbone$Collection) {
+	  _inherits(ToolbarCollection, _Backbone$Collection);
+	
+	  function ToolbarCollection(options) {
+	    _classCallCheck(this, ToolbarCollection);
+	
+	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(ToolbarCollection).call(this, options));
+	
+	    _this.model = _ToolbarModel2.default;
+	    return _this;
+	  }
+	
+	  _createClass(ToolbarCollection, [{
+	    key: 'url',
+	    value: function url() {
+	      return 'http://localhost:9999/toolbar';
+	    }
+	  }]);
+	
+	  return ToolbarCollection;
+	}(_backbone2.default.Collection);
+	
+	exports.default = ToolbarCollection;
+
+/***/ },
+/* 512 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _backbone = __webpack_require__(256);
+	
+	var _backbone2 = _interopRequireDefault(_backbone);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /*
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   Copyright 2016 OSBI Ltd
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   Licensed under the Apache License, Version 2.0 (the "License");
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   you may not use this file except in compliance with the License.
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   You may obtain a copy of the License at
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *       http://www.apache.org/licenses/LICENSE-2.0
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   Unless required by applicable law or agreed to in writing, software
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   distributed under the License is distributed on an "AS IS" BASIS,
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   See the License for the specific language governing permissions and
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   limitations under the License.
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
+	
+	var ToolbarModel = function (_Backbone$Model) {
+	  _inherits(ToolbarModel, _Backbone$Model);
+	
+	  function ToolbarModel() {
+	    _classCallCheck(this, ToolbarModel);
+	
+	    return _possibleConstructorReturn(this, Object.getPrototypeOf(ToolbarModel).apply(this, arguments));
+	  }
+	
+	  _createClass(ToolbarModel, [{
+	    key: 'getItem',
+	    value: function getItem() {
+	      return this.get('item');
+	    }
+	  }]);
+	
+	  return ToolbarModel;
+	}(_backbone2.default.Model);
+	
+	exports.default = ToolbarModel;
+
+/***/ },
+/* 513 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -61224,7 +61357,7 @@
 	exports.default = Tab;
 
 /***/ },
-/* 512 */
+/* 514 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -61398,7 +61531,7 @@
 	exports.default = Tabs;
 
 /***/ },
-/* 513 */
+/* 515 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -61461,22 +61594,22 @@
 	exports.default = NotFound;
 
 /***/ },
-/* 514 */
+/* 516 */
 /***/ function(module, exports) {
 
 	module.exports = "<!--  \n  Copyright 2016 OSBI Ltd\n\n  Licensed under the Apache License, Version 2.0 (the \"License\");\n  you may not use this file except in compliance with the License.\n  You may obtain a copy of the License at\n\n      http://www.apache.org/licenses/LICENSE-2.0\n\n  Unless required by applicable law or agreed to in writing, software\n  distributed under the License is distributed on an \"AS IS\" BASIS,\n  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n  See the License for the specific language governing permissions and\n  limitations under the License.\n-->\n\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <title>Saiku - Next Generation Open Source Analytics</title>\n\n  <!-- Meta -->\n  <meta charset=\"UTF-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n\n  <!-- Favicon -->\n  <link rel=\"shortcut icon\" href=\"dist/assets/images/favicon.ico\">\n\n  <!-- CSS -->\n  <link rel=\"stylesheet\" href=\"dist/assets/css/bootstrap.min.css\">\n  <link rel=\"stylesheet\" href=\"dist/assets/css/font-awesome.min.css\">\n  <link rel=\"stylesheet\" href=\"dist/saiku/saiku.css\">\n\n  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->\n  <!--[if lt IE 9]>\n    <script src=\"dist/assets/js/html5shiv.js\"></script>\n    <script src=\"dist/assets/js/respond.min.js\"></script>\n  <![endif]-->\n</head>\n<body>\n  <div id=\"app\"></div>\n\n  <!-- JS -->\n  <script src=\"dist/assets/js/jquery.min.js\"></script>\n  <script src=\"dist/assets/js/bootstrap.min.js\"></script>\n  <script src=\"dist/saiku/saiku.js\"></script>\n</body>\n</html>";
 
 /***/ },
-/* 515 */
+/* 517 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(516);
+	var content = __webpack_require__(518);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(518)(content, {});
+	var update = __webpack_require__(520)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -61493,10 +61626,10 @@
 	}
 
 /***/ },
-/* 516 */
+/* 518 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(517)();
+	exports = module.exports = __webpack_require__(519)();
 	// imports
 	exports.push([module.id, "@import url(https://fonts.googleapis.com/css?family=Noto+Sans:400,700);", ""]);
 	exports.push([module.id, "@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700,300);", ""]);
@@ -61508,7 +61641,7 @@
 
 
 /***/ },
-/* 517 */
+/* 519 */
 /***/ function(module, exports) {
 
 	/*
@@ -61564,7 +61697,7 @@
 
 
 /***/ },
-/* 518 */
+/* 520 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -61816,132 +61949,6 @@
 			URL.revokeObjectURL(oldSrc);
 	}
 
-
-/***/ },
-/* 519 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _backbone = __webpack_require__(256);
-	
-	var _backbone2 = _interopRequireDefault(_backbone);
-	
-	var _ToolbarModel = __webpack_require__(520);
-	
-	var _ToolbarModel2 = _interopRequireDefault(_ToolbarModel);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /*
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   Copyright 2016 OSBI Ltd
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   Licensed under the Apache License, Version 2.0 (the "License");
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   you may not use this file except in compliance with the License.
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   You may obtain a copy of the License at
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *       http://www.apache.org/licenses/LICENSE-2.0
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   Unless required by applicable law or agreed to in writing, software
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   distributed under the License is distributed on an "AS IS" BASIS,
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   See the License for the specific language governing permissions and
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   limitations under the License.
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
-	
-	var ToolbarCollection = function (_Backbone$Collection) {
-	  _inherits(ToolbarCollection, _Backbone$Collection);
-	
-	  function ToolbarCollection(options) {
-	    _classCallCheck(this, ToolbarCollection);
-	
-	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(ToolbarCollection).call(this, options));
-	
-	    _this.model = _ToolbarModel2.default;
-	    return _this;
-	  }
-	
-	  _createClass(ToolbarCollection, [{
-	    key: 'url',
-	    value: function url() {
-	      // TODO: Add a `const` in Settings.js
-	      return 'http://localhost:9999/toolbar';
-	    }
-	  }]);
-	
-	  return ToolbarCollection;
-	}(_backbone2.default.Collection);
-	
-	exports.default = ToolbarCollection;
-
-/***/ },
-/* 520 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _backbone = __webpack_require__(256);
-	
-	var _backbone2 = _interopRequireDefault(_backbone);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /*
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   Copyright 2016 OSBI Ltd
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   Licensed under the Apache License, Version 2.0 (the "License");
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   you may not use this file except in compliance with the License.
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   You may obtain a copy of the License at
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *       http://www.apache.org/licenses/LICENSE-2.0
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   Unless required by applicable law or agreed to in writing, software
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   distributed under the License is distributed on an "AS IS" BASIS,
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   See the License for the specific language governing permissions and
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   limitations under the License.
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
-	
-	var ToolbarModel = function (_Backbone$Model) {
-	  _inherits(ToolbarModel, _Backbone$Model);
-	
-	  function ToolbarModel() {
-	    _classCallCheck(this, ToolbarModel);
-	
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(ToolbarModel).apply(this, arguments));
-	  }
-	
-	  _createClass(ToolbarModel, [{
-	    key: 'getItem',
-	    value: function getItem() {
-	      return this.get('item');
-	    }
-	  }]);
-	
-	  return ToolbarModel;
-	}(_backbone2.default.Model);
-	
-	exports.default = ToolbarModel;
 
 /***/ }
 /******/ ]);
