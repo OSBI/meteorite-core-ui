@@ -15,6 +15,7 @@
  */
 
 import React from 'react';
+import autoBind from 'react-autobind';
 import { History } from 'react-router';
 import reactMixin from 'react-mixin';
 import validation from 'react-validation-mixin';
@@ -38,10 +39,8 @@ class Login extends React.Component {
       username: 'required',
       password: 'required'
     });
-    this.getValidatorData = this.getValidatorData.bind(this);
-    this.renderHelpText = this.renderHelpText.bind(this);
-    this.getClasses = this.getClasses.bind(this);
-    this.onSubmitLogin = this.onSubmitLogin.bind(this);
+    autoBind(this, 'getValidatorData', 'renderHelpText', 'getClasses',
+      'onSubmitLogin');
     this.session = new Session();
   }
 

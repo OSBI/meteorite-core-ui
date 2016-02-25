@@ -15,6 +15,7 @@
  */
 
 import React from 'react';
+import autoBind from 'react-autobind';
 import _ from 'underscore';
 import {
   Navbar,
@@ -33,7 +34,8 @@ class Toolbar extends React.Component {
     };
 
     this._toolbarUI = new ToolbarCollection();
-    this._handleFetchUI = this._handleFetchUI.bind(this);
+
+    autoBind(this, '_handleFetchUI');
   }
 
   componentDidMount() {

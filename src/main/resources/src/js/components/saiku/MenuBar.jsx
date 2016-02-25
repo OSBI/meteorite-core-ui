@@ -15,6 +15,7 @@
  */
 
 import React from 'react';
+import autoBind from 'react-autobind';
 import { History } from 'react-router';
 import reactMixin from 'react-mixin';
 import {
@@ -29,6 +30,12 @@ import Clearfix from '../bootstrap/Clearfix';
 import Icon from './Icon';
 
 class MenuBar extends React.Component {
+  constructor(props) {
+    super(props);
+
+    autoBind(this, 'onButtonMenu', 'showLockScreen');
+  }
+
   onButtonMenu(event) {
     event.stopPropagation();
     this.props.openSidebar();
@@ -58,7 +65,7 @@ class MenuBar extends React.Component {
             <div className="pull-left">
               <Button
                 className="button-menu-mobile open-left"
-                onClick={this.onButtonMenu.bind(this)}
+                onClick={this.onButtonMenu}
               >
                 <Icon name="navicon" />
               </Button>
@@ -126,7 +133,7 @@ class MenuBar extends React.Component {
                     </a>
                   </li>
                   <li>
-                    <a href="#" onClick={this.showLockScreen.bind(this)}>
+                    <a href="#" onClick={this.showLockScreen}>
                       <Icon name="lock" /> Lock Screen
                     </a>
                   </li>

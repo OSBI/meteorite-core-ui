@@ -15,6 +15,7 @@
  */
 
 import React from 'react';
+import autoBind from 'react-autobind';
 import {
   Grid,
   Row,
@@ -36,6 +37,8 @@ class Workspace extends React.Component {
       isOpenSidebar: false,
       tabs: []
     };
+
+    autoBind(this, 'openSidebar');
   }
 
   componentDidMount() {
@@ -76,7 +79,7 @@ class Workspace extends React.Component {
   render() {
     return (
       <Wrapper isOpenSidebar={this.state.isOpenSidebar}>
-        <MenuBar openSidebar={this.openSidebar.bind(this)} />
+        <MenuBar openSidebar={this.openSidebar} />
         <Sidebar />
         <Content page>
           <Tabs>

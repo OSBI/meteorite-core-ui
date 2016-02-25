@@ -24477,6 +24477,10 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
+	var _reactAutobind = __webpack_require__(521);
+	
+	var _reactAutobind2 = _interopRequireDefault(_reactAutobind);
+	
 	var _reactRouter = __webpack_require__(159);
 	
 	var _reactMixin = __webpack_require__(212);
@@ -24543,10 +24547,7 @@
 	      username: 'required',
 	      password: 'required'
 	    });
-	    _this.getValidatorData = _this.getValidatorData.bind(_this);
-	    _this.renderHelpText = _this.renderHelpText.bind(_this);
-	    _this.getClasses = _this.getClasses.bind(_this);
-	    _this.onSubmitLogin = _this.onSubmitLogin.bind(_this);
+	    (0, _reactAutobind2.default)(_this, 'getValidatorData', 'renderHelpText', 'getClasses', 'onSubmitLogin');
 	    _this.session = new _Session2.default();
 	    return _this;
 	  }
@@ -59887,6 +59888,10 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
+	var _reactAutobind = __webpack_require__(521);
+	
+	var _reactAutobind2 = _interopRequireDefault(_reactAutobind);
+	
 	var _reactValidationMixin = __webpack_require__(215);
 	
 	var _reactValidationMixin2 = _interopRequireDefault(_reactValidationMixin);
@@ -59942,10 +59947,7 @@
 	    _this.validatorTypes = _ReactValidatorStrategy2.default.createSchema({
 	      password: 'required'
 	    });
-	    _this.getValidatorData = _this.getValidatorData.bind(_this);
-	    _this.renderHelpText = _this.renderHelpText.bind(_this);
-	    _this.getClasses = _this.getClasses.bind(_this);
-	    _this.onSubmitLogin = _this.onSubmitLogin.bind(_this);
+	    (0, _reactAutobind2.default)(_this, 'getValidatorData', 'renderHelpText', 'getClasses', 'onSubmitLogin');
 	    return _this;
 	  }
 	
@@ -60153,6 +60155,10 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
+	var _reactAutobind = __webpack_require__(521);
+	
+	var _reactAutobind2 = _interopRequireDefault(_reactAutobind);
+	
 	var _reactBootstrap = __webpack_require__(259);
 	
 	var _Wrapper = __webpack_require__(503);
@@ -60217,6 +60223,8 @@
 	      isOpenSidebar: false,
 	      tabs: []
 	    };
+	
+	    (0, _reactAutobind2.default)(_this, 'openSidebar');
 	    return _this;
 	  }
 	
@@ -60269,7 +60277,7 @@
 	      return _react2.default.createElement(
 	        _Wrapper2.default,
 	        { isOpenSidebar: this.state.isOpenSidebar },
-	        _react2.default.createElement(_MenuBar2.default, { openSidebar: this.openSidebar.bind(this) }),
+	        _react2.default.createElement(_MenuBar2.default, { openSidebar: this.openSidebar }),
 	        _react2.default.createElement(_Sidebar2.default, null),
 	        _react2.default.createElement(
 	          _Content2.default,
@@ -60426,6 +60434,10 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
+	var _reactAutobind = __webpack_require__(521);
+	
+	var _reactAutobind2 = _interopRequireDefault(_reactAutobind);
+	
 	var _reactRouter = __webpack_require__(159);
 	
 	var _reactMixin = __webpack_require__(212);
@@ -60467,10 +60479,13 @@
 	var MenuBar = function (_React$Component) {
 	  _inherits(MenuBar, _React$Component);
 	
-	  function MenuBar() {
+	  function MenuBar(props) {
 	    _classCallCheck(this, MenuBar);
 	
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(MenuBar).apply(this, arguments));
+	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(MenuBar).call(this, props));
+	
+	    (0, _reactAutobind2.default)(_this, 'onButtonMenu', 'showLockScreen');
+	    return _this;
 	  }
 	
 	  _createClass(MenuBar, [{
@@ -60520,7 +60535,7 @@
 	                _reactBootstrap.Button,
 	                {
 	                  className: 'button-menu-mobile open-left',
-	                  onClick: this.onButtonMenu.bind(this)
+	                  onClick: this.onButtonMenu
 	                },
 	                _react2.default.createElement(_Icon2.default, { name: 'navicon' })
 	              ),
@@ -60675,7 +60690,7 @@
 	                    null,
 	                    _react2.default.createElement(
 	                      'a',
-	                      { href: '#', onClick: this.showLockScreen.bind(this) },
+	                      { href: '#', onClick: this.showLockScreen },
 	                      _react2.default.createElement(_Icon2.default, { name: 'lock' }),
 	                      ' Lock Screen'
 	                    )
@@ -61051,6 +61066,10 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
+	var _reactAutobind = __webpack_require__(521);
+	
+	var _reactAutobind2 = _interopRequireDefault(_reactAutobind);
+	
 	var _underscore = __webpack_require__(255);
 	
 	var _underscore2 = _interopRequireDefault(_underscore);
@@ -61100,7 +61119,8 @@
 	    };
 	
 	    _this._toolbarUI = new _ToolbarCollection2.default();
-	    _this._handleFetchUI = _this._handleFetchUI.bind(_this);
+	
+	    (0, _reactAutobind2.default)(_this, '_handleFetchUI');
 	    return _this;
 	  }
 	
@@ -61948,6 +61968,89 @@
 		if(oldSrc)
 			URL.revokeObjectURL(oldSrc);
 	}
+
+
+/***/ },
+/* 521 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__(522);
+
+
+/***/ },
+/* 522 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+	exports['default'] = autoBind;
+	var wontBind = ['constructor', 'render', 'componentWillMount', 'componentDidMount', 'componentWillReceiveProps', 'shouldComponentUpdate', 'componentWillUpdate', 'componentDidUpdate', 'componentWillUnmount'];
+	
+	var toBind = [];
+	
+	function autoBind(context) {
+	  if (context === undefined) {
+	    console.error('Autobind error: No context provided.');
+	    return;
+	  }
+	
+	  var objPrototype = Object.getPrototypeOf(context);
+	
+	  if (arguments.length > 1) {
+	    // If a list of methods to bind is provided, use it.
+	    toBind = Array.prototype.slice.call(arguments, 1);
+	  } else {
+	    // If no list of methods to bind is provided, bind all available methods in class.
+	    toBind = Object.getOwnPropertyNames(objPrototype);
+	  }
+	
+	  toBind.forEach(function (method) {
+	    var descriptor = Object.getOwnPropertyDescriptor(objPrototype, method);
+	
+	    if (descriptor === undefined) {
+	      console.warn('Autobind: "' + method + '" method not found in class.');
+	      return;
+	    }
+	
+	    // Return if it's special case function or if not a function at all
+	    if (wontBind.indexOf(method) !== -1 || typeof descriptor.value !== 'function') {
+	      return;
+	    }
+	
+	    Object.defineProperty(objPrototype, method, boundMethod(objPrototype, method, descriptor));
+	  });
+	}
+	
+	/**
+	* From autobind-decorator (https://github.com/andreypopp/autobind-decorator/tree/master)
+	* Return a descriptor removing the value and returning a getter
+	* The getter will return a .bind version of the function
+	* and memoize the result against a symbol on the instance
+	*/
+	function boundMethod(objPrototype, method, descriptor) {
+	  var fn = descriptor.value;
+	
+	  return {
+	    configurable: true,
+	    get: function get() {
+	      if (this === objPrototype || this.hasOwnProperty(method)) {
+	        return fn;
+	      }
+	
+	      var boundFn = fn.bind(this);
+	      Object.defineProperty(this, method, {
+	        value: boundFn,
+	        configurable: true,
+	        writable: true
+	      });
+	      return boundFn;
+	    }
+	  };
+	}
+	module.exports = exports['default'];
 
 
 /***/ }

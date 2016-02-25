@@ -15,6 +15,7 @@
  */
 
 import React from 'react';
+import autoBind from 'react-autobind';
 import validation from 'react-validation-mixin';
 import strategy from '../../utils/ReactValidatorStrategy';
 import {
@@ -34,10 +35,8 @@ class LockScreen extends React.Component {
     this.validatorTypes = strategy.createSchema({
       password: 'required'
     });
-    this.getValidatorData = this.getValidatorData.bind(this);
-    this.renderHelpText = this.renderHelpText.bind(this);
-    this.getClasses = this.getClasses.bind(this);
-    this.onSubmitLogin = this.onSubmitLogin.bind(this);
+    autoBind(this, 'getValidatorData', 'renderHelpText', 'getClasses',
+      'onSubmitLogin');
   }
 
   getValidatorData() {
