@@ -28,6 +28,7 @@ import Sidebar from './Sidebar';
 import Toolbar from './Toolbar';
 import Tab from './Tab';
 import Tabs from './Tabs';
+import Portlet from './Portlet';
 
 class Workspace extends React.Component {
   constructor(props) {
@@ -88,8 +89,10 @@ class Workspace extends React.Component {
                 <Toolbar />
                 <Grid>
                   <Row>
-                    <Col sm={12}>
-                      <h4>Workspace</h4>
+                    <Col lg={3}>
+                      <Portlet title="Measures" />
+                      <Portlet title="Columns" />
+                      <Portlet title="Rows" />
                     </Col>
                   </Row>
                 </Grid>

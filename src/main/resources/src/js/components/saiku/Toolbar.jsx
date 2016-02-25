@@ -66,11 +66,9 @@ class Toolbar extends React.Component {
 
     return (
       <Navbar className="toolbar">
-        {/*
         <Navbar.Header>
           <Navbar.Text>Cubes</Navbar.Text>
         </Navbar.Header>
-        */}
         <Nav>
           {items.map(this._renderNavItem)}
         </Nav>
