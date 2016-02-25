@@ -15,15 +15,49 @@
  */
 
 import React from 'react';
+import _ from 'underscore';
 import {
   Navbar,
   Nav,
   NavItem
 } from 'react-bootstrap';
 import Icon from './Icon';
+import ToolbarCollection from '../../collections/ToolbarCollection';
 
 class Toolbar extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      models: ''
+    };
+
+    this.collection = new ToolbarCollection();
+    this.handleFetch = this.handleFetch.bind(this);
+  }
+
+  componentDidMount() {
+    this.collection.fetch({
+      success: this.handleFetch
+    });
+  }
+
+  handleFetch(collection) {
+    this.setState({
+      models: collection.models[0]
+    });
+  }
+
+  renderNavItem(item) {
+    return (
+        <NavItem key={item.name} href="#"><Icon name={item.icon} /></NavItem>
+    );
+  }
+
   render() {
+    let items = (this.state && !(_.isEmpty(this.state.models))) ?
+      this.state.models.getItem() : [];
+
     return (
       <Navbar className="toolbar">
         {/*
@@ -32,20 +66,7 @@ class Toolbar extends React.Component {
         </Navbar.Header>
         */}
         <Nav>
-          <NavItem eventKey={1} href="#"><Icon name="refresh" /></NavItem>
-          <NavItem eventKey={1} href="#"><Icon name="folder" /></NavItem>
-          <NavItem eventKey={2} href="#"><Icon name="save" /></NavItem>
-          <NavItem eventKey={3} href="#"><Icon name="file-o" /></NavItem>
-          <NavItem eventKey={4} href="#"><Icon name="pencil" /></NavItem>
-          <NavItem eventKey={5} href="#"><Icon name="play" /></NavItem>
-          <NavItem eventKey={6} href="#"><Icon name="step-forward" /></NavItem>
-          <NavItem eventKey={7} href="#"><Icon name="retweet" /></NavItem>
-          <NavItem eventKey={8} href="#"><Icon name="search" /></NavItem>
-          <NavItem eventKey={9} href="#"><Icon name="file-excel-o" /></NavItem>
-          <NavItem eventKey={10} href="#"><Icon name="file-code-o" /></NavItem>
-          <NavItem eventKey={11} href="#"><Icon name="file-pdf-o" /></NavItem>
-          <NavItem eventKey={12} href="#"><Icon name="edit" /></NavItem>
-          <NavItem eventKey={13} href="#"><Icon name="link" /></NavItem>
+          {items.map(this.renderNavItem)}
         </Nav>
       </Navbar>
     );

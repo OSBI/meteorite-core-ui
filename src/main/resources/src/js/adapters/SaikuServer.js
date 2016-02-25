@@ -31,8 +31,10 @@ Backbone.sync = (method, model, options) => {
 
   // Generate AJAX action
   let type = methodMap[method];
-  let url = Settings.REST_URL +
-    (_.isFunction(model.url) ? model.url() : model.url);
+  // let url = Settings.REST_URL +
+  //   (_.isFunction(model.url) ? model.url() : model.url);
+
+  let url = _.isFunction(model.url) ? model.url() : model.url;
 
   // Prepare for failure
   if (typeof Settings.ERRORS === 'undefined') {
@@ -129,7 +131,7 @@ Backbone.sync = (method, model, options) => {
     crossDomain: true,
     async: async,
     beforeSend: (request) => {
-      if (data.username && data.password) {
+      if (data && data.username && data.password) {
         let auth = 'Basic ' + encode(data);
 
         request.setRequestHeader('Authorization', auth);

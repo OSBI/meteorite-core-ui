@@ -45,7 +45,7 @@ var appRouter = function(app) {
   });
 
   app.get('/toolbar', function(req, res) {
-    dataMock = jsonfile.readFileSync(fileSidebar);
+    dataMock = jsonfile.readFileSync(fileToolbar);
     return res.send(dataMock);
   });
 };
