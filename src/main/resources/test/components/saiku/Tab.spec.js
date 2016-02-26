@@ -24,18 +24,8 @@ function createUnselectedTab() {
   return ReactTestUtils.renderIntoDocument(
     React.createElement(Tab, {
       tabKey: 'tab_key',
-      title: 'Tab Title'
+      isSelected: false
     }, 'Tab Content')
-  );
-}
-
-function createSelectedTab() {
-  return ReactTestUtils.renderIntoDocument(
-    React.createElement(Tab, {
-      tabKey: 'selected_tab_key',
-      title: 'Selected Tab Title',
-      isSelected: true
-    }, 'Selected Tab Content')
   );
 }
 
@@ -46,24 +36,10 @@ describe('Tab', () => {
     assert.equal(ReactDOM.findDOMNode(component).nodeName, 'DIV');
   });
 
-  it('Should use "tab-pane" class on tab div', () => {
+  it('Should use "tab-content" class on tab div', () => {
     let component = createUnselectedTab();
     let instanceClassName = ReactDOM.findDOMNode(component).className;
 
-    assert.ok(instanceClassName.match(/\btab-pane\b/));
-  });
-
-  it('Should have "active" class name if tab is selected', () => {
-    let selectedTab = createSelectedTab();
-    let instanceClassName = ReactDOM.findDOMNode(selectedTab).className;
-
-    assert.ok(instanceClassName.match(/\bactive\b/));
-  });
-
-  it('Should not use "active" class on an unselected tab div', () => {
-    let component = createUnselectedTab();
-    let instanceClassName = ReactDOM.findDOMNode(component).className;
-
-    assert.ok(!instanceClassName.match(/\bactive\b/));
+    assert.ok(instanceClassName.match(/\btab-content\b/));
   });
 });
