@@ -25,7 +25,8 @@ import {
   Navbar,
   Nav,
   NavDropdown,
-  MenuItem
+  MenuItem,
+  Badge
 } from 'react-bootstrap';
 import Clearfix from '../bootstrap/Clearfix';
 import Icon from './Icon';
@@ -142,7 +143,7 @@ class MenuBar extends React.Component {
                   aria-expanded="true"
                 >
                   <Icon name="bell-o" />
-                  <span className="badge badge-xs badge-danger">3</span>
+                  <Badge className="badge-xs badge-danger">3</Badge>
                 </a>
               </li>
               <li className="dropdown">

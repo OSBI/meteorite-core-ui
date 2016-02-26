@@ -18,32 +18,52 @@ import React from 'react';
 import ReactTestUtils from 'react/lib/ReactTestUtils';
 import ReactDOM from 'react-dom';
 
-import Clearfix from '../../../src/js/components/bootstrap/Clearfix';
+import Wrapper from '../../../src/js/components/saiku/Wrapper';
 
-describe('Clearfix', () => {
+describe('Wrapper', () => {
   it('uses "div" by default', () => {
     let instance = ReactTestUtils.renderIntoDocument(
-      <Clearfix />
+      <Wrapper>Wrapper content</Wrapper>
     );
 
     assert.equal(ReactDOM.findDOMNode(instance).nodeName, 'DIV');
   });
 
-  it('has "clearfix" class by default', () => {
+  it('has "wrapper" class by default', () => {
     let instance = ReactTestUtils.renderIntoDocument(
-      <Clearfix />
+      <Wrapper>Wrapper content</Wrapper>
     );
 
-    assert.equal(ReactDOM.findDOMNode(instance).className, 'clearfix');
+    assert.equal(ReactDOM.findDOMNode(instance).className, 'wrapper');
+  });
+
+  it('Should have "wrapper-page" class name if props is `page`', () => {
+    let instance = ReactTestUtils.renderIntoDocument(
+      <Wrapper page>Wrapper content</Wrapper>
+    );
+
+    assert.equal(ReactDOM.findDOMNode(instance).className, 'wrapper-page');
+  });
+
+  it('Should have "enlarged forced" class name ' +
+      'if props is `isOpenSidebar`', () => {
+    let instance = ReactTestUtils.renderIntoDocument(
+      <Wrapper isOpenSidebar>Wrapper content</Wrapper>
+    );
+    let instanceClassName = ReactDOM.findDOMNode(instance).className;
+
+    assert.ok(instanceClassName.match(/\bwrapper\b/));
+    assert.ok(instanceClassName.match(/\benlarged\b/));
+    assert.ok(instanceClassName.match(/\bforced\b/));
   });
 
   it('Should merge additional classes', () => {
     let instance = ReactTestUtils.renderIntoDocument(
-      <Clearfix className="foo" />
+      <Wrapper className="foo">Wrapper content</Wrapper>
     );
     let instanceClassName = ReactDOM.findDOMNode(instance).className;
 
-    assert.ok(instanceClassName.match(/\bclearfix\b/));
+    assert.ok(instanceClassName.match(/\bwrapper\b/));
     assert.ok(instanceClassName.match(/\bfoo\b/));
   });
 });
