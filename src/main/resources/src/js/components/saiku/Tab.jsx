@@ -18,33 +18,29 @@ import React from 'react';
 
 class Tab extends React.Component {
   render() {
-    if (this.props.isRemoved) {
-      return null;
-    }
-
     return (
-      <div
-        role="tabpanel"
-        id={this.props.tabKey}
-        className={'tab-pane' + (this.props.isSelected ? ' active' : '')}
-        aria-hidden={!this.props.isSelected}
-      >
-        {this.props.children}
+      <div className="tab-content">
+        <div
+          role="tabpanel"
+          id={this.props.tabKey}
+          className={'tab-pane' + (this.props.isSelected ? ' active' : '')}
+          aria-hidden={!this.props.isSelected}
+        >
+          {this.props.children}
+        </div>
       </div>
     );
   }
 }
 
 Tab.propTypes = {
-  title: React.PropTypes.string.isRequired,
   tabKey: React.PropTypes.string.isRequired,
   isSelected: React.PropTypes.bool,
-  isRemoved: React.PropTypes.bool,
   children: React.PropTypes.node.isRequired
 };
 
 Tab.defaultProps = {
-  isRemoved: false
+  isSelected: false
 };
 
 export default Tab;

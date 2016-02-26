@@ -62415,10 +62415,6 @@
 	
 	var _Toolbar2 = _interopRequireDefault(_Toolbar);
 	
-	var _Tab = __webpack_require__(535);
-	
-	var _Tab2 = _interopRequireDefault(_Tab);
-	
 	var _Tabs = __webpack_require__(536);
 	
 	var _Tabs2 = _interopRequireDefault(_Tabs);
@@ -62459,7 +62455,8 @@
 	
 	    _this.state = {
 	      isOpenSidebar: false,
-	      tabs: []
+	      tabs: [],
+	      selectedTab: null
 	    };
 	
 	    (0, _reactAutobind2.default)(_this, 'openSidebar');
@@ -62467,24 +62464,6 @@
 	  }
 	
 	  _createClass(Workspace, [{
-	    key: 'componentDidMount',
-	    value: function componentDidMount() {
-	      // Simple example showing how to add tabs via function
-	      for (var i = 0; i < 5; i++) {
-	        this.addTab('New Tab ' + i, _react2.default.createElement(
-	          _Content2.default,
-	          null,
-	          _react2.default.createElement(
-	            'h1',
-	            null,
-	            'Tab ',
-	            i,
-	            ' added programatically via addTab function'
-	          )
-	        ));
-	      }
-	    }
-	  }, {
 	    key: 'openSidebar',
 	    value: function openSidebar() {
 	      if (this.state.isOpenSidebar) {
@@ -62498,18 +62477,6 @@
 	      }
 	    }
 	  }, {
-	    key: 'addTab',
-	    value: function addTab(title, component) {
-	      this.state.tabs.push({
-	        title: title,
-	        component: component
-	      });
-	
-	      this.setState({
-	        tabs: this.state.tabs
-	      });
-	    }
-	  }, {
 	    key: 'render',
 	    value: function render() {
 	      return _react2.default.createElement(
@@ -62520,50 +62487,33 @@
 	        _react2.default.createElement(
 	          _Content2.default,
 	          { page: true },
-	          _react2.default.createElement(
-	            _Tabs2.default,
-	            null,
-	            _react2.default.createElement(
-	              _Tab2.default,
-	              { tabKey: 'tab_1', title: 'Workspace' },
-	              _react2.default.createElement(
-	                _Content2.default,
-	                null,
-	                _react2.default.createElement(_Toolbar2.default, null),
-	                _react2.default.createElement(
-	                  _reactBootstrap.Grid,
-	                  null,
-	                  _react2.default.createElement(
-	                    _reactBootstrap.Row,
-	                    null,
-	                    _react2.default.createElement(
-	                      _reactBootstrap.Col,
-	                      { lg: 3 },
-	                      _react2.default.createElement(_Portlet2.default, { title: 'Measures' }),
-	                      _react2.default.createElement(_Portlet2.default, { title: 'Columns' }),
-	                      _react2.default.createElement(_Portlet2.default, { title: 'Rows' })
-	                    )
-	                  )
-	                )
-	              )
-	            ),
-	            this.renderTabs()
-	          )
+	          _react2.default.createElement(_Tabs2.default, { createContent: this.createContent })
 	        )
 	      );
 	    }
 	  }, {
-	    key: 'renderTabs',
-	    value: function renderTabs() {
-	      return this.state.tabs.map(function (tabData, idx) {
-	        var tabKey = 'tab_' + idx + '_' + new Date().getTime();
-	
-	        return _react2.default.createElement(
-	          _Tab2.default,
-	          { key: tabKey, tabKey: tabKey, title: tabData.title },
-	          tabData.component
-	        );
-	      });
+	    key: 'createContent',
+	    value: function createContent() {
+	      return _react2.default.createElement(
+	        _Content2.default,
+	        null,
+	        _react2.default.createElement(_Toolbar2.default, null),
+	        _react2.default.createElement(
+	          _reactBootstrap.Grid,
+	          null,
+	          _react2.default.createElement(
+	            _reactBootstrap.Row,
+	            null,
+	            _react2.default.createElement(
+	              _reactBootstrap.Col,
+	              { lg: 3 },
+	              _react2.default.createElement(_Portlet2.default, { title: 'Measures' }),
+	              _react2.default.createElement(_Portlet2.default, { title: 'Columns' }),
+	              _react2.default.createElement(_Portlet2.default, { title: 'Rows' })
+	            )
+	          )
+	        )
+	      );
 	    }
 	  }]);
 	
@@ -63721,7 +63671,7 @@
 /* 535 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -63765,21 +63715,21 @@
 	  }
 	
 	  _createClass(Tab, [{
-	    key: 'render',
+	    key: "render",
 	    value: function render() {
-	      if (this.props.isRemoved) {
-	        return null;
-	      }
-	
 	      return _react2.default.createElement(
-	        'div',
-	        {
-	          role: 'tabpanel',
-	          id: this.props.tabKey,
-	          className: 'tab-pane' + (this.props.isSelected ? ' active' : ''),
-	          'aria-hidden': !this.props.isSelected
-	        },
-	        this.props.children
+	        "div",
+	        { className: "tab-content" },
+	        _react2.default.createElement(
+	          "div",
+	          {
+	            role: "tabpanel",
+	            id: this.props.tabKey,
+	            className: 'tab-pane' + (this.props.isSelected ? ' active' : ''),
+	            "aria-hidden": !this.props.isSelected
+	          },
+	          this.props.children
+	        )
 	      );
 	    }
 	  }]);
@@ -63788,15 +63738,13 @@
 	}(_react2.default.Component);
 	
 	Tab.propTypes = {
-	  title: _react2.default.PropTypes.string.isRequired,
 	  tabKey: _react2.default.PropTypes.string.isRequired,
 	  isSelected: _react2.default.PropTypes.bool,
-	  isRemoved: _react2.default.PropTypes.bool,
 	  children: _react2.default.PropTypes.node.isRequired
 	};
 	
 	Tab.defaultProps = {
-	  isRemoved: false
+	  isSelected: false
 	};
 	
 	exports.default = Tab;
@@ -63817,9 +63765,17 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
+	var _reactAutobind = __webpack_require__(214);
+	
+	var _reactAutobind2 = _interopRequireDefault(_reactAutobind);
+	
 	var _underscore = __webpack_require__(271);
 	
 	var _underscore2 = _interopRequireDefault(_underscore);
+	
+	var _Tab = __webpack_require__(535);
+	
+	var _Tab2 = _interopRequireDefault(_Tab);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -63851,40 +63807,22 @@
 	
 	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Tabs).call(this, props));
 	
+	    _this.id = _underscore2.default.uniqueId('tabs_');
+	    _this.tabCounter = 1;
 	    _this.state = {
-	      selectedTab: _this.props.children[0],
-	      removedTabs: {}
+	      tabs: [],
+	      selectedTab: null
 	    };
 	
-	    _this.id = 'tabs_' + new Date().getTime();
+	    (0, _reactAutobind2.default)(_this, 'renderTabButtons', 'renderTabPanels');
+	    (0, _reactAutobind2.default)(_this, '_newTab', '_deleteTab', '_selectTab');
 	    return _this;
 	  }
 	
 	  _createClass(Tabs, [{
-	    key: 'selectTab',
-	    value: function selectTab(tab, event) {
-	      if (event) event.preventDefault();
-	      this.setState({
-	        selectedTab: tab
-	      });
-	    }
-	  }, {
-	    key: 'removeTab',
-	    value: function removeTab(tab, event) {
-	      if (event) {
-	        event.preventDefault();
-	      }
-	
-	      // Mark the tab as removed
-	      this.state.removedTabs[tab.props.tabKey] = true;
-	
-	      // Update the component state
-	      this.setState({
-	        removedTabs: this.state.removedTabs
-	      });
-	
-	      // Find the new selected tab and show it
-	      this.showTab(this.findAnAvailableTab());
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      this._newTab();
 	    }
 	  }, {
 	    key: 'render',
@@ -63894,95 +63832,133 @@
 	        null,
 	        _react2.default.createElement(
 	          'ul',
-	          { className: 'nav nav-tabs', role: 'tablist', id: this.id },
-	          _react2.default.Children.map(this.props.children, this.renderTabButtons, this)
+	          { className: 'nav nav-tabs', role: 'tablist', key: this.id },
+	          this.state.tabs.map(this.renderTabButtons),
+	          _react2.default.createElement(
+	            'li',
+	            { className: 'add-tab', role: 'presentation', role: 'tab' },
+	            _react2.default.createElement(
+	              'a',
+	              { role: 'tab', href: '#', onClick: this._newTab },
+	              '+'
+	            )
+	          )
 	        ),
-	        _react2.default.Children.map(this.props.children, this.renderTabPanels, this)
+	        this.state.tabs.map(this.renderTabPanels)
 	      );
 	    }
 	  }, {
 	    key: 'renderTabButtons',
-	    value: function renderTabButtons(tab) {
-	      if (this.isRemoved(tab)) {
-	        return null;
-	      }
+	    value: function renderTabButtons(tab, index) {
+	      var _this2 = this;
 	
 	      return _react2.default.createElement(
 	        'li',
 	        {
-	          className: this.isSelected(tab) ? 'active' : '',
+	          className: this._isSelected(tab) ? 'active' : '',
 	          role: 'presentation',
-	          role: 'tab'
+	          role: 'tab',
+	          key: 'tab_button_' + index
 	        },
 	        _react2.default.createElement(
 	          'a',
 	          {
 	            role: 'tab',
-	            href: '#' + tab.props.tabKey,
+	            href: '#' + tab.key,
 	            'data-toggle': 'tab',
-	            'aria-expanded': this.isSelected(tab),
-	            'aria-controls': tab.props.tabKey,
-	            onClick: this.selectTab.bind(this, tab)
+	            'aria-expanded': this._isSelected(tab),
+	            'aria-controls': tab.key,
+	            onClick: function onClick(event) {
+	              return _this2._selectTab(tab, event);
+	            }
 	          },
 	          _react2.default.createElement(
 	            'button',
 	            {
 	              className: 'close closeTab',
 	              type: 'button',
-	              onClick: this.removeTab.bind(this, tab)
+	              onClick: function onClick(event) {
+	                return _this2._deleteTab(tab, event);
+	              }
 	            },
 	            '×'
 	          ),
-	          tab.props.title
+	          tab.title
 	        )
 	      );
 	    }
 	  }, {
 	    key: 'renderTabPanels',
-	    value: function renderTabPanels(tab) {
-	      if (this.isRemoved(tab)) {
-	        return null;
-	      }
-	
+	    value: function renderTabPanels(tab, index) {
 	      return _react2.default.createElement(
 	        'div',
-	        { className: 'tab-content' },
-	        _react2.default.cloneElement(tab, { isSelected: this.isSelected(tab) })
+	        { className: 'tab-content', key: tab.key + '_content' },
+	        _react2.default.createElement(
+	          _Tab2.default,
+	          { tabKey: tab.key, isSelected: this._isSelected(tab) },
+	          tab.component
+	        )
 	      );
 	    }
 	  }, {
-	    key: 'isSelected',
-	    value: function isSelected(tab) {
-	      if (!this.state.selectedTab) {
-	        return false;
+	    key: '_isSelected',
+	    value: function _isSelected(tab) {
+	      return tab.key === this.state.selectedTab;
+	    }
+	  }, {
+	    key: '_newTab',
+	    value: function _newTab(event) {
+	      if (event) {
+	        event.preventDefault();
 	      }
 	
-	      return tab.props.tabKey === this.state.selectedTab.props.tabKey;
-	    }
-	  }, {
-	    key: 'isRemoved',
-	    value: function isRemoved(tab) {
-	      return this.state.removedTabs[tab.props.tabKey] === true;
-	    }
-	  }, {
-	    key: 'findAnAvailableTab',
-	    value: function findAnAvailableTab() {
-	      var _this2 = this;
+	      var tab = {
+	        key: _underscore2.default.uniqueId('tab_'),
+	        title: 'Unsaved query (' + this.tabCounter + ')',
+	        component: this.props.createContent()
+	      };
 	
-	      var availableTab = null;
+	      this.state.tabs.push(tab);
+	      this.tabCounter++;
 	
-	      _react2.default.Children.forEach(this.props.children, function (tab) {
-	        if (!availableTab && !_this2.isRemoved(tab)) {
-	          availableTab = tab;
-	        }
+	      this.setState({
+	        tabs: this.state.tabs
 	      });
 	
-	      return availableTab;
+	      this._selectTab(tab);
 	    }
 	  }, {
-	    key: 'showTab',
-	    value: function showTab(tab) {
-	      _underscore2.default.defer(this.selectTab.bind(this, tab));
+	    key: '_selectTab',
+	    value: function _selectTab(tab, event) {
+	      if (event) {
+	        event.preventDefault();
+	      }
+	
+	      this.setState({ selectedTab: tab.key });
+	    }
+	  }, {
+	    key: '_deleteTab',
+	    value: function _deleteTab(tab, event) {
+	      var _this3 = this;
+	
+	      if (event) {
+	        event.preventDefault();
+	        event.stopPropagation();
+	      }
+	
+	      var key = tab.key;
+	      var tabs = this.state.tabs;
+	
+	      // Remove the tab
+	      this.state.tabs = _underscore2.default.without(tabs, _underscore2.default.findWhere(tabs, { key: key }));
+	      this.setState({ tabs: this.state.tabs });
+	
+	      // If the removed that is the selected, find and select another one
+	      if (this._isSelected(tab) && this.state.tabs.length > 0) {
+	        _underscore2.default.defer(function () {
+	          return _this3._selectTab(_this3.state.tabs[0]);
+	        });
+	      }
 	    }
 	  }]);
 	
@@ -63990,7 +63966,7 @@
 	}(_react2.default.Component);
 	
 	Tabs.propTypes = {
-	  children: _react2.default.PropTypes.node.isRequired
+	  createContent: _react2.default.PropTypes.func.isRequired
 	};
 	
 	exports.default = Tabs;

@@ -26,7 +26,6 @@ import Content from './Content';
 import MenuBar from './MenuBar';
 import Sidebar from './Sidebar';
 import Toolbar from './Toolbar';
-import Tab from './Tab';
 import Tabs from './Tabs';
 import Portlet from './Portlet';
 
@@ -36,21 +35,11 @@ class Workspace extends React.Component {
 
     this.state = {
       isOpenSidebar: false,
-      tabs: []
+      tabs: [],
+      selectedTab: null
     };
 
     autoBind(this, 'openSidebar');
-  }
-
-  componentDidMount() {
-    // Simple example showing how to add tabs via function
-    for (let i = 0; i < 5; i++) {
-      this.addTab('New Tab ' + i, (
-        <Content>
-          <h1>Tab {i} added programatically via addTab function</h1>
-        </Content>
-      ));
-    }
   }
 
   openSidebar() {
@@ -66,55 +55,33 @@ class Workspace extends React.Component {
     }
   }
 
-  addTab(title, component) {
-    this.state.tabs.push({
-      title: title,
-      component: component
-    });
-
-    this.setState({
-      tabs: this.state.tabs
-    });
-  }
-
   render() {
     return (
       <Wrapper isOpenSidebar={this.state.isOpenSidebar}>
         <MenuBar openSidebar={this.openSidebar} />
         <Sidebar />
         <Content page>
-          <Tabs>
-            <Tab tabKey="tab_1" title="Workspace">
-              <Content>
-                <Toolbar />
-                <Grid>
-                  <Row>
-                    <Col lg={3}>
-                      <Portlet title="Measures" />
-                      <Portlet title="Columns" />
-                      <Portlet title="Rows" />
-                    </Col>
-                  </Row>
-                </Grid>
-              </Content>
-            </Tab>
-            {this.renderTabs()}
-          </Tabs>
+          <Tabs createContent={this.createContent} />
         </Content>
       </Wrapper>
     );
   }
 
-  renderTabs() {
-    return this.state.tabs.map((tabData, idx) => {
-      let tabKey = 'tab_' + idx + '_' + (new Date()).getTime();
-
-      return (
-        <Tab key={tabKey} tabKey={tabKey} title={tabData.title}>
-          {tabData.component}
-        </Tab>
-      );
-    });
+  createContent() {
+    return (
+      <Content>
+        <Toolbar />
+        <Grid>
+          <Row>
+            <Col lg={3}>
+              <Portlet title="Measures" />
+              <Portlet title="Columns" />
+              <Portlet title="Rows" />
+            </Col>
+          </Row>
+        </Grid>
+      </Content>
+    );
   }
 }
 

@@ -15,130 +15,137 @@
  */
 
 import React from 'react';
+import autoBind from 'react-autobind';
 import _ from 'underscore';
+import Tab from './Tab';
 
 class Tabs extends React.Component {
   constructor(props) {
     super(props);
 
+    this.id = _.uniqueId('tabs_');
+    this.tabCounter = 1;
     this.state = {
-      selectedTab: this.props.children[0],
-      removedTabs: {}
+      tabs: [],
+      selectedTab: null
     };
 
-    this.id = 'tabs_' + (new Date()).getTime();
+    autoBind(this, 'renderTabButtons', 'renderTabPanels');
+    autoBind(this, '_newTab', '_deleteTab', '_selectTab');
   }
 
-  selectTab(tab, event) {
-    if (event) event.preventDefault();
-    this.setState({
-      selectedTab: tab
-    });
-  }
-
-  removeTab(tab, event) {
-    if (event) {
-      event.preventDefault();
-    }
-
-    // Mark the tab as removed
-    this.state.removedTabs[tab.props.tabKey] = true;
-
-    // Update the component state
-    this.setState({
-      removedTabs: this.state.removedTabs
-    });
-
-    // Find the new selected tab and show it
-    this.showTab(this.findAnAvailableTab());
+  componentDidMount() {
+    this._newTab();
   }
 
   render() {
     return (
       <div>
-        <ul className="nav nav-tabs" role="tablist" id={this.id}>
-          {React.Children.map(this.props.children, this.renderTabButtons, this)}
+        <ul className="nav nav-tabs" role="tablist" key={this.id}>
+          {this.state.tabs.map(this.renderTabButtons)}
+          <li className="add-tab" role="presentation" role="tab">
+            <a role="tab" href="#" onClick={this._newTab}>+</a>
+          </li>
         </ul>
-        {React.Children.map(this.props.children, this.renderTabPanels, this)}
+        {this.state.tabs.map(this.renderTabPanels)}
       </div>
     );
   }
 
-  renderTabButtons(tab) {
-    if (this.isRemoved(tab)) {
-      return null;
-    }
-
+  renderTabButtons(tab, index) {
     return (
       <li
-        className={this.isSelected(tab) ? 'active' : ''}
+        className={this._isSelected(tab) ? 'active' : ''}
         role="presentation"
         role="tab"
+        key={'tab_button_' + index}
       >
         <a
           role="tab"
-          href={'#' + tab.props.tabKey}
+          href={'#' + tab.key}
           data-toggle="tab"
-          aria-expanded={this.isSelected(tab)}
-          aria-controls={tab.props.tabKey}
-          onClick={this.selectTab.bind(this, tab)}
+          aria-expanded={this._isSelected(tab)}
+          aria-controls={tab.key}
+          onClick={(event) => this._selectTab(tab, event)}
         >
           <button
             className="close closeTab"
             type="button"
-            onClick={this.removeTab.bind(this, tab)}
+            onClick={(event) => this._deleteTab(tab, event)}
           >
             ×
           </button>
-          {tab.props.title}
+          {tab.title}
         </a>
       </li>
     );
   }
 
-  renderTabPanels(tab) {
-    if (this.isRemoved(tab)) {
-      return null;
-    }
-
+  renderTabPanels(tab, index) {
     return (
-      <div className="tab-content">
-        {React.cloneElement(tab, {isSelected: this.isSelected(tab)})}
+      <div className="tab-content" key={tab.key + '_content'}>
+        <Tab tabKey={tab.key} isSelected={this._isSelected(tab)}>
+          {tab.component}
+        </Tab>
       </div>
     );
   }
 
-  isSelected(tab) {
-    if (!this.state.selectedTab) {
-      return false;
+  _isSelected(tab) {
+    return tab.key === this.state.selectedTab;
+  }
+
+  _newTab(event) {
+    if (event) {
+      event.preventDefault();
     }
 
-    return tab.props.tabKey === this.state.selectedTab.props.tabKey;
-  }
+    let tab = {
+      key: _.uniqueId('tab_'),
+      title: 'Unsaved query (' + (this.tabCounter) + ')',
+      component: this.props.createContent()
+    };
 
-  isRemoved(tab) {
-    return this.state.removedTabs[tab.props.tabKey] === true;
-  }
+    this.state.tabs.push(tab);
+    this.tabCounter++;
 
-  findAnAvailableTab() {
-    var availableTab = null;
-
-    React.Children.forEach(this.props.children, (tab) => {
-      if (!availableTab && !this.isRemoved(tab)) {
-        availableTab = tab;
-      }
+    this.setState({
+      tabs: this.state.tabs
     });
 
-    return availableTab;
+    this._selectTab(tab);
   }
 
-  showTab(tab) {
-    _.defer(this.selectTab.bind(this, tab));
+  _selectTab(tab, event) {
+    if (event) {
+      event.preventDefault();
+    }
+
+    this.setState({selectedTab: tab.key});
+  }
+
+  _deleteTab(tab, event) {
+    if (event) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+
+    let key = tab.key;
+    let tabs = this.state.tabs;
+
+    // Remove the tab
+    this.state.tabs = _.without(tabs, _.findWhere(tabs, {key: key}));
+    this.setState({tabs: this.state.tabs});
+
+    // If the removed that is the selected, find and select another one
+    if (this._isSelected(tab) && (this.state.tabs.length > 0)) {
+      _.defer(() => this._selectTab(this.state.tabs[0]));
+    }
   }
 }
 
 Tabs.propTypes = {
-  children: React.PropTypes.node.isRequired
+  createContent: React.PropTypes.func.isRequired
 };
 
 export default Tabs;
