@@ -18,32 +18,40 @@ import React from 'react';
 import ReactTestUtils from 'react/lib/ReactTestUtils';
 import ReactDOM from 'react-dom';
 
-import Clearfix from '../../../src/js/components/bootstrap/Clearfix';
+import Content from '../../../src/js/components/saiku/Content';
 
-describe('Clearfix', () => {
+describe('Content', () => {
   it('uses "div" by default', () => {
     let instance = ReactTestUtils.renderIntoDocument(
-      <Clearfix />
+      <Content>Content here</Content>
     );
 
     assert.equal(ReactDOM.findDOMNode(instance).nodeName, 'DIV');
   });
 
-  it('has "clearfix" class by default', () => {
+  it('has "content" class by default', () => {
     let instance = ReactTestUtils.renderIntoDocument(
-      <Clearfix />
+      <Content>Content here</Content>
     );
 
-    assert.equal(ReactDOM.findDOMNode(instance).className, 'clearfix');
+    assert.equal(ReactDOM.findDOMNode(instance).className, 'content');
+  });
+
+  it('Should have "content-page" class name if props is `page`', () => {
+    let instance = ReactTestUtils.renderIntoDocument(
+      <Content page>Content here</Content>
+    );
+
+    assert.equal(ReactDOM.findDOMNode(instance).className, 'content-page');
   });
 
   it('Should merge additional classes', () => {
     let instance = ReactTestUtils.renderIntoDocument(
-      <Clearfix className="foo" />
+      <Content className="foo">Content here</Content>
     );
     let instanceClassName = ReactDOM.findDOMNode(instance).className;
 
-    assert.ok(instanceClassName.match(/\bclearfix\b/));
+    assert.ok(instanceClassName.match(/\bcontent\b/));
     assert.ok(instanceClassName.match(/\bfoo\b/));
   });
 });
