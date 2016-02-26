@@ -26,6 +26,7 @@ const ReactValidatorStrategy = {
   },
 
   createInactiveSchema(rules, messsages, callback) {
+    console.log('entrei');
     let schema = this.createSchema(rules, messsages, callback);
 
     schema.activeRules = [];
