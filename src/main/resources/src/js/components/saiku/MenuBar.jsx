@@ -18,6 +18,7 @@ import React from 'react';
 import autoBind from 'react-autobind';
 import { History } from 'react-router';
 import reactMixin from 'react-mixin';
+import _ from 'underscore';
 import {
   Grid,
   Button,
@@ -28,12 +29,32 @@ import {
 } from 'react-bootstrap';
 import Clearfix from '../bootstrap/Clearfix';
 import Icon from './Icon';
+import MenubarCollection from '../../collections/MenubarCollection';
 
 class MenuBar extends React.Component {
   constructor(props) {
     super(props);
 
-    autoBind(this, 'onButtonMenu', 'showLockScreen');
+    this.state = {
+      models: ''
+    };
+
+    this._menubarUI = new MenubarCollection();
+
+    autoBind(this, 'onButtonMenu', 'showLockScreen', '_handleFetchUI');
+    autoBind(this, '_renderMenu', '_renderSubMenu');
+  }
+
+  componentDidMount() {
+    this._menubarUI.fetch({
+      success: this._handleFetchUI
+    });
+  }
+
+  _handleFetchUI(menubarUI) {
+    this.setState({
+      models: menubarUI.models[0]
+    });
   }
 
   onButtonMenu(event) {
@@ -45,7 +66,44 @@ class MenuBar extends React.Component {
     this.history.pushState(null, '/lockscreen/');
   }
 
+  _renderMenu(menu, index) {
+    let key = _.uniqueId('menu_');
+    let isVisible = !menu.visible ? 'hidden' : '';
+
+    return (
+      <NavDropdown
+        id={key}
+        key={key}
+        eventKey={index}
+        title={menu.name}
+        className={isVisible}
+      >
+        {menu.subitem.map(this._renderSubMenu)}
+      </NavDropdown>
+    );
+  }
+
+  _renderSubMenu(submenu, index) {
+    let key = _.uniqueId('menuitem_' + index + '_');
+    let isVisible = !submenu.visible ? 'hidden' : '';
+
+    return (
+      <MenuItem
+        id={key}
+        key={key}
+        eventKey={key}
+        className={isVisible}
+        href={submenu.action}
+      >
+        {submenu.name}
+      </MenuItem>
+    );
+  }
+
   render() {
+    let menus = (this.state && !(_.isEmpty(this.state.models))) ?
+      this.state.models.getItem() : [];
+
     return (
       <div className="topbar">
         <div className="topbar-left">
@@ -72,26 +130,7 @@ class MenuBar extends React.Component {
               <Clearfix />
             </div>
             <Nav className="hidden-xs">
-              <NavDropdown eventKey={1} title="File" id="nav-dropdown-file">
-                <MenuItem eventKey={1.1}>Option 1</MenuItem>
-                <MenuItem eventKey={1.2}>Option 2</MenuItem>
-                <MenuItem eventKey={1.3}>Option 3</MenuItem>
-              </NavDropdown>
-              <NavDropdown eventKey={2} title="Edit" id="nav-dropdown-edit">
-                <MenuItem eventKey={2.1}>Option 1</MenuItem>
-                <MenuItem eventKey={2.2}>Option 2</MenuItem>
-                <MenuItem eventKey={2.3}>Option 3</MenuItem>
-              </NavDropdown>
-              <NavDropdown eventKey={3} title="Tools" id="nav-dropdown-tools">
-                <MenuItem eventKey={3.1}>Option 1</MenuItem>
-                <MenuItem eventKey={3.2}>Option 2</MenuItem>
-                <MenuItem eventKey={3.3}>Option 3</MenuItem>
-              </NavDropdown>
-              <NavDropdown eventKey={4} title="Views" id="nav-dropdown-views">
-                <MenuItem eventKey={4.1}>Option 1</MenuItem>
-                <MenuItem eventKey={4.2}>Option 2</MenuItem>
-                <MenuItem eventKey={4.3}>Option 3</MenuItem>
-              </NavDropdown>
+              {menus.map(this._renderMenu)}
             </Nav>
             <Nav className="navbar-right pull-right">
               <li className="dropdown hidden-xs">
