@@ -22,35 +22,36 @@ import Wrapper from '../../../src/js/components/saiku/Wrapper';
 
 describe('Wrapper', () => {
   it('uses "div" by default', () => {
-    let instance = ReactTestUtils.renderIntoDocument(
+    let component = ReactTestUtils.renderIntoDocument(
       <Wrapper>Wrapper content</Wrapper>
     );
 
-    assert.equal(ReactDOM.findDOMNode(instance).nodeName, 'DIV');
+    assert.equal(ReactDOM.findDOMNode(component).nodeName, 'DIV');
   });
 
   it('has "wrapper" class by default', () => {
-    let instance = ReactTestUtils.renderIntoDocument(
+    let component = ReactTestUtils.renderIntoDocument(
       <Wrapper>Wrapper content</Wrapper>
     );
 
-    assert.equal(ReactDOM.findDOMNode(instance).className, 'wrapper');
+    assert.equal(ReactDOM.findDOMNode(component).className, 'wrapper');
   });
 
   it('Should have "wrapper-page" class name if props is `page`', () => {
-    let instance = ReactTestUtils.renderIntoDocument(
+    let component = ReactTestUtils.renderIntoDocument(
       <Wrapper page>Wrapper content</Wrapper>
     );
 
-    assert.equal(ReactDOM.findDOMNode(instance).className, 'wrapper-page');
+    assert.equal(ReactDOM.findDOMNode(component).className, 'wrapper-page');
   });
 
-  it('Should have "enlarged forced" class name ' +
+  it('Should have "enlarged forced" class names ' +
       'if props is `isOpenSidebar`', () => {
-    let instance = ReactTestUtils.renderIntoDocument(
+
+    let component = ReactTestUtils.renderIntoDocument(
       <Wrapper isOpenSidebar>Wrapper content</Wrapper>
     );
-    let instanceClassName = ReactDOM.findDOMNode(instance).className;
+    let instanceClassName = ReactDOM.findDOMNode(component).className;
 
     assert.ok(instanceClassName.match(/\bwrapper\b/));
     assert.ok(instanceClassName.match(/\benlarged\b/));
@@ -58,10 +59,10 @@ describe('Wrapper', () => {
   });
 
   it('Should merge additional classes', () => {
-    let instance = ReactTestUtils.renderIntoDocument(
+    let component = ReactTestUtils.renderIntoDocument(
       <Wrapper className="foo">Wrapper content</Wrapper>
     );
-    let instanceClassName = ReactDOM.findDOMNode(instance).className;
+    let instanceClassName = ReactDOM.findDOMNode(component).className;
 
     assert.ok(instanceClassName.match(/\bwrapper\b/));
     assert.ok(instanceClassName.match(/\bfoo\b/));

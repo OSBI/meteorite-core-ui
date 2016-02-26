@@ -22,34 +22,34 @@ import Content from '../../../src/js/components/saiku/Content';
 
 describe('Content', () => {
   it('uses "div" by default', () => {
-    let instance = ReactTestUtils.renderIntoDocument(
+    let component = ReactTestUtils.renderIntoDocument(
       <Content>Content here</Content>
     );
 
-    assert.equal(ReactDOM.findDOMNode(instance).nodeName, 'DIV');
+    assert.equal(ReactDOM.findDOMNode(component).nodeName, 'DIV');
   });
 
   it('has "content" class by default', () => {
-    let instance = ReactTestUtils.renderIntoDocument(
+    let component = ReactTestUtils.renderIntoDocument(
       <Content>Content here</Content>
     );
 
-    assert.equal(ReactDOM.findDOMNode(instance).className, 'content');
+    assert.equal(ReactDOM.findDOMNode(component).className, 'content');
   });
 
   it('Should have "content-page" class name if props is `page`', () => {
-    let instance = ReactTestUtils.renderIntoDocument(
+    let component = ReactTestUtils.renderIntoDocument(
       <Content page>Content here</Content>
     );
 
-    assert.equal(ReactDOM.findDOMNode(instance).className, 'content-page');
+    assert.equal(ReactDOM.findDOMNode(component).className, 'content-page');
   });
 
   it('Should merge additional classes', () => {
-    let instance = ReactTestUtils.renderIntoDocument(
+    let component = ReactTestUtils.renderIntoDocument(
       <Content className="foo">Content here</Content>
     );
-    let instanceClassName = ReactDOM.findDOMNode(instance).className;
+    let instanceClassName = ReactDOM.findDOMNode(component).className;
 
     assert.ok(instanceClassName.match(/\bcontent\b/));
     assert.ok(instanceClassName.match(/\bfoo\b/));

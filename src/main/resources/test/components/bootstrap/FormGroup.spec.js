@@ -22,26 +22,26 @@ import FormGroup from '../../../src/js/components/bootstrap/FormGroup';
 
 describe('FormGroup', () => {
   it('uses "div" by default', () => {
-    let instance = ReactTestUtils.renderIntoDocument(
+    let component = ReactTestUtils.renderIntoDocument(
       <FormGroup>FormGroup content</FormGroup>
     );
 
-    assert.equal(ReactDOM.findDOMNode(instance).nodeName, 'DIV');
+    assert.equal(ReactDOM.findDOMNode(component).nodeName, 'DIV');
   });
 
   it('has "form-group" class by default', () => {
-    let instance = ReactTestUtils.renderIntoDocument(
+    let component = ReactTestUtils.renderIntoDocument(
       <FormGroup>FormGroup content</FormGroup>
     );
 
-    assert.equal(ReactDOM.findDOMNode(instance).className, 'form-group');
+    assert.equal(ReactDOM.findDOMNode(component).className, 'form-group');
   });
 
   it('Should merge additional classes', () => {
-    let instance = ReactTestUtils.renderIntoDocument(
+    let component = ReactTestUtils.renderIntoDocument(
       <FormGroup className="foo">FormGroup content</FormGroup>
     );
-    let instanceClassName = ReactDOM.findDOMNode(instance).className;
+    let instanceClassName = ReactDOM.findDOMNode(component).className;
 
     assert.ok(instanceClassName.match(/\bform-group\b/));
     assert.ok(instanceClassName.match(/\bfoo\b/));

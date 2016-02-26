@@ -22,26 +22,26 @@ import Clearfix from '../../../src/js/components/bootstrap/Clearfix';
 
 describe('Clearfix', () => {
   it('uses "div" by default', () => {
-    let instance = ReactTestUtils.renderIntoDocument(
+    let component = ReactTestUtils.renderIntoDocument(
       <Clearfix />
     );
 
-    assert.equal(ReactDOM.findDOMNode(instance).nodeName, 'DIV');
+    assert.equal(ReactDOM.findDOMNode(component).nodeName, 'DIV');
   });
 
   it('has "clearfix" class by default', () => {
-    let instance = ReactTestUtils.renderIntoDocument(
+    let component = ReactTestUtils.renderIntoDocument(
       <Clearfix />
     );
 
-    assert.equal(ReactDOM.findDOMNode(instance).className, 'clearfix');
+    assert.equal(ReactDOM.findDOMNode(component).className, 'clearfix');
   });
 
   it('Should merge additional classes', () => {
-    let instance = ReactTestUtils.renderIntoDocument(
+    let component = ReactTestUtils.renderIntoDocument(
       <Clearfix className="foo" />
     );
-    let instanceClassName = ReactDOM.findDOMNode(instance).className;
+    let instanceClassName = ReactDOM.findDOMNode(component).className;
 
     assert.ok(instanceClassName.match(/\bclearfix\b/));
     assert.ok(instanceClassName.match(/\bfoo\b/));
