@@ -18,13 +18,17 @@ import React from 'react';
 
 class Tab extends React.Component {
   render() {
-    if (this.props.isRemoved) return null;
+    if (this.props.isRemoved) {
+      return null;
+    }
 
     return (
-      <div role="tabpanel"
-      id={this.props.tabKey}
-      className={'tab-pane' + (this.props.isSelected ? ' active' : '')}
-      aria-hidden={!this.props.isSelected}>
+      <div
+        role="tabpanel"
+        id={this.props.tabKey}
+        className={'tab-pane' + (this.props.isSelected ? ' active' : '')}
+        aria-hidden={!this.props.isSelected}
+      >
         {this.props.children}
       </div>
     );

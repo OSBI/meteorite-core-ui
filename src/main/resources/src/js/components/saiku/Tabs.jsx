@@ -15,6 +15,7 @@
  */
 
 import React from 'react';
+import _ from 'underscore';
 
 class Tabs extends React.Component {
   constructor(props) {
@@ -36,7 +37,9 @@ class Tabs extends React.Component {
   }
 
   removeTab(tab, event) {
-    if (event) event.preventDefault();
+    if (event) {
+      event.preventDefault();
+    }
 
     // Mark the tab as removed
     this.state.removedTabs[tab.props.tabKey] = true;
@@ -62,20 +65,31 @@ class Tabs extends React.Component {
   }
 
   renderTabButtons(tab) {
-    if (this.isRemoved(tab)) return null;
+    if (this.isRemoved(tab)) {
+      return null;
+    }
 
     return (
-      <li className={this.isSelected(tab) ? 'active' : ''}
-      role="presentation"
-      role="tab">
-        <a role="tab"
-        href={'#' + tab.props.tabKey}
-        data-toggle="tab"
-        aria-expanded={this.isSelected(tab)}
-        aria-controls={tab.props.tabKey}
-        onClick={this.selectTab.bind(this, tab)}>
-          <button className="close closeTab" type="button"
-          onClick={this.removeTab.bind(this, tab)}>×</button>
+      <li
+        className={this.isSelected(tab) ? 'active' : ''}
+        role="presentation"
+        role="tab"
+      >
+        <a
+          role="tab"
+          href={'#' + tab.props.tabKey}
+          data-toggle="tab"
+          aria-expanded={this.isSelected(tab)}
+          aria-controls={tab.props.tabKey}
+          onClick={this.selectTab.bind(this, tab)}
+        >
+          <button
+            className="close closeTab"
+            type="button"
+            onClick={this.removeTab.bind(this, tab)}
+          >
+            ×
+          </button>
           {tab.props.title}
         </a>
       </li>
@@ -83,7 +97,9 @@ class Tabs extends React.Component {
   }
 
   renderTabPanels(tab) {
-    if (this.isRemoved(tab)) return null;
+    if (this.isRemoved(tab)) {
+      return null;
+    }
 
     return (
       <div className="tab-content">
@@ -93,7 +109,10 @@ class Tabs extends React.Component {
   }
 
   isSelected(tab) {
-    if (!this.state.selectedTab) return false;
+    if (!this.state.selectedTab) {
+      return false;
+    }
+
     return tab.props.tabKey === this.state.selectedTab.props.tabKey;
   }
 
@@ -114,7 +133,7 @@ class Tabs extends React.Component {
   }
 
   showTab(tab) {
-    setTimeout(this.selectTab.bind(this, tab), 100);
+    _.defer(this.selectTab.bind(this, tab));
   }
 }
 
