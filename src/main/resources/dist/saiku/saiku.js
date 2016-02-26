@@ -70,13 +70,13 @@
 	
 	var _Workspace2 = _interopRequireDefault(_Workspace);
 	
-	var _NotFound = __webpack_require__(536);
+	var _NotFound = __webpack_require__(538);
 	
 	var _NotFound2 = _interopRequireDefault(_NotFound);
 	
-	__webpack_require__(537);
+	__webpack_require__(539);
 	
-	__webpack_require__(538);
+	__webpack_require__(540);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -62411,19 +62411,19 @@
 	
 	var _Sidebar2 = _interopRequireDefault(_Sidebar);
 	
-	var _Toolbar = __webpack_require__(530);
+	var _Toolbar = __webpack_require__(532);
 	
 	var _Toolbar2 = _interopRequireDefault(_Toolbar);
 	
-	var _Tab = __webpack_require__(533);
+	var _Tab = __webpack_require__(535);
 	
 	var _Tab2 = _interopRequireDefault(_Tab);
 	
-	var _Tabs = __webpack_require__(534);
+	var _Tabs = __webpack_require__(536);
 	
 	var _Tabs2 = _interopRequireDefault(_Tabs);
 	
-	var _Portlet = __webpack_require__(535);
+	var _Portlet = __webpack_require__(537);
 	
 	var _Portlet2 = _interopRequireDefault(_Portlet);
 	
@@ -63213,6 +63213,18 @@
 	
 	var _Icon2 = _interopRequireDefault(_Icon);
 	
+	var _reactAutobind = __webpack_require__(214);
+	
+	var _reactAutobind2 = _interopRequireDefault(_reactAutobind);
+	
+	var _underscore = __webpack_require__(271);
+	
+	var _underscore2 = _interopRequireDefault(_underscore);
+	
+	var _SidebarCollection = __webpack_require__(530);
+	
+	var _SidebarCollection2 = _interopRequireDefault(_SidebarCollection);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -63238,15 +63250,62 @@
 	var Toolbar = function (_React$Component) {
 	  _inherits(Toolbar, _React$Component);
 	
-	  function Toolbar() {
+	  function Toolbar(props) {
 	    _classCallCheck(this, Toolbar);
 	
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Toolbar).apply(this, arguments));
+	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Toolbar).call(this, props));
+	
+	    _this.state = {
+	      models: ''
+	    };
+	
+	    _this._sidebarUI = new _SidebarCollection2.default();
+	
+	    (0, _reactAutobind2.default)(_this, '_handleFetchUI', '_renderItem');
+	    return _this;
 	  }
 	
 	  _createClass(Toolbar, [{
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      this._sidebarUI.fetch({
+	        success: this._handleFetchUI
+	      });
+	    }
+	  }, {
+	    key: '_handleFetchUI',
+	    value: function _handleFetchUI(sidebarUI) {
+	      this.setState({
+	        models: sidebarUI.models[0]
+	      });
+	    }
+	  }, {
+	    key: '_renderItem',
+	    value: function _renderItem(item, index) {
+	      var key = 'sidebar_item_' + index;
+	
+	      return _react2.default.createElement(
+	        'li',
+	        { id: key, key: key },
+	        _react2.default.createElement(
+	          'a',
+	          { href: item.action },
+	          _react2.default.createElement(_Icon2.default, { name: item.icon }),
+	          _react2.default.createElement(
+	            'span',
+	            null,
+	            ' ',
+	            item.name,
+	            ' '
+	          )
+	        )
+	      );
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
+	      var items = this.state && !_underscore2.default.isEmpty(this.state.models) ? this.state.models.getItem() : [];
+	
 	      return _react2.default.createElement(
 	        'div',
 	        { className: 'fixed-left' },
@@ -63262,132 +63321,7 @@
 	              _react2.default.createElement(
 	                'ul',
 	                null,
-	                _react2.default.createElement(
-	                  'li',
-	                  null,
-	                  _react2.default.createElement(
-	                    'a',
-	                    { href: '#' },
-	                    _react2.default.createElement(_Icon2.default, { name: 'home' }),
-	                    _react2.default.createElement(
-	                      'span',
-	                      null,
-	                      ' Home '
-	                    )
-	                  )
-	                ),
-	                _react2.default.createElement(
-	                  'li',
-	                  null,
-	                  _react2.default.createElement(
-	                    'a',
-	                    { href: '#' },
-	                    _react2.default.createElement(_Icon2.default, { name: 'plus-square' }),
-	                    _react2.default.createElement(
-	                      'span',
-	                      null,
-	                      ' New Query '
-	                    )
-	                  )
-	                ),
-	                _react2.default.createElement(
-	                  'li',
-	                  null,
-	                  _react2.default.createElement(
-	                    'a',
-	                    { href: '#' },
-	                    _react2.default.createElement(_Icon2.default, { name: 'folder-open-o' }),
-	                    _react2.default.createElement(
-	                      'span',
-	                      null,
-	                      ' Open Query '
-	                    )
-	                  )
-	                ),
-	                _react2.default.createElement(
-	                  'li',
-	                  null,
-	                  _react2.default.createElement(
-	                    'a',
-	                    { href: '#' },
-	                    _react2.default.createElement(_Icon2.default, { name: 'file-text-o' }),
-	                    _react2.default.createElement(
-	                      'span',
-	                      null,
-	                      ' Reporting '
-	                    )
-	                  )
-	                ),
-	                _react2.default.createElement(
-	                  'li',
-	                  null,
-	                  _react2.default.createElement(
-	                    'a',
-	                    { href: '#' },
-	                    _react2.default.createElement(_Icon2.default, { name: 'dashboard' }),
-	                    _react2.default.createElement(
-	                      'span',
-	                      null,
-	                      ' Dashboard '
-	                    )
-	                  )
-	                ),
-	                _react2.default.createElement(
-	                  'li',
-	                  null,
-	                  _react2.default.createElement(
-	                    'a',
-	                    { href: '#' },
-	                    _react2.default.createElement(_Icon2.default, { name: 'cube' }),
-	                    _react2.default.createElement(
-	                      'span',
-	                      null,
-	                      ' Schema Designer '
-	                    )
-	                  )
-	                ),
-	                _react2.default.createElement(
-	                  'li',
-	                  null,
-	                  _react2.default.createElement(
-	                    'a',
-	                    { href: '#' },
-	                    _react2.default.createElement(_Icon2.default, { name: 'globe' }),
-	                    _react2.default.createElement(
-	                      'span',
-	                      null,
-	                      ' Translate '
-	                    )
-	                  )
-	                ),
-	                _react2.default.createElement(
-	                  'li',
-	                  null,
-	                  _react2.default.createElement(
-	                    'a',
-	                    { href: '#' },
-	                    _react2.default.createElement(_Icon2.default, { name: 'gear' }),
-	                    _react2.default.createElement(
-	                      'span',
-	                      null,
-	                      ' Admin Console '
-	                    )
-	                  )
-	                ),
-	                _react2.default.createElement(
-	                  'li',
-	                  null,
-	                  _react2.default.createElement(
-	                    'a',
-	                    { href: '#' },
-	                    _react2.default.createElement(_Icon2.default, { name: 'bug' }),
-	                    _react2.default.createElement(
-	                      'span',
-	                      null,
-	                      ' Send a bug '
-	                    )
-	                  )
-	                )
+	                items.map(this._renderItem)
 	              ),
 	              _react2.default.createElement(_Clearfix2.default, null)
 	            ),
@@ -63405,6 +63339,131 @@
 
 /***/ },
 /* 530 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _backbone = __webpack_require__(272);
+	
+	var _backbone2 = _interopRequireDefault(_backbone);
+	
+	var _SidebarModel = __webpack_require__(531);
+	
+	var _SidebarModel2 = _interopRequireDefault(_SidebarModel);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /*
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   Copyright 2016 OSBI Ltd
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   Licensed under the Apache License, Version 2.0 (the "License");
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   you may not use this file except in compliance with the License.
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   You may obtain a copy of the License at
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *       http://www.apache.org/licenses/LICENSE-2.0
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   Unless required by applicable law or agreed to in writing, software
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   distributed under the License is distributed on an "AS IS" BASIS,
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   See the License for the specific language governing permissions and
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   limitations under the License.
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
+	
+	var SidebarCollection = function (_Backbone$Collection) {
+	  _inherits(SidebarCollection, _Backbone$Collection);
+	
+	  function SidebarCollection(options) {
+	    _classCallCheck(this, SidebarCollection);
+	
+	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(SidebarCollection).call(this, options));
+	
+	    _this.model = _SidebarModel2.default;
+	    return _this;
+	  }
+	
+	  _createClass(SidebarCollection, [{
+	    key: 'url',
+	    value: function url() {
+	      return 'http://localhost:9999/sidebar';
+	    }
+	  }]);
+	
+	  return SidebarCollection;
+	}(_backbone2.default.Collection);
+	
+	exports.default = SidebarCollection;
+
+/***/ },
+/* 531 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _backbone = __webpack_require__(272);
+	
+	var _backbone2 = _interopRequireDefault(_backbone);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /*
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   Copyright 2016 OSBI Ltd
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   Licensed under the Apache License, Version 2.0 (the "License");
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   you may not use this file except in compliance with the License.
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   You may obtain a copy of the License at
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *       http://www.apache.org/licenses/LICENSE-2.0
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   Unless required by applicable law or agreed to in writing, software
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   distributed under the License is distributed on an "AS IS" BASIS,
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   See the License for the specific language governing permissions and
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   limitations under the License.
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
+	
+	var SidebarModel = function (_Backbone$Model) {
+	  _inherits(SidebarModel, _Backbone$Model);
+	
+	  function SidebarModel() {
+	    _classCallCheck(this, SidebarModel);
+	
+	    return _possibleConstructorReturn(this, Object.getPrototypeOf(SidebarModel).apply(this, arguments));
+	  }
+	
+	  _createClass(SidebarModel, [{
+	    key: 'getItem',
+	    value: function getItem() {
+	      return this.get('item');
+	    }
+	  }]);
+	
+	  return SidebarModel;
+	}(_backbone2.default.Model);
+	
+	exports.default = SidebarModel;
+
+/***/ },
+/* 532 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -63433,7 +63492,7 @@
 	
 	var _Icon2 = _interopRequireDefault(_Icon);
 	
-	var _ToolbarCollection = __webpack_require__(531);
+	var _ToolbarCollection = __webpack_require__(533);
 	
 	var _ToolbarCollection2 = _interopRequireDefault(_ToolbarCollection);
 	
@@ -63534,7 +63593,7 @@
 	exports.default = Toolbar;
 
 /***/ },
-/* 531 */
+/* 533 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -63549,7 +63608,7 @@
 	
 	var _backbone2 = _interopRequireDefault(_backbone);
 	
-	var _ToolbarModel = __webpack_require__(532);
+	var _ToolbarModel = __webpack_require__(534);
 	
 	var _ToolbarModel2 = _interopRequireDefault(_ToolbarModel);
 	
@@ -63600,7 +63659,7 @@
 	exports.default = ToolbarCollection;
 
 /***/ },
-/* 532 */
+/* 534 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -63659,7 +63718,7 @@
 	exports.default = ToolbarModel;
 
 /***/ },
-/* 533 */
+/* 535 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -63743,7 +63802,7 @@
 	exports.default = Tab;
 
 /***/ },
-/* 534 */
+/* 536 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -63937,7 +63996,7 @@
 	exports.default = Tabs;
 
 /***/ },
-/* 535 */
+/* 537 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -64052,7 +64111,7 @@
 	exports.default = Portlet;
 
 /***/ },
-/* 536 */
+/* 538 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -64115,22 +64174,22 @@
 	exports.default = NotFound;
 
 /***/ },
-/* 537 */
+/* 539 */
 /***/ function(module, exports) {
 
 	module.exports = "<!--  \n  Copyright 2016 OSBI Ltd\n\n  Licensed under the Apache License, Version 2.0 (the \"License\");\n  you may not use this file except in compliance with the License.\n  You may obtain a copy of the License at\n\n      http://www.apache.org/licenses/LICENSE-2.0\n\n  Unless required by applicable law or agreed to in writing, software\n  distributed under the License is distributed on an \"AS IS\" BASIS,\n  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n  See the License for the specific language governing permissions and\n  limitations under the License.\n-->\n\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <title>Saiku - Next Generation Open Source Analytics</title>\n\n  <!-- Meta -->\n  <meta charset=\"UTF-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n\n  <!-- Favicon -->\n  <link rel=\"shortcut icon\" href=\"dist/assets/images/favicon.ico\">\n\n  <!-- CSS -->\n  <link rel=\"stylesheet\" href=\"dist/assets/css/bootstrap.min.css\">\n  <link rel=\"stylesheet\" href=\"dist/assets/css/font-awesome.min.css\">\n  <link rel=\"stylesheet\" href=\"dist/saiku/saiku.css\">\n\n  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->\n  <!--[if lt IE 9]>\n    <script src=\"dist/assets/js/html5shiv.js\"></script>\n    <script src=\"dist/assets/js/respond.min.js\"></script>\n  <![endif]-->\n</head>\n<body>\n  <div id=\"app\"></div>\n\n  <!-- JS -->\n  <script src=\"dist/assets/js/jquery.min.js\"></script>\n  <script src=\"dist/assets/js/bootstrap.min.js\"></script>\n  <script src=\"dist/saiku/saiku.js\"></script>\n</body>\n</html>";
 
 /***/ },
-/* 538 */
+/* 540 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(539);
+	var content = __webpack_require__(541);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(541)(content, {});
+	var update = __webpack_require__(543)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -64147,10 +64206,10 @@
 	}
 
 /***/ },
-/* 539 */
+/* 541 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(540)();
+	exports = module.exports = __webpack_require__(542)();
 	// imports
 	exports.push([module.id, "@import url(https://fonts.googleapis.com/css?family=Noto+Sans:400,700);", ""]);
 	exports.push([module.id, "@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700,300);", ""]);
@@ -64162,7 +64221,7 @@
 
 
 /***/ },
-/* 540 */
+/* 542 */
 /***/ function(module, exports) {
 
 	/*
@@ -64218,7 +64277,7 @@
 
 
 /***/ },
-/* 541 */
+/* 543 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*

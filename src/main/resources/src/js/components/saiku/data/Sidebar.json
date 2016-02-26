@@ -3,47 +3,56 @@
     {
       "name": "Home",
       "visible": true,
-      "icon": "home"
+      "icon": "home",
+      "action": "#"
     },
     {
       "name": "New query",
       "visible": true,
-      "icon": "plus-square"
+      "icon": "plus-square",
+      "action": "#"
     },
     {
       "name": "Open query",
       "visible": true,
-      "icon": "folder-open-o"
+      "icon": "folder-open-o",
+      "action": "#"
     },
     {
       "name": "Reporting",
       "visible": true,
-      "icon": "file-text-o"
+      "icon": "file-text-o",
+      "action": "#"
     },
     {
       "name": "Dashboard",
       "visible": true,
-      "icon": "dashboard"
+      "icon": "dashboard",
+      "action": "#"
     },
     {
       "name": "Schema Designer",
       "visible": true,
-      "icon": "cube"
+      "icon": "cube",
+      "action": "#"
     },
     {
       "name": "Translate",
       "visible": true,
-      "icon": "globe"
+      "icon": "globe",
+      "action": "#"
     },
     {
       "name": "Admin Console",
       "visible": true,
-      "icon": "gear"
+      "icon": "gear",
+      "action": "#"
     },
     {
       "name": "Send a bug",
       "visible": true,
-      "icon": "bug"
+      "icon": "bug",
+      "action": "#"
     }
   ]
 }

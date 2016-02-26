@@ -17,69 +17,59 @@
 import React from 'react';
 import Clearfix from '../bootstrap/Clearfix';
 import Icon from './Icon';
+import autoBind from 'react-autobind';
+import _ from 'underscore';
+import SidebarCollection from '../../collections/SidebarCollection';
 
 class Toolbar extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      models: ''
+    };
+
+    this._sidebarUI = new SidebarCollection();
+
+    autoBind(this, '_handleFetchUI', '_renderItem');
+  }
+
+  componentDidMount() {
+    this._sidebarUI.fetch({
+      success: this._handleFetchUI
+    });
+  }
+
+  _handleFetchUI(sidebarUI) {
+    this.setState({
+      models: sidebarUI.models[0]
+    });
+  }
+
+  _renderItem(item, index) {
+    let key = 'sidebar_item_' + index;
+
+    return (
+      <li id={key} key={key}>
+        <a href={item.action}>
+          <Icon name={item.icon} />
+          <span> {item.name} </span>
+        </a>
+      </li>
+    );
+  }
+
   render() {
+    let items = (this.state && !(_.isEmpty(this.state.models))) ?
+      this.state.models.getItem() : [];
+
     return (
       <div className="fixed-left">
         <div className="side-menu left">
           <div className="sidebar-inner slimscrollleft">
             <div className="sidebar-menu">
               <ul>
-                <li>
-                  <a href="#">
-                    <Icon name="home" />
-                    <span> Home </span>
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <Icon name="plus-square" />
-                    <span> New Query </span>
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <Icon name="folder-open-o" />
-                    <span> Open Query </span>
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <Icon name="file-text-o" />
-                    <span> Reporting </span>
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <Icon name="dashboard" />
-                    <span> Dashboard </span>
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <Icon name="cube" />
-                    <span> Schema Designer </span>
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <Icon name="globe" />
-                    <span> Translate </span>
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <Icon name="gear" />
-                    <span> Admin Console </span>
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <Icon name="bug" />
-                    <span> Send a bug </span>
-                  </a>
-                </li>
+                {items.map(this._renderItem)}
               </ul>
               <Clearfix />
             </div>
