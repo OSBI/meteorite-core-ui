@@ -32,7 +32,8 @@
     "dev": "WEBPACK_ENV=dev ./node_modules/.bin/webpack --watch --inline",
     "build": "WEBPACK_ENV=build ./node_modules/.bin/webpack",
     "test": "karma start",
-    "test:ci": "watch 'npm run test' src/"
+    "test:ci": "watch 'npm run test' src/",
+    "docs": "esdoc -c esdoc.json"
   },
   "engines": {
     "node": ">=0.10.x",
