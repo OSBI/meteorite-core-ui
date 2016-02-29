@@ -19,7 +19,7 @@ import autoBind from 'react-autobind';
 import { History } from 'react-router';
 import reactMixin from 'react-mixin';
 import validation from 'react-validation-mixin';
-import strategy from '../../utils/ReactValidatorStrategy';
+import strategy from 'react-validatorjs-strategy';
 import Session from '../../models/Session';
 import {
   Row,

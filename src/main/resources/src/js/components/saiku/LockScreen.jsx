@@ -17,7 +17,7 @@
 import React from 'react';
 import autoBind from 'react-autobind';
 import validation from 'react-validation-mixin';
-import strategy from '../../utils/ReactValidatorStrategy';
+import strategy from 'react-validatorjs-strategy';
 import {
   Row,
   Col,
