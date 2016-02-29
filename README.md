@@ -42,13 +42,19 @@ In order to run it locally you'll need a basic server setup.
   $ npm run dev
   ```
 
-4. Run tasks with Gulp:
+5. Run tasks with Gulp:
 
   ```
   $ gulp
   ```
 
-6. Execute tests (optional):
+6. Run the mock server NodeJS (optional):
+
+  ```
+  $ npm run server
+  ```
+
+7. Execute tests (optional):
 
   ```
   $ npm test
@@ -58,6 +64,8 @@ In order to run it locally you'll need a basic server setup.
 
 - Run `npm run build` to build the project;
 - Run `npm run dev` to build the project, start watching files and run the local server;
+- Run `npm run docs` to generate the documentation the code;
+- Run `npm run server` to run the mock server NodeJS;
 - Run `npm test` to run the tests once;
 - Run `npm run test:ci` to watch the `src` directory for changes and run the tests.
 
