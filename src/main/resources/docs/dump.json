@@ -1,0 +1,3324 @@
+[
+  {
+    "__docId__": 0,
+    "kind": "file",
+    "static": true,
+    "variation": null,
+    "name": "js/App.js",
+    "memberof": null,
+    "longname": "js/App.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 17,
+    "content": "/*\n *   Copyright 2016 OSBI Ltd\n *\n *   Licensed under the Apache License, Version 2.0 (the \"License\");\n *   you may not use this file except in compliance with the License.\n *   You may obtain a copy of the License at\n *\n *       http://www.apache.org/licenses/LICENSE-2.0\n *\n *   Unless required by applicable law or agreed to in writing, software\n *   distributed under the License is distributed on an \"AS IS\" BASIS,\n *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n *   See the License for the specific language governing permissions and\n *   limitations under the License.\n */\n\nimport React from 'react';\nimport ReactDOM from 'react-dom';\nimport { Router, Route } from 'react-router';\nimport { createHistory } from 'history';\nimport Login from './components/saiku/Login';\nimport LockScreen from './components/saiku/LockScreen';\nimport Workspace from './components/saiku/Workspace';\nimport NotFound from './components/saiku/NotFound';\n\n// webpack loaders\nimport '../../index.html';\nimport '../../dist/saiku/saiku.css';\n\nvar routes = (\n  <Router history={createHistory()}>\n    <Route path=\"/\" component={Login} />\n    <Route path=\"/workspace/\" component={Workspace} />\n    <Route path=\"/lockscreen/\" component={LockScreen} />\n    <Route path=\"*\" component={NotFound} />\n  </Router>\n);\n\nReactDOM.render(routes, document.querySelector('#app'));\n"
+  },
+  {
+    "__docId__": 1,
+    "kind": "variable",
+    "static": true,
+    "variation": null,
+    "name": "routes",
+    "memberof": "js/App.js",
+    "longname": "js/App.js~routes",
+    "access": null,
+    "export": false,
+    "importPath": "meteorite-core-ui/js/App.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 30,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 2,
+    "kind": "file",
+    "static": true,
+    "variation": null,
+    "name": "js/adapters/SaikuServer.js",
+    "memberof": null,
+    "longname": "js/adapters/SaikuServer.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 17,
+    "content": "/*\n *   Copyright 2016 OSBI Ltd\n *\n *   Licensed under the Apache License, Version 2.0 (the \"License\");\n *   you may not use this file except in compliance with the License.\n *   You may obtain a copy of the License at\n *\n *       http://www.apache.org/licenses/LICENSE-2.0\n *\n *   Unless required by applicable law or agreed to in writing, software\n *   distributed under the License is distributed on an \"AS IS\" BASIS,\n *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n *   See the License for the specific language governing permissions and\n *   limitations under the License.\n */\n\nimport $ from 'jquery';\nimport _ from 'underscore';\nimport Backbone from 'backbone';\nimport Settings from '../utils/Settings';\nimport Base64 from '../utils/Base64';\n\nBackbone.sync = (method, model, options) => {\n  let params;\n  let methodMap = {\n    'create': 'POST',\n    'read': 'GET',\n    'update': 'PUT',\n    'delete': 'DELETE'\n  };\n\n  // Generate AJAX action\n  let type = methodMap[method];\n  // let url = Settings.REST_URL +\n  //   (_.isFunction(model.url) ? model.url() : model.url);\n\n  let url = _.isFunction(model.url) ? model.url() : model.url;\n  // If is a URL of Node mock\n  let matchURL = /:9999/;\n\n  if (!matchURL.test(url)) {\n    url = Settings.REST_URL + url;\n  }\n\n  // Prepare for failure\n  if (typeof Settings.ERRORS === 'undefined') {\n    Settings.ERRORS = 0;\n  }\n\n  let errorLogout = () => {\n    Settings.ERRORS++;\n    if (Settings.ERRORS < Settings.ERROR_TOLERANCE) {\n      // TODO: Add method logout() in Session.js.\n      console.log('Logout...');\n    }\n    else {\n      console.log('Communication problem with the server. ' +\n        'Please reload the application...');\n    }\n  };\n\n  let statuscode = {\n    0: () => {\n      errorLogout();\n    },\n    401: () => {\n      errorLogout();\n    }\n  };\n\n  let failure = (jqXHR, textStatus, errorThrown) => {\n    if (typeof console !== 'undefined' && console && console.error) {\n      console.error('Error performing ' + type + ' on ' + url);\n      console.error(errorThrown);\n    }\n    if (options.error) {\n      options.error(jqXHR, textStatus, errorThrown);\n    }\n  };\n\n  let success = (data, textStatus, jqXHR) => {\n    Settings.ERRORS = 0;\n    options.success(data, textStatus, jqXHR);\n  };\n\n  let async = true;\n\n  if (options.async === false) {\n    async = false;\n  }\n\n  let dataType = 'json';\n\n  if (typeof options.dataType !== 'undefined') {\n    dataType = options.dataType;\n  }\n\n  let contentType = 'application/x-www-form-urlencoded';\n\n  if (typeof options.contentType !== 'undefined') {\n    contentType = options.contentType;\n  }\n\n  let data = model.attributes;\n\n  if (typeof options.data !== 'undefined') {\n    data = options.data;\n  }\n\n  let btoa = window.btoa;\n\n  let encode = (credentials) => {\n    // Use Base64 encoding to create the authentication details\n    // Using unescape and encodeURIComponent to allow for Unicode strings\n    // https://developer.mozilla.org/en-US/docs/Web/API/window.btoa\n    if (btoa) {\n      return btoa(unescape(encodeURIComponent(\n        [credentials.username, credentials.password].join(':'))));\n    }\n\n    return Base64.encode(\n      [credentials.username, credentials.password].join(':')\n    );\n  };\n\n  // Default JSON-request options.\n  params = {\n    url: url,\n    type: type,\n    cache: false,\n    data: data,\n    contentType: contentType,\n    dataType: dataType,\n    success: success,\n    statusCode: statuscode,\n    error: failure,\n    crossDomain: true,\n    async: async,\n    beforeSend: (request) => {\n      if (data && data.username && data.password) {\n        let auth = 'Basic ' + encode(data);\n\n        request.setRequestHeader('Authorization', auth);\n        return true;\n      }\n    }\n  };\n\n  if (options.processData === false) {\n    params.processData = false;\n  }\n\n  // For older servers, emulate HTTP by mimicking the HTTP method with `_method`\n  // And an `X-HTTP-Method-Override` header.\n  if (Backbone.emulateHTTP) {\n    if (type === 'PUT' || type === 'DELETE') {\n      if (Backbone.emulateHTTP) {\n        params.data._method = type;\n      }\n      params.type = 'POST';\n      params.beforeSend = (xhr) => {\n        xhr.setRequestHeader('X-HTTP-Method-Override', type);\n      };\n    }\n  }\n\n  // Make the request\n  $.ajax(params);\n};\n\nexport default Backbone;\n"
+  },
+  {
+    "__docId__": 3,
+    "kind": "file",
+    "static": true,
+    "variation": null,
+    "name": "js/collections/MenubarCollection.js",
+    "memberof": null,
+    "longname": "js/collections/MenubarCollection.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 17,
+    "content": "/*\n *   Copyright 2016 OSBI Ltd\n *\n *   Licensed under the Apache License, Version 2.0 (the \"License\");\n *   you may not use this file except in compliance with the License.\n *   You may obtain a copy of the License at\n *\n *       http://www.apache.org/licenses/LICENSE-2.0\n *\n *   Unless required by applicable law or agreed to in writing, software\n *   distributed under the License is distributed on an \"AS IS\" BASIS,\n *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n *   See the License for the specific language governing permissions and\n *   limitations under the License.\n */\n\nimport Backbone from 'backbone';\nimport MenubarModel from '../models/MenubarModel';\n\nclass MenubarCollection extends Backbone.Collection {\n  constructor(options) {\n    super(options);\n\n    this.model = MenubarModel;\n  }\n\n  url() {\n    return 'http://localhost:9999/menubar';\n  }\n}\n\nexport default MenubarCollection;\n"
+  },
+  {
+    "__docId__": 4,
+    "kind": "class",
+    "static": true,
+    "variation": null,
+    "name": "MenubarCollection",
+    "memberof": "js/collections/MenubarCollection.js",
+    "longname": "js/collections/MenubarCollection.js~MenubarCollection",
+    "access": null,
+    "export": true,
+    "importPath": "meteorite-core-ui/js/collections/MenubarCollection.js",
+    "importStyle": "MenubarCollection",
+    "description": null,
+    "lineNumber": 20,
+    "undocument": true,
+    "interface": false,
+    "extends": [
+      "backbone~Backbone.Collection"
+    ]
+  },
+  {
+    "__docId__": 5,
+    "kind": "constructor",
+    "static": false,
+    "variation": null,
+    "name": "constructor",
+    "memberof": "js/collections/MenubarCollection.js~MenubarCollection",
+    "longname": "js/collections/MenubarCollection.js~MenubarCollection#constructor",
+    "access": null,
+    "description": null,
+    "lineNumber": 21,
+    "undocument": true,
+    "params": [
+      {
+        "name": "options",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "generator": false
+  },
+  {
+    "__docId__": 6,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "model",
+    "memberof": "js/collections/MenubarCollection.js~MenubarCollection",
+    "longname": "js/collections/MenubarCollection.js~MenubarCollection#model",
+    "access": null,
+    "description": null,
+    "lineNumber": 24,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 7,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "url",
+    "memberof": "js/collections/MenubarCollection.js~MenubarCollection",
+    "longname": "js/collections/MenubarCollection.js~MenubarCollection#url",
+    "access": null,
+    "description": null,
+    "lineNumber": 27,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "string"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 8,
+    "kind": "file",
+    "static": true,
+    "variation": null,
+    "name": "js/collections/SidebarCollection.js",
+    "memberof": null,
+    "longname": "js/collections/SidebarCollection.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 17,
+    "content": "/*\n *   Copyright 2016 OSBI Ltd\n *\n *   Licensed under the Apache License, Version 2.0 (the \"License\");\n *   you may not use this file except in compliance with the License.\n *   You may obtain a copy of the License at\n *\n *       http://www.apache.org/licenses/LICENSE-2.0\n *\n *   Unless required by applicable law or agreed to in writing, software\n *   distributed under the License is distributed on an \"AS IS\" BASIS,\n *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n *   See the License for the specific language governing permissions and\n *   limitations under the License.\n */\n\nimport Backbone from 'backbone';\nimport SidebarModel from '../models/SidebarModel';\n\nclass SidebarCollection extends Backbone.Collection {\n  constructor(options) {\n    super(options);\n\n    this.model = SidebarModel;\n  }\n\n  url() {\n    return 'http://localhost:9999/sidebar';\n  }\n}\n\nexport default SidebarCollection;\n"
+  },
+  {
+    "__docId__": 9,
+    "kind": "class",
+    "static": true,
+    "variation": null,
+    "name": "SidebarCollection",
+    "memberof": "js/collections/SidebarCollection.js",
+    "longname": "js/collections/SidebarCollection.js~SidebarCollection",
+    "access": null,
+    "export": true,
+    "importPath": "meteorite-core-ui/js/collections/SidebarCollection.js",
+    "importStyle": "SidebarCollection",
+    "description": null,
+    "lineNumber": 20,
+    "undocument": true,
+    "interface": false,
+    "extends": [
+      "backbone~Backbone.Collection"
+    ]
+  },
+  {
+    "__docId__": 10,
+    "kind": "constructor",
+    "static": false,
+    "variation": null,
+    "name": "constructor",
+    "memberof": "js/collections/SidebarCollection.js~SidebarCollection",
+    "longname": "js/collections/SidebarCollection.js~SidebarCollection#constructor",
+    "access": null,
+    "description": null,
+    "lineNumber": 21,
+    "undocument": true,
+    "params": [
+      {
+        "name": "options",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "generator": false
+  },
+  {
+    "__docId__": 11,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "model",
+    "memberof": "js/collections/SidebarCollection.js~SidebarCollection",
+    "longname": "js/collections/SidebarCollection.js~SidebarCollection#model",
+    "access": null,
+    "description": null,
+    "lineNumber": 24,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 12,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "url",
+    "memberof": "js/collections/SidebarCollection.js~SidebarCollection",
+    "longname": "js/collections/SidebarCollection.js~SidebarCollection#url",
+    "access": null,
+    "description": null,
+    "lineNumber": 27,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "string"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 13,
+    "kind": "file",
+    "static": true,
+    "variation": null,
+    "name": "js/collections/ToolbarCollection.js",
+    "memberof": null,
+    "longname": "js/collections/ToolbarCollection.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 17,
+    "content": "/*\n *   Copyright 2016 OSBI Ltd\n *\n *   Licensed under the Apache License, Version 2.0 (the \"License\");\n *   you may not use this file except in compliance with the License.\n *   You may obtain a copy of the License at\n *\n *       http://www.apache.org/licenses/LICENSE-2.0\n *\n *   Unless required by applicable law or agreed to in writing, software\n *   distributed under the License is distributed on an \"AS IS\" BASIS,\n *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n *   See the License for the specific language governing permissions and\n *   limitations under the License.\n */\n\nimport Backbone from 'backbone';\nimport ToolbarModel from '../models/ToolbarModel';\n\nclass ToolbarCollection extends Backbone.Collection {\n  constructor(options) {\n    super(options);\n\n    this.model = ToolbarModel;\n  }\n\n  url() {\n    return 'http://localhost:9999/toolbar';\n  }\n}\n\nexport default ToolbarCollection;\n"
+  },
+  {
+    "__docId__": 14,
+    "kind": "class",
+    "static": true,
+    "variation": null,
+    "name": "ToolbarCollection",
+    "memberof": "js/collections/ToolbarCollection.js",
+    "longname": "js/collections/ToolbarCollection.js~ToolbarCollection",
+    "access": null,
+    "export": true,
+    "importPath": "meteorite-core-ui/js/collections/ToolbarCollection.js",
+    "importStyle": "ToolbarCollection",
+    "description": null,
+    "lineNumber": 20,
+    "undocument": true,
+    "interface": false,
+    "extends": [
+      "backbone~Backbone.Collection"
+    ]
+  },
+  {
+    "__docId__": 15,
+    "kind": "constructor",
+    "static": false,
+    "variation": null,
+    "name": "constructor",
+    "memberof": "js/collections/ToolbarCollection.js~ToolbarCollection",
+    "longname": "js/collections/ToolbarCollection.js~ToolbarCollection#constructor",
+    "access": null,
+    "description": null,
+    "lineNumber": 21,
+    "undocument": true,
+    "params": [
+      {
+        "name": "options",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "generator": false
+  },
+  {
+    "__docId__": 16,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "model",
+    "memberof": "js/collections/ToolbarCollection.js~ToolbarCollection",
+    "longname": "js/collections/ToolbarCollection.js~ToolbarCollection#model",
+    "access": null,
+    "description": null,
+    "lineNumber": 24,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 17,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "url",
+    "memberof": "js/collections/ToolbarCollection.js~ToolbarCollection",
+    "longname": "js/collections/ToolbarCollection.js~ToolbarCollection#url",
+    "access": null,
+    "description": null,
+    "lineNumber": 27,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "string"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 18,
+    "kind": "file",
+    "static": true,
+    "variation": null,
+    "name": "js/components/bootstrap/Clearfix.jsx",
+    "memberof": null,
+    "longname": "js/components/bootstrap/Clearfix.jsx",
+    "access": null,
+    "description": null,
+    "lineNumber": 17,
+    "content": "/*\n *   Copyright 2016 OSBI Ltd\n *\n *   Licensed under the Apache License, Version 2.0 (the \"License\");\n *   you may not use this file except in compliance with the License.\n *   You may obtain a copy of the License at\n *\n *       http://www.apache.org/licenses/LICENSE-2.0\n *\n *   Unless required by applicable law or agreed to in writing, software\n *   distributed under the License is distributed on an \"AS IS\" BASIS,\n *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n *   See the License for the specific language governing permissions and\n *   limitations under the License.\n */\n\nimport React from 'react';\nimport classNames from 'classnames';\n\nclass Clearfix extends React.Component {\n  render() {\n    return (\n      <div\n        {...this.props}\n        className={classNames('clearfix', this.props.className)}>\n      </div>\n    );\n  }\n}\n\nClearfix.propTypes = {\n  className: React.PropTypes.string\n};\n\nexport default Clearfix;\n"
+  },
+  {
+    "__docId__": 19,
+    "kind": "class",
+    "static": true,
+    "variation": null,
+    "name": "Clearfix",
+    "memberof": "js/components/bootstrap/Clearfix.jsx",
+    "longname": "js/components/bootstrap/Clearfix.jsx~Clearfix",
+    "access": null,
+    "export": true,
+    "importPath": "meteorite-core-ui/js/components/bootstrap/Clearfix.jsx",
+    "importStyle": "Clearfix",
+    "description": null,
+    "lineNumber": 20,
+    "undocument": true,
+    "interface": false,
+    "extends": [
+      "react~React.Component"
+    ]
+  },
+  {
+    "__docId__": 20,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "render",
+    "memberof": "js/components/bootstrap/Clearfix.jsx~Clearfix",
+    "longname": "js/components/bootstrap/Clearfix.jsx~Clearfix#render",
+    "access": null,
+    "description": null,
+    "lineNumber": 21,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 21,
+    "kind": "file",
+    "static": true,
+    "variation": null,
+    "name": "js/components/bootstrap/FormGroup.jsx",
+    "memberof": null,
+    "longname": "js/components/bootstrap/FormGroup.jsx",
+    "access": null,
+    "description": null,
+    "lineNumber": 17,
+    "content": "/*\n *   Copyright 2016 OSBI Ltd\n *\n *   Licensed under the Apache License, Version 2.0 (the \"License\");\n *   you may not use this file except in compliance with the License.\n *   You may obtain a copy of the License at\n *\n *       http://www.apache.org/licenses/LICENSE-2.0\n *\n *   Unless required by applicable law or agreed to in writing, software\n *   distributed under the License is distributed on an \"AS IS\" BASIS,\n *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n *   See the License for the specific language governing permissions and\n *   limitations under the License.\n */\n\nimport React from 'react';\nimport classNames from 'classnames';\n\nclass FormGroup extends React.Component {\n  render() {\n    return (\n      <div\n      {...this.props}\n      className={classNames('form-group', this.props.className)}>\n      {this.props.children}\n      </div>\n    );\n  }\n}\n\nFormGroup.propTypes = {\n  className: React.PropTypes.string,\n  children: React.PropTypes.node.isRequired\n};\n\nexport default FormGroup;\n"
+  },
+  {
+    "__docId__": 22,
+    "kind": "class",
+    "static": true,
+    "variation": null,
+    "name": "FormGroup",
+    "memberof": "js/components/bootstrap/FormGroup.jsx",
+    "longname": "js/components/bootstrap/FormGroup.jsx~FormGroup",
+    "access": null,
+    "export": true,
+    "importPath": "meteorite-core-ui/js/components/bootstrap/FormGroup.jsx",
+    "importStyle": "FormGroup",
+    "description": null,
+    "lineNumber": 20,
+    "undocument": true,
+    "interface": false,
+    "extends": [
+      "react~React.Component"
+    ]
+  },
+  {
+    "__docId__": 23,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "render",
+    "memberof": "js/components/bootstrap/FormGroup.jsx~FormGroup",
+    "longname": "js/components/bootstrap/FormGroup.jsx~FormGroup#render",
+    "access": null,
+    "description": null,
+    "lineNumber": 21,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 24,
+    "kind": "file",
+    "static": true,
+    "variation": null,
+    "name": "js/components/saiku/Content.jsx",
+    "memberof": null,
+    "longname": "js/components/saiku/Content.jsx",
+    "access": null,
+    "description": null,
+    "lineNumber": 17,
+    "content": "/*\n *   Copyright 2016 OSBI Ltd\n *\n *   Licensed under the Apache License, Version 2.0 (the \"License\");\n *   you may not use this file except in compliance with the License.\n *   You may obtain a copy of the License at\n *\n *       http://www.apache.org/licenses/LICENSE-2.0\n *\n *   Unless required by pagelicable law or agreed to in writing, software\n *   distributed under the License is distributed on an \"AS IS\" BASIS,\n *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n *   See the License for the specific language governing permissions and\n *   limitations under the License.\n */\n\nimport React from 'react';\nimport classNames from 'classnames';\n\nclass Content extends React.Component {\n  render() {\n    let className = this.props.page ? 'content-page' : 'content';\n\n    return (\n      <div\n        {...this.props}\n        className={classNames(className, this.props.className)}>\n        {this.props.children}\n      </div>\n    );\n  }\n}\n\nContent.propTypes = {\n  className: React.PropTypes.string,\n  children: React.PropTypes.node.isRequired,\n  page: React.PropTypes.bool\n};\n\nContent.defaultProps = {\n  page: false\n};\n\nexport default Content;\n"
+  },
+  {
+    "__docId__": 25,
+    "kind": "class",
+    "static": true,
+    "variation": null,
+    "name": "Content",
+    "memberof": "js/components/saiku/Content.jsx",
+    "longname": "js/components/saiku/Content.jsx~Content",
+    "access": null,
+    "export": true,
+    "importPath": "meteorite-core-ui/js/components/saiku/Content.jsx",
+    "importStyle": "Content",
+    "description": null,
+    "lineNumber": 20,
+    "undocument": true,
+    "interface": false,
+    "extends": [
+      "react~React.Component"
+    ]
+  },
+  {
+    "__docId__": 26,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "render",
+    "memberof": "js/components/saiku/Content.jsx~Content",
+    "longname": "js/components/saiku/Content.jsx~Content#render",
+    "access": null,
+    "description": null,
+    "lineNumber": 21,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 27,
+    "kind": "file",
+    "static": true,
+    "variation": null,
+    "name": "js/components/saiku/Icon.jsx",
+    "memberof": null,
+    "longname": "js/components/saiku/Icon.jsx",
+    "access": null,
+    "description": null,
+    "lineNumber": 17,
+    "content": "/*\n *   Copyright 2016 OSBI Ltd\n *\n *   Licensed under the Apache License, Version 2.0 (the \"License\");\n *   you may not use this file except in compliance with the License.\n *   You may obtain a copy of the License at\n *\n *       http://www.apache.org/licenses/LICENSE-2.0\n *\n *   Unless required by applicable law or agreed to in writing, software\n *   distributed under the License is distributed on an \"AS IS\" BASIS,\n *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n *   See the License for the specific language governing permissions and\n *   limitations under the License.\n */\n\nimport React from 'react';\nimport classNames from 'classnames';\n\nclass Icon extends React.Component {\n  render() {\n    let {\n      name, fixed, spin, pulse,\n      size, rotate, flip\n    } = this.props;\n    let className = classNames(this.props.className, {\n      [this.props.faClass]: true,\n      [`fa-${name}`]: true,\n      ['fa-fw']: fixed,\n      ['fa-spin']: spin,\n      ['fa-pulse']: pulse\n    });\n\n    if (size) {\n      className = `${className} fa-${size}`;\n    }\n\n    if (rotate) {\n      className = `${className} fa-rotate-${rotate}`;\n    }\n\n    if (flip) {\n      className = `${className} fa-flip-${flip}`;\n    }\n\n    return (\n      <i {...this.props} className={className}></i>\n    );\n  }\n}\n\nIcon.propTypes = {\n  className: React.PropTypes.string,\n  faClass: React.PropTypes.string,\n  name: React.PropTypes.string.isRequired,\n  fixed: React.PropTypes.bool,\n  spin: React.PropTypes.bool,\n  pulse: React.PropTypes.bool,\n  size: React.PropTypes.oneOf(['lg', '2x', '3x', '4x', '5x']),\n  rotate: React.PropTypes.oneOf(['45', '90', '135', '180',\n    '225', '270', '315']),\n  flip: React.PropTypes.oneOf(['horizontal', 'vertical'])\n};\n\nIcon.defaultProps = {\n  faClass: 'fa',\n  fixed: false,\n  spin: false,\n  pulse: false\n};\n\nexport default Icon;\n"
+  },
+  {
+    "__docId__": 28,
+    "kind": "class",
+    "static": true,
+    "variation": null,
+    "name": "Icon",
+    "memberof": "js/components/saiku/Icon.jsx",
+    "longname": "js/components/saiku/Icon.jsx~Icon",
+    "access": null,
+    "export": true,
+    "importPath": "meteorite-core-ui/js/components/saiku/Icon.jsx",
+    "importStyle": "Icon",
+    "description": null,
+    "lineNumber": 20,
+    "undocument": true,
+    "interface": false,
+    "extends": [
+      "react~React.Component"
+    ]
+  },
+  {
+    "__docId__": 29,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "render",
+    "memberof": "js/components/saiku/Icon.jsx~Icon",
+    "longname": "js/components/saiku/Icon.jsx~Icon#render",
+    "access": null,
+    "description": null,
+    "lineNumber": 21,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 30,
+    "kind": "file",
+    "static": true,
+    "variation": null,
+    "name": "js/components/saiku/LockScreen.jsx",
+    "memberof": null,
+    "longname": "js/components/saiku/LockScreen.jsx",
+    "access": null,
+    "description": null,
+    "lineNumber": 17,
+    "content": "/*\n *   Copyright 2016 OSBI Ltd\n *\n *   Licensed under the Apache License, Version 2.0 (the \"License\");\n *   you may not use this file except in compliance with the License.\n *   You may obtain a copy of the License at\n *\n *       http://www.apache.org/licenses/LICENSE-2.0\n *\n *   Unless required by applicable law or agreed to in writing, software\n *   distributed under the License is distributed on an \"AS IS\" BASIS,\n *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n *   See the License for the specific language governing permissions and\n *   limitations under the License.\n */\n\nimport React from 'react';\nimport autoBind from 'react-autobind';\nimport validation from 'react-validation-mixin';\nimport strategy from '../../utils/ReactValidatorStrategy';\nimport {\n  Row,\n  Col,\n  Input,\n  Button\n} from 'react-bootstrap';\nimport FormGroup from '../bootstrap/FormGroup';\nimport Clearfix from '../bootstrap/Clearfix';\nimport Wrapper from './Wrapper';\n\nclass LockScreen extends React.Component {\n  constructor(props) {\n    super(props);\n\n    this.validatorTypes = strategy.createSchema({\n      password: 'required'\n    });\n    autoBind(this, 'getValidatorData', 'renderHelpText', 'getClasses',\n      'onSubmitLogin');\n  }\n\n  getValidatorData() {\n    return {\n      password: this.refs.password.getValue()\n    };\n  }\n\n  renderHelpText(message) {\n    return (\n      <span className=\"help-block\">{message}</span>\n    );\n  }\n\n  getClasses(field) {\n    return !this.props.isValid(field) ? 'has-error' : '';\n  }\n\n  onSubmitLogin(event) {\n    event.preventDefault();\n\n    let onValidate = (error) => {\n      if (!error) {\n        this.props.history.pushState(null, '/workspace/');\n      }\n    };\n\n    this.props.validate(onValidate);\n  }\n\n  render() {\n    return (\n      <div>\n        <div className=\"bg-page\"></div>\n        <Clearfix />\n\n        <Wrapper page>\n          <div className=\"content-box\">\n            <div className=\"panel-heading\">\n              <Col xs={3}>\n                <img\n                  src=\"../dist/assets/images/saiku/logo-small.png\"\n                  width=\"40\"\n                  height=\"40\"\n                />\n              </Col>\n              <Col xs={9}>\n                <h4 className=\"text-left\">\n                  Sign In to <strong>Saiku Analytics</strong>\n                </h4>\n              </Col>\n              <Clearfix />\n            </div>\n            <div className=\"panel-body\">\n              <form\n                className=\"text-center\"\n                onSubmit={this.onSubmitLogin}\n                role=\"form\"\n              >\n                <div className=\"user-thumb\">\n                  <img\n                    src=\"../dist/assets/images/users/user2.jpg\"\n                    className=\"img-responsive img-circle img-thumbnail\"\n                  />\n                </div>\n                <FormGroup>\n                  <h3>Tom Barber</h3>\n                  <p className=\"text-muted\">\n                    Enter your password to access the Saiku Analytics.\n                  </p>\n                  <div className={this.getClasses('password')}>\n                    <div className=\"input-group m-t-30\">\n                      <Input\n                        type=\"password\"\n                        ref=\"password\"\n                        placeholder=\"Password\"\n                        onBlur={this.props.handleValidation('password')}\n                        standalone\n                      />\n                      <span className=\"input-group-btn\">\n                        <Button\n                          type=\"submit\"\n                          className=\"w-sm\"\n                          block\n                        >\n                          Unlock\n                        </Button>\n                      </span>\n                    </div>\n                    {this.renderHelpText(\n                      this.props.getValidationMessages('password')\n                    )}\n                  </div>\n                </FormGroup>\n                <FormGroup>\n                  <Col xs={12} className=\"text-right\">\n                    <a href=\"#\">Login with another account</a>\n                  </Col>\n                </FormGroup>\n              </form>\n            </div>\n          </div>\n          <Row>\n            <Col sm={12} className=\"text-center\">\n              <p>Saiku-4.0-SNAPSHOT</p>\n            </Col>\n          </Row>\n        </Wrapper>\n      </div>\n    );\n  }\n}\n\nLockScreen.propTypes = {\n  history: React.PropTypes.object,\n  errors: React.PropTypes.object,\n  validate: React.PropTypes.func,\n  isValid: React.PropTypes.func,\n  handleValidation: React.PropTypes.func,\n  getValidationMessages: React.PropTypes.func,\n  clearValidations: React.PropTypes.func\n};\n\nexport default validation(strategy)(LockScreen);\n"
+  },
+  {
+    "__docId__": 31,
+    "kind": "class",
+    "static": true,
+    "variation": null,
+    "name": "LockScreen",
+    "memberof": "js/components/saiku/LockScreen.jsx",
+    "longname": "js/components/saiku/LockScreen.jsx~LockScreen",
+    "access": null,
+    "export": false,
+    "importPath": "meteorite-core-ui/js/components/saiku/LockScreen.jsx",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 31,
+    "undocument": true,
+    "interface": false,
+    "extends": [
+      "react~React.Component"
+    ]
+  },
+  {
+    "__docId__": 32,
+    "kind": "constructor",
+    "static": false,
+    "variation": null,
+    "name": "constructor",
+    "memberof": "js/components/saiku/LockScreen.jsx~LockScreen",
+    "longname": "js/components/saiku/LockScreen.jsx~LockScreen#constructor",
+    "access": null,
+    "description": null,
+    "lineNumber": 32,
+    "undocument": true,
+    "params": [
+      {
+        "name": "props",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "generator": false
+  },
+  {
+    "__docId__": 33,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "validatorTypes",
+    "memberof": "js/components/saiku/LockScreen.jsx~LockScreen",
+    "longname": "js/components/saiku/LockScreen.jsx~LockScreen#validatorTypes",
+    "access": null,
+    "description": null,
+    "lineNumber": 35,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 34,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "getValidatorData",
+    "memberof": "js/components/saiku/LockScreen.jsx~LockScreen",
+    "longname": "js/components/saiku/LockScreen.jsx~LockScreen#getValidatorData",
+    "access": null,
+    "description": null,
+    "lineNumber": 42,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 35,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "renderHelpText",
+    "memberof": "js/components/saiku/LockScreen.jsx~LockScreen",
+    "longname": "js/components/saiku/LockScreen.jsx~LockScreen#renderHelpText",
+    "access": null,
+    "description": null,
+    "lineNumber": 48,
+    "undocument": true,
+    "params": [
+      {
+        "name": "message",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 36,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "getClasses",
+    "memberof": "js/components/saiku/LockScreen.jsx~LockScreen",
+    "longname": "js/components/saiku/LockScreen.jsx~LockScreen#getClasses",
+    "access": null,
+    "description": null,
+    "lineNumber": 54,
+    "undocument": true,
+    "params": [
+      {
+        "name": "field",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 37,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "onSubmitLogin",
+    "memberof": "js/components/saiku/LockScreen.jsx~LockScreen",
+    "longname": "js/components/saiku/LockScreen.jsx~LockScreen#onSubmitLogin",
+    "access": null,
+    "description": null,
+    "lineNumber": 58,
+    "undocument": true,
+    "params": [
+      {
+        "name": "event",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "generator": false
+  },
+  {
+    "__docId__": 38,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "render",
+    "memberof": "js/components/saiku/LockScreen.jsx~LockScreen",
+    "longname": "js/components/saiku/LockScreen.jsx~LockScreen#render",
+    "access": null,
+    "description": null,
+    "lineNumber": 70,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 39,
+    "kind": "file",
+    "static": true,
+    "variation": null,
+    "name": "js/components/saiku/Login.jsx",
+    "memberof": null,
+    "longname": "js/components/saiku/Login.jsx",
+    "access": null,
+    "description": null,
+    "lineNumber": 17,
+    "content": "/*\n *   Copyright 2016 OSBI Ltd\n *\n *   Licensed under the Apache License, Version 2.0 (the \"License\");\n *   you may not use this file except in compliance with the License.\n *   You may obtain a copy of the License at\n *\n *       http://www.apache.org/licenses/LICENSE-2.0\n *\n *   Unless required by applicable law or agreed to in writing, software\n *   distributed under the License is distributed on an \"AS IS\" BASIS,\n *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n *   See the License for the specific language governing permissions and\n *   limitations under the License.\n */\n\nimport React from 'react';\nimport autoBind from 'react-autobind';\nimport { History } from 'react-router';\nimport reactMixin from 'react-mixin';\nimport validation from 'react-validation-mixin';\nimport strategy from '../../utils/ReactValidatorStrategy';\nimport Session from '../../models/Session';\nimport {\n  Row,\n  Col,\n  Input,\n  Button\n} from 'react-bootstrap';\nimport FormGroup from '../bootstrap/FormGroup';\nimport Clearfix from '../bootstrap/Clearfix';\nimport Wrapper from './Wrapper';\n\nclass Login extends React.Component {\n  constructor(props) {\n    super(props);\n\n    this.validatorTypes = strategy.createSchema({\n      username: 'required',\n      password: 'required'\n    });\n    autoBind(this, 'getValidatorData', 'renderHelpText', 'getClasses',\n      'onSubmitLogin');\n    this.session = new Session();\n  }\n\n  getValidatorData() {\n    return {\n      username: this.refs.username.getValue(),\n      password: this.refs.password.getValue()\n    };\n  }\n\n  renderHelpText(message) {\n    return (\n      <span className=\"help-block\">{message}</span>\n    );\n  }\n\n  getClasses(field) {\n    return !this.props.isValid(field) ? 'has-error' : '';\n  }\n\n  onSubmitLogin(event) {\n    event.preventDefault();\n\n    let credentials = {\n      username: this.refs.username.getValue(),\n      password: this.refs.password.getValue()\n    };\n    let onValidate = (error) => {\n      if (!error) {\n        this.session.login(credentials, this);\n      }\n    };\n\n    this.props.validate(onValidate);\n    // this.refs.loginForm.reset();\n  }\n\n  render() {\n    return (\n      <div>\n        <div className=\"bg-page\"></div>\n        <Clearfix />\n\n        <Wrapper page>\n          <div className=\"content-box\">\n            <div className=\"panel-heading\">\n              <Col xs={3}>\n                <img\n                  src=\"dist/assets/images/saiku/logo-small.png\"\n                  width=\"40\"\n                  height=\"40\"\n                />\n              </Col>\n              <Col xs={9}>\n                <h4 className=\"text-left\">\n                  Sign In to <strong>Saiku Analytics</strong>\n                </h4>\n              </Col>\n              <Clearfix />\n            </div>\n            <div className=\"panel-body\">\n              <form\n                className=\"form-horizontal m-t-20\"\n                ref=\"loginForm\"\n                onSubmit={this.onSubmitLogin}\n                role=\"form\"\n              >\n                <FormGroup>\n                  <Col xs={12}>\n                    <div className={this.getClasses('username')}>\n                      <Input\n                        type=\"text\"\n                        ref=\"username\"\n                        placeholder=\"Username\"\n                        onBlur={this.props.handleValidation('username')}\n                        standalone\n                      />\n                      {this.renderHelpText(\n                        this.props.getValidationMessages('username')\n                      )}\n                    </div>\n                  </Col>\n                </FormGroup>\n                <FormGroup>\n                  <Col xs={12}>\n                    <div className={this.getClasses('password')}>\n                      <Input\n                        type=\"password\"\n                        ref=\"password\"\n                        placeholder=\"Password\"\n                        onBlur={this.props.handleValidation('password')}\n                        standalone\n                      />\n                      {this.renderHelpText(\n                        this.props.getValidationMessages('password')\n                      )}\n                    </div>\n                  </Col>\n                </FormGroup>\n                <FormGroup>\n                  <Col xs={6}>\n                    <Input\n                      type=\"checkbox\"\n                      label=\"Remember me\"\n                      labelClassName=\"checkbox-primary\"\n                      standalone\n                    />\n                  </Col>\n                  <Col xs={6} className=\"text-right\">\n                    <div className=\"checkbox\">\n                      <a href=\"#\">Evaluation Login</a>\n                    </div>\n                  </Col>\n                </FormGroup>\n                <FormGroup className=\"text-center m-t-40\">\n                  <Col xs={12}>\n                    <Button\n                      type=\"submit\"\n                      className=\"text-uppercase\"\n                      block\n                    >\n                      Login\n                    </Button>\n                  </Col>\n                </FormGroup>\n              </form>\n            </div>\n          </div>\n          <Row>\n            <Col sm={12} className=\"text-center\">\n              <p>Saiku-4.0-SNAPSHOT</p>\n            </Col>\n          </Row>\n        </Wrapper>\n      </div>\n    );\n  }\n}\n\nLogin.propTypes = {\n  errors: React.PropTypes.object,\n  validate: React.PropTypes.func,\n  isValid: React.PropTypes.func,\n  handleValidation: React.PropTypes.func,\n  getValidationMessages: React.PropTypes.func,\n  clearValidations: React.PropTypes.func\n};\n\nreactMixin.onClass(Login, History);\n\nexport default validation(strategy)(Login);\n"
+  },
+  {
+    "__docId__": 40,
+    "kind": "class",
+    "static": true,
+    "variation": null,
+    "name": "Login",
+    "memberof": "js/components/saiku/Login.jsx",
+    "longname": "js/components/saiku/Login.jsx~Login",
+    "access": null,
+    "export": false,
+    "importPath": "meteorite-core-ui/js/components/saiku/Login.jsx",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 34,
+    "undocument": true,
+    "interface": false,
+    "extends": [
+      "react~React.Component"
+    ]
+  },
+  {
+    "__docId__": 41,
+    "kind": "constructor",
+    "static": false,
+    "variation": null,
+    "name": "constructor",
+    "memberof": "js/components/saiku/Login.jsx~Login",
+    "longname": "js/components/saiku/Login.jsx~Login#constructor",
+    "access": null,
+    "description": null,
+    "lineNumber": 35,
+    "undocument": true,
+    "params": [
+      {
+        "name": "props",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "generator": false
+  },
+  {
+    "__docId__": 42,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "validatorTypes",
+    "memberof": "js/components/saiku/Login.jsx~Login",
+    "longname": "js/components/saiku/Login.jsx~Login#validatorTypes",
+    "access": null,
+    "description": null,
+    "lineNumber": 38,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 43,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "session",
+    "memberof": "js/components/saiku/Login.jsx~Login",
+    "longname": "js/components/saiku/Login.jsx~Login#session",
+    "access": null,
+    "description": null,
+    "lineNumber": 44,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 44,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "getValidatorData",
+    "memberof": "js/components/saiku/Login.jsx~Login",
+    "longname": "js/components/saiku/Login.jsx~Login#getValidatorData",
+    "access": null,
+    "description": null,
+    "lineNumber": 47,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 45,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "renderHelpText",
+    "memberof": "js/components/saiku/Login.jsx~Login",
+    "longname": "js/components/saiku/Login.jsx~Login#renderHelpText",
+    "access": null,
+    "description": null,
+    "lineNumber": 54,
+    "undocument": true,
+    "params": [
+      {
+        "name": "message",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 46,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "getClasses",
+    "memberof": "js/components/saiku/Login.jsx~Login",
+    "longname": "js/components/saiku/Login.jsx~Login#getClasses",
+    "access": null,
+    "description": null,
+    "lineNumber": 60,
+    "undocument": true,
+    "params": [
+      {
+        "name": "field",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 47,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "onSubmitLogin",
+    "memberof": "js/components/saiku/Login.jsx~Login",
+    "longname": "js/components/saiku/Login.jsx~Login#onSubmitLogin",
+    "access": null,
+    "description": null,
+    "lineNumber": 64,
+    "undocument": true,
+    "params": [
+      {
+        "name": "event",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "generator": false
+  },
+  {
+    "__docId__": 48,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "render",
+    "memberof": "js/components/saiku/Login.jsx~Login",
+    "longname": "js/components/saiku/Login.jsx~Login#render",
+    "access": null,
+    "description": null,
+    "lineNumber": 81,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 49,
+    "kind": "file",
+    "static": true,
+    "variation": null,
+    "name": "js/components/saiku/MenuBar.jsx",
+    "memberof": null,
+    "longname": "js/components/saiku/MenuBar.jsx",
+    "access": null,
+    "description": null,
+    "lineNumber": 17,
+    "content": "/*\n *   Copyright 2016 OSBI Ltd\n *\n *   Licensed under the Apache License, Version 2.0 (the \"License\");\n *   you may not use this file except in compliance with the License.\n *   You may obtain a copy of the License at\n *\n *       http://www.apache.org/licenses/LICENSE-2.0\n *\n *   Unless required by applicable law or agreed to in writing, software\n *   distributed under the License is distributed on an \"AS IS\" BASIS,\n *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n *   See the License for the specific language governing permissions and\n *   limitations under the License.\n */\n\nimport React from 'react';\nimport autoBind from 'react-autobind';\nimport { History } from 'react-router';\nimport reactMixin from 'react-mixin';\nimport _ from 'underscore';\nimport {\n  Grid,\n  Button,\n  Navbar,\n  Nav,\n  NavDropdown,\n  MenuItem,\n  Badge\n} from 'react-bootstrap';\nimport Clearfix from '../bootstrap/Clearfix';\nimport Icon from './Icon';\nimport MenubarCollection from '../../collections/MenubarCollection';\n\nclass MenuBar extends React.Component {\n  constructor(props) {\n    super(props);\n\n    this.state = {\n      models: ''\n    };\n\n    this._menubarUI = new MenubarCollection();\n\n    autoBind(this, 'onButtonMenu', 'showLockScreen', '_handleFetchUI');\n    autoBind(this, '_renderMenu', '_renderSubMenu');\n  }\n\n  componentDidMount() {\n    this._menubarUI.fetch({\n      success: this._handleFetchUI\n    });\n  }\n\n  _handleFetchUI(menubarUI) {\n    this.setState({\n      models: menubarUI.models[0]\n    });\n  }\n\n  onButtonMenu(event) {\n    event.stopPropagation();\n    this.props.openSidebar();\n  }\n\n  showLockScreen(event) {\n    this.history.pushState(null, '/lockscreen/');\n  }\n\n  _renderMenu(menu, index) {\n    let key = _.uniqueId('menu_');\n    let isVisible = !menu.visible ? 'hidden' : '';\n\n    return (\n      <NavDropdown\n        id={key}\n        key={key}\n        eventKey={index}\n        title={menu.name}\n        className={isVisible}\n      >\n        {menu.subitem.map(this._renderSubMenu)}\n      </NavDropdown>\n    );\n  }\n\n  _renderSubMenu(submenu, index) {\n    let key = _.uniqueId('menuitem_' + index + '_');\n    let isVisible = !submenu.visible ? 'hidden' : '';\n\n    return (\n      <MenuItem\n        id={key}\n        key={key}\n        eventKey={key}\n        className={isVisible}\n        href={submenu.action}\n      >\n        {submenu.name}\n      </MenuItem>\n    );\n  }\n\n  render() {\n    let menus = (this.state && !(_.isEmpty(this.state.models))) ?\n      this.state.models.getItem() : [];\n\n    return (\n      <div className=\"topbar\">\n        <div className=\"topbar-left\">\n          <div className=\"text-center\">\n            <a href=\"#\" className=\"logo\">\n              <img\n                src=\"../dist/assets/images/saiku/logo-small.png\"\n                width=\"40\"\n                height=\"40\"\n              />\n            </a>\n          </div>\n        </div>\n\n        <Navbar role=\"navigation\">\n          <Grid>\n            <div className=\"pull-left\">\n              <Button\n                className=\"button-menu-mobile open-left\"\n                onClick={this.onButtonMenu}\n              >\n                <Icon name=\"navicon\" />\n              </Button>\n              <Clearfix />\n            </div>\n            <Nav className=\"hidden-xs\">\n              {menus.map(this._renderMenu)}\n            </Nav>\n            <Nav className=\"navbar-right pull-right\">\n              <li className=\"dropdown hidden-xs\">\n                <a\n                  href=\"#\"\n                  className=\"\"\n                  data-target=\"#\"\n                  data-toggle=\"dropdown\"\n                  aria-expanded=\"true\"\n                >\n                  <Icon name=\"bell-o\" />\n                  <Badge className=\"badge-xs badge-danger\">3</Badge>\n                </a>\n              </li>\n              <li className=\"dropdown\">\n                <a\n                  href=\"#\"\n                  className=\"dropdown-toggle profile\"\n                  data-toggle=\"dropdown\"\n                  aria-expanded=\"true\"\n                >\n                  <img\n                    src=\"../dist/assets/images/users/user2.jpg\"\n                    className=\"img-circle\"\n                  />\n                </a>\n                <ul\n                  className=\"dropdown-menu dropdown-menu-animate\n                    drop-menu-right\"\n                >\n                  <li>\n                    <a href=\"#\">\n                      <Icon name=\"user\" /> Profile\n                    </a>\n                  </li>\n                  <li>\n                    <a href=\"#\">\n                      <Icon name=\"gear\" /> Settings\n                    </a>\n                  </li>\n                  <li>\n                    <a href=\"#\" onClick={this.showLockScreen}>\n                      <Icon name=\"lock\" /> Lock Screen\n                    </a>\n                  </li>\n                  <li>\n                    <a href=\"#\">\n                      <Icon name=\"power-off\" /> Logout\n                    </a>\n                  </li>\n                </ul>\n              </li>\n            </Nav>\n          </Grid>\n        </Navbar>\n      </div>\n    );\n  }\n}\n\nMenuBar.propTypes = {\n  openSidebar: React.PropTypes.func.isRequired\n};\n\nreactMixin.onClass(MenuBar, History);\n\nexport default MenuBar;\n"
+  },
+  {
+    "__docId__": 50,
+    "kind": "class",
+    "static": true,
+    "variation": null,
+    "name": "MenuBar",
+    "memberof": "js/components/saiku/MenuBar.jsx",
+    "longname": "js/components/saiku/MenuBar.jsx~MenuBar",
+    "access": null,
+    "export": true,
+    "importPath": "meteorite-core-ui/js/components/saiku/MenuBar.jsx",
+    "importStyle": "MenuBar",
+    "description": null,
+    "lineNumber": 35,
+    "undocument": true,
+    "interface": false,
+    "extends": [
+      "react~React.Component"
+    ]
+  },
+  {
+    "__docId__": 51,
+    "kind": "constructor",
+    "static": false,
+    "variation": null,
+    "name": "constructor",
+    "memberof": "js/components/saiku/MenuBar.jsx~MenuBar",
+    "longname": "js/components/saiku/MenuBar.jsx~MenuBar#constructor",
+    "access": null,
+    "description": null,
+    "lineNumber": 36,
+    "undocument": true,
+    "params": [
+      {
+        "name": "props",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "generator": false
+  },
+  {
+    "__docId__": 52,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "state",
+    "memberof": "js/components/saiku/MenuBar.jsx~MenuBar",
+    "longname": "js/components/saiku/MenuBar.jsx~MenuBar#state",
+    "access": null,
+    "description": null,
+    "lineNumber": 39,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 53,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "_menubarUI",
+    "memberof": "js/components/saiku/MenuBar.jsx~MenuBar",
+    "longname": "js/components/saiku/MenuBar.jsx~MenuBar#_menubarUI",
+    "access": null,
+    "description": null,
+    "lineNumber": 43,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 54,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "componentDidMount",
+    "memberof": "js/components/saiku/MenuBar.jsx~MenuBar",
+    "longname": "js/components/saiku/MenuBar.jsx~MenuBar#componentDidMount",
+    "access": null,
+    "description": null,
+    "lineNumber": 49,
+    "undocument": true,
+    "params": [],
+    "generator": false
+  },
+  {
+    "__docId__": 55,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "_handleFetchUI",
+    "memberof": "js/components/saiku/MenuBar.jsx~MenuBar",
+    "longname": "js/components/saiku/MenuBar.jsx~MenuBar#_handleFetchUI",
+    "access": null,
+    "description": null,
+    "lineNumber": 55,
+    "undocument": true,
+    "params": [
+      {
+        "name": "menubarUI",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "generator": false
+  },
+  {
+    "__docId__": 56,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "onButtonMenu",
+    "memberof": "js/components/saiku/MenuBar.jsx~MenuBar",
+    "longname": "js/components/saiku/MenuBar.jsx~MenuBar#onButtonMenu",
+    "access": null,
+    "description": null,
+    "lineNumber": 61,
+    "undocument": true,
+    "params": [
+      {
+        "name": "event",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "generator": false
+  },
+  {
+    "__docId__": 57,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "showLockScreen",
+    "memberof": "js/components/saiku/MenuBar.jsx~MenuBar",
+    "longname": "js/components/saiku/MenuBar.jsx~MenuBar#showLockScreen",
+    "access": null,
+    "description": null,
+    "lineNumber": 66,
+    "undocument": true,
+    "params": [
+      {
+        "name": "event",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "generator": false
+  },
+  {
+    "__docId__": 58,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "_renderMenu",
+    "memberof": "js/components/saiku/MenuBar.jsx~MenuBar",
+    "longname": "js/components/saiku/MenuBar.jsx~MenuBar#_renderMenu",
+    "access": null,
+    "description": null,
+    "lineNumber": 70,
+    "undocument": true,
+    "params": [
+      {
+        "name": "menu",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "index",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 59,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "_renderSubMenu",
+    "memberof": "js/components/saiku/MenuBar.jsx~MenuBar",
+    "longname": "js/components/saiku/MenuBar.jsx~MenuBar#_renderSubMenu",
+    "access": null,
+    "description": null,
+    "lineNumber": 87,
+    "undocument": true,
+    "params": [
+      {
+        "name": "submenu",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "index",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 60,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "render",
+    "memberof": "js/components/saiku/MenuBar.jsx~MenuBar",
+    "longname": "js/components/saiku/MenuBar.jsx~MenuBar#render",
+    "access": null,
+    "description": null,
+    "lineNumber": 104,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 61,
+    "kind": "file",
+    "static": true,
+    "variation": null,
+    "name": "js/components/saiku/NotFound.jsx",
+    "memberof": null,
+    "longname": "js/components/saiku/NotFound.jsx",
+    "access": null,
+    "description": null,
+    "lineNumber": 17,
+    "content": "/*\n *   Copyright 2016 OSBI Ltd\n *\n *   Licensed under the Apache License, Version 2.0 (the \"License\");\n *   you may not use this file except in compliance with the License.\n *   You may obtain a copy of the License at\n *\n *       http://www.apache.org/licenses/LICENSE-2.0\n *\n *   Unless required by applicable law or agreed to in writing, software\n *   distributed under the License is distributed on an \"AS IS\" BASIS,\n *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n *   See the License for the specific language governing permissions and\n *   limitations under the License.\n */\n\nimport React from 'react';\n\nclass NotFound extends React.Component {\n  render() {\n    return (\n      <h1>Not Found!</h1>\n    );\n  }\n}\n\nexport default NotFound;\n"
+  },
+  {
+    "__docId__": 62,
+    "kind": "class",
+    "static": true,
+    "variation": null,
+    "name": "NotFound",
+    "memberof": "js/components/saiku/NotFound.jsx",
+    "longname": "js/components/saiku/NotFound.jsx~NotFound",
+    "access": null,
+    "export": true,
+    "importPath": "meteorite-core-ui/js/components/saiku/NotFound.jsx",
+    "importStyle": "NotFound",
+    "description": null,
+    "lineNumber": 19,
+    "undocument": true,
+    "interface": false,
+    "extends": [
+      "react~React.Component"
+    ]
+  },
+  {
+    "__docId__": 63,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "render",
+    "memberof": "js/components/saiku/NotFound.jsx~NotFound",
+    "longname": "js/components/saiku/NotFound.jsx~NotFound#render",
+    "access": null,
+    "description": null,
+    "lineNumber": 20,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 64,
+    "kind": "file",
+    "static": true,
+    "variation": null,
+    "name": "js/components/saiku/Portlet.jsx",
+    "memberof": null,
+    "longname": "js/components/saiku/Portlet.jsx",
+    "access": null,
+    "description": null,
+    "lineNumber": 17,
+    "content": "/*\n *   Copyright 2016 OSBI Ltd\n *\n *   Licensed under the Apache License, Version 2.0 (the \"License\");\n *   you may not use this file except in compliance with the License.\n *   You may obtain a copy of the License at\n *\n *       http://www.apache.org/licenses/LICENSE-2.0\n *\n *   Unless required by applicable law or agreed to in writing, software\n *   distributed under the License is distributed on an \"AS IS\" BASIS,\n *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n *   See the License for the specific language governing permissions and\n *   limitations under the License.\n */\n\nimport React from 'react';\nimport Clearfix from '../bootstrap/Clearfix';\nimport Icon from './Icon';\n\nclass Portlet extends React.Component {\n  render() {\n    return (\n      <div className=\"portlet\">\n        <div className=\"portlet-heading bg-lightdark\">\n          <h3 className=\"portlet-title\">\n            {this.props.title}\n          </h3>\n          <div className=\"portlet-widgets\">\n            {/*\n            <a href=\"#\">\n              <Icon name=\"minus\" />\n            </a>\n            <span className=\"divider\"></span>\n            */}\n            <a href=\"#\">\n              <Icon name=\"caret-down\" />\n            </a>\n          </div>\n          <Clearfix />\n        </div>\n        <div className=\"panel-collapse\">\n          <div className=\"portlet-body\">\n            <ul>\n              <li>Sum</li>\n              <li>Count</li>\n            </ul>\n          </div>\n        </div>\n      </div>\n    );\n  }\n}\n\nPortlet.propTypes = {\n  title: React.PropTypes.string\n};\n\nexport default Portlet;\n"
+  },
+  {
+    "__docId__": 65,
+    "kind": "class",
+    "static": true,
+    "variation": null,
+    "name": "Portlet",
+    "memberof": "js/components/saiku/Portlet.jsx",
+    "longname": "js/components/saiku/Portlet.jsx~Portlet",
+    "access": null,
+    "export": true,
+    "importPath": "meteorite-core-ui/js/components/saiku/Portlet.jsx",
+    "importStyle": "Portlet",
+    "description": null,
+    "lineNumber": 21,
+    "undocument": true,
+    "interface": false,
+    "extends": [
+      "react~React.Component"
+    ]
+  },
+  {
+    "__docId__": 66,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "render",
+    "memberof": "js/components/saiku/Portlet.jsx~Portlet",
+    "longname": "js/components/saiku/Portlet.jsx~Portlet#render",
+    "access": null,
+    "description": null,
+    "lineNumber": 22,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 67,
+    "kind": "file",
+    "static": true,
+    "variation": null,
+    "name": "js/components/saiku/Sidebar.jsx",
+    "memberof": null,
+    "longname": "js/components/saiku/Sidebar.jsx",
+    "access": null,
+    "description": null,
+    "lineNumber": 17,
+    "content": "/*\n *   Copyright 2016 OSBI Ltd\n *\n *   Licensed under the Apache License, Version 2.0 (the \"License\");\n *   you may not use this file except in compliance with the License.\n *   You may obtain a copy of the License at\n *\n *       http://www.apache.org/licenses/LICENSE-2.0\n *\n *   Unless required by applicable law or agreed to in writing, software\n *   distributed under the License is distributed on an \"AS IS\" BASIS,\n *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n *   See the License for the specific language governing permissions and\n *   limitations under the License.\n */\n\nimport React from 'react';\nimport Clearfix from '../bootstrap/Clearfix';\nimport Icon from './Icon';\nimport autoBind from 'react-autobind';\nimport _ from 'underscore';\nimport SidebarCollection from '../../collections/SidebarCollection';\n\nclass Toolbar extends React.Component {\n  constructor(props) {\n    super(props);\n\n    this.state = {\n      models: ''\n    };\n\n    this._sidebarUI = new SidebarCollection();\n\n    autoBind(this, '_handleFetchUI', '_renderItem');\n  }\n\n  componentDidMount() {\n    this._sidebarUI.fetch({\n      success: this._handleFetchUI\n    });\n  }\n\n  _handleFetchUI(sidebarUI) {\n    this.setState({\n      models: sidebarUI.models[0]\n    });\n  }\n\n  _renderItem(item, index) {\n    let key = 'sidebar_item_' + index;\n\n    return (\n      <li id={key} key={key}>\n        <a href={item.action}>\n          <Icon name={item.icon} />\n          <span> {item.name} </span>\n        </a>\n      </li>\n    );\n  }\n\n  render() {\n    let items = (this.state && !(_.isEmpty(this.state.models))) ?\n      this.state.models.getItem() : [];\n\n    return (\n      <div className=\"fixed-left\">\n        <div className=\"side-menu left\">\n          <div className=\"sidebar-inner slimscrollleft\">\n            <div className=\"sidebar-menu\">\n              <ul>\n                {items.map(this._renderItem)}\n              </ul>\n              <Clearfix />\n            </div>\n            <Clearfix />\n          </div>\n        </div>\n      </div>\n    );\n  }\n}\n\nexport default Toolbar;\n"
+  },
+  {
+    "__docId__": 68,
+    "kind": "class",
+    "static": true,
+    "variation": null,
+    "name": "Toolbar",
+    "memberof": "js/components/saiku/Sidebar.jsx",
+    "longname": "js/components/saiku/Sidebar.jsx~Toolbar",
+    "access": null,
+    "export": true,
+    "importPath": "meteorite-core-ui/js/components/saiku/Sidebar.jsx",
+    "importStyle": "Toolbar",
+    "description": null,
+    "lineNumber": 24,
+    "undocument": true,
+    "interface": false,
+    "extends": [
+      "react~React.Component"
+    ]
+  },
+  {
+    "__docId__": 69,
+    "kind": "constructor",
+    "static": false,
+    "variation": null,
+    "name": "constructor",
+    "memberof": "js/components/saiku/Sidebar.jsx~Toolbar",
+    "longname": "js/components/saiku/Sidebar.jsx~Toolbar#constructor",
+    "access": null,
+    "description": null,
+    "lineNumber": 25,
+    "undocument": true,
+    "params": [
+      {
+        "name": "props",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "generator": false
+  },
+  {
+    "__docId__": 70,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "state",
+    "memberof": "js/components/saiku/Sidebar.jsx~Toolbar",
+    "longname": "js/components/saiku/Sidebar.jsx~Toolbar#state",
+    "access": null,
+    "description": null,
+    "lineNumber": 28,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 71,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "_sidebarUI",
+    "memberof": "js/components/saiku/Sidebar.jsx~Toolbar",
+    "longname": "js/components/saiku/Sidebar.jsx~Toolbar#_sidebarUI",
+    "access": null,
+    "description": null,
+    "lineNumber": 32,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 72,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "componentDidMount",
+    "memberof": "js/components/saiku/Sidebar.jsx~Toolbar",
+    "longname": "js/components/saiku/Sidebar.jsx~Toolbar#componentDidMount",
+    "access": null,
+    "description": null,
+    "lineNumber": 37,
+    "undocument": true,
+    "params": [],
+    "generator": false
+  },
+  {
+    "__docId__": 73,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "_handleFetchUI",
+    "memberof": "js/components/saiku/Sidebar.jsx~Toolbar",
+    "longname": "js/components/saiku/Sidebar.jsx~Toolbar#_handleFetchUI",
+    "access": null,
+    "description": null,
+    "lineNumber": 43,
+    "undocument": true,
+    "params": [
+      {
+        "name": "sidebarUI",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "generator": false
+  },
+  {
+    "__docId__": 74,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "_renderItem",
+    "memberof": "js/components/saiku/Sidebar.jsx~Toolbar",
+    "longname": "js/components/saiku/Sidebar.jsx~Toolbar#_renderItem",
+    "access": null,
+    "description": null,
+    "lineNumber": 49,
+    "undocument": true,
+    "params": [
+      {
+        "name": "item",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "index",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 75,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "render",
+    "memberof": "js/components/saiku/Sidebar.jsx~Toolbar",
+    "longname": "js/components/saiku/Sidebar.jsx~Toolbar#render",
+    "access": null,
+    "description": null,
+    "lineNumber": 62,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 76,
+    "kind": "file",
+    "static": true,
+    "variation": null,
+    "name": "js/components/saiku/Tab.jsx",
+    "memberof": null,
+    "longname": "js/components/saiku/Tab.jsx",
+    "access": null,
+    "description": null,
+    "lineNumber": 17,
+    "content": "/*\n *   Copyright 2016 OSBI Ltd\n *\n *   Licensed under the Apache License, Version 2.0 (the \"License\");\n *   you may not use this file except in compliance with the License.\n *   You may obtain a copy of the License at\n *\n *       http://www.apache.org/licenses/LICENSE-2.0\n *\n *   Unless required by applicable law or agreed to in writing, software\n *   distributed under the License is distributed on an \"AS IS\" BASIS,\n *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n *   See the License for the specific language governing permissions and\n *   limitations under the License.\n */\n\nimport React from 'react';\n\nclass Tab extends React.Component {\n  render() {\n    return (\n      <div className=\"tab-content\">\n        <div\n          role=\"tabpanel\"\n          id={this.props.tabKey}\n          className={'tab-pane' + (this.props.isSelected ? ' active' : '')}\n          aria-hidden={!this.props.isSelected}\n        >\n          {this.props.children}\n        </div>\n      </div>\n    );\n  }\n}\n\nTab.propTypes = {\n  tabKey: React.PropTypes.string.isRequired,\n  isSelected: React.PropTypes.bool,\n  children: React.PropTypes.node.isRequired\n};\n\nTab.defaultProps = {\n  isSelected: false\n};\n\nexport default Tab;\n"
+  },
+  {
+    "__docId__": 77,
+    "kind": "class",
+    "static": true,
+    "variation": null,
+    "name": "Tab",
+    "memberof": "js/components/saiku/Tab.jsx",
+    "longname": "js/components/saiku/Tab.jsx~Tab",
+    "access": null,
+    "export": true,
+    "importPath": "meteorite-core-ui/js/components/saiku/Tab.jsx",
+    "importStyle": "Tab",
+    "description": null,
+    "lineNumber": 19,
+    "undocument": true,
+    "interface": false,
+    "extends": [
+      "react~React.Component"
+    ]
+  },
+  {
+    "__docId__": 78,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "render",
+    "memberof": "js/components/saiku/Tab.jsx~Tab",
+    "longname": "js/components/saiku/Tab.jsx~Tab#render",
+    "access": null,
+    "description": null,
+    "lineNumber": 20,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 79,
+    "kind": "file",
+    "static": true,
+    "variation": null,
+    "name": "js/components/saiku/Tabs.jsx",
+    "memberof": null,
+    "longname": "js/components/saiku/Tabs.jsx",
+    "access": null,
+    "description": null,
+    "lineNumber": 17,
+    "content": "/*\n *   Copyright 2016 OSBI Ltd\n *\n *   Licensed under the Apache License, Version 2.0 (the \"License\");\n *   you may not use this file except in compliance with the License.\n *   You may obtain a copy of the License at\n *\n *       http://www.apache.org/licenses/LICENSE-2.0\n *\n *   Unless required by applicable law or agreed to in writing, software\n *   distributed under the License is distributed on an \"AS IS\" BASIS,\n *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n *   See the License for the specific language governing permissions and\n *   limitations under the License.\n */\n\nimport React from 'react';\nimport autoBind from 'react-autobind';\nimport _ from 'underscore';\nimport Tab from './Tab';\n\nclass Tabs extends React.Component {\n  constructor(props) {\n    super(props);\n\n    this.id = _.uniqueId('tabs_');\n    this.tabCounter = 1;\n    this.state = {\n      tabs: [],\n      selectedTab: null\n    };\n\n    autoBind(this, 'renderTabButtons', 'renderTabPanels');\n    autoBind(this, '_newTab', '_deleteTab', '_selectTab');\n  }\n\n  componentDidMount() {\n    this._newTab();\n  }\n\n  render() {\n    return (\n      <div>\n        <ul className=\"nav nav-tabs\" role=\"tablist\" key={this.id}>\n          {this.state.tabs.map(this.renderTabButtons)}\n          <li className=\"add-tab\" role=\"presentation\" role=\"tab\">\n            <a role=\"tab\" href=\"#\" onClick={this._newTab}>+</a>\n          </li>\n        </ul>\n        {this.state.tabs.map(this.renderTabPanels)}\n      </div>\n    );\n  }\n\n  renderTabButtons(tab, index) {\n    return (\n      <li\n        className={this._isSelected(tab) ? 'active' : ''}\n        role=\"presentation\"\n        role=\"tab\"\n        key={'tab_button_' + index}\n      >\n        <a\n          role=\"tab\"\n          href={'#' + tab.key}\n          data-toggle=\"tab\"\n          aria-expanded={this._isSelected(tab)}\n          aria-controls={tab.key}\n          onClick={(event) => this._selectTab(tab, event)}\n        >\n          <button\n            className=\"close closeTab\"\n            type=\"button\"\n            onClick={(event) => this._deleteTab(tab, event)}\n          >\n            ×\n          </button>\n          {tab.title}\n        </a>\n      </li>\n    );\n  }\n\n  renderTabPanels(tab, index) {\n    return (\n      <div className=\"tab-content\" key={tab.key + '_content'}>\n        <Tab tabKey={tab.key} isSelected={this._isSelected(tab)}>\n          {tab.component}\n        </Tab>\n      </div>\n    );\n  }\n\n  _isSelected(tab) {\n    return tab.key === this.state.selectedTab;\n  }\n\n  _newTab(event) {\n    if (event) {\n      event.preventDefault();\n    }\n\n    let tab = {\n      key: _.uniqueId('tab_'),\n      title: 'Unsaved query (' + (this.tabCounter) + ')',\n      component: this.props.createContent()\n    };\n\n    this.state.tabs.push(tab);\n    this.tabCounter++;\n\n    this.setState({\n      tabs: this.state.tabs\n    });\n\n    this._selectTab(tab);\n  }\n\n  _selectTab(tab, event) {\n    if (event) {\n      event.preventDefault();\n    }\n\n    this.setState({selectedTab: tab.key});\n  }\n\n  _deleteTab(tab, event) {\n    if (event) {\n      event.preventDefault();\n      event.stopPropagation();\n    }\n\n    let key = tab.key;\n    let tabs = this.state.tabs;\n\n    // Remove the tab\n    this.state.tabs = _.without(tabs, _.findWhere(tabs, {key: key}));\n    this.setState({tabs: this.state.tabs});\n\n    // If the removed that is the selected, find and select another one\n    if (this._isSelected(tab) && (this.state.tabs.length > 0)) {\n      _.defer(() => this._selectTab(this.state.tabs[0]));\n    }\n  }\n}\n\nTabs.propTypes = {\n  createContent: React.PropTypes.func.isRequired\n};\n\nexport default Tabs;\n"
+  },
+  {
+    "__docId__": 80,
+    "kind": "class",
+    "static": true,
+    "variation": null,
+    "name": "Tabs",
+    "memberof": "js/components/saiku/Tabs.jsx",
+    "longname": "js/components/saiku/Tabs.jsx~Tabs",
+    "access": null,
+    "export": true,
+    "importPath": "meteorite-core-ui/js/components/saiku/Tabs.jsx",
+    "importStyle": "Tabs",
+    "description": null,
+    "lineNumber": 22,
+    "undocument": true,
+    "interface": false,
+    "extends": [
+      "react~React.Component"
+    ]
+  },
+  {
+    "__docId__": 81,
+    "kind": "constructor",
+    "static": false,
+    "variation": null,
+    "name": "constructor",
+    "memberof": "js/components/saiku/Tabs.jsx~Tabs",
+    "longname": "js/components/saiku/Tabs.jsx~Tabs#constructor",
+    "access": null,
+    "description": null,
+    "lineNumber": 23,
+    "undocument": true,
+    "params": [
+      {
+        "name": "props",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "generator": false
+  },
+  {
+    "__docId__": 82,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "id",
+    "memberof": "js/components/saiku/Tabs.jsx~Tabs",
+    "longname": "js/components/saiku/Tabs.jsx~Tabs#id",
+    "access": null,
+    "description": null,
+    "lineNumber": 26,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 83,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "tabCounter",
+    "memberof": "js/components/saiku/Tabs.jsx~Tabs",
+    "longname": "js/components/saiku/Tabs.jsx~Tabs#tabCounter",
+    "access": null,
+    "description": null,
+    "lineNumber": 27,
+    "undocument": true,
+    "type": {
+      "types": [
+        "number"
+      ]
+    }
+  },
+  {
+    "__docId__": 84,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "state",
+    "memberof": "js/components/saiku/Tabs.jsx~Tabs",
+    "longname": "js/components/saiku/Tabs.jsx~Tabs#state",
+    "access": null,
+    "description": null,
+    "lineNumber": 28,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 85,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "componentDidMount",
+    "memberof": "js/components/saiku/Tabs.jsx~Tabs",
+    "longname": "js/components/saiku/Tabs.jsx~Tabs#componentDidMount",
+    "access": null,
+    "description": null,
+    "lineNumber": 37,
+    "undocument": true,
+    "params": [],
+    "generator": false
+  },
+  {
+    "__docId__": 86,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "render",
+    "memberof": "js/components/saiku/Tabs.jsx~Tabs",
+    "longname": "js/components/saiku/Tabs.jsx~Tabs#render",
+    "access": null,
+    "description": null,
+    "lineNumber": 41,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 87,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "renderTabButtons",
+    "memberof": "js/components/saiku/Tabs.jsx~Tabs",
+    "longname": "js/components/saiku/Tabs.jsx~Tabs#renderTabButtons",
+    "access": null,
+    "description": null,
+    "lineNumber": 55,
+    "undocument": true,
+    "params": [
+      {
+        "name": "tab",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "index",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 88,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "renderTabPanels",
+    "memberof": "js/components/saiku/Tabs.jsx~Tabs",
+    "longname": "js/components/saiku/Tabs.jsx~Tabs#renderTabPanels",
+    "access": null,
+    "description": null,
+    "lineNumber": 84,
+    "undocument": true,
+    "params": [
+      {
+        "name": "tab",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "index",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 89,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "_isSelected",
+    "memberof": "js/components/saiku/Tabs.jsx~Tabs",
+    "longname": "js/components/saiku/Tabs.jsx~Tabs#_isSelected",
+    "access": null,
+    "description": null,
+    "lineNumber": 94,
+    "undocument": true,
+    "params": [
+      {
+        "name": "tab",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 90,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "_newTab",
+    "memberof": "js/components/saiku/Tabs.jsx~Tabs",
+    "longname": "js/components/saiku/Tabs.jsx~Tabs#_newTab",
+    "access": null,
+    "description": null,
+    "lineNumber": 98,
+    "undocument": true,
+    "params": [
+      {
+        "name": "event",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "generator": false
+  },
+  {
+    "__docId__": 91,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "_selectTab",
+    "memberof": "js/components/saiku/Tabs.jsx~Tabs",
+    "longname": "js/components/saiku/Tabs.jsx~Tabs#_selectTab",
+    "access": null,
+    "description": null,
+    "lineNumber": 119,
+    "undocument": true,
+    "params": [
+      {
+        "name": "tab",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "event",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "generator": false
+  },
+  {
+    "__docId__": 92,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "_deleteTab",
+    "memberof": "js/components/saiku/Tabs.jsx~Tabs",
+    "longname": "js/components/saiku/Tabs.jsx~Tabs#_deleteTab",
+    "access": null,
+    "description": null,
+    "lineNumber": 127,
+    "undocument": true,
+    "params": [
+      {
+        "name": "tab",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "event",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "generator": false
+  },
+  {
+    "__docId__": 93,
+    "kind": "file",
+    "static": true,
+    "variation": null,
+    "name": "js/components/saiku/Toolbar.jsx",
+    "memberof": null,
+    "longname": "js/components/saiku/Toolbar.jsx",
+    "access": null,
+    "description": null,
+    "lineNumber": 17,
+    "content": "/*\n *   Copyright 2016 OSBI Ltd\n *\n *   Licensed under the Apache License, Version 2.0 (the \"License\");\n *   you may not use this file except in compliance with the License.\n *   You may obtain a copy of the License at\n *\n *       http://www.apache.org/licenses/LICENSE-2.0\n *\n *   Unless required by applicable law or agreed to in writing, software\n *   distributed under the License is distributed on an \"AS IS\" BASIS,\n *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n *   See the License for the specific language governing permissions and\n *   limitations under the License.\n */\n\nimport React from 'react';\nimport autoBind from 'react-autobind';\nimport _ from 'underscore';\nimport {\n  Navbar,\n  Nav,\n  NavItem\n} from 'react-bootstrap';\nimport Icon from './Icon';\nimport ToolbarCollection from '../../collections/ToolbarCollection';\n\nclass Toolbar extends React.Component {\n  constructor(props) {\n    super(props);\n\n    this.state = {\n      models: ''\n    };\n\n    this._toolbarUI = new ToolbarCollection();\n\n    autoBind(this, '_handleFetchUI');\n  }\n\n  componentDidMount() {\n    this._toolbarUI.fetch({\n      success: this._handleFetchUI\n    });\n  }\n\n  _handleFetchUI(toolbarUI) {\n    this.setState({\n      models: toolbarUI.models[0]\n    });\n  }\n\n  _renderNavItem(item, key) {\n    let isItemVisible = !item.visible ? 'hidden' : '';\n\n    return (\n      <NavItem key={key} eventKey={key} className={isItemVisible} href=\"#\">\n        <Icon name={item.icon} />\n      </NavItem>\n    );\n  }\n\n  render() {\n    let items = (this.state && !(_.isEmpty(this.state.models))) ?\n      this.state.models.getItem() : [];\n\n    return (\n      <Navbar className=\"toolbar\">\n        <Navbar.Header>\n          <Navbar.Text>Cubes</Navbar.Text>\n        </Navbar.Header>\n        <Nav>\n          {items.map(this._renderNavItem)}\n        </Nav>\n      </Navbar>\n    );\n  }\n}\n\nexport default Toolbar;\n"
+  },
+  {
+    "__docId__": 94,
+    "kind": "class",
+    "static": true,
+    "variation": null,
+    "name": "Toolbar",
+    "memberof": "js/components/saiku/Toolbar.jsx",
+    "longname": "js/components/saiku/Toolbar.jsx~Toolbar",
+    "access": null,
+    "export": true,
+    "importPath": "meteorite-core-ui/js/components/saiku/Toolbar.jsx",
+    "importStyle": "Toolbar",
+    "description": null,
+    "lineNumber": 28,
+    "undocument": true,
+    "interface": false,
+    "extends": [
+      "react~React.Component"
+    ]
+  },
+  {
+    "__docId__": 95,
+    "kind": "constructor",
+    "static": false,
+    "variation": null,
+    "name": "constructor",
+    "memberof": "js/components/saiku/Toolbar.jsx~Toolbar",
+    "longname": "js/components/saiku/Toolbar.jsx~Toolbar#constructor",
+    "access": null,
+    "description": null,
+    "lineNumber": 29,
+    "undocument": true,
+    "params": [
+      {
+        "name": "props",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "generator": false
+  },
+  {
+    "__docId__": 96,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "state",
+    "memberof": "js/components/saiku/Toolbar.jsx~Toolbar",
+    "longname": "js/components/saiku/Toolbar.jsx~Toolbar#state",
+    "access": null,
+    "description": null,
+    "lineNumber": 32,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 97,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "_toolbarUI",
+    "memberof": "js/components/saiku/Toolbar.jsx~Toolbar",
+    "longname": "js/components/saiku/Toolbar.jsx~Toolbar#_toolbarUI",
+    "access": null,
+    "description": null,
+    "lineNumber": 36,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 98,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "componentDidMount",
+    "memberof": "js/components/saiku/Toolbar.jsx~Toolbar",
+    "longname": "js/components/saiku/Toolbar.jsx~Toolbar#componentDidMount",
+    "access": null,
+    "description": null,
+    "lineNumber": 41,
+    "undocument": true,
+    "params": [],
+    "generator": false
+  },
+  {
+    "__docId__": 99,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "_handleFetchUI",
+    "memberof": "js/components/saiku/Toolbar.jsx~Toolbar",
+    "longname": "js/components/saiku/Toolbar.jsx~Toolbar#_handleFetchUI",
+    "access": null,
+    "description": null,
+    "lineNumber": 47,
+    "undocument": true,
+    "params": [
+      {
+        "name": "toolbarUI",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "generator": false
+  },
+  {
+    "__docId__": 100,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "_renderNavItem",
+    "memberof": "js/components/saiku/Toolbar.jsx~Toolbar",
+    "longname": "js/components/saiku/Toolbar.jsx~Toolbar#_renderNavItem",
+    "access": null,
+    "description": null,
+    "lineNumber": 53,
+    "undocument": true,
+    "params": [
+      {
+        "name": "item",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "key",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 101,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "render",
+    "memberof": "js/components/saiku/Toolbar.jsx~Toolbar",
+    "longname": "js/components/saiku/Toolbar.jsx~Toolbar#render",
+    "access": null,
+    "description": null,
+    "lineNumber": 63,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 102,
+    "kind": "file",
+    "static": true,
+    "variation": null,
+    "name": "js/components/saiku/Workspace.jsx",
+    "memberof": null,
+    "longname": "js/components/saiku/Workspace.jsx",
+    "access": null,
+    "description": null,
+    "lineNumber": 17,
+    "content": "/*\n *   Copyright 2016 OSBI Ltd\n *\n *   Licensed under the Apache License, Version 2.0 (the \"License\");\n *   you may not use this file except in compliance with the License.\n *   You may obtain a copy of the License at\n *\n *       http://www.apache.org/licenses/LICENSE-2.0\n *\n *   Unless required by applicable law or agreed to in writing, software\n *   distributed under the License is distributed on an \"AS IS\" BASIS,\n *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n *   See the License for the specific language governing permissions and\n *   limitations under the License.\n */\n\nimport React from 'react';\nimport autoBind from 'react-autobind';\nimport {\n  Grid,\n  Row,\n  Col\n} from 'react-bootstrap';\nimport Wrapper from './Wrapper';\nimport Content from './Content';\nimport MenuBar from './MenuBar';\nimport Sidebar from './Sidebar';\nimport Toolbar from './Toolbar';\nimport Tabs from './Tabs';\nimport Portlet from './Portlet';\n\nclass Workspace extends React.Component {\n  constructor(props) {\n    super(props);\n\n    this.state = {\n      isOpenSidebar: false,\n      tabs: [],\n      selectedTab: null\n    };\n\n    autoBind(this, 'openSidebar');\n  }\n\n  openSidebar() {\n    if (this.state.isOpenSidebar) {\n      this.setState({\n        isOpenSidebar: false\n      });\n    }\n    else {\n      this.setState({\n        isOpenSidebar: true\n      });\n    }\n  }\n\n  render() {\n    return (\n      <Wrapper isOpenSidebar={this.state.isOpenSidebar}>\n        <MenuBar openSidebar={this.openSidebar} />\n        <Sidebar />\n        <Content page>\n          <Tabs createContent={this.createContent} />\n        </Content>\n      </Wrapper>\n    );\n  }\n\n  createContent() {\n    return (\n      <Content>\n        <Toolbar />\n        <Grid>\n          <Row>\n            <Col lg={3}>\n              <Portlet title=\"Measures\" />\n              <Portlet title=\"Columns\" />\n              <Portlet title=\"Rows\" />\n            </Col>\n          </Row>\n        </Grid>\n      </Content>\n    );\n  }\n}\n\nexport default Workspace;\n"
+  },
+  {
+    "__docId__": 103,
+    "kind": "class",
+    "static": true,
+    "variation": null,
+    "name": "Workspace",
+    "memberof": "js/components/saiku/Workspace.jsx",
+    "longname": "js/components/saiku/Workspace.jsx~Workspace",
+    "access": null,
+    "export": true,
+    "importPath": "meteorite-core-ui/js/components/saiku/Workspace.jsx",
+    "importStyle": "Workspace",
+    "description": null,
+    "lineNumber": 32,
+    "undocument": true,
+    "interface": false,
+    "extends": [
+      "react~React.Component"
+    ]
+  },
+  {
+    "__docId__": 104,
+    "kind": "constructor",
+    "static": false,
+    "variation": null,
+    "name": "constructor",
+    "memberof": "js/components/saiku/Workspace.jsx~Workspace",
+    "longname": "js/components/saiku/Workspace.jsx~Workspace#constructor",
+    "access": null,
+    "description": null,
+    "lineNumber": 33,
+    "undocument": true,
+    "params": [
+      {
+        "name": "props",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "generator": false
+  },
+  {
+    "__docId__": 105,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "state",
+    "memberof": "js/components/saiku/Workspace.jsx~Workspace",
+    "longname": "js/components/saiku/Workspace.jsx~Workspace#state",
+    "access": null,
+    "description": null,
+    "lineNumber": 36,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 106,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "openSidebar",
+    "memberof": "js/components/saiku/Workspace.jsx~Workspace",
+    "longname": "js/components/saiku/Workspace.jsx~Workspace#openSidebar",
+    "access": null,
+    "description": null,
+    "lineNumber": 45,
+    "undocument": true,
+    "params": [],
+    "generator": false
+  },
+  {
+    "__docId__": 107,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "render",
+    "memberof": "js/components/saiku/Workspace.jsx~Workspace",
+    "longname": "js/components/saiku/Workspace.jsx~Workspace#render",
+    "access": null,
+    "description": null,
+    "lineNumber": 58,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 108,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "createContent",
+    "memberof": "js/components/saiku/Workspace.jsx~Workspace",
+    "longname": "js/components/saiku/Workspace.jsx~Workspace#createContent",
+    "access": null,
+    "description": null,
+    "lineNumber": 70,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 109,
+    "kind": "file",
+    "static": true,
+    "variation": null,
+    "name": "js/components/saiku/Wrapper.jsx",
+    "memberof": null,
+    "longname": "js/components/saiku/Wrapper.jsx",
+    "access": null,
+    "description": null,
+    "lineNumber": 17,
+    "content": "/*\n *   Copyright 2016 OSBI Ltd\n *\n *   Licensed under the Apache License, Version 2.0 (the \"License\");\n *   you may not use this file except in compliance with the License.\n *   You may obtain a copy of the License at\n *\n *       http://www.apache.org/licenses/LICENSE-2.0\n *\n *   Unless required by applicable law or agreed to in writing, software\n *   distributed under the License is distributed on an \"AS IS\" BASIS,\n *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n *   See the License for the specific language governing permissions and\n *   limitations under the License.\n */\n\nimport React from 'react';\nimport classNames from 'classnames';\n\nclass Wrapper extends React.Component {\n  render() {\n    let className = this.props.page ? 'wrapper-page' : 'wrapper';\n\n    if (this.props.isOpenSidebar) {\n      className = classNames(className, 'enlarged forced');\n    }\n    else {\n      className = this.props.page ? 'wrapper-page' : 'wrapper';\n    }\n\n    return (\n      <div\n        {...this.props}\n        className={classNames(className, this.props.className)}>\n        {this.props.children}\n      </div>\n    );\n  }\n}\n\nWrapper.propTypes = {\n  className: React.PropTypes.string,\n  children: React.PropTypes.node.isRequired,\n  page: React.PropTypes.bool,\n  isOpenSidebar: React.PropTypes.bool\n};\n\nWrapper.defaultProps = {\n  page: false\n};\n\nexport default Wrapper;\n"
+  },
+  {
+    "__docId__": 110,
+    "kind": "class",
+    "static": true,
+    "variation": null,
+    "name": "Wrapper",
+    "memberof": "js/components/saiku/Wrapper.jsx",
+    "longname": "js/components/saiku/Wrapper.jsx~Wrapper",
+    "access": null,
+    "export": true,
+    "importPath": "meteorite-core-ui/js/components/saiku/Wrapper.jsx",
+    "importStyle": "Wrapper",
+    "description": null,
+    "lineNumber": 20,
+    "undocument": true,
+    "interface": false,
+    "extends": [
+      "react~React.Component"
+    ]
+  },
+  {
+    "__docId__": 111,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "render",
+    "memberof": "js/components/saiku/Wrapper.jsx~Wrapper",
+    "longname": "js/components/saiku/Wrapper.jsx~Wrapper#render",
+    "access": null,
+    "description": null,
+    "lineNumber": 21,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 112,
+    "kind": "file",
+    "static": true,
+    "variation": null,
+    "name": "js/models/MenubarModel.js",
+    "memberof": null,
+    "longname": "js/models/MenubarModel.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 17,
+    "content": "/*\n *   Copyright 2016 OSBI Ltd\n *\n *   Licensed under the Apache License, Version 2.0 (the \"License\");\n *   you may not use this file except in compliance with the License.\n *   You may obtain a copy of the License at\n *\n *       http://www.apache.org/licenses/LICENSE-2.0\n *\n *   Unless required by applicable law or agreed to in writing, software\n *   distributed under the License is distributed on an \"AS IS\" BASIS,\n *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n *   See the License for the specific language governing permissions and\n *   limitations under the License.\n */\n\nimport Backbone from 'backbone';\n\nclass MenubarModel extends Backbone.Model {\n  getItem() {\n    return this.get('item');\n  }\n}\n\nexport default MenubarModel;\n"
+  },
+  {
+    "__docId__": 113,
+    "kind": "class",
+    "static": true,
+    "variation": null,
+    "name": "MenubarModel",
+    "memberof": "js/models/MenubarModel.js",
+    "longname": "js/models/MenubarModel.js~MenubarModel",
+    "access": null,
+    "export": true,
+    "importPath": "meteorite-core-ui/js/models/MenubarModel.js",
+    "importStyle": "MenubarModel",
+    "description": null,
+    "lineNumber": 19,
+    "undocument": true,
+    "interface": false,
+    "extends": [
+      "backbone~Backbone.Model"
+    ]
+  },
+  {
+    "__docId__": 114,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "getItem",
+    "memberof": "js/models/MenubarModel.js~MenubarModel",
+    "longname": "js/models/MenubarModel.js~MenubarModel#getItem",
+    "access": null,
+    "description": null,
+    "lineNumber": 20,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 115,
+    "kind": "file",
+    "static": true,
+    "variation": null,
+    "name": "js/models/Session.js",
+    "memberof": null,
+    "longname": "js/models/Session.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 17,
+    "content": "/*\n *   Copyright 2016 OSBI Ltd\n *\n *   Licensed under the Apache License, Version 2.0 (the \"License\");\n *   you may not use this file except in compliance with the License.\n *   You may obtain a copy of the License at\n *\n *       http://www.apache.org/licenses/LICENSE-2.0\n *\n *   Unless required by applicable law or agreed to in writing, software\n *   distributed under the License is distributed on an \"AS IS\" BASIS,\n *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n *   See the License for the specific language governing permissions and\n *   limitations under the License.\n */\n\nimport SaikuServer from '../adapters/SaikuServer';\n\nclass Session extends SaikuServer.Model {\n  url() {\n    return 'user';\n  }\n\n  login(credentials, component) {\n    // this.fetch({ success: function (model, response, options) {\n    //   console.log('SUCCESS');\n    //   console.log(model);\n    //   console.log(response);\n    //   console.log(options);\n    // },\n    // error: function (model, response, options) {\n    //   console.log('ERROR');\n    //   console.log(model);\n    //   console.log(response);\n    //   console.log(options);\n    // }});\n\n    // TODO: Remove \"after\" these comments for work with Karaf (meteorite-core)\n    // let self = this;\n\n    // this.save(\n    //   {\n    //     username: credentials.username,\n    //     password: credentials.password\n    //   },\n    //   {\n    //     dataType: 'text',\n    //     success: function(model, response, options) {\n    //       self.loadSession(component);\n    //     },\n    //     error: this.loginFailed\n    //   }\n    // );\n\n    // TODO: Remove \"after\" this `history.pushState`\n    component.history.pushState(null, '/workspace/');\n  }\n\n  loadSession(component) {\n    component.history.pushState(null, '/workspace/');\n  }\n\n  loginFailed(model, response, options) {\n    console.error(response.responseText);\n  }\n}\n\nexport default Session;\n"
+  },
+  {
+    "__docId__": 116,
+    "kind": "class",
+    "static": true,
+    "variation": null,
+    "name": "Session",
+    "memberof": "js/models/Session.js",
+    "longname": "js/models/Session.js~Session",
+    "access": null,
+    "export": true,
+    "importPath": "meteorite-core-ui/js/models/Session.js",
+    "importStyle": "Session",
+    "description": null,
+    "lineNumber": 19,
+    "undocument": true,
+    "interface": false,
+    "extends": [
+      "js/adapters/SaikuServer.js~SaikuServer.Model"
+    ]
+  },
+  {
+    "__docId__": 117,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "url",
+    "memberof": "js/models/Session.js~Session",
+    "longname": "js/models/Session.js~Session#url",
+    "access": null,
+    "description": null,
+    "lineNumber": 20,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "string"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 118,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "login",
+    "memberof": "js/models/Session.js~Session",
+    "longname": "js/models/Session.js~Session#login",
+    "access": null,
+    "description": null,
+    "lineNumber": 24,
+    "undocument": true,
+    "params": [
+      {
+        "name": "credentials",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "component",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "generator": false
+  },
+  {
+    "__docId__": 119,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "loadSession",
+    "memberof": "js/models/Session.js~Session",
+    "longname": "js/models/Session.js~Session#loadSession",
+    "access": null,
+    "description": null,
+    "lineNumber": 59,
+    "undocument": true,
+    "params": [
+      {
+        "name": "component",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "generator": false
+  },
+  {
+    "__docId__": 120,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "loginFailed",
+    "memberof": "js/models/Session.js~Session",
+    "longname": "js/models/Session.js~Session#loginFailed",
+    "access": null,
+    "description": null,
+    "lineNumber": 63,
+    "undocument": true,
+    "params": [
+      {
+        "name": "model",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "response",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "options",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "generator": false
+  },
+  {
+    "__docId__": 121,
+    "kind": "file",
+    "static": true,
+    "variation": null,
+    "name": "js/models/SidebarModel.js",
+    "memberof": null,
+    "longname": "js/models/SidebarModel.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 17,
+    "content": "/*\n *   Copyright 2016 OSBI Ltd\n *\n *   Licensed under the Apache License, Version 2.0 (the \"License\");\n *   you may not use this file except in compliance with the License.\n *   You may obtain a copy of the License at\n *\n *       http://www.apache.org/licenses/LICENSE-2.0\n *\n *   Unless required by applicable law or agreed to in writing, software\n *   distributed under the License is distributed on an \"AS IS\" BASIS,\n *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n *   See the License for the specific language governing permissions and\n *   limitations under the License.\n */\n\nimport Backbone from 'backbone';\n\nclass SidebarModel extends Backbone.Model {\n  getItem() {\n    return this.get('item');\n  }\n}\n\nexport default SidebarModel;\n"
+  },
+  {
+    "__docId__": 122,
+    "kind": "class",
+    "static": true,
+    "variation": null,
+    "name": "SidebarModel",
+    "memberof": "js/models/SidebarModel.js",
+    "longname": "js/models/SidebarModel.js~SidebarModel",
+    "access": null,
+    "export": true,
+    "importPath": "meteorite-core-ui/js/models/SidebarModel.js",
+    "importStyle": "SidebarModel",
+    "description": null,
+    "lineNumber": 19,
+    "undocument": true,
+    "interface": false,
+    "extends": [
+      "backbone~Backbone.Model"
+    ]
+  },
+  {
+    "__docId__": 123,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "getItem",
+    "memberof": "js/models/SidebarModel.js~SidebarModel",
+    "longname": "js/models/SidebarModel.js~SidebarModel#getItem",
+    "access": null,
+    "description": null,
+    "lineNumber": 20,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 124,
+    "kind": "file",
+    "static": true,
+    "variation": null,
+    "name": "js/models/ToolbarModel.js",
+    "memberof": null,
+    "longname": "js/models/ToolbarModel.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 17,
+    "content": "/*\n *   Copyright 2016 OSBI Ltd\n *\n *   Licensed under the Apache License, Version 2.0 (the \"License\");\n *   you may not use this file except in compliance with the License.\n *   You may obtain a copy of the License at\n *\n *       http://www.apache.org/licenses/LICENSE-2.0\n *\n *   Unless required by applicable law or agreed to in writing, software\n *   distributed under the License is distributed on an \"AS IS\" BASIS,\n *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n *   See the License for the specific language governing permissions and\n *   limitations under the License.\n */\n\nimport Backbone from 'backbone';\n\nclass ToolbarModel extends Backbone.Model {\n  getItem() {\n    return this.get('item');\n  }\n}\n\nexport default ToolbarModel;\n"
+  },
+  {
+    "__docId__": 125,
+    "kind": "class",
+    "static": true,
+    "variation": null,
+    "name": "ToolbarModel",
+    "memberof": "js/models/ToolbarModel.js",
+    "longname": "js/models/ToolbarModel.js~ToolbarModel",
+    "access": null,
+    "export": true,
+    "importPath": "meteorite-core-ui/js/models/ToolbarModel.js",
+    "importStyle": "ToolbarModel",
+    "description": null,
+    "lineNumber": 19,
+    "undocument": true,
+    "interface": false,
+    "extends": [
+      "backbone~Backbone.Model"
+    ]
+  },
+  {
+    "__docId__": 126,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "getItem",
+    "memberof": "js/models/ToolbarModel.js~ToolbarModel",
+    "longname": "js/models/ToolbarModel.js~ToolbarModel#getItem",
+    "access": null,
+    "description": null,
+    "lineNumber": 20,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 127,
+    "kind": "file",
+    "static": true,
+    "variation": null,
+    "name": "js/utils/Base64.js",
+    "memberof": null,
+    "longname": "js/utils/Base64.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 17,
+    "content": "/*\n *   Copyright 2016 OSBI Ltd\n *\n *   Licensed under the Apache License, Version 2.0 (the \"License\");\n *   you may not use this file except in compliance with the License.\n *   You may obtain a copy of the License at\n *\n *       http://www.apache.org/licenses/LICENSE-2.0\n *\n *   Unless required by applicable law or agreed to in writing, software\n *   distributed under the License is distributed on an \"AS IS\" BASIS,\n *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n *   See the License for the specific language governing permissions and\n *   limitations under the License.\n */\n\nconst Base64 = ((window) => {\n  let characters =\n    'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=';\n  const INVALID_CHARACTER_ERR = (() => {\n    // Fabricate a suitable error object\n    try {\n      document.createElement('$');\n    }\n    catch (error) {\n      return error;\n    }\n  })();\n\n  // Encoder\n  window.Base64 || (\n    window.Base64 = {\n      encode: (string) => {\n        let len = string.length;\n        let max = Math.max;\n        let result = '';\n        let i = 0;\n        let a, b, b1, b2, b3, b4, c;\n\n        while (i < len) {\n          a = string.charCodeAt(i++) || 0;\n          b = string.charCodeAt(i++) || 0;\n          c = string.charCodeAt(i++) || 0;\n\n          if (max(a, b, c) > 0xFF) {\n            throw INVALID_CHARACTER_ERR;\n          }\n\n          b1 = (a >> 2) & 0x3F;\n          b2 = ((a & 0x3) << 4) | ((b >> 4) & 0xF);\n          b3 = ((b & 0xF) << 2) | ((c >> 6) & 0x3);\n          b4 = c & 0x3F;\n\n          if (!b) {\n            b3 = b4 = 64;\n          }\n          else if (!c) {\n            b4 = 64;\n          }\n          result += characters.charAt(b1) + characters.charAt(b2) +\n            characters.charAt(b3) + characters.charAt(b4);\n        }\n\n        return result;\n      }\n    }\n  );\n})(window);\n\nexport default Base64;\n"
+  },
+  {
+    "__docId__": 128,
+    "kind": "variable",
+    "static": true,
+    "variation": null,
+    "name": "Base64",
+    "memberof": "js/utils/Base64.js",
+    "longname": "js/utils/Base64.js~Base64",
+    "access": null,
+    "export": true,
+    "importPath": "meteorite-core-ui/js/utils/Base64.js",
+    "importStyle": "Base64",
+    "description": null,
+    "lineNumber": 17,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 129,
+    "kind": "file",
+    "static": true,
+    "variation": null,
+    "name": "js/utils/ReactValidatorStrategy.js",
+    "memberof": null,
+    "longname": "js/utils/ReactValidatorStrategy.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 17,
+    "content": "/*\n *   Copyright 2016 OSBI Ltd\n *\n *   Licensed under the Apache License, Version 2.0 (the \"License\");\n *   you may not use this file except in compliance with the License.\n *   You may obtain a copy of the License at\n *\n *       http://www.apache.org/licenses/LICENSE-2.0\n *\n *   Unless required by applicable law or agreed to in writing, software\n *   distributed under the License is distributed on an \"AS IS\" BASIS,\n *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n *   See the License for the specific language governing permissions and\n *   limitations under the License.\n */\n\nimport Validator from 'validatorjs';\n\nconst ReactValidatorStrategy = {\n  createSchema(rules, messsages, callback) {\n    return {\n      rules,\n      messsages,\n      callback\n    };\n  },\n\n  createInactiveSchema(rules, messsages, callback) {\n    let schema = this.createSchema(rules, messsages, callback);\n\n    schema.activeRules = [];\n\n    return schema;\n  },\n\n  activateRule(schema, rule) {\n    if (typeof schema.activeRules !== 'undefined' &&\n      schema.activeRules.indexOf(rule) === -1) {\n      schema.activeRules.push(rule);\n    }\n  },\n\n  createValidator(data, schema, forceActive) {\n    let rules = {};\n    let validator;\n\n    if (typeof schema.activeRules !== 'undefined') {\n      if (forceActive) {\n        schema.activeRules = Object.keys(schema.rules);\n      }\n\n      for (let i in schema.activeRules) {\n        let ruleName = schema.activeRules[i];\n\n        rules[ruleName] = schema.rules[ruleName];\n      }\n    }\n    else {\n      rules = schema.rules;\n    }\n\n    validator = new Validator(data, rules, schema.messsages);\n\n    if (typeof schema.callback === 'function') {\n      schema.callback(validator);\n    }\n\n    return validator;\n  },\n\n  validate(data, schema, options, callback) {\n    let forceActive = !options.key;\n    let validator = this.createValidator(data, schema, forceActive);\n\n    let getErrors = () => {\n      if (options.key) {\n        options.prevErrors[options.key] = validator.errors.get(options.key);\n        callback(options.prevErrors);\n      }\n      else {\n        callback(validator.errors.all());\n      }\n    };\n\n    validator.checkAsync(getErrors, getErrors);\n  },\n\n  validateServer(data, schema) {\n    let validator = this.createValidator(data, schema, true);\n\n    return new Promise((resolve, reject) => {\n      validator.checkAsync(\n        () => {\n          resolve();\n        },\n        () => {\n          let e = new this.Error('A validation error occurred');\n\n          e.errors = validator.errors.all();\n\n          reject(e);\n        }\n      );\n    });\n  },\n\n  Error: class extends Error {}\n};\n\nexport default ReactValidatorStrategy;\n"
+  },
+  {
+    "__docId__": 130,
+    "kind": "variable",
+    "static": true,
+    "variation": null,
+    "name": "ReactValidatorStrategy",
+    "memberof": "js/utils/ReactValidatorStrategy.js",
+    "longname": "js/utils/ReactValidatorStrategy.js~ReactValidatorStrategy",
+    "access": null,
+    "export": true,
+    "importPath": "meteorite-core-ui/js/utils/ReactValidatorStrategy.js",
+    "importStyle": "ReactValidatorStrategy",
+    "description": null,
+    "lineNumber": 19,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 131,
+    "kind": "file",
+    "static": true,
+    "variation": null,
+    "name": "js/utils/Settings.js",
+    "memberof": null,
+    "longname": "js/utils/Settings.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 17,
+    "content": "/*\n *   Copyright 2016 OSBI Ltd\n *\n *   Licensed under the Apache License, Version 2.0 (the \"License\");\n *   you may not use this file except in compliance with the License.\n *   You may obtain a copy of the License at\n *\n *       http://www.apache.org/licenses/LICENSE-2.0\n *\n *   Unless required by applicable law or agreed to in writing, software\n *   distributed under the License is distributed on an \"AS IS\" BASIS,\n *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n *   See the License for the specific language governing permissions and\n *   limitations under the License.\n */\n\nconst Settings = {\n  KARAF_WEBAPP: '/cxf',\n  REST_MOUNT_POINT: '/rest/core/',\n  ERROR_TOLERANCE: 3\n};\n\nSettings.REST_URL = Settings.KARAF_WEBAPP + Settings.REST_MOUNT_POINT;\n\nexport default Settings;\n"
+  },
+  {
+    "__docId__": 132,
+    "kind": "variable",
+    "static": true,
+    "variation": null,
+    "name": "Settings",
+    "memberof": "js/utils/Settings.js",
+    "longname": "js/utils/Settings.js~Settings",
+    "access": null,
+    "export": true,
+    "importPath": "meteorite-core-ui/js/utils/Settings.js",
+    "importStyle": "Settings",
+    "description": null,
+    "lineNumber": 17,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 134,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Infinity",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Infinity",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Infinity",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 135,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "NaN",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/NaN",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~NaN",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 136,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "undefined",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~undefined",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 137,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "null",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~null",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 138,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Object",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Object",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 139,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "object",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~object",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 140,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Function",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Function",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 141,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "function",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~function",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 142,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Boolean",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Boolean",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 143,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "boolean",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~boolean",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 144,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Symbol",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Symbol",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 145,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Error",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Error",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 146,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "EvalError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/EvalError",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~EvalError",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 147,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "InternalError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/InternalError",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~InternalError",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 148,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "RangeError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RangeError",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~RangeError",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 149,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "ReferenceError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ReferenceError",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~ReferenceError",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 150,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "SyntaxError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SyntaxError",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~SyntaxError",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 151,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "TypeError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypeError",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~TypeError",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 152,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "URIError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/URIError",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~URIError",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 153,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Number",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Number",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 154,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "number",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~number",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 155,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Date",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Date",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 156,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "String",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~String",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 157,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "string",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~string",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 158,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "RegExp",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~RegExp",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 159,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Array",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 160,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Int8Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int8Array",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Int8Array",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 161,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Uint8Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Uint8Array",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 162,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Uint8ClampedArray",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8ClampedArray",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Uint8ClampedArray",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 163,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Int16Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int16Array",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Int16Array",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 164,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Uint16Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint16Array",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Uint16Array",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 165,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Int32Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int32Array",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Int32Array",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 166,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Uint32Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint32Array",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Uint32Array",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 167,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Float32Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Float32Array",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Float32Array",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 168,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Float64Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Float64Array",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Float64Array",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 169,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Map",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Map",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 170,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Set",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Set",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 171,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "WeakMap",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakMap",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~WeakMap",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 172,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "WeakSet",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakSet",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~WeakSet",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 173,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "ArrayBuffer",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~ArrayBuffer",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 174,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "DataView",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DataView",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~DataView",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 175,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "JSON",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~JSON",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 176,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Promise",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Promise",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 177,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Generator",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Generator",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 178,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "GeneratorFunction",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/GeneratorFunction",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~GeneratorFunction",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 179,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Reflect",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Reflect",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 180,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Proxy",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Proxy",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 182,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "CanvasRenderingContext2D",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D",
+    "memberof": "BuiltinExternal/WebAPIExternal.js",
+    "longname": "BuiltinExternal/WebAPIExternal.js~CanvasRenderingContext2D",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 183,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "DocumentFragment",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/API/DocumentFragment",
+    "memberof": "BuiltinExternal/WebAPIExternal.js",
+    "longname": "BuiltinExternal/WebAPIExternal.js~DocumentFragment",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 184,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Element",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/API/Element",
+    "memberof": "BuiltinExternal/WebAPIExternal.js",
+    "longname": "BuiltinExternal/WebAPIExternal.js~Element",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 185,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Event",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/API/Event",
+    "memberof": "BuiltinExternal/WebAPIExternal.js",
+    "longname": "BuiltinExternal/WebAPIExternal.js~Event",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 186,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Node",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/API/Node",
+    "memberof": "BuiltinExternal/WebAPIExternal.js",
+    "longname": "BuiltinExternal/WebAPIExternal.js~Node",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 187,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "NodeList",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/API/NodeList",
+    "memberof": "BuiltinExternal/WebAPIExternal.js",
+    "longname": "BuiltinExternal/WebAPIExternal.js~NodeList",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 188,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "XMLHttpRequest",
+    "externalLink": "https://developer.mozilla.org/en/docs/Web/API/XMLHttpRequest",
+    "memberof": "BuiltinExternal/WebAPIExternal.js",
+    "longname": "BuiltinExternal/WebAPIExternal.js~XMLHttpRequest",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 189,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "AudioContext",
+    "externalLink": "https://developer.mozilla.org/en/docs/Web/API/AudioContext",
+    "memberof": "BuiltinExternal/WebAPIExternal.js",
+    "longname": "BuiltinExternal/WebAPIExternal.js~AudioContext",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  }
+]

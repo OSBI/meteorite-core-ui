@@ -1,0 +1,219 @@
+{
+  "coverage": "0%",
+  "expectCount": 74,
+  "actualCount": 0,
+  "files": {
+    "js/utils/Base64.js": {
+      "expectCount": 1,
+      "actualCount": 0,
+      "undocumentLines": [
+        17
+      ]
+    },
+    "js/components/bootstrap/Clearfix.jsx": {
+      "expectCount": 2,
+      "actualCount": 0,
+      "undocumentLines": [
+        20,
+        21
+      ]
+    },
+    "js/components/saiku/Content.jsx": {
+      "expectCount": 2,
+      "actualCount": 0,
+      "undocumentLines": [
+        20,
+        21
+      ]
+    },
+    "js/components/bootstrap/FormGroup.jsx": {
+      "expectCount": 2,
+      "actualCount": 0,
+      "undocumentLines": [
+        20,
+        21
+      ]
+    },
+    "js/components/saiku/Icon.jsx": {
+      "expectCount": 2,
+      "actualCount": 0,
+      "undocumentLines": [
+        20,
+        21
+      ]
+    },
+    "js/components/saiku/MenuBar.jsx": {
+      "expectCount": 7,
+      "actualCount": 0,
+      "undocumentLines": [
+        35,
+        49,
+        36,
+        61,
+        104,
+        66,
+        39
+      ]
+    },
+    "js/collections/MenubarCollection.js": {
+      "expectCount": 4,
+      "actualCount": 0,
+      "undocumentLines": [
+        20,
+        21,
+        24,
+        27
+      ]
+    },
+    "js/models/MenubarModel.js": {
+      "expectCount": 2,
+      "actualCount": 0,
+      "undocumentLines": [
+        19,
+        20
+      ]
+    },
+    "js/components/saiku/NotFound.jsx": {
+      "expectCount": 2,
+      "actualCount": 0,
+      "undocumentLines": [
+        19,
+        20
+      ]
+    },
+    "js/components/saiku/Portlet.jsx": {
+      "expectCount": 2,
+      "actualCount": 0,
+      "undocumentLines": [
+        21,
+        22
+      ]
+    },
+    "js/utils/ReactValidatorStrategy.js": {
+      "expectCount": 1,
+      "actualCount": 0,
+      "undocumentLines": [
+        19
+      ]
+    },
+    "js/models/Session.js": {
+      "expectCount": 5,
+      "actualCount": 0,
+      "undocumentLines": [
+        19,
+        59,
+        24,
+        63,
+        20
+      ]
+    },
+    "js/utils/Settings.js": {
+      "expectCount": 1,
+      "actualCount": 0,
+      "undocumentLines": [
+        17
+      ]
+    },
+    "js/collections/SidebarCollection.js": {
+      "expectCount": 4,
+      "actualCount": 0,
+      "undocumentLines": [
+        20,
+        21,
+        24,
+        27
+      ]
+    },
+    "js/models/SidebarModel.js": {
+      "expectCount": 2,
+      "actualCount": 0,
+      "undocumentLines": [
+        19,
+        20
+      ]
+    },
+    "js/components/saiku/Tab.jsx": {
+      "expectCount": 2,
+      "actualCount": 0,
+      "undocumentLines": [
+        19,
+        20
+      ]
+    },
+    "js/components/saiku/Tabs.jsx": {
+      "expectCount": 9,
+      "actualCount": 0,
+      "undocumentLines": [
+        22,
+        37,
+        23,
+        26,
+        41,
+        55,
+        84,
+        28,
+        27
+      ]
+    },
+    "js/components/saiku/Toolbar.jsx": {
+      "expectCount": 5,
+      "actualCount": 0,
+      "undocumentLines": [
+        28,
+        41,
+        29,
+        63,
+        32
+      ]
+    },
+    "js/components/saiku/Sidebar.jsx": {
+      "expectCount": 5,
+      "actualCount": 0,
+      "undocumentLines": [
+        24,
+        37,
+        25,
+        62,
+        28
+      ]
+    },
+    "js/collections/ToolbarCollection.js": {
+      "expectCount": 4,
+      "actualCount": 0,
+      "undocumentLines": [
+        20,
+        21,
+        24,
+        27
+      ]
+    },
+    "js/models/ToolbarModel.js": {
+      "expectCount": 2,
+      "actualCount": 0,
+      "undocumentLines": [
+        19,
+        20
+      ]
+    },
+    "js/components/saiku/Workspace.jsx": {
+      "expectCount": 6,
+      "actualCount": 0,
+      "undocumentLines": [
+        32,
+        33,
+        70,
+        45,
+        58,
+        36
+      ]
+    },
+    "js/components/saiku/Wrapper.jsx": {
+      "expectCount": 2,
+      "actualCount": 0,
+      "undocumentLines": [
+        20,
+        21
+      ]
+    }
+  }
+}
