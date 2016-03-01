@@ -548,7 +548,7 @@
     "access": null,
     "description": null,
     "lineNumber": 17,
-    "content": "/*\n *   Copyright 2016 OSBI Ltd\n *\n *   Licensed under the Apache License, Version 2.0 (the \"License\");\n *   you may not use this file except in compliance with the License.\n *   You may obtain a copy of the License at\n *\n *       http://www.apache.org/licenses/LICENSE-2.0\n *\n *   Unless required by applicable law or agreed to in writing, software\n *   distributed under the License is distributed on an \"AS IS\" BASIS,\n *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n *   See the License for the specific language governing permissions and\n *   limitations under the License.\n */\n\nimport React from 'react';\nimport autoBind from 'react-autobind';\nimport validation from 'react-validation-mixin';\nimport strategy from '../../utils/ReactValidatorStrategy';\nimport {\n  Row,\n  Col,\n  Input,\n  Button\n} from 'react-bootstrap';\nimport FormGroup from '../bootstrap/FormGroup';\nimport Clearfix from '../bootstrap/Clearfix';\nimport Wrapper from './Wrapper';\n\nclass LockScreen extends React.Component {\n  constructor(props) {\n    super(props);\n\n    this.validatorTypes = strategy.createSchema({\n      password: 'required'\n    });\n    autoBind(this, 'getValidatorData', 'renderHelpText', 'getClasses',\n      'onSubmitLogin');\n  }\n\n  getValidatorData() {\n    return {\n      password: this.refs.password.getValue()\n    };\n  }\n\n  renderHelpText(message) {\n    return (\n      <span className=\"help-block\">{message}</span>\n    );\n  }\n\n  getClasses(field) {\n    return !this.props.isValid(field) ? 'has-error' : '';\n  }\n\n  onSubmitLogin(event) {\n    event.preventDefault();\n\n    let onValidate = (error) => {\n      if (!error) {\n        this.props.history.pushState(null, '/workspace/');\n      }\n    };\n\n    this.props.validate(onValidate);\n  }\n\n  render() {\n    return (\n      <div>\n        <div className=\"bg-page\"></div>\n        <Clearfix />\n\n        <Wrapper page>\n          <div className=\"content-box\">\n            <div className=\"panel-heading\">\n              <Col xs={3}>\n                <img\n                  src=\"../dist/assets/images/saiku/logo-small.png\"\n                  width=\"40\"\n                  height=\"40\"\n                />\n              </Col>\n              <Col xs={9}>\n                <h4 className=\"text-left\">\n                  Sign In to <strong>Saiku Analytics</strong>\n                </h4>\n              </Col>\n              <Clearfix />\n            </div>\n            <div className=\"panel-body\">\n              <form\n                className=\"text-center\"\n                onSubmit={this.onSubmitLogin}\n                role=\"form\"\n              >\n                <div className=\"user-thumb\">\n                  <img\n                    src=\"../dist/assets/images/users/user2.jpg\"\n                    className=\"img-responsive img-circle img-thumbnail\"\n                  />\n                </div>\n                <FormGroup>\n                  <h3>Tom Barber</h3>\n                  <p className=\"text-muted\">\n                    Enter your password to access the Saiku Analytics.\n                  </p>\n                  <div className={this.getClasses('password')}>\n                    <div className=\"input-group m-t-30\">\n                      <Input\n                        type=\"password\"\n                        ref=\"password\"\n                        placeholder=\"Password\"\n                        onBlur={this.props.handleValidation('password')}\n                        standalone\n                      />\n                      <span className=\"input-group-btn\">\n                        <Button\n                          type=\"submit\"\n                          className=\"w-sm\"\n                          block\n                        >\n                          Unlock\n                        </Button>\n                      </span>\n                    </div>\n                    {this.renderHelpText(\n                      this.props.getValidationMessages('password')\n                    )}\n                  </div>\n                </FormGroup>\n                <FormGroup>\n                  <Col xs={12} className=\"text-right\">\n                    <a href=\"#\">Login with another account</a>\n                  </Col>\n                </FormGroup>\n              </form>\n            </div>\n          </div>\n          <Row>\n            <Col sm={12} className=\"text-center\">\n              <p>Saiku-4.0-SNAPSHOT</p>\n            </Col>\n          </Row>\n        </Wrapper>\n      </div>\n    );\n  }\n}\n\nLockScreen.propTypes = {\n  history: React.PropTypes.object,\n  errors: React.PropTypes.object,\n  validate: React.PropTypes.func,\n  isValid: React.PropTypes.func,\n  handleValidation: React.PropTypes.func,\n  getValidationMessages: React.PropTypes.func,\n  clearValidations: React.PropTypes.func\n};\n\nexport default validation(strategy)(LockScreen);\n"
+    "content": "/*\n *   Copyright 2016 OSBI Ltd\n *\n *   Licensed under the Apache License, Version 2.0 (the \"License\");\n *   you may not use this file except in compliance with the License.\n *   You may obtain a copy of the License at\n *\n *       http://www.apache.org/licenses/LICENSE-2.0\n *\n *   Unless required by applicable law or agreed to in writing, software\n *   distributed under the License is distributed on an \"AS IS\" BASIS,\n *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n *   See the License for the specific language governing permissions and\n *   limitations under the License.\n */\n\nimport React from 'react';\nimport autoBind from 'react-autobind';\nimport validation from 'react-validation-mixin';\nimport strategy from 'react-validatorjs-strategy';\nimport {\n  Row,\n  Col,\n  Input,\n  Button\n} from 'react-bootstrap';\nimport FormGroup from '../bootstrap/FormGroup';\nimport Clearfix from '../bootstrap/Clearfix';\nimport Wrapper from './Wrapper';\n\nclass LockScreen extends React.Component {\n  constructor(props) {\n    super(props);\n\n    this.validatorTypes = strategy.createSchema({\n      password: 'required'\n    });\n    autoBind(this, 'getValidatorData', 'renderHelpText', 'getClasses',\n      'onSubmitLogin');\n  }\n\n  getValidatorData() {\n    return {\n      password: this.refs.password.getValue()\n    };\n  }\n\n  renderHelpText(message) {\n    return (\n      <span className=\"help-block\">{message}</span>\n    );\n  }\n\n  getClasses(field) {\n    return !this.props.isValid(field) ? 'has-error' : '';\n  }\n\n  onSubmitLogin(event) {\n    event.preventDefault();\n\n    let onValidate = (error) => {\n      if (!error) {\n        this.props.history.pushState(null, '/workspace/');\n      }\n    };\n\n    this.props.validate(onValidate);\n  }\n\n  render() {\n    return (\n      <div>\n        <div className=\"bg-page\"></div>\n        <Clearfix />\n\n        <Wrapper page>\n          <div className=\"content-box\">\n            <div className=\"panel-heading\">\n              <Col xs={3}>\n                <img\n                  src=\"../dist/assets/images/saiku/logo-small.png\"\n                  width=\"40\"\n                  height=\"40\"\n                />\n              </Col>\n              <Col xs={9}>\n                <h4 className=\"text-left\">\n                  Sign In to <strong>Saiku Analytics</strong>\n                </h4>\n              </Col>\n              <Clearfix />\n            </div>\n            <div className=\"panel-body\">\n              <form\n                className=\"text-center\"\n                onSubmit={this.onSubmitLogin}\n                role=\"form\"\n              >\n                <div className=\"user-thumb\">\n                  <img\n                    src=\"../dist/assets/images/users/user2.jpg\"\n                    className=\"img-responsive img-circle img-thumbnail\"\n                  />\n                </div>\n                <FormGroup>\n                  <h3>Tom Barber</h3>\n                  <p className=\"text-muted\">\n                    Enter your password to access the Saiku Analytics.\n                  </p>\n                  <div className={this.getClasses('password')}>\n                    <div className=\"input-group m-t-30\">\n                      <Input\n                        type=\"password\"\n                        ref=\"password\"\n                        placeholder=\"Password\"\n                        onBlur={this.props.handleValidation('password')}\n                        standalone\n                      />\n                      <span className=\"input-group-btn\">\n                        <Button\n                          type=\"submit\"\n                          className=\"w-sm\"\n                          block\n                        >\n                          Unlock\n                        </Button>\n                      </span>\n                    </div>\n                    {this.renderHelpText(\n                      this.props.getValidationMessages('password')\n                    )}\n                  </div>\n                </FormGroup>\n                <FormGroup>\n                  <Col xs={12} className=\"text-right\">\n                    <a href=\"#\">Login with another account</a>\n                  </Col>\n                </FormGroup>\n              </form>\n            </div>\n          </div>\n          <Row>\n            <Col sm={12} className=\"text-center\">\n              <p>Saiku-4.0-SNAPSHOT</p>\n            </Col>\n          </Row>\n        </Wrapper>\n      </div>\n    );\n  }\n}\n\nLockScreen.propTypes = {\n  history: React.PropTypes.object,\n  errors: React.PropTypes.object,\n  validate: React.PropTypes.func,\n  isValid: React.PropTypes.func,\n  handleValidation: React.PropTypes.func,\n  getValidationMessages: React.PropTypes.func,\n  clearValidations: React.PropTypes.func\n};\n\nexport default validation(strategy)(LockScreen);\n"
   },
   {
     "__docId__": 31,
@@ -737,7 +737,7 @@
     "access": null,
     "description": null,
     "lineNumber": 17,
-    "content": "/*\n *   Copyright 2016 OSBI Ltd\n *\n *   Licensed under the Apache License, Version 2.0 (the \"License\");\n *   you may not use this file except in compliance with the License.\n *   You may obtain a copy of the License at\n *\n *       http://www.apache.org/licenses/LICENSE-2.0\n *\n *   Unless required by applicable law or agreed to in writing, software\n *   distributed under the License is distributed on an \"AS IS\" BASIS,\n *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n *   See the License for the specific language governing permissions and\n *   limitations under the License.\n */\n\nimport React from 'react';\nimport autoBind from 'react-autobind';\nimport { History } from 'react-router';\nimport reactMixin from 'react-mixin';\nimport validation from 'react-validation-mixin';\nimport strategy from '../../utils/ReactValidatorStrategy';\nimport Session from '../../models/Session';\nimport {\n  Row,\n  Col,\n  Input,\n  Button\n} from 'react-bootstrap';\nimport FormGroup from '../bootstrap/FormGroup';\nimport Clearfix from '../bootstrap/Clearfix';\nimport Wrapper from './Wrapper';\n\nclass Login extends React.Component {\n  constructor(props) {\n    super(props);\n\n    this.validatorTypes = strategy.createSchema({\n      username: 'required',\n      password: 'required'\n    });\n    autoBind(this, 'getValidatorData', 'renderHelpText', 'getClasses',\n      'onSubmitLogin');\n    this.session = new Session();\n  }\n\n  getValidatorData() {\n    return {\n      username: this.refs.username.getValue(),\n      password: this.refs.password.getValue()\n    };\n  }\n\n  renderHelpText(message) {\n    return (\n      <span className=\"help-block\">{message}</span>\n    );\n  }\n\n  getClasses(field) {\n    return !this.props.isValid(field) ? 'has-error' : '';\n  }\n\n  onSubmitLogin(event) {\n    event.preventDefault();\n\n    let credentials = {\n      username: this.refs.username.getValue(),\n      password: this.refs.password.getValue()\n    };\n    let onValidate = (error) => {\n      if (!error) {\n        this.session.login(credentials, this);\n      }\n    };\n\n    this.props.validate(onValidate);\n    // this.refs.loginForm.reset();\n  }\n\n  render() {\n    return (\n      <div>\n        <div className=\"bg-page\"></div>\n        <Clearfix />\n\n        <Wrapper page>\n          <div className=\"content-box\">\n            <div className=\"panel-heading\">\n              <Col xs={3}>\n                <img\n                  src=\"dist/assets/images/saiku/logo-small.png\"\n                  width=\"40\"\n                  height=\"40\"\n                />\n              </Col>\n              <Col xs={9}>\n                <h4 className=\"text-left\">\n                  Sign In to <strong>Saiku Analytics</strong>\n                </h4>\n              </Col>\n              <Clearfix />\n            </div>\n            <div className=\"panel-body\">\n              <form\n                className=\"form-horizontal m-t-20\"\n                ref=\"loginForm\"\n                onSubmit={this.onSubmitLogin}\n                role=\"form\"\n              >\n                <FormGroup>\n                  <Col xs={12}>\n                    <div className={this.getClasses('username')}>\n                      <Input\n                        type=\"text\"\n                        ref=\"username\"\n                        placeholder=\"Username\"\n                        onBlur={this.props.handleValidation('username')}\n                        standalone\n                      />\n                      {this.renderHelpText(\n                        this.props.getValidationMessages('username')\n                      )}\n                    </div>\n                  </Col>\n                </FormGroup>\n                <FormGroup>\n                  <Col xs={12}>\n                    <div className={this.getClasses('password')}>\n                      <Input\n                        type=\"password\"\n                        ref=\"password\"\n                        placeholder=\"Password\"\n                        onBlur={this.props.handleValidation('password')}\n                        standalone\n                      />\n                      {this.renderHelpText(\n                        this.props.getValidationMessages('password')\n                      )}\n                    </div>\n                  </Col>\n                </FormGroup>\n                <FormGroup>\n                  <Col xs={6}>\n                    <Input\n                      type=\"checkbox\"\n                      label=\"Remember me\"\n                      labelClassName=\"checkbox-primary\"\n                      standalone\n                    />\n                  </Col>\n                  <Col xs={6} className=\"text-right\">\n                    <div className=\"checkbox\">\n                      <a href=\"#\">Evaluation Login</a>\n                    </div>\n                  </Col>\n                </FormGroup>\n                <FormGroup className=\"text-center m-t-40\">\n                  <Col xs={12}>\n                    <Button\n                      type=\"submit\"\n                      className=\"text-uppercase\"\n                      block\n                    >\n                      Login\n                    </Button>\n                  </Col>\n                </FormGroup>\n              </form>\n            </div>\n          </div>\n          <Row>\n            <Col sm={12} className=\"text-center\">\n              <p>Saiku-4.0-SNAPSHOT</p>\n            </Col>\n          </Row>\n        </Wrapper>\n      </div>\n    );\n  }\n}\n\nLogin.propTypes = {\n  errors: React.PropTypes.object,\n  validate: React.PropTypes.func,\n  isValid: React.PropTypes.func,\n  handleValidation: React.PropTypes.func,\n  getValidationMessages: React.PropTypes.func,\n  clearValidations: React.PropTypes.func\n};\n\nreactMixin.onClass(Login, History);\n\nexport default validation(strategy)(Login);\n"
+    "content": "/*\n *   Copyright 2016 OSBI Ltd\n *\n *   Licensed under the Apache License, Version 2.0 (the \"License\");\n *   you may not use this file except in compliance with the License.\n *   You may obtain a copy of the License at\n *\n *       http://www.apache.org/licenses/LICENSE-2.0\n *\n *   Unless required by applicable law or agreed to in writing, software\n *   distributed under the License is distributed on an \"AS IS\" BASIS,\n *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n *   See the License for the specific language governing permissions and\n *   limitations under the License.\n */\n\nimport React from 'react';\nimport autoBind from 'react-autobind';\nimport { History } from 'react-router';\nimport reactMixin from 'react-mixin';\nimport validation from 'react-validation-mixin';\nimport strategy from 'react-validatorjs-strategy';\nimport Session from '../../models/Session';\nimport {\n  Row,\n  Col,\n  Input,\n  Button\n} from 'react-bootstrap';\nimport FormGroup from '../bootstrap/FormGroup';\nimport Clearfix from '../bootstrap/Clearfix';\nimport Wrapper from './Wrapper';\n\nclass Login extends React.Component {\n  constructor(props) {\n    super(props);\n\n    this.validatorTypes = strategy.createSchema({\n      username: 'required',\n      password: 'required'\n    });\n    autoBind(this, 'getValidatorData', 'renderHelpText', 'getClasses',\n      'onSubmitLogin');\n    this.session = new Session();\n  }\n\n  getValidatorData() {\n    return {\n      username: this.refs.username.getValue(),\n      password: this.refs.password.getValue()\n    };\n  }\n\n  renderHelpText(message) {\n    return (\n      <span className=\"help-block\">{message}</span>\n    );\n  }\n\n  getClasses(field) {\n    return !this.props.isValid(field) ? 'has-error' : '';\n  }\n\n  onSubmitLogin(event) {\n    event.preventDefault();\n\n    let credentials = {\n      username: this.refs.username.getValue(),\n      password: this.refs.password.getValue()\n    };\n    let onValidate = (error) => {\n      if (!error) {\n        this.session.login(credentials, this);\n      }\n    };\n\n    this.props.validate(onValidate);\n    // this.refs.loginForm.reset();\n  }\n\n  render() {\n    return (\n      <div>\n        <div className=\"bg-page\"></div>\n        <Clearfix />\n\n        <Wrapper page>\n          <div className=\"content-box\">\n            <div className=\"panel-heading\">\n              <Col xs={3}>\n                <img\n                  src=\"dist/assets/images/saiku/logo-small.png\"\n                  width=\"40\"\n                  height=\"40\"\n                />\n              </Col>\n              <Col xs={9}>\n                <h4 className=\"text-left\">\n                  Sign In to <strong>Saiku Analytics</strong>\n                </h4>\n              </Col>\n              <Clearfix />\n            </div>\n            <div className=\"panel-body\">\n              <form\n                className=\"form-horizontal m-t-20\"\n                ref=\"loginForm\"\n                onSubmit={this.onSubmitLogin}\n                role=\"form\"\n              >\n                <FormGroup>\n                  <Col xs={12}>\n                    <div className={this.getClasses('username')}>\n                      <Input\n                        type=\"text\"\n                        ref=\"username\"\n                        placeholder=\"Username\"\n                        onBlur={this.props.handleValidation('username')}\n                        standalone\n                      />\n                      {this.renderHelpText(\n                        this.props.getValidationMessages('username')\n                      )}\n                    </div>\n                  </Col>\n                </FormGroup>\n                <FormGroup>\n                  <Col xs={12}>\n                    <div className={this.getClasses('password')}>\n                      <Input\n                        type=\"password\"\n                        ref=\"password\"\n                        placeholder=\"Password\"\n                        onBlur={this.props.handleValidation('password')}\n                        standalone\n                      />\n                      {this.renderHelpText(\n                        this.props.getValidationMessages('password')\n                      )}\n                    </div>\n                  </Col>\n                </FormGroup>\n                <FormGroup>\n                  <Col xs={6}>\n                    <Input\n                      type=\"checkbox\"\n                      label=\"Remember me\"\n                      labelClassName=\"checkbox-primary\"\n                      standalone\n                    />\n                  </Col>\n                  <Col xs={6} className=\"text-right\">\n                    <div className=\"checkbox\">\n                      <a href=\"#\">Evaluation Login</a>\n                    </div>\n                  </Col>\n                </FormGroup>\n                <FormGroup className=\"text-center m-t-40\">\n                  <Col xs={12}>\n                    <Button\n                      type=\"submit\"\n                      className=\"text-uppercase\"\n                      block\n                    >\n                      Login\n                    </Button>\n                  </Col>\n                </FormGroup>\n              </form>\n            </div>\n          </div>\n          <Row>\n            <Col sm={12} className=\"text-center\">\n              <p>Saiku-4.0-SNAPSHOT</p>\n            </Col>\n          </Row>\n        </Wrapper>\n      </div>\n    );\n  }\n}\n\nLogin.propTypes = {\n  errors: React.PropTypes.object,\n  validate: React.PropTypes.func,\n  isValid: React.PropTypes.func,\n  handleValidation: React.PropTypes.func,\n  getValidationMessages: React.PropTypes.func,\n  clearValidations: React.PropTypes.func\n};\n\nreactMixin.onClass(Login, History);\n\nexport default validation(strategy)(Login);\n"
   },
   {
     "__docId__": 40,
@@ -1489,7 +1489,7 @@
     "access": null,
     "description": null,
     "lineNumber": 17,
-    "content": "/*\n *   Copyright 2016 OSBI Ltd\n *\n *   Licensed under the Apache License, Version 2.0 (the \"License\");\n *   you may not use this file except in compliance with the License.\n *   You may obtain a copy of the License at\n *\n *       http://www.apache.org/licenses/LICENSE-2.0\n *\n *   Unless required by applicable law or agreed to in writing, software\n *   distributed under the License is distributed on an \"AS IS\" BASIS,\n *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n *   See the License for the specific language governing permissions and\n *   limitations under the License.\n */\n\nimport React from 'react';\n\nclass Tab extends React.Component {\n  render() {\n    return (\n      <div className=\"tab-content\">\n        <div\n          role=\"tabpanel\"\n          id={this.props.tabKey}\n          className={'tab-pane' + (this.props.isSelected ? ' active' : '')}\n          aria-hidden={!this.props.isSelected}\n        >\n          {this.props.children}\n        </div>\n      </div>\n    );\n  }\n}\n\nTab.propTypes = {\n  tabKey: React.PropTypes.string.isRequired,\n  isSelected: React.PropTypes.bool,\n  children: React.PropTypes.node.isRequired\n};\n\nTab.defaultProps = {\n  isSelected: false\n};\n\nexport default Tab;\n"
+    "content": "/*\n *   Copyright 2016 OSBI Ltd\n *\n *   Licensed under the Apache License, Version 2.0 (the \"License\");\n *   you may not use this file except in compliance with the License.\n *   You may obtain a copy of the License at\n *\n *       http://www.apache.org/licenses/LICENSE-2.0\n *\n *   Unless required by applicable law or agreed to in writing, software\n *   distributed under the License is distributed on an \"AS IS\" BASIS,\n *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n *   See the License for the specific language governing permissions and\n *   limitations under the License.\n */\n\nimport React from 'react';\n\n/**\n * This is the <Tab/> component. A tab should display its content if currently\n * selected. A tab must contain a tabKey and children.\n * @example\n * <Tab tabKey={2}>\n *   <h1>Hello World</h1>\n * </Tab>\n */\nclass Tab extends React.Component {\n  render() {\n    return (\n      <div className=\"tab-content\">\n        <div\n          role=\"tabpanel\"\n          id={this.props.tabKey}\n          className={'tab-pane' + (this.props.isSelected ? ' active' : '')}\n          aria-hidden={!this.props.isSelected}\n        >\n          {this.props.children}\n        </div>\n      </div>\n    );\n  }\n}\n\nTab.propTypes = {\n  tabKey: React.PropTypes.string.isRequired,\n  isSelected: React.PropTypes.bool,\n  children: React.PropTypes.node.isRequired\n};\n\nTab.defaultProps = {\n  isSelected: false\n};\n\nexport default Tab;\n"
   },
   {
     "__docId__": 77,
@@ -1503,9 +1503,11 @@
     "export": true,
     "importPath": "meteorite-core-ui/js/components/saiku/Tab.jsx",
     "importStyle": "Tab",
-    "description": null,
-    "lineNumber": 19,
-    "undocument": true,
+    "description": "This is the <Tab/> component. A tab should display its content if currently\nselected. A tab must contain a tabKey and children.",
+    "examples": [
+      "<Tab tabKey={2}>\n  <h1>Hello World</h1>\n</Tab>"
+    ],
+    "lineNumber": 27,
     "interface": false,
     "extends": [
       "react~React.Component"
@@ -1521,7 +1523,7 @@
     "longname": "js/components/saiku/Tab.jsx~Tab#render",
     "access": null,
     "description": null,
-    "lineNumber": 20,
+    "lineNumber": 28,
     "undocument": true,
     "params": [],
     "return": {
@@ -1542,7 +1544,7 @@
     "access": null,
     "description": null,
     "lineNumber": 17,
-    "content": "/*\n *   Copyright 2016 OSBI Ltd\n *\n *   Licensed under the Apache License, Version 2.0 (the \"License\");\n *   you may not use this file except in compliance with the License.\n *   You may obtain a copy of the License at\n *\n *       http://www.apache.org/licenses/LICENSE-2.0\n *\n *   Unless required by applicable law or agreed to in writing, software\n *   distributed under the License is distributed on an \"AS IS\" BASIS,\n *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n *   See the License for the specific language governing permissions and\n *   limitations under the License.\n */\n\nimport React from 'react';\nimport autoBind from 'react-autobind';\nimport _ from 'underscore';\nimport Tab from './Tab';\n\nclass Tabs extends React.Component {\n  constructor(props) {\n    super(props);\n\n    this.id = _.uniqueId('tabs_');\n    this.tabCounter = 1;\n    this.state = {\n      tabs: [],\n      selectedTab: null\n    };\n\n    autoBind(this, 'renderTabButtons', 'renderTabPanels');\n    autoBind(this, '_newTab', '_deleteTab', '_selectTab');\n  }\n\n  componentDidMount() {\n    this._newTab();\n  }\n\n  render() {\n    return (\n      <div>\n        <ul className=\"nav nav-tabs\" role=\"tablist\" key={this.id}>\n          {this.state.tabs.map(this.renderTabButtons)}\n          <li className=\"add-tab\" role=\"presentation\" role=\"tab\">\n            <a role=\"tab\" href=\"#\" onClick={this._newTab}>+</a>\n          </li>\n        </ul>\n        {this.state.tabs.map(this.renderTabPanels)}\n      </div>\n    );\n  }\n\n  renderTabButtons(tab, index) {\n    return (\n      <li\n        className={this._isSelected(tab) ? 'active' : ''}\n        role=\"presentation\"\n        role=\"tab\"\n        key={'tab_button_' + index}\n      >\n        <a\n          role=\"tab\"\n          href={'#' + tab.key}\n          data-toggle=\"tab\"\n          aria-expanded={this._isSelected(tab)}\n          aria-controls={tab.key}\n          onClick={(event) => this._selectTab(tab, event)}\n        >\n          <button\n            className=\"close closeTab\"\n            type=\"button\"\n            onClick={(event) => this._deleteTab(tab, event)}\n          >\n            ×\n          </button>\n          {tab.title}\n        </a>\n      </li>\n    );\n  }\n\n  renderTabPanels(tab, index) {\n    return (\n      <div className=\"tab-content\" key={tab.key + '_content'}>\n        <Tab tabKey={tab.key} isSelected={this._isSelected(tab)}>\n          {tab.component}\n        </Tab>\n      </div>\n    );\n  }\n\n  _isSelected(tab) {\n    return tab.key === this.state.selectedTab;\n  }\n\n  _newTab(event) {\n    if (event) {\n      event.preventDefault();\n    }\n\n    let tab = {\n      key: _.uniqueId('tab_'),\n      title: 'Unsaved query (' + (this.tabCounter) + ')',\n      component: this.props.createContent()\n    };\n\n    this.state.tabs.push(tab);\n    this.tabCounter++;\n\n    this.setState({\n      tabs: this.state.tabs\n    });\n\n    this._selectTab(tab);\n  }\n\n  _selectTab(tab, event) {\n    if (event) {\n      event.preventDefault();\n    }\n\n    this.setState({selectedTab: tab.key});\n  }\n\n  _deleteTab(tab, event) {\n    if (event) {\n      event.preventDefault();\n      event.stopPropagation();\n    }\n\n    let key = tab.key;\n    let tabs = this.state.tabs;\n\n    // Remove the tab\n    this.state.tabs = _.without(tabs, _.findWhere(tabs, {key: key}));\n    this.setState({tabs: this.state.tabs});\n\n    // If the removed that is the selected, find and select another one\n    if (this._isSelected(tab) && (this.state.tabs.length > 0)) {\n      _.defer(() => this._selectTab(this.state.tabs[0]));\n    }\n  }\n}\n\nTabs.propTypes = {\n  createContent: React.PropTypes.func.isRequired\n};\n\nexport default Tabs;\n"
+    "content": "/*\n *   Copyright 2016 OSBI Ltd\n *\n *   Licensed under the Apache License, Version 2.0 (the \"License\");\n *   you may not use this file except in compliance with the License.\n *   You may obtain a copy of the License at\n *\n *       http://www.apache.org/licenses/LICENSE-2.0\n *\n *   Unless required by applicable law or agreed to in writing, software\n *   distributed under the License is distributed on an \"AS IS\" BASIS,\n *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n *   See the License for the specific language governing permissions and\n *   limitations under the License.\n */\n\nimport React from 'react';\nimport autoBind from 'react-autobind';\nimport _ from 'underscore';\nimport Tab from './Tab';\n\n/**\n * Saiku <Tabs/> component. It requires a createContent function, it is\n * responsible for populate the tab content, whenever the '+' button is pressed.\n * @example\n * function myContent() {\n *   return (<h1>Tab Content</h1>);\n * }\n * <Tabs createContent={myContent}/>\n */\nclass Tabs extends React.Component {\n  constructor(props) {\n    super(props);\n\n    this.id = _.uniqueId('tabs_');\n    this.tabCounter = 1;\n    this.state = {\n      tabs: [],\n      selectedTab: null\n    };\n\n    autoBind(this, 'renderTabButtons', 'renderTabPanels');\n    autoBind(this, '_newTab', '_deleteTab', '_selectTab');\n  }\n\n  /**\n   * Method automatically called when React already built and mounted the\n   * component on a dom element. In this case, this method will create the\n   * tabs' first tab, filled with the createContent function's content.\n   */\n  componentDidMount() {\n    this._newTab();\n  }\n\n  render() {\n    return (\n      <div>\n        <ul className=\"nav nav-tabs\" role=\"tablist\" key={this.id}>\n          {this.state.tabs.map(this.renderTabButtons)}\n          <li className=\"add-tab\" role=\"tab\">\n            <a role=\"tab\" href=\"#\" onClick={this._newTab}>+</a>\n          </li>\n        </ul>\n        {this.state.tabs.map(this.renderTabPanels)}\n      </div>\n    );\n  }\n\n  /**\n   * Helper method called for each tab in order to render its button.\n   * @param {Object} tab - an object containing tab data\n   * @param {string} tab.key - unique tab identifier\n   * @param {string} tab.title - text to be displayed on tab's button\n   * @param {Object} tab.component - content returned by createContent function\n   * @param {number} index - the index of the tab (the render order)\n   */\n  renderTabButtons(tab, index) {\n    return (\n      <li\n        className={this._isSelected(tab) ? 'active' : ''}\n        role=\"tab\"\n        key={'tab_button_' + index}\n      >\n        <a\n          role=\"tab\"\n          href={'#' + tab.key}\n          data-toggle=\"tab\"\n          aria-expanded={this._isSelected(tab)}\n          aria-controls={tab.key}\n          onClick={(event) => this._selectTab(tab, event)}\n        >\n          <button\n            className=\"close closeTab\"\n            type=\"button\"\n            onClick={(event) => this._deleteTab(tab, event)}\n          >\n            ×\n          </button>\n          {tab.title}\n        </a>\n      </li>\n    );\n  }\n\n  /**\n   * Helper method called for each tab in order to render its content.\n   * @param {Object} tab - an object containing tab data\n   * @param {string} tab.key - unique tab identifier\n   * @param {string} tab.title - text to be displayed on tab's button\n   * @param {Object} tab.component - content returned by createContent function\n   * @param {number} index - the index of the tab (the render order)\n   */\n  renderTabPanels(tab, index) {\n    return (\n      <div className=\"tab-content\" key={tab.key + '_content'}>\n        <Tab tabKey={tab.key} isSelected={this._isSelected(tab)}>\n          {tab.component}\n        </Tab>\n      </div>\n    );\n  }\n\n  /**\n   * Utility method to test if a tab is selected of not.\n   * @param {Object} tab - an object containing tab data\n   * @param {string} tab.key - unique tab identifier\n   * @param {string} tab.title - text to be displayed on tab's button\n   * @param {Object} tab.component - content returned by createContent function\n   */\n  _isSelected(tab) {\n    return tab.key === this.state.selectedTab;\n  }\n\n  /**\n   * Method called when the '+' button is pressed. It will instantiate a new tab\n   * component, passing the result of createContent function as its child. This\n   * method also sets an incremental title to the tab ('Unsaved query(x)').\n   */\n  _newTab(event) {\n    if (event) {\n      event.preventDefault();\n    }\n\n    let tab = {\n      key: _.uniqueId('tab_'),\n      title: 'Unsaved query (' + (this.tabCounter) + ')',\n      component: this.props.createContent()\n    };\n\n    this.state.tabs.push(tab);\n    this.tabCounter++;\n\n    this.setState({\n      tabs: this.state.tabs\n    });\n\n    this._selectTab(tab);\n  }\n\n  /**\n   * Method called when the user clicks on one tab button. It will set the\n   * respective tab as the selected one.\n   * @param {Object} tab - an object containing tab data\n   * @param {string} tab.key - unique tab identifier\n   * @param {string} tab.title - text to be displayed on tab's button\n   * @param {Object} tab.component - content returned by createContent function\n   */\n  _selectTab(tab, event) {\n    if (event) {\n      event.preventDefault();\n    }\n\n    this.setState({selectedTab: tab.key});\n  }\n\n  /**\n   * Method called when the user clicks on a tab's 'x' button. It will remove\n   * this tab and, it it was the selected one, choose another tab to be the\n   * new active.\n   * @param {Object} tab - an object containing tab data\n   * @param {string} tab.key - unique tab identifier\n   * @param {string} tab.title - text to be displayed on tab's button\n   * @param {Object} tab.component - content returned by createContent function\n   */\n  _deleteTab(tab, event) {\n    if (event) {\n      event.preventDefault();\n      event.stopPropagation();\n    }\n\n    let key = tab.key;\n    let tabs = this.state.tabs;\n\n    // Remove the tab\n    this.state.tabs = _.without(tabs, _.findWhere(tabs, {key: key}));\n    this.setState({tabs: this.state.tabs});\n\n    // If the removed that is the selected, find and select another one\n    if (this._isSelected(tab) && (this.state.tabs.length > 0)) {\n      _.defer(() => this._selectTab(this.state.tabs[0]));\n    }\n  }\n}\n\nTabs.propTypes = {\n  createContent: React.PropTypes.func.isRequired\n};\n\nexport default Tabs;\n"
   },
   {
     "__docId__": 80,
@@ -1556,9 +1558,11 @@
     "export": true,
     "importPath": "meteorite-core-ui/js/components/saiku/Tabs.jsx",
     "importStyle": "Tabs",
-    "description": null,
-    "lineNumber": 22,
-    "undocument": true,
+    "description": "Saiku <Tabs/> component. It requires a createContent function, it is\nresponsible for populate the tab content, whenever the '+' button is pressed.",
+    "examples": [
+      "function myContent() {\n  return (<h1>Tab Content</h1>);\n}\n<Tabs createContent={myContent}/>"
+    ],
+    "lineNumber": 31,
     "interface": false,
     "extends": [
       "react~React.Component"
@@ -1574,7 +1578,7 @@
     "longname": "js/components/saiku/Tabs.jsx~Tabs#constructor",
     "access": null,
     "description": null,
-    "lineNumber": 23,
+    "lineNumber": 32,
     "undocument": true,
     "params": [
       {
@@ -1596,7 +1600,7 @@
     "longname": "js/components/saiku/Tabs.jsx~Tabs#id",
     "access": null,
     "description": null,
-    "lineNumber": 26,
+    "lineNumber": 35,
     "undocument": true,
     "type": {
       "types": [
@@ -1614,7 +1618,7 @@
     "longname": "js/components/saiku/Tabs.jsx~Tabs#tabCounter",
     "access": null,
     "description": null,
-    "lineNumber": 27,
+    "lineNumber": 36,
     "undocument": true,
     "type": {
       "types": [
@@ -1632,7 +1636,7 @@
     "longname": "js/components/saiku/Tabs.jsx~Tabs#state",
     "access": null,
     "description": null,
-    "lineNumber": 28,
+    "lineNumber": 37,
     "undocument": true,
     "type": {
       "types": [
@@ -1649,9 +1653,8 @@
     "memberof": "js/components/saiku/Tabs.jsx~Tabs",
     "longname": "js/components/saiku/Tabs.jsx~Tabs#componentDidMount",
     "access": null,
-    "description": null,
-    "lineNumber": 37,
-    "undocument": true,
+    "description": "Method automatically called when React already built and mounted the\ncomponent on a dom element. In this case, this method will create the\ntabs' first tab, filled with the createContent function's content.",
+    "lineNumber": 51,
     "params": [],
     "generator": false
   },
@@ -1665,7 +1668,7 @@
     "longname": "js/components/saiku/Tabs.jsx~Tabs#render",
     "access": null,
     "description": null,
-    "lineNumber": 41,
+    "lineNumber": 55,
     "undocument": true,
     "params": [],
     "return": {
@@ -1684,21 +1687,58 @@
     "memberof": "js/components/saiku/Tabs.jsx~Tabs",
     "longname": "js/components/saiku/Tabs.jsx~Tabs#renderTabButtons",
     "access": null,
-    "description": null,
-    "lineNumber": 55,
-    "undocument": true,
+    "description": "Helper method called for each tab in order to render its button.",
+    "lineNumber": 77,
     "params": [
       {
-        "name": "tab",
+        "nullable": null,
         "types": [
-          "*"
-        ]
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "tab",
+        "description": "an object containing tab data"
       },
       {
-        "name": "index",
+        "nullable": null,
         "types": [
-          "*"
-        ]
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "tab.key",
+        "description": "unique tab identifier"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "tab.title",
+        "description": "text to be displayed on tab's button"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "tab.component",
+        "description": "content returned by createContent function"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "index",
+        "description": "the index of the tab (the render order)"
       }
     ],
     "return": {
@@ -1717,21 +1757,58 @@
     "memberof": "js/components/saiku/Tabs.jsx~Tabs",
     "longname": "js/components/saiku/Tabs.jsx~Tabs#renderTabPanels",
     "access": null,
-    "description": null,
-    "lineNumber": 84,
-    "undocument": true,
+    "description": "Helper method called for each tab in order to render its content.",
+    "lineNumber": 113,
     "params": [
       {
-        "name": "tab",
+        "nullable": null,
         "types": [
-          "*"
-        ]
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "tab",
+        "description": "an object containing tab data"
       },
       {
-        "name": "index",
+        "nullable": null,
         "types": [
-          "*"
-        ]
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "tab.key",
+        "description": "unique tab identifier"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "tab.title",
+        "description": "text to be displayed on tab's button"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "tab.component",
+        "description": "content returned by createContent function"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "index",
+        "description": "the index of the tab (the render order)"
       }
     ],
     "return": {
@@ -1750,15 +1827,48 @@
     "memberof": "js/components/saiku/Tabs.jsx~Tabs",
     "longname": "js/components/saiku/Tabs.jsx~Tabs#_isSelected",
     "access": null,
-    "description": null,
-    "lineNumber": 94,
-    "undocument": true,
+    "description": "Utility method to test if a tab is selected of not.",
+    "lineNumber": 130,
     "params": [
       {
-        "name": "tab",
+        "nullable": null,
         "types": [
-          "*"
-        ]
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "tab",
+        "description": "an object containing tab data"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "tab.key",
+        "description": "unique tab identifier"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "tab.title",
+        "description": "text to be displayed on tab's button"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "tab.component",
+        "description": "content returned by createContent function"
       }
     ],
     "return": {
@@ -1777,9 +1887,8 @@
     "memberof": "js/components/saiku/Tabs.jsx~Tabs",
     "longname": "js/components/saiku/Tabs.jsx~Tabs#_newTab",
     "access": null,
-    "description": null,
-    "lineNumber": 98,
-    "undocument": true,
+    "description": "Method called when the '+' button is pressed. It will instantiate a new tab\ncomponent, passing the result of createContent function as its child. This\nmethod also sets an incremental title to the tab ('Unsaved query(x)').",
+    "lineNumber": 139,
     "params": [
       {
         "name": "event",
@@ -1799,21 +1908,48 @@
     "memberof": "js/components/saiku/Tabs.jsx~Tabs",
     "longname": "js/components/saiku/Tabs.jsx~Tabs#_selectTab",
     "access": null,
-    "description": null,
-    "lineNumber": 119,
-    "undocument": true,
+    "description": "Method called when the user clicks on one tab button. It will set the\nrespective tab as the selected one.",
+    "lineNumber": 168,
     "params": [
       {
-        "name": "tab",
+        "nullable": null,
         "types": [
-          "*"
-        ]
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "tab",
+        "description": "an object containing tab data"
       },
       {
-        "name": "event",
+        "nullable": null,
         "types": [
-          "*"
-        ]
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "tab.key",
+        "description": "unique tab identifier"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "tab.title",
+        "description": "text to be displayed on tab's button"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "tab.component",
+        "description": "content returned by createContent function"
       }
     ],
     "generator": false
@@ -1827,21 +1963,48 @@
     "memberof": "js/components/saiku/Tabs.jsx~Tabs",
     "longname": "js/components/saiku/Tabs.jsx~Tabs#_deleteTab",
     "access": null,
-    "description": null,
-    "lineNumber": 127,
-    "undocument": true,
+    "description": "Method called when the user clicks on a tab's 'x' button. It will remove\nthis tab and, it it was the selected one, choose another tab to be the\nnew active.",
+    "lineNumber": 185,
     "params": [
       {
-        "name": "tab",
+        "nullable": null,
         "types": [
-          "*"
-        ]
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "tab",
+        "description": "an object containing tab data"
       },
       {
-        "name": "event",
+        "nullable": null,
         "types": [
-          "*"
-        ]
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "tab.key",
+        "description": "unique tab identifier"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "tab.title",
+        "description": "text to be displayed on tab's button"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "tab.component",
+        "description": "content returned by createContent function"
       }
     ],
     "generator": false
@@ -2543,40 +2706,6 @@
     "kind": "file",
     "static": true,
     "variation": null,
-    "name": "js/utils/ReactValidatorStrategy.js",
-    "memberof": null,
-    "longname": "js/utils/ReactValidatorStrategy.js",
-    "access": null,
-    "description": null,
-    "lineNumber": 17,
-    "content": "/*\n *   Copyright 2016 OSBI Ltd\n *\n *   Licensed under the Apache License, Version 2.0 (the \"License\");\n *   you may not use this file except in compliance with the License.\n *   You may obtain a copy of the License at\n *\n *       http://www.apache.org/licenses/LICENSE-2.0\n *\n *   Unless required by applicable law or agreed to in writing, software\n *   distributed under the License is distributed on an \"AS IS\" BASIS,\n *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n *   See the License for the specific language governing permissions and\n *   limitations under the License.\n */\n\nimport Validator from 'validatorjs';\n\nconst ReactValidatorStrategy = {\n  createSchema(rules, messsages, callback) {\n    return {\n      rules,\n      messsages,\n      callback\n    };\n  },\n\n  createInactiveSchema(rules, messsages, callback) {\n    let schema = this.createSchema(rules, messsages, callback);\n\n    schema.activeRules = [];\n\n    return schema;\n  },\n\n  activateRule(schema, rule) {\n    if (typeof schema.activeRules !== 'undefined' &&\n      schema.activeRules.indexOf(rule) === -1) {\n      schema.activeRules.push(rule);\n    }\n  },\n\n  createValidator(data, schema, forceActive) {\n    let rules = {};\n    let validator;\n\n    if (typeof schema.activeRules !== 'undefined') {\n      if (forceActive) {\n        schema.activeRules = Object.keys(schema.rules);\n      }\n\n      for (let i in schema.activeRules) {\n        let ruleName = schema.activeRules[i];\n\n        rules[ruleName] = schema.rules[ruleName];\n      }\n    }\n    else {\n      rules = schema.rules;\n    }\n\n    validator = new Validator(data, rules, schema.messsages);\n\n    if (typeof schema.callback === 'function') {\n      schema.callback(validator);\n    }\n\n    return validator;\n  },\n\n  validate(data, schema, options, callback) {\n    let forceActive = !options.key;\n    let validator = this.createValidator(data, schema, forceActive);\n\n    let getErrors = () => {\n      if (options.key) {\n        options.prevErrors[options.key] = validator.errors.get(options.key);\n        callback(options.prevErrors);\n      }\n      else {\n        callback(validator.errors.all());\n      }\n    };\n\n    validator.checkAsync(getErrors, getErrors);\n  },\n\n  validateServer(data, schema) {\n    let validator = this.createValidator(data, schema, true);\n\n    return new Promise((resolve, reject) => {\n      validator.checkAsync(\n        () => {\n          resolve();\n        },\n        () => {\n          let e = new this.Error('A validation error occurred');\n\n          e.errors = validator.errors.all();\n\n          reject(e);\n        }\n      );\n    });\n  },\n\n  Error: class extends Error {}\n};\n\nexport default ReactValidatorStrategy;\n"
-  },
-  {
-    "__docId__": 130,
-    "kind": "variable",
-    "static": true,
-    "variation": null,
-    "name": "ReactValidatorStrategy",
-    "memberof": "js/utils/ReactValidatorStrategy.js",
-    "longname": "js/utils/ReactValidatorStrategy.js~ReactValidatorStrategy",
-    "access": null,
-    "export": true,
-    "importPath": "meteorite-core-ui/js/utils/ReactValidatorStrategy.js",
-    "importStyle": "ReactValidatorStrategy",
-    "description": null,
-    "lineNumber": 19,
-    "undocument": true,
-    "type": {
-      "types": [
-        "*"
-      ]
-    }
-  },
-  {
-    "__docId__": 131,
-    "kind": "file",
-    "static": true,
-    "variation": null,
     "name": "js/utils/Settings.js",
     "memberof": null,
     "longname": "js/utils/Settings.js",
@@ -2586,7 +2715,7 @@
     "content": "/*\n *   Copyright 2016 OSBI Ltd\n *\n *   Licensed under the Apache License, Version 2.0 (the \"License\");\n *   you may not use this file except in compliance with the License.\n *   You may obtain a copy of the License at\n *\n *       http://www.apache.org/licenses/LICENSE-2.0\n *\n *   Unless required by applicable law or agreed to in writing, software\n *   distributed under the License is distributed on an \"AS IS\" BASIS,\n *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n *   See the License for the specific language governing permissions and\n *   limitations under the License.\n */\n\nconst Settings = {\n  KARAF_WEBAPP: '/cxf',\n  REST_MOUNT_POINT: '/rest/core/',\n  ERROR_TOLERANCE: 3\n};\n\nSettings.REST_URL = Settings.KARAF_WEBAPP + Settings.REST_MOUNT_POINT;\n\nexport default Settings;\n"
   },
   {
-    "__docId__": 132,
+    "__docId__": 130,
     "kind": "variable",
     "static": true,
     "variation": null,
@@ -2607,7 +2736,7 @@
     }
   },
   {
-    "__docId__": 134,
+    "__docId__": 132,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -2620,7 +2749,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 135,
+    "__docId__": 133,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -2633,7 +2762,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 136,
+    "__docId__": 134,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -2646,7 +2775,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 137,
+    "__docId__": 135,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -2659,7 +2788,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 138,
+    "__docId__": 136,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -2672,7 +2801,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 139,
+    "__docId__": 137,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -2685,7 +2814,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 140,
+    "__docId__": 138,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -2698,7 +2827,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 141,
+    "__docId__": 139,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -2711,7 +2840,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 142,
+    "__docId__": 140,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -2724,7 +2853,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 143,
+    "__docId__": 141,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -2737,7 +2866,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 144,
+    "__docId__": 142,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -2750,7 +2879,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 145,
+    "__docId__": 143,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -2763,7 +2892,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 146,
+    "__docId__": 144,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -2776,7 +2905,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 147,
+    "__docId__": 145,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -2789,7 +2918,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 148,
+    "__docId__": 146,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -2802,7 +2931,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 149,
+    "__docId__": 147,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -2815,7 +2944,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 150,
+    "__docId__": 148,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -2828,7 +2957,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 151,
+    "__docId__": 149,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -2841,7 +2970,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 152,
+    "__docId__": 150,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -2854,7 +2983,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 153,
+    "__docId__": 151,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -2867,7 +2996,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 154,
+    "__docId__": 152,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -2880,7 +3009,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 155,
+    "__docId__": 153,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -2893,7 +3022,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 156,
+    "__docId__": 154,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -2906,7 +3035,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 157,
+    "__docId__": 155,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -2919,7 +3048,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 158,
+    "__docId__": 156,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -2932,7 +3061,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 159,
+    "__docId__": 157,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -2945,7 +3074,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 160,
+    "__docId__": 158,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -2958,7 +3087,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 161,
+    "__docId__": 159,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -2971,7 +3100,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 162,
+    "__docId__": 160,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -2984,7 +3113,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 163,
+    "__docId__": 161,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -2997,7 +3126,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 164,
+    "__docId__": 162,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -3010,7 +3139,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 165,
+    "__docId__": 163,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -3023,7 +3152,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 166,
+    "__docId__": 164,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -3036,7 +3165,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 167,
+    "__docId__": 165,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -3049,7 +3178,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 168,
+    "__docId__": 166,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -3062,7 +3191,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 169,
+    "__docId__": 167,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -3075,7 +3204,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 170,
+    "__docId__": 168,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -3088,7 +3217,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 171,
+    "__docId__": 169,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -3101,7 +3230,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 172,
+    "__docId__": 170,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -3114,7 +3243,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 173,
+    "__docId__": 171,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -3127,7 +3256,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 174,
+    "__docId__": 172,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -3140,7 +3269,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 175,
+    "__docId__": 173,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -3153,7 +3282,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 176,
+    "__docId__": 174,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -3166,7 +3295,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 177,
+    "__docId__": 175,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -3179,7 +3308,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 178,
+    "__docId__": 176,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -3192,7 +3321,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 179,
+    "__docId__": 177,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -3205,7 +3334,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 180,
+    "__docId__": 178,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -3218,7 +3347,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 182,
+    "__docId__": 180,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -3231,7 +3360,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 183,
+    "__docId__": 181,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -3244,7 +3373,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 184,
+    "__docId__": 182,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -3257,7 +3386,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 185,
+    "__docId__": 183,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -3270,7 +3399,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 186,
+    "__docId__": 184,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -3283,7 +3412,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 187,
+    "__docId__": 185,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -3296,7 +3425,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 188,
+    "__docId__": 186,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -3309,7 +3438,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 189,
+    "__docId__": 187,
     "kind": "external",
     "static": true,
     "variation": null,

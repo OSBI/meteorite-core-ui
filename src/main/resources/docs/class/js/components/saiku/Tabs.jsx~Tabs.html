@@ -53,20 +53,19 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/js/models/SidebarModel.js~SidebarModel.html">SidebarModel</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/js/models/ToolbarModel.js~ToolbarModel.html">ToolbarModel</a></span></span></li>
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">utils</div><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-Base64">Base64</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-ReactValidatorStrategy">ReactValidatorStrategy</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-Settings">Settings</a></span></span></li>
 </ul>
 </div>
 </nav>
 
 <div class="content" data-ice="content"><div class="header-notice">
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import Tabs from &apos;<span><a href="file/js/components/saiku/Tabs.jsx.html#lineNumber22">meteorite-core-ui/js/components/saiku/Tabs.jsx</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import Tabs from &apos;<span><a href="file/js/components/saiku/Tabs.jsx.html#lineNumber31">meteorite-core-ui/js/components/saiku/Tabs.jsx</a></span>&apos;</code></pre></div>
   <span data-ice="access">public</span>
   <span data-ice="kind">class</span>
   
   
   
-  <span data-ice="source">| <span><a href="file/js/components/saiku/Tabs.jsx.html#lineNumber22">source</a></span></span>
+  <span data-ice="source">| <span><a href="file/js/components/saiku/Tabs.jsx.html#lineNumber31">source</a></span></span>
 </div>
 
 <div class="self-detail detail">
@@ -86,11 +85,23 @@
 
   
   
-  
+  <div class="description" data-ice="description"><p>Saiku &lt;Tabs/&gt; component. It requires a createContent function, it is
+responsible for populate the tab content, whenever the &apos;+&apos; button is pressed.</p>
+</div>
 
   
 
-  
+  <div data-ice="exampleDocs">
+    <h4>Example:</h4>
+    
+  <div class="example-doc" data-ice="exampleDoc">
+      
+      <pre class="prettyprint source-code"><code data-ice="exampleCode">function myContent() {
+  return (&lt;h1&gt;Tab Content&lt;/h1&gt;);
+}
+&lt;Tabs createContent={myContent}/&gt;</code></pre>
+    </div>
+</div>
 
   
 
@@ -234,7 +245,9 @@
       <div>
         
         
-        
+        <div data-ice="description"><p>Method automatically called when React already built and mounted the
+component on a dom element.</p>
+</div>
       </div>
     </td>
     <td>
@@ -278,13 +291,14 @@
     <td>
       <div>
         <p>
-           <span data-ice="name"><span><a href="class/js/components/saiku/Tabs.jsx~Tabs.html#instance-method-renderTabButtons">renderTabButtons</a></span></span><span data-ice="signature">(tab: <span>*</span>, index: <span>*</span>): <span>*</span></span>
+           <span data-ice="name"><span><a href="class/js/components/saiku/Tabs.jsx~Tabs.html#instance-method-renderTabButtons">renderTabButtons</a></span></span><span data-ice="signature">(tab: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span>, index: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>): <span>*</span></span>
         </p>
       </div>
       <div>
         
         
-        
+        <div data-ice="description"><p>Helper method called for each tab in order to render its button.</p>
+</div>
       </div>
     </td>
     <td>
@@ -303,13 +317,14 @@
     <td>
       <div>
         <p>
-           <span data-ice="name"><span><a href="class/js/components/saiku/Tabs.jsx~Tabs.html#instance-method-renderTabPanels">renderTabPanels</a></span></span><span data-ice="signature">(tab: <span>*</span>, index: <span>*</span>): <span>*</span></span>
+           <span data-ice="name"><span><a href="class/js/components/saiku/Tabs.jsx~Tabs.html#instance-method-renderTabPanels">renderTabPanels</a></span></span><span data-ice="signature">(tab: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span>, index: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>): <span>*</span></span>
         </p>
       </div>
       <div>
         
         
-        
+        <div data-ice="description"><p>Helper method called for each tab in order to render its content.</p>
+</div>
       </div>
     </td>
     <td>
@@ -338,7 +353,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/js/components/saiku/Tabs.jsx.html#lineNumber23">source</a></span></span>
+      <span data-ice="source"><span><a href="file/js/components/saiku/Tabs.jsx.html#lineNumber32">source</a></span></span>
     </span>
   </h3>
 
@@ -397,7 +412,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/js/components/saiku/Tabs.jsx.html#lineNumber26">source</a></span></span>
+      <span data-ice="source"><span><a href="file/js/components/saiku/Tabs.jsx.html#lineNumber35">source</a></span></span>
     </span>
   </h3>
 
@@ -437,7 +452,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/js/components/saiku/Tabs.jsx.html#lineNumber28">source</a></span></span>
+      <span data-ice="source"><span><a href="file/js/components/saiku/Tabs.jsx.html#lineNumber37">source</a></span></span>
     </span>
   </h3>
 
@@ -477,7 +492,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/js/components/saiku/Tabs.jsx.html#lineNumber27">source</a></span></span>
+      <span data-ice="source"><span><a href="file/js/components/saiku/Tabs.jsx.html#lineNumber36">source</a></span></span>
     </span>
   </h3>
 
@@ -520,14 +535,17 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/js/components/saiku/Tabs.jsx.html#lineNumber37">source</a></span></span>
+      <span data-ice="source"><span><a href="file/js/components/saiku/Tabs.jsx.html#lineNumber51">source</a></span></span>
     </span>
   </h3>
 
   
   
   
-  
+  <div data-ice="description"><p>Method automatically called when React already built and mounted the
+component on a dom element. In this case, this method will create the
+tabs&apos; first tab, filled with the createContent function&apos;s content.</p>
+</div>
 
   
 
@@ -560,7 +578,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/js/components/saiku/Tabs.jsx.html#lineNumber41">source</a></span></span>
+      <span data-ice="source"><span><a href="file/js/components/saiku/Tabs.jsx.html#lineNumber55">source</a></span></span>
     </span>
   </h3>
 
@@ -606,18 +624,19 @@
     
     
     
-    <span data-ice="name">renderTabButtons</span><span data-ice="signature">(tab: <span>*</span>, index: <span>*</span>): <span>*</span></span>
+    <span data-ice="name">renderTabButtons</span><span data-ice="signature">(tab: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span>, index: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>): <span>*</span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/js/components/saiku/Tabs.jsx.html#lineNumber55">source</a></span></span>
+      <span data-ice="source"><span><a href="file/js/components/saiku/Tabs.jsx.html#lineNumber77">source</a></span></span>
     </span>
   </h3>
 
   
   
   
-  
+  <div data-ice="description"><p>Helper method called for each tab in order to render its button.</p>
+</div>
 
   
 
@@ -631,15 +650,38 @@
     
     <tr data-ice="property" data-depth="0">
       <td data-ice="name" data-depth="0">tab</td>
-      <td data-ice="type"><span>*</span></td>
+      <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="description"><p>an object containing tab data</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="1">
+      <td data-ice="name" data-depth="1">tab.key</td>
+      <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>unique tab identifier</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="1">
+      <td data-ice="name" data-depth="1">tab.title</td>
+      <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>text to be displayed on tab&apos;s button</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="1">
+      <td data-ice="name" data-depth="1">tab.component</td>
+      <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>content returned by createContent function</p>
+</td>
     </tr>
 <tr data-ice="property" data-depth="0">
       <td data-ice="name" data-depth="0">index</td>
-      <td data-ice="type"><span>*</span></td>
+      <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="description"><p>the index of the tab (the render order)</p>
+</td>
     </tr>
 </tbody>
   </table>
@@ -678,18 +720,19 @@
     
     
     
-    <span data-ice="name">renderTabPanels</span><span data-ice="signature">(tab: <span>*</span>, index: <span>*</span>): <span>*</span></span>
+    <span data-ice="name">renderTabPanels</span><span data-ice="signature">(tab: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span>, index: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>): <span>*</span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/js/components/saiku/Tabs.jsx.html#lineNumber84">source</a></span></span>
+      <span data-ice="source"><span><a href="file/js/components/saiku/Tabs.jsx.html#lineNumber113">source</a></span></span>
     </span>
   </h3>
 
   
   
   
-  
+  <div data-ice="description"><p>Helper method called for each tab in order to render its content.</p>
+</div>
 
   
 
@@ -703,15 +746,38 @@
     
     <tr data-ice="property" data-depth="0">
       <td data-ice="name" data-depth="0">tab</td>
-      <td data-ice="type"><span>*</span></td>
+      <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="description"><p>an object containing tab data</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="1">
+      <td data-ice="name" data-depth="1">tab.key</td>
+      <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>unique tab identifier</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="1">
+      <td data-ice="name" data-depth="1">tab.title</td>
+      <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>text to be displayed on tab&apos;s button</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="1">
+      <td data-ice="name" data-depth="1">tab.component</td>
+      <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>content returned by createContent function</p>
+</td>
     </tr>
 <tr data-ice="property" data-depth="0">
       <td data-ice="name" data-depth="0">index</td>
-      <td data-ice="type"><span>*</span></td>
+      <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="description"><p>the index of the tab (the render order)</p>
+</td>
     </tr>
 </tbody>
   </table>

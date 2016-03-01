@@ -19,6 +19,15 @@ import autoBind from 'react-autobind';
 import _ from 'underscore';
 import Tab from './Tab';
 
+/**
+ * Saiku <Tabs/> component. It requires a createContent function, it is
+ * responsible for populate the tab content, whenever the '+' button is pressed.
+ * @example
+ * function myContent() {
+ *   return (<h1>Tab Content</h1>);
+ * }
+ * <Tabs createContent={myContent}/>
+ */
 class Tabs extends React.Component {
   constructor(props) {
     super(props);
@@ -34,6 +43,11 @@ class Tabs extends React.Component {
     autoBind(this, '_newTab', '_deleteTab', '_selectTab');
   }
 
+  /**
+   * Method automatically called when React already built and mounted the
+   * component on a dom element. In this case, this method will create the
+   * tabs' first tab, filled with the createContent function's content.
+   */
   componentDidMount() {
     this._newTab();
   }
@@ -43,7 +57,7 @@ class Tabs extends React.Component {
       <div>
         <ul className="nav nav-tabs" role="tablist" key={this.id}>
           {this.state.tabs.map(this.renderTabButtons)}
-          <li className="add-tab" role="presentation" role="tab">
+          <li className="add-tab" role="tab">
             <a role="tab" href="#" onClick={this._newTab}>+</a>
           </li>
         </ul>
@@ -52,11 +66,18 @@ class Tabs extends React.Component {
     );
   }
 
+  /**
+   * Helper method called for each tab in order to render its button.
+   * @param {Object} tab - an object containing tab data
+   * @param {string} tab.key - unique tab identifier
+   * @param {string} tab.title - text to be displayed on tab's button
+   * @param {Object} tab.component - content returned by createContent function
+   * @param {number} index - the index of the tab (the render order)
+   */
   renderTabButtons(tab, index) {
     return (
       <li
         className={this._isSelected(tab) ? 'active' : ''}
-        role="presentation"
         role="tab"
         key={'tab_button_' + index}
       >
@@ -81,6 +102,14 @@ class Tabs extends React.Component {
     );
   }
 
+  /**
+   * Helper method called for each tab in order to render its content.
+   * @param {Object} tab - an object containing tab data
+   * @param {string} tab.key - unique tab identifier
+   * @param {string} tab.title - text to be displayed on tab's button
+   * @param {Object} tab.component - content returned by createContent function
+   * @param {number} index - the index of the tab (the render order)
+   */
   renderTabPanels(tab, index) {
     return (
       <div className="tab-content" key={tab.key + '_content'}>
@@ -91,10 +120,22 @@ class Tabs extends React.Component {
     );
   }
 
+  /**
+   * Utility method to test if a tab is selected of not.
+   * @param {Object} tab - an object containing tab data
+   * @param {string} tab.key - unique tab identifier
+   * @param {string} tab.title - text to be displayed on tab's button
+   * @param {Object} tab.component - content returned by createContent function
+   */
   _isSelected(tab) {
     return tab.key === this.state.selectedTab;
   }
 
+  /**
+   * Method called when the '+' button is pressed. It will instantiate a new tab
+   * component, passing the result of createContent function as its child. This
+   * method also sets an incremental title to the tab ('Unsaved query(x)').
+   */
   _newTab(event) {
     if (event) {
       event.preventDefault();
@@ -116,6 +157,14 @@ class Tabs extends React.Component {
     this._selectTab(tab);
   }
 
+  /**
+   * Method called when the user clicks on one tab button. It will set the
+   * respective tab as the selected one.
+   * @param {Object} tab - an object containing tab data
+   * @param {string} tab.key - unique tab identifier
+   * @param {string} tab.title - text to be displayed on tab's button
+   * @param {Object} tab.component - content returned by createContent function
+   */
   _selectTab(tab, event) {
     if (event) {
       event.preventDefault();
@@ -124,6 +173,15 @@ class Tabs extends React.Component {
     this.setState({selectedTab: tab.key});
   }
 
+  /**
+   * Method called when the user clicks on a tab's 'x' button. It will remove
+   * this tab and, it it was the selected one, choose another tab to be the
+   * new active.
+   * @param {Object} tab - an object containing tab data
+   * @param {string} tab.key - unique tab identifier
+   * @param {string} tab.title - text to be displayed on tab's button
+   * @param {Object} tab.component - content returned by createContent function
+   */
   _deleteTab(tab, event) {
     if (event) {
       event.preventDefault();

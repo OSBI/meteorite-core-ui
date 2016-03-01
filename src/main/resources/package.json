@@ -33,7 +33,7 @@
     "docs": "esdoc -c esdoc.json",
     "server": "node server.js",
     "test": "karma start",
-    "test:ci": "watch 'npm run test' src/"
+    "test:ci": "karma start karma-ci.conf.js"
   },
   "engines": {
     "node": ">=0.10.x",

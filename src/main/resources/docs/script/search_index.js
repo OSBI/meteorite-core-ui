@@ -60,12 +60,6 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
-    "meteorite-core-ui/js/utils/reactvalidatorstrategy.js~reactvalidatorstrategy",
-    "variable/index.html#static-variable-ReactValidatorStrategy",
-    "<span>ReactValidatorStrategy</span> <span class=\"search-result-import-path\">meteorite-core-ui/js/utils/ReactValidatorStrategy.js</span>",
-    "variable"
-  ],
-  [
     "meteorite-core-ui/js/models/session.js~session",
     "class/js/models/Session.js~Session.html",
     "<span>Session</span> <span class=\"search-result-import-path\">meteorite-core-ui/js/models/Session.js</span>",
@@ -921,12 +915,6 @@ window.esdocSearchIndex = [
     "js/utils/base64.js",
     "file/js/utils/Base64.js.html",
     "js/utils/Base64.js",
-    "file"
-  ],
-  [
-    "js/utils/reactvalidatorstrategy.js",
-    "file/js/utils/ReactValidatorStrategy.js.html",
-    "js/utils/ReactValidatorStrategy.js",
     "file"
   ],
   [

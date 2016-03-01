@@ -1,7 +1,7 @@
 {
-  "coverage": "0%",
-  "expectCount": 74,
-  "actualCount": 0,
+  "coverage": "6.84%",
+  "expectCount": 73,
+  "actualCount": 5,
   "files": {
     "js/utils/Base64.js": {
       "expectCount": 1,
@@ -89,13 +89,6 @@
         22
       ]
     },
-    "js/utils/ReactValidatorStrategy.js": {
-      "expectCount": 1,
-      "actualCount": 0,
-      "undocumentLines": [
-        19
-      ]
-    },
     "js/models/Session.js": {
       "expectCount": 5,
       "actualCount": 0,
@@ -134,25 +127,20 @@
     },
     "js/components/saiku/Tab.jsx": {
       "expectCount": 2,
-      "actualCount": 0,
+      "actualCount": 1,
       "undocumentLines": [
-        19,
-        20
+        28
       ]
     },
     "js/components/saiku/Tabs.jsx": {
       "expectCount": 9,
-      "actualCount": 0,
+      "actualCount": 4,
       "undocumentLines": [
-        22,
-        37,
-        23,
-        26,
-        41,
+        32,
+        35,
         55,
-        84,
-        28,
-        27
+        37,
+        36
       ]
     },
     "js/components/saiku/Toolbar.jsx": {
