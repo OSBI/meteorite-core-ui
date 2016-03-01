@@ -21,6 +21,7 @@ import { createHistory } from 'history';
 import Login from './components/saiku/Login';
 import LockScreen from './components/saiku/LockScreen';
 import Workspace from './components/saiku/Workspace';
+import QueryDesigner from './components/saiku/query_designer/QueryDesigner';
 import NotFound from './components/saiku/NotFound';
 
 // webpack loaders
@@ -31,6 +32,7 @@ var routes = (
   <Router history={createHistory()}>
     <Route path="/" component={Login} />
     <Route path="/workspace/" component={Workspace} />
+    <Route path="/query_designer/" component={QueryDesigner} />
     <Route path="/lockscreen/" component={LockScreen} />
     <Route path="*" component={NotFound} />
   </Router>

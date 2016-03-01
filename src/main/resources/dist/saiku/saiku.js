@@ -70,41 +70,46 @@
 	
 	var _Workspace2 = _interopRequireDefault(_Workspace);
 	
-	var _NotFound = __webpack_require__(538);
+	var _QueryDesigner = __webpack_require__(538);
+	
+	var _QueryDesigner2 = _interopRequireDefault(_QueryDesigner);
+	
+	var _NotFound = __webpack_require__(540);
 	
 	var _NotFound2 = _interopRequireDefault(_NotFound);
 	
-	__webpack_require__(539);
+	__webpack_require__(541);
 	
-	__webpack_require__(540);
+	__webpack_require__(542);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	// webpack loaders
-	/*
-	 *   Copyright 2016 OSBI Ltd
-	 *
-	 *   Licensed under the Apache License, Version 2.0 (the "License");
-	 *   you may not use this file except in compliance with the License.
-	 *   You may obtain a copy of the License at
-	 *
-	 *       http://www.apache.org/licenses/LICENSE-2.0
-	 *
-	 *   Unless required by applicable law or agreed to in writing, software
-	 *   distributed under the License is distributed on an "AS IS" BASIS,
-	 *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-	 *   See the License for the specific language governing permissions and
-	 *   limitations under the License.
-	 */
+	
 	
 	var routes = _react2.default.createElement(
 	  _reactRouter.Router,
 	  { history: (0, _history.createHistory)() },
-	  _react2.default.createElement(_reactRouter.Route, { path: '/', component: _Login2.default }),
+	  _react2.default.createElement(_reactRouter.Route, { path: '/', component: _QueryDesigner2.default }),
 	  _react2.default.createElement(_reactRouter.Route, { path: '/workspace/', component: _Workspace2.default }),
+	  _react2.default.createElement(_reactRouter.Route, { path: '/query_designer/', component: _Login2.default }),
 	  _react2.default.createElement(_reactRouter.Route, { path: '/lockscreen/', component: _LockScreen2.default }),
 	  _react2.default.createElement(_reactRouter.Route, { path: '*', component: _NotFound2.default })
-	);
+	); /*
+	    *   Copyright 2016 OSBI Ltd
+	    *
+	    *   Licensed under the Apache License, Version 2.0 (the "License");
+	    *   you may not use this file except in compliance with the License.
+	    *   You may obtain a copy of the License at
+	    *
+	    *       http://www.apache.org/licenses/LICENSE-2.0
+	    *
+	    *   Unless required by applicable law or agreed to in writing, software
+	    *   distributed under the License is distributed on an "AS IS" BASIS,
+	    *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	    *   See the License for the specific language governing permissions and
+	    *   limitations under the License.
+	    */
 	
 	_reactDom2.default.render(routes, document.querySelector('#app'));
 
@@ -63807,8 +63812,11 @@
 	
 	    /**
 	     * Helper method called for each tab in order to render its button.
-	     * @param {tab} an object containing tab data
-	     * @param {index} the index of the tab (the render order)
+	     * @param {Object} tab - an object containing tab data
+	     * @param {string} tab.key - unique tab identifier
+	     * @param {string} tab.title - text to be displayed on tab's button
+	     * @param {Object} tab.component - content returned by createContent function
+	     * @param {number} index - the index of the tab (the render order)
 	     */
 	
 	  }, {
@@ -63853,8 +63861,11 @@
 	
 	    /**
 	     * Helper method called for each tab in order to render its content.
-	     * @param {tab} an object containing tab data
-	     * @param {index} the index of the tab (the render order)
+	     * @param {Object} tab - an object containing tab data
+	     * @param {string} tab.key - unique tab identifier
+	     * @param {string} tab.title - text to be displayed on tab's button
+	     * @param {Object} tab.component - content returned by createContent function
+	     * @param {number} index - the index of the tab (the render order)
 	     */
 	
 	  }, {
@@ -63873,7 +63884,10 @@
 	
 	    /**
 	     * Utility method to test if a tab is selected of not.
-	     * @param {tab} an object containing tab data
+	     * @param {Object} tab - an object containing tab data
+	     * @param {string} tab.key - unique tab identifier
+	     * @param {string} tab.title - text to be displayed on tab's button
+	     * @param {Object} tab.component - content returned by createContent function
 	     */
 	
 	  }, {
@@ -63914,7 +63928,10 @@
 	    /**
 	     * Method called when the user clicks on one tab button. It will set the
 	     * respective tab as the selected one.
-	     * @param {tab} an object containing tab data
+	     * @param {Object} tab - an object containing tab data
+	     * @param {string} tab.key - unique tab identifier
+	     * @param {string} tab.title - text to be displayed on tab's button
+	     * @param {Object} tab.component - content returned by createContent function
 	     */
 	
 	  }, {
@@ -63931,7 +63948,10 @@
 	     * Method called when the user clicks on a tab's 'x' button. It will remove
 	     * this tab and, it it was the selected one, choose another tab to be the
 	     * new active.
-	     * @param {tab} an object containing tab data
+	     * @param {Object} tab - an object containing tab data
+	     * @param {string} tab.key - unique tab identifier
+	     * @param {string} tab.title - text to be displayed on tab's button
+	     * @param {Object} tab.component - content returned by createContent function
 	     */
 	
 	  }, {
@@ -64191,6 +64211,226 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
+	var _reactBootstrap = __webpack_require__(275);
+	
+	var _Content = __webpack_require__(524);
+	
+	var _Content2 = _interopRequireDefault(_Content);
+	
+	var _CubeSelector = __webpack_require__(539);
+	
+	var _CubeSelector2 = _interopRequireDefault(_CubeSelector);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /*
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   Copyright 2016 OSBI Ltd
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   Licensed under the Apache License, Version 2.0 (the "License");
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   you may not use this file except in compliance with the License.
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   You may obtain a copy of the License at
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *       http://www.apache.org/licenses/LICENSE-2.0
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   Unless required by applicable law or agreed to in writing, software
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   distributed under the License is distributed on an "AS IS" BASIS,
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   See the License for the specific language governing permissions and
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   limitations under the License.
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
+	
+	var QueryDesigner = function (_React$Component) {
+	  _inherits(QueryDesigner, _React$Component);
+	
+	  function QueryDesigner() {
+	    _classCallCheck(this, QueryDesigner);
+	
+	    return _possibleConstructorReturn(this, Object.getPrototypeOf(QueryDesigner).apply(this, arguments));
+	  }
+	
+	  _createClass(QueryDesigner, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        _Content2.default,
+	        { page: true },
+	        _react2.default.createElement(
+	          _reactBootstrap.Grid,
+	          null,
+	          _react2.default.createElement(
+	            _reactBootstrap.Row,
+	            null,
+	            _react2.default.createElement(
+	              _reactBootstrap.Col,
+	              { md: 2, xs: 3 },
+	              _react2.default.createElement(_CubeSelector2.default, null)
+	            ),
+	            _react2.default.createElement(
+	              _reactBootstrap.Col,
+	              { md: 6, xs: 8 },
+	              _react2.default.createElement(
+	                _reactBootstrap.Row,
+	                null,
+	                _react2.default.createElement(
+	                  'p',
+	                  null,
+	                  'Dimensions'
+	                )
+	              ),
+	              _react2.default.createElement(
+	                _reactBootstrap.Row,
+	                null,
+	                _react2.default.createElement(
+	                  'p',
+	                  null,
+	                  'Measures'
+	                )
+	              )
+	            )
+	          )
+	        )
+	      );
+	    }
+	  }]);
+	
+	  return QueryDesigner;
+	}(_react2.default.Component);
+	
+	exports.default = QueryDesigner;
+
+/***/ },
+/* 539 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _underscore = __webpack_require__(271);
+	
+	var _underscore2 = _interopRequireDefault(_underscore);
+	
+	var _reactAutobind = __webpack_require__(214);
+	
+	var _reactAutobind2 = _interopRequireDefault(_reactAutobind);
+	
+	var _reactTreeview = __webpack_require__(546);
+	
+	var _reactTreeview2 = _interopRequireDefault(_reactTreeview);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /*
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   Copyright 2016 OSBI Ltd
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   Licensed under the Apache License, Version 2.0 (the "License");
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   you may not use this file except in compliance with the License.
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   You may obtain a copy of the License at
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *       http://www.apache.org/licenses/LICENSE-2.0
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   Unless required by applicable law or agreed to in writing, software
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   distributed under the License is distributed on an "AS IS" BASIS,
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   See the License for the specific language governing permissions and
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   limitations under the License.
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
+	
+	var CubeSelector = function (_React$Component) {
+	  _inherits(CubeSelector, _React$Component);
+	
+	  function CubeSelector(props) {
+	    _classCallCheck(this, CubeSelector);
+	
+	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(CubeSelector).call(this, props));
+	
+	    (0, _reactAutobind2.default)(_this, '_renderTreeNode');
+	    return _this;
+	  }
+	
+	  _createClass(CubeSelector, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        null,
+	        this._fetchData().map(this._renderTreeNode)
+	      );
+	    }
+	  }, {
+	    key: '_renderTreeNode',
+	    value: function _renderTreeNode(data) {
+	      var id = _underscore2.default.uniqueId('treenode_');
+	      var label = _react2.default.createElement(
+	        'span',
+	        { className: 'node' },
+	        data.name
+	      );
+	
+	      return _react2.default.createElement(
+	        _reactTreeview2.default,
+	        { key: id, nodeLabel: label, defaultCollapsed: false },
+	        data.children && data.children.map(this._renderTreeNode)
+	      );
+	    }
+	  }, {
+	    key: '_fetchData',
+	    value: function _fetchData() {
+	      var dataSource = [{
+	        name: 'Cubes',
+	        children: [{
+	          name: 'Cube 1',
+	          children: [{
+	            name: 'Dimensions',
+	            children: [{ name: 'D1' }, { name: 'D2' }, { name: 'D3' }]
+	          }, {
+	            name: 'Measures',
+	            children: [{ name: 'M1' }, { name: 'M2' }, { name: 'M3' }]
+	          }]
+	        }]
+	      }];
+	
+	      return dataSource;
+	    }
+	  }]);
+	
+	  return CubeSelector;
+	}(_react2.default.Component);
+	
+	exports.default = CubeSelector;
+
+/***/ },
+/* 540 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -64239,22 +64479,22 @@
 	exports.default = NotFound;
 
 /***/ },
-/* 539 */
+/* 541 */
 /***/ function(module, exports) {
 
 	module.exports = "<!--  \n  Copyright 2016 OSBI Ltd\n\n  Licensed under the Apache License, Version 2.0 (the \"License\");\n  you may not use this file except in compliance with the License.\n  You may obtain a copy of the License at\n\n      http://www.apache.org/licenses/LICENSE-2.0\n\n  Unless required by applicable law or agreed to in writing, software\n  distributed under the License is distributed on an \"AS IS\" BASIS,\n  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n  See the License for the specific language governing permissions and\n  limitations under the License.\n-->\n\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <title>Saiku - Next Generation Open Source Analytics</title>\n\n  <!-- Meta -->\n  <meta charset=\"UTF-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n\n  <!-- Favicon -->\n  <link rel=\"shortcut icon\" href=\"dist/assets/images/favicon.ico\">\n\n  <!-- CSS -->\n  <link rel=\"stylesheet\" href=\"dist/assets/css/bootstrap.min.css\">\n  <link rel=\"stylesheet\" href=\"dist/assets/css/font-awesome.min.css\">\n  <link rel=\"stylesheet\" href=\"dist/saiku/saiku.css\">\n\n  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->\n  <!--[if lt IE 9]>\n    <script src=\"dist/assets/js/html5shiv.js\"></script>\n    <script src=\"dist/assets/js/respond.min.js\"></script>\n  <![endif]-->\n</head>\n<body>\n  <div id=\"app\"></div>\n\n  <!-- JS -->\n  <script src=\"dist/assets/js/jquery.min.js\"></script>\n  <script src=\"dist/assets/js/bootstrap.min.js\"></script>\n  <script src=\"dist/saiku/saiku.js\"></script>\n</body>\n</html>";
 
 /***/ },
-/* 540 */
+/* 542 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(541);
+	var content = __webpack_require__(543);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(543)(content, {});
+	var update = __webpack_require__(545)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -64271,22 +64511,22 @@
 	}
 
 /***/ },
-/* 541 */
+/* 543 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(542)();
+	exports = module.exports = __webpack_require__(544)();
 	// imports
 	exports.push([module.id, "@import url(https://fonts.googleapis.com/css?family=Noto+Sans:400,700);", ""]);
 	exports.push([module.id, "@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700,300);", ""]);
 	
 	// module
-	exports.push([module.id, "/*  \n *   Copyright 2016 OSBI Ltd\n *\n *   Licensed under the Apache License, Version 2.0 (the \"License\");\n *   you may not use this file except in compliance with the License.\n *   You may obtain a copy of the License at\n *\n *       http://www.apache.org/licenses/LICENSE-2.0\n *\n *   Unless required by applicable law or agreed to in writing, software\n *   distributed under the License is distributed on an \"AS IS\" BASIS,\n *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n *   See the License for the specific language governing permissions and\n *   limitations under the License.\n */\n/* =========================================================================\n   CORE\n   ========================================================================= */\n* {\n  outline: none !important;\n}\nhtml {\n  position: relative;\n  min-height: 100%;\n  background: #ebeff2;\n}\nbody {\n  overflow-x: hidden;\n  margin: 0;\n  font-family: \"Noto Sans\", \"Helvetica Neue\", Helvetica, Arial, sans-serif;\n  font-weight: 400;\n  color: #797979;\n  background: #ebeff2;\n}\nh1,\nh2,\nh3,\nh4,\nh5,\nh6 {\n  margin: 10px 0;\n  font-family: \"Source Sans Pro\", \"Helvetica Neue\", Helvetica, Arial, sans-serif;\n  color: #505458;\n}\nh1 {\n  line-height: 43px;\n}\nh2 {\n  line-height: 35px;\n}\nh3 {\n  line-height: 30px;\n}\nh3 small {\n  color: #444;\n}\nh4 {\n  line-height: 22px;\n}\nh4 small {\n  color: #444;\n}\nh5 {\n  line-height: 15px;\n}\nh5 small {\n  color: #444;\n}\np {\n  line-height: 1.6;\n}\nb {\n  font-weight: 600;\n}\na:hover,\na:active,\na:focus {\n  outline: 0;\n  text-decoration: none;\n}\n.container {\n  width: auto;\n}\n.container-alt {\n  margin-right: auto;\n  margin-left: auto;\n  padding-right: 15px;\n  padding-left: 15px;\n}\n.wrapper {\n  overflow: hidden;\n  width: 100%;\n  height: 100%;\n}\n.wrapper-page {\n  position: relative;\n  width: 420px;\n  margin: 5% auto;\n}\n.content-box {\n  margin-bottom: 20px;\n  padding: 20px;\n  border: 1px solid rgba(54,64,74,.1);\n  border-radius: 5px;\n  background: #fff;\n  background-clip: padding-box;\n}\n.bg-page {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n}\n.user-thumb {\n  position: relative;\n  z-index: 9999;\n}\n.user-thumb img {\n  width: 88px;\n  height: 88px;\n  margin: 0 auto;\n}\n.content-page {\n  overflow: hidden;\n  margin-left: 240px;\n}\n.content-page > .content {\n  margin-top: 60px;\n  padding: 20px 5px 15px 5px;\n}\n/* =========================================================================\n   HELPERS\n   ========================================================================= */\n.debug {\n  border: 1px solid #000;\n}\n.p-0 {\n  padding: 0 !important;\n}\n.p-20 {\n  padding: 20px !important;\n}\n.p-30 {\n  padding: 30px !important;\n}\n.p-l-0 {\n  padding-left: 0 !important;\n}\n.p-r-0 {\n  padding-right: 0 !important;\n}\n.p-t-0 {\n  padding-top: 0 !important;\n}\n.p-t-10 {\n  padding-top: 10px !important;\n}\n.p-b-10 {\n  padding-bottom: 10px !important;\n}\n.p-l-r-10 {\n  padding-right: 10px;\n  padding-left: 10px;\n}\n.m-0 {\n  margin: 0 !important;\n}\n.m-r-5 {\n  margin-right: 5px !important;\n}\n.m-r-10 {\n  margin-right: 10px !important;\n}\n.m-r-15 {\n  margin-right: 15px !important;\n}\n.m-l-5 {\n  margin-left: 5px !important;\n}\n.m-l-10 {\n  margin-left: 10px !important;\n}\n.m-l-15 {\n  margin-left: 15px !important;\n}\n.m-t-5 {\n  margin-top: 5px !important;\n}\n.m-t-0 {\n  margin-top: 0 !important;\n}\n.m-t-10 {\n  margin-top: 10px !important;\n}\n.m-t-15 {\n  margin-top: 15px !important;\n}\n.m-t-20 {\n  margin-top: 20px !important;\n}\n.m-t-30 {\n  margin-top: 30px !important;\n}\n.m-t-40 {\n  margin-top: 40px !important;\n}\n.m-b-0 {\n  margin-bottom: 0 !important;\n}\n.m-b-5 {\n  margin-bottom: 5px !important;\n}\n.m-b-10 {\n  margin-bottom: 10px !important;\n}\n.m-b-15 {\n  margin-bottom: 15px !important;\n}\n.m-b-20 {\n  margin-bottom: 20px !important;\n}\n.m-b-30 {\n  margin-bottom: 30px !important;\n}\n.w-xs {\n  min-width: 80px;\n}\n.w-sm {\n  min-width: 95px;\n}\n.w-md {\n  min-width: 110px;\n}\n.w-lg {\n  min-width: 140px;\n}\n.m-h-40 {\n  min-height: 40px;\n}\n.m-h-50 {\n  min-height: 50px;\n}\n.l-h-34 {\n  line-height: 34px;\n}\n.font-600 {\n  font-weight: 600;\n}\n.font-bold {\n  font-weight: 700;\n}\n.font-normal {\n  font-weight: normal;\n}\n.font-light {\n  font-weight: 300;\n}\n.font-13 {\n  font-size: 13px !important;\n}\n.wrapper-md {\n  padding: 20px;\n}\n.pull-in {\n  margin-right: -15px;\n  margin-left: -15px;\n}\n.b-0 {\n  border: none !important;\n}\n.vertical-middle {\n  vertical-align: middle;\n}\n.bx-shadow {\n  box-shadow: 0 1px 2px 0 rgba(0,0,0,.1);\n}\n.mx-box {\n  min-height: 380px;\n  max-height: 380px;\n}\n.thumb-sm {\n  width: 32px;\n  height: 32px;\n}\n.thumb-md {\n  width: 48px;\n  height: 48px;\n}\n.thumb-lg {\n  width: 88px;\n  height: 88px;\n}\n/* =========================================================================\n   BOOTSTRAP CUSTOM\n   ========================================================================= */\n.row {\n  margin-right: -10px;\n  margin-left: -10px;\n}\n.col-lg-1,\n.col-lg-10,\n.col-lg-11,\n.col-lg-12,\n.col-lg-2,\n.col-lg-3,\n.col-lg-4,\n.col-lg-5,\n.col-lg-6,\n.col-lg-7,\n.col-lg-8,\n.col-lg-9,\n.col-md-1,\n.col-md-10,\n.col-md-11,\n.col-md-12,\n.col-md-2,\n.col-md-3,\n.col-md-4,\n.col-md-5,\n.col-md-6,\n.col-md-7,\n.col-md-8,\n.col-md-9,\n.col-sm-1,\n.col-sm-10,\n.col-sm-11,\n.col-sm-12,\n.col-sm-2,\n.col-sm-3,\n.col-sm-4,\n.col-sm-5,\n.col-sm-6,\n.col-sm-7,\n.col-sm-8,\n.col-sm-9,\n.col-xs-1,\n.col-xs-10,\n.col-xs-11,\n.col-xs-12,\n.col-xs-2,\n.col-xs-3,\n.col-xs-4,\n.col-xs-5,\n.col-xs-6,\n.col-xs-7,\n.col-xs-8,\n.col-xs-9 {\n  padding-right: 10px;\n  padding-left: 10px;\n}\n/* BACKGROUND COLORS\n   ========================================================================= */\n.bg-custom {\n  background: #58c9c7 !important;\n}\n.bg-primary {\n  background: #5d9cec !important;\n}\n.bg-success {\n  background: #81c868 !important;\n}\n.bg-info {\n  background: #34d3eb !important;\n}\n.bg-warning {\n  background: #ffbd4a !important;\n}\n.bg-danger {\n  background: #f05050 !important;\n}\n.bg-inverse {\n  background: #4c5667 !important;\n}\n.bg-muted {\n  background: #98a6ad !important;\n}\n.bg-white {\n  background: #fff !important;\n}\n.bg-lightdark {\n  background: #f4f8fb !important;\n}\n/* TEXT COLORS\n   ========================================================================= */\n.text-custom {\n  color: #58c9c7;\n}\n.text-primary {\n  color: #5d9cec;\n}\n.text-success {\n  color: #81c868;\n}\n.text-info {\n  color: #34d3eb;\n}\n.text-warning {\n  color: #ffbd4a;\n}\n.text-danger {\n  color: #f05050;\n}\n.text-inverse {\n  color: #4c5667;\n}\n.text-muted {\n  color: #98a6ad;\n}\n.text-white {\n  color: #fff;\n}\n.text-dark {\n  color: #797979 !important;\n}\n/* DROPDOWN\n   ========================================================================= */\n.dropdown-menu {\n  padding: 4px 0;\n  border: 0;\n  box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);\n  -webkit-transition: all 300ms ease;\n          transition: all 300ms ease;\n}\n.dropdown-menu > li > a {\n  padding: 6px 20px;\n}\n.dropdown-menu > .active > a,\n.dropdown-menu > .active a:hover,\n.dropdown-menu > .active a:focus {\n  color: #36404a;\n  background: #f3f3f3;\n}\n/* BADGE\n   ========================================================================= */\n.badge {\n  margin-top: 1px;\n  padding: 3px 5px;\n  font-size: 12px;\n  font-weight: 600;\n  background: #5fbeaa;\n  text-transform: uppercase;\n}\n.badge-xs {\n  font-size: 9px;\n}\n.badge-xs,\n.badge-sm {\n  -webkit-transform: translate(0, -2px);\n          transform: translate(0, -2px);\n}\n.badge-primary {\n  background: #5d9cec;\n}\n.badge-success {\n  background: #81c868;\n}\n.badge-info {\n  background: #34d3eb;\n}\n.badge-warning {\n  background: #ffbd4a;\n}\n.badge-danger {\n  background: #f05050;\n}\n.badge-inverse {\n  background: #4c5667;\n}\n/* =========================================================================\n   FORM\n   ========================================================================= */\ntextarea.form-control {\n  min-height: 90px;\n}\n.form-control {\n  max-width: 100%;\n  height: 38px;\n  padding: 7px 12px;\n  color: #565656;\n  border: 1px solid #e3e3e3;\n  border-radius: 4px;\n  background: #fff;\n  box-shadow: none;\n  -webkit-transition: all 300ms linear;\n          transition: all 300ms linear;\n}\n.form-control:focus {\n  color: #333;\n  border: 1px solid #aaa;\n  outline: 0 !important;\n  background: #fff;\n  box-shadow: none;\n}\n.form-horizontal .form-group {\n  margin-right: -10px;\n  margin-left: -10px;\n}\n.input-lg {\n  height: 46px;\n  padding: 10px 16px;\n  font-size: 18px;\n  line-height: 1.3333333;\n  border-radius: 6px;\n}\n.input-sm {\n  height: 30px;\n  padding: 5px 10px;\n  font-size: 12px;\n  line-height: 1.5;\n  border-radius: 3px;\n}\n.input-group-btn .btn {\n  padding: 8px 12px;\n}\n.input-group-btn .btn-sm {\n  padding: 5px 10px;\n}\n.input-group-btn .btn-lg {\n  padding: 10px 17px;\n}\n/* =========================================================================\n   BUTTON\n   ========================================================================= */\n.btn {\n  border-radius: 3px;\n  outline: none !important;\n}\n/* =========================================================================\n   CHECKBOX\n   ========================================================================= */\n.checkbox span {\n  position: relative;\n  display: inline-block;\n  padding-left: 5px;\n}\n.checkbox span::before {\n  position: absolute;\n  left: 0;\n  display: inline-block;\n  width: 17px;\n  height: 17px;\n  margin-left: -20px;\n  border: 1px solid #ccc;\n  border-radius: 3px;\n  outline: none !important;\n  background: #fff;\n  content: \"\";\n  -webkit-transition: .3s ease-in-out;\n          transition: .3s ease-in-out;\n}\n.checkbox span::after {\n  position: absolute;\n  top: 0;\n  left: 0;\n  display: inline-block;\n  width: 16px;\n  height: 16px;\n  margin-left: -20px;\n  padding-top: 1px;\n  padding-left: 3px;\n  font-size: 11px;\n  color: #555;\n}\n.checkbox input[type=\"checkbox\"] {\n  z-index: 1;\n  opacity: 0;\n  outline: none !important;\n  cursor: pointer;\n}\n.checkbox input[type=\"checkbox\"]:disabled + span {\n  opacity: .65;\n}\n.checkbox input[type=\"checkbox\"]:focus + span::before {\n  outline: none;\n  outline: thin dotted;\n  outline-offset: -2px;\n}\n.checkbox input[type=\"checkbox\"]:checked + span::after {\n  font-family: \"FontAwesome\";\n  content: \"\\F00C\";\n}\n.checkbox input[type=\"checkbox\"]:disabled + span::before {\n  background: #eee;\n  cursor: not-allowed;\n}\n.checkbox-primary input[type=\"checkbox\"]:checked + span::before {\n  border-color: #5d9cec;\n  background: #5d9cec;\n}\n.checkbox-primary input[type=\"checkbox\"]:checked + span::after {\n  color: #fff;\n}\n/* =========================================================================\n   PANELS\n   ========================================================================= */\n.panel {\n  margin-bottom: 20px;\n  border: none;\n}\n.panel .panel-body {\n  padding: 20px;\n}\n.panel .panel-body p {\n  margin: 0;\n}\n.panel .panel-body p + p {\n  margin-top: 15px;\n}\n.panel-heading {\n  padding: 10px 20px;\n  border: none !important;\n}\n/* =========================================================================\n   MENUBAR\n   ========================================================================= */\n.topbar {\n  position: fixed;\n  z-index: 9999;\n  top: 0;\n  right: 0;\n  left: 0;\n}\n.topbar .topbar-left {\n  position: relative;\n  z-index: 1;\n  float: left;\n  width: 240px;\n}\n.logo {\n  line-height: 60px;\n}\n.navbar-default {\n  margin-bottom: 0;\n  border: none;\n  border-radius: 0;\n  background: #fff;\n}\n.navbar-default .badge {\n  position: absolute;\n  top: 12px;\n  right: 7px;\n}\n.navbar-nav {\n  margin: 0;\n}\n.nav > li > a {\n  position: relative;\n  padding: 0 15px;\n  line-height: 60px;\n  color: #fff;\n}\n.nav > li > a i {\n  font-size: 16px;\n}\n.profile img {\n  width: 36px;\n  height: 36px;\n  border: 2px solid #edf0f0;\n}\n.button-menu-mobile {\n  padding: 0 15px;\n  font-size: 21px;\n  line-height: 60px;\n  color: #ccc;\n  border: none;\n  background: transparent;\n}\n.button-menu-mobile:hover {\n  color: #fff;\n}\n/* =========================================================================\n   SIDEBAR\n   ========================================================================= */\n.side-menu {\n  z-index: 2;\n  top: 0;\n  bottom: 0;\n  width: 240px;\n}\n.side-menu.left {\n  position: absolute;\n  top: 60px;\n  background: #fff;\n  box-shadow: 0 1px 1px rgba(0,0,0,.1);\n}\n.fixed-left .side-menu.left {\n  position: fixed;\n  bottom: 50px;\n  height: 100%;\n  margin-top: 0;\n  margin-bottom: -70px;\n  padding-bottom: 70px;\n}\n.sidebar-inner {\n  height: 100%;\n}\n.sidebar-menu,\n.sidebar-menu ul,\n.sidebar-menu li,\n.sidebar-menu a {\n  position: relative;\n  margin: 0;\n  padding: 0;\n  font-weight: normal;\n  line-height: 1;\n  list-style: none;\n  border: 0;\n  text-decoration: none;\n}\n.sidebar-menu {\n  width: 100%;\n  padding-top: 30px;\n  padding-bottom: 30px;\n}\n.sidebar-menu a {\n  line-height: 1.3;\n}\n.sidebar-menu > ul > li > a {\n  display: block;\n  margin: 4px 0;\n  padding: 12px 20px;\n  color: #36404a;\n  border-left: 3px solid #fff;\n}\n.sidebar-menu > ul > li > a:hover {\n  color: #5fbeaa;\n  text-decoration: none;\n}\n.sidebar-menu > ul > li > a > span {\n  vertical-align: middle;\n}\n.sidebar-menu ul li a i {\n  display: inline-block;\n  width: 20px;\n  margin-right: 15px;\n  margin-left: 3px;\n  font-size: 16px;\n  line-height: 17px;\n  text-align: center;\n  vertical-align: middle;\n}\n.wrapper.enlarged .sidebar-menu ul ul {\n  z-index: 9999;\n  margin-top: -5px;\n  padding-top: 5px;\n  border: 2px solid #f4f8fb;\n  background: #fff;\n}\n.wrapper.enlarged .side-menu.left {\n  z-index: 5;\n  width: 70px;\n}\n.wrapper.enlarged .side-menu.left .sidebar-menu > ul > li > a {\n  padding: 15px 20px;\n}\n.wrapper.enlarged .side-menu.left .sidebar-menu > ul > li > a:hover {\n  background: #f4f8fb !important;\n}\n.wrapper.enlarged .side-menu.left .sidebar-menu > ul > li > a:active {\n  background: #f4f8fb !important;\n}\n.wrapper.enlarged .side-menu.left .sidebar-menu > ul > li > a:focus {\n  background: #f4f8fb !important;\n}\n.wrapper.enlarged .side-menu.left .sidebar-menu > ul > li > a i {\n  margin-right: 20px !important;\n  font-size: 20px;\n}\n.wrapper.enlarged .side-menu.left .sidebar-menu ul > li {\n  position: relative;\n  white-space: nowrap;\n}\n.wrapper.enlarged .side-menu.left .sidebar-menu ul > li:hover > a {\n  position: relative;\n  width: 260px;\n  color: #5fbeaa;\n  border-color: #5fbeaa;\n  background: #f4f8fb;\n}\n.wrapper.enlarged .side-menu.left .sidebar-menu ul > li:hover a span {\n  display: inline;\n}\n.wrapper.enlarged .side-menu.left .sidebar-menu ul > li > a span {\n  display: none;\n  padding-left: 10px;\n}\n.wrapper.enlarged .content-page {\n  margin-left: 70px;\n}\n.wrapper.enlarged .topbar .topbar-left {\n  width: 70px !important;\n}\n/* =========================================================================\n   TOOLBAR\n   ========================================================================= */\n.toolbar .navbar-header {\n  width: 200px;\n}\n/* =========================================================================\n   TABS\n   ========================================================================= */\n.nav-tabs {\n  margin-top: 60px;\n  background: #fff;\n}\n.nav-tabs li a[role=tab] {\n  line-height: 40px;\n  color: #000;\n  border: 1px solid #ccc;\n  background: #fff;\n}\n.nav-tabs li a[role=tab][aria-expanded=\"true\"] {\n  background: #eaeff2;\n}\n.nav-tabs li a[role=tab] .close {\n  padding: 10px 0 0 10px;\n}\n/* =========================================================================\n   PORTLET\n   ========================================================================= */\n.portlet {\n  margin-bottom: 20px;\n  border: 1px solid rgba(54,64,74,.05);\n  border-radius: 5px;\n  background: #fff;\n  background-clip: padding-box;\n}\n.portlet .portlet-heading {\n  padding: 12px 20px;\n  color: #fff;\n  border-radius: 3px 3px 0 0;\n  background-clip: padding-box;\n}\n.portlet .portlet-heading .portlet-title {\n  float: left;\n  margin-top: 0;\n  margin-bottom: 0;\n  font-size: 15px;\n  font-weight: 600;\n  letter-spacing: .03em;\n}\n.portlet .portlet-heading .portlet-widgets {\n  position: relative;\n  display: inline-block;\n  float: right;\n  padding-left: 15px;\n  font-size: 15px;\n  line-height: 30px;\n  text-align: right;\n}\n.portlet .portlet-heading .portlet-widgets .divider {\n  margin: 0 5px;\n}\n.portlet .portlet-heading a {\n  color: #999;\n}\n.portlet .portlet-body {\n  padding: 15px;\n  border-bottom-right-radius: 5px;\n  border-bottom-left-radius: 5px;\n  background: #fff;\n}\n/* =========================================================================\n   RESPONSIVE\n   ========================================================================= */\n@media (min-width: 768px) and (max-width: 991px) {\n  body {\n    overflow-x: hidden;\n  }\n}\n@media (max-width: 767px) {\n  body {\n    overflow-x: hidden;\n  }\n  .wrapper-page {\n    width: 90%;\n  }\n  .content-page {\n    margin-left: 0 !important;\n  }\n}\n@media (max-width: 480px) {\n  .side-menu {\n    z-index: 10 !important;\n  }\n  .button-menu-mobile {\n    display: block;\n  }\n}\n@media (max-width: 419px) {\n  .topbar-left {\n    width: 70px !important;\n  }\n  .content-page {\n    margin-left: 70px;\n  }\n}\n", ""]);
+	exports.push([module.id, "/*  \n *   Copyright 2016 OSBI Ltd\n *\n *   Licensed under the Apache License, Version 2.0 (the \"License\");\n *   you may not use this file except in compliance with the License.\n *   You may obtain a copy of the License at\n *\n *       http://www.apache.org/licenses/LICENSE-2.0\n *\n *   Unless required by applicable law or agreed to in writing, software\n *   distributed under the License is distributed on an \"AS IS\" BASIS,\n *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n *   See the License for the specific language governing permissions and\n *   limitations under the License.\n */\n/* =========================================================================\n   CORE\n   ========================================================================= */\n* {\n  outline: none !important;\n}\nhtml {\n  position: relative;\n  min-height: 100%;\n  background: #ebeff2;\n}\nbody {\n  overflow-x: hidden;\n  margin: 0;\n  font-family: \"Noto Sans\", \"Helvetica Neue\", Helvetica, Arial, sans-serif;\n  font-weight: 400;\n  color: #797979;\n  background: #ebeff2;\n}\nh1,\nh2,\nh3,\nh4,\nh5,\nh6 {\n  margin: 10px 0;\n  font-family: \"Source Sans Pro\", \"Helvetica Neue\", Helvetica, Arial, sans-serif;\n  color: #505458;\n}\nh1 {\n  line-height: 43px;\n}\nh2 {\n  line-height: 35px;\n}\nh3 {\n  line-height: 30px;\n}\nh3 small {\n  color: #444;\n}\nh4 {\n  line-height: 22px;\n}\nh4 small {\n  color: #444;\n}\nh5 {\n  line-height: 15px;\n}\nh5 small {\n  color: #444;\n}\np {\n  line-height: 1.6;\n}\nb {\n  font-weight: 600;\n}\na:hover,\na:active,\na:focus {\n  outline: 0;\n  text-decoration: none;\n}\n.container {\n  width: auto;\n}\n.container-alt {\n  margin-right: auto;\n  margin-left: auto;\n  padding-right: 15px;\n  padding-left: 15px;\n}\n.wrapper {\n  overflow: hidden;\n  width: 100%;\n  height: 100%;\n}\n.wrapper-page {\n  position: relative;\n  width: 420px;\n  margin: 5% auto;\n}\n.content-box {\n  margin-bottom: 20px;\n  padding: 20px;\n  border: 1px solid rgba(54,64,74,.1);\n  border-radius: 5px;\n  background: #fff;\n  background-clip: padding-box;\n}\n.bg-page {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n}\n.user-thumb {\n  position: relative;\n  z-index: 9999;\n}\n.user-thumb img {\n  width: 88px;\n  height: 88px;\n  margin: 0 auto;\n}\n.content-page {\n  overflow: hidden;\n  margin-left: 240px;\n}\n.content-page > .content {\n  margin-top: 60px;\n  padding: 20px 5px 15px 5px;\n}\n/* =========================================================================\n   HELPERS\n   ========================================================================= */\n.debug {\n  border: 1px solid #000;\n}\n.p-0 {\n  padding: 0 !important;\n}\n.p-20 {\n  padding: 20px !important;\n}\n.p-30 {\n  padding: 30px !important;\n}\n.p-l-0 {\n  padding-left: 0 !important;\n}\n.p-r-0 {\n  padding-right: 0 !important;\n}\n.p-t-0 {\n  padding-top: 0 !important;\n}\n.p-t-10 {\n  padding-top: 10px !important;\n}\n.p-b-10 {\n  padding-bottom: 10px !important;\n}\n.p-l-r-10 {\n  padding-right: 10px;\n  padding-left: 10px;\n}\n.m-0 {\n  margin: 0 !important;\n}\n.m-r-5 {\n  margin-right: 5px !important;\n}\n.m-r-10 {\n  margin-right: 10px !important;\n}\n.m-r-15 {\n  margin-right: 15px !important;\n}\n.m-l-5 {\n  margin-left: 5px !important;\n}\n.m-l-10 {\n  margin-left: 10px !important;\n}\n.m-l-15 {\n  margin-left: 15px !important;\n}\n.m-t-5 {\n  margin-top: 5px !important;\n}\n.m-t-0 {\n  margin-top: 0 !important;\n}\n.m-t-10 {\n  margin-top: 10px !important;\n}\n.m-t-15 {\n  margin-top: 15px !important;\n}\n.m-t-20 {\n  margin-top: 20px !important;\n}\n.m-t-30 {\n  margin-top: 30px !important;\n}\n.m-t-40 {\n  margin-top: 40px !important;\n}\n.m-b-0 {\n  margin-bottom: 0 !important;\n}\n.m-b-5 {\n  margin-bottom: 5px !important;\n}\n.m-b-10 {\n  margin-bottom: 10px !important;\n}\n.m-b-15 {\n  margin-bottom: 15px !important;\n}\n.m-b-20 {\n  margin-bottom: 20px !important;\n}\n.m-b-30 {\n  margin-bottom: 30px !important;\n}\n.w-xs {\n  min-width: 80px;\n}\n.w-sm {\n  min-width: 95px;\n}\n.w-md {\n  min-width: 110px;\n}\n.w-lg {\n  min-width: 140px;\n}\n.m-h-40 {\n  min-height: 40px;\n}\n.m-h-50 {\n  min-height: 50px;\n}\n.l-h-34 {\n  line-height: 34px;\n}\n.font-600 {\n  font-weight: 600;\n}\n.font-bold {\n  font-weight: 700;\n}\n.font-normal {\n  font-weight: normal;\n}\n.font-light {\n  font-weight: 300;\n}\n.font-13 {\n  font-size: 13px !important;\n}\n.wrapper-md {\n  padding: 20px;\n}\n.pull-in {\n  margin-right: -15px;\n  margin-left: -15px;\n}\n.b-0 {\n  border: none !important;\n}\n.vertical-middle {\n  vertical-align: middle;\n}\n.bx-shadow {\n  box-shadow: 0 1px 2px 0 rgba(0,0,0,.1);\n}\n.mx-box {\n  min-height: 380px;\n  max-height: 380px;\n}\n.thumb-sm {\n  width: 32px;\n  height: 32px;\n}\n.thumb-md {\n  width: 48px;\n  height: 48px;\n}\n.thumb-lg {\n  width: 88px;\n  height: 88px;\n}\n/* =========================================================================\n   BOOTSTRAP CUSTOM\n   ========================================================================= */\n.row {\n  margin-right: -10px;\n  margin-left: -10px;\n}\n.col-lg-1,\n.col-lg-10,\n.col-lg-11,\n.col-lg-12,\n.col-lg-2,\n.col-lg-3,\n.col-lg-4,\n.col-lg-5,\n.col-lg-6,\n.col-lg-7,\n.col-lg-8,\n.col-lg-9,\n.col-md-1,\n.col-md-10,\n.col-md-11,\n.col-md-12,\n.col-md-2,\n.col-md-3,\n.col-md-4,\n.col-md-5,\n.col-md-6,\n.col-md-7,\n.col-md-8,\n.col-md-9,\n.col-sm-1,\n.col-sm-10,\n.col-sm-11,\n.col-sm-12,\n.col-sm-2,\n.col-sm-3,\n.col-sm-4,\n.col-sm-5,\n.col-sm-6,\n.col-sm-7,\n.col-sm-8,\n.col-sm-9,\n.col-xs-1,\n.col-xs-10,\n.col-xs-11,\n.col-xs-12,\n.col-xs-2,\n.col-xs-3,\n.col-xs-4,\n.col-xs-5,\n.col-xs-6,\n.col-xs-7,\n.col-xs-8,\n.col-xs-9 {\n  padding-right: 10px;\n  padding-left: 10px;\n}\n/* BACKGROUND COLORS\n   ========================================================================= */\n.bg-custom {\n  background: #58c9c7 !important;\n}\n.bg-primary {\n  background: #5d9cec !important;\n}\n.bg-success {\n  background: #81c868 !important;\n}\n.bg-info {\n  background: #34d3eb !important;\n}\n.bg-warning {\n  background: #ffbd4a !important;\n}\n.bg-danger {\n  background: #f05050 !important;\n}\n.bg-inverse {\n  background: #4c5667 !important;\n}\n.bg-muted {\n  background: #98a6ad !important;\n}\n.bg-white {\n  background: #fff !important;\n}\n.bg-lightdark {\n  background: #f4f8fb !important;\n}\n/* TEXT COLORS\n   ========================================================================= */\n.text-custom {\n  color: #58c9c7;\n}\n.text-primary {\n  color: #5d9cec;\n}\n.text-success {\n  color: #81c868;\n}\n.text-info {\n  color: #34d3eb;\n}\n.text-warning {\n  color: #ffbd4a;\n}\n.text-danger {\n  color: #f05050;\n}\n.text-inverse {\n  color: #4c5667;\n}\n.text-muted {\n  color: #98a6ad;\n}\n.text-white {\n  color: #fff;\n}\n.text-dark {\n  color: #797979 !important;\n}\n/* DROPDOWN\n   ========================================================================= */\n.dropdown-menu {\n  padding: 4px 0;\n  border: 0;\n  box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);\n  -webkit-transition: all 300ms ease;\n          transition: all 300ms ease;\n}\n.dropdown-menu > li > a {\n  padding: 6px 20px;\n}\n.dropdown-menu > .active > a,\n.dropdown-menu > .active a:hover,\n.dropdown-menu > .active a:focus {\n  color: #36404a;\n  background: #f3f3f3;\n}\n/* BADGE\n   ========================================================================= */\n.badge {\n  margin-top: 1px;\n  padding: 3px 5px;\n  font-size: 12px;\n  font-weight: 600;\n  background: #5fbeaa;\n  text-transform: uppercase;\n}\n.badge-xs {\n  font-size: 9px;\n}\n.badge-xs,\n.badge-sm {\n  -webkit-transform: translate(0, -2px);\n          transform: translate(0, -2px);\n}\n.badge-primary {\n  background: #5d9cec;\n}\n.badge-success {\n  background: #81c868;\n}\n.badge-info {\n  background: #34d3eb;\n}\n.badge-warning {\n  background: #ffbd4a;\n}\n.badge-danger {\n  background: #f05050;\n}\n.badge-inverse {\n  background: #4c5667;\n}\n/* =========================================================================\n   FORM\n   ========================================================================= */\ntextarea.form-control {\n  min-height: 90px;\n}\n.form-control {\n  max-width: 100%;\n  height: 38px;\n  padding: 7px 12px;\n  color: #565656;\n  border: 1px solid #e3e3e3;\n  border-radius: 4px;\n  background: #fff;\n  box-shadow: none;\n  -webkit-transition: all 300ms linear;\n          transition: all 300ms linear;\n}\n.form-control:focus {\n  color: #333;\n  border: 1px solid #aaa;\n  outline: 0 !important;\n  background: #fff;\n  box-shadow: none;\n}\n.form-horizontal .form-group {\n  margin-right: -10px;\n  margin-left: -10px;\n}\n.input-lg {\n  height: 46px;\n  padding: 10px 16px;\n  font-size: 18px;\n  line-height: 1.3333333;\n  border-radius: 6px;\n}\n.input-sm {\n  height: 30px;\n  padding: 5px 10px;\n  font-size: 12px;\n  line-height: 1.5;\n  border-radius: 3px;\n}\n.input-group-btn .btn {\n  padding: 8px 12px;\n}\n.input-group-btn .btn-sm {\n  padding: 5px 10px;\n}\n.input-group-btn .btn-lg {\n  padding: 10px 17px;\n}\n/* =========================================================================\n   BUTTON\n   ========================================================================= */\n.btn {\n  border-radius: 3px;\n  outline: none !important;\n}\n/* =========================================================================\n   CHECKBOX\n   ========================================================================= */\n.checkbox span {\n  position: relative;\n  display: inline-block;\n  padding-left: 5px;\n}\n.checkbox span::before {\n  position: absolute;\n  left: 0;\n  display: inline-block;\n  width: 17px;\n  height: 17px;\n  margin-left: -20px;\n  border: 1px solid #ccc;\n  border-radius: 3px;\n  outline: none !important;\n  background: #fff;\n  content: \"\";\n  -webkit-transition: .3s ease-in-out;\n          transition: .3s ease-in-out;\n}\n.checkbox span::after {\n  position: absolute;\n  top: 0;\n  left: 0;\n  display: inline-block;\n  width: 16px;\n  height: 16px;\n  margin-left: -20px;\n  padding-top: 1px;\n  padding-left: 3px;\n  font-size: 11px;\n  color: #555;\n}\n.checkbox input[type=\"checkbox\"] {\n  z-index: 1;\n  opacity: 0;\n  outline: none !important;\n  cursor: pointer;\n}\n.checkbox input[type=\"checkbox\"]:disabled + span {\n  opacity: .65;\n}\n.checkbox input[type=\"checkbox\"]:focus + span::before {\n  outline: none;\n  outline: thin dotted;\n  outline-offset: -2px;\n}\n.checkbox input[type=\"checkbox\"]:checked + span::after {\n  font-family: \"FontAwesome\";\n  content: \"\\F00C\";\n}\n.checkbox input[type=\"checkbox\"]:disabled + span::before {\n  background: #eee;\n  cursor: not-allowed;\n}\n.checkbox-primary input[type=\"checkbox\"]:checked + span::before {\n  border-color: #5d9cec;\n  background: #5d9cec;\n}\n.checkbox-primary input[type=\"checkbox\"]:checked + span::after {\n  color: #fff;\n}\n/* =========================================================================\n   PANELS\n   ========================================================================= */\n.panel {\n  margin-bottom: 20px;\n  border: none;\n}\n.panel .panel-body {\n  padding: 20px;\n}\n.panel .panel-body p {\n  margin: 0;\n}\n.panel .panel-body p + p {\n  margin-top: 15px;\n}\n.panel-heading {\n  padding: 10px 20px;\n  border: none !important;\n}\n/* =========================================================================\n   MENUBAR\n   ========================================================================= */\n.topbar {\n  position: fixed;\n  z-index: 9999;\n  top: 0;\n  right: 0;\n  left: 0;\n}\n.topbar .topbar-left {\n  position: relative;\n  z-index: 1;\n  float: left;\n  width: 240px;\n}\n.logo {\n  line-height: 60px;\n}\n.navbar-default {\n  margin-bottom: 0;\n  border: none;\n  border-radius: 0;\n  background: #fff;\n}\n.navbar-default .badge {\n  position: absolute;\n  top: 12px;\n  right: 7px;\n}\n.navbar-nav {\n  margin: 0;\n}\n.nav > li > a {\n  position: relative;\n  padding: 0 15px;\n  line-height: 60px;\n  color: #fff;\n}\n.nav > li > a i {\n  font-size: 16px;\n}\n.profile img {\n  width: 36px;\n  height: 36px;\n  border: 2px solid #edf0f0;\n}\n.button-menu-mobile {\n  padding: 0 15px;\n  font-size: 21px;\n  line-height: 60px;\n  color: #ccc;\n  border: none;\n  background: transparent;\n}\n.button-menu-mobile:hover {\n  color: #fff;\n}\n/* =========================================================================\n   SIDEBAR\n   ========================================================================= */\n.side-menu {\n  z-index: 2;\n  top: 0;\n  bottom: 0;\n  width: 240px;\n}\n.side-menu.left {\n  position: absolute;\n  top: 60px;\n  background: #fff;\n  box-shadow: 0 1px 1px rgba(0,0,0,.1);\n}\n.fixed-left .side-menu.left {\n  position: fixed;\n  bottom: 50px;\n  height: 100%;\n  margin-top: 0;\n  margin-bottom: -70px;\n  padding-bottom: 70px;\n}\n.sidebar-inner {\n  height: 100%;\n}\n.sidebar-menu,\n.sidebar-menu ul,\n.sidebar-menu li,\n.sidebar-menu a {\n  position: relative;\n  margin: 0;\n  padding: 0;\n  font-weight: normal;\n  line-height: 1;\n  list-style: none;\n  border: 0;\n  text-decoration: none;\n}\n.sidebar-menu {\n  width: 100%;\n  padding-top: 30px;\n  padding-bottom: 30px;\n}\n.sidebar-menu a {\n  line-height: 1.3;\n}\n.sidebar-menu > ul > li > a {\n  display: block;\n  margin: 4px 0;\n  padding: 12px 20px;\n  color: #36404a;\n  border-left: 3px solid #fff;\n}\n.sidebar-menu > ul > li > a:hover {\n  color: #5fbeaa;\n  text-decoration: none;\n}\n.sidebar-menu > ul > li > a > span {\n  vertical-align: middle;\n}\n.sidebar-menu ul li a i {\n  display: inline-block;\n  width: 20px;\n  margin-right: 15px;\n  margin-left: 3px;\n  font-size: 16px;\n  line-height: 17px;\n  text-align: center;\n  vertical-align: middle;\n}\n.wrapper.enlarged .sidebar-menu ul ul {\n  z-index: 9999;\n  margin-top: -5px;\n  padding-top: 5px;\n  border: 2px solid #f4f8fb;\n  background: #fff;\n}\n.wrapper.enlarged .side-menu.left {\n  z-index: 5;\n  width: 70px;\n}\n.wrapper.enlarged .side-menu.left .sidebar-menu > ul > li > a {\n  padding: 15px 20px;\n}\n.wrapper.enlarged .side-menu.left .sidebar-menu > ul > li > a:hover {\n  background: #f4f8fb !important;\n}\n.wrapper.enlarged .side-menu.left .sidebar-menu > ul > li > a:active {\n  background: #f4f8fb !important;\n}\n.wrapper.enlarged .side-menu.left .sidebar-menu > ul > li > a:focus {\n  background: #f4f8fb !important;\n}\n.wrapper.enlarged .side-menu.left .sidebar-menu > ul > li > a i {\n  margin-right: 20px !important;\n  font-size: 20px;\n}\n.wrapper.enlarged .side-menu.left .sidebar-menu ul > li {\n  position: relative;\n  white-space: nowrap;\n}\n.wrapper.enlarged .side-menu.left .sidebar-menu ul > li:hover > a {\n  position: relative;\n  width: 260px;\n  color: #5fbeaa;\n  border-color: #5fbeaa;\n  background: #f4f8fb;\n}\n.wrapper.enlarged .side-menu.left .sidebar-menu ul > li:hover a span {\n  display: inline;\n}\n.wrapper.enlarged .side-menu.left .sidebar-menu ul > li > a span {\n  display: none;\n  padding-left: 10px;\n}\n.wrapper.enlarged .content-page {\n  margin-left: 70px;\n}\n.wrapper.enlarged .topbar .topbar-left {\n  width: 70px !important;\n}\n/* =========================================================================\n   TOOLBAR\n   ========================================================================= */\n.toolbar .navbar-header {\n  width: 200px;\n}\n/* =========================================================================\n   TABS\n   ========================================================================= */\n.nav-tabs {\n  margin-top: 60px;\n  background: #fff;\n}\n.nav-tabs li a[role=tab] {\n  line-height: 40px;\n  color: #000;\n  border: 1px solid #ccc;\n  background: #fff;\n}\n.nav-tabs li a[role=tab][aria-expanded=\"true\"] {\n  background: #eaeff2;\n}\n.nav-tabs li a[role=tab] .close {\n  padding: 10px 0 0 10px;\n}\n/* =========================================================================\n   PORTLET\n   ========================================================================= */\n.portlet {\n  margin-bottom: 20px;\n  border: 1px solid rgba(54,64,74,.05);\n  border-radius: 5px;\n  background: #fff;\n  background-clip: padding-box;\n}\n.portlet .portlet-heading {\n  padding: 12px 20px;\n  color: #fff;\n  border-radius: 3px 3px 0 0;\n  background-clip: padding-box;\n}\n.portlet .portlet-heading .portlet-title {\n  float: left;\n  margin-top: 0;\n  margin-bottom: 0;\n  font-size: 15px;\n  font-weight: 600;\n  letter-spacing: .03em;\n}\n.portlet .portlet-heading .portlet-widgets {\n  position: relative;\n  display: inline-block;\n  float: right;\n  padding-left: 15px;\n  font-size: 15px;\n  line-height: 30px;\n  text-align: right;\n}\n.portlet .portlet-heading .portlet-widgets .divider {\n  margin: 0 5px;\n}\n.portlet .portlet-heading a {\n  color: #999;\n}\n.portlet .portlet-body {\n  padding: 15px;\n  border-bottom-right-radius: 5px;\n  border-bottom-left-radius: 5px;\n  background: #fff;\n}\n/* =========================================================================\n   RESPONSIVE\n   ========================================================================= */\n@media (min-width: 768px) and (max-width: 991px) {\n  body {\n    overflow-x: hidden;\n  }\n}\n@media (max-width: 767px) {\n  body {\n    overflow-x: hidden;\n  }\n  .wrapper-page {\n    width: 90%;\n  }\n  .content-page {\n    margin-left: 0 !important;\n  }\n}\n@media (max-width: 480px) {\n  .side-menu {\n    z-index: 10 !important;\n  }\n  .button-menu-mobile {\n    display: block;\n  }\n}\n@media (max-width: 419px) {\n  .topbar-left {\n    width: 70px !important;\n  }\n  .content-page {\n    margin-left: 70px;\n  }\n}\n.tree-view {\n  overflow-y: hidden;\n}\n.tree-view_children {\n  margin-left: 16px;\n}\n.tree-view_children-collapsed {\n  height: 0;\n}\n.tree-view_arrow {\n  display: inline-block;\n  margin-right: 6px;\n  cursor: pointer;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none;\n}\n.tree-view_arrow:after {\n  content: \"\\25BE\";\n}\n.tree-view_arrow-collapsed {\n  -webkit-transform: rotate(-90deg);\n          transform: rotate(-90deg);\n}\n", ""]);
 	
 	// exports
 
 
 /***/ },
-/* 542 */
+/* 544 */
 /***/ function(module, exports) {
 
 	/*
@@ -64342,7 +64582,7 @@
 
 
 /***/ },
-/* 543 */
+/* 545 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -64594,6 +64834,95 @@
 			URL.revokeObjectURL(oldSrc);
 	}
 
+
+/***/ },
+/* 546 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+	
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	
+	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var TreeView = _react2['default'].createClass({
+	  displayName: 'TreeView',
+	
+	  propTypes: {
+	    collapsed: _react.PropTypes.bool,
+	    defaultCollapsed: _react.PropTypes.bool,
+	    nodeLabel: _react.PropTypes.node.isRequired,
+	    className: _react.PropTypes.string,
+	    itemClassName: _react.PropTypes.string
+	  },
+	
+	  getInitialState: function getInitialState() {
+	    return { collapsed: this.props.defaultCollapsed };
+	  },
+	
+	  handleClick: function handleClick() {
+	    this.setState({ collapsed: !this.state.collapsed });
+	    if (this.props.onClick) {
+	      var _props;
+	
+	      (_props = this.props).onClick.apply(_props, arguments);
+	    }
+	  },
+	
+	  render: function render() {
+	    var _props2 = this.props;
+	    var _props2$collapsed = _props2.collapsed;
+	    var collapsed = _props2$collapsed === undefined ? this.state.collapsed : _props2$collapsed;
+	    var _props2$className = _props2.className;
+	    var className = _props2$className === undefined ? '' : _props2$className;
+	    var _props2$itemClassName = _props2.itemClassName;
+	    var itemClassName = _props2$itemClassName === undefined ? '' : _props2$itemClassName;
+	    var nodeLabel = _props2.nodeLabel;
+	    var children = _props2.children;
+	
+	    var rest = _objectWithoutProperties(_props2, ['collapsed', 'className', 'itemClassName', 'nodeLabel', 'children']);
+	
+	    var arrowClassName = 'tree-view_arrow';
+	    var containerClassName = 'tree-view_children';
+	    if (collapsed) {
+	      arrowClassName += ' tree-view_arrow-collapsed';
+	      containerClassName += ' tree-view_children-collapsed';
+	    }
+	
+	    var arrow = _react2['default'].createElement('div', _extends({}, rest, {
+	      className: className + ' ' + arrowClassName,
+	      onClick: this.handleClick }));
+	
+	    return _react2['default'].createElement(
+	      'div',
+	      { className: 'tree-view' },
+	      _react2['default'].createElement(
+	        'div',
+	        { className: 'tree-view_item ' + itemClassName },
+	        arrow,
+	        nodeLabel
+	      ),
+	      _react2['default'].createElement(
+	        'div',
+	        { className: containerClassName },
+	        children
+	      )
+	    );
+	  }
+	});
+	
+	exports['default'] = TreeView;
+	module.exports = exports['default'];
 
 /***/ }
 /******/ ]);

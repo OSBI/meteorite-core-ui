@@ -896,3 +896,28 @@ textarea.form-control {
     margin-left: 70px;
   }
 }
+.tree-view {
+  overflow-y: hidden;
+}
+.tree-view_children {
+  margin-left: 16px;
+}
+.tree-view_children-collapsed {
+  height: 0;
+}
+.tree-view_arrow {
+  display: inline-block;
+  margin-right: 6px;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+.tree-view_arrow:after {
+  content: "▾";
+}
+.tree-view_arrow-collapsed {
+  -webkit-transform: rotate(-90deg);
+          transform: rotate(-90deg);
+}
