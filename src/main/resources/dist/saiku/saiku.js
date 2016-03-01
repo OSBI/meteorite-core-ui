@@ -74,13 +74,13 @@
 	
 	var _QueryDesigner2 = _interopRequireDefault(_QueryDesigner);
 	
-	var _NotFound = __webpack_require__(540);
+	var _NotFound = __webpack_require__(541);
 	
 	var _NotFound2 = _interopRequireDefault(_NotFound);
 	
-	__webpack_require__(541);
-	
 	__webpack_require__(542);
+	
+	__webpack_require__(543);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -64213,9 +64213,13 @@
 	
 	var _reactBootstrap = __webpack_require__(275);
 	
-	var _Content = __webpack_require__(524);
+	var _Clearfix = __webpack_require__(520);
 	
-	var _Content2 = _interopRequireDefault(_Content);
+	var _Clearfix2 = _interopRequireDefault(_Clearfix);
+	
+	var _Wrapper = __webpack_require__(521);
+	
+	var _Wrapper2 = _interopRequireDefault(_Wrapper);
 	
 	var _CubeSelector = __webpack_require__(539);
 	
@@ -64256,38 +64260,185 @@
 	    key: 'render',
 	    value: function render() {
 	      return _react2.default.createElement(
-	        _Content2.default,
-	        { page: true },
+	        'div',
+	        null,
+	        _react2.default.createElement('div', { className: 'bg-page' }),
+	        _react2.default.createElement(_Clearfix2.default, null),
 	        _react2.default.createElement(
-	          _reactBootstrap.Grid,
+	          _Wrapper2.default,
 	          null,
 	          _react2.default.createElement(
-	            _reactBootstrap.Row,
-	            null,
+	            _reactBootstrap.Col,
+	            { xs: 6 },
 	            _react2.default.createElement(
-	              _reactBootstrap.Col,
-	              { md: 2, xs: 3 },
-	              _react2.default.createElement(_CubeSelector2.default, null)
-	            ),
-	            _react2.default.createElement(
-	              _reactBootstrap.Col,
-	              { md: 6, xs: 8 },
+	              'div',
+	              { className: 'content-box' },
 	              _react2.default.createElement(
-	                _reactBootstrap.Row,
-	                null,
+	                'div',
+	                { className: 'panel-heading' },
 	                _react2.default.createElement(
-	                  'p',
-	                  null,
-	                  'Dimensions'
+	                  'h4',
+	                  { className: 'text-center' },
+	                  'Saiku Query Designer'
 	                )
 	              ),
 	              _react2.default.createElement(
-	                _reactBootstrap.Row,
-	                null,
+	                'div',
+	                { className: 'panel-body' },
 	                _react2.default.createElement(
-	                  'p',
-	                  null,
-	                  'Measures'
+	                  _reactBootstrap.Col,
+	                  { md: 4, xs: 6 },
+	                  _react2.default.createElement(_CubeSelector2.default, null)
+	                ),
+	                _react2.default.createElement(
+	                  _reactBootstrap.Col,
+	                  { md: 4, xs: 6 },
+	                  _react2.default.createElement(
+	                    _reactBootstrap.Row,
+	                    null,
+	                    _react2.default.createElement(
+	                      'p',
+	                      null,
+	                      'Dimensions'
+	                    )
+	                  ),
+	                  _react2.default.createElement(
+	                    _reactBootstrap.Row,
+	                    null,
+	                    _react2.default.createElement(
+	                      'p',
+	                      null,
+	                      'Measures'
+	                    )
+	                  )
+	                )
+	              )
+	            )
+	          ),
+	          _react2.default.createElement(
+	            _reactBootstrap.Col,
+	            { xs: 6 },
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'content-box' },
+	              _react2.default.createElement(
+	                'div',
+	                { className: 'panel-heading' },
+	                _react2.default.createElement(
+	                  'h4',
+	                  { className: 'text-center' },
+	                  'Saiku Live Report Preview'
+	                )
+	              ),
+	              _react2.default.createElement(
+	                'div',
+	                { className: 'panel-body' },
+	                _react2.default.createElement(
+	                  'table',
+	                  { className: 'table table-striped table-bordered' },
+	                  _react2.default.createElement(
+	                    'thead',
+	                    null,
+	                    _react2.default.createElement(
+	                      'tr',
+	                      null,
+	                      _react2.default.createElement(
+	                        'th',
+	                        null,
+	                        'Column 1'
+	                      ),
+	                      _react2.default.createElement(
+	                        'th',
+	                        null,
+	                        'Column 2'
+	                      ),
+	                      _react2.default.createElement(
+	                        'th',
+	                        null,
+	                        'Column 3'
+	                      )
+	                    )
+	                  ),
+	                  _react2.default.createElement(
+	                    'tbody',
+	                    null,
+	                    _react2.default.createElement(
+	                      'tr',
+	                      null,
+	                      _react2.default.createElement(
+	                        'td',
+	                        null,
+	                        'Data 1'
+	                      ),
+	                      _react2.default.createElement(
+	                        'td',
+	                        null,
+	                        'Data 2'
+	                      ),
+	                      _react2.default.createElement(
+	                        'td',
+	                        null,
+	                        'Data 3'
+	                      )
+	                    ),
+	                    _react2.default.createElement(
+	                      'tr',
+	                      null,
+	                      _react2.default.createElement(
+	                        'td',
+	                        null,
+	                        'Data 1'
+	                      ),
+	                      _react2.default.createElement(
+	                        'td',
+	                        null,
+	                        'Data 2'
+	                      ),
+	                      _react2.default.createElement(
+	                        'td',
+	                        null,
+	                        'Data 3'
+	                      )
+	                    ),
+	                    _react2.default.createElement(
+	                      'tr',
+	                      null,
+	                      _react2.default.createElement(
+	                        'td',
+	                        null,
+	                        'Data 1'
+	                      ),
+	                      _react2.default.createElement(
+	                        'td',
+	                        null,
+	                        'Data 2'
+	                      ),
+	                      _react2.default.createElement(
+	                        'td',
+	                        null,
+	                        'Data 3'
+	                      )
+	                    ),
+	                    _react2.default.createElement(
+	                      'tr',
+	                      null,
+	                      _react2.default.createElement(
+	                        'td',
+	                        null,
+	                        'Data 1'
+	                      ),
+	                      _react2.default.createElement(
+	                        'td',
+	                        null,
+	                        'Data 2'
+	                      ),
+	                      _react2.default.createElement(
+	                        'td',
+	                        null,
+	                        'Data 3'
+	                      )
+	                    )
+	                  )
 	                )
 	              )
 	            )
@@ -64326,7 +64477,7 @@
 	
 	var _reactAutobind2 = _interopRequireDefault(_reactAutobind);
 	
-	var _reactTreeview = __webpack_require__(546);
+	var _reactTreeview = __webpack_require__(540);
 	
 	var _reactTreeview2 = _interopRequireDefault(_reactTreeview);
 	
@@ -64421,6 +64572,95 @@
 
 	'use strict';
 	
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+	
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	
+	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var TreeView = _react2['default'].createClass({
+	  displayName: 'TreeView',
+	
+	  propTypes: {
+	    collapsed: _react.PropTypes.bool,
+	    defaultCollapsed: _react.PropTypes.bool,
+	    nodeLabel: _react.PropTypes.node.isRequired,
+	    className: _react.PropTypes.string,
+	    itemClassName: _react.PropTypes.string
+	  },
+	
+	  getInitialState: function getInitialState() {
+	    return { collapsed: this.props.defaultCollapsed };
+	  },
+	
+	  handleClick: function handleClick() {
+	    this.setState({ collapsed: !this.state.collapsed });
+	    if (this.props.onClick) {
+	      var _props;
+	
+	      (_props = this.props).onClick.apply(_props, arguments);
+	    }
+	  },
+	
+	  render: function render() {
+	    var _props2 = this.props;
+	    var _props2$collapsed = _props2.collapsed;
+	    var collapsed = _props2$collapsed === undefined ? this.state.collapsed : _props2$collapsed;
+	    var _props2$className = _props2.className;
+	    var className = _props2$className === undefined ? '' : _props2$className;
+	    var _props2$itemClassName = _props2.itemClassName;
+	    var itemClassName = _props2$itemClassName === undefined ? '' : _props2$itemClassName;
+	    var nodeLabel = _props2.nodeLabel;
+	    var children = _props2.children;
+	
+	    var rest = _objectWithoutProperties(_props2, ['collapsed', 'className', 'itemClassName', 'nodeLabel', 'children']);
+	
+	    var arrowClassName = 'tree-view_arrow';
+	    var containerClassName = 'tree-view_children';
+	    if (collapsed) {
+	      arrowClassName += ' tree-view_arrow-collapsed';
+	      containerClassName += ' tree-view_children-collapsed';
+	    }
+	
+	    var arrow = _react2['default'].createElement('div', _extends({}, rest, {
+	      className: className + ' ' + arrowClassName,
+	      onClick: this.handleClick }));
+	
+	    return _react2['default'].createElement(
+	      'div',
+	      { className: 'tree-view' },
+	      _react2['default'].createElement(
+	        'div',
+	        { className: 'tree-view_item ' + itemClassName },
+	        arrow,
+	        nodeLabel
+	      ),
+	      _react2['default'].createElement(
+	        'div',
+	        { className: containerClassName },
+	        children
+	      )
+	    );
+	  }
+	});
+	
+	exports['default'] = TreeView;
+	module.exports = exports['default'];
+
+/***/ },
+/* 541 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
@@ -64479,22 +64719,22 @@
 	exports.default = NotFound;
 
 /***/ },
-/* 541 */
+/* 542 */
 /***/ function(module, exports) {
 
 	module.exports = "<!--  \n  Copyright 2016 OSBI Ltd\n\n  Licensed under the Apache License, Version 2.0 (the \"License\");\n  you may not use this file except in compliance with the License.\n  You may obtain a copy of the License at\n\n      http://www.apache.org/licenses/LICENSE-2.0\n\n  Unless required by applicable law or agreed to in writing, software\n  distributed under the License is distributed on an \"AS IS\" BASIS,\n  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n  See the License for the specific language governing permissions and\n  limitations under the License.\n-->\n\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <title>Saiku - Next Generation Open Source Analytics</title>\n\n  <!-- Meta -->\n  <meta charset=\"UTF-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n\n  <!-- Favicon -->\n  <link rel=\"shortcut icon\" href=\"dist/assets/images/favicon.ico\">\n\n  <!-- CSS -->\n  <link rel=\"stylesheet\" href=\"dist/assets/css/bootstrap.min.css\">\n  <link rel=\"stylesheet\" href=\"dist/assets/css/font-awesome.min.css\">\n  <link rel=\"stylesheet\" href=\"dist/saiku/saiku.css\">\n\n  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->\n  <!--[if lt IE 9]>\n    <script src=\"dist/assets/js/html5shiv.js\"></script>\n    <script src=\"dist/assets/js/respond.min.js\"></script>\n  <![endif]-->\n</head>\n<body>\n  <div id=\"app\"></div>\n\n  <!-- JS -->\n  <script src=\"dist/assets/js/jquery.min.js\"></script>\n  <script src=\"dist/assets/js/bootstrap.min.js\"></script>\n  <script src=\"dist/saiku/saiku.js\"></script>\n</body>\n</html>";
 
 /***/ },
-/* 542 */
+/* 543 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(543);
+	var content = __webpack_require__(544);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(545)(content, {});
+	var update = __webpack_require__(546)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -64511,10 +64751,10 @@
 	}
 
 /***/ },
-/* 543 */
+/* 544 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(544)();
+	exports = module.exports = __webpack_require__(545)();
 	// imports
 	exports.push([module.id, "@import url(https://fonts.googleapis.com/css?family=Noto+Sans:400,700);", ""]);
 	exports.push([module.id, "@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700,300);", ""]);
@@ -64526,7 +64766,7 @@
 
 
 /***/ },
-/* 544 */
+/* 545 */
 /***/ function(module, exports) {
 
 	/*
@@ -64582,7 +64822,7 @@
 
 
 /***/ },
-/* 545 */
+/* 546 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -64834,95 +65074,6 @@
 			URL.revokeObjectURL(oldSrc);
 	}
 
-
-/***/ },
-/* 546 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, '__esModule', {
-	  value: true
-	});
-	
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-	
-	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
-	
-	var _react = __webpack_require__(1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var TreeView = _react2['default'].createClass({
-	  displayName: 'TreeView',
-	
-	  propTypes: {
-	    collapsed: _react.PropTypes.bool,
-	    defaultCollapsed: _react.PropTypes.bool,
-	    nodeLabel: _react.PropTypes.node.isRequired,
-	    className: _react.PropTypes.string,
-	    itemClassName: _react.PropTypes.string
-	  },
-	
-	  getInitialState: function getInitialState() {
-	    return { collapsed: this.props.defaultCollapsed };
-	  },
-	
-	  handleClick: function handleClick() {
-	    this.setState({ collapsed: !this.state.collapsed });
-	    if (this.props.onClick) {
-	      var _props;
-	
-	      (_props = this.props).onClick.apply(_props, arguments);
-	    }
-	  },
-	
-	  render: function render() {
-	    var _props2 = this.props;
-	    var _props2$collapsed = _props2.collapsed;
-	    var collapsed = _props2$collapsed === undefined ? this.state.collapsed : _props2$collapsed;
-	    var _props2$className = _props2.className;
-	    var className = _props2$className === undefined ? '' : _props2$className;
-	    var _props2$itemClassName = _props2.itemClassName;
-	    var itemClassName = _props2$itemClassName === undefined ? '' : _props2$itemClassName;
-	    var nodeLabel = _props2.nodeLabel;
-	    var children = _props2.children;
-	
-	    var rest = _objectWithoutProperties(_props2, ['collapsed', 'className', 'itemClassName', 'nodeLabel', 'children']);
-	
-	    var arrowClassName = 'tree-view_arrow';
-	    var containerClassName = 'tree-view_children';
-	    if (collapsed) {
-	      arrowClassName += ' tree-view_arrow-collapsed';
-	      containerClassName += ' tree-view_children-collapsed';
-	    }
-	
-	    var arrow = _react2['default'].createElement('div', _extends({}, rest, {
-	      className: className + ' ' + arrowClassName,
-	      onClick: this.handleClick }));
-	
-	    return _react2['default'].createElement(
-	      'div',
-	      { className: 'tree-view' },
-	      _react2['default'].createElement(
-	        'div',
-	        { className: 'tree-view_item ' + itemClassName },
-	        arrow,
-	        nodeLabel
-	      ),
-	      _react2['default'].createElement(
-	        'div',
-	        { className: containerClassName },
-	        children
-	      )
-	    );
-	  }
-	});
-	
-	exports['default'] = TreeView;
-	module.exports = exports['default'];
 
 /***/ }
 /******/ ]);

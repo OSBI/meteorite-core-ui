@@ -30,9 +30,9 @@ import '../../dist/saiku/saiku.css';
 
 var routes = (
   <Router history={createHistory()}>
-    <Route path="/" component={Login} />
+    <Route path="/" component={QueryDesigner} />
     <Route path="/workspace/" component={Workspace} />
-    <Route path="/query_designer/" component={QueryDesigner} />
+    <Route path="/query_designer/" component={Login} />
     <Route path="/lockscreen/" component={LockScreen} />
     <Route path="*" component={NotFound} />
   </Router>

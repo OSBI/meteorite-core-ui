@@ -26,7 +26,6 @@ class CubeSelector extends React.Component {
     autoBind(this, '_renderTreeNode');
   }
 
-
   render() {
     return (
       <div>

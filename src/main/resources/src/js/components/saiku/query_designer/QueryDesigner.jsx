@@ -16,33 +16,67 @@
 
 import React from 'react';
 import {
-  Grid,
   Row,
   Col
 } from 'react-bootstrap';
-import Content from '../Content';
+import Clearfix from '../../bootstrap/Clearfix';
+import Wrapper from '../Wrapper';
 import CubeSelector from './CubeSelector';
 
 class QueryDesigner extends React.Component {
   render() {
     return (
-      <Content page>
-        <Grid>
-          <Row>
-            <Col md={2} xs={3}>
-              <CubeSelector/>
-            </Col>
-            <Col md={6} xs={8}>
-              <Row>
-                <p>Dimensions</p>
-              </Row>
-              <Row>
-                <p>Measures</p>
-              </Row>
-            </Col>
-          </Row>
-        </Grid>
-      </Content>
+      <div>
+        <div className="bg-page"></div>
+        <Clearfix />
+
+        <Wrapper>
+          <Col xs={6}>
+            <div className="content-box">
+              <div className="panel-heading">
+                <h4 className="text-center">Saiku Query Designer</h4>
+              </div>
+              <div className="panel-body">
+                <Col md={4} xs={6}>
+                  <CubeSelector/>
+                </Col>
+                <Col md={4} xs={6}>
+                  <Row>
+                    <p>Dimensions</p>
+                  </Row>
+                  <Row>
+                    <p>Measures</p>
+                  </Row>
+                </Col>
+              </div>
+            </div>
+          </Col>
+          <Col xs={6}>
+            <div className="content-box">
+              <div className="panel-heading">
+                <h4 className="text-center">Saiku Live Report Preview</h4>
+              </div>
+              <div className="panel-body">
+                <table className="table table-striped table-bordered">
+                  <thead>
+                    <tr>
+                      <th>Column 1</th>
+                      <th>Column 2</th>
+                      <th>Column 3</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>Data 1</td><td>Data 2</td><td>Data 3</td></tr>
+                    <tr><td>Data 1</td><td>Data 2</td><td>Data 3</td></tr>
+                    <tr><td>Data 1</td><td>Data 2</td><td>Data 3</td></tr>
+                    <tr><td>Data 1</td><td>Data 2</td><td>Data 3</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </Col>
+        </Wrapper>
+      </div>
     );
   }
 }
