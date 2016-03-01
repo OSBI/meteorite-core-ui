@@ -18,12 +18,25 @@ import React from 'react';
 import _ from 'underscore';
 import autoBind from 'react-autobind';
 import TreeView from 'react-treeview';
+import Dimension from './Dimension';
+import QueryState from './QueryState';
 
 class CubeSelector extends React.Component {
   constructor(props) {
     super(props);
 
-    autoBind(this, '_renderTreeNode');
+    this.state = {
+      selectedDimensions: QueryState.dimensions
+    };
+
+    autoBind(this, '_renderTreeNode', '_renderDimension');
+    QueryState.addDimensionsListener(this);
+  }
+
+  dimensionsChanged(dimensions) {
+    this.setState({
+      selectedDimensions: dimensions
+    });
   }
 
   render() {
@@ -41,8 +54,31 @@ class CubeSelector extends React.Component {
     return (
       <TreeView key={id} nodeLabel={label} defaultCollapsed={false}>
         {data.children && data.children.map(this._renderTreeNode)}
+        {this._renderDimensions(data)}
       </TreeView>
     );
+  }
+
+  _renderDimensions(data) {
+    if (data.dimensions) {
+      return (
+        <ul>
+          {data.dimensions.map(this._renderDimension)}
+        </ul>
+      );
+    }
+  }
+
+  _renderDimension(data) {
+    if (this._isVisible(data)) {
+      return (
+        <Dimension id={data.id} key={data.id}/>
+      );
+    }
+  }
+
+  _isVisible(dimension) {
+    return !_.findWhere(QueryState.dimensions, {id: dimension.id});
   }
 
   _fetchData() {
@@ -55,10 +91,10 @@ class CubeSelector extends React.Component {
             children: [
               {
                 name: 'Dimensions',
-                children: [
-                  {name: 'D1'},
-                  {name: 'D2'},
-                  {name: 'D3'}
+                dimensions: [
+                  {name: 'D1', id: 'd1'},
+                  {name: 'D2', id: 'd2'},
+                  {name: 'D3', id: 'd3'}
                 ]
               },
               {

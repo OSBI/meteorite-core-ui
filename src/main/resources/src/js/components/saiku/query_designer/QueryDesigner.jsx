@@ -21,9 +21,29 @@ import {
 } from 'react-bootstrap';
 import Clearfix from '../../bootstrap/Clearfix';
 import Wrapper from '../Wrapper';
+import { DragDropContext } from 'react-dnd';
+import HTML5Backend from 'react-dnd-html5-backend';
 import CubeSelector from './CubeSelector';
+import DimensionsList from './DimensionsList';
+import QueryState from './QueryState';
 
 class QueryDesigner extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      selectedDimensions: QueryState.dimensions
+    };
+
+    QueryState.addDimensionsListener(this);
+  }
+
+  dimensionsChanged(dimensions) {
+    this.setState({
+      selectedDimensions: dimensions
+    });
+  }
+
   render() {
     return (
       <div>
@@ -37,12 +57,14 @@ class QueryDesigner extends React.Component {
                 <h4 className="text-center">Saiku Query Designer</h4>
               </div>
               <div className="panel-body">
-                <Col md={4} xs={6}>
+                <Col xs={6}>
                   <CubeSelector/>
                 </Col>
-                <Col md={4} xs={6}>
+                <Col xs={6}>
                   <Row>
-                    <p>Dimensions</p>
+                    {React.cloneElement(<DimensionsList/>, {
+                      dimensions: this.state.selectedDimensions
+                    })}
                   </Row>
                   <Row>
                     <p>Measures</p>
@@ -81,4 +103,4 @@ class QueryDesigner extends React.Component {
   }
 }
 
-export default QueryDesigner;
+export default DragDropContext(HTML5Backend)(QueryDesigner);
