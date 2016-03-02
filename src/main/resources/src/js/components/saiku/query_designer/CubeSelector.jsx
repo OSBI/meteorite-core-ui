@@ -20,17 +20,27 @@ import autoBind from 'react-autobind';
 import TreeView from 'react-treeview';
 import Dimension from './Dimension';
 import QueryState from './QueryState';
+import CubesCollection from '../../../collections/CubesCollection';
 
 class CubeSelector extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      selectedDimensions: QueryState.dimensions
+      selectedDimensions: QueryState.dimensions,
+      models: []
     };
 
-    autoBind(this, '_renderTreeNode', '_renderDimension');
+    this._cubesUI = new CubesCollection();
+
+    autoBind(this, '_renderTreeNode', '_renderDimension', '_handleFetchUI');
     QueryState.addDimensionsListener(this);
+  }
+
+  componentDidMount() {
+    this._cubesUI.fetch({
+      success: this._handleFetchUI
+    });
   }
 
   dimensionsChanged(dimensions) {
@@ -39,10 +49,19 @@ class CubeSelector extends React.Component {
     });
   }
 
+  _handleFetchUI(cubesUI) {
+    this.setState({
+      models: cubesUI.models[0]
+    });
+  }
+
   render() {
+    let cubes = (this.state && !(_.isEmpty(this.state.models))) ?
+      this.state.models.getCubes() : [];
+
     return (
       <div>
-        {this._fetchData().map(this._renderTreeNode)}
+        {cubes.map(this._renderTreeNode)}
       </div>
     );
   }
@@ -53,7 +72,6 @@ class CubeSelector extends React.Component {
 
     return (
       <TreeView key={id} nodeLabel={label} defaultCollapsed={false}>
-        {data.children && data.children.map(this._renderTreeNode)}
         {this._renderDimensions(data)}
       </TreeView>
     );
@@ -70,48 +88,17 @@ class CubeSelector extends React.Component {
   }
 
   _renderDimension(data) {
-    if (this._isVisible(data)) {
+    let id = 'dimension_' + data.name;
+
+    if (this._isVisible(id)) {
       return (
-        <Dimension id={data.id} key={data.id}/>
+        <Dimension id={id} key={id} name={data.name}/>
       );
     }
   }
 
-  _isVisible(dimension) {
-    return !_.findWhere(QueryState.dimensions, {id: dimension.id});
-  }
-
-  _fetchData() {
-    let dataSource = [
-      {
-        name: 'Cubes',
-        children: [
-          {
-            name: 'Cube 1',
-            children: [
-              {
-                name: 'Dimensions',
-                dimensions: [
-                  {name: 'D1', id: 'd1'},
-                  {name: 'D2', id: 'd2'},
-                  {name: 'D3', id: 'd3'}
-                ]
-              },
-              {
-                name: 'Measures',
-                children: [
-                  {name: 'M1'},
-                  {name: 'M2'},
-                  {name: 'M3'}
-                ]
-              }
-            ]
-          }
-        ]
-      }
-    ];
-
-    return dataSource;
+  _isVisible(dimensionId) {
+    return !_.findWhere(QueryState.dimensions, {id: dimensionId});
   }
 }
 

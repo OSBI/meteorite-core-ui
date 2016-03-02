@@ -27,7 +27,8 @@ const style = {
 const dimensionSource = {
   beginDrag(props) {
     return {
-      id: props.id
+      id: props.id,
+      name: props.name
     };
   }
 };
@@ -41,11 +42,11 @@ function collect(connect, monitor) {
 
 class Dimension extends React.Component {
   render() {
-    const {connectDragSource, id} = this.props;
+    const {connectDragSource, id, name} = this.props;
 
     return connectDragSource(
-      <li style={style}>
-        <h4>Dimension {id}</h4>
+      <li style={style} key={id}>
+        <h4>{name}</h4>
       </li>
     );
   }
@@ -53,6 +54,7 @@ class Dimension extends React.Component {
 
 Dimension.propTypes = {
   id: React.PropTypes.string,
+  name: React.PropTypes.string.isRequired,
   connectDragSource: React.PropTypes.func.isRequired,
   isDragging: React.PropTypes.bool.isRequired
 };

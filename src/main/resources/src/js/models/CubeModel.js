@@ -14,7 +14,12 @@
  *   limitations under the License.
  */
 
-export default {
-  DIMENSION: 'dimension',
-  MEASURE: 'measure'
-};
+import Backbone from 'backbone';
+
+class CubeModel extends Backbone.Model {
+  getCubes() {
+    return this.get('cubes');
+  }
+}
+
+export default CubeModel;

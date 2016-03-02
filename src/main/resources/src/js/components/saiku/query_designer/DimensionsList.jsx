@@ -63,7 +63,7 @@ class DimensionList extends React.Component {
     return (
       <li key={'dlist_' + index}>
         <h4>
-          Dimension {dimension.id}
+          {dimension.name}
           <button onClick={() => this._deleteDimension(dimension)}>×</button>
         </h4>
       </li>

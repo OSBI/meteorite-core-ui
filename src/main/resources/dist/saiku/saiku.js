@@ -74,13 +74,13 @@
 	
 	var _QueryDesigner2 = _interopRequireDefault(_QueryDesigner);
 	
-	var _NotFound = __webpack_require__(740);
+	var _NotFound = __webpack_require__(742);
 	
 	var _NotFound2 = _interopRequireDefault(_NotFound);
 	
-	__webpack_require__(741);
+	__webpack_require__(743);
 	
-	__webpack_require__(742);
+	__webpack_require__(744);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -22457,7 +22457,7 @@
 			}
 	
 			if (Array.isArray(val)) {
-				return val.sort().map(function (val2) {
+				return val.slice().sort().map(function (val2) {
 					return strictUriEncode(key) + '=' + strictUriEncode(val2);
 				}).join('&');
 			}
@@ -31422,7 +31422,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
-	 * jQuery JavaScript Library v2.2.0
+	 * jQuery JavaScript Library v2.2.1
 	 * http://jquery.com/
 	 *
 	 * Includes Sizzle.js
@@ -31432,7 +31432,7 @@
 	 * Released under the MIT license
 	 * http://jquery.org/license
 	 *
-	 * Date: 2016-01-08T20:02Z
+	 * Date: 2016-02-22T19:11Z
 	 */
 	
 	(function( global, factory ) {
@@ -31488,7 +31488,7 @@
 	
 	
 	var
-		version = "2.2.0",
+		version = "2.2.1",
 	
 		// Define a local copy of jQuery
 		jQuery = function( selector, context ) {
@@ -35902,7 +35902,7 @@
 		if ( fn === false ) {
 			fn = returnFalse;
 		} else if ( !fn ) {
-			return this;
+			return elem;
 		}
 	
 		if ( one === 1 ) {
@@ -36551,14 +36551,14 @@
 		rscriptTypeMasked = /^true\/(.*)/,
 		rcleanScript = /^\s*<!(?:\[CDATA\[|--)|(?:\]\]|--)>\s*$/g;
 	
+	// Manipulating tables requires a tbody
 	function manipulationTarget( elem, content ) {
-		if ( jQuery.nodeName( elem, "table" ) &&
-			jQuery.nodeName( content.nodeType !== 11 ? content : content.firstChild, "tr" ) ) {
+		return jQuery.nodeName( elem, "table" ) &&
+			jQuery.nodeName( content.nodeType !== 11 ? content : content.firstChild, "tr" ) ?
 	
-			return elem.getElementsByTagName( "tbody" )[ 0 ] || elem;
-		}
-	
-		return elem;
+			elem.getElementsByTagName( "tbody" )[ 0 ] ||
+				elem.appendChild( elem.ownerDocument.createElement( "tbody" ) ) :
+			elem;
 	}
 	
 	// Replace/restore the type attribute of script elements for safe DOM manipulation
@@ -37065,7 +37065,7 @@
 			// FF meanwhile throws on frame elements through "defaultView.getComputedStyle"
 			var view = elem.ownerDocument.defaultView;
 	
-			if ( !view.opener ) {
+			if ( !view || !view.opener ) {
 				view = window;
 			}
 	
@@ -37214,15 +37214,18 @@
 			style = elem.style;
 	
 		computed = computed || getStyles( elem );
+		ret = computed ? computed.getPropertyValue( name ) || computed[ name ] : undefined;
+	
+		// Support: Opera 12.1x only
+		// Fall back to style even without computed
+		// computed is undefined for elems on document fragments
+		if ( ( ret === "" || ret === undefined ) && !jQuery.contains( elem.ownerDocument, elem ) ) {
+			ret = jQuery.style( elem, name );
+		}
 	
 		// Support: IE9
 		// getPropertyValue is only needed for .css('filter') (#12537)
 		if ( computed ) {
-			ret = computed.getPropertyValue( name ) || computed[ name ];
-	
-			if ( ret === "" && !jQuery.contains( elem.ownerDocument, elem ) ) {
-				ret = jQuery.style( elem, name );
-			}
 	
 			// A tribute to the "awesome hack by Dean Edwards"
 			// Android Browser returns percentage for some values,
@@ -39272,7 +39275,7 @@
 					// But now, this "simulate" function is used only for events
 					// for which stopPropagation() is noop, so there is no need for that anymore.
 					//
-					// For the compat branch though, guard for "click" and "submit"
+					// For the 1.x branch though, guard for "click" and "submit"
 					// events is still used, but was moved to jQuery.event.stopPropagation function
 					// because `originalEvent` should point to the original event for the constancy
 					// with other events and for more focused logic
@@ -41042,11 +41045,8 @@
 				}
 	
 				// Add offsetParent borders
-				// Subtract offsetParent scroll positions
-				parentOffset.top += jQuery.css( offsetParent[ 0 ], "borderTopWidth", true ) -
-					offsetParent.scrollTop();
-				parentOffset.left += jQuery.css( offsetParent[ 0 ], "borderLeftWidth", true ) -
-					offsetParent.scrollLeft();
+				parentOffset.top += jQuery.css( offsetParent[ 0 ], "borderTopWidth", true );
+				parentOffset.left += jQuery.css( offsetParent[ 0 ], "borderLeftWidth", true );
 			}
 	
 			// Subtract parent offsets and element margins
@@ -64231,11 +64231,11 @@
 	
 	var _CubeSelector2 = _interopRequireDefault(_CubeSelector);
 	
-	var _DimensionsList = __webpack_require__(738);
+	var _DimensionsList = __webpack_require__(741);
 	
 	var _DimensionsList2 = _interopRequireDefault(_DimensionsList);
 	
-	var _QueryState = __webpack_require__(739);
+	var _QueryState = __webpack_require__(738);
 	
 	var _QueryState2 = _interopRequireDefault(_QueryState);
 	
@@ -73884,9 +73884,13 @@
 	
 	var _Dimension2 = _interopRequireDefault(_Dimension);
 	
-	var _QueryState = __webpack_require__(739);
+	var _QueryState = __webpack_require__(738);
 	
 	var _QueryState2 = _interopRequireDefault(_QueryState);
+	
+	var _CubesCollection = __webpack_require__(739);
+	
+	var _CubesCollection2 = _interopRequireDefault(_CubesCollection);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -73919,15 +73923,25 @@
 	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(CubeSelector).call(this, props));
 	
 	    _this.state = {
-	      selectedDimensions: _QueryState2.default.dimensions
+	      selectedDimensions: _QueryState2.default.dimensions,
+	      models: []
 	    };
 	
-	    (0, _reactAutobind2.default)(_this, '_renderTreeNode', '_renderDimension');
+	    _this._cubesUI = new _CubesCollection2.default();
+	
+	    (0, _reactAutobind2.default)(_this, '_renderTreeNode', '_renderDimension', '_handleFetchUI');
 	    _QueryState2.default.addDimensionsListener(_this);
 	    return _this;
 	  }
 	
 	  _createClass(CubeSelector, [{
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      this._cubesUI.fetch({
+	        success: this._handleFetchUI
+	      });
+	    }
+	  }, {
 	    key: 'dimensionsChanged',
 	    value: function dimensionsChanged(dimensions) {
 	      this.setState({
@@ -73935,12 +73949,21 @@
 	      });
 	    }
 	  }, {
+	    key: '_handleFetchUI',
+	    value: function _handleFetchUI(cubesUI) {
+	      this.setState({
+	        models: cubesUI.models[0]
+	      });
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
+	      var cubes = this.state && !_underscore2.default.isEmpty(this.state.models) ? this.state.models.getCubes() : [];
+	
 	      return _react2.default.createElement(
 	        'div',
 	        null,
-	        this._fetchData().map(this._renderTreeNode)
+	        cubes.map(this._renderTreeNode)
 	      );
 	    }
 	  }, {
@@ -73956,7 +73979,6 @@
 	      return _react2.default.createElement(
 	        _reactTreeview2.default,
 	        { key: id, nodeLabel: label, defaultCollapsed: false },
-	        data.children && data.children.map(this._renderTreeNode),
 	        this._renderDimensions(data)
 	      );
 	    }
@@ -73974,33 +73996,16 @@
 	  }, {
 	    key: '_renderDimension',
 	    value: function _renderDimension(data) {
-	      if (this._isVisible(data)) {
-	        return _react2.default.createElement(_Dimension2.default, { id: data.id, key: data.id });
+	      var id = 'dimension_' + data.name;
+	
+	      if (this._isVisible(id)) {
+	        return _react2.default.createElement(_Dimension2.default, { id: id, key: id, name: data.name });
 	      }
 	    }
 	  }, {
 	    key: '_isVisible',
-	    value: function _isVisible(dimension) {
-	      return !_underscore2.default.findWhere(_QueryState2.default.dimensions, { id: dimension.id });
-	    }
-	  }, {
-	    key: '_fetchData',
-	    value: function _fetchData() {
-	      var dataSource = [{
-	        name: 'Cubes',
-	        children: [{
-	          name: 'Cube 1',
-	          children: [{
-	            name: 'Dimensions',
-	            dimensions: [{ name: 'D1', id: 'd1' }, { name: 'D2', id: 'd2' }, { name: 'D3', id: 'd3' }]
-	          }, {
-	            name: 'Measures',
-	            children: [{ name: 'M1' }, { name: 'M2' }, { name: 'M3' }]
-	          }]
-	        }]
-	      }];
-	
-	      return dataSource;
+	    value: function _isVisible(dimensionId) {
+	      return !_underscore2.default.findWhere(_QueryState2.default.dimensions, { id: dimensionId });
 	    }
 	  }]);
 	
@@ -74151,7 +74156,8 @@
 	var dimensionSource = {
 	  beginDrag: function beginDrag(props) {
 	    return {
-	      id: props.id
+	      id: props.id,
+	      name: props.name
 	    };
 	  }
 	};
@@ -74178,16 +74184,16 @@
 	      var _props = this.props;
 	      var connectDragSource = _props.connectDragSource;
 	      var id = _props.id;
+	      var name = _props.name;
 	
 	
 	      return connectDragSource(_react2.default.createElement(
 	        'li',
-	        { style: style },
+	        { style: style, key: id },
 	        _react2.default.createElement(
 	          'h4',
 	          null,
-	          'Dimension ',
-	          id
+	          name
 	        )
 	      ));
 	    }
@@ -74198,6 +74204,7 @@
 	
 	Dimension.propTypes = {
 	  id: _react2.default.PropTypes.string,
+	  name: _react2.default.PropTypes.string.isRequired,
 	  connectDragSource: _react2.default.PropTypes.func.isRequired,
 	  isDragging: _react2.default.PropTypes.bool.isRequired
 	};
@@ -74231,12 +74238,197 @@
 	
 	exports.default = {
 	  DIMENSION: 'dimension',
-	  MEASURE: 'measure',
-	  DIMENSIONS_LIST: 'dimensionsList'
+	  MEASURE: 'measure'
 	};
 
 /***/ },
 /* 738 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _underscore = __webpack_require__(271);
+	
+	var _underscore2 = _interopRequireDefault(_underscore);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var dimensions = []; /*
+	                      *   Copyright 2016 OSBI Ltd
+	                      *
+	                      *   Licensed under the Apache License, Version 2.0 (the "License");
+	                      *   you may not use this file except in compliance with the License.
+	                      *   You may obtain a copy of the License at
+	                      *
+	                      *       http://www.apache.org/licenses/LICENSE-2.0
+	                      *
+	                      *   Unless required by applicable law or agreed to in writing, software
+	                      *   distributed under the License is distributed on an "AS IS" BASIS,
+	                      *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	                      *   See the License for the specific language governing permissions and
+	                      *   limitations under the License.
+	                      */
+	
+	var listeners = [];
+	
+	function addDimensionsListener(listener) {
+	  listeners.push(listener);
+	}
+	
+	function _triggerDimensionsChanged() {
+	  listeners.forEach(function (listener) {
+	    listener.dimensionsChanged(dimensions);
+	  });
+	}
+	
+	function addDimension(dimension) {
+	  dimensions.push(dimension);
+	  _triggerDimensionsChanged();
+	}
+	
+	function deleteDimension(dimension) {
+	  dimensions.splice(_underscore2.default.findWhere(dimensions, dimension), 1);
+	  _triggerDimensionsChanged();
+	}
+	
+	exports.default = {
+	  dimensions: dimensions,
+	  addDimensionsListener: addDimensionsListener,
+	  addDimension: addDimension,
+	  deleteDimension: deleteDimension
+	};
+
+/***/ },
+/* 739 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _backbone = __webpack_require__(272);
+	
+	var _backbone2 = _interopRequireDefault(_backbone);
+	
+	var _CubeModel = __webpack_require__(740);
+	
+	var _CubeModel2 = _interopRequireDefault(_CubeModel);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /*
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   Copyright 2016 OSBI Ltd
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   Licensed under the Apache License, Version 2.0 (the "License");
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   you may not use this file except in compliance with the License.
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   You may obtain a copy of the License at
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *       http://www.apache.org/licenses/LICENSE-2.0
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   Unless required by applicable law or agreed to in writing, software
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   distributed under the License is distributed on an "AS IS" BASIS,
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   See the License for the specific language governing permissions and
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   limitations under the License.
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
+	
+	var CubesCollection = function (_Backbone$Collection) {
+	  _inherits(CubesCollection, _Backbone$Collection);
+	
+	  function CubesCollection(options) {
+	    _classCallCheck(this, CubesCollection);
+	
+	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(CubesCollection).call(this, options));
+	
+	    _this.model = _CubeModel2.default;
+	    return _this;
+	  }
+	
+	  _createClass(CubesCollection, [{
+	    key: 'url',
+	    value: function url() {
+	      return 'http://localhost:9999/cubes';
+	    }
+	  }]);
+	
+	  return CubesCollection;
+	}(_backbone2.default.Collection);
+	
+	exports.default = CubesCollection;
+
+/***/ },
+/* 740 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _backbone = __webpack_require__(272);
+	
+	var _backbone2 = _interopRequireDefault(_backbone);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /*
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   Copyright 2016 OSBI Ltd
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   Licensed under the Apache License, Version 2.0 (the "License");
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   you may not use this file except in compliance with the License.
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   You may obtain a copy of the License at
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *       http://www.apache.org/licenses/LICENSE-2.0
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   Unless required by applicable law or agreed to in writing, software
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   distributed under the License is distributed on an "AS IS" BASIS,
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   See the License for the specific language governing permissions and
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   limitations under the License.
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
+	
+	var CubeModel = function (_Backbone$Model) {
+	  _inherits(CubeModel, _Backbone$Model);
+	
+	  function CubeModel() {
+	    _classCallCheck(this, CubeModel);
+	
+	    return _possibleConstructorReturn(this, Object.getPrototypeOf(CubeModel).apply(this, arguments));
+	  }
+	
+	  _createClass(CubeModel, [{
+	    key: 'getCubes',
+	    value: function getCubes() {
+	      return this.get('cubes');
+	    }
+	  }]);
+	
+	  return CubeModel;
+	}(_backbone2.default.Model);
+	
+	exports.default = CubeModel;
+
+/***/ },
+/* 741 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -74261,7 +74453,7 @@
 	
 	var _reactDnd = __webpack_require__(539);
 	
-	var _QueryState = __webpack_require__(739);
+	var _QueryState = __webpack_require__(738);
 	
 	var _QueryState2 = _interopRequireDefault(_QueryState);
 	
@@ -74353,8 +74545,7 @@
 	        _react2.default.createElement(
 	          'h4',
 	          null,
-	          'Dimension ',
-	          dimension.id,
+	          dimension.name,
 	          _react2.default.createElement(
 	            'button',
 	            { onClick: function onClick() {
@@ -74384,68 +74575,7 @@
 	exports.default = (0, _reactDnd.DropTarget)(_Types2.default.DIMENSION, dimensionsTarget, collect)(DimensionList);
 
 /***/ },
-/* 739 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _underscore = __webpack_require__(271);
-	
-	var _underscore2 = _interopRequireDefault(_underscore);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	var dimensions = []; /*
-	                      *   Copyright 2016 OSBI Ltd
-	                      *
-	                      *   Licensed under the Apache License, Version 2.0 (the "License");
-	                      *   you may not use this file except in compliance with the License.
-	                      *   You may obtain a copy of the License at
-	                      *
-	                      *       http://www.apache.org/licenses/LICENSE-2.0
-	                      *
-	                      *   Unless required by applicable law or agreed to in writing, software
-	                      *   distributed under the License is distributed on an "AS IS" BASIS,
-	                      *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-	                      *   See the License for the specific language governing permissions and
-	                      *   limitations under the License.
-	                      */
-	
-	var listeners = [];
-	
-	function addDimensionsListener(listener) {
-	  listeners.push(listener);
-	}
-	
-	function _triggerDimensionsChanged() {
-	  listeners.forEach(function (listener) {
-	    listener.dimensionsChanged(dimensions);
-	  });
-	}
-	
-	function addDimension(dimension) {
-	  dimensions.push(dimension);
-	  _triggerDimensionsChanged();
-	}
-	
-	function deleteDimension(dimension) {
-	  dimensions.splice(_underscore2.default.findWhere(dimensions, dimension), 1);
-	  _triggerDimensionsChanged();
-	}
-	
-	exports.default = {
-	  dimensions: dimensions,
-	  addDimensionsListener: addDimensionsListener,
-	  addDimension: addDimension,
-	  deleteDimension: deleteDimension
-	};
-
-/***/ },
-/* 740 */
+/* 742 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -74508,22 +74638,22 @@
 	exports.default = NotFound;
 
 /***/ },
-/* 741 */
+/* 743 */
 /***/ function(module, exports) {
 
 	module.exports = "<!--  \n  Copyright 2016 OSBI Ltd\n\n  Licensed under the Apache License, Version 2.0 (the \"License\");\n  you may not use this file except in compliance with the License.\n  You may obtain a copy of the License at\n\n      http://www.apache.org/licenses/LICENSE-2.0\n\n  Unless required by applicable law or agreed to in writing, software\n  distributed under the License is distributed on an \"AS IS\" BASIS,\n  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n  See the License for the specific language governing permissions and\n  limitations under the License.\n-->\n\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <title>Saiku - Next Generation Open Source Analytics</title>\n\n  <!-- Meta -->\n  <meta charset=\"UTF-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n\n  <!-- Favicon -->\n  <link rel=\"shortcut icon\" href=\"dist/assets/images/favicon.ico\">\n\n  <!-- CSS -->\n  <link rel=\"stylesheet\" href=\"dist/assets/css/bootstrap.min.css\">\n  <link rel=\"stylesheet\" href=\"dist/assets/css/font-awesome.min.css\">\n  <link rel=\"stylesheet\" href=\"dist/saiku/saiku.css\">\n\n  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->\n  <!--[if lt IE 9]>\n    <script src=\"dist/assets/js/html5shiv.js\"></script>\n    <script src=\"dist/assets/js/respond.min.js\"></script>\n  <![endif]-->\n</head>\n<body>\n  <div id=\"app\"></div>\n\n  <!-- JS -->\n  <script src=\"dist/assets/js/jquery.min.js\"></script>\n  <script src=\"dist/assets/js/bootstrap.min.js\"></script>\n  <script src=\"dist/saiku/saiku.js\"></script>\n</body>\n</html>";
 
 /***/ },
-/* 742 */
+/* 744 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(743);
+	var content = __webpack_require__(745);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(745)(content, {});
+	var update = __webpack_require__(747)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -74540,10 +74670,10 @@
 	}
 
 /***/ },
-/* 743 */
+/* 745 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(744)();
+	exports = module.exports = __webpack_require__(746)();
 	// imports
 	exports.push([module.id, "@import url(https://fonts.googleapis.com/css?family=Noto+Sans:400,700);", ""]);
 	exports.push([module.id, "@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700,300);", ""]);
@@ -74555,7 +74685,7 @@
 
 
 /***/ },
-/* 744 */
+/* 746 */
 /***/ function(module, exports) {
 
 	/*
@@ -74611,7 +74741,7 @@
 
 
 /***/ },
-/* 745 */
+/* 747 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*

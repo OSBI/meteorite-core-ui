@@ -14,7 +14,19 @@
  *   limitations under the License.
  */
 
-export default {
-  DIMENSION: 'dimension',
-  MEASURE: 'measure'
-};
+import Backbone from 'backbone';
+import CubeModel from '../models/CubeModel';
+
+class CubesCollection extends Backbone.Collection {
+  constructor(options) {
+    super(options);
+
+    this.model = CubeModel;
+  }
+
+  url() {
+    return 'http://localhost:9999/cubes';
+  }
+}
+
+export default CubesCollection;
