@@ -292,7 +292,7 @@ a:focus {
   height: 88px;
 }
 .debug {
-  border: 3px solid #000;
+  border: 3px solid #000 !important;
 }
 /* =========================================================================
    BOOTSTRAP CUSTOM
@@ -800,6 +800,9 @@ textarea.form-control {
 .sidebar-olap .panel-body {
   min-height: 300px;
   max-height: 300px;
+}
+.border-toolbar {
+  border: 1px solid #ccc !important;
 }
 /* =========================================================================
    TOOLBAR

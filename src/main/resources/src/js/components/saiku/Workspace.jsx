@@ -19,6 +19,9 @@ import autoBind from 'react-autobind';
 import {
   Row,
   Col,
+  Navbar,
+  Nav,
+  NavItem,
   Table
 } from 'react-bootstrap';
 import { AutoAffix } from 'react-overlays';
@@ -32,6 +35,7 @@ import Toolbar from './Toolbar';
 import ToolbarReporting from './ToolbarReporting';
 import Tabs from './Tabs';
 import Portlet from './Portlet';
+import Icon from './Icon';
 
 class Workspace extends React.Component {
   constructor(props) {
@@ -148,35 +152,59 @@ class Workspace extends React.Component {
             </Col>
             <Col lg={6}>
               <AutoAffix viewportOffsetTop={70}>
-                <Table striped bordered condensed hover>
-                  <thead>
-                    <tr>
-                      <th>#</th>
-                      <th>First Name</th>
-                      <th>Last Name</th>
-                      <th>Username</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>1</td>
-                      <td>Mark</td>
-                      <td>Otto</td>
-                      <td>@mdo</td>
-                    </tr>
-                    <tr>
-                      <td>2</td>
-                      <td>Jacob</td>
-                      <td>Thornton</td>
-                      <td>@fat</td>
-                    </tr>
-                    <tr>
-                      <td>3</td>
-                      <td colSpan="2">Larry the Bird</td>
-                      <td>@twitter</td>
-                    </tr>
-                  </tbody>
-                </Table>
+                <div className="content-box">
+                  <Navbar className="border-toolbar">
+                    <Nav>
+                      <NavItem eventKey={1} href="#">
+                        <Icon name="align-left" />
+                      </NavItem>
+                      <NavItem eventKey={2} href="#">
+                        <Icon name="align-justify" />
+                      </NavItem>
+                      <NavItem eventKey={3} href="#">
+                        <Icon name="align-right" />
+                      </NavItem>
+                      <NavItem eventKey={4} href="#">
+                        <Icon name="bold" />
+                      </NavItem>
+                      <NavItem eventKey={5} href="#">
+                        <Icon name="italic" />
+                      </NavItem>
+                      <NavItem eventKey={5} href="#">
+                        <Icon name="underline" />
+                      </NavItem>
+                    </Nav>
+                  </Navbar>
+                  <Table striped bordered condensed hover>
+                    <thead>
+                      <tr>
+                        <th>#</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Username</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>1</td>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                      </tr>
+                      <tr>
+                        <td>2</td>
+                        <td>Jacob</td>
+                        <td>Thornton</td>
+                        <td>@fat</td>
+                      </tr>
+                      <tr>
+                        <td>3</td>
+                        <td colSpan="2">Larry the Bird</td>
+                        <td>@twitter</td>
+                      </tr>
+                    </tbody>
+                  </Table>
+                </div>
               </AutoAffix>
             </Col>
           </div>
