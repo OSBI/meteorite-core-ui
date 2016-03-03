@@ -54,14 +54,21 @@ class Toolbar extends React.Component {
     });
   }
 
-  _renderNavItem(item, key) {
-    let tooltip = (
-      <Tooltip>{item.name}</Tooltip>
-    );
+  _renderNavItem(item, index) {
+    let key = _.uniqueId(`nav_item_${index}_`);
     let isItemVisible = !item.visible ? 'hidden' : '';
+    let tooltip = (
+      <Tooltip id={key}>{item.name}</Tooltip>
+    );
 
     return (
-      <NavItem key={key} eventKey={key} className={isItemVisible} href="#">
+      <NavItem
+        className={isItemVisible}
+        id={key}
+        key={key}
+        eventKey={key}
+        href={item.action}
+      >
         <OverlayTrigger placement="bottom" overlay={tooltip}>
           <Icon name={item.icon} />
         </OverlayTrigger>

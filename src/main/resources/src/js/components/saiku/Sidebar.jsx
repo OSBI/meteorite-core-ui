@@ -47,7 +47,7 @@ class Toolbar extends React.Component {
   }
 
   _renderItem(item, index) {
-    let key = 'sidebar_item_' + index;
+    let key = _.uniqueId(`sidebar_item_${index}_`);
 
     return (
       <li id={key} key={key}>

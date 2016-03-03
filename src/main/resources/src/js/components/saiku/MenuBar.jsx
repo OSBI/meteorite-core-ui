@@ -85,7 +85,7 @@ class MenuBar extends React.Component {
   }
 
   _renderSubMenu(submenu, index) {
-    let key = _.uniqueId('menuitem_' + index + '_');
+    let key = _.uniqueId(`menu_item_${index}_`);
     let isVisible = !submenu.visible ? 'hidden' : '';
 
     return (
