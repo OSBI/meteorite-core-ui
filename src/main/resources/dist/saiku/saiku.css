@@ -132,9 +132,6 @@ a:focus {
 /* =========================================================================
    HELPERS
    ========================================================================= */
-.debug {
-  border: 1px solid #000;
-}
 .p-0 {
   padding: 0 !important;
 }
@@ -269,6 +266,9 @@ a:focus {
 .b-0 {
   border: none !important;
 }
+.b-r-0 {
+  border-radius: 0 !important;
+}
 .vertical-middle {
   vertical-align: middle;
 }
@@ -290,6 +290,9 @@ a:focus {
 .thumb-lg {
   width: 88px;
   height: 88px;
+}
+.debug {
+  border: 3px solid #000;
 }
 /* =========================================================================
    BOOTSTRAP CUSTOM
@@ -862,6 +865,34 @@ textarea.form-control {
   background: #fff;
 }
 /* =========================================================================
+   TREE
+   ========================================================================= */
+.tree-view {
+  overflow-y: hidden;
+}
+.tree-view_children {
+  margin-left: 16px;
+}
+.tree-view_children-collapsed {
+  height: 0;
+}
+.tree-view_arrow {
+  display: inline-block;
+  margin-right: 6px;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+.tree-view_arrow:after {
+  content: "▾";
+}
+.tree-view_arrow-collapsed {
+  -webkit-transform: rotate(-90deg);
+          transform: rotate(-90deg);
+}
+/* =========================================================================
    RESPONSIVE
    ========================================================================= */
 @media (min-width: 768px) and (max-width: 991px) {
@@ -895,29 +926,4 @@ textarea.form-control {
   .content-page {
     margin-left: 70px;
   }
-}
-.tree-view {
-  overflow-y: hidden;
-}
-.tree-view_children {
-  margin-left: 16px;
-}
-.tree-view_children-collapsed {
-  height: 0;
-}
-.tree-view_arrow {
-  display: inline-block;
-  margin-right: 6px;
-  cursor: pointer;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
-}
-.tree-view_arrow:after {
-  content: "▾";
-}
-.tree-view_arrow-collapsed {
-  -webkit-transform: rotate(-90deg);
-          transform: rotate(-90deg);
 }
