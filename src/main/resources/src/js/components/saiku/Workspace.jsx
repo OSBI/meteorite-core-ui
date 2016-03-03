@@ -27,6 +27,7 @@ import Content from './Content';
 import MenuBar from './MenuBar';
 import Sidebar from './Sidebar';
 import SidebarOlap from './SidebarOlap';
+import SidebarReporting from './SidebarReporting';
 import Toolbar from './Toolbar';
 import ToolbarReporting from './ToolbarReporting';
 import Tabs from './Tabs';
@@ -130,18 +131,18 @@ class Workspace extends React.Component {
   createContent() {
     return (
       <Content>
-        <Toolbar />
+        <ToolbarReporting />
         <Row>
           <Col md={3}>
-            <SidebarOlap />
+            <SidebarReporting />
           </Col>
           <div className="m-t-10">
             <Col md={3}>
               <AutoAffix viewportOffsetTop={70}>
                 <div>
-                  <Portlet title="Measures" />
-                  <Portlet title="Columns" />
-                  <Portlet title="Rows" />
+                  <Portlet title="Select" />
+                  <Portlet title="Filter" />
+                  <Portlet title="Sort" />
                 </div>
               </AutoAffix>
             </Col>

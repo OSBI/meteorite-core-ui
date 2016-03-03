@@ -17,6 +17,7 @@
 import React from 'react';
 import {
   Navbar,
+  ButtonToolbar,
   Button
 } from 'react-bootstrap';
 
@@ -26,6 +27,13 @@ class ToolbarReporting extends React.Component {
       <Navbar>
         <Navbar.Form pullLeft>
           <Button>show/hide</Button>
+        </Navbar.Form>
+        <Navbar.Form pullRight>
+          <ButtonToolbar>
+            <Button>view sql</Button>
+            <Button>run</Button>
+            <Button>ok</Button>
+          </ButtonToolbar>
         </Navbar.Form>
       </Navbar>
     );

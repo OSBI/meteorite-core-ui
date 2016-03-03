@@ -15,10 +15,77 @@
  */
 
 import React from 'react';
+import {
+  Row,
+  Col,
+  Panel,
+  Input,
+  ButtonToolbar,
+  ButtonGroup,
+  Button
+} from 'react-bootstrap';
+import Icon from './Icon';
 
 class SidebarReporting extends React.Component {
+  renderSelectModels() {
+    return (
+      <div>
+        <Input type="select">
+          <option value="">models</option>
+          <option value="">...</option>
+        </Input>
+        <Row>
+          <Col md={7}>
+            <Input
+              type="search"
+              placeholder="search"
+            />
+          </Col>
+          <Col md={5}>
+            <ButtonToolbar>
+              <ButtonGroup>
+                <Button><Icon name="plus" /></Button>
+                <Button><Icon name="minus" /></Button>
+              </ButtonGroup>
+            </ButtonToolbar>
+          </Col>
+        </Row>
+      </div>
+    );
+  }
+
+  renderQueries() {
+    return (
+      <div className="m-b-10">
+        <span>Queries</span>
+        <div className="pull-right">
+          <ButtonToolbar>
+            <ButtonGroup>
+              <Button><Icon name="plus" /></Button>
+              <Button><Icon name="minus" /></Button>
+            </ButtonGroup>
+          </ButtonToolbar>
+        </div>
+      </div>
+    );
+  }
+
   render() {
     return (
+      <div>
+        <Panel
+          className="sidebar-olap m-b-0 b-radius-0"
+          header={this.renderSelectModels()}
+        >
+          Panel Content
+        </Panel>
+        <Panel
+          className="sidebar-olap m-b-0 b-radius-0"
+          header={this.renderQueries()}
+        >
+          Panel Content
+        </Panel>
+      </div>
     );
   }
 }
