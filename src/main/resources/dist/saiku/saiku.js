@@ -90,7 +90,7 @@
 	var routes = _react2.default.createElement(
 	  _reactRouter.Router,
 	  { history: (0, _history.createHistory)() },
-	  _react2.default.createElement(_reactRouter.Route, { path: '/', component: _Login2.default }),
+	  _react2.default.createElement(_reactRouter.Route, { path: '/', component: _Workspace2.default }),
 	  _react2.default.createElement(_reactRouter.Route, { path: '/workspace/', component: _Workspace2.default }),
 	  _react2.default.createElement(_reactRouter.Route, { path: '/query_designer/', component: _QueryDesigner2.default }),
 	  _react2.default.createElement(_reactRouter.Route, { path: '/lockscreen/', component: _LockScreen2.default }),
@@ -61508,12 +61508,21 @@
 	  }, {
 	    key: '_renderNavItem',
 	    value: function _renderNavItem(item, key) {
+	      var tooltip = _react2.default.createElement(
+	        _reactBootstrap.Tooltip,
+	        null,
+	        item.name
+	      );
 	      var isItemVisible = !item.visible ? 'hidden' : '';
 	
 	      return _react2.default.createElement(
 	        _reactBootstrap.NavItem,
 	        { key: key, eventKey: key, className: isItemVisible, href: '#' },
-	        _react2.default.createElement(_Icon2.default, { name: item.icon })
+	        _react2.default.createElement(
+	          _reactBootstrap.OverlayTrigger,
+	          { placement: 'bottom', overlay: tooltip },
+	          _react2.default.createElement(_Icon2.default, { name: item.icon })
+	        )
 	      );
 	    }
 	  }, {

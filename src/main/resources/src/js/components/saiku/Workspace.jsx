@@ -17,7 +17,6 @@
 import React from 'react';
 import autoBind from 'react-autobind';
 import {
-  Grid,
   Row,
   Col,
   Table
@@ -74,7 +73,6 @@ class Workspace extends React.Component {
     return (
       <Content>
         <Toolbar />
-        {/* <Grid> */}
         <Row>
           <Col md={3}>
             <SidebarOlap />
@@ -124,7 +122,6 @@ class Workspace extends React.Component {
             </Col>
           </div>
         </Row>
-        {/* </Grid> */}
       </Content>
     );
   }

@@ -22,7 +22,9 @@ import {
   Col,
   Navbar,
   Nav,
-  NavItem
+  NavItem,
+  OverlayTrigger,
+  Tooltip
 } from 'react-bootstrap';
 import Icon from './Icon';
 import ToolbarCollection from '../../collections/ToolbarCollection';
@@ -53,11 +55,16 @@ class Toolbar extends React.Component {
   }
 
   _renderNavItem(item, key) {
+    let tooltip = (
+      <Tooltip>{item.name}</Tooltip>
+    );
     let isItemVisible = !item.visible ? 'hidden' : '';
 
     return (
       <NavItem key={key} eventKey={key} className={isItemVisible} href="#">
-        <Icon name={item.icon} />
+        <OverlayTrigger placement="bottom" overlay={tooltip}>
+          <Icon name={item.icon} />
+        </OverlayTrigger>
       </NavItem>
     );
   }
