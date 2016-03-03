@@ -18,6 +18,8 @@ import React from 'react';
 import autoBind from 'react-autobind';
 import _ from 'underscore';
 import {
+  Row,
+  Col,
   Navbar,
   Nav,
   NavItem
@@ -66,12 +68,18 @@ class Toolbar extends React.Component {
 
     return (
       <Navbar className="toolbar">
-        <Navbar.Header>
-          <Navbar.Text>Cubes</Navbar.Text>
-        </Navbar.Header>
-        <Nav>
-          {items.map(this._renderNavItem)}
-        </Nav>
+        <Row>
+          <Col md={3}>
+            <Navbar.Header>
+              <Navbar.Text>Cubes</Navbar.Text>
+            </Navbar.Header>
+          </Col>
+          <Col md={9}>
+            <Nav>
+              {items.map(this._renderNavItem)}
+            </Nav>
+          </Col>
+        </Row>
       </Navbar>
     );
   }

@@ -99,6 +99,7 @@
     "react-dnd-html5-backend": "^2.1.2",
     "react-dom": "^0.14.6",
     "react-mixin": "^3.0.3",
+    "react-overlays": "^0.6.0",
     "react-router": "^1.0.3",
     "react-treeview": "^0.4.3",
     "react-validation-mixin": "^5.3.4",

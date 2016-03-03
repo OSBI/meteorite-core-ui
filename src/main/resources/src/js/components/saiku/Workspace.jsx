@@ -19,12 +19,15 @@ import autoBind from 'react-autobind';
 import {
   Grid,
   Row,
-  Col
+  Col,
+  Table
 } from 'react-bootstrap';
+import { AutoAffix } from 'react-overlays';
 import Wrapper from './Wrapper';
 import Content from './Content';
 import MenuBar from './MenuBar';
 import Sidebar from './Sidebar';
+import SidebarOlap from './SidebarOlap';
 import Toolbar from './Toolbar';
 import Tabs from './Tabs';
 import Portlet from './Portlet';
@@ -71,15 +74,57 @@ class Workspace extends React.Component {
     return (
       <Content>
         <Toolbar />
-        <Grid>
-          <Row>
-            <Col lg={3}>
-              <Portlet title="Measures" />
-              <Portlet title="Columns" />
-              <Portlet title="Rows" />
+        {/* <Grid> */}
+        <Row>
+          <Col md={3}>
+            <SidebarOlap />
+          </Col>
+          <div className="m-t-10">
+            <Col md={3}>
+              <AutoAffix viewportOffsetTop={70}>
+                <div>
+                  <Portlet title="Measures" />
+                  <Portlet title="Columns" />
+                  <Portlet title="Rows" />
+                </div>
+              </AutoAffix>
             </Col>
-          </Row>
-        </Grid>
+            <Col lg={6}>
+              <AutoAffix viewportOffsetTop={70}>
+                <Table striped bordered condensed hover>
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>First Name</th>
+                      <th>Last Name</th>
+                      <th>Username</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>1</td>
+                      <td>Mark</td>
+                      <td>Otto</td>
+                      <td>@mdo</td>
+                    </tr>
+                    <tr>
+                      <td>2</td>
+                      <td>Jacob</td>
+                      <td>Thornton</td>
+                      <td>@fat</td>
+                    </tr>
+                    <tr>
+                      <td>3</td>
+                      <td colSpan="2">Larry the Bird</td>
+                      <td>@twitter</td>
+                    </tr>
+                  </tbody>
+                </Table>
+              </AutoAffix>
+            </Col>
+          </div>
+        </Row>
+        {/* </Grid> */}
       </Content>
     );
   }
