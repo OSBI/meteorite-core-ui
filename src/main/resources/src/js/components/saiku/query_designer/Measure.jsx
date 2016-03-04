@@ -34,25 +34,25 @@ function collect(connect, monitor) {
   };
 }
 
-class Dimension extends React.Component {
+class Measure extends React.Component {
   render() {
     const {connectDragSource, id, name, isDragging} = this.props;
 
     let dragging = isDragging ? 'dragging' : '';
 
     return connectDragSource(
-      <li className={'dimension ' + dragging} key={id}>
+      <li className={'measure ' + dragging} key={id}>
         {name}
       </li>
     );
   }
 }
 
-Dimension.propTypes = {
+Measure.propTypes = {
   id: React.PropTypes.string,
   name: React.PropTypes.string.isRequired,
   connectDragSource: React.PropTypes.func.isRequired,
   isDragging: React.PropTypes.bool.isRequired
 };
 
-export default DragSource(Types.DIMENSION, dimensionSource, collect)(Dimension);
+export default DragSource(Types.MEASURE, dimensionSource, collect)(Measure);

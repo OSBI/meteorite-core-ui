@@ -17,16 +17,17 @@
 import _ from 'underscore';
 
 const dimensions = [];
-const listeners = [];
+const measures = [];
+const dimensionsListeners = [];
+const measuresListeners = [];
 
+// Dimensions related functions
 function addDimensionsListener(listener) {
-  listeners.push(listener);
+  dimensionsListeners.push(listener);
 }
 
 function _triggerDimensionsChanged() {
-  listeners.forEach((listener) => {
-    listener.dimensionsChanged(dimensions);
-  });
+  dimensionsListeners.forEach((listener) => listener(dimensions));
 }
 
 function addDimension(dimension) {
@@ -39,9 +40,32 @@ function deleteDimension(dimension) {
   _triggerDimensionsChanged();
 }
 
+// Measures related functions
+function addMeasuresListener(listener) {
+  measuresListeners.push(listener);
+}
+
+function _triggerMeasuresChanged() {
+  measuresListeners.forEach((listener) => listener(measures));
+}
+
+function addMeasure(measure) {
+  measures.push(measure);
+  _triggerMeasuresChanged();
+}
+
+function deleteMeasure(measure) {
+  measures.splice(_.findWhere(measures, measure), 1);
+  _triggerMeasuresChanged();
+}
+
 export default {
   dimensions: dimensions,
   addDimensionsListener: addDimensionsListener,
   addDimension: addDimension,
-  deleteDimension: deleteDimension
+  deleteDimension: deleteDimension,
+  measures: measures,
+  addMeasuresListener: addMeasuresListener,
+  addMeasure: addMeasure,
+  deleteMeasure: deleteMeasure
 };

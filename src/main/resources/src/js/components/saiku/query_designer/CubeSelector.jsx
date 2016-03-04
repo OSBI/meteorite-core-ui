@@ -18,7 +18,9 @@ import React from 'react';
 import _ from 'underscore';
 import autoBind from 'react-autobind';
 import TreeView from 'react-treeview';
+import { Panel } from 'react-bootstrap';
 import Dimension from './Dimension';
+import Measure from './Measure';
 import QueryState from './QueryState';
 import CubesCollection from '../../../collections/CubesCollection';
 
@@ -28,13 +30,17 @@ class CubeSelector extends React.Component {
 
     this.state = {
       selectedDimensions: QueryState.dimensions,
+      selectedMeasures: QueryState.measures,
       models: []
     };
 
     this._cubesUI = new CubesCollection();
 
     autoBind(this, '_renderTreeNode', '_renderDimension', '_handleFetchUI');
-    QueryState.addDimensionsListener(this);
+    autoBind(this, '_renderMeasure', 'dimensionsChanged', 'measuresChanged');
+
+    QueryState.addDimensionsListener(this.dimensionsChanged);
+    QueryState.addMeasuresListener(this.measuresChanged);
   }
 
   componentDidMount() {
@@ -49,6 +55,12 @@ class CubeSelector extends React.Component {
     });
   }
 
+  measuresChanged(measures) {
+    this.setState({
+      selectedMeasures: measures
+    });
+  }
+
   _handleFetchUI(cubesUI) {
     this.setState({
       models: cubesUI.models[0]
@@ -60,9 +72,9 @@ class CubeSelector extends React.Component {
       this.state.models.getCubes() : [];
 
     return (
-      <div>
+      <Panel header="Cubes" bsStyle="success" className="drop-panel">
         {cubes.map(this._renderTreeNode)}
-      </div>
+      </Panel>
     );
   }
 
@@ -73,16 +85,20 @@ class CubeSelector extends React.Component {
     return (
       <TreeView key={id} nodeLabel={label} defaultCollapsed={false}>
         {this._renderDimensions(data)}
+        {this._renderMeasures(data)}
       </TreeView>
     );
   }
 
+  // Dimensions functions
   _renderDimensions(data) {
     if (data.dimensions) {
       return (
-        <ul>
-          {data.dimensions.map(this._renderDimension)}
-        </ul>
+        <TreeView nodeLabel="Dimensions" defaultCollapsed={false}>
+          <ul>
+            {data.dimensions.map(this._renderDimension)}
+          </ul>
+        </TreeView>
       );
     }
   }
@@ -90,15 +106,42 @@ class CubeSelector extends React.Component {
   _renderDimension(data) {
     let id = 'dimension_' + data.name;
 
-    if (this._isVisible(id)) {
+    if (this._isDimensionVisible(id)) {
       return (
         <Dimension id={id} key={id} name={data.name}/>
       );
     }
   }
 
-  _isVisible(dimensionId) {
+  _isDimensionVisible(dimensionId) {
     return !_.findWhere(QueryState.dimensions, {id: dimensionId});
+  }
+
+  // Measures functions
+  _renderMeasures(data) {
+    if (data.measures) {
+      return (
+        <TreeView nodeLabel="Measures" defaultCollapsed={false}>
+          <ul>
+            {data.measures.map(this._renderMeasure)}
+          </ul>
+        </TreeView>
+      );
+    }
+  }
+
+  _renderMeasure(data) {
+    let id = 'measure_' + data.name;
+
+    if (this._isMeasureVisible(id)) {
+      return (
+        <Measure id={id} key={id} name={data.name}/>
+      );
+    }
+  }
+
+  _isMeasureVisible(measureId) {
+    return !_.findWhere(QueryState.measures, {id: measureId});
   }
 }
 

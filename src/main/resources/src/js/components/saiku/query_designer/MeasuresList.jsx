@@ -25,9 +25,9 @@ import _ from 'underscore';
 import Types from './Types';
 import QueryState from './QueryState';
 
-const dimensionsTarget = {
+const measuresTarget = {
   drop(props, monitor) {
-    QueryState.addDimension(monitor.getItem());
+    QueryState.addMeasure(monitor.getItem());
   }
 };
 
@@ -38,68 +38,68 @@ function collect(connect, monitor) {
   };
 }
 
-class DimensionsList extends React.Component {
+class MeasuresList extends React.Component {
   constructor(props) {
     super(props);
 
-    autoBind(this, '_renderDimension', '_renderDropArea');
+    autoBind(this, '_renderMeasure', '_renderDropArea');
   }
 
   render() {
-    const {dimensions, connectDropTarget} = this.props;
+    const {measures, connectDropTarget} = this.props;
 
     return connectDropTarget(
       <div className="drop-panel">
-        <Panel header="Dimensions" bsStyle="success">
+        <Panel header="Measures" bsStyle="success">
           {this._renderDropArea()}
-          {dimensions.map(this._renderDimension)}
+          {measures.map(this._renderMeasure)}
         </Panel>
       </div>
     );
   }
 
-  _renderDimension(dimension, index) {
+  _renderMeasure(measure, index) {
     return (
       <Button
         bsStyle="primary"
-        key={'btn_dimension_' + dimension.id}
-        onClick={(event) => this._deleteDimension(event, dimension)}
+        key={'btn_measure_' + measure.id}
+        onClick={(event) => this._deleteMeasure(event, measure)}
       >
-        {dimension.name} ×
+        {measure.name} ×
       </Button>
     );
   }
 
   _renderDropArea() {
-    if (_.isEmpty(this.props.dimensions)) {
+    if (_.isEmpty(this.props.measures)) {
       const over = this.props.isOver ? 'over' : '';
 
       return (
         <div className={'drop-area ' + over}>
-          Drop dimensions here
+          Drop measures here
         </div>
       );
     }
   }
 
-  _deleteDimension(event, dimension) {
+  _deleteMeasure(event, measure) {
     if (event) {
       event.preventDefault();
       event.stopPropagation();
     }
 
-    QueryState.deleteDimension(dimension);
+    QueryState.deleteMeasure(measure);
   }
 }
 
-DimensionsList.propTypes = {
+MeasuresList.propTypes = {
   isOver: React.PropTypes.bool.isRequired,
   connectDropTarget: React.PropTypes.func.isRequired,
-  dimensions: React.PropTypes.array
+  measures: React.PropTypes.array
 };
 
 export default DropTarget(
-  Types.DIMENSION,
-  dimensionsTarget,
+  Types.MEASURE,
+  measuresTarget,
   collect
-)(DimensionsList);
+)(MeasuresList);

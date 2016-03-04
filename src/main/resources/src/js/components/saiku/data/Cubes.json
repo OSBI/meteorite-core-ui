@@ -49,6 +49,18 @@
           "column": "id",
           "aggregator": "count",
           "formatString": "Standard"
+        },
+        {
+          "name": "Total",
+          "column": "id",
+          "aggregator": "count",
+          "formatString": "Standard"
+        },
+        {
+          "name": "Average",
+          "column": "id",
+          "aggregator": "count",
+          "formatString": "Standard"
         }
       ]
     }

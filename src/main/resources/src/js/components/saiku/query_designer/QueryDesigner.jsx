@@ -22,9 +22,11 @@ import {
 import Clearfix from '../../bootstrap/Clearfix';
 import Wrapper from '../Wrapper';
 import { DragDropContext } from 'react-dnd';
+import autoBind from 'react-autobind';
 import HTML5Backend from 'react-dnd-html5-backend';
 import CubeSelector from './CubeSelector';
 import DimensionsList from './DimensionsList';
+import MeasuresList from './MeasuresList';
 import QueryState from './QueryState';
 
 class QueryDesigner extends React.Component {
@@ -32,15 +34,25 @@ class QueryDesigner extends React.Component {
     super(props);
 
     this.state = {
-      selectedDimensions: QueryState.dimensions
+      selectedDimensions: QueryState.dimensions,
+      selectedMeasures: QueryState.measures
     };
 
-    QueryState.addDimensionsListener(this);
+    autoBind(this, 'dimensionsChanged', 'measuresChanged');
+
+    QueryState.addDimensionsListener(this.dimensionsChanged);
+    QueryState.addMeasuresListener(this.measuresChanged);
   }
 
   dimensionsChanged(dimensions) {
     this.setState({
       selectedDimensions: dimensions
+    });
+  }
+
+  measuresChanged(measures) {
+    this.setState({
+      selectedMeasures: measures
     });
   }
 
@@ -50,7 +62,7 @@ class QueryDesigner extends React.Component {
         <div className="bg-page"></div>
         <Clearfix />
 
-        <Wrapper>
+        <Wrapper className="query-designer">
           <Col xs={6}>
             <div className="content-box">
               <div className="panel-heading">
@@ -67,7 +79,9 @@ class QueryDesigner extends React.Component {
                     })}
                   </Row>
                   <Row>
-                    <p>Measures</p>
+                    {React.cloneElement(<MeasuresList/>, {
+                      measures: this.state.selectedMeasures
+                    })}
                   </Row>
                 </Col>
               </div>
