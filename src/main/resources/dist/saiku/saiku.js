@@ -68448,10 +68448,6 @@
 	
 	var _reactDnd = __webpack_require__(595);
 	
-	var _reactAutobind = __webpack_require__(214);
-	
-	var _reactAutobind2 = _interopRequireDefault(_reactAutobind);
-	
 	var _reactDndHtml5Backend = __webpack_require__(705);
 	
 	var _reactDndHtml5Backend2 = _interopRequireDefault(_reactDndHtml5Backend);
@@ -68468,9 +68464,9 @@
 	
 	var _MeasuresList2 = _interopRequireDefault(_MeasuresList);
 	
-	var _QueryState = __webpack_require__(808);
+	var _ReportPreview = __webpack_require__(808);
 	
-	var _QueryState2 = _interopRequireDefault(_QueryState);
+	var _ReportPreview2 = _interopRequireDefault(_ReportPreview);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -68497,38 +68493,13 @@
 	var QueryDesigner = function (_React$Component) {
 	  _inherits(QueryDesigner, _React$Component);
 	
-	  function QueryDesigner(props) {
+	  function QueryDesigner() {
 	    _classCallCheck(this, QueryDesigner);
 	
-	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(QueryDesigner).call(this, props));
-	
-	    _this.state = {
-	      selectedDimensions: _QueryState2.default.dimensions,
-	      selectedMeasures: _QueryState2.default.measures
-	    };
-	
-	    (0, _reactAutobind2.default)(_this, 'dimensionsChanged', 'measuresChanged');
-	
-	    _QueryState2.default.addDimensionsListener(_this.dimensionsChanged);
-	    _QueryState2.default.addMeasuresListener(_this.measuresChanged);
-	    return _this;
+	    return _possibleConstructorReturn(this, Object.getPrototypeOf(QueryDesigner).apply(this, arguments));
 	  }
 	
 	  _createClass(QueryDesigner, [{
-	    key: 'dimensionsChanged',
-	    value: function dimensionsChanged(dimensions) {
-	      this.setState({
-	        selectedDimensions: dimensions
-	      });
-	    }
-	  }, {
-	    key: 'measuresChanged',
-	    value: function measuresChanged(measures) {
-	      this.setState({
-	        selectedMeasures: measures
-	      });
-	    }
-	  }, {
 	    key: 'render',
 	    value: function render() {
 	      return _react2.default.createElement(
@@ -68568,16 +68539,12 @@
 	                  _react2.default.createElement(
 	                    _reactBootstrap.Row,
 	                    null,
-	                    _react2.default.cloneElement(_react2.default.createElement(_DimensionsList2.default, null), {
-	                      dimensions: this.state.selectedDimensions
-	                    })
+	                    _react2.default.createElement(_DimensionsList2.default, null)
 	                  ),
 	                  _react2.default.createElement(
 	                    _reactBootstrap.Row,
 	                    null,
-	                    _react2.default.cloneElement(_react2.default.createElement(_MeasuresList2.default, null), {
-	                      measures: this.state.selectedMeasures
-	                    })
+	                    _react2.default.createElement(_MeasuresList2.default, null)
 	                  )
 	                )
 	              )
@@ -68601,113 +68568,7 @@
 	              _react2.default.createElement(
 	                'div',
 	                { className: 'panel-body' },
-	                _react2.default.createElement(
-	                  'table',
-	                  { className: 'table table-striped table-bordered' },
-	                  _react2.default.createElement(
-	                    'thead',
-	                    null,
-	                    _react2.default.createElement(
-	                      'tr',
-	                      null,
-	                      _react2.default.createElement(
-	                        'th',
-	                        null,
-	                        'Column 1'
-	                      ),
-	                      _react2.default.createElement(
-	                        'th',
-	                        null,
-	                        'Column 2'
-	                      ),
-	                      _react2.default.createElement(
-	                        'th',
-	                        null,
-	                        'Column 3'
-	                      )
-	                    )
-	                  ),
-	                  _react2.default.createElement(
-	                    'tbody',
-	                    null,
-	                    _react2.default.createElement(
-	                      'tr',
-	                      null,
-	                      _react2.default.createElement(
-	                        'td',
-	                        null,
-	                        'Data 1'
-	                      ),
-	                      _react2.default.createElement(
-	                        'td',
-	                        null,
-	                        'Data 2'
-	                      ),
-	                      _react2.default.createElement(
-	                        'td',
-	                        null,
-	                        'Data 3'
-	                      )
-	                    ),
-	                    _react2.default.createElement(
-	                      'tr',
-	                      null,
-	                      _react2.default.createElement(
-	                        'td',
-	                        null,
-	                        'Data 1'
-	                      ),
-	                      _react2.default.createElement(
-	                        'td',
-	                        null,
-	                        'Data 2'
-	                      ),
-	                      _react2.default.createElement(
-	                        'td',
-	                        null,
-	                        'Data 3'
-	                      )
-	                    ),
-	                    _react2.default.createElement(
-	                      'tr',
-	                      null,
-	                      _react2.default.createElement(
-	                        'td',
-	                        null,
-	                        'Data 1'
-	                      ),
-	                      _react2.default.createElement(
-	                        'td',
-	                        null,
-	                        'Data 2'
-	                      ),
-	                      _react2.default.createElement(
-	                        'td',
-	                        null,
-	                        'Data 3'
-	                      )
-	                    ),
-	                    _react2.default.createElement(
-	                      'tr',
-	                      null,
-	                      _react2.default.createElement(
-	                        'td',
-	                        null,
-	                        'Data 1'
-	                      ),
-	                      _react2.default.createElement(
-	                        'td',
-	                        null,
-	                        'Data 2'
-	                      ),
-	                      _react2.default.createElement(
-	                        'td',
-	                        null,
-	                        'Data 3'
-	                      )
-	                    )
-	                  )
-	                )
+	                _react2.default.createElement(_ReportPreview2.default, null)
 	              )
 	            )
 	          )
@@ -80172,84 +80033,200 @@
 	  value: true
 	});
 	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
 	var _underscore = __webpack_require__(271);
 	
 	var _underscore2 = _interopRequireDefault(_underscore);
 	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactAutobind = __webpack_require__(214);
+	
+	var _reactAutobind2 = _interopRequireDefault(_reactAutobind);
+	
+	var _reactBootstrap = __webpack_require__(275);
+	
+	var _SelectedDimensionsStore = __webpack_require__(800);
+	
+	var _SelectedDimensionsStore2 = _interopRequireDefault(_SelectedDimensionsStore);
+	
+	var _SelectedMeasuresStore = __webpack_require__(805);
+	
+	var _SelectedMeasuresStore2 = _interopRequireDefault(_SelectedMeasuresStore);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var dimensions = []; /*
-	                      *   Copyright 2016 OSBI Ltd
-	                      *
-	                      *   Licensed under the Apache License, Version 2.0 (the "License");
-	                      *   you may not use this file except in compliance with the License.
-	                      *   You may obtain a copy of the License at
-	                      *
-	                      *       http://www.apache.org/licenses/LICENSE-2.0
-	                      *
-	                      *   Unless required by applicable law or agreed to in writing, software
-	                      *   distributed under the License is distributed on an "AS IS" BASIS,
-	                      *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-	                      *   See the License for the specific language governing permissions and
-	                      *   limitations under the License.
-	                      */
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
-	var measures = [];
-	var dimensionsListeners = [];
-	var measuresListeners = [];
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 	
-	// Dimensions related functions
-	function addDimensionsListener(listener) {
-	  dimensionsListeners.push(listener);
-	}
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /*
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   Copyright 2016 OSBI Ltd
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   Licensed under the Apache License, Version 2.0 (the "License");
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   you may not use this file except in compliance with the License.
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   You may obtain a copy of the License at
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *       http://www.apache.org/licenses/LICENSE-2.0
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   Unless required by applicable law or agreed to in writing, software
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   distributed under the License is distributed on an "AS IS" BASIS,
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   See the License for the specific language governing permissions and
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   limitations under the License.
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
 	
-	function _triggerDimensionsChanged() {
-	  dimensionsListeners.forEach(function (listener) {
-	    return listener(dimensions);
-	  });
-	}
+	var ReportPreview = function (_React$Component) {
+	  _inherits(ReportPreview, _React$Component);
 	
-	function addDimension(dimension) {
-	  dimensions.push(dimension);
-	  _triggerDimensionsChanged();
-	}
+	  function ReportPreview(props) {
+	    _classCallCheck(this, ReportPreview);
 	
-	function deleteDimension(dimension) {
-	  dimensions.splice(_underscore2.default.findWhere(dimensions, dimension), 1);
-	  _triggerDimensionsChanged();
-	}
+	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(ReportPreview).call(this, props));
 	
-	// Measures related functions
-	function addMeasuresListener(listener) {
-	  measuresListeners.push(listener);
-	}
+	    _this.state = {
+	      dimensions: _SelectedDimensionsStore2.default.getSelectedDimensions(),
+	      measures: _SelectedMeasuresStore2.default.getSelectedMeasures()
+	    };
 	
-	function _triggerMeasuresChanged() {
-	  measuresListeners.forEach(function (listener) {
-	    return listener(measures);
-	  });
-	}
+	    (0, _reactAutobind2.default)(_this);
+	    return _this;
+	  }
 	
-	function addMeasure(measure) {
-	  measures.push(measure);
-	  _triggerMeasuresChanged();
-	}
+	  _createClass(ReportPreview, [{
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      _SelectedDimensionsStore2.default.addChangeListener(this._onChangeDimensions);
+	      _SelectedMeasuresStore2.default.addChangeListener(this._onChangeMeasures);
+	    }
+	  }, {
+	    key: 'componentWillUnmount',
+	    value: function componentWillUnmount() {
+	      _SelectedDimensionsStore2.default.removeChangeListener(this._onChangeDimensions);
+	      _SelectedMeasuresStore2.default.removeChangeListener(this._onChangeMeasures);
+	    }
+	  }, {
+	    key: '_onChangeDimensions',
+	    value: function _onChangeDimensions() {
+	      this.setState({
+	        dimensions: _SelectedDimensionsStore2.default.getSelectedDimensions()
+	      });
+	    }
+	  }, {
+	    key: '_onChangeMeasures',
+	    value: function _onChangeMeasures() {
+	      this.setState({
+	        measures: _SelectedMeasuresStore2.default.getSelectedMeasures()
+	      });
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      if (_underscore2.default.isEmpty(this.state.dimensions)) {
+	        return this._renderEmptyReportMessage();
+	      } else if (_underscore2.default.isEmpty(this.state.measures)) {
+	        return this._renderReport();
+	      }
 	
-	function deleteMeasure(measure) {
-	  measures.splice(_underscore2.default.findWhere(measures, measure), 1);
-	  _triggerMeasuresChanged();
-	}
+	      return _react2.default.createElement(
+	        'div',
+	        null,
+	        this.state.measures.map(this._renderReport)
+	      );
+	    }
+	  }, {
+	    key: '_renderEmptyReportMessage',
+	    value: function _renderEmptyReportMessage() {
+	      return _react2.default.createElement(
+	        'h4',
+	        null,
+	        'No data selected'
+	      );
+	    }
+	  }, {
+	    key: '_renderReport',
+	    value: function _renderReport(measure, index) {
+	      var data = ['Data 1', 'Data 2', 'Data 3'];
 	
-	exports.default = {
-	  dimensions: dimensions,
-	  addDimensionsListener: addDimensionsListener,
-	  addDimension: addDimension,
-	  deleteDimension: deleteDimension,
-	  measures: measures,
-	  addMeasuresListener: addMeasuresListener,
-	  addMeasure: addMeasure,
-	  deleteMeasure: deleteMeasure
-	};
+	      return _react2.default.createElement(
+	        _reactBootstrap.Table,
+	        { key: 'table_' + index, striped: true, bordered: true, hover: true },
+	        _react2.default.createElement(
+	          'thead',
+	          null,
+	          _react2.default.createElement(
+	            'tr',
+	            null,
+	            this.state.dimensions.map(this._renderColumn)
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'tbody',
+	          null,
+	          data.map(this._renderData)
+	        ),
+	        measure && this._renderMeasure(measure)
+	      );
+	    }
+	  }, {
+	    key: '_renderColumn',
+	    value: function _renderColumn(dimension, index) {
+	      return _react2.default.createElement(
+	        'th',
+	        { key: 'column_' + index },
+	        dimension.name
+	      );
+	    }
+	  }, {
+	    key: '_renderData',
+	    value: function _renderData(data, index) {
+	      return _react2.default.createElement(
+	        'tr',
+	        { key: 'row_' + index },
+	        this.state.dimensions.map(this._renderDimensionData)
+	      );
+	    }
+	  }, {
+	    key: '_renderDimensionData',
+	    value: function _renderDimensionData(dimension, index) {
+	      return _react2.default.createElement(
+	        'td',
+	        { key: 'cell_' + dimension.id + '_' + index },
+	        'Data ',
+	        index
+	      );
+	    }
+	  }, {
+	    key: '_renderMeasure',
+	    value: function _renderMeasure(measure) {
+	      return _react2.default.createElement(
+	        'tfoot',
+	        null,
+	        _react2.default.createElement(
+	          'tr',
+	          null,
+	          _react2.default.createElement(
+	            'td',
+	            { colSpan: this.state.dimensions.length - 1 },
+	            measure.name
+	          ),
+	          _react2.default.createElement(
+	            'td',
+	            null,
+	            '0.00'
+	          )
+	        )
+	      );
+	    }
+	  }]);
+	
+	  return ReportPreview;
+	}(_react2.default.Component);
+	
+	exports.default = ReportPreview;
 
 /***/ },
 /* 809 */
