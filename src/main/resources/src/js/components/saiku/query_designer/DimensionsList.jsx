@@ -22,12 +22,19 @@ import {
   Panel
 } from 'react-bootstrap';
 import _ from 'underscore';
-import Types from './Types';
-import QueryState from './QueryState';
+import AppDispatcher from '../dispatcher/AppDispatcher';
+import SelectedDimensionsStore from './stores/SelectedDimensionsStore';
+import {
+  Actions,
+  DropTypes
+} from './Constants';
 
 const dimensionsTarget = {
   drop(props, monitor) {
-    QueryState.addDimension(monitor.getItem());
+    AppDispatcher.dispatch({
+      type: Actions.SELECT_DIMENSION,
+      dimension: monitor.getItem()
+    });
   }
 };
 
@@ -41,18 +48,32 @@ function collect(connect, monitor) {
 class DimensionsList extends React.Component {
   constructor(props) {
     super(props);
+    this.state = this._getUpdatedState();
+    autoBind(this);
+  }
 
-    autoBind(this, '_renderDimension', '_renderDropArea');
+  componentDidMount() {
+    SelectedDimensionsStore.addChangeListener(this._onChange);
+  }
+
+  componentWillUnmount() {
+    SelectedDimensionsStore.removeChangeListener(this._onChange);
+  }
+
+  _onChange() {
+    this.setState(this._getUpdatedState());
+  }
+
+  _getUpdatedState() {
+    return {dimensions: SelectedDimensionsStore.getSelectedDimensions()};
   }
 
   render() {
-    const {dimensions, connectDropTarget} = this.props;
-
-    return connectDropTarget(
+    return this.props.connectDropTarget(
       <div className="drop-panel">
         <Panel header="Dimensions" bsStyle="success">
           {this._renderDropArea()}
-          {dimensions.map(this._renderDimension)}
+          {this.state.dimensions.map(this._renderDimension)}
         </Panel>
       </div>
     );
@@ -71,7 +92,7 @@ class DimensionsList extends React.Component {
   }
 
   _renderDropArea() {
-    if (_.isEmpty(this.props.dimensions)) {
+    if (_.isEmpty(this.state.dimensions)) {
       const over = this.props.isOver ? 'over' : '';
 
       return (
@@ -88,18 +109,20 @@ class DimensionsList extends React.Component {
       event.stopPropagation();
     }
 
-    QueryState.deleteDimension(dimension);
+    AppDispatcher.dispatch({
+      type: Actions.DESELECT_DIMENSION,
+      dimension: dimension
+    });
   }
 }
 
 DimensionsList.propTypes = {
   isOver: React.PropTypes.bool.isRequired,
-  connectDropTarget: React.PropTypes.func.isRequired,
-  dimensions: React.PropTypes.array
+  connectDropTarget: React.PropTypes.func.isRequired
 };
 
 export default DropTarget(
-  Types.DIMENSION,
+  DropTypes.DIMENSION,
   dimensionsTarget,
   collect
 )(DimensionsList);

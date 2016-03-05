@@ -88,6 +88,7 @@
     "karma-sinon-chai": "^1.1.0",
     "karma-sourcemap-loader": "^0.3.6",
     "karma-webpack": "^1.7.0",
+    "keymirror": "^0.1.1",
     "mocha": "^2.3.4",
     "phantomjs": "^1.9.19",
     "plumber": "^0.4.8",

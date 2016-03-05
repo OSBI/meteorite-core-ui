@@ -21,59 +21,51 @@ import TreeView from 'react-treeview';
 import { Panel } from 'react-bootstrap';
 import Dimension from './Dimension';
 import Measure from './Measure';
-import QueryState from './QueryState';
-import CubesCollection from '../../../collections/CubesCollection';
+import CubesStore from './stores/CubesStore';
+import SelectedDimensionsStore from './stores/SelectedDimensionsStore';
+import SelectedMeasuresStore from './stores/SelectedMeasuresStore';
 
 class CubeSelector extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      selectedDimensions: QueryState.dimensions,
-      selectedMeasures: QueryState.measures,
-      models: []
+      cubes: CubesStore.getCubes(),
+      selectedDimensions: SelectedDimensionsStore.getSelectedDimensions(),
+      selectedMeasures: SelectedMeasuresStore.getSelectedMeasures()
     };
 
-    this._cubesUI = new CubesCollection();
-
-    autoBind(this, '_renderTreeNode', '_renderDimension', '_handleFetchUI');
-    autoBind(this, '_renderMeasure', 'dimensionsChanged', 'measuresChanged');
-
-    QueryState.addDimensionsListener(this.dimensionsChanged);
-    QueryState.addMeasuresListener(this.measuresChanged);
+    autoBind(this);
   }
 
   componentDidMount() {
-    this._cubesUI.fetch({
-      success: this._handleFetchUI
+    CubesStore.addChangeListener(this._cubesChanged);
+    SelectedDimensionsStore.addChangeListener(this._selectedDimensionsChanged);
+    SelectedMeasuresStore.addChangeListener(this._selectedMeasuresChanged);
+  }
+
+  _cubesChanged() {
+    this.setState({
+      cubes: CubesStore.getCubes()
     });
   }
 
-  dimensionsChanged(dimensions) {
+  _selectedDimensionsChanged() {
     this.setState({
-      selectedDimensions: dimensions
+      selectedDimensions: SelectedDimensionsStore.getSelectedDimensions()
     });
   }
 
-  measuresChanged(measures) {
+  _selectedMeasuresChanged() {
     this.setState({
-      selectedMeasures: measures
-    });
-  }
-
-  _handleFetchUI(cubesUI) {
-    this.setState({
-      models: cubesUI.models[0]
+      selectedMeasures: SelectedMeasuresStore.getSelectedMeasures()
     });
   }
 
   render() {
-    let cubes = (this.state && !(_.isEmpty(this.state.models))) ?
-      this.state.models.getCubes() : [];
-
     return (
       <Panel header="Cubes" bsStyle="success" className="drop-panel">
-        {cubes.map(this._renderTreeNode)}
+        {this.state.cubes.map(this._renderTreeNode)}
       </Panel>
     );
   }
@@ -114,7 +106,7 @@ class CubeSelector extends React.Component {
   }
 
   _isDimensionVisible(dimensionId) {
-    return !_.findWhere(QueryState.dimensions, {id: dimensionId});
+    return !SelectedDimensionsStore.isSelected({id: dimensionId});
   }
 
   // Measures functions
@@ -141,7 +133,7 @@ class CubeSelector extends React.Component {
   }
 
   _isMeasureVisible(measureId) {
-    return !_.findWhere(QueryState.measures, {id: measureId});
+    return !SelectedMeasuresStore.isSelected({id: measureId});
   }
 }
 

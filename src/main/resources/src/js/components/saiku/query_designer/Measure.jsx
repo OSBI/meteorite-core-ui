@@ -15,10 +15,10 @@
  */
 
 import React from 'react';
-import Types from './Types';
+import { DropTypes } from './Constants';
 import { DragSource } from 'react-dnd';
 
-const dimensionSource = {
+const measureSource = {
   beginDrag(props) {
     return {
       id: props.id,
@@ -55,4 +55,8 @@ Measure.propTypes = {
   isDragging: React.PropTypes.bool.isRequired
 };
 
-export default DragSource(Types.MEASURE, dimensionSource, collect)(Measure);
+export default DragSource(
+  DropTypes.MEASURE,
+  measureSource,
+  collect
+)(Measure);

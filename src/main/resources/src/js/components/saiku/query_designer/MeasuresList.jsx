@@ -22,12 +22,19 @@ import {
   Panel
 } from 'react-bootstrap';
 import _ from 'underscore';
-import Types from './Types';
-import QueryState from './QueryState';
+import AppDispatcher from '../dispatcher/AppDispatcher';
+import SelectedMeasuresStore from './stores/SelectedMeasuresStore';
+import {
+  Actions,
+  DropTypes
+} from './Constants';
 
 const measuresTarget = {
   drop(props, monitor) {
-    QueryState.addMeasure(monitor.getItem());
+    AppDispatcher.dispatch({
+      type: Actions.SELECT_MEASURE,
+      measure: monitor.getItem()
+    });
   }
 };
 
@@ -41,18 +48,32 @@ function collect(connect, monitor) {
 class MeasuresList extends React.Component {
   constructor(props) {
     super(props);
+    this.state = this._getUpdatedState();
+    autoBind(this);
+  }
 
-    autoBind(this, '_renderMeasure', '_renderDropArea');
+  componentDidMount() {
+    SelectedMeasuresStore.addChangeListener(this._onChange);
+  }
+
+  componentWillUnmount() {
+    SelectedMeasuresStore.removeChangeListener(this._onChange);
+  }
+
+  _onChange() {
+    this.setState(this._getUpdatedState());
+  }
+
+  _getUpdatedState() {
+    return {measures: SelectedMeasuresStore.getSelectedMeasures()};
   }
 
   render() {
-    const {measures, connectDropTarget} = this.props;
-
-    return connectDropTarget(
+    return this.props.connectDropTarget(
       <div className="drop-panel">
         <Panel header="Measures" bsStyle="success">
           {this._renderDropArea()}
-          {measures.map(this._renderMeasure)}
+          {this.state.measures.map(this._renderMeasure)}
         </Panel>
       </div>
     );
@@ -71,7 +92,7 @@ class MeasuresList extends React.Component {
   }
 
   _renderDropArea() {
-    if (_.isEmpty(this.props.measures)) {
+    if (_.isEmpty(this.state.measures)) {
       const over = this.props.isOver ? 'over' : '';
 
       return (
@@ -88,18 +109,20 @@ class MeasuresList extends React.Component {
       event.stopPropagation();
     }
 
-    QueryState.deleteMeasure(measure);
+    AppDispatcher.dispatch({
+      type: Actions.DESELECT_MEASURE,
+      measure: measure
+    });
   }
 }
 
 MeasuresList.propTypes = {
   isOver: React.PropTypes.bool.isRequired,
-  connectDropTarget: React.PropTypes.func.isRequired,
-  measures: React.PropTypes.array
+  connectDropTarget: React.PropTypes.func.isRequired
 };
 
 export default DropTarget(
-  Types.MEASURE,
+  DropTypes.MEASURE,
   measuresTarget,
   collect
 )(MeasuresList);
