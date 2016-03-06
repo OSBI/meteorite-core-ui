@@ -18,7 +18,7 @@ import _ from 'underscore';
 import autoBind from 'react-autobind';
 import { EventEmitter } from 'events';
 import AppDispatcher from '../../dispatcher/AppDispatcher';
-import { Actions } from '../Constants';
+import { Actions } from '../constants/Constants';
 
 class SelectedMeasuresStoreFactory extends EventEmitter {
   constructor() {

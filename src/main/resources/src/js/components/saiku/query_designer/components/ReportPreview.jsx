@@ -18,9 +18,15 @@ import _ from 'underscore';
 import React from 'react';
 import autoBind from 'react-autobind';
 import { Table } from 'react-bootstrap';
-import SelectedDimensionsStore from './stores/SelectedDimensionsStore';
-import SelectedMeasuresStore from './stores/SelectedMeasuresStore';
+import SelectedDimensionsStore from '../stores/SelectedDimensionsStore';
+import SelectedMeasuresStore from '../stores/SelectedMeasuresStore';
 
+/**
+ * Saiku's Query Designer report preview component. It performs a query on a
+ * OLAP cube, based on its selected dimensions and measures. The report data and
+ * design is automatically refreshed whenever the user changes the query
+ * parameters.
+ */
 class ReportPreview extends React.Component {
   constructor(props) {
     super(props);
@@ -33,22 +39,39 @@ class ReportPreview extends React.Component {
     autoBind(this);
   }
 
+  /**
+   * This method is automatically called be React runtime when the component is
+   * filled with data and rendered (mounted). It registers this component as a
+   * listener of the stores, so, if any change happened to them, the component
+   * is notified.
+   */
   componentDidMount() {
     SelectedDimensionsStore.addChangeListener(this._onChangeDimensions);
     SelectedMeasuresStore.addChangeListener(this._onChangeMeasures);
   }
 
+  /**
+   * This method is called automatically when the component is to be removed
+   * from HTML DOM. It removes the change listeners associated to this component
+   * to avoid memory leaks.
+   */
   componentWillUnmount() {
     SelectedDimensionsStore.removeChangeListener(this._onChangeDimensions);
     SelectedMeasuresStore.removeChangeListener(this._onChangeMeasures);
   }
 
+  /**
+   * Method called automatically when the user selects or delects a dimension.
+   */
   _onChangeDimensions() {
     this.setState({
       dimensions: SelectedDimensionsStore.getSelectedDimensions()
     });
   }
 
+  /**
+   * Method called automatically when the user selects or delects a measure.
+   */
   _onChangeMeasures() {
     this.setState({
       measures: SelectedMeasuresStore.getSelectedMeasures()

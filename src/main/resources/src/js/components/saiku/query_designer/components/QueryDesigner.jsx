@@ -19,8 +19,8 @@ import {
   Row,
   Col
 } from 'react-bootstrap';
-import Clearfix from '../../bootstrap/Clearfix';
-import Wrapper from '../Wrapper';
+import Clearfix from '../../../bootstrap/Clearfix';
+import Wrapper from '../../Wrapper';
 import { DragDropContext } from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
 import CubeSelector from './CubeSelector';
@@ -28,6 +28,12 @@ import DimensionsList from './DimensionsList';
 import MeasuresList from './MeasuresList';
 import ReportPreview from './ReportPreview';
 
+/**
+ * Saiku Query Designer. This component displays the OLAP cubes, registed with
+ * Saiku, with its dimension and measure information. The user is able to drag
+ * them in order to compose a query to build a report. The query designer also
+ * displays a live report.
+ */
 class QueryDesigner extends React.Component {
   render() {
     return (
@@ -72,4 +78,9 @@ class QueryDesigner extends React.Component {
   }
 }
 
+/**
+ * The <QueryDesigner/> component is decorated by the DragDropContext react-dnd
+ * function. It also specifies that it is using the HTML5Backend as the drag and
+ * drop implementation. The rect-dnd module also provides other implementations.
+ */
 export default DragDropContext(HTML5Backend)(QueryDesigner);

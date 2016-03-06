@@ -14,16 +14,6 @@
  *   limitations under the License.
  */
 
-import keyMirror from 'keyMirror';
+import QueryDesigner from './components/QueryDesigner';
 
-exports.DropTypes = keyMirror({
-  DIMENSION: null,
-  MEASURE: null
-});
-
-exports.Actions = keyMirror({
-  SELECT_DIMENSION: null,
-  DESELECT_DIMENSION: null,
-  SELECT_MEASURE: null,
-  DESELECT_MEASURE: null
-});
+export default QueryDesigner;

@@ -15,9 +15,15 @@
  */
 
 import React from 'react';
-import { DropTypes } from './Constants';
+import { DropTypes } from '../constants/Constants';
 import { DragSource } from 'react-dnd';
 
+/**
+ * The react-dnd module decorates components with a source object, containing a
+ * beginDrag function, which is automatically called whenever this component is
+ * being dragged. This function should fill an object with data relevant to the
+ * drop area component, in this case, the dimension's id and its name.
+ */
 const dimensionSource = {
   beginDrag(props) {
     return {
@@ -27,6 +33,12 @@ const dimensionSource = {
   }
 };
 
+/**
+ * The react-dnd module decorates components with a collect function, which is
+ * automatically called before the component's render function. The collect aims
+ * in adding drag and drop specific data (such as the drag source and dnd flags)
+ * to component's props.
+ */
 function collect(connect, monitor) {
   return {
     connectDragSource: connect.dragSource(),
@@ -34,7 +46,16 @@ function collect(connect, monitor) {
   };
 }
 
+/**
+ * This component models a dimenion of an OLAP cube. This dimension is displayed
+ * as a child of <CubeSelector/> component and it is draggable to the
+ * <DimensionsList/> component.
+ */
 class Dimension extends React.Component {
+  /**
+   * Dimension's render function. It creates a <li> tag with a class 'dimension'
+   * and, if it is being dragged, a 'dragging' class.
+   */
   render() {
     const {connectDragSource, id, name, isDragging} = this.props;
 
@@ -55,6 +76,11 @@ Dimension.propTypes = {
   isDragging: React.PropTypes.bool.isRequired
 };
 
+/**
+ * The react-dnd module provides the DragSource decorator function which
+ * receives a drag type string, a source object, a collect function and, the
+ * component to be decorated. In this case, the <Dimension/> component.
+ */
 export default DragSource(
   DropTypes.DIMENSION,
   dimensionSource,
