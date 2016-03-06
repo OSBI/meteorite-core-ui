@@ -18,6 +18,36 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
+    "meteorite-core-ui/js/models/cubemodel.js~cubemodel",
+    "class/js/models/CubeModel.js~CubeModel.html",
+    "<span>CubeModel</span> <span class=\"search-result-import-path\">meteorite-core-ui/js/models/CubeModel.js</span>",
+    "class"
+  ],
+  [
+    "meteorite-core-ui/js/components/saiku/query_designer/components/cubeselector.jsx~cubeselector",
+    "class/js/components/saiku/query_designer/components/CubeSelector.jsx~CubeSelector.html",
+    "<span>CubeSelector</span> <span class=\"search-result-import-path\">meteorite-core-ui/js/components/saiku/query_designer/components/CubeSelector.jsx</span>",
+    "class"
+  ],
+  [
+    "meteorite-core-ui/js/collections/cubescollection.js~cubescollection",
+    "class/js/collections/CubesCollection.js~CubesCollection.html",
+    "<span>CubesCollection</span> <span class=\"search-result-import-path\">meteorite-core-ui/js/collections/CubesCollection.js</span>",
+    "class"
+  ],
+  [
+    "meteorite-core-ui/js/components/saiku/query_designer/stores/cubesstore.js~cubesstore",
+    "variable/index.html#static-variable-CubesStore",
+    "<span>CubesStore</span> <span class=\"search-result-import-path\">meteorite-core-ui/js/components/saiku/query_designer/stores/CubesStore.js</span>",
+    "variable"
+  ],
+  [
+    "meteorite-core-ui/js/components/saiku/query_designer/stores/cubesstore.js~cubesstorefactory",
+    "class/js/components/saiku/query_designer/stores/CubesStore.js~CubesStoreFactory.html",
+    "<span>CubesStoreFactory</span> <span class=\"search-result-import-path\">meteorite-core-ui/js/components/saiku/query_designer/stores/CubesStore.js</span>",
+    "class"
+  ],
+  [
     "meteorite-core-ui/js/components/bootstrap/formgroup.jsx~formgroup",
     "class/js/components/bootstrap/FormGroup.jsx~FormGroup.html",
     "<span>FormGroup</span> <span class=\"search-result-import-path\">meteorite-core-ui/js/components/bootstrap/FormGroup.jsx</span>",
@@ -60,6 +90,36 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
+    "meteorite-core-ui/js/components/saiku/query_designer/components/reportpreview.jsx~reportpreview",
+    "class/js/components/saiku/query_designer/components/ReportPreview.jsx~ReportPreview.html",
+    "<span>ReportPreview</span> <span class=\"search-result-import-path\">meteorite-core-ui/js/components/saiku/query_designer/components/ReportPreview.jsx</span>",
+    "class"
+  ],
+  [
+    "meteorite-core-ui/js/components/saiku/query_designer/stores/selecteddimensionsstore.js~selecteddimensionsstore",
+    "variable/index.html#static-variable-SelectedDimensionsStore",
+    "<span>SelectedDimensionsStore</span> <span class=\"search-result-import-path\">meteorite-core-ui/js/components/saiku/query_designer/stores/SelectedDimensionsStore.js</span>",
+    "variable"
+  ],
+  [
+    "meteorite-core-ui/js/components/saiku/query_designer/stores/selecteddimensionsstore.js~selecteddimensionsstorefactory",
+    "class/js/components/saiku/query_designer/stores/SelectedDimensionsStore.js~SelectedDimensionsStoreFactory.html",
+    "<span>SelectedDimensionsStoreFactory</span> <span class=\"search-result-import-path\">meteorite-core-ui/js/components/saiku/query_designer/stores/SelectedDimensionsStore.js</span>",
+    "class"
+  ],
+  [
+    "meteorite-core-ui/js/components/saiku/query_designer/stores/selectedmeasuresstore.js~selectedmeasuresstore",
+    "variable/index.html#static-variable-SelectedMeasuresStore",
+    "<span>SelectedMeasuresStore</span> <span class=\"search-result-import-path\">meteorite-core-ui/js/components/saiku/query_designer/stores/SelectedMeasuresStore.js</span>",
+    "variable"
+  ],
+  [
+    "meteorite-core-ui/js/components/saiku/query_designer/stores/selectedmeasuresstore.js~selectedmeasuresstorefactory",
+    "class/js/components/saiku/query_designer/stores/SelectedMeasuresStore.js~SelectedMeasuresStoreFactory.html",
+    "<span>SelectedMeasuresStoreFactory</span> <span class=\"search-result-import-path\">meteorite-core-ui/js/components/saiku/query_designer/stores/SelectedMeasuresStore.js</span>",
+    "class"
+  ],
+  [
     "meteorite-core-ui/js/models/session.js~session",
     "class/js/models/Session.js~Session.html",
     "<span>Session</span> <span class=\"search-result-import-path\">meteorite-core-ui/js/models/Session.js</span>",
@@ -81,6 +141,18 @@ window.esdocSearchIndex = [
     "meteorite-core-ui/js/models/sidebarmodel.js~sidebarmodel",
     "class/js/models/SidebarModel.js~SidebarModel.html",
     "<span>SidebarModel</span> <span class=\"search-result-import-path\">meteorite-core-ui/js/models/SidebarModel.js</span>",
+    "class"
+  ],
+  [
+    "meteorite-core-ui/js/components/saiku/sidebarolap.jsx~sidebarolap",
+    "class/js/components/saiku/SidebarOlap.jsx~SidebarOlap.html",
+    "<span>SidebarOlap</span> <span class=\"search-result-import-path\">meteorite-core-ui/js/components/saiku/SidebarOlap.jsx</span>",
+    "class"
+  ],
+  [
+    "meteorite-core-ui/js/components/saiku/sidebarreporting.jsx~sidebarreporting",
+    "class/js/components/saiku/SidebarReporting.jsx~SidebarReporting.html",
+    "<span>SidebarReporting</span> <span class=\"search-result-import-path\">meteorite-core-ui/js/components/saiku/SidebarReporting.jsx</span>",
     "class"
   ],
   [
@@ -117,6 +189,12 @@ window.esdocSearchIndex = [
     "meteorite-core-ui/js/models/toolbarmodel.js~toolbarmodel",
     "class/js/models/ToolbarModel.js~ToolbarModel.html",
     "<span>ToolbarModel</span> <span class=\"search-result-import-path\">meteorite-core-ui/js/models/ToolbarModel.js</span>",
+    "class"
+  ],
+  [
+    "meteorite-core-ui/js/components/saiku/toolbarreporting.jsx~toolbarreporting",
+    "class/js/components/saiku/ToolbarReporting.jsx~ToolbarReporting.html",
+    "<span>ToolbarReporting</span> <span class=\"search-result-import-path\">meteorite-core-ui/js/components/saiku/ToolbarReporting.jsx</span>",
     "class"
   ],
   [
@@ -474,6 +552,30 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
+    "js/collections/cubescollection.js",
+    "file/js/collections/CubesCollection.js.html",
+    "js/collections/CubesCollection.js",
+    "file"
+  ],
+  [
+    "js/collections/cubescollection.js~cubescollection#constructor",
+    "class/js/collections/CubesCollection.js~CubesCollection.html#instance-constructor-constructor",
+    "js/collections/CubesCollection.js~CubesCollection#constructor",
+    "method"
+  ],
+  [
+    "js/collections/cubescollection.js~cubescollection#model",
+    "class/js/collections/CubesCollection.js~CubesCollection.html#instance-member-model",
+    "js/collections/CubesCollection.js~CubesCollection#model",
+    "member"
+  ],
+  [
+    "js/collections/cubescollection.js~cubescollection#url",
+    "class/js/collections/CubesCollection.js~CubesCollection.html#instance-method-url",
+    "js/collections/CubesCollection.js~CubesCollection#url",
+    "method"
+  ],
+  [
     "js/collections/menubarcollection.js",
     "file/js/collections/MenubarCollection.js.html",
     "js/collections/MenubarCollection.js",
@@ -702,6 +804,42 @@ window.esdocSearchIndex = [
     "member"
   ],
   [
+    "js/components/saiku/sidebarolap.jsx",
+    "file/js/components/saiku/SidebarOlap.jsx.html",
+    "js/components/saiku/SidebarOlap.jsx",
+    "file"
+  ],
+  [
+    "js/components/saiku/sidebarolap.jsx~sidebarolap#render",
+    "class/js/components/saiku/SidebarOlap.jsx~SidebarOlap.html#instance-method-render",
+    "js/components/saiku/SidebarOlap.jsx~SidebarOlap#render",
+    "method"
+  ],
+  [
+    "js/components/saiku/sidebarreporting.jsx",
+    "file/js/components/saiku/SidebarReporting.jsx.html",
+    "js/components/saiku/SidebarReporting.jsx",
+    "file"
+  ],
+  [
+    "js/components/saiku/sidebarreporting.jsx~sidebarreporting#render",
+    "class/js/components/saiku/SidebarReporting.jsx~SidebarReporting.html#instance-method-render",
+    "js/components/saiku/SidebarReporting.jsx~SidebarReporting#render",
+    "method"
+  ],
+  [
+    "js/components/saiku/sidebarreporting.jsx~sidebarreporting#renderqueries",
+    "class/js/components/saiku/SidebarReporting.jsx~SidebarReporting.html#instance-method-renderQueries",
+    "js/components/saiku/SidebarReporting.jsx~SidebarReporting#renderQueries",
+    "method"
+  ],
+  [
+    "js/components/saiku/sidebarreporting.jsx~sidebarreporting#renderselectmodels",
+    "class/js/components/saiku/SidebarReporting.jsx~SidebarReporting.html#instance-method-renderSelectModels",
+    "js/components/saiku/SidebarReporting.jsx~SidebarReporting#renderSelectModels",
+    "method"
+  ],
+  [
     "js/components/saiku/tab.jsx",
     "file/js/components/saiku/Tab.jsx.html",
     "js/components/saiku/Tab.jsx",
@@ -798,6 +936,18 @@ window.esdocSearchIndex = [
     "member"
   ],
   [
+    "js/components/saiku/toolbarreporting.jsx",
+    "file/js/components/saiku/ToolbarReporting.jsx.html",
+    "js/components/saiku/ToolbarReporting.jsx",
+    "file"
+  ],
+  [
+    "js/components/saiku/toolbarreporting.jsx~toolbarreporting#render",
+    "class/js/components/saiku/ToolbarReporting.jsx~ToolbarReporting.html#instance-method-render",
+    "js/components/saiku/ToolbarReporting.jsx~ToolbarReporting#render",
+    "method"
+  ],
+  [
     "js/components/saiku/workspace.jsx",
     "file/js/components/saiku/Workspace.jsx.html",
     "js/components/saiku/Workspace.jsx",
@@ -843,6 +993,312 @@ window.esdocSearchIndex = [
     "js/components/saiku/wrapper.jsx~wrapper#render",
     "class/js/components/saiku/Wrapper.jsx~Wrapper.html#instance-method-render",
     "js/components/saiku/Wrapper.jsx~Wrapper#render",
+    "method"
+  ],
+  [
+    "js/components/saiku/dispatcher/appdispatcher.js",
+    "file/js/components/saiku/dispatcher/AppDispatcher.js.html",
+    "js/components/saiku/dispatcher/AppDispatcher.js",
+    "file"
+  ],
+  [
+    "js/components/saiku/query_designer/components/cubeselector.jsx",
+    "file/js/components/saiku/query_designer/components/CubeSelector.jsx.html",
+    "js/components/saiku/query_designer/components/CubeSelector.jsx",
+    "file"
+  ],
+  [
+    "js/components/saiku/query_designer/components/cubeselector.jsx~cubeselector#componentdidmount",
+    "class/js/components/saiku/query_designer/components/CubeSelector.jsx~CubeSelector.html#instance-method-componentDidMount",
+    "js/components/saiku/query_designer/components/CubeSelector.jsx~CubeSelector#componentDidMount",
+    "method"
+  ],
+  [
+    "js/components/saiku/query_designer/components/cubeselector.jsx~cubeselector#componentwillunmount",
+    "class/js/components/saiku/query_designer/components/CubeSelector.jsx~CubeSelector.html#instance-method-componentWillUnmount",
+    "js/components/saiku/query_designer/components/CubeSelector.jsx~CubeSelector#componentWillUnmount",
+    "method"
+  ],
+  [
+    "js/components/saiku/query_designer/components/cubeselector.jsx~cubeselector#constructor",
+    "class/js/components/saiku/query_designer/components/CubeSelector.jsx~CubeSelector.html#instance-constructor-constructor",
+    "js/components/saiku/query_designer/components/CubeSelector.jsx~CubeSelector#constructor",
+    "method"
+  ],
+  [
+    "js/components/saiku/query_designer/components/cubeselector.jsx~cubeselector#render",
+    "class/js/components/saiku/query_designer/components/CubeSelector.jsx~CubeSelector.html#instance-method-render",
+    "js/components/saiku/query_designer/components/CubeSelector.jsx~CubeSelector#render",
+    "method"
+  ],
+  [
+    "js/components/saiku/query_designer/components/cubeselector.jsx~cubeselector#state",
+    "class/js/components/saiku/query_designer/components/CubeSelector.jsx~CubeSelector.html#instance-member-state",
+    "js/components/saiku/query_designer/components/CubeSelector.jsx~CubeSelector#state",
+    "member"
+  ],
+  [
+    "js/components/saiku/query_designer/components/dimension.jsx",
+    "file/js/components/saiku/query_designer/components/Dimension.jsx.html",
+    "js/components/saiku/query_designer/components/Dimension.jsx",
+    "file"
+  ],
+  [
+    "js/components/saiku/query_designer/components/dimensionslist.jsx",
+    "file/js/components/saiku/query_designer/components/DimensionsList.jsx.html",
+    "js/components/saiku/query_designer/components/DimensionsList.jsx",
+    "file"
+  ],
+  [
+    "js/components/saiku/query_designer/components/measure.jsx",
+    "file/js/components/saiku/query_designer/components/Measure.jsx.html",
+    "js/components/saiku/query_designer/components/Measure.jsx",
+    "file"
+  ],
+  [
+    "js/components/saiku/query_designer/components/measureslist.jsx",
+    "file/js/components/saiku/query_designer/components/MeasuresList.jsx.html",
+    "js/components/saiku/query_designer/components/MeasuresList.jsx",
+    "file"
+  ],
+  [
+    "js/components/saiku/query_designer/components/querydesigner.jsx",
+    "file/js/components/saiku/query_designer/components/QueryDesigner.jsx.html",
+    "js/components/saiku/query_designer/components/QueryDesigner.jsx",
+    "file"
+  ],
+  [
+    "js/components/saiku/query_designer/components/reportpreview.jsx",
+    "file/js/components/saiku/query_designer/components/ReportPreview.jsx.html",
+    "js/components/saiku/query_designer/components/ReportPreview.jsx",
+    "file"
+  ],
+  [
+    "js/components/saiku/query_designer/components/reportpreview.jsx~reportpreview#componentdidmount",
+    "class/js/components/saiku/query_designer/components/ReportPreview.jsx~ReportPreview.html#instance-method-componentDidMount",
+    "js/components/saiku/query_designer/components/ReportPreview.jsx~ReportPreview#componentDidMount",
+    "method"
+  ],
+  [
+    "js/components/saiku/query_designer/components/reportpreview.jsx~reportpreview#componentwillunmount",
+    "class/js/components/saiku/query_designer/components/ReportPreview.jsx~ReportPreview.html#instance-method-componentWillUnmount",
+    "js/components/saiku/query_designer/components/ReportPreview.jsx~ReportPreview#componentWillUnmount",
+    "method"
+  ],
+  [
+    "js/components/saiku/query_designer/components/reportpreview.jsx~reportpreview#constructor",
+    "class/js/components/saiku/query_designer/components/ReportPreview.jsx~ReportPreview.html#instance-constructor-constructor",
+    "js/components/saiku/query_designer/components/ReportPreview.jsx~ReportPreview#constructor",
+    "method"
+  ],
+  [
+    "js/components/saiku/query_designer/components/reportpreview.jsx~reportpreview#render",
+    "class/js/components/saiku/query_designer/components/ReportPreview.jsx~ReportPreview.html#instance-method-render",
+    "js/components/saiku/query_designer/components/ReportPreview.jsx~ReportPreview#render",
+    "method"
+  ],
+  [
+    "js/components/saiku/query_designer/components/reportpreview.jsx~reportpreview#state",
+    "class/js/components/saiku/query_designer/components/ReportPreview.jsx~ReportPreview.html#instance-member-state",
+    "js/components/saiku/query_designer/components/ReportPreview.jsx~ReportPreview#state",
+    "member"
+  ],
+  [
+    "js/components/saiku/query_designer/constants/constants.js",
+    "file/js/components/saiku/query_designer/constants/Constants.js.html",
+    "js/components/saiku/query_designer/constants/Constants.js",
+    "file"
+  ],
+  [
+    "js/components/saiku/query_designer/index.js",
+    "file/js/components/saiku/query_designer/index.js.html",
+    "js/components/saiku/query_designer/index.js",
+    "file"
+  ],
+  [
+    "js/components/saiku/query_designer/stores/cubesstore.js",
+    "file/js/components/saiku/query_designer/stores/CubesStore.js.html",
+    "js/components/saiku/query_designer/stores/CubesStore.js",
+    "file"
+  ],
+  [
+    "js/components/saiku/query_designer/stores/cubesstore.js~cubesstorefactory#addchangelistener",
+    "class/js/components/saiku/query_designer/stores/CubesStore.js~CubesStoreFactory.html#instance-method-addChangeListener",
+    "js/components/saiku/query_designer/stores/CubesStore.js~CubesStoreFactory#addChangeListener",
+    "method"
+  ],
+  [
+    "js/components/saiku/query_designer/stores/cubesstore.js~cubesstorefactory#constructor",
+    "class/js/components/saiku/query_designer/stores/CubesStore.js~CubesStoreFactory.html#instance-constructor-constructor",
+    "js/components/saiku/query_designer/stores/CubesStore.js~CubesStoreFactory#constructor",
+    "method"
+  ],
+  [
+    "js/components/saiku/query_designer/stores/cubesstore.js~cubesstorefactory#cubes",
+    "class/js/components/saiku/query_designer/stores/CubesStore.js~CubesStoreFactory.html#instance-member-cubes",
+    "js/components/saiku/query_designer/stores/CubesStore.js~CubesStoreFactory#cubes",
+    "member"
+  ],
+  [
+    "js/components/saiku/query_designer/stores/cubesstore.js~cubesstorefactory#emitchange",
+    "class/js/components/saiku/query_designer/stores/CubesStore.js~CubesStoreFactory.html#instance-method-emitChange",
+    "js/components/saiku/query_designer/stores/CubesStore.js~CubesStoreFactory#emitChange",
+    "method"
+  ],
+  [
+    "js/components/saiku/query_designer/stores/cubesstore.js~cubesstorefactory#getcubes",
+    "class/js/components/saiku/query_designer/stores/CubesStore.js~CubesStoreFactory.html#instance-method-getCubes",
+    "js/components/saiku/query_designer/stores/CubesStore.js~CubesStoreFactory#getCubes",
+    "method"
+  ],
+  [
+    "js/components/saiku/query_designer/stores/cubesstore.js~cubesstorefactory#removechangelistener",
+    "class/js/components/saiku/query_designer/stores/CubesStore.js~CubesStoreFactory.html#instance-method-removeChangeListener",
+    "js/components/saiku/query_designer/stores/CubesStore.js~CubesStoreFactory#removeChangeListener",
+    "method"
+  ],
+  [
+    "js/components/saiku/query_designer/stores/selecteddimensionsstore.js",
+    "file/js/components/saiku/query_designer/stores/SelectedDimensionsStore.js.html",
+    "js/components/saiku/query_designer/stores/SelectedDimensionsStore.js",
+    "file"
+  ],
+  [
+    "js/components/saiku/query_designer/stores/selecteddimensionsstore.js~selecteddimensionsstorefactory#actiondispatcher",
+    "class/js/components/saiku/query_designer/stores/SelectedDimensionsStore.js~SelectedDimensionsStoreFactory.html#instance-member-actionDispatcher",
+    "js/components/saiku/query_designer/stores/SelectedDimensionsStore.js~SelectedDimensionsStoreFactory#actionDispatcher",
+    "member"
+  ],
+  [
+    "js/components/saiku/query_designer/stores/selecteddimensionsstore.js~selecteddimensionsstorefactory#addchangelistener",
+    "class/js/components/saiku/query_designer/stores/SelectedDimensionsStore.js~SelectedDimensionsStoreFactory.html#instance-method-addChangeListener",
+    "js/components/saiku/query_designer/stores/SelectedDimensionsStore.js~SelectedDimensionsStoreFactory#addChangeListener",
+    "method"
+  ],
+  [
+    "js/components/saiku/query_designer/stores/selecteddimensionsstore.js~selecteddimensionsstorefactory#constructor",
+    "class/js/components/saiku/query_designer/stores/SelectedDimensionsStore.js~SelectedDimensionsStoreFactory.html#instance-constructor-constructor",
+    "js/components/saiku/query_designer/stores/SelectedDimensionsStore.js~SelectedDimensionsStoreFactory#constructor",
+    "method"
+  ],
+  [
+    "js/components/saiku/query_designer/stores/selecteddimensionsstore.js~selecteddimensionsstorefactory#deselect",
+    "class/js/components/saiku/query_designer/stores/SelectedDimensionsStore.js~SelectedDimensionsStoreFactory.html#instance-method-deselect",
+    "js/components/saiku/query_designer/stores/SelectedDimensionsStore.js~SelectedDimensionsStoreFactory#deselect",
+    "method"
+  ],
+  [
+    "js/components/saiku/query_designer/stores/selecteddimensionsstore.js~selecteddimensionsstorefactory#emitchange",
+    "class/js/components/saiku/query_designer/stores/SelectedDimensionsStore.js~SelectedDimensionsStoreFactory.html#instance-method-emitChange",
+    "js/components/saiku/query_designer/stores/SelectedDimensionsStore.js~SelectedDimensionsStoreFactory#emitChange",
+    "method"
+  ],
+  [
+    "js/components/saiku/query_designer/stores/selecteddimensionsstore.js~selecteddimensionsstorefactory#getselecteddimensions",
+    "class/js/components/saiku/query_designer/stores/SelectedDimensionsStore.js~SelectedDimensionsStoreFactory.html#instance-method-getSelectedDimensions",
+    "js/components/saiku/query_designer/stores/SelectedDimensionsStore.js~SelectedDimensionsStoreFactory#getSelectedDimensions",
+    "method"
+  ],
+  [
+    "js/components/saiku/query_designer/stores/selecteddimensionsstore.js~selecteddimensionsstorefactory#isselected",
+    "class/js/components/saiku/query_designer/stores/SelectedDimensionsStore.js~SelectedDimensionsStoreFactory.html#instance-method-isSelected",
+    "js/components/saiku/query_designer/stores/SelectedDimensionsStore.js~SelectedDimensionsStoreFactory#isSelected",
+    "method"
+  ],
+  [
+    "js/components/saiku/query_designer/stores/selecteddimensionsstore.js~selecteddimensionsstorefactory#removechangelistener",
+    "class/js/components/saiku/query_designer/stores/SelectedDimensionsStore.js~SelectedDimensionsStoreFactory.html#instance-method-removeChangeListener",
+    "js/components/saiku/query_designer/stores/SelectedDimensionsStore.js~SelectedDimensionsStoreFactory#removeChangeListener",
+    "method"
+  ],
+  [
+    "js/components/saiku/query_designer/stores/selecteddimensionsstore.js~selecteddimensionsstorefactory#select",
+    "class/js/components/saiku/query_designer/stores/SelectedDimensionsStore.js~SelectedDimensionsStoreFactory.html#instance-method-select",
+    "js/components/saiku/query_designer/stores/SelectedDimensionsStore.js~SelectedDimensionsStoreFactory#select",
+    "method"
+  ],
+  [
+    "js/components/saiku/query_designer/stores/selecteddimensionsstore.js~selecteddimensionsstorefactory#selecteddimensions",
+    "class/js/components/saiku/query_designer/stores/SelectedDimensionsStore.js~SelectedDimensionsStoreFactory.html#instance-member-selectedDimensions",
+    "js/components/saiku/query_designer/stores/SelectedDimensionsStore.js~SelectedDimensionsStoreFactory#selectedDimensions",
+    "member"
+  ],
+  [
+    "js/components/saiku/query_designer/stores/selectedmeasuresstore.js",
+    "file/js/components/saiku/query_designer/stores/SelectedMeasuresStore.js.html",
+    "js/components/saiku/query_designer/stores/SelectedMeasuresStore.js",
+    "file"
+  ],
+  [
+    "js/components/saiku/query_designer/stores/selectedmeasuresstore.js~selectedmeasuresstorefactory#actiondispatcher",
+    "class/js/components/saiku/query_designer/stores/SelectedMeasuresStore.js~SelectedMeasuresStoreFactory.html#instance-member-actionDispatcher",
+    "js/components/saiku/query_designer/stores/SelectedMeasuresStore.js~SelectedMeasuresStoreFactory#actionDispatcher",
+    "member"
+  ],
+  [
+    "js/components/saiku/query_designer/stores/selectedmeasuresstore.js~selectedmeasuresstorefactory#addchangelistener",
+    "class/js/components/saiku/query_designer/stores/SelectedMeasuresStore.js~SelectedMeasuresStoreFactory.html#instance-method-addChangeListener",
+    "js/components/saiku/query_designer/stores/SelectedMeasuresStore.js~SelectedMeasuresStoreFactory#addChangeListener",
+    "method"
+  ],
+  [
+    "js/components/saiku/query_designer/stores/selectedmeasuresstore.js~selectedmeasuresstorefactory#constructor",
+    "class/js/components/saiku/query_designer/stores/SelectedMeasuresStore.js~SelectedMeasuresStoreFactory.html#instance-constructor-constructor",
+    "js/components/saiku/query_designer/stores/SelectedMeasuresStore.js~SelectedMeasuresStoreFactory#constructor",
+    "method"
+  ],
+  [
+    "js/components/saiku/query_designer/stores/selectedmeasuresstore.js~selectedmeasuresstorefactory#deselect",
+    "class/js/components/saiku/query_designer/stores/SelectedMeasuresStore.js~SelectedMeasuresStoreFactory.html#instance-method-deselect",
+    "js/components/saiku/query_designer/stores/SelectedMeasuresStore.js~SelectedMeasuresStoreFactory#deselect",
+    "method"
+  ],
+  [
+    "js/components/saiku/query_designer/stores/selectedmeasuresstore.js~selectedmeasuresstorefactory#emitchange",
+    "class/js/components/saiku/query_designer/stores/SelectedMeasuresStore.js~SelectedMeasuresStoreFactory.html#instance-method-emitChange",
+    "js/components/saiku/query_designer/stores/SelectedMeasuresStore.js~SelectedMeasuresStoreFactory#emitChange",
+    "method"
+  ],
+  [
+    "js/components/saiku/query_designer/stores/selectedmeasuresstore.js~selectedmeasuresstorefactory#getselectedmeasures",
+    "class/js/components/saiku/query_designer/stores/SelectedMeasuresStore.js~SelectedMeasuresStoreFactory.html#instance-method-getSelectedMeasures",
+    "js/components/saiku/query_designer/stores/SelectedMeasuresStore.js~SelectedMeasuresStoreFactory#getSelectedMeasures",
+    "method"
+  ],
+  [
+    "js/components/saiku/query_designer/stores/selectedmeasuresstore.js~selectedmeasuresstorefactory#isselected",
+    "class/js/components/saiku/query_designer/stores/SelectedMeasuresStore.js~SelectedMeasuresStoreFactory.html#instance-method-isSelected",
+    "js/components/saiku/query_designer/stores/SelectedMeasuresStore.js~SelectedMeasuresStoreFactory#isSelected",
+    "method"
+  ],
+  [
+    "js/components/saiku/query_designer/stores/selectedmeasuresstore.js~selectedmeasuresstorefactory#removechangelistener",
+    "class/js/components/saiku/query_designer/stores/SelectedMeasuresStore.js~SelectedMeasuresStoreFactory.html#instance-method-removeChangeListener",
+    "js/components/saiku/query_designer/stores/SelectedMeasuresStore.js~SelectedMeasuresStoreFactory#removeChangeListener",
+    "method"
+  ],
+  [
+    "js/components/saiku/query_designer/stores/selectedmeasuresstore.js~selectedmeasuresstorefactory#select",
+    "class/js/components/saiku/query_designer/stores/SelectedMeasuresStore.js~SelectedMeasuresStoreFactory.html#instance-method-select",
+    "js/components/saiku/query_designer/stores/SelectedMeasuresStore.js~SelectedMeasuresStoreFactory#select",
+    "method"
+  ],
+  [
+    "js/components/saiku/query_designer/stores/selectedmeasuresstore.js~selectedmeasuresstorefactory#selectedmeasures",
+    "class/js/components/saiku/query_designer/stores/SelectedMeasuresStore.js~SelectedMeasuresStoreFactory.html#instance-member-selectedMeasures",
+    "js/components/saiku/query_designer/stores/SelectedMeasuresStore.js~SelectedMeasuresStoreFactory#selectedMeasures",
+    "member"
+  ],
+  [
+    "js/models/cubemodel.js",
+    "file/js/models/CubeModel.js.html",
+    "js/models/CubeModel.js",
+    "file"
+  ],
+  [
+    "js/models/cubemodel.js~cubemodel#getcubes",
+    "class/js/models/CubeModel.js~CubeModel.html#instance-method-getCubes",
+    "js/models/CubeModel.js~CubeModel#getCubes",
     "method"
   ],
   [
