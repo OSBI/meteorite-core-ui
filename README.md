@@ -73,6 +73,7 @@ In order to run it locally you'll need a basic server setup.
 
 - `gulp`: Initialize stylus and watch for changes;
 - `gulp bower-install`: Move dependencies to folder `dist/assets/`;
+- `gulp deploy-pages`: Deploy documentation files to `github` on branch gh-pages;
 - `gulp stylus`: Compile stylus files;
 - `gulp watch`: Call for watch files.
 

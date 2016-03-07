@@ -16,29 +16,13 @@
 
 'use strict';
 
-module.exports = {
-  source: {
-    bowerDir: './bower_components',
-    react: ['./src/js/saiku/**/*.js', './src/js/saiku/**/*.jsx'],
-    styl: {
-      all: './src/styl/**/*',
-      folder: './src/styl/'
-    },
-    files: {
-      styl: './src/styl/saiku.styl',
-      css: './dist/saiku/saiku.css',
-    }
-  },
+// Necessary plugins
+var gulp    = require('gulp');
+var ghPages = require('gulp-gh-pages');
+var paths   = require('../paths');
 
-  build: {
-    app: './dist/saiku',
-    css: './dist/assets/css',
-    fonts: './dist/assets/fonts',
-    img: './dist/assets/img',
-    js: './dist/assets/js'
-  },
-
-  deploy: {
-    pages: './docs/**/*'
-  }
-};
+// Deploy to GitHub
+module.exports = gulp.task('deploy-pages', function() {
+  return gulp.src(paths.deploy.pages)
+    .pipe(ghPages());
+});
