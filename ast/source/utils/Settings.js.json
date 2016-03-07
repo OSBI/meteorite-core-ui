@@ -1,0 +1,830 @@
+{
+  "type": "Program",
+  "body": [
+    {
+      "type": "Identifier",
+      "declarations": [
+        {
+          "type": "VariableDeclarator",
+          "id": {
+            "type": "Identifier",
+            "name": "Settings",
+            "range": [
+              619,
+              627
+            ],
+            "loc": {
+              "start": {
+                "line": 17,
+                "column": 6
+              },
+              "end": {
+                "line": 17,
+                "column": 14
+              }
+            }
+          },
+          "init": {
+            "type": "ObjectExpression",
+            "properties": [
+              {
+                "type": "Property",
+                "key": {
+                  "type": "Identifier",
+                  "name": "KARAF_WEBAPP",
+                  "range": [
+                    634,
+                    646
+                  ],
+                  "loc": {
+                    "start": {
+                      "line": 18,
+                      "column": 2
+                    },
+                    "end": {
+                      "line": 18,
+                      "column": 14
+                    }
+                  }
+                },
+                "value": {
+                  "type": "Literal",
+                  "value": "/cxf",
+                  "raw": "'/cxf'",
+                  "range": [
+                    648,
+                    654
+                  ],
+                  "loc": {
+                    "start": {
+                      "line": 18,
+                      "column": 16
+                    },
+                    "end": {
+                      "line": 18,
+                      "column": 22
+                    }
+                  }
+                },
+                "kind": "init",
+                "method": false,
+                "shorthand": false,
+                "computed": false,
+                "range": [
+                  634,
+                  654
+                ],
+                "loc": {
+                  "start": {
+                    "line": 18,
+                    "column": 2
+                  },
+                  "end": {
+                    "line": 18,
+                    "column": 22
+                  }
+                }
+              },
+              {
+                "type": "Property",
+                "key": {
+                  "type": "Identifier",
+                  "name": "REST_MOUNT_POINT",
+                  "range": [
+                    658,
+                    674
+                  ],
+                  "loc": {
+                    "start": {
+                      "line": 19,
+                      "column": 2
+                    },
+                    "end": {
+                      "line": 19,
+                      "column": 18
+                    }
+                  }
+                },
+                "value": {
+                  "type": "Literal",
+                  "value": "/rest/core/",
+                  "raw": "'/rest/core/'",
+                  "range": [
+                    676,
+                    689
+                  ],
+                  "loc": {
+                    "start": {
+                      "line": 19,
+                      "column": 20
+                    },
+                    "end": {
+                      "line": 19,
+                      "column": 33
+                    }
+                  }
+                },
+                "kind": "init",
+                "method": false,
+                "shorthand": false,
+                "computed": false,
+                "range": [
+                  658,
+                  689
+                ],
+                "loc": {
+                  "start": {
+                    "line": 19,
+                    "column": 2
+                  },
+                  "end": {
+                    "line": 19,
+                    "column": 33
+                  }
+                }
+              },
+              {
+                "type": "Property",
+                "key": {
+                  "type": "Identifier",
+                  "name": "ERROR_TOLERANCE",
+                  "range": [
+                    693,
+                    708
+                  ],
+                  "loc": {
+                    "start": {
+                      "line": 20,
+                      "column": 2
+                    },
+                    "end": {
+                      "line": 20,
+                      "column": 17
+                    }
+                  }
+                },
+                "value": {
+                  "type": "Literal",
+                  "value": 3,
+                  "raw": "3",
+                  "range": [
+                    710,
+                    711
+                  ],
+                  "loc": {
+                    "start": {
+                      "line": 20,
+                      "column": 19
+                    },
+                    "end": {
+                      "line": 20,
+                      "column": 20
+                    }
+                  }
+                },
+                "kind": "init",
+                "method": false,
+                "shorthand": false,
+                "computed": false,
+                "range": [
+                  693,
+                  711
+                ],
+                "loc": {
+                  "start": {
+                    "line": 20,
+                    "column": 2
+                  },
+                  "end": {
+                    "line": 20,
+                    "column": 20
+                  }
+                }
+              }
+            ],
+            "range": [
+              630,
+              713
+            ],
+            "loc": {
+              "start": {
+                "line": 17,
+                "column": 17
+              },
+              "end": {
+                "line": 21,
+                "column": 1
+              }
+            }
+          },
+          "range": [
+            619,
+            713
+          ],
+          "loc": {
+            "start": {
+              "line": 17,
+              "column": 6
+            },
+            "end": {
+              "line": 21,
+              "column": 1
+            }
+          }
+        }
+      ],
+      "kind": "const",
+      "range": [
+        613,
+        714
+      ],
+      "loc": {
+        "start": {
+          "line": 17,
+          "column": 0
+        },
+        "end": {
+          "line": 21,
+          "column": 2
+        }
+      },
+      "leadingComments": [],
+      "name": "_",
+      "trailingComments": []
+    },
+    {
+      "type": "ExpressionStatement",
+      "expression": {
+        "type": "AssignmentExpression",
+        "operator": "=",
+        "left": {
+          "type": "MemberExpression",
+          "computed": false,
+          "object": {
+            "type": "Identifier",
+            "name": "Settings",
+            "range": [
+              716,
+              724
+            ],
+            "loc": {
+              "start": {
+                "line": 23,
+                "column": 0
+              },
+              "end": {
+                "line": 23,
+                "column": 8
+              }
+            }
+          },
+          "property": {
+            "type": "Identifier",
+            "name": "REST_URL",
+            "range": [
+              725,
+              733
+            ],
+            "loc": {
+              "start": {
+                "line": 23,
+                "column": 9
+              },
+              "end": {
+                "line": 23,
+                "column": 17
+              }
+            }
+          },
+          "range": [
+            716,
+            733
+          ],
+          "loc": {
+            "start": {
+              "line": 23,
+              "column": 0
+            },
+            "end": {
+              "line": 23,
+              "column": 17
+            }
+          }
+        },
+        "right": {
+          "type": "BinaryExpression",
+          "operator": "+",
+          "left": {
+            "type": "MemberExpression",
+            "computed": false,
+            "object": {
+              "type": "Identifier",
+              "name": "Settings",
+              "range": [
+                736,
+                744
+              ],
+              "loc": {
+                "start": {
+                  "line": 23,
+                  "column": 20
+                },
+                "end": {
+                  "line": 23,
+                  "column": 28
+                }
+              }
+            },
+            "property": {
+              "type": "Identifier",
+              "name": "KARAF_WEBAPP",
+              "range": [
+                745,
+                757
+              ],
+              "loc": {
+                "start": {
+                  "line": 23,
+                  "column": 29
+                },
+                "end": {
+                  "line": 23,
+                  "column": 41
+                }
+              }
+            },
+            "range": [
+              736,
+              757
+            ],
+            "loc": {
+              "start": {
+                "line": 23,
+                "column": 20
+              },
+              "end": {
+                "line": 23,
+                "column": 41
+              }
+            }
+          },
+          "right": {
+            "type": "MemberExpression",
+            "computed": false,
+            "object": {
+              "type": "Identifier",
+              "name": "Settings",
+              "range": [
+                760,
+                768
+              ],
+              "loc": {
+                "start": {
+                  "line": 23,
+                  "column": 44
+                },
+                "end": {
+                  "line": 23,
+                  "column": 52
+                }
+              }
+            },
+            "property": {
+              "type": "Identifier",
+              "name": "REST_MOUNT_POINT",
+              "range": [
+                769,
+                785
+              ],
+              "loc": {
+                "start": {
+                  "line": 23,
+                  "column": 53
+                },
+                "end": {
+                  "line": 23,
+                  "column": 69
+                }
+              }
+            },
+            "range": [
+              760,
+              785
+            ],
+            "loc": {
+              "start": {
+                "line": 23,
+                "column": 44
+              },
+              "end": {
+                "line": 23,
+                "column": 69
+              }
+            }
+          },
+          "range": [
+            736,
+            785
+          ],
+          "loc": {
+            "start": {
+              "line": 23,
+              "column": 20
+            },
+            "end": {
+              "line": 23,
+              "column": 69
+            }
+          }
+        },
+        "range": [
+          716,
+          785
+        ],
+        "loc": {
+          "start": {
+            "line": 23,
+            "column": 0
+          },
+          "end": {
+            "line": 23,
+            "column": 69
+          }
+        }
+      },
+      "range": [
+        716,
+        786
+      ],
+      "loc": {
+        "start": {
+          "line": 23,
+          "column": 0
+        },
+        "end": {
+          "line": 23,
+          "column": 70
+        }
+      }
+    },
+    {
+      "type": "Identifier",
+      "declaration": {
+        "type": "Identifier",
+        "name": "Settings",
+        "range": [
+          803,
+          811
+        ],
+        "loc": {
+          "start": {
+            "line": 25,
+            "column": 15
+          },
+          "end": {
+            "line": 25,
+            "column": 23
+          }
+        }
+      },
+      "range": [
+        788,
+        812
+      ],
+      "loc": {
+        "start": {
+          "line": 25,
+          "column": 0
+        },
+        "end": {
+          "line": 25,
+          "column": 24
+        }
+      },
+      "name": "_",
+      "leadingComments": [],
+      "trailingComments": []
+    },
+    {
+      "type": "ExportDefaultDeclaration",
+      "declaration": {
+        "type": "VariableDeclaration",
+        "declarations": [
+          {
+            "type": "VariableDeclarator",
+            "id": {
+              "type": "Identifier",
+              "name": "Settings",
+              "range": [
+                619,
+                627
+              ],
+              "loc": {
+                "start": {
+                  "line": 17,
+                  "column": 6
+                },
+                "end": {
+                  "line": 17,
+                  "column": 14
+                }
+              }
+            },
+            "init": {
+              "type": "ObjectExpression",
+              "properties": [
+                {
+                  "type": "Property",
+                  "key": {
+                    "type": "Identifier",
+                    "name": "KARAF_WEBAPP",
+                    "range": [
+                      634,
+                      646
+                    ],
+                    "loc": {
+                      "start": {
+                        "line": 18,
+                        "column": 2
+                      },
+                      "end": {
+                        "line": 18,
+                        "column": 14
+                      }
+                    }
+                  },
+                  "value": {
+                    "type": "Literal",
+                    "value": "/cxf",
+                    "raw": "'/cxf'",
+                    "range": [
+                      648,
+                      654
+                    ],
+                    "loc": {
+                      "start": {
+                        "line": 18,
+                        "column": 16
+                      },
+                      "end": {
+                        "line": 18,
+                        "column": 22
+                      }
+                    }
+                  },
+                  "kind": "init",
+                  "method": false,
+                  "shorthand": false,
+                  "computed": false,
+                  "range": [
+                    634,
+                    654
+                  ],
+                  "loc": {
+                    "start": {
+                      "line": 18,
+                      "column": 2
+                    },
+                    "end": {
+                      "line": 18,
+                      "column": 22
+                    }
+                  }
+                },
+                {
+                  "type": "Property",
+                  "key": {
+                    "type": "Identifier",
+                    "name": "REST_MOUNT_POINT",
+                    "range": [
+                      658,
+                      674
+                    ],
+                    "loc": {
+                      "start": {
+                        "line": 19,
+                        "column": 2
+                      },
+                      "end": {
+                        "line": 19,
+                        "column": 18
+                      }
+                    }
+                  },
+                  "value": {
+                    "type": "Literal",
+                    "value": "/rest/core/",
+                    "raw": "'/rest/core/'",
+                    "range": [
+                      676,
+                      689
+                    ],
+                    "loc": {
+                      "start": {
+                        "line": 19,
+                        "column": 20
+                      },
+                      "end": {
+                        "line": 19,
+                        "column": 33
+                      }
+                    }
+                  },
+                  "kind": "init",
+                  "method": false,
+                  "shorthand": false,
+                  "computed": false,
+                  "range": [
+                    658,
+                    689
+                  ],
+                  "loc": {
+                    "start": {
+                      "line": 19,
+                      "column": 2
+                    },
+                    "end": {
+                      "line": 19,
+                      "column": 33
+                    }
+                  }
+                },
+                {
+                  "type": "Property",
+                  "key": {
+                    "type": "Identifier",
+                    "name": "ERROR_TOLERANCE",
+                    "range": [
+                      693,
+                      708
+                    ],
+                    "loc": {
+                      "start": {
+                        "line": 20,
+                        "column": 2
+                      },
+                      "end": {
+                        "line": 20,
+                        "column": 17
+                      }
+                    }
+                  },
+                  "value": {
+                    "type": "Literal",
+                    "value": 3,
+                    "raw": "3",
+                    "range": [
+                      710,
+                      711
+                    ],
+                    "loc": {
+                      "start": {
+                        "line": 20,
+                        "column": 19
+                      },
+                      "end": {
+                        "line": 20,
+                        "column": 20
+                      }
+                    }
+                  },
+                  "kind": "init",
+                  "method": false,
+                  "shorthand": false,
+                  "computed": false,
+                  "range": [
+                    693,
+                    711
+                  ],
+                  "loc": {
+                    "start": {
+                      "line": 20,
+                      "column": 2
+                    },
+                    "end": {
+                      "line": 20,
+                      "column": 20
+                    }
+                  }
+                }
+              ],
+              "range": [
+                630,
+                713
+              ],
+              "loc": {
+                "start": {
+                  "line": 17,
+                  "column": 17
+                },
+                "end": {
+                  "line": 21,
+                  "column": 1
+                }
+              }
+            },
+            "range": [
+              619,
+              713
+            ],
+            "loc": {
+              "start": {
+                "line": 17,
+                "column": 6
+              },
+              "end": {
+                "line": 21,
+                "column": 1
+              }
+            }
+          }
+        ],
+        "kind": "const",
+        "range": [
+          613,
+          714
+        ],
+        "loc": {
+          "start": {
+            "line": 17,
+            "column": 0
+          },
+          "end": {
+            "line": 21,
+            "column": 2
+          }
+        },
+        "leadingComments": [
+          {
+            "type": "Block",
+            "value": "\n *   Copyright 2016 OSBI Ltd\n *\n *   Licensed under the Apache License, Version 2.0 (the \"License\");\n *   you may not use this file except in compliance with the License.\n *   You may obtain a copy of the License at\n *\n *       http://www.apache.org/licenses/LICENSE-2.0\n *\n *   Unless required by applicable law or agreed to in writing, software\n *   distributed under the License is distributed on an \"AS IS\" BASIS,\n *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n *   See the License for the specific language governing permissions and\n *   limitations under the License.\n ",
+            "range": [
+              0,
+              611
+            ],
+            "loc": {
+              "start": {
+                "line": 1,
+                "column": 0
+              },
+              "end": {
+                "line": 15,
+                "column": 3
+              }
+            }
+          }
+        ],
+        "trailingComments": []
+      },
+      "range": [
+        788,
+        812
+      ],
+      "loc": {
+        "start": {
+          "line": 25,
+          "column": 0
+        },
+        "end": {
+          "line": 25,
+          "column": 24
+        }
+      }
+    }
+  ],
+  "sourceType": "module",
+  "range": [
+    613,
+    812
+  ],
+  "loc": {
+    "start": {
+      "line": 17,
+      "column": 0
+    },
+    "end": {
+      "line": 25,
+      "column": 24
+    }
+  },
+  "comments": [
+    {
+      "type": "Block",
+      "value": "\n *   Copyright 2016 OSBI Ltd\n *\n *   Licensed under the Apache License, Version 2.0 (the \"License\");\n *   you may not use this file except in compliance with the License.\n *   You may obtain a copy of the License at\n *\n *       http://www.apache.org/licenses/LICENSE-2.0\n *\n *   Unless required by applicable law or agreed to in writing, software\n *   distributed under the License is distributed on an \"AS IS\" BASIS,\n *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n *   See the License for the specific language governing permissions and\n *   limitations under the License.\n ",
+      "range": [
+        0,
+        611
+      ],
+      "loc": {
+        "start": {
+          "line": 1,
+          "column": 0
+        },
+        "end": {
+          "line": 15,
+          "column": 3
+        }
+      }
+    }
+  ]
+}

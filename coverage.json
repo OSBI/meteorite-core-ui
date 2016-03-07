@@ -1,0 +1,317 @@
+{
+  "coverage": "9.92%",
+  "expectCount": 131,
+  "actualCount": 13,
+  "files": {
+    "js/utils/Base64.js": {
+      "expectCount": 1,
+      "actualCount": 0,
+      "undocumentLines": [
+        17
+      ]
+    },
+    "js/components/bootstrap/Clearfix.jsx": {
+      "expectCount": 2,
+      "actualCount": 0,
+      "undocumentLines": [
+        20,
+        21
+      ]
+    },
+    "js/components/saiku/Content.jsx": {
+      "expectCount": 2,
+      "actualCount": 0,
+      "undocumentLines": [
+        20,
+        21
+      ]
+    },
+    "js/models/CubeModel.js": {
+      "expectCount": 2,
+      "actualCount": 0,
+      "undocumentLines": [
+        19,
+        20
+      ]
+    },
+    "js/components/saiku/query_designer/components/CubeSelector.jsx": {
+      "expectCount": 6,
+      "actualCount": 5,
+      "undocumentLines": [
+        43
+      ]
+    },
+    "js/collections/CubesCollection.js": {
+      "expectCount": 4,
+      "actualCount": 0,
+      "undocumentLines": [
+        20,
+        21,
+        24,
+        27
+      ]
+    },
+    "js/components/saiku/query_designer/stores/CubesStore.js": {
+      "expectCount": 8,
+      "actualCount": 0,
+      "undocumentLines": [
+        59,
+        21,
+        48,
+        22,
+        27,
+        44,
+        40,
+        52
+      ]
+    },
+    "js/components/bootstrap/FormGroup.jsx": {
+      "expectCount": 2,
+      "actualCount": 0,
+      "undocumentLines": [
+        20,
+        21
+      ]
+    },
+    "js/components/saiku/Icon.jsx": {
+      "expectCount": 2,
+      "actualCount": 0,
+      "undocumentLines": [
+        20,
+        21
+      ]
+    },
+    "js/components/saiku/MenuBar.jsx": {
+      "expectCount": 7,
+      "actualCount": 0,
+      "undocumentLines": [
+        35,
+        49,
+        36,
+        61,
+        104,
+        66,
+        39
+      ]
+    },
+    "js/collections/MenubarCollection.js": {
+      "expectCount": 4,
+      "actualCount": 0,
+      "undocumentLines": [
+        20,
+        21,
+        24,
+        27
+      ]
+    },
+    "js/models/MenubarModel.js": {
+      "expectCount": 2,
+      "actualCount": 0,
+      "undocumentLines": [
+        19,
+        20
+      ]
+    },
+    "js/components/saiku/NotFound.jsx": {
+      "expectCount": 2,
+      "actualCount": 0,
+      "undocumentLines": [
+        19,
+        20
+      ]
+    },
+    "js/components/saiku/Portlet.jsx": {
+      "expectCount": 2,
+      "actualCount": 0,
+      "undocumentLines": [
+        21,
+        22
+      ]
+    },
+    "js/components/saiku/query_designer/components/ReportPreview.jsx": {
+      "expectCount": 6,
+      "actualCount": 3,
+      "undocumentLines": [
+        31,
+        81,
+        34
+      ]
+    },
+    "js/components/saiku/query_designer/stores/SelectedDimensionsStore.js": {
+      "expectCount": 12,
+      "actualCount": 0,
+      "undocumentLines": [
+        76,
+        23,
+        29,
+        47,
+        24,
+        60,
+        43,
+        39,
+        35,
+        51,
+        55,
+        28
+      ]
+    },
+    "js/components/saiku/query_designer/stores/SelectedMeasuresStore.js": {
+      "expectCount": 12,
+      "actualCount": 0,
+      "undocumentLines": [
+        76,
+        23,
+        29,
+        47,
+        24,
+        60,
+        43,
+        39,
+        35,
+        51,
+        55,
+        28
+      ]
+    },
+    "js/models/Session.js": {
+      "expectCount": 5,
+      "actualCount": 0,
+      "undocumentLines": [
+        19,
+        59,
+        24,
+        63,
+        20
+      ]
+    },
+    "js/utils/Settings.js": {
+      "expectCount": 1,
+      "actualCount": 0,
+      "undocumentLines": [
+        17
+      ]
+    },
+    "js/collections/SidebarCollection.js": {
+      "expectCount": 4,
+      "actualCount": 0,
+      "undocumentLines": [
+        20,
+        21,
+        24,
+        27
+      ]
+    },
+    "js/models/SidebarModel.js": {
+      "expectCount": 2,
+      "actualCount": 0,
+      "undocumentLines": [
+        19,
+        20
+      ]
+    },
+    "js/components/saiku/SidebarOlap.jsx": {
+      "expectCount": 2,
+      "actualCount": 0,
+      "undocumentLines": [
+        23,
+        24
+      ]
+    },
+    "js/components/saiku/SidebarReporting.jsx": {
+      "expectCount": 4,
+      "actualCount": 0,
+      "undocumentLines": [
+        29,
+        73,
+        57,
+        30
+      ]
+    },
+    "js/components/saiku/Tab.jsx": {
+      "expectCount": 2,
+      "actualCount": 1,
+      "undocumentLines": [
+        28
+      ]
+    },
+    "js/components/saiku/Tabs.jsx": {
+      "expectCount": 9,
+      "actualCount": 4,
+      "undocumentLines": [
+        32,
+        35,
+        55,
+        37,
+        36
+      ]
+    },
+    "js/components/saiku/Toolbar.jsx": {
+      "expectCount": 5,
+      "actualCount": 0,
+      "undocumentLines": [
+        32,
+        45,
+        33,
+        79,
+        36
+      ]
+    },
+    "js/components/saiku/Sidebar.jsx": {
+      "expectCount": 5,
+      "actualCount": 0,
+      "undocumentLines": [
+        24,
+        37,
+        25,
+        62,
+        28
+      ]
+    },
+    "js/collections/ToolbarCollection.js": {
+      "expectCount": 4,
+      "actualCount": 0,
+      "undocumentLines": [
+        20,
+        21,
+        24,
+        27
+      ]
+    },
+    "js/models/ToolbarModel.js": {
+      "expectCount": 2,
+      "actualCount": 0,
+      "undocumentLines": [
+        19,
+        20
+      ]
+    },
+    "js/components/saiku/ToolbarReporting.jsx": {
+      "expectCount": 2,
+      "actualCount": 0,
+      "undocumentLines": [
+        24,
+        25
+      ]
+    },
+    "js/components/saiku/Workspace.jsx": {
+      "expectCount": 6,
+      "actualCount": 0,
+      "undocumentLines": [
+        40,
+        41,
+        135,
+        53,
+        66,
+        44
+      ]
+    },
+    "js/components/saiku/Wrapper.jsx": {
+      "expectCount": 2,
+      "actualCount": 0,
+      "undocumentLines": [
+        20,
+        21
+      ]
+    }
+  }
+}
