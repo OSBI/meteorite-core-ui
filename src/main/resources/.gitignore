@@ -392,3 +392,6 @@ FakesAssemblies/
 
 # Bower
 bower_components/
+
+# gulp-gh-pages
+.publish/

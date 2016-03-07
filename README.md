@@ -1,5 +1,20 @@
 # Meteorite Core UI [![Build Status](https://travis-ci.org/OSBI/meteorite-core-ui.svg?branch=master)](https://travis-ci.org/OSBI/meteorite-core-ui)
 
+## Table of Contents
+
+1. [Setup](#setup)
+  - [Build Instructions](#build-instructions)
+  - [Run UI on Node.js](#run-ui-on-nodejs)
+2. [Documentation](#documentation)
+3. [Usage](#usage)
+4. [Tasks](#tasks)
+5. [Support](#support)
+  - [Browser](#browser)
+  - [Server](#server)
+6. [Contributing](#contributing)
+7. [History](#history)
+8. [License](#license)
+
 ## Setup
 
 ### Build Instructions
@@ -60,6 +75,10 @@ In order to run it locally you'll need a basic server setup.
   $ npm test
   ```
 
+## Documentation
+
+Documentation [Meteorite Core UI](http://osbi.github.io/meteorite-core-ui/).
+
 ## Usage
 
 - Run `npm run build` to build the project;
@@ -105,3 +124,5 @@ For detailed changelog, see [Releases](https://github.com/OSBI/meteorite-core-ui
 
 Saiku and the Saiku UI are free software. The UI, contained in this repository,
 is available under the terms of the Apache License Version 2. A copy is attached for your convenience.
+
+**[⬆ back to top](#table-of-contents)**
