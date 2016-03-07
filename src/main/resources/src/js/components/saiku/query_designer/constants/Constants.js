@@ -14,7 +14,8 @@
  *   limitations under the License.
  */
 
-import keyMirror from 'keyMirror';
+// Create an object with values equal to its key names.
+import keyMirror from 'keymirror';
 
 /**
  * The react-dnd module requires each draggable component to be associated to a

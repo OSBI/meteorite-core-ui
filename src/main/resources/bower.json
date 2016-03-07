@@ -1,8 +1,8 @@
 {
-  "name": "saiku-ui",
+  "name": "meteorite-core-ui",
   "description": "A user interface for the Saiku analytical tool",
   "homepage": "http://www.meteorite.bi/saiku",
-  "version": "0.3.0",
+  "version": "0.6.0",
   "author": "Meteorite BI",
   "license": "Apache License Version 2",
   "ignore": [
