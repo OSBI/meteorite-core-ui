@@ -28,6 +28,10 @@ import NotFound from './components/saiku/NotFound';
 import '../../index.html';
 import '../../dist/saiku/saiku.css';
 
+/**
+ * React router component allows you to define routes in React application.
+ * See: {@link https://github.com/reactjs/react-router}
+ */
 var routes = (
   <Router history={createHistory()}>
     <Route path="/" component={Login} />
@@ -38,4 +42,5 @@ var routes = (
   </Router>
 );
 
+// The primary API for rendering into the DOM.
 ReactDOM.render(routes, document.querySelector('#app'));
