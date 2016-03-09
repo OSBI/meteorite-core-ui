@@ -933,6 +933,13 @@ textarea.form-control {
   .content-page {
     margin-left: 0 !important;
   }
+  .navbar-nav .open .dropdown-menu {
+    position: absolute;
+    right: 0;
+    left: auto;
+    background: #fff;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
+  }
 }
 @media (max-width: 480px) {
   .side-menu {

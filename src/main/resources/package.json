@@ -30,7 +30,7 @@
   "scripts": {
     "build": "WEBPACK_ENV=build ./node_modules/.bin/webpack",
     "dev": "WEBPACK_ENV=dev ./node_modules/.bin/webpack --watch --inline",
-    "docs": "esdoc -c esdoc.json",
+    "docs": "esdoc -c esdoc.json && gulp deploy-pages",
     "server": "node server.js",
     "test": "karma start",
     "test:ci": "karma start karma-ci.conf.js"
