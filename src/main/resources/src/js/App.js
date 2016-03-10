@@ -30,7 +30,7 @@ import '../../dist/saiku/saiku.css';
 
 /**
  * React router component allows you to define routes in React application.
- * See: {@link https://github.com/reactjs/react-router}
+ * @see https://github.com/reactjs/react-router
  */
 var routes = (
   <Router history={createHistory()}>

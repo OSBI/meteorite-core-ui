@@ -31,6 +31,12 @@ import FormGroup from '../bootstrap/FormGroup';
 import Clearfix from '../bootstrap/Clearfix';
 import Wrapper from './Wrapper';
 
+/**
+ * Class Login
+ *
+ * @class Login
+ * @extends React.Component
+ */
 class Login extends React.Component {
   constructor(props) {
     super(props);
@@ -44,6 +50,12 @@ class Login extends React.Component {
     this.session = new Session();
   }
 
+  /**
+   * Method that defines the data to validate your schema.
+   *
+   * @method getValidatorData
+   * @return {Object} An object with username and password 
+   */
   getValidatorData() {
     return {
       username: this.refs.username.getValue(),
@@ -51,16 +63,38 @@ class Login extends React.Component {
     };
   }
 
+  /**
+   * Helper method that show a message.
+   *
+   * @method renderHelpText
+   * @param  {String} message - Text to be displayed on span tag
+   * @return {HTMLElement}      A block of help text that breaks
+   *                            into a new line
+   */
   renderHelpText(message) {
     return (
       <span className="help-block">{message}</span>
     );
   }
 
+  /**
+   * Method for get the field name the HTML element.
+   *
+   * @method getClasses
+   * @param  {String} field - Field name the HTML element
+   * @return {String}         Validation states
+   */
   getClasses(field) {
     return !this.props.isValid(field) ? 'has-error' : '';
   }
 
+  /**
+   * Method called when the Login button is pressed.
+   *
+   * @method onSubmitLogin
+   * @param  {Object} event - The Event interface represents any
+   *                          event of the DOM
+   */
   onSubmitLogin(event) {
     event.preventDefault();
 
@@ -75,7 +109,6 @@ class Login extends React.Component {
     };
 
     this.props.validate(onValidate);
-    // this.refs.loginForm.reset();
   }
 
   render() {
@@ -180,6 +213,10 @@ class Login extends React.Component {
   }
 }
 
+/**
+ * Wrapped components will receive the following props
+ * that serve as the API when validating.
+ */
 Login.propTypes = {
   errors: React.PropTypes.object,
   validate: React.PropTypes.func,
@@ -191,4 +228,5 @@ Login.propTypes = {
 
 reactMixin.onClass(Login, History);
 
+// Wrapped component with the validation mixin and supporting strategy.
 export default validation(strategy)(Login);
