@@ -10,31 +10,31 @@
             "type": "Identifier",
             "name": "keyMirror",
             "range": [
-              620,
-              629
+              676,
+              685
             ],
             "loc": {
               "start": {
-                "line": 17,
+                "line": 18,
                 "column": 7
               },
               "end": {
-                "line": 17,
+                "line": 18,
                 "column": 16
               }
             }
           },
           "range": [
-            620,
-            629
+            676,
+            685
           ],
           "loc": {
             "start": {
-              "line": 17,
+              "line": 18,
               "column": 7
             },
             "end": {
-              "line": 17,
+              "line": 18,
               "column": 16
             }
           }
@@ -42,34 +42,34 @@
       ],
       "source": {
         "type": "Literal",
-        "value": "keyMirror",
-        "raw": "'keyMirror'",
+        "value": "keymirror",
+        "raw": "'keymirror'",
         "range": [
-          635,
-          646
+          691,
+          702
         ],
         "loc": {
           "start": {
-            "line": 17,
+            "line": 18,
             "column": 22
           },
           "end": {
-            "line": 17,
+            "line": 18,
             "column": 33
           }
         }
       },
       "range": [
-        613,
-        647
+        669,
+        703
       ],
       "loc": {
         "start": {
-          "line": 17,
+          "line": 18,
           "column": 0
         },
         "end": {
-          "line": 17,
+          "line": 18,
           "column": 34
         }
       },
@@ -91,6 +91,24 @@
               "column": 3
             }
           }
+        },
+        {
+          "type": "Line",
+          "value": " Create an object with values equal to its key names.",
+          "range": [
+            613,
+            668
+          ],
+          "loc": {
+            "start": {
+              "line": 17,
+              "column": 0
+            },
+            "end": {
+              "line": 17,
+              "column": 55
+            }
+          }
         }
       ],
       "trailingComments": [
@@ -98,16 +116,16 @@
           "type": "Block",
           "value": "*\n * The react-dnd module requires each draggable component to be associated to a\n * string that should match with the drop area type string. This object contains\n * the drag and drop type strings used by Query Designer components.\n ",
           "range": [
-            649,
-            886
+            705,
+            942
           ],
           "loc": {
             "start": {
-              "line": 19,
+              "line": 20,
               "column": 0
             },
             "end": {
-              "line": 23,
+              "line": 24,
               "column": 3
             }
           }
@@ -126,16 +144,16 @@
             "type": "Identifier",
             "name": "exports",
             "range": [
-              887,
-              894
+              943,
+              950
             ],
             "loc": {
               "start": {
-                "line": 24,
+                "line": 25,
                 "column": 0
               },
               "end": {
-                "line": 24,
+                "line": 25,
                 "column": 7
               }
             }
@@ -144,31 +162,31 @@
             "type": "Identifier",
             "name": "DropTypes",
             "range": [
-              895,
-              904
+              951,
+              960
             ],
             "loc": {
               "start": {
-                "line": 24,
+                "line": 25,
                 "column": 8
               },
               "end": {
-                "line": 24,
+                "line": 25,
                 "column": 17
               }
             }
           },
           "range": [
-            887,
-            904
+            943,
+            960
           ],
           "loc": {
             "start": {
-              "line": 24,
+              "line": 25,
               "column": 0
             },
             "end": {
-              "line": 24,
+              "line": 25,
               "column": 17
             }
           }
@@ -179,16 +197,16 @@
             "type": "Identifier",
             "name": "keyMirror",
             "range": [
-              907,
-              916
+              963,
+              972
             ],
             "loc": {
               "start": {
-                "line": 24,
+                "line": 25,
                 "column": 20
               },
               "end": {
-                "line": 24,
+                "line": 25,
                 "column": 29
               }
             }
@@ -203,16 +221,16 @@
                     "type": "Identifier",
                     "name": "DIMENSION",
                     "range": [
-                      921,
-                      930
+                      977,
+                      986
                     ],
                     "loc": {
                       "start": {
-                        "line": 25,
+                        "line": 26,
                         "column": 2
                       },
                       "end": {
-                        "line": 25,
+                        "line": 26,
                         "column": 11
                       }
                     }
@@ -222,16 +240,16 @@
                     "value": null,
                     "raw": "null",
                     "range": [
-                      932,
-                      936
+                      988,
+                      992
                     ],
                     "loc": {
                       "start": {
-                        "line": 25,
+                        "line": 26,
                         "column": 13
                       },
                       "end": {
-                        "line": 25,
+                        "line": 26,
                         "column": 17
                       }
                     }
@@ -241,16 +259,16 @@
                   "shorthand": false,
                   "computed": false,
                   "range": [
-                    921,
-                    936
+                    977,
+                    992
                   ],
                   "loc": {
                     "start": {
-                      "line": 25,
+                      "line": 26,
                       "column": 2
                     },
                     "end": {
-                      "line": 25,
+                      "line": 26,
                       "column": 17
                     }
                   }
@@ -261,16 +279,16 @@
                     "type": "Identifier",
                     "name": "MEASURE",
                     "range": [
-                      940,
-                      947
+                      996,
+                      1003
                     ],
                     "loc": {
                       "start": {
-                        "line": 26,
+                        "line": 27,
                         "column": 2
                       },
                       "end": {
-                        "line": 26,
+                        "line": 27,
                         "column": 9
                       }
                     }
@@ -280,16 +298,16 @@
                     "value": null,
                     "raw": "null",
                     "range": [
-                      949,
-                      953
+                      1005,
+                      1009
                     ],
                     "loc": {
                       "start": {
-                        "line": 26,
+                        "line": 27,
                         "column": 11
                       },
                       "end": {
-                        "line": 26,
+                        "line": 27,
                         "column": 15
                       }
                     }
@@ -299,78 +317,78 @@
                   "shorthand": false,
                   "computed": false,
                   "range": [
-                    940,
-                    953
+                    996,
+                    1009
                   ],
                   "loc": {
                     "start": {
-                      "line": 26,
+                      "line": 27,
                       "column": 2
                     },
                     "end": {
-                      "line": 26,
+                      "line": 27,
                       "column": 15
                     }
                   }
                 }
               ],
               "range": [
-                917,
-                955
+                973,
+                1011
               ],
               "loc": {
                 "start": {
-                  "line": 24,
+                  "line": 25,
                   "column": 30
                 },
                 "end": {
-                  "line": 27,
+                  "line": 28,
                   "column": 1
                 }
               }
             }
           ],
           "range": [
-            907,
-            956
+            963,
+            1012
           ],
           "loc": {
             "start": {
-              "line": 24,
+              "line": 25,
               "column": 20
             },
             "end": {
-              "line": 27,
+              "line": 28,
               "column": 2
             }
           }
         },
         "range": [
-          887,
-          956
+          943,
+          1012
         ],
         "loc": {
           "start": {
-            "line": 24,
+            "line": 25,
             "column": 0
           },
           "end": {
-            "line": 27,
+            "line": 28,
             "column": 2
           }
         }
       },
       "range": [
-        887,
-        957
+        943,
+        1013
       ],
       "loc": {
         "start": {
-          "line": 24,
+          "line": 25,
           "column": 0
         },
         "end": {
-          "line": 27,
+          "line": 28,
           "column": 3
         }
       },
@@ -379,16 +397,16 @@
           "type": "Block",
           "value": "*\n * The react-dnd module requires each draggable component to be associated to a\n * string that should match with the drop area type string. This object contains\n * the drag and drop type strings used by Query Designer components.\n ",
           "range": [
-            649,
-            886
+            705,
+            942
           ],
           "loc": {
             "start": {
-              "line": 19,
+              "line": 20,
               "column": 0
             },
             "end": {
-              "line": 23,
+              "line": 24,
               "column": 3
             }
           }
@@ -399,16 +417,16 @@
           "type": "Block",
           "value": "*\n * The Flux architecture is based on actions, sent to a central action\n * dispatcher, which other object may register for notifications. This object\n * contains the action strings of Query Designer components.\n ",
           "range": [
-            959,
-            1176
+            1015,
+            1232
           ],
           "loc": {
             "start": {
-              "line": 29,
+              "line": 30,
               "column": 0
             },
             "end": {
-              "line": 33,
+              "line": 34,
               "column": 3
             }
           }
@@ -427,16 +445,16 @@
             "type": "Identifier",
             "name": "exports",
             "range": [
-              1177,
-              1184
+              1233,
+              1240
             ],
             "loc": {
               "start": {
-                "line": 34,
+                "line": 35,
                 "column": 0
               },
               "end": {
-                "line": 34,
+                "line": 35,
                 "column": 7
               }
             }
@@ -445,31 +463,31 @@
             "type": "Identifier",
             "name": "Actions",
             "range": [
-              1185,
-              1192
+              1241,
+              1248
             ],
             "loc": {
               "start": {
-                "line": 34,
+                "line": 35,
                 "column": 8
               },
               "end": {
-                "line": 34,
+                "line": 35,
                 "column": 15
               }
             }
           },
           "range": [
-            1177,
-            1192
+            1233,
+            1248
           ],
           "loc": {
             "start": {
-              "line": 34,
+              "line": 35,
               "column": 0
             },
             "end": {
-              "line": 34,
+              "line": 35,
               "column": 15
             }
           }
@@ -480,16 +498,16 @@
             "type": "Identifier",
             "name": "keyMirror",
             "range": [
-              1195,
-              1204
+              1251,
+              1260
             ],
             "loc": {
               "start": {
-                "line": 34,
+                "line": 35,
                 "column": 18
               },
               "end": {
-                "line": 34,
+                "line": 35,
                 "column": 27
               }
             }
@@ -504,16 +522,16 @@
                     "type": "Identifier",
                     "name": "SELECT_DIMENSION",
                     "range": [
-                      1209,
-                      1225
+                      1265,
+                      1281
                     ],
                     "loc": {
                       "start": {
-                        "line": 35,
+                        "line": 36,
                         "column": 2
                       },
                       "end": {
-                        "line": 35,
+                        "line": 36,
                         "column": 18
                       }
                     }
@@ -523,16 +541,16 @@
                     "value": null,
                     "raw": "null",
                     "range": [
-                      1227,
-                      1231
+                      1283,
+                      1287
                     ],
                     "loc": {
                       "start": {
-                        "line": 35,
+                        "line": 36,
                         "column": 20
                       },
                       "end": {
-                        "line": 35,
+                        "line": 36,
                         "column": 24
                       }
                     }
@@ -542,16 +560,16 @@
                   "shorthand": false,
                   "computed": false,
                   "range": [
-                    1209,
-                    1231
+                    1265,
+                    1287
                   ],
                   "loc": {
                     "start": {
-                      "line": 35,
+                      "line": 36,
                       "column": 2
                     },
                     "end": {
-                      "line": 35,
+                      "line": 36,
                       "column": 24
                     }
                   }
@@ -562,16 +580,16 @@
                     "type": "Identifier",
                     "name": "DESELECT_DIMENSION",
                     "range": [
-                      1235,
-                      1253
+                      1291,
+                      1309
                     ],
                     "loc": {
                       "start": {
-                        "line": 36,
+                        "line": 37,
                         "column": 2
                       },
                       "end": {
-                        "line": 36,
+                        "line": 37,
                         "column": 20
                       }
                     }
@@ -581,16 +599,16 @@
                     "value": null,
                     "raw": "null",
                     "range": [
-                      1255,
-                      1259
+                      1311,
+                      1315
                     ],
                     "loc": {
                       "start": {
-                        "line": 36,
+                        "line": 37,
                         "column": 22
                       },
                       "end": {
-                        "line": 36,
+                        "line": 37,
                         "column": 26
                       }
                     }
@@ -600,16 +618,16 @@
                   "shorthand": false,
                   "computed": false,
                   "range": [
-                    1235,
-                    1259
+                    1291,
+                    1315
                   ],
                   "loc": {
                     "start": {
-                      "line": 36,
+                      "line": 37,
                       "column": 2
                     },
                     "end": {
-                      "line": 36,
+                      "line": 37,
                       "column": 26
                     }
                   }
@@ -620,16 +638,16 @@
                     "type": "Identifier",
                     "name": "SELECT_MEASURE",
                     "range": [
-                      1263,
-                      1277
+                      1319,
+                      1333
                     ],
                     "loc": {
                       "start": {
-                        "line": 37,
+                        "line": 38,
                         "column": 2
                       },
                       "end": {
-                        "line": 37,
+                        "line": 38,
                         "column": 16
                       }
                     }
@@ -639,16 +657,16 @@
                     "value": null,
                     "raw": "null",
                     "range": [
-                      1279,
-                      1283
+                      1335,
+                      1339
                     ],
                     "loc": {
                       "start": {
-                        "line": 37,
+                        "line": 38,
                         "column": 18
                       },
                       "end": {
-                        "line": 37,
+                        "line": 38,
                         "column": 22
                       }
                     }
@@ -658,16 +676,16 @@
                   "shorthand": false,
                   "computed": false,
                   "range": [
-                    1263,
-                    1283
+                    1319,
+                    1339
                   ],
                   "loc": {
                     "start": {
-                      "line": 37,
+                      "line": 38,
                       "column": 2
                     },
                     "end": {
-                      "line": 37,
+                      "line": 38,
                       "column": 22
                     }
                   }
@@ -678,16 +696,16 @@
                     "type": "Identifier",
                     "name": "DESELECT_MEASURE",
                     "range": [
-                      1287,
-                      1303
+                      1343,
+                      1359
                     ],
                     "loc": {
                       "start": {
-                        "line": 38,
+                        "line": 39,
                         "column": 2
                       },
                       "end": {
-                        "line": 38,
+                        "line": 39,
                         "column": 18
                       }
                     }
@@ -697,16 +715,16 @@
                     "value": null,
                     "raw": "null",
                     "range": [
-                      1305,
-                      1309
+                      1361,
+                      1365
                     ],
                     "loc": {
                       "start": {
-                        "line": 38,
+                        "line": 39,
                         "column": 20
                       },
                       "end": {
-                        "line": 38,
+                        "line": 39,
                         "column": 24
                       }
                     }
@@ -716,78 +734,78 @@
                   "shorthand": false,
                   "computed": false,
                   "range": [
-                    1287,
-                    1309
+                    1343,
+                    1365
                   ],
                   "loc": {
                     "start": {
-                      "line": 38,
+                      "line": 39,
                       "column": 2
                     },
                     "end": {
-                      "line": 38,
+                      "line": 39,
                       "column": 24
                     }
                   }
                 }
               ],
               "range": [
-                1205,
-                1311
+                1261,
+                1367
               ],
               "loc": {
                 "start": {
-                  "line": 34,
+                  "line": 35,
                   "column": 28
                 },
                 "end": {
-                  "line": 39,
+                  "line": 40,
                   "column": 1
                 }
               }
             }
           ],
           "range": [
-            1195,
-            1312
+            1251,
+            1368
           ],
           "loc": {
             "start": {
-              "line": 34,
+              "line": 35,
               "column": 18
             },
             "end": {
-              "line": 39,
+              "line": 40,
               "column": 2
             }
           }
         },
         "range": [
-          1177,
-          1312
+          1233,
+          1368
         ],
         "loc": {
           "start": {
-            "line": 34,
+            "line": 35,
             "column": 0
           },
           "end": {
-            "line": 39,
+            "line": 40,
             "column": 2
           }
         }
       },
       "range": [
-        1177,
-        1313
+        1233,
+        1369
       ],
       "loc": {
         "start": {
-          "line": 34,
+          "line": 35,
           "column": 0
         },
         "end": {
-          "line": 39,
+          "line": 40,
           "column": 3
         }
       },
@@ -796,16 +814,16 @@
           "type": "Block",
           "value": "*\n * The Flux architecture is based on actions, sent to a central action\n * dispatcher, which other object may register for notifications. This object\n * contains the action strings of Query Designer components.\n ",
           "range": [
-            959,
-            1176
+            1015,
+            1232
           ],
           "loc": {
             "start": {
-              "line": 29,
+              "line": 30,
               "column": 0
             },
             "end": {
-              "line": 33,
+              "line": 34,
               "column": 3
             }
           }
@@ -815,16 +833,16 @@
   ],
   "sourceType": "module",
   "range": [
-    613,
-    1313
+    669,
+    1369
   ],
   "loc": {
     "start": {
-      "line": 17,
+      "line": 18,
       "column": 0
     },
     "end": {
-      "line": 39,
+      "line": 40,
       "column": 3
     }
   },
@@ -848,19 +866,37 @@
       }
     },
     {
-      "type": "Block",
-      "value": "*\n * The react-dnd module requires each draggable component to be associated to a\n * string that should match with the drop area type string. This object contains\n * the drag and drop type strings used by Query Designer components.\n ",
+      "type": "Line",
+      "value": " Create an object with values equal to its key names.",
       "range": [
-        649,
-        886
+        613,
+        668
       ],
       "loc": {
         "start": {
-          "line": 19,
+          "line": 17,
           "column": 0
         },
         "end": {
-          "line": 23,
+          "line": 17,
+          "column": 55
+        }
+      }
+    },
+    {
+      "type": "Block",
+      "value": "*\n * The react-dnd module requires each draggable component to be associated to a\n * string that should match with the drop area type string. This object contains\n * the drag and drop type strings used by Query Designer components.\n ",
+      "range": [
+        705,
+        942
+      ],
+      "loc": {
+        "start": {
+          "line": 20,
+          "column": 0
+        },
+        "end": {
+          "line": 24,
           "column": 3
         }
       }
@@ -869,16 +905,16 @@
       "type": "Block",
       "value": "*\n * The Flux architecture is based on actions, sent to a central action\n * dispatcher, which other object may register for notifications. This object\n * contains the action strings of Query Designer components.\n ",
       "range": [
-        959,
-        1176
+        1015,
+        1232
       ],
       "loc": {
         "start": {
-          "line": 29,
+          "line": 30,
           "column": 0
         },
         "end": {
-          "line": 33,
+          "line": 34,
           "column": 3
         }
       }

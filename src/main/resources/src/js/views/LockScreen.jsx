@@ -24,10 +24,16 @@ import {
   Input,
   Button
 } from 'react-bootstrap';
-import FormGroup from '../bootstrap/FormGroup';
-import Clearfix from '../bootstrap/Clearfix';
-import Wrapper from './Wrapper';
+import FormGroup from '../components/bootstrap/FormGroup';
+import Clearfix from '../components/bootstrap/Clearfix';
+import Wrapper from '../components/saiku/Wrapper';
 
+/**
+ * Class LockScreen
+ *
+ * @class Login
+ * @extends React.Component
+ */
 class LockScreen extends React.Component {
   constructor(props) {
     super(props);
@@ -35,26 +41,55 @@ class LockScreen extends React.Component {
     this.validatorTypes = strategy.createSchema({
       password: 'required'
     });
+
     autoBind(this, 'getValidatorData', 'renderHelpText', 'getClasses',
       'onSubmitLogin');
   }
 
+  /**
+   * Method that defines the data to validate your schema.
+   *
+   * @method getValidatorData
+   * @return {Object} An object with username and password
+   */
   getValidatorData() {
     return {
       password: this.refs.password.getValue()
     };
   }
 
+  /**
+   * Helper method that show a message.
+   *
+   * @method renderHelpText
+   * @param  {String} message - Text to be displayed on span tag
+   * @return {HTMLElement}      A block of help text that breaks
+   *                            into a new line
+   */
   renderHelpText(message) {
     return (
       <span className="help-block">{message}</span>
     );
   }
 
+  /**
+   * Method for get the field name the HTML element.
+   *
+   * @method getClasses
+   * @param  {String} field - Field name the HTML element
+   * @return {String}         Validation states
+   */
   getClasses(field) {
     return !this.props.isValid(field) ? 'has-error' : '';
   }
 
+  /**
+   * Method called when the Login button is pressed.
+   *
+   * @method onSubmitLogin
+   * @param  {Object} event - The Event interface represents any
+   *                          event of the DOM
+   */
   onSubmitLogin(event) {
     event.preventDefault();
 
@@ -150,6 +185,7 @@ class LockScreen extends React.Component {
   }
 }
 
+// Exports validators that can be used to make sure the data is valid.
 LockScreen.propTypes = {
   history: React.PropTypes.object,
   errors: React.PropTypes.object,
@@ -160,4 +196,5 @@ LockScreen.propTypes = {
   clearValidations: React.PropTypes.func
 };
 
+// Wrapped component with the validation mixin and supporting strategy.
 export default validation(strategy)(LockScreen);

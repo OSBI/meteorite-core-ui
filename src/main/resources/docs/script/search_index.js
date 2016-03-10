@@ -204,6 +204,12 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
+    "meteorite-core-ui/js/views/workspace.jsx~workspace",
+    "class/js/views/Workspace.jsx~Workspace.html",
+    "<span>Workspace</span> <span class=\"search-result-import-path\">meteorite-core-ui/js/views/Workspace.jsx</span>",
+    "class"
+  ],
+  [
     "meteorite-core-ui/js/components/saiku/wrapper.jsx~wrapper",
     "class/js/components/saiku/Wrapper.jsx~Wrapper.html",
     "<span>Wrapper</span> <span class=\"search-result-import-path\">meteorite-core-ui/js/components/saiku/Wrapper.jsx</span>",
@@ -1378,5 +1384,53 @@ window.esdocSearchIndex = [
     "file/js/utils/Settings.js.html",
     "js/utils/Settings.js",
     "file"
+  ],
+  [
+    "js/views/lockscreen.jsx",
+    "file/js/views/LockScreen.jsx.html",
+    "js/views/LockScreen.jsx",
+    "file"
+  ],
+  [
+    "js/views/login.jsx",
+    "file/js/views/Login.jsx.html",
+    "js/views/Login.jsx",
+    "file"
+  ],
+  [
+    "js/views/workspace.jsx",
+    "file/js/views/Workspace.jsx.html",
+    "js/views/Workspace.jsx",
+    "file"
+  ],
+  [
+    "js/views/workspace.jsx~workspace#constructor",
+    "class/js/views/Workspace.jsx~Workspace.html#instance-constructor-constructor",
+    "js/views/Workspace.jsx~Workspace#constructor",
+    "method"
+  ],
+  [
+    "js/views/workspace.jsx~workspace#createcontent",
+    "class/js/views/Workspace.jsx~Workspace.html#instance-method-createContent",
+    "js/views/Workspace.jsx~Workspace#createContent",
+    "method"
+  ],
+  [
+    "js/views/workspace.jsx~workspace#opensidebar",
+    "class/js/views/Workspace.jsx~Workspace.html#instance-method-openSidebar",
+    "js/views/Workspace.jsx~Workspace#openSidebar",
+    "method"
+  ],
+  [
+    "js/views/workspace.jsx~workspace#render",
+    "class/js/views/Workspace.jsx~Workspace.html#instance-method-render",
+    "js/views/Workspace.jsx~Workspace#render",
+    "method"
+  ],
+  [
+    "js/views/workspace.jsx~workspace#state",
+    "class/js/views/Workspace.jsx~Workspace.html#instance-member-state",
+    "js/views/Workspace.jsx~Workspace#state",
+    "member"
   ]
 ]

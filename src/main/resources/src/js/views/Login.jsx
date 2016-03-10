@@ -20,16 +20,16 @@ import { History } from 'react-router';
 import reactMixin from 'react-mixin';
 import validation from 'react-validation-mixin';
 import strategy from 'react-validatorjs-strategy';
-import Session from '../../models/Session';
+import Session from '../models/Session';
 import {
   Row,
   Col,
   Input,
   Button
 } from 'react-bootstrap';
-import FormGroup from '../bootstrap/FormGroup';
-import Clearfix from '../bootstrap/Clearfix';
-import Wrapper from './Wrapper';
+import FormGroup from '../components/bootstrap/FormGroup';
+import Clearfix from '../components/bootstrap/Clearfix';
+import Wrapper from '../components/saiku/Wrapper';
 
 /**
  * Class Login
@@ -45,16 +45,17 @@ class Login extends React.Component {
       username: 'required',
       password: 'required'
     });
+    this.session = new Session();
+
     autoBind(this, 'getValidatorData', 'renderHelpText', 'getClasses',
       'onSubmitLogin');
-    this.session = new Session();
   }
 
   /**
    * Method that defines the data to validate your schema.
    *
    * @method getValidatorData
-   * @return {Object} An object with username and password 
+   * @return {Object} An object with username and password
    */
   getValidatorData() {
     return {
@@ -213,10 +214,7 @@ class Login extends React.Component {
   }
 }
 
-/**
- * Wrapped components will receive the following props
- * that serve as the API when validating.
- */
+// Exports validators that can be used to make sure the data is valid.
 Login.propTypes = {
   errors: React.PropTypes.object,
   validate: React.PropTypes.func,

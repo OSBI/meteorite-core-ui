@@ -18,9 +18,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Router, Route } from 'react-router';
 import { createHistory } from 'history';
-import Login from './components/saiku/Login';
-import LockScreen from './components/saiku/LockScreen';
-import Workspace from './components/saiku/Workspace';
+import Login from './views/Login';
+import LockScreen from './views/LockScreen';
+import Workspace from './views/Workspace';
 import QueryDesigner from './components/saiku/query_designer';
 import NotFound from './components/saiku/NotFound';
 

@@ -70,23 +70,23 @@
 	
 	var _Workspace2 = _interopRequireDefault(_Workspace);
 	
-	var _query_designer = __webpack_require__(533);
+	var _query_designer = __webpack_require__(518);
 	
 	var _query_designer2 = _interopRequireDefault(_query_designer);
 	
-	var _NotFound = __webpack_require__(754);
+	var _NotFound = __webpack_require__(739);
 	
 	var _NotFound2 = _interopRequireDefault(_NotFound);
 	
-	__webpack_require__(755);
+	__webpack_require__(740);
 	
-	__webpack_require__(756);
+	__webpack_require__(741);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	/**
 	 * React router component allows you to define routes in React application.
-	 * See: {@link https://github.com/reactjs/react-router}
+	 * @see https://github.com/reactjs/react-router
 	 */
 	
 	
@@ -24547,6 +24547,13 @@
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   limitations under the License.
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
 	
+	/**
+	 * Class Login
+	 *
+	 * @class Login
+	 * @extends React.Component
+	 */
+	
 	var Login = function (_React$Component) {
 	  _inherits(Login, _React$Component);
 	
@@ -24559,10 +24566,19 @@
 	      username: 'required',
 	      password: 'required'
 	    });
-	    (0, _reactAutobind2.default)(_this, 'getValidatorData', 'renderHelpText', 'getClasses', 'onSubmitLogin');
 	    _this.session = new _Session2.default();
+	
+	    (0, _reactAutobind2.default)(_this, 'getValidatorData', 'renderHelpText', 'getClasses', 'onSubmitLogin');
 	    return _this;
 	  }
+	
+	  /**
+	   * Method that defines the data to validate your schema.
+	   *
+	   * @method getValidatorData
+	   * @return {Object} An object with username and password
+	   */
+	
 	
 	  _createClass(Login, [{
 	    key: 'getValidatorData',
@@ -24572,6 +24588,16 @@
 	        password: this.refs.password.getValue()
 	      };
 	    }
+	
+	    /**
+	     * Helper method that show a message.
+	     *
+	     * @method renderHelpText
+	     * @param  {String} message - Text to be displayed on span tag
+	     * @return {HTMLElement}      A block of help text that breaks
+	     *                            into a new line
+	     */
+	
 	  }, {
 	    key: 'renderHelpText',
 	    value: function renderHelpText(message) {
@@ -24581,11 +24607,29 @@
 	        message
 	      );
 	    }
+	
+	    /**
+	     * Method for get the field name the HTML element.
+	     *
+	     * @method getClasses
+	     * @param  {String} field - Field name the HTML element
+	     * @return {String}         Validation states
+	     */
+	
 	  }, {
 	    key: 'getClasses',
 	    value: function getClasses(field) {
 	      return !this.props.isValid(field) ? 'has-error' : '';
 	    }
+	
+	    /**
+	     * Method called when the Login button is pressed.
+	     *
+	     * @method onSubmitLogin
+	     * @param  {Object} event - The Event interface represents any
+	     *                          event of the DOM
+	     */
+	
 	  }, {
 	    key: 'onSubmitLogin',
 	    value: function onSubmitLogin(event) {
@@ -24604,7 +24648,6 @@
 	      };
 	
 	      this.props.validate(onValidate);
-	      // this.refs.loginForm.reset();
 	    }
 	  }, {
 	    key: 'render',
@@ -24767,6 +24810,9 @@
 	  return Login;
 	}(_react2.default.Component);
 	
+	// Exports validators that can be used to make sure the data is valid.
+	
+	
 	Login.propTypes = {
 	  errors: _react2.default.PropTypes.object,
 	  validate: _react2.default.PropTypes.func,
@@ -24778,6 +24824,7 @@
 	
 	_reactMixin2.default.onClass(Login, _reactRouter.History);
 	
+	// Wrapped component with the validation mixin and supporting strategy.
 	exports.default = (0, _reactValidationMixin2.default)(_reactValidatorjsStrategy2.default)(Login);
 
 /***/ },
@@ -60075,6 +60122,13 @@
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   limitations under the License.
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
 	
+	/**
+	 * Class LockScreen
+	 *
+	 * @class Login
+	 * @extends React.Component
+	 */
+	
 	var LockScreen = function (_React$Component) {
 	  _inherits(LockScreen, _React$Component);
 	
@@ -60086,9 +60140,18 @@
 	    _this.validatorTypes = _reactValidatorjsStrategy2.default.createSchema({
 	      password: 'required'
 	    });
+	
 	    (0, _reactAutobind2.default)(_this, 'getValidatorData', 'renderHelpText', 'getClasses', 'onSubmitLogin');
 	    return _this;
 	  }
+	
+	  /**
+	   * Method that defines the data to validate your schema.
+	   *
+	   * @method getValidatorData
+	   * @return {Object} An object with username and password
+	   */
+	
 	
 	  _createClass(LockScreen, [{
 	    key: 'getValidatorData',
@@ -60097,6 +60160,16 @@
 	        password: this.refs.password.getValue()
 	      };
 	    }
+	
+	    /**
+	     * Helper method that show a message.
+	     *
+	     * @method renderHelpText
+	     * @param  {String} message - Text to be displayed on span tag
+	     * @return {HTMLElement}      A block of help text that breaks
+	     *                            into a new line
+	     */
+	
 	  }, {
 	    key: 'renderHelpText',
 	    value: function renderHelpText(message) {
@@ -60106,11 +60179,29 @@
 	        message
 	      );
 	    }
+	
+	    /**
+	     * Method for get the field name the HTML element.
+	     *
+	     * @method getClasses
+	     * @param  {String} field - Field name the HTML element
+	     * @return {String}         Validation states
+	     */
+	
 	  }, {
 	    key: 'getClasses',
 	    value: function getClasses(field) {
 	      return !this.props.isValid(field) ? 'has-error' : '';
 	    }
+	
+	    /**
+	     * Method called when the Login button is pressed.
+	     *
+	     * @method onSubmitLogin
+	     * @param  {Object} event - The Event interface represents any
+	     *                          event of the DOM
+	     */
+	
 	  }, {
 	    key: 'onSubmitLogin',
 	    value: function onSubmitLogin(event) {
@@ -60266,6 +60357,9 @@
 	  return LockScreen;
 	}(_react2.default.Component);
 	
+	// Exports validators that can be used to make sure the data is valid.
+	
+	
 	LockScreen.propTypes = {
 	  history: _react2.default.PropTypes.object,
 	  errors: _react2.default.PropTypes.object,
@@ -60276,6 +60370,7 @@
 	  clearValidations: _react2.default.PropTypes.func
 	};
 	
+	// Wrapped component with the validation mixin and supporting strategy.
 	exports.default = (0, _reactValidationMixin2.default)(_reactValidatorjsStrategy2.default)(LockScreen);
 
 /***/ },
@@ -60298,53 +60393,25 @@
 	
 	var _reactAutobind2 = _interopRequireDefault(_reactAutobind);
 	
-	var _reactBootstrap = __webpack_require__(261);
-	
-	var _reactOverlays = __webpack_require__(508);
-	
 	var _Wrapper = __webpack_require__(505);
 	
 	var _Wrapper2 = _interopRequireDefault(_Wrapper);
 	
-	var _Content = __webpack_require__(516);
+	var _Content = __webpack_require__(508);
 	
 	var _Content2 = _interopRequireDefault(_Content);
 	
-	var _MenuBar = __webpack_require__(517);
+	var _MenuBar = __webpack_require__(509);
 	
 	var _MenuBar2 = _interopRequireDefault(_MenuBar);
 	
-	var _Sidebar = __webpack_require__(521);
+	var _Sidebar = __webpack_require__(513);
 	
 	var _Sidebar2 = _interopRequireDefault(_Sidebar);
 	
-	var _SidebarOlap = __webpack_require__(524);
-	
-	var _SidebarOlap2 = _interopRequireDefault(_SidebarOlap);
-	
-	var _SidebarReporting = __webpack_require__(525);
-	
-	var _SidebarReporting2 = _interopRequireDefault(_SidebarReporting);
-	
-	var _Toolbar = __webpack_require__(526);
-	
-	var _Toolbar2 = _interopRequireDefault(_Toolbar);
-	
-	var _ToolbarReporting = __webpack_require__(529);
-	
-	var _ToolbarReporting2 = _interopRequireDefault(_ToolbarReporting);
-	
-	var _Tabs = __webpack_require__(530);
+	var _Tabs = __webpack_require__(516);
 	
 	var _Tabs2 = _interopRequireDefault(_Tabs);
-	
-	var _Portlet = __webpack_require__(532);
-	
-	var _Portlet2 = _interopRequireDefault(_Portlet);
-	
-	var _Icon = __webpack_require__(518);
-	
-	var _Icon2 = _interopRequireDefault(_Icon);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -60414,251 +60481,16 @@
 	        )
 	      );
 	    }
-	
-	    // createContent() {
-	    //   return (
-	    //     <Content>
-	    //       <Toolbar />
-	    //       <Row>
-	    //         <Col md={3}>
-	    //           <SidebarOlap />
-	    //         </Col>
-	    //         <div className="m-t-10">
-	    //           <Col md={3}>
-	    //             <AutoAffix viewportOffsetTop={70}>
-	    //               <div>
-	    //                 <Portlet title="Measures" />
-	    //                 <Portlet title="Columns" />
-	    //                 <Portlet title="Rows" />
-	    //               </div>
-	    //             </AutoAffix>
-	    //           </Col>
-	    //           <Col lg={6}>
-	    //             <AutoAffix viewportOffsetTop={70}>
-	    //               <Table striped bordered condensed hover>
-	    //                 <thead>
-	    //                   <tr>
-	    //                     <th>#</th>
-	    //                     <th>First Name</th>
-	    //                     <th>Last Name</th>
-	    //                     <th>Username</th>
-	    //                   </tr>
-	    //                 </thead>
-	    //                 <tbody>
-	    //                   <tr>
-	    //                     <td>1</td>
-	    //                     <td>Mark</td>
-	    //                     <td>Otto</td>
-	    //                     <td>@mdo</td>
-	    //                   </tr>
-	    //                   <tr>
-	    //                     <td>2</td>
-	    //                     <td>Jacob</td>
-	    //                     <td>Thornton</td>
-	    //                     <td>@fat</td>
-	    //                   </tr>
-	    //                   <tr>
-	    //                     <td>3</td>
-	    //                     <td colSpan="2">Larry the Bird</td>
-	    //                     <td>@twitter</td>
-	    //                   </tr>
-	    //                 </tbody>
-	    //               </Table>
-	    //             </AutoAffix>
-	    //           </Col>
-	    //         </div>
-	    //       </Row>
-	    //     </Content>
-	    //   );
-	    // }
-	
 	  }, {
 	    key: 'createContent',
 	    value: function createContent() {
 	      return _react2.default.createElement(
 	        _Content2.default,
 	        null,
-	        _react2.default.createElement(_ToolbarReporting2.default, null),
 	        _react2.default.createElement(
-	          _reactBootstrap.Row,
+	          'h1',
 	          null,
-	          _react2.default.createElement(
-	            _reactBootstrap.Col,
-	            { md: 3 },
-	            _react2.default.createElement(_SidebarReporting2.default, null)
-	          ),
-	          _react2.default.createElement(
-	            'div',
-	            { className: 'm-t-10' },
-	            _react2.default.createElement(
-	              _reactBootstrap.Col,
-	              { md: 3 },
-	              _react2.default.createElement(
-	                _reactOverlays.AutoAffix,
-	                { viewportOffsetTop: 70 },
-	                _react2.default.createElement(
-	                  'div',
-	                  null,
-	                  _react2.default.createElement(_Portlet2.default, { title: 'Select' }),
-	                  _react2.default.createElement(_Portlet2.default, { title: 'Filter' }),
-	                  _react2.default.createElement(_Portlet2.default, { title: 'Sort' })
-	                )
-	              )
-	            ),
-	            _react2.default.createElement(
-	              _reactBootstrap.Col,
-	              { lg: 6 },
-	              _react2.default.createElement(
-	                _reactOverlays.AutoAffix,
-	                { viewportOffsetTop: 70 },
-	                _react2.default.createElement(
-	                  'div',
-	                  { className: 'content-box' },
-	                  _react2.default.createElement(
-	                    _reactBootstrap.Navbar,
-	                    { className: 'border-toolbar' },
-	                    _react2.default.createElement(
-	                      _reactBootstrap.Nav,
-	                      null,
-	                      _react2.default.createElement(
-	                        _reactBootstrap.NavItem,
-	                        { eventKey: 1, href: '#' },
-	                        _react2.default.createElement(_Icon2.default, { name: 'align-left' })
-	                      ),
-	                      _react2.default.createElement(
-	                        _reactBootstrap.NavItem,
-	                        { eventKey: 2, href: '#' },
-	                        _react2.default.createElement(_Icon2.default, { name: 'align-justify' })
-	                      ),
-	                      _react2.default.createElement(
-	                        _reactBootstrap.NavItem,
-	                        { eventKey: 3, href: '#' },
-	                        _react2.default.createElement(_Icon2.default, { name: 'align-right' })
-	                      ),
-	                      _react2.default.createElement(
-	                        _reactBootstrap.NavItem,
-	                        { eventKey: 4, href: '#' },
-	                        _react2.default.createElement(_Icon2.default, { name: 'bold' })
-	                      ),
-	                      _react2.default.createElement(
-	                        _reactBootstrap.NavItem,
-	                        { eventKey: 5, href: '#' },
-	                        _react2.default.createElement(_Icon2.default, { name: 'italic' })
-	                      ),
-	                      _react2.default.createElement(
-	                        _reactBootstrap.NavItem,
-	                        { eventKey: 5, href: '#' },
-	                        _react2.default.createElement(_Icon2.default, { name: 'underline' })
-	                      )
-	                    )
-	                  ),
-	                  _react2.default.createElement(
-	                    _reactBootstrap.Table,
-	                    { striped: true, bordered: true, condensed: true, hover: true },
-	                    _react2.default.createElement(
-	                      'thead',
-	                      null,
-	                      _react2.default.createElement(
-	                        'tr',
-	                        null,
-	                        _react2.default.createElement(
-	                          'th',
-	                          null,
-	                          '#'
-	                        ),
-	                        _react2.default.createElement(
-	                          'th',
-	                          null,
-	                          'First Name'
-	                        ),
-	                        _react2.default.createElement(
-	                          'th',
-	                          null,
-	                          'Last Name'
-	                        ),
-	                        _react2.default.createElement(
-	                          'th',
-	                          null,
-	                          'Username'
-	                        )
-	                      )
-	                    ),
-	                    _react2.default.createElement(
-	                      'tbody',
-	                      null,
-	                      _react2.default.createElement(
-	                        'tr',
-	                        null,
-	                        _react2.default.createElement(
-	                          'td',
-	                          null,
-	                          '1'
-	                        ),
-	                        _react2.default.createElement(
-	                          'td',
-	                          null,
-	                          'Mark'
-	                        ),
-	                        _react2.default.createElement(
-	                          'td',
-	                          null,
-	                          'Otto'
-	                        ),
-	                        _react2.default.createElement(
-	                          'td',
-	                          null,
-	                          '@mdo'
-	                        )
-	                      ),
-	                      _react2.default.createElement(
-	                        'tr',
-	                        null,
-	                        _react2.default.createElement(
-	                          'td',
-	                          null,
-	                          '2'
-	                        ),
-	                        _react2.default.createElement(
-	                          'td',
-	                          null,
-	                          'Jacob'
-	                        ),
-	                        _react2.default.createElement(
-	                          'td',
-	                          null,
-	                          'Thornton'
-	                        ),
-	                        _react2.default.createElement(
-	                          'td',
-	                          null,
-	                          '@fat'
-	                        )
-	                      ),
-	                      _react2.default.createElement(
-	                        'tr',
-	                        null,
-	                        _react2.default.createElement(
-	                          'td',
-	                          null,
-	                          '3'
-	                        ),
-	                        _react2.default.createElement(
-	                          'td',
-	                          { colSpan: '2' },
-	                          'Larry the Bird'
-	                        ),
-	                        _react2.default.createElement(
-	                          'td',
-	                          null,
-	                          '@twitter'
-	                        )
-	                      )
-	                    )
-	                  )
-	                )
-	              )
-	            )
-	          )
+	          'Workspace'
 	        )
 	      );
 	    }
@@ -60671,740 +60503,6 @@
 
 /***/ },
 /* 508 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	exports.__esModule = true;
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-	
-	var _Affix2 = __webpack_require__(509);
-	
-	var _Affix3 = _interopRequireDefault(_Affix2);
-	
-	exports.Affix = _Affix3['default'];
-	
-	var _AutoAffix2 = __webpack_require__(515);
-	
-	var _AutoAffix3 = _interopRequireDefault(_AutoAffix2);
-	
-	exports.AutoAffix = _AutoAffix3['default'];
-	
-	var _Modal2 = __webpack_require__(449);
-	
-	var _Modal3 = _interopRequireDefault(_Modal2);
-	
-	exports.Modal = _Modal3['default'];
-	
-	var _Overlay2 = __webpack_require__(475);
-	
-	var _Overlay3 = _interopRequireDefault(_Overlay2);
-	
-	exports.Overlay = _Overlay3['default'];
-	
-	var _Portal2 = __webpack_require__(453);
-	
-	var _Portal3 = _interopRequireDefault(_Portal2);
-	
-	exports.Portal = _Portal3['default'];
-	
-	var _Position2 = __webpack_require__(476);
-	
-	var _Position3 = _interopRequireDefault(_Position2);
-	
-	exports.Position = _Position3['default'];
-	
-	var _Transition2 = __webpack_require__(333);
-	
-	var _Transition3 = _interopRequireDefault(_Transition2);
-	
-	exports.Transition = _Transition3['default'];
-
-/***/ },
-/* 509 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	exports.__esModule = true;
-	
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var _classnames = __webpack_require__(295);
-	
-	var _classnames2 = _interopRequireDefault(_classnames);
-	
-	var _domHelpersQueryHeight = __webpack_require__(510);
-	
-	var _domHelpersQueryHeight2 = _interopRequireDefault(_domHelpersQueryHeight);
-	
-	var _domHelpersQueryOffset = __webpack_require__(478);
-	
-	var _domHelpersQueryOffset2 = _interopRequireDefault(_domHelpersQueryOffset);
-	
-	var _domHelpersQueryOffsetParent = __webpack_require__(480);
-	
-	var _domHelpersQueryOffsetParent2 = _interopRequireDefault(_domHelpersQueryOffsetParent);
-	
-	var _domHelpersQueryScrollTop = __webpack_require__(481);
-	
-	var _domHelpersQueryScrollTop2 = _interopRequireDefault(_domHelpersQueryScrollTop);
-	
-	var _domHelpersUtilRequestAnimationFrame = __webpack_require__(511);
-	
-	var _domHelpersUtilRequestAnimationFrame2 = _interopRequireDefault(_domHelpersUtilRequestAnimationFrame);
-	
-	var _react = __webpack_require__(1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _reactDom = __webpack_require__(158);
-	
-	var _reactDom2 = _interopRequireDefault(_reactDom);
-	
-	var _utilsAddEventListener = __webpack_require__(418);
-	
-	var _utilsAddEventListener2 = _interopRequireDefault(_utilsAddEventListener);
-	
-	var _utilsGetDocumentHeight = __webpack_require__(512);
-	
-	var _utilsGetDocumentHeight2 = _interopRequireDefault(_utilsGetDocumentHeight);
-	
-	var _utilsOwnerDocument = __webpack_require__(421);
-	
-	var _utilsOwnerDocument2 = _interopRequireDefault(_utilsOwnerDocument);
-	
-	var _utilsOwnerWindow = __webpack_require__(513);
-	
-	var _utilsOwnerWindow2 = _interopRequireDefault(_utilsOwnerWindow);
-	
-	/**
-	 * The `<Affix/>` component toggles `position: fixed;` on and off, emulating
-	 * the effect found with `position: sticky;`.
-	 */
-	
-	var Affix = (function (_React$Component) {
-	  _inherits(Affix, _React$Component);
-	
-	  function Affix(props, context) {
-	    _classCallCheck(this, Affix);
-	
-	    _React$Component.call(this, props, context);
-	
-	    this.state = {
-	      affixed: 'top',
-	      position: null,
-	      top: null
-	    };
-	
-	    this._needPositionUpdate = false;
-	  }
-	
-	  Affix.prototype.componentDidMount = function componentDidMount() {
-	    var _this = this;
-	
-	    this._isMounted = true;
-	
-	    this._windowScrollListener = _utilsAddEventListener2['default'](_utilsOwnerWindow2['default'](this), 'scroll', function () {
-	      return _this.onWindowScroll();
-	    });
-	    this._documentClickListener = _utilsAddEventListener2['default'](_utilsOwnerDocument2['default'](this), 'click', function () {
-	      return _this.onDocumentClick();
-	    });
-	
-	    this.onUpdate();
-	  };
-	
-	  Affix.prototype.componentWillReceiveProps = function componentWillReceiveProps() {
-	    this._needPositionUpdate = true;
-	  };
-	
-	  Affix.prototype.componentDidUpdate = function componentDidUpdate() {
-	    if (this._needPositionUpdate) {
-	      this._needPositionUpdate = false;
-	      this.onUpdate();
-	    }
-	  };
-	
-	  Affix.prototype.componentWillUnmount = function componentWillUnmount() {
-	    this._isMounted = false;
-	
-	    if (this._windowScrollListener) {
-	      this._windowScrollListener.remove();
-	    }
-	    if (this._documentClickListener) {
-	      this._documentClickListener.remove();
-	    }
-	  };
-	
-	  Affix.prototype.onWindowScroll = function onWindowScroll() {
-	    this.onUpdate();
-	  };
-	
-	  Affix.prototype.onDocumentClick = function onDocumentClick() {
-	    var _this2 = this;
-	
-	    _domHelpersUtilRequestAnimationFrame2['default'](function () {
-	      return _this2.onUpdate();
-	    });
-	  };
-	
-	  Affix.prototype.onUpdate = function onUpdate() {
-	    var _this3 = this;
-	
-	    if (!this._isMounted) {
-	      return;
-	    }
-	
-	    var _props = this.props;
-	    var offsetTop = _props.offsetTop;
-	    var viewportOffsetTop = _props.viewportOffsetTop;
-	
-	    var scrollTop = _domHelpersQueryScrollTop2['default'](_utilsOwnerWindow2['default'](this));
-	    var positionTopMin = scrollTop + (viewportOffsetTop || 0);
-	
-	    if (positionTopMin <= offsetTop) {
-	      this.updateState('top', null, null);
-	      return;
-	    }
-	
-	    if (positionTopMin > this.getPositionTopMax()) {
-	      if (this.state.affixed === 'bottom') {
-	        this.updateStateAtBottom();
-	      } else {
-	        // Setting position away from `fixed` can change the offset parent of
-	        // the affix, so we can't calculate the correct position until after
-	        // we've updated its position.
-	        this.setState({
-	          affixed: 'bottom',
-	          position: 'absolute',
-	          top: null
-	        }, function () {
-	          if (!_this3._isMounted) {
-	            return;
-	          }
-	
-	          _this3.updateStateAtBottom();
-	        });
-	      }
-	      return;
-	    }
-	
-	    this.updateState('affix', 'fixed', viewportOffsetTop);
-	  };
-	
-	  Affix.prototype.getPositionTopMax = function getPositionTopMax() {
-	    var documentHeight = _utilsGetDocumentHeight2['default'](_utilsOwnerDocument2['default'](this));
-	    var height = _domHelpersQueryHeight2['default'](_reactDom2['default'].findDOMNode(this));
-	
-	    return documentHeight - height - this.props.offsetBottom;
-	  };
-	
-	  Affix.prototype.updateState = function updateState(affixed, position, top) {
-	    var _this4 = this;
-	
-	    if (affixed === this.state.affixed && position === this.state.position && top === this.state.top) {
-	      return;
-	    }
-	
-	    var upperName = affixed === 'affix' ? '' : affixed.charAt(0).toUpperCase() + affixed.substr(1);
-	
-	    if (this.props['onAffix' + upperName]) {
-	      this.props['onAffix' + upperName]();
-	    }
-	
-	    this.setState({ affixed: affixed, position: position, top: top }, function () {
-	      if (_this4.props['onAffixed' + upperName]) {
-	        _this4.props['onAffixed' + upperName]();
-	      }
-	    });
-	  };
-	
-	  Affix.prototype.updateStateAtBottom = function updateStateAtBottom() {
-	    var positionTopMax = this.getPositionTopMax();
-	    var offsetParent = _domHelpersQueryOffsetParent2['default'](_reactDom2['default'].findDOMNode(this));
-	    var parentTop = _domHelpersQueryOffset2['default'](offsetParent).top;
-	
-	    this.updateState('bottom', 'absolute', positionTopMax - parentTop);
-	  };
-	
-	  Affix.prototype.render = function render() {
-	    var child = _react2['default'].Children.only(this.props.children);
-	    var _child$props = child.props;
-	    var className = _child$props.className;
-	    var style = _child$props.style;
-	    var _state = this.state;
-	    var affixed = _state.affixed;
-	    var position = _state.position;
-	    var top = _state.top;
-	
-	    var positionStyle = { position: position, top: top };
-	
-	    var affixClassName = undefined;
-	    var affixStyle = undefined;
-	    if (affixed === 'top') {
-	      affixClassName = this.props.topClassName;
-	      affixStyle = this.props.topStyle;
-	    } else if (affixed === 'bottom') {
-	      affixClassName = this.props.bottomClassName;
-	      affixStyle = this.props.bottomStyle;
-	    } else {
-	      affixClassName = this.props.affixClassName;
-	      affixStyle = this.props.affixStyle;
-	    }
-	
-	    return _react2['default'].cloneElement(child, {
-	      className: _classnames2['default'](affixClassName, className),
-	      style: _extends({}, positionStyle, affixStyle, style)
-	    });
-	  };
-	
-	  return Affix;
-	})(_react2['default'].Component);
-	
-	Affix.propTypes = {
-	  /**
-	   * Pixels to offset from top of screen when calculating position
-	   */
-	  offsetTop: _react2['default'].PropTypes.number,
-	  /**
-	   * When affixed, pixels to offset from top of viewport
-	   */
-	  viewportOffsetTop: _react2['default'].PropTypes.number,
-	  /**
-	   * Pixels to offset from bottom of screen when calculating position
-	   */
-	  offsetBottom: _react2['default'].PropTypes.number,
-	  /**
-	   * CSS class or classes to apply when at top
-	   */
-	  topClassName: _react2['default'].PropTypes.string,
-	  /**
-	   * Style to apply when at top
-	   */
-	  topStyle: _react2['default'].PropTypes.object,
-	  /**
-	   * CSS class or classes to apply when affixed
-	   */
-	  affixClassName: _react2['default'].PropTypes.string,
-	  /**
-	   * Style to apply when affixed
-	   */
-	  affixStyle: _react2['default'].PropTypes.object,
-	  /**
-	   * CSS class or classes to apply when at bottom
-	   */
-	  bottomClassName: _react2['default'].PropTypes.string,
-	  /**
-	   * Style to apply when at bottom
-	   */
-	  bottomStyle: _react2['default'].PropTypes.object,
-	
-	  onAffix: _react2['default'].PropTypes.func,
-	  onAffixed: _react2['default'].PropTypes.func,
-	  onAffixTop: _react2['default'].PropTypes.func,
-	  onAffixedTop: _react2['default'].PropTypes.func,
-	  onAffixBottom: _react2['default'].PropTypes.func,
-	  onAffixedBottom: _react2['default'].PropTypes.func
-	};
-	
-	Affix.defaultProps = {
-	  offsetTop: 0,
-	  viewportOffsetTop: null,
-	  offsetBottom: 0
-	};
-	
-	exports['default'] = Affix;
-	module.exports = exports['default'];
-
-/***/ },
-/* 510 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	var offset = __webpack_require__(478),
-	    getWindow = __webpack_require__(461);
-	
-	module.exports = function height(node, client) {
-	  var win = getWindow(node);
-	  return win ? win.innerHeight : client ? node.clientHeight : offset(node).height;
-	};
-
-/***/ },
-/* 511 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	var canUseDOM = __webpack_require__(335);
-	
-	var vendors = ['', 'webkit', 'moz', 'o', 'ms'],
-	    cancel = 'clearTimeout',
-	    raf = fallback,
-	    compatRaf;
-	
-	var getKey = function getKey(vendor, k) {
-	  return vendor + (!vendor ? k : k[0].toUpperCase() + k.substr(1)) + 'AnimationFrame';
-	};
-	
-	if (canUseDOM) {
-	  vendors.some(function (vendor) {
-	    var rafKey = getKey(vendor, 'request');
-	
-	    if (rafKey in window) {
-	      cancel = getKey(vendor, 'cancel');
-	      return raf = function (cb) {
-	        return window[rafKey](cb);
-	      };
-	    }
-	  });
-	}
-	
-	/* https://github.com/component/raf */
-	var prev = new Date().getTime();
-	
-	function fallback(fn) {
-	  var curr = new Date().getTime(),
-	      ms = Math.max(0, 16 - (curr - prev)),
-	      req = setTimeout(fn, ms);
-	
-	  prev = curr;
-	  return req;
-	}
-	
-	compatRaf = function (cb) {
-	  return raf(cb);
-	};
-	compatRaf.cancel = function (id) {
-	  return window[cancel](id);
-	};
-	
-	module.exports = compatRaf;
-
-/***/ },
-/* 512 */
-/***/ function(module, exports) {
-
-	/**
-	 * Get the height of the document
-	 *
-	 * @returns {documentHeight: number}
-	 */
-	"use strict";
-	
-	exports.__esModule = true;
-	
-	exports["default"] = function (doc) {
-	  return Math.max(doc.documentElement.offsetHeight || 0, doc.height || 0, doc.body.scrollHeight || 0, doc.body.offsetHeight || 0);
-	};
-	
-	module.exports = exports["default"];
-
-/***/ },
-/* 513 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	exports.__esModule = true;
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-	
-	var _reactDom = __webpack_require__(158);
-	
-	var _reactDom2 = _interopRequireDefault(_reactDom);
-	
-	var _domHelpersOwnerWindow = __webpack_require__(514);
-	
-	var _domHelpersOwnerWindow2 = _interopRequireDefault(_domHelpersOwnerWindow);
-	
-	exports['default'] = function (componentOrElement) {
-	  return _domHelpersOwnerWindow2['default'](_reactDom2['default'].findDOMNode(componentOrElement));
-	};
-	
-	module.exports = exports['default'];
-
-/***/ },
-/* 514 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	var babelHelpers = __webpack_require__(331);
-	
-	exports.__esModule = true;
-	exports['default'] = ownerWindow;
-	
-	var _ownerDocument = __webpack_require__(341);
-	
-	var _ownerDocument2 = babelHelpers.interopRequireDefault(_ownerDocument);
-	
-	function ownerWindow(node) {
-	  var doc = (0, _ownerDocument2['default'])(node);
-	  return doc && doc.defaultView || doc.parentWindow;
-	}
-	
-	module.exports = exports['default'];
-
-/***/ },
-/* 515 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	exports.__esModule = true;
-	
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-	
-	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var _domHelpersQueryOffset = __webpack_require__(478);
-	
-	var _domHelpersQueryOffset2 = _interopRequireDefault(_domHelpersQueryOffset);
-	
-	var _domHelpersUtilRequestAnimationFrame = __webpack_require__(511);
-	
-	var _domHelpersUtilRequestAnimationFrame2 = _interopRequireDefault(_domHelpersUtilRequestAnimationFrame);
-	
-	var _react = __webpack_require__(1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _reactPropTypesLibMountable = __webpack_require__(450);
-	
-	var _reactPropTypesLibMountable2 = _interopRequireDefault(_reactPropTypesLibMountable);
-	
-	var _Affix = __webpack_require__(509);
-	
-	var _Affix2 = _interopRequireDefault(_Affix);
-	
-	var _utilsAddEventListener = __webpack_require__(418);
-	
-	var _utilsAddEventListener2 = _interopRequireDefault(_utilsAddEventListener);
-	
-	var _utilsGetContainer = __webpack_require__(454);
-	
-	var _utilsGetContainer2 = _interopRequireDefault(_utilsGetContainer);
-	
-	var _utilsGetDocumentHeight = __webpack_require__(512);
-	
-	var _utilsGetDocumentHeight2 = _interopRequireDefault(_utilsGetDocumentHeight);
-	
-	var _utilsOwnerDocument = __webpack_require__(421);
-	
-	var _utilsOwnerDocument2 = _interopRequireDefault(_utilsOwnerDocument);
-	
-	var _utilsOwnerWindow = __webpack_require__(513);
-	
-	var _utilsOwnerWindow2 = _interopRequireDefault(_utilsOwnerWindow);
-	
-	/**
-	 * The `<AutoAffix/>` component wraps `<Affix/>` to automatically calculate
-	 * offsets in many common cases.
-	 */
-	
-	var AutoAffix = (function (_React$Component) {
-	  _inherits(AutoAffix, _React$Component);
-	
-	  function AutoAffix(props, context) {
-	    _classCallCheck(this, AutoAffix);
-	
-	    _React$Component.call(this, props, context);
-	
-	    this.state = {
-	      offsetTop: null,
-	      offsetBottom: null,
-	      width: null
-	    };
-	  }
-	
-	  AutoAffix.prototype.componentDidMount = function componentDidMount() {
-	    var _this = this;
-	
-	    this._isMounted = true;
-	
-	    this._windowScrollListener = _utilsAddEventListener2['default'](_utilsOwnerWindow2['default'](this), 'scroll', function () {
-	      return _this.onWindowScroll();
-	    });
-	
-	    this._windowResizeListener = _utilsAddEventListener2['default'](_utilsOwnerWindow2['default'](this), 'resize', function () {
-	      return _this.onWindowResize();
-	    });
-	
-	    this._documentClickListener = _utilsAddEventListener2['default'](_utilsOwnerDocument2['default'](this), 'click', function () {
-	      return _this.onDocumentClick();
-	    });
-	
-	    this.onUpdate();
-	  };
-	
-	  AutoAffix.prototype.componentWillReceiveProps = function componentWillReceiveProps() {
-	    this._needPositionUpdate = true;
-	  };
-	
-	  AutoAffix.prototype.componentDidUpdate = function componentDidUpdate() {
-	    if (this._needPositionUpdate) {
-	      this._needPositionUpdate = false;
-	      this.onUpdate();
-	    }
-	  };
-	
-	  AutoAffix.prototype.componentWillUnmount = function componentWillUnmount() {
-	    this._isMounted = false;
-	
-	    if (this._windowScrollListener) {
-	      this._windowScrollListener.remove();
-	    }
-	    if (this._documentClickListener) {
-	      this._documentClickListener.remove();
-	    }
-	    if (this._windowResizeListener) {
-	      this._windowResizeListener.remove();
-	    }
-	  };
-	
-	  AutoAffix.prototype.onWindowScroll = function onWindowScroll() {
-	    this.onUpdate();
-	  };
-	
-	  AutoAffix.prototype.onWindowResize = function onWindowResize() {
-	    var _this2 = this;
-	
-	    if (this.props.autoWidth) {
-	      _domHelpersUtilRequestAnimationFrame2['default'](function () {
-	        return _this2.onUpdate();
-	      });
-	    }
-	  };
-	
-	  AutoAffix.prototype.onDocumentClick = function onDocumentClick() {
-	    var _this3 = this;
-	
-	    _domHelpersUtilRequestAnimationFrame2['default'](function () {
-	      return _this3.onUpdate();
-	    });
-	  };
-	
-	  AutoAffix.prototype.onUpdate = function onUpdate() {
-	    if (!this._isMounted) {
-	      return;
-	    }
-	
-	    var _getOffset = _domHelpersQueryOffset2['default'](this.refs.positioner);
-	
-	    var offsetTop = _getOffset.top;
-	    var width = _getOffset.width;
-	
-	    var container = _utilsGetContainer2['default'](this.props.container);
-	    var offsetBottom = undefined;
-	    if (container) {
-	      var documentHeight = _utilsGetDocumentHeight2['default'](_utilsOwnerDocument2['default'](this));
-	
-	      var _getOffset2 = _domHelpersQueryOffset2['default'](container);
-	
-	      var _top = _getOffset2.top;
-	      var height = _getOffset2.height;
-	
-	      offsetBottom = documentHeight - _top - height;
-	    } else {
-	      offsetBottom = null;
-	    }
-	
-	    this.updateState(offsetTop, offsetBottom, width);
-	  };
-	
-	  AutoAffix.prototype.updateState = function updateState(offsetTop, offsetBottom, width) {
-	    if (offsetTop === this.state.offsetTop && offsetBottom === this.state.offsetBottom && width === this.state.width) {
-	      return;
-	    }
-	
-	    this.setState({ offsetTop: offsetTop, offsetBottom: offsetBottom, width: width });
-	  };
-	
-	  AutoAffix.prototype.render = function render() {
-	    var _props = this.props;
-	    var container = _props.container;
-	    var autoWidth = _props.autoWidth;
-	    var viewportOffsetTop = _props.viewportOffsetTop;
-	    var children = _props.children;
-	
-	    var props = _objectWithoutProperties(_props, ['container', 'autoWidth', 'viewportOffsetTop', 'children']);
-	
-	    var _state = this.state;
-	    var offsetTop = _state.offsetTop;
-	    var offsetBottom = _state.offsetBottom;
-	    var width = _state.width;
-	
-	    var effectiveOffsetTop = Math.max(offsetTop, viewportOffsetTop || 0);
-	
-	    var _props2 = this.props;
-	    var affixStyle = _props2.affixStyle;
-	    var bottomStyle = _props2.bottomStyle;
-	
-	    if (autoWidth) {
-	      affixStyle = _extends({ width: width }, affixStyle);
-	      bottomStyle = _extends({ width: width }, bottomStyle);
-	    }
-	
-	    return _react2['default'].createElement(
-	      'div',
-	      null,
-	      _react2['default'].createElement('div', { ref: 'positioner' }),
-	      _react2['default'].createElement(
-	        _Affix2['default'],
-	        _extends({}, props, {
-	          offsetTop: effectiveOffsetTop,
-	          viewportOffsetTop: viewportOffsetTop,
-	          offsetBottom: offsetBottom,
-	          affixStyle: affixStyle,
-	          bottomStyle: bottomStyle
-	        }),
-	        children
-	      )
-	    );
-	  };
-	
-	  return AutoAffix;
-	})(_react2['default'].Component);
-	
-	AutoAffix.propTypes = _extends({}, _Affix2['default'].propTypes, {
-	  /**
-	   * The logical container node or component for determining offset from bottom
-	   * of viewport, or a function that returns it
-	   */
-	  container: _react2['default'].PropTypes.oneOfType([_reactPropTypesLibMountable2['default'], _react2['default'].PropTypes.func]),
-	  /**
-	   * Automatically set width when affixed
-	   */
-	  autoWidth: _react2['default'].PropTypes.bool
-	});
-	
-	// This intentionally doesn't inherit default props from `<Affix>`, so that the
-	// auto-calculated offsets can apply.
-	AutoAffix.defaultProps = {
-	  viewportOffsetTop: 0,
-	  autoWidth: true
-	};
-	
-	exports['default'] = AutoAffix;
-	module.exports = exports['default'];
-
-/***/ },
-/* 516 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -61486,7 +60584,7 @@
 	exports.default = Content;
 
 /***/ },
-/* 517 */
+/* 509 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -61521,11 +60619,11 @@
 	
 	var _Clearfix2 = _interopRequireDefault(_Clearfix);
 	
-	var _Icon = __webpack_require__(518);
+	var _Icon = __webpack_require__(510);
 	
 	var _Icon2 = _interopRequireDefault(_Icon);
 	
-	var _MenubarCollection = __webpack_require__(519);
+	var _MenubarCollection = __webpack_require__(511);
 	
 	var _MenubarCollection2 = _interopRequireDefault(_MenubarCollection);
 	
@@ -61785,7 +60883,7 @@
 	exports.default = MenuBar;
 
 /***/ },
-/* 518 */
+/* 510 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -61896,7 +60994,7 @@
 	exports.default = Icon;
 
 /***/ },
-/* 519 */
+/* 511 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -61911,7 +61009,7 @@
 	
 	var _backbone2 = _interopRequireDefault(_backbone);
 	
-	var _MenubarModel = __webpack_require__(520);
+	var _MenubarModel = __webpack_require__(512);
 	
 	var _MenubarModel2 = _interopRequireDefault(_MenubarModel);
 	
@@ -61962,7 +61060,7 @@
 	exports.default = MenubarCollection;
 
 /***/ },
-/* 520 */
+/* 512 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -62021,7 +61119,7 @@
 	exports.default = MenubarModel;
 
 /***/ },
-/* 521 */
+/* 513 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -62040,7 +61138,7 @@
 	
 	var _Clearfix2 = _interopRequireDefault(_Clearfix);
 	
-	var _Icon = __webpack_require__(518);
+	var _Icon = __webpack_require__(510);
 	
 	var _Icon2 = _interopRequireDefault(_Icon);
 	
@@ -62052,7 +61150,7 @@
 	
 	var _underscore2 = _interopRequireDefault(_underscore);
 	
-	var _SidebarCollection = __webpack_require__(522);
+	var _SidebarCollection = __webpack_require__(514);
 	
 	var _SidebarCollection2 = _interopRequireDefault(_SidebarCollection);
 	
@@ -62169,7 +61267,7 @@
 	exports.default = Toolbar;
 
 /***/ },
-/* 522 */
+/* 514 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -62184,7 +61282,7 @@
 	
 	var _backbone2 = _interopRequireDefault(_backbone);
 	
-	var _SidebarModel = __webpack_require__(523);
+	var _SidebarModel = __webpack_require__(515);
 	
 	var _SidebarModel2 = _interopRequireDefault(_SidebarModel);
 	
@@ -62235,7 +61333,7 @@
 	exports.default = SidebarCollection;
 
 /***/ },
-/* 523 */
+/* 515 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -62294,272 +61392,7 @@
 	exports.default = SidebarModel;
 
 /***/ },
-/* 524 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _react = __webpack_require__(1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _reactBootstrap = __webpack_require__(261);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /*
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   Copyright 2016 OSBI Ltd
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   Licensed under the Apache License, Version 2.0 (the "License");
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   you may not use this file except in compliance with the License.
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   You may obtain a copy of the License at
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *       http://www.apache.org/licenses/LICENSE-2.0
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   Unless required by pagelicable law or agreed to in writing, software
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   distributed under the License is distributed on an "AS IS" BASIS,
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   See the License for the specific language governing permissions and
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   limitations under the License.
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
-	
-	var SidebarOlap = function (_React$Component) {
-	  _inherits(SidebarOlap, _React$Component);
-	
-	  function SidebarOlap() {
-	    _classCallCheck(this, SidebarOlap);
-	
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(SidebarOlap).apply(this, arguments));
-	  }
-	
-	  _createClass(SidebarOlap, [{
-	    key: 'render',
-	    value: function render() {
-	      return _react2.default.createElement(
-	        'div',
-	        null,
-	        _react2.default.createElement(
-	          _reactBootstrap.Panel,
-	          { className: 'm-b-0 b-r-0' },
-	          _react2.default.createElement(
-	            _reactBootstrap.Input,
-	            {
-	              type: 'select',
-	              placeholder: 'Select a cube'
-	            },
-	            _react2.default.createElement(
-	              'option',
-	              { value: '' },
-	              'Select a cube'
-	            )
-	          )
-	        ),
-	        _react2.default.createElement(
-	          _reactBootstrap.Panel,
-	          { header: 'Measures', className: 'sidebar-olap m-b-0 b-r-0' },
-	          'Panel content'
-	        ),
-	        _react2.default.createElement(
-	          _reactBootstrap.Panel,
-	          { header: 'Dimensions', className: ' sidebar-olap m-b-0 b-r-0' },
-	          'Panel content'
-	        )
-	      );
-	    }
-	  }]);
-	
-	  return SidebarOlap;
-	}(_react2.default.Component);
-	
-	exports.default = SidebarOlap;
-
-/***/ },
-/* 525 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _react = __webpack_require__(1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _reactBootstrap = __webpack_require__(261);
-	
-	var _Icon = __webpack_require__(518);
-	
-	var _Icon2 = _interopRequireDefault(_Icon);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /*
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   Copyright 2016 OSBI Ltd
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   Licensed under the Apache License, Version 2.0 (the "License");
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   you may not use this file except in compliance with the License.
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   You may obtain a copy of the License at
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *       http://www.apache.org/licenses/LICENSE-2.0
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   Unless required by pagelicable law or agreed to in writing, software
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   distributed under the License is distributed on an "AS IS" BASIS,
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   See the License for the specific language governing permissions and
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   limitations under the License.
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
-	
-	var SidebarReporting = function (_React$Component) {
-	  _inherits(SidebarReporting, _React$Component);
-	
-	  function SidebarReporting() {
-	    _classCallCheck(this, SidebarReporting);
-	
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(SidebarReporting).apply(this, arguments));
-	  }
-	
-	  _createClass(SidebarReporting, [{
-	    key: 'renderSelectModels',
-	    value: function renderSelectModels() {
-	      return _react2.default.createElement(
-	        'div',
-	        null,
-	        _react2.default.createElement(
-	          _reactBootstrap.Input,
-	          { type: 'select' },
-	          _react2.default.createElement(
-	            'option',
-	            { value: '' },
-	            'models'
-	          ),
-	          _react2.default.createElement(
-	            'option',
-	            { value: '' },
-	            '...'
-	          )
-	        ),
-	        _react2.default.createElement(
-	          _reactBootstrap.Row,
-	          null,
-	          _react2.default.createElement(
-	            _reactBootstrap.Col,
-	            { md: 7 },
-	            _react2.default.createElement(_reactBootstrap.Input, {
-	              type: 'search',
-	              placeholder: 'search'
-	            })
-	          ),
-	          _react2.default.createElement(
-	            _reactBootstrap.Col,
-	            { md: 5 },
-	            _react2.default.createElement(
-	              _reactBootstrap.ButtonToolbar,
-	              null,
-	              _react2.default.createElement(
-	                _reactBootstrap.ButtonGroup,
-	                null,
-	                _react2.default.createElement(
-	                  _reactBootstrap.Button,
-	                  null,
-	                  _react2.default.createElement(_Icon2.default, { name: 'plus' })
-	                ),
-	                _react2.default.createElement(
-	                  _reactBootstrap.Button,
-	                  null,
-	                  _react2.default.createElement(_Icon2.default, { name: 'minus' })
-	                )
-	              )
-	            )
-	          )
-	        )
-	      );
-	    }
-	  }, {
-	    key: 'renderQueries',
-	    value: function renderQueries() {
-	      return _react2.default.createElement(
-	        'div',
-	        { className: 'm-b-10' },
-	        _react2.default.createElement(
-	          'span',
-	          null,
-	          'Queries'
-	        ),
-	        _react2.default.createElement(
-	          'div',
-	          { className: 'pull-right' },
-	          _react2.default.createElement(
-	            _reactBootstrap.ButtonToolbar,
-	            null,
-	            _react2.default.createElement(
-	              _reactBootstrap.ButtonGroup,
-	              null,
-	              _react2.default.createElement(
-	                _reactBootstrap.Button,
-	                null,
-	                _react2.default.createElement(_Icon2.default, { name: 'plus' })
-	              ),
-	              _react2.default.createElement(
-	                _reactBootstrap.Button,
-	                null,
-	                _react2.default.createElement(_Icon2.default, { name: 'minus' })
-	              )
-	            )
-	          )
-	        )
-	      );
-	    }
-	  }, {
-	    key: 'render',
-	    value: function render() {
-	      return _react2.default.createElement(
-	        'div',
-	        null,
-	        _react2.default.createElement(
-	          _reactBootstrap.Panel,
-	          {
-	            className: 'sidebar-olap m-b-0 b-radius-0',
-	            header: this.renderSelectModels()
-	          },
-	          'Panel Content'
-	        ),
-	        _react2.default.createElement(
-	          _reactBootstrap.Panel,
-	          {
-	            className: 'sidebar-olap m-b-0 b-radius-0',
-	            header: this.renderQueries()
-	          },
-	          'Panel Content'
-	        )
-	      );
-	    }
-	  }]);
-	
-	  return SidebarReporting;
-	}(_react2.default.Component);
-	
-	exports.default = SidebarReporting;
-
-/***/ },
-/* 526 */
+/* 516 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -62582,386 +61415,7 @@
 	
 	var _underscore2 = _interopRequireDefault(_underscore);
 	
-	var _reactBootstrap = __webpack_require__(261);
-	
-	var _Icon = __webpack_require__(518);
-	
-	var _Icon2 = _interopRequireDefault(_Icon);
-	
-	var _ToolbarCollection = __webpack_require__(527);
-	
-	var _ToolbarCollection2 = _interopRequireDefault(_ToolbarCollection);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /*
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   Copyright 2016 OSBI Ltd
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   Licensed under the Apache License, Version 2.0 (the "License");
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   you may not use this file except in compliance with the License.
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   You may obtain a copy of the License at
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *       http://www.apache.org/licenses/LICENSE-2.0
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   Unless required by applicable law or agreed to in writing, software
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   distributed under the License is distributed on an "AS IS" BASIS,
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   See the License for the specific language governing permissions and
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   limitations under the License.
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
-	
-	var Toolbar = function (_React$Component) {
-	  _inherits(Toolbar, _React$Component);
-	
-	  function Toolbar(props) {
-	    _classCallCheck(this, Toolbar);
-	
-	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Toolbar).call(this, props));
-	
-	    _this.state = {
-	      models: ''
-	    };
-	
-	    _this._toolbarUI = new _ToolbarCollection2.default();
-	
-	    (0, _reactAutobind2.default)(_this, '_handleFetchUI');
-	    return _this;
-	  }
-	
-	  _createClass(Toolbar, [{
-	    key: 'componentDidMount',
-	    value: function componentDidMount() {
-	      this._toolbarUI.fetch({
-	        success: this._handleFetchUI
-	      });
-	    }
-	  }, {
-	    key: '_handleFetchUI',
-	    value: function _handleFetchUI(toolbarUI) {
-	      this.setState({
-	        models: toolbarUI.models[0]
-	      });
-	    }
-	  }, {
-	    key: '_renderNavItem',
-	    value: function _renderNavItem(item, index) {
-	      var key = _underscore2.default.uniqueId('nav_item_' + index + '_');
-	      var isItemVisible = !item.visible ? 'hidden' : '';
-	      var tooltip = _react2.default.createElement(
-	        _reactBootstrap.Tooltip,
-	        { id: key },
-	        item.name
-	      );
-	
-	      return _react2.default.createElement(
-	        _reactBootstrap.NavItem,
-	        {
-	          className: isItemVisible,
-	          id: key,
-	          key: key,
-	          eventKey: key,
-	          href: item.action
-	        },
-	        _react2.default.createElement(
-	          _reactBootstrap.OverlayTrigger,
-	          { placement: 'bottom', overlay: tooltip },
-	          _react2.default.createElement(_Icon2.default, { name: item.icon })
-	        )
-	      );
-	    }
-	  }, {
-	    key: 'render',
-	    value: function render() {
-	      var items = this.state && !_underscore2.default.isEmpty(this.state.models) ? this.state.models.getItem() : [];
-	
-	      return _react2.default.createElement(
-	        _reactBootstrap.Navbar,
-	        { className: 'toolbar' },
-	        _react2.default.createElement(
-	          _reactBootstrap.Row,
-	          null,
-	          _react2.default.createElement(
-	            _reactBootstrap.Col,
-	            { md: 3 },
-	            _react2.default.createElement(
-	              _reactBootstrap.Navbar.Header,
-	              null,
-	              _react2.default.createElement(
-	                _reactBootstrap.Navbar.Text,
-	                null,
-	                'Cubes'
-	              )
-	            )
-	          ),
-	          _react2.default.createElement(
-	            _reactBootstrap.Col,
-	            { md: 9 },
-	            _react2.default.createElement(
-	              _reactBootstrap.Nav,
-	              null,
-	              items.map(this._renderNavItem)
-	            )
-	          )
-	        )
-	      );
-	    }
-	  }]);
-	
-	  return Toolbar;
-	}(_react2.default.Component);
-	
-	exports.default = Toolbar;
-
-/***/ },
-/* 527 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _backbone = __webpack_require__(258);
-	
-	var _backbone2 = _interopRequireDefault(_backbone);
-	
-	var _ToolbarModel = __webpack_require__(528);
-	
-	var _ToolbarModel2 = _interopRequireDefault(_ToolbarModel);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /*
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   Copyright 2016 OSBI Ltd
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   Licensed under the Apache License, Version 2.0 (the "License");
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   you may not use this file except in compliance with the License.
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   You may obtain a copy of the License at
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *       http://www.apache.org/licenses/LICENSE-2.0
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   Unless required by applicable law or agreed to in writing, software
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   distributed under the License is distributed on an "AS IS" BASIS,
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   See the License for the specific language governing permissions and
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   limitations under the License.
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
-	
-	var ToolbarCollection = function (_Backbone$Collection) {
-	  _inherits(ToolbarCollection, _Backbone$Collection);
-	
-	  function ToolbarCollection(options) {
-	    _classCallCheck(this, ToolbarCollection);
-	
-	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(ToolbarCollection).call(this, options));
-	
-	    _this.model = _ToolbarModel2.default;
-	    return _this;
-	  }
-	
-	  _createClass(ToolbarCollection, [{
-	    key: 'url',
-	    value: function url() {
-	      return 'http://localhost:9999/toolbar';
-	    }
-	  }]);
-	
-	  return ToolbarCollection;
-	}(_backbone2.default.Collection);
-	
-	exports.default = ToolbarCollection;
-
-/***/ },
-/* 528 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _backbone = __webpack_require__(258);
-	
-	var _backbone2 = _interopRequireDefault(_backbone);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /*
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   Copyright 2016 OSBI Ltd
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   Licensed under the Apache License, Version 2.0 (the "License");
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   you may not use this file except in compliance with the License.
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   You may obtain a copy of the License at
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *       http://www.apache.org/licenses/LICENSE-2.0
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   Unless required by applicable law or agreed to in writing, software
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   distributed under the License is distributed on an "AS IS" BASIS,
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   See the License for the specific language governing permissions and
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   limitations under the License.
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
-	
-	var ToolbarModel = function (_Backbone$Model) {
-	  _inherits(ToolbarModel, _Backbone$Model);
-	
-	  function ToolbarModel() {
-	    _classCallCheck(this, ToolbarModel);
-	
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(ToolbarModel).apply(this, arguments));
-	  }
-	
-	  _createClass(ToolbarModel, [{
-	    key: 'getItem',
-	    value: function getItem() {
-	      return this.get('item');
-	    }
-	  }]);
-	
-	  return ToolbarModel;
-	}(_backbone2.default.Model);
-	
-	exports.default = ToolbarModel;
-
-/***/ },
-/* 529 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _react = __webpack_require__(1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _reactBootstrap = __webpack_require__(261);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /*
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   Copyright 2016 OSBI Ltd
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   Licensed under the Apache License, Version 2.0 (the "License");
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   you may not use this file except in compliance with the License.
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   You may obtain a copy of the License at
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *       http://www.apache.org/licenses/LICENSE-2.0
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   Unless required by pagelicable law or agreed to in writing, software
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   distributed under the License is distributed on an "AS IS" BASIS,
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   See the License for the specific language governing permissions and
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   limitations under the License.
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
-	
-	var ToolbarReporting = function (_React$Component) {
-	  _inherits(ToolbarReporting, _React$Component);
-	
-	  function ToolbarReporting() {
-	    _classCallCheck(this, ToolbarReporting);
-	
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(ToolbarReporting).apply(this, arguments));
-	  }
-	
-	  _createClass(ToolbarReporting, [{
-	    key: 'render',
-	    value: function render() {
-	      return _react2.default.createElement(
-	        _reactBootstrap.Navbar,
-	        null,
-	        _react2.default.createElement(
-	          _reactBootstrap.Navbar.Form,
-	          { pullLeft: true },
-	          _react2.default.createElement(
-	            _reactBootstrap.Button,
-	            null,
-	            'show/hide'
-	          )
-	        ),
-	        _react2.default.createElement(
-	          _reactBootstrap.Navbar.Form,
-	          { pullRight: true },
-	          _react2.default.createElement(
-	            _reactBootstrap.ButtonToolbar,
-	            null,
-	            _react2.default.createElement(
-	              _reactBootstrap.Button,
-	              null,
-	              'view sql'
-	            ),
-	            _react2.default.createElement(
-	              _reactBootstrap.Button,
-	              null,
-	              'run'
-	            ),
-	            _react2.default.createElement(
-	              _reactBootstrap.Button,
-	              null,
-	              'ok'
-	            )
-	          )
-	        )
-	      );
-	    }
-	  }]);
-	
-	  return ToolbarReporting;
-	}(_react2.default.Component);
-	
-	exports.default = ToolbarReporting;
-
-/***/ },
-/* 530 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _react = __webpack_require__(1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _reactAutobind = __webpack_require__(212);
-	
-	var _reactAutobind2 = _interopRequireDefault(_reactAutobind);
-	
-	var _underscore = __webpack_require__(257);
-	
-	var _underscore2 = _interopRequireDefault(_underscore);
-	
-	var _Tab = __webpack_require__(531);
+	var _Tab = __webpack_require__(517);
 	
 	var _Tab2 = _interopRequireDefault(_Tab);
 	
@@ -63233,7 +61687,7 @@
 	exports.default = Tabs;
 
 /***/ },
-/* 531 */
+/* 517 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -63324,122 +61778,7 @@
 	exports.default = Tab;
 
 /***/ },
-/* 532 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _react = __webpack_require__(1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _Clearfix = __webpack_require__(504);
-	
-	var _Clearfix2 = _interopRequireDefault(_Clearfix);
-	
-	var _Icon = __webpack_require__(518);
-	
-	var _Icon2 = _interopRequireDefault(_Icon);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /*
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   Copyright 2016 OSBI Ltd
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   Licensed under the Apache License, Version 2.0 (the "License");
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   you may not use this file except in compliance with the License.
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   You may obtain a copy of the License at
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *       http://www.apache.org/licenses/LICENSE-2.0
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   Unless required by applicable law or agreed to in writing, software
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   distributed under the License is distributed on an "AS IS" BASIS,
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   See the License for the specific language governing permissions and
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   limitations under the License.
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
-	
-	var Portlet = function (_React$Component) {
-	  _inherits(Portlet, _React$Component);
-	
-	  function Portlet() {
-	    _classCallCheck(this, Portlet);
-	
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Portlet).apply(this, arguments));
-	  }
-	
-	  _createClass(Portlet, [{
-	    key: 'render',
-	    value: function render() {
-	      return _react2.default.createElement(
-	        'div',
-	        { className: 'portlet' },
-	        _react2.default.createElement(
-	          'div',
-	          { className: 'portlet-heading bg-lightdark' },
-	          _react2.default.createElement(
-	            'h3',
-	            { className: 'portlet-title' },
-	            this.props.title
-	          ),
-	          _react2.default.createElement(
-	            'div',
-	            { className: 'portlet-widgets' },
-	            _react2.default.createElement(
-	              'a',
-	              { href: '#' },
-	              _react2.default.createElement(_Icon2.default, { name: 'caret-down' })
-	            )
-	          ),
-	          _react2.default.createElement(_Clearfix2.default, null)
-	        ),
-	        _react2.default.createElement(
-	          'div',
-	          { className: 'panel-collapse' },
-	          _react2.default.createElement(
-	            'div',
-	            { className: 'portlet-body' },
-	            _react2.default.createElement(
-	              'ul',
-	              null,
-	              _react2.default.createElement(
-	                'li',
-	                null,
-	                'Sum'
-	              ),
-	              _react2.default.createElement(
-	                'li',
-	                null,
-	                'Count'
-	              )
-	            )
-	          )
-	        )
-	      );
-	    }
-	  }]);
-	
-	  return Portlet;
-	}(_react2.default.Component);
-	
-	Portlet.propTypes = {
-	  title: _react2.default.PropTypes.string
-	};
-	
-	exports.default = Portlet;
-
-/***/ },
-/* 533 */
+/* 518 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -63448,7 +61787,7 @@
 	  value: true
 	});
 
-	var _QueryDesigner = __webpack_require__(534);
+	var _QueryDesigner = __webpack_require__(519);
 
 	var _QueryDesigner2 = _interopRequireDefault(_QueryDesigner);
 
@@ -63471,7 +61810,7 @@
 	                                            */
 
 /***/ },
-/* 534 */
+/* 519 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -63496,25 +61835,25 @@
 	
 	var _Wrapper2 = _interopRequireDefault(_Wrapper);
 	
-	var _reactDnd = __webpack_require__(535);
+	var _reactDnd = __webpack_require__(520);
 	
-	var _reactDndHtml5Backend = __webpack_require__(650);
+	var _reactDndHtml5Backend = __webpack_require__(635);
 	
 	var _reactDndHtml5Backend2 = _interopRequireDefault(_reactDndHtml5Backend);
 	
-	var _CubeSelector = __webpack_require__(735);
+	var _CubeSelector = __webpack_require__(720);
 	
 	var _CubeSelector2 = _interopRequireDefault(_CubeSelector);
 	
-	var _DimensionsList = __webpack_require__(751);
+	var _DimensionsList = __webpack_require__(736);
 	
 	var _DimensionsList2 = _interopRequireDefault(_DimensionsList);
 	
-	var _MeasuresList = __webpack_require__(752);
+	var _MeasuresList = __webpack_require__(737);
 	
 	var _MeasuresList2 = _interopRequireDefault(_MeasuresList);
 	
-	var _ReportPreview = __webpack_require__(753);
+	var _ReportPreview = __webpack_require__(738);
 	
 	var _ReportPreview2 = _interopRequireDefault(_ReportPreview);
 	
@@ -63647,7 +61986,7 @@
 	exports.default = (0, _reactDnd.DragDropContext)(_reactDndHtml5Backend2.default)(QueryDesigner);
 
 /***/ },
-/* 535 */
+/* 520 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -63656,19 +61995,19 @@
 	
 	function _interopRequire(obj) { return obj && obj.__esModule ? obj['default'] : obj; }
 	
-	var _DragDropContext = __webpack_require__(536);
+	var _DragDropContext = __webpack_require__(521);
 	
 	exports.DragDropContext = _interopRequire(_DragDropContext);
 	
-	var _DragLayer = __webpack_require__(623);
+	var _DragLayer = __webpack_require__(608);
 	
 	exports.DragLayer = _interopRequire(_DragLayer);
 	
-	var _DragSource = __webpack_require__(629);
+	var _DragSource = __webpack_require__(614);
 	
 	exports.DragSource = _interopRequire(_DragSource);
 	
-	var _DropTarget = __webpack_require__(645);
+	var _DropTarget = __webpack_require__(630);
 	
 	exports.DropTarget = _interopRequire(_DropTarget);
 	
@@ -63683,7 +62022,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ },
-/* 536 */
+/* 521 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -63708,13 +62047,13 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _dndCore = __webpack_require__(537);
+	var _dndCore = __webpack_require__(522);
 	
 	var _invariant = __webpack_require__(163);
 	
 	var _invariant2 = _interopRequireDefault(_invariant);
 	
-	var _utilsCheckDecoratorArguments = __webpack_require__(622);
+	var _utilsCheckDecoratorArguments = __webpack_require__(607);
 	
 	var _utilsCheckDecoratorArguments2 = _interopRequireDefault(_utilsCheckDecoratorArguments);
 	
@@ -63788,7 +62127,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 537 */
+/* 522 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -63797,24 +62136,24 @@
 	
 	function _interopRequire(obj) { return obj && obj.__esModule ? obj['default'] : obj; }
 	
-	var _DragDropManager = __webpack_require__(538);
+	var _DragDropManager = __webpack_require__(523);
 	
 	exports.DragDropManager = _interopRequire(_DragDropManager);
 	
-	var _DragSource = __webpack_require__(619);
+	var _DragSource = __webpack_require__(604);
 	
 	exports.DragSource = _interopRequire(_DragSource);
 	
-	var _DropTarget = __webpack_require__(620);
+	var _DropTarget = __webpack_require__(605);
 	
 	exports.DropTarget = _interopRequire(_DropTarget);
 	
-	var _backendsCreateTestBackend = __webpack_require__(621);
+	var _backendsCreateTestBackend = __webpack_require__(606);
 	
 	exports.createTestBackend = _interopRequire(_backendsCreateTestBackend);
 
 /***/ },
-/* 538 */
+/* 523 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -63827,23 +62166,23 @@
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 	
-	var _reduxLibCreateStore = __webpack_require__(539);
+	var _reduxLibCreateStore = __webpack_require__(524);
 	
 	var _reduxLibCreateStore2 = _interopRequireDefault(_reduxLibCreateStore);
 	
-	var _reducers = __webpack_require__(543);
+	var _reducers = __webpack_require__(528);
 	
 	var _reducers2 = _interopRequireDefault(_reducers);
 	
-	var _actionsDragDrop = __webpack_require__(545);
+	var _actionsDragDrop = __webpack_require__(530);
 	
 	var dragDropActions = _interopRequireWildcard(_actionsDragDrop);
 	
-	var _DragDropMonitor = __webpack_require__(614);
+	var _DragDropMonitor = __webpack_require__(599);
 	
 	var _DragDropMonitor2 = _interopRequireDefault(_DragDropMonitor);
 	
-	var _HandlerRegistry = __webpack_require__(615);
+	var _HandlerRegistry = __webpack_require__(600);
 	
 	var _HandlerRegistry2 = _interopRequireDefault(_HandlerRegistry);
 	
@@ -63912,7 +62251,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 539 */
+/* 524 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -63921,7 +62260,7 @@
 	exports.ActionTypes = undefined;
 	exports["default"] = createStore;
 	
-	var _isPlainObject = __webpack_require__(540);
+	var _isPlainObject = __webpack_require__(525);
 	
 	var _isPlainObject2 = _interopRequireDefault(_isPlainObject);
 	
@@ -64133,11 +62472,11 @@
 	}
 
 /***/ },
-/* 540 */
+/* 525 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var isHostObject = __webpack_require__(541),
-	    isObjectLike = __webpack_require__(542);
+	var isHostObject = __webpack_require__(526),
+	    isObjectLike = __webpack_require__(527);
 	
 	/** `Object#toString` result references. */
 	var objectTag = '[object Object]';
@@ -64205,7 +62544,7 @@
 
 
 /***/ },
-/* 541 */
+/* 526 */
 /***/ function(module, exports) {
 
 	/**
@@ -64231,7 +62570,7 @@
 
 
 /***/ },
-/* 542 */
+/* 527 */
 /***/ function(module, exports) {
 
 	/**
@@ -64265,7 +62604,7 @@
 
 
 /***/ },
-/* 543 */
+/* 528 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -64274,23 +62613,23 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 	
-	var _dragOffset = __webpack_require__(544);
+	var _dragOffset = __webpack_require__(529);
 	
 	var _dragOffset2 = _interopRequireDefault(_dragOffset);
 	
-	var _dragOperation = __webpack_require__(549);
+	var _dragOperation = __webpack_require__(534);
 	
 	var _dragOperation2 = _interopRequireDefault(_dragOperation);
 	
-	var _refCount = __webpack_require__(599);
+	var _refCount = __webpack_require__(584);
 	
 	var _refCount2 = _interopRequireDefault(_refCount);
 	
-	var _dirtyHandlerIds = __webpack_require__(600);
+	var _dirtyHandlerIds = __webpack_require__(585);
 	
 	var _dirtyHandlerIds2 = _interopRequireDefault(_dirtyHandlerIds);
 	
-	var _stateId = __webpack_require__(613);
+	var _stateId = __webpack_require__(598);
 	
 	var _stateId2 = _interopRequireDefault(_stateId);
 	
@@ -64309,7 +62648,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 544 */
+/* 529 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -64322,7 +62661,7 @@
 	exports.getSourceClientOffset = getSourceClientOffset;
 	exports.getDifferenceFromInitialOffset = getDifferenceFromInitialOffset;
 	
-	var _actionsDragDrop = __webpack_require__(545);
+	var _actionsDragDrop = __webpack_require__(530);
 	
 	var initialState = {
 	  initialSourceClientOffset: null,
@@ -64390,7 +62729,7 @@
 	}
 
 /***/ },
-/* 545 */
+/* 530 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -64404,7 +62743,7 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 	
-	var _utilsMatchesType = __webpack_require__(546);
+	var _utilsMatchesType = __webpack_require__(531);
 	
 	var _utilsMatchesType2 = _interopRequireDefault(_utilsMatchesType);
 	
@@ -64412,11 +62751,11 @@
 	
 	var _invariant2 = _interopRequireDefault(_invariant);
 	
-	var _lodashIsArray = __webpack_require__(547);
+	var _lodashIsArray = __webpack_require__(532);
 	
 	var _lodashIsArray2 = _interopRequireDefault(_lodashIsArray);
 	
-	var _lodashIsObject = __webpack_require__(548);
+	var _lodashIsObject = __webpack_require__(533);
 	
 	var _lodashIsObject2 = _interopRequireDefault(_lodashIsObject);
 	
@@ -64576,7 +62915,7 @@
 	}
 
 /***/ },
-/* 546 */
+/* 531 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -64586,7 +62925,7 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 	
-	var _lodashIsArray = __webpack_require__(547);
+	var _lodashIsArray = __webpack_require__(532);
 	
 	var _lodashIsArray2 = _interopRequireDefault(_lodashIsArray);
 	
@@ -64603,7 +62942,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 547 */
+/* 532 */
 /***/ function(module, exports) {
 
 	/**
@@ -64635,7 +62974,7 @@
 
 
 /***/ },
-/* 548 */
+/* 533 */
 /***/ function(module, exports) {
 
 	/**
@@ -64670,7 +63009,7 @@
 
 
 /***/ },
-/* 549 */
+/* 534 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -64683,11 +63022,11 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 	
-	var _actionsDragDrop = __webpack_require__(545);
+	var _actionsDragDrop = __webpack_require__(530);
 	
-	var _actionsRegistry = __webpack_require__(550);
+	var _actionsRegistry = __webpack_require__(535);
 	
-	var _lodashWithout = __webpack_require__(551);
+	var _lodashWithout = __webpack_require__(536);
 	
 	var _lodashWithout2 = _interopRequireDefault(_lodashWithout);
 	
@@ -64757,7 +63096,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 550 */
+/* 535 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -64806,12 +63145,12 @@
 	}
 
 /***/ },
-/* 551 */
+/* 536 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var baseDifference = __webpack_require__(552),
-	    isArrayLikeObject = __webpack_require__(590),
-	    rest = __webpack_require__(595);
+	var baseDifference = __webpack_require__(537),
+	    isArrayLikeObject = __webpack_require__(575),
+	    rest = __webpack_require__(580);
 	
 	/**
 	 * Creates an array excluding all given values using
@@ -64839,15 +63178,15 @@
 
 
 /***/ },
-/* 552 */
+/* 537 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var SetCache = __webpack_require__(553),
-	    arrayIncludes = __webpack_require__(583),
-	    arrayIncludesWith = __webpack_require__(586),
-	    arrayMap = __webpack_require__(587),
-	    baseUnary = __webpack_require__(588),
-	    cacheHas = __webpack_require__(589);
+	var SetCache = __webpack_require__(538),
+	    arrayIncludes = __webpack_require__(568),
+	    arrayIncludesWith = __webpack_require__(571),
+	    arrayMap = __webpack_require__(572),
+	    baseUnary = __webpack_require__(573),
+	    cacheHas = __webpack_require__(574);
 	
 	/** Used as the size to enable large array optimizations. */
 	var LARGE_ARRAY_SIZE = 200;
@@ -64911,11 +63250,11 @@
 
 
 /***/ },
-/* 553 */
+/* 538 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var MapCache = __webpack_require__(554),
-	    cachePush = __webpack_require__(582);
+	var MapCache = __webpack_require__(539),
+	    cachePush = __webpack_require__(567);
 	
 	/**
 	 *
@@ -64942,14 +63281,14 @@
 
 
 /***/ },
-/* 554 */
+/* 539 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var mapClear = __webpack_require__(555),
-	    mapDelete = __webpack_require__(567),
-	    mapGet = __webpack_require__(574),
-	    mapHas = __webpack_require__(577),
-	    mapSet = __webpack_require__(579);
+	var mapClear = __webpack_require__(540),
+	    mapDelete = __webpack_require__(552),
+	    mapGet = __webpack_require__(559),
+	    mapHas = __webpack_require__(562),
+	    mapSet = __webpack_require__(564);
 	
 	/**
 	 * Creates a map cache object to store key-value pairs.
@@ -64980,11 +63319,11 @@
 
 
 /***/ },
-/* 555 */
+/* 540 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Hash = __webpack_require__(556),
-	    Map = __webpack_require__(563);
+	var Hash = __webpack_require__(541),
+	    Map = __webpack_require__(548);
 	
 	/**
 	 * Removes all key-value entries from the map.
@@ -65005,10 +63344,10 @@
 
 
 /***/ },
-/* 556 */
+/* 541 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var nativeCreate = __webpack_require__(557);
+	var nativeCreate = __webpack_require__(542);
 	
 	/** Used for built-in method references. */
 	var objectProto = Object.prototype;
@@ -65029,10 +63368,10 @@
 
 
 /***/ },
-/* 557 */
+/* 542 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var getNative = __webpack_require__(558);
+	var getNative = __webpack_require__(543);
 	
 	/* Built-in method references that are verified to be native. */
 	var nativeCreate = getNative(Object, 'create');
@@ -65041,10 +63380,10 @@
 
 
 /***/ },
-/* 558 */
+/* 543 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var isNative = __webpack_require__(559);
+	var isNative = __webpack_require__(544);
 	
 	/**
 	 * Gets the native function at `key` of `object`.
@@ -65063,12 +63402,12 @@
 
 
 /***/ },
-/* 559 */
+/* 544 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var isFunction = __webpack_require__(560),
-	    isHostObject = __webpack_require__(561),
-	    isObjectLike = __webpack_require__(562);
+	var isFunction = __webpack_require__(545),
+	    isHostObject = __webpack_require__(546),
+	    isObjectLike = __webpack_require__(547);
 	
 	/** Used to match `RegExp` [syntax characters](http://ecma-international.org/ecma-262/6.0/#sec-patterns). */
 	var reRegExpChar = /[\\^$.*+?()[\]{}|]/g;
@@ -65122,10 +63461,10 @@
 
 
 /***/ },
-/* 560 */
+/* 545 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var isObject = __webpack_require__(548);
+	var isObject = __webpack_require__(533);
 	
 	/** `Object#toString` result references. */
 	var funcTag = '[object Function]',
@@ -65168,7 +63507,7 @@
 
 
 /***/ },
-/* 561 */
+/* 546 */
 /***/ function(module, exports) {
 
 	/**
@@ -65194,7 +63533,7 @@
 
 
 /***/ },
-/* 562 */
+/* 547 */
 /***/ function(module, exports) {
 
 	/**
@@ -65228,11 +63567,11 @@
 
 
 /***/ },
-/* 563 */
+/* 548 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var getNative = __webpack_require__(558),
-	    root = __webpack_require__(564);
+	var getNative = __webpack_require__(543),
+	    root = __webpack_require__(549);
 	
 	/* Built-in method references that are verified to be native. */
 	var Map = getNative(root, 'Map');
@@ -65241,10 +63580,10 @@
 
 
 /***/ },
-/* 564 */
+/* 549 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(module, global) {var checkGlobal = __webpack_require__(566);
+	/* WEBPACK VAR INJECTION */(function(module, global) {var checkGlobal = __webpack_require__(551);
 	
 	/** Used to determine if values are of the language type `Object`. */
 	var objectTypes = {
@@ -65286,10 +63625,10 @@
 	
 	module.exports = root;
 	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(565)(module), (function() { return this; }())))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(550)(module), (function() { return this; }())))
 
 /***/ },
-/* 565 */
+/* 550 */
 /***/ function(module, exports) {
 
 	module.exports = function(module) {
@@ -65305,7 +63644,7 @@
 
 
 /***/ },
-/* 566 */
+/* 551 */
 /***/ function(module, exports) {
 
 	/**
@@ -65323,13 +63662,13 @@
 
 
 /***/ },
-/* 567 */
+/* 552 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Map = __webpack_require__(563),
-	    assocDelete = __webpack_require__(568),
-	    hashDelete = __webpack_require__(571),
-	    isKeyable = __webpack_require__(573);
+	var Map = __webpack_require__(548),
+	    assocDelete = __webpack_require__(553),
+	    hashDelete = __webpack_require__(556),
+	    isKeyable = __webpack_require__(558);
 	
 	/**
 	 * Removes `key` and its value from the map.
@@ -65352,10 +63691,10 @@
 
 
 /***/ },
-/* 568 */
+/* 553 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var assocIndexOf = __webpack_require__(569);
+	var assocIndexOf = __webpack_require__(554);
 	
 	/** Used for built-in method references. */
 	var arrayProto = Array.prototype;
@@ -65389,10 +63728,10 @@
 
 
 /***/ },
-/* 569 */
+/* 554 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var eq = __webpack_require__(570);
+	var eq = __webpack_require__(555);
 	
 	/**
 	 * Gets the index at which the first occurrence of `key` is found in `array`
@@ -65417,7 +63756,7 @@
 
 
 /***/ },
-/* 570 */
+/* 555 */
 /***/ function(module, exports) {
 
 	/**
@@ -65458,10 +63797,10 @@
 
 
 /***/ },
-/* 571 */
+/* 556 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var hashHas = __webpack_require__(572);
+	var hashHas = __webpack_require__(557);
 	
 	/**
 	 * Removes `key` and its value from the hash.
@@ -65479,10 +63818,10 @@
 
 
 /***/ },
-/* 572 */
+/* 557 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var nativeCreate = __webpack_require__(557);
+	var nativeCreate = __webpack_require__(542);
 	
 	/** Used for built-in method references. */
 	var objectProto = Object.prototype;
@@ -65506,7 +63845,7 @@
 
 
 /***/ },
-/* 573 */
+/* 558 */
 /***/ function(module, exports) {
 
 	/**
@@ -65526,13 +63865,13 @@
 
 
 /***/ },
-/* 574 */
+/* 559 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Map = __webpack_require__(563),
-	    assocGet = __webpack_require__(575),
-	    hashGet = __webpack_require__(576),
-	    isKeyable = __webpack_require__(573);
+	var Map = __webpack_require__(548),
+	    assocGet = __webpack_require__(560),
+	    hashGet = __webpack_require__(561),
+	    isKeyable = __webpack_require__(558);
 	
 	/**
 	 * Gets the map value for `key`.
@@ -65555,10 +63894,10 @@
 
 
 /***/ },
-/* 575 */
+/* 560 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var assocIndexOf = __webpack_require__(569);
+	var assocIndexOf = __webpack_require__(554);
 	
 	/**
 	 * Gets the associative array value for `key`.
@@ -65577,10 +63916,10 @@
 
 
 /***/ },
-/* 576 */
+/* 561 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var nativeCreate = __webpack_require__(557);
+	var nativeCreate = __webpack_require__(542);
 	
 	/** Used to stand-in for `undefined` hash values. */
 	var HASH_UNDEFINED = '__lodash_hash_undefined__';
@@ -65611,13 +63950,13 @@
 
 
 /***/ },
-/* 577 */
+/* 562 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Map = __webpack_require__(563),
-	    assocHas = __webpack_require__(578),
-	    hashHas = __webpack_require__(572),
-	    isKeyable = __webpack_require__(573);
+	var Map = __webpack_require__(548),
+	    assocHas = __webpack_require__(563),
+	    hashHas = __webpack_require__(557),
+	    isKeyable = __webpack_require__(558);
 	
 	/**
 	 * Checks if a map value for `key` exists.
@@ -65640,10 +63979,10 @@
 
 
 /***/ },
-/* 578 */
+/* 563 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var assocIndexOf = __webpack_require__(569);
+	var assocIndexOf = __webpack_require__(554);
 	
 	/**
 	 * Checks if an associative array value for `key` exists.
@@ -65661,13 +64000,13 @@
 
 
 /***/ },
-/* 579 */
+/* 564 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Map = __webpack_require__(563),
-	    assocSet = __webpack_require__(580),
-	    hashSet = __webpack_require__(581),
-	    isKeyable = __webpack_require__(573);
+	var Map = __webpack_require__(548),
+	    assocSet = __webpack_require__(565),
+	    hashSet = __webpack_require__(566),
+	    isKeyable = __webpack_require__(558);
 	
 	/**
 	 * Sets the map `key` to `value`.
@@ -65695,10 +64034,10 @@
 
 
 /***/ },
-/* 580 */
+/* 565 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var assocIndexOf = __webpack_require__(569);
+	var assocIndexOf = __webpack_require__(554);
 	
 	/**
 	 * Sets the associative array `key` to `value`.
@@ -65721,10 +64060,10 @@
 
 
 /***/ },
-/* 581 */
+/* 566 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var nativeCreate = __webpack_require__(557);
+	var nativeCreate = __webpack_require__(542);
 	
 	/** Used to stand-in for `undefined` hash values. */
 	var HASH_UNDEFINED = '__lodash_hash_undefined__';
@@ -65745,10 +64084,10 @@
 
 
 /***/ },
-/* 582 */
+/* 567 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var isKeyable = __webpack_require__(573);
+	var isKeyable = __webpack_require__(558);
 	
 	/** Used to stand-in for `undefined` hash values. */
 	var HASH_UNDEFINED = '__lodash_hash_undefined__';
@@ -65778,10 +64117,10 @@
 
 
 /***/ },
-/* 583 */
+/* 568 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var baseIndexOf = __webpack_require__(584);
+	var baseIndexOf = __webpack_require__(569);
 	
 	/**
 	 * A specialized version of `_.includes` for arrays without support for
@@ -65800,10 +64139,10 @@
 
 
 /***/ },
-/* 584 */
+/* 569 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var indexOfNaN = __webpack_require__(585);
+	var indexOfNaN = __webpack_require__(570);
 	
 	/**
 	 * The base implementation of `_.indexOf` without `fromIndex` bounds checks.
@@ -65833,7 +64172,7 @@
 
 
 /***/ },
-/* 585 */
+/* 570 */
 /***/ function(module, exports) {
 
 	/**
@@ -65862,7 +64201,7 @@
 
 
 /***/ },
-/* 586 */
+/* 571 */
 /***/ function(module, exports) {
 
 	/**
@@ -65890,7 +64229,7 @@
 
 
 /***/ },
-/* 587 */
+/* 572 */
 /***/ function(module, exports) {
 
 	/**
@@ -65917,7 +64256,7 @@
 
 
 /***/ },
-/* 588 */
+/* 573 */
 /***/ function(module, exports) {
 
 	/**
@@ -65937,10 +64276,10 @@
 
 
 /***/ },
-/* 589 */
+/* 574 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var isKeyable = __webpack_require__(573);
+	var isKeyable = __webpack_require__(558);
 	
 	/** Used to stand-in for `undefined` hash values. */
 	var HASH_UNDEFINED = '__lodash_hash_undefined__';
@@ -65968,11 +64307,11 @@
 
 
 /***/ },
-/* 590 */
+/* 575 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var isArrayLike = __webpack_require__(591),
-	    isObjectLike = __webpack_require__(562);
+	var isArrayLike = __webpack_require__(576),
+	    isObjectLike = __webpack_require__(547);
 	
 	/**
 	 * This method is like `_.isArrayLike` except that it also checks if `value`
@@ -66005,12 +64344,12 @@
 
 
 /***/ },
-/* 591 */
+/* 576 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var getLength = __webpack_require__(592),
-	    isFunction = __webpack_require__(560),
-	    isLength = __webpack_require__(594);
+	var getLength = __webpack_require__(577),
+	    isFunction = __webpack_require__(545),
+	    isLength = __webpack_require__(579);
 	
 	/**
 	 * Checks if `value` is array-like. A value is considered array-like if it's
@@ -66044,10 +64383,10 @@
 
 
 /***/ },
-/* 592 */
+/* 577 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var baseProperty = __webpack_require__(593);
+	var baseProperty = __webpack_require__(578);
 	
 	/**
 	 * Gets the "length" property value of `object`.
@@ -66065,7 +64404,7 @@
 
 
 /***/ },
-/* 593 */
+/* 578 */
 /***/ function(module, exports) {
 
 	/**
@@ -66085,7 +64424,7 @@
 
 
 /***/ },
-/* 594 */
+/* 579 */
 /***/ function(module, exports) {
 
 	/** Used as references for various `Number` constants. */
@@ -66124,11 +64463,11 @@
 
 
 /***/ },
-/* 595 */
+/* 580 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var apply = __webpack_require__(596),
-	    toInteger = __webpack_require__(597);
+	var apply = __webpack_require__(581),
+	    toInteger = __webpack_require__(582);
 	
 	/** Used as the `TypeError` message for "Functions" methods. */
 	var FUNC_ERROR_TEXT = 'Expected a function';
@@ -66191,7 +64530,7 @@
 
 
 /***/ },
-/* 596 */
+/* 581 */
 /***/ function(module, exports) {
 
 	/**
@@ -66219,10 +64558,10 @@
 
 
 /***/ },
-/* 597 */
+/* 582 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var toNumber = __webpack_require__(598);
+	var toNumber = __webpack_require__(583);
 	
 	/** Used as references for various `Number` constants. */
 	var INFINITY = 1 / 0,
@@ -66269,11 +64608,11 @@
 
 
 /***/ },
-/* 598 */
+/* 583 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var isFunction = __webpack_require__(560),
-	    isObject = __webpack_require__(548);
+	var isFunction = __webpack_require__(545),
+	    isObject = __webpack_require__(533);
 	
 	/** Used as references for various `Number` constants. */
 	var NAN = 0 / 0;
@@ -66334,7 +64673,7 @@
 
 
 /***/ },
-/* 599 */
+/* 584 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -66342,7 +64681,7 @@
 	exports.__esModule = true;
 	exports['default'] = refCount;
 	
-	var _actionsRegistry = __webpack_require__(550);
+	var _actionsRegistry = __webpack_require__(535);
 	
 	function refCount(state, action) {
 	  if (state === undefined) state = 0;
@@ -66362,7 +64701,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 600 */
+/* 585 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -66373,17 +64712,17 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 	
-	var _lodashXor = __webpack_require__(601);
+	var _lodashXor = __webpack_require__(586);
 	
 	var _lodashXor2 = _interopRequireDefault(_lodashXor);
 	
-	var _lodashIntersection = __webpack_require__(610);
+	var _lodashIntersection = __webpack_require__(595);
 	
 	var _lodashIntersection2 = _interopRequireDefault(_lodashIntersection);
 	
-	var _actionsDragDrop = __webpack_require__(545);
+	var _actionsDragDrop = __webpack_require__(530);
 	
-	var _actionsRegistry = __webpack_require__(550);
+	var _actionsRegistry = __webpack_require__(535);
 	
 	var NONE = [];
 	var ALL = [];
@@ -66456,13 +64795,13 @@
 	}
 
 /***/ },
-/* 601 */
+/* 586 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var arrayFilter = __webpack_require__(602),
-	    baseXor = __webpack_require__(603),
-	    isArrayLikeObject = __webpack_require__(590),
-	    rest = __webpack_require__(595);
+	var arrayFilter = __webpack_require__(587),
+	    baseXor = __webpack_require__(588),
+	    isArrayLikeObject = __webpack_require__(575),
+	    rest = __webpack_require__(580);
 	
 	/**
 	 * Creates an array of unique values that is the [symmetric difference](https://en.wikipedia.org/wiki/Symmetric_difference)
@@ -66487,7 +64826,7 @@
 
 
 /***/ },
-/* 602 */
+/* 587 */
 /***/ function(module, exports) {
 
 	/**
@@ -66518,12 +64857,12 @@
 
 
 /***/ },
-/* 603 */
+/* 588 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var arrayPush = __webpack_require__(604),
-	    baseDifference = __webpack_require__(552),
-	    baseUniq = __webpack_require__(605);
+	var arrayPush = __webpack_require__(589),
+	    baseDifference = __webpack_require__(537),
+	    baseUniq = __webpack_require__(590);
 	
 	/**
 	 * The base implementation of methods like `_.xor`, without support for
@@ -66554,7 +64893,7 @@
 
 
 /***/ },
-/* 604 */
+/* 589 */
 /***/ function(module, exports) {
 
 	/**
@@ -66580,15 +64919,15 @@
 
 
 /***/ },
-/* 605 */
+/* 590 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var SetCache = __webpack_require__(553),
-	    arrayIncludes = __webpack_require__(583),
-	    arrayIncludesWith = __webpack_require__(586),
-	    cacheHas = __webpack_require__(589),
-	    createSet = __webpack_require__(606),
-	    setToArray = __webpack_require__(609);
+	var SetCache = __webpack_require__(538),
+	    arrayIncludes = __webpack_require__(568),
+	    arrayIncludesWith = __webpack_require__(571),
+	    cacheHas = __webpack_require__(574),
+	    createSet = __webpack_require__(591),
+	    setToArray = __webpack_require__(594);
 	
 	/** Used as the size to enable large array optimizations. */
 	var LARGE_ARRAY_SIZE = 200;
@@ -66657,11 +64996,11 @@
 
 
 /***/ },
-/* 606 */
+/* 591 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Set = __webpack_require__(607),
-	    noop = __webpack_require__(608);
+	var Set = __webpack_require__(592),
+	    noop = __webpack_require__(593);
 	
 	/**
 	 * Creates a set of `values`.
@@ -66678,11 +65017,11 @@
 
 
 /***/ },
-/* 607 */
+/* 592 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var getNative = __webpack_require__(558),
-	    root = __webpack_require__(564);
+	var getNative = __webpack_require__(543),
+	    root = __webpack_require__(549);
 	
 	/* Built-in method references that are verified to be native. */
 	var Set = getNative(root, 'Set');
@@ -66691,7 +65030,7 @@
 
 
 /***/ },
-/* 608 */
+/* 593 */
 /***/ function(module, exports) {
 
 	/**
@@ -66716,7 +65055,7 @@
 
 
 /***/ },
-/* 609 */
+/* 594 */
 /***/ function(module, exports) {
 
 	/**
@@ -66740,13 +65079,13 @@
 
 
 /***/ },
-/* 610 */
+/* 595 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var arrayMap = __webpack_require__(587),
-	    baseCastArrayLikeObject = __webpack_require__(611),
-	    baseIntersection = __webpack_require__(612),
-	    rest = __webpack_require__(595);
+	var arrayMap = __webpack_require__(572),
+	    baseCastArrayLikeObject = __webpack_require__(596),
+	    baseIntersection = __webpack_require__(597),
+	    rest = __webpack_require__(580);
 	
 	/**
 	 * Creates an array of unique values that are included in all given arrays
@@ -66775,10 +65114,10 @@
 
 
 /***/ },
-/* 611 */
+/* 596 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var isArrayLikeObject = __webpack_require__(590);
+	var isArrayLikeObject = __webpack_require__(575);
 	
 	/**
 	 * Casts `value` to an empty array if it's not an array like object.
@@ -66795,15 +65134,15 @@
 
 
 /***/ },
-/* 612 */
+/* 597 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var SetCache = __webpack_require__(553),
-	    arrayIncludes = __webpack_require__(583),
-	    arrayIncludesWith = __webpack_require__(586),
-	    arrayMap = __webpack_require__(587),
-	    baseUnary = __webpack_require__(588),
-	    cacheHas = __webpack_require__(589);
+	var SetCache = __webpack_require__(538),
+	    arrayIncludes = __webpack_require__(568),
+	    arrayIncludesWith = __webpack_require__(571),
+	    arrayMap = __webpack_require__(572),
+	    baseUnary = __webpack_require__(573),
+	    cacheHas = __webpack_require__(574);
 	
 	/* Built-in method references for those with the same name as other `lodash` methods. */
 	var nativeMin = Math.min;
@@ -66874,7 +65213,7 @@
 
 
 /***/ },
-/* 613 */
+/* 598 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -66891,7 +65230,7 @@
 	module.exports = exports["default"];
 
 /***/ },
-/* 614 */
+/* 599 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -66906,21 +65245,21 @@
 	
 	var _invariant2 = _interopRequireDefault(_invariant);
 	
-	var _utilsMatchesType = __webpack_require__(546);
+	var _utilsMatchesType = __webpack_require__(531);
 	
 	var _utilsMatchesType2 = _interopRequireDefault(_utilsMatchesType);
 	
-	var _lodashIsArray = __webpack_require__(547);
+	var _lodashIsArray = __webpack_require__(532);
 	
 	var _lodashIsArray2 = _interopRequireDefault(_lodashIsArray);
 	
-	var _HandlerRegistry = __webpack_require__(615);
+	var _HandlerRegistry = __webpack_require__(600);
 	
 	var _HandlerRegistry2 = _interopRequireDefault(_HandlerRegistry);
 	
-	var _reducersDragOffset = __webpack_require__(544);
+	var _reducersDragOffset = __webpack_require__(529);
 	
-	var _reducersDirtyHandlerIds = __webpack_require__(600);
+	var _reducersDirtyHandlerIds = __webpack_require__(585);
 	
 	var DragDropMonitor = (function () {
 	  function DragDropMonitor(store) {
@@ -67106,7 +65445,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 615 */
+/* 600 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -67123,17 +65462,17 @@
 	
 	var _invariant2 = _interopRequireDefault(_invariant);
 	
-	var _lodashIsArray = __webpack_require__(547);
+	var _lodashIsArray = __webpack_require__(532);
 	
 	var _lodashIsArray2 = _interopRequireDefault(_lodashIsArray);
 	
-	var _utilsGetNextUniqueId = __webpack_require__(616);
+	var _utilsGetNextUniqueId = __webpack_require__(601);
 	
 	var _utilsGetNextUniqueId2 = _interopRequireDefault(_utilsGetNextUniqueId);
 	
-	var _actionsRegistry = __webpack_require__(550);
+	var _actionsRegistry = __webpack_require__(535);
 	
-	var _asap = __webpack_require__(617);
+	var _asap = __webpack_require__(602);
 	
 	var _asap2 = _interopRequireDefault(_asap);
 	
@@ -67315,7 +65654,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 616 */
+/* 601 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -67331,13 +65670,13 @@
 	module.exports = exports["default"];
 
 /***/ },
-/* 617 */
+/* 602 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	
 	// rawAsap provides everything we need except exception management.
-	var rawAsap = __webpack_require__(618);
+	var rawAsap = __webpack_require__(603);
 	// RawTasks are recycled to reduce GC churn.
 	var freeTasks = [];
 	// We queue errors to ensure they are thrown in right order (FIFO).
@@ -67403,7 +65742,7 @@
 
 
 /***/ },
-/* 618 */
+/* 603 */
 /***/ function(module, exports) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {"use strict";
@@ -67630,7 +65969,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 619 */
+/* 604 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -67661,7 +66000,7 @@
 	module.exports = exports["default"];
 
 /***/ },
-/* 620 */
+/* 605 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -67690,7 +66029,7 @@
 	module.exports = exports["default"];
 
 /***/ },
-/* 621 */
+/* 606 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -67702,7 +66041,7 @@
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 	
-	var _lodashNoop = __webpack_require__(608);
+	var _lodashNoop = __webpack_require__(593);
 	
 	var _lodashNoop2 = _interopRequireDefault(_lodashNoop);
 	
@@ -67763,7 +66102,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 622 */
+/* 607 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -67792,7 +66131,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ },
-/* 623 */
+/* 608 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -67817,15 +66156,15 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _utilsShallowEqual = __webpack_require__(624);
+	var _utilsShallowEqual = __webpack_require__(609);
 	
 	var _utilsShallowEqual2 = _interopRequireDefault(_utilsShallowEqual);
 	
-	var _utilsShallowEqualScalar = __webpack_require__(625);
+	var _utilsShallowEqualScalar = __webpack_require__(610);
 	
 	var _utilsShallowEqualScalar2 = _interopRequireDefault(_utilsShallowEqualScalar);
 	
-	var _lodashIsPlainObject = __webpack_require__(626);
+	var _lodashIsPlainObject = __webpack_require__(611);
 	
 	var _lodashIsPlainObject2 = _interopRequireDefault(_lodashIsPlainObject);
 	
@@ -67833,7 +66172,7 @@
 	
 	var _invariant2 = _interopRequireDefault(_invariant);
 	
-	var _utilsCheckDecoratorArguments = __webpack_require__(622);
+	var _utilsCheckDecoratorArguments = __webpack_require__(607);
 	
 	var _utilsCheckDecoratorArguments2 = _interopRequireDefault(_utilsCheckDecoratorArguments);
 	
@@ -67935,7 +66274,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 624 */
+/* 609 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -67976,7 +66315,7 @@
 	module.exports = exports["default"];
 
 /***/ },
-/* 625 */
+/* 610 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -68021,11 +66360,11 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 626 */
+/* 611 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var isHostObject = __webpack_require__(627),
-	    isObjectLike = __webpack_require__(628);
+	var isHostObject = __webpack_require__(612),
+	    isObjectLike = __webpack_require__(613);
 	
 	/** `Object#toString` result references. */
 	var objectTag = '[object Object]';
@@ -68093,7 +66432,7 @@
 
 
 /***/ },
-/* 627 */
+/* 612 */
 /***/ function(module, exports) {
 
 	/**
@@ -68119,7 +66458,7 @@
 
 
 /***/ },
-/* 628 */
+/* 613 */
 /***/ function(module, exports) {
 
 	/**
@@ -68153,7 +66492,7 @@
 
 
 /***/ },
-/* 629 */
+/* 614 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -68168,35 +66507,35 @@
 	
 	var _invariant2 = _interopRequireDefault(_invariant);
 	
-	var _lodashIsPlainObject = __webpack_require__(626);
+	var _lodashIsPlainObject = __webpack_require__(611);
 	
 	var _lodashIsPlainObject2 = _interopRequireDefault(_lodashIsPlainObject);
 	
-	var _utilsCheckDecoratorArguments = __webpack_require__(622);
+	var _utilsCheckDecoratorArguments = __webpack_require__(607);
 	
 	var _utilsCheckDecoratorArguments2 = _interopRequireDefault(_utilsCheckDecoratorArguments);
 	
-	var _decorateHandler = __webpack_require__(630);
+	var _decorateHandler = __webpack_require__(615);
 	
 	var _decorateHandler2 = _interopRequireDefault(_decorateHandler);
 	
-	var _registerSource = __webpack_require__(636);
+	var _registerSource = __webpack_require__(621);
 	
 	var _registerSource2 = _interopRequireDefault(_registerSource);
 	
-	var _createSourceFactory = __webpack_require__(637);
+	var _createSourceFactory = __webpack_require__(622);
 	
 	var _createSourceFactory2 = _interopRequireDefault(_createSourceFactory);
 	
-	var _createSourceMonitor = __webpack_require__(638);
+	var _createSourceMonitor = __webpack_require__(623);
 	
 	var _createSourceMonitor2 = _interopRequireDefault(_createSourceMonitor);
 	
-	var _createSourceConnector = __webpack_require__(639);
+	var _createSourceConnector = __webpack_require__(624);
 	
 	var _createSourceConnector2 = _interopRequireDefault(_createSourceConnector);
 	
-	var _utilsIsValidType = __webpack_require__(643);
+	var _utilsIsValidType = __webpack_require__(628);
 	
 	var _utilsIsValidType2 = _interopRequireDefault(_utilsIsValidType);
 	
@@ -68237,7 +66576,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 630 */
+/* 615 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -68260,17 +66599,17 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _disposables = __webpack_require__(631);
+	var _disposables = __webpack_require__(616);
 	
-	var _utilsShallowEqual = __webpack_require__(624);
+	var _utilsShallowEqual = __webpack_require__(609);
 	
 	var _utilsShallowEqual2 = _interopRequireDefault(_utilsShallowEqual);
 	
-	var _utilsShallowEqualScalar = __webpack_require__(625);
+	var _utilsShallowEqualScalar = __webpack_require__(610);
 	
 	var _utilsShallowEqualScalar2 = _interopRequireDefault(_utilsShallowEqualScalar);
 	
-	var _lodashIsPlainObject = __webpack_require__(626);
+	var _lodashIsPlainObject = __webpack_require__(611);
 	
 	var _lodashIsPlainObject2 = _interopRequireDefault(_lodashIsPlainObject);
 	
@@ -68435,7 +66774,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ },
-/* 631 */
+/* 616 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -68444,32 +66783,32 @@
 	
 	exports.__esModule = true;
 	
-	var _isDisposable2 = __webpack_require__(632);
+	var _isDisposable2 = __webpack_require__(617);
 	
 	var _isDisposable3 = _interopRequireWildcard(_isDisposable2);
 	
 	exports.isDisposable = _isDisposable3['default'];
 	
-	var _Disposable2 = __webpack_require__(633);
+	var _Disposable2 = __webpack_require__(618);
 	
 	var _Disposable3 = _interopRequireWildcard(_Disposable2);
 	
 	exports.Disposable = _Disposable3['default'];
 	
-	var _CompositeDisposable2 = __webpack_require__(634);
+	var _CompositeDisposable2 = __webpack_require__(619);
 	
 	var _CompositeDisposable3 = _interopRequireWildcard(_CompositeDisposable2);
 	
 	exports.CompositeDisposable = _CompositeDisposable3['default'];
 	
-	var _SerialDisposable2 = __webpack_require__(635);
+	var _SerialDisposable2 = __webpack_require__(620);
 	
 	var _SerialDisposable3 = _interopRequireWildcard(_SerialDisposable2);
 	
 	exports.SerialDisposable = _SerialDisposable3['default'];
 
 /***/ },
-/* 632 */
+/* 617 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -68484,7 +66823,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 633 */
+/* 618 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -68528,7 +66867,7 @@
 	module.exports = exports["default"];
 
 /***/ },
-/* 634 */
+/* 619 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -68539,7 +66878,7 @@
 	
 	exports.__esModule = true;
 	
-	var _isDisposable = __webpack_require__(632);
+	var _isDisposable = __webpack_require__(617);
 	
 	var _isDisposable2 = _interopRequireWildcard(_isDisposable);
 	
@@ -68634,7 +66973,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 635 */
+/* 620 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -68645,7 +66984,7 @@
 	
 	exports.__esModule = true;
 	
-	var _isDisposable = __webpack_require__(632);
+	var _isDisposable = __webpack_require__(617);
 	
 	var _isDisposable2 = _interopRequireWildcard(_isDisposable);
 	
@@ -68720,7 +67059,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 636 */
+/* 621 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -68745,7 +67084,7 @@
 	module.exports = exports["default"];
 
 /***/ },
-/* 637 */
+/* 622 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -68761,7 +67100,7 @@
 	
 	var _invariant2 = _interopRequireDefault(_invariant);
 	
-	var _lodashIsPlainObject = __webpack_require__(626);
+	var _lodashIsPlainObject = __webpack_require__(611);
 	
 	var _lodashIsPlainObject2 = _interopRequireDefault(_lodashIsPlainObject);
 	
@@ -68838,7 +67177,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ },
-/* 638 */
+/* 623 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -68936,7 +67275,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 639 */
+/* 624 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -68946,11 +67285,11 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 	
-	var _wrapConnectorHooks = __webpack_require__(640);
+	var _wrapConnectorHooks = __webpack_require__(625);
 	
 	var _wrapConnectorHooks2 = _interopRequireDefault(_wrapConnectorHooks);
 	
-	var _areOptionsEqual = __webpack_require__(642);
+	var _areOptionsEqual = __webpack_require__(627);
 	
 	var _areOptionsEqual2 = _interopRequireDefault(_areOptionsEqual);
 	
@@ -69030,7 +67369,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 640 */
+/* 625 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -69040,7 +67379,7 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 	
-	var _utilsCloneWithRef = __webpack_require__(641);
+	var _utilsCloneWithRef = __webpack_require__(626);
 	
 	var _utilsCloneWithRef2 = _interopRequireDefault(_utilsCloneWithRef);
 	
@@ -69102,7 +67441,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 641 */
+/* 626 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -69143,7 +67482,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 642 */
+/* 627 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -69153,7 +67492,7 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 	
-	var _utilsShallowEqual = __webpack_require__(624);
+	var _utilsShallowEqual = __webpack_require__(609);
 	
 	var _utilsShallowEqual2 = _interopRequireDefault(_utilsShallowEqual);
 	
@@ -69168,7 +67507,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 643 */
+/* 628 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -69178,7 +67517,7 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 	
-	var _lodashIsArray = __webpack_require__(644);
+	var _lodashIsArray = __webpack_require__(629);
 	
 	var _lodashIsArray2 = _interopRequireDefault(_lodashIsArray);
 	
@@ -69191,7 +67530,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 644 */
+/* 629 */
 /***/ function(module, exports) {
 
 	/**
@@ -69223,7 +67562,7 @@
 
 
 /***/ },
-/* 645 */
+/* 630 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -69238,35 +67577,35 @@
 	
 	var _invariant2 = _interopRequireDefault(_invariant);
 	
-	var _lodashIsPlainObject = __webpack_require__(626);
+	var _lodashIsPlainObject = __webpack_require__(611);
 	
 	var _lodashIsPlainObject2 = _interopRequireDefault(_lodashIsPlainObject);
 	
-	var _utilsCheckDecoratorArguments = __webpack_require__(622);
+	var _utilsCheckDecoratorArguments = __webpack_require__(607);
 	
 	var _utilsCheckDecoratorArguments2 = _interopRequireDefault(_utilsCheckDecoratorArguments);
 	
-	var _decorateHandler = __webpack_require__(630);
+	var _decorateHandler = __webpack_require__(615);
 	
 	var _decorateHandler2 = _interopRequireDefault(_decorateHandler);
 	
-	var _registerTarget = __webpack_require__(646);
+	var _registerTarget = __webpack_require__(631);
 	
 	var _registerTarget2 = _interopRequireDefault(_registerTarget);
 	
-	var _createTargetFactory = __webpack_require__(647);
+	var _createTargetFactory = __webpack_require__(632);
 	
 	var _createTargetFactory2 = _interopRequireDefault(_createTargetFactory);
 	
-	var _createTargetMonitor = __webpack_require__(648);
+	var _createTargetMonitor = __webpack_require__(633);
 	
 	var _createTargetMonitor2 = _interopRequireDefault(_createTargetMonitor);
 	
-	var _createTargetConnector = __webpack_require__(649);
+	var _createTargetConnector = __webpack_require__(634);
 	
 	var _createTargetConnector2 = _interopRequireDefault(_createTargetConnector);
 	
-	var _utilsIsValidType = __webpack_require__(643);
+	var _utilsIsValidType = __webpack_require__(628);
 	
 	var _utilsIsValidType2 = _interopRequireDefault(_utilsIsValidType);
 	
@@ -69307,7 +67646,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 646 */
+/* 631 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -69332,7 +67671,7 @@
 	module.exports = exports["default"];
 
 /***/ },
-/* 647 */
+/* 632 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -69348,7 +67687,7 @@
 	
 	var _invariant2 = _interopRequireDefault(_invariant);
 	
-	var _lodashIsPlainObject = __webpack_require__(626);
+	var _lodashIsPlainObject = __webpack_require__(611);
 	
 	var _lodashIsPlainObject2 = _interopRequireDefault(_lodashIsPlainObject);
 	
@@ -69421,7 +67760,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ },
-/* 648 */
+/* 633 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -69511,7 +67850,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 649 */
+/* 634 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -69521,11 +67860,11 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 	
-	var _wrapConnectorHooks = __webpack_require__(640);
+	var _wrapConnectorHooks = __webpack_require__(625);
 	
 	var _wrapConnectorHooks2 = _interopRequireDefault(_wrapConnectorHooks);
 	
-	var _areOptionsEqual = __webpack_require__(642);
+	var _areOptionsEqual = __webpack_require__(627);
 	
 	var _areOptionsEqual2 = _interopRequireDefault(_areOptionsEqual);
 	
@@ -69578,7 +67917,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 650 */
+/* 635 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -69590,15 +67929,15 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 	
-	var _HTML5Backend = __webpack_require__(651);
+	var _HTML5Backend = __webpack_require__(636);
 	
 	var _HTML5Backend2 = _interopRequireDefault(_HTML5Backend);
 	
-	var _getEmptyImage = __webpack_require__(734);
+	var _getEmptyImage = __webpack_require__(719);
 	
 	var _getEmptyImage2 = _interopRequireDefault(_getEmptyImage);
 	
-	var _NativeTypes = __webpack_require__(733);
+	var _NativeTypes = __webpack_require__(718);
 	
 	var NativeTypes = _interopRequireWildcard(_NativeTypes);
 	
@@ -69610,7 +67949,7 @@
 	}
 
 /***/ },
-/* 651 */
+/* 636 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -69623,25 +67962,25 @@
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 	
-	var _lodashDefaults = __webpack_require__(652);
+	var _lodashDefaults = __webpack_require__(637);
 	
 	var _lodashDefaults2 = _interopRequireDefault(_lodashDefaults);
 	
-	var _shallowEqual = __webpack_require__(685);
+	var _shallowEqual = __webpack_require__(670);
 	
 	var _shallowEqual2 = _interopRequireDefault(_shallowEqual);
 	
-	var _EnterLeaveCounter = __webpack_require__(686);
+	var _EnterLeaveCounter = __webpack_require__(671);
 	
 	var _EnterLeaveCounter2 = _interopRequireDefault(_EnterLeaveCounter);
 	
-	var _BrowserDetector = __webpack_require__(728);
+	var _BrowserDetector = __webpack_require__(713);
 	
-	var _OffsetUtils = __webpack_require__(730);
+	var _OffsetUtils = __webpack_require__(715);
 	
-	var _NativeDragSources = __webpack_require__(732);
+	var _NativeDragSources = __webpack_require__(717);
 	
-	var _NativeTypes = __webpack_require__(733);
+	var _NativeTypes = __webpack_require__(718);
 	
 	var NativeTypes = _interopRequireWildcard(_NativeTypes);
 	
@@ -70191,13 +68530,13 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 652 */
+/* 637 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var apply = __webpack_require__(653),
-	    assignInDefaults = __webpack_require__(654),
-	    assignInWith = __webpack_require__(656),
-	    rest = __webpack_require__(668);
+	var apply = __webpack_require__(638),
+	    assignInDefaults = __webpack_require__(639),
+	    assignInWith = __webpack_require__(641),
+	    rest = __webpack_require__(653);
 	
 	/**
 	 * Assigns own and inherited enumerable properties of source objects to the
@@ -70227,7 +68566,7 @@
 
 
 /***/ },
-/* 653 */
+/* 638 */
 /***/ function(module, exports) {
 
 	/**
@@ -70255,10 +68594,10 @@
 
 
 /***/ },
-/* 654 */
+/* 639 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var eq = __webpack_require__(655);
+	var eq = __webpack_require__(640);
 	
 	/** Used for built-in method references. */
 	var objectProto = Object.prototype;
@@ -70288,7 +68627,7 @@
 
 
 /***/ },
-/* 655 */
+/* 640 */
 /***/ function(module, exports) {
 
 	/**
@@ -70329,12 +68668,12 @@
 
 
 /***/ },
-/* 656 */
+/* 641 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var copyObjectWith = __webpack_require__(657),
-	    createAssigner = __webpack_require__(659),
-	    keysIn = __webpack_require__(671);
+	var copyObjectWith = __webpack_require__(642),
+	    createAssigner = __webpack_require__(644),
+	    keysIn = __webpack_require__(656);
 	
 	/**
 	 * This method is like `_.assignIn` except that it accepts `customizer` which
@@ -70371,10 +68710,10 @@
 
 
 /***/ },
-/* 657 */
+/* 642 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var assignValue = __webpack_require__(658);
+	var assignValue = __webpack_require__(643);
 	
 	/**
 	 * This function is like `copyObject` except that it accepts a function to
@@ -70409,10 +68748,10 @@
 
 
 /***/ },
-/* 658 */
+/* 643 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var eq = __webpack_require__(655);
+	var eq = __webpack_require__(640);
 	
 	/** Used for built-in method references. */
 	var objectProto = Object.prototype;
@@ -70442,11 +68781,11 @@
 
 
 /***/ },
-/* 659 */
+/* 644 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var isIterateeCall = __webpack_require__(660),
-	    rest = __webpack_require__(668);
+	var isIterateeCall = __webpack_require__(645),
+	    rest = __webpack_require__(653);
 	
 	/**
 	 * Creates a function like `_.assign`.
@@ -70485,13 +68824,13 @@
 
 
 /***/ },
-/* 660 */
+/* 645 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var eq = __webpack_require__(655),
-	    isArrayLike = __webpack_require__(661),
-	    isIndex = __webpack_require__(667),
-	    isObject = __webpack_require__(665);
+	var eq = __webpack_require__(640),
+	    isArrayLike = __webpack_require__(646),
+	    isIndex = __webpack_require__(652),
+	    isObject = __webpack_require__(650);
 	
 	/**
 	 * Checks if the given arguments are from an iteratee call.
@@ -70519,12 +68858,12 @@
 
 
 /***/ },
-/* 661 */
+/* 646 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var getLength = __webpack_require__(662),
-	    isFunction = __webpack_require__(664),
-	    isLength = __webpack_require__(666);
+	var getLength = __webpack_require__(647),
+	    isFunction = __webpack_require__(649),
+	    isLength = __webpack_require__(651);
 	
 	/**
 	 * Checks if `value` is array-like. A value is considered array-like if it's
@@ -70558,10 +68897,10 @@
 
 
 /***/ },
-/* 662 */
+/* 647 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var baseProperty = __webpack_require__(663);
+	var baseProperty = __webpack_require__(648);
 	
 	/**
 	 * Gets the "length" property value of `object`.
@@ -70579,7 +68918,7 @@
 
 
 /***/ },
-/* 663 */
+/* 648 */
 /***/ function(module, exports) {
 
 	/**
@@ -70599,10 +68938,10 @@
 
 
 /***/ },
-/* 664 */
+/* 649 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var isObject = __webpack_require__(665);
+	var isObject = __webpack_require__(650);
 	
 	/** `Object#toString` result references. */
 	var funcTag = '[object Function]',
@@ -70645,7 +68984,7 @@
 
 
 /***/ },
-/* 665 */
+/* 650 */
 /***/ function(module, exports) {
 
 	/**
@@ -70680,7 +69019,7 @@
 
 
 /***/ },
-/* 666 */
+/* 651 */
 /***/ function(module, exports) {
 
 	/** Used as references for various `Number` constants. */
@@ -70719,7 +69058,7 @@
 
 
 /***/ },
-/* 667 */
+/* 652 */
 /***/ function(module, exports) {
 
 	/** Used as references for various `Number` constants. */
@@ -70746,11 +69085,11 @@
 
 
 /***/ },
-/* 668 */
+/* 653 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var apply = __webpack_require__(653),
-	    toInteger = __webpack_require__(669);
+	var apply = __webpack_require__(638),
+	    toInteger = __webpack_require__(654);
 	
 	/** Used as the `TypeError` message for "Functions" methods. */
 	var FUNC_ERROR_TEXT = 'Expected a function';
@@ -70813,10 +69152,10 @@
 
 
 /***/ },
-/* 669 */
+/* 654 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var toNumber = __webpack_require__(670);
+	var toNumber = __webpack_require__(655);
 	
 	/** Used as references for various `Number` constants. */
 	var INFINITY = 1 / 0,
@@ -70863,11 +69202,11 @@
 
 
 /***/ },
-/* 670 */
+/* 655 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var isFunction = __webpack_require__(664),
-	    isObject = __webpack_require__(665);
+	var isFunction = __webpack_require__(649),
+	    isObject = __webpack_require__(650);
 	
 	/** Used as references for various `Number` constants. */
 	var NAN = 0 / 0;
@@ -70928,13 +69267,13 @@
 
 
 /***/ },
-/* 671 */
+/* 656 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var baseKeysIn = __webpack_require__(672),
-	    indexKeys = __webpack_require__(677),
-	    isIndex = __webpack_require__(667),
-	    isPrototype = __webpack_require__(684);
+	var baseKeysIn = __webpack_require__(657),
+	    indexKeys = __webpack_require__(662),
+	    isIndex = __webpack_require__(652),
+	    isPrototype = __webpack_require__(669);
 	
 	/** Used for built-in method references. */
 	var objectProto = Object.prototype;
@@ -70988,11 +69327,11 @@
 
 
 /***/ },
-/* 672 */
+/* 657 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Reflect = __webpack_require__(673),
-	    iteratorToArray = __webpack_require__(676);
+	var Reflect = __webpack_require__(658),
+	    iteratorToArray = __webpack_require__(661);
 	
 	/** Used for built-in method references. */
 	var objectProto = Object.prototype;
@@ -71030,10 +69369,10 @@
 
 
 /***/ },
-/* 673 */
+/* 658 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var root = __webpack_require__(674);
+	var root = __webpack_require__(659);
 	
 	/** Built-in value references. */
 	var Reflect = root.Reflect;
@@ -71042,10 +69381,10 @@
 
 
 /***/ },
-/* 674 */
+/* 659 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(module, global) {var checkGlobal = __webpack_require__(675);
+	/* WEBPACK VAR INJECTION */(function(module, global) {var checkGlobal = __webpack_require__(660);
 	
 	/** Used to determine if values are of the language type `Object`. */
 	var objectTypes = {
@@ -71087,10 +69426,10 @@
 	
 	module.exports = root;
 	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(565)(module), (function() { return this; }())))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(550)(module), (function() { return this; }())))
 
 /***/ },
-/* 675 */
+/* 660 */
 /***/ function(module, exports) {
 
 	/**
@@ -71108,7 +69447,7 @@
 
 
 /***/ },
-/* 676 */
+/* 661 */
 /***/ function(module, exports) {
 
 	/**
@@ -71132,14 +69471,14 @@
 
 
 /***/ },
-/* 677 */
+/* 662 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var baseTimes = __webpack_require__(678),
-	    isArguments = __webpack_require__(679),
-	    isArray = __webpack_require__(682),
-	    isLength = __webpack_require__(666),
-	    isString = __webpack_require__(683);
+	var baseTimes = __webpack_require__(663),
+	    isArguments = __webpack_require__(664),
+	    isArray = __webpack_require__(667),
+	    isLength = __webpack_require__(651),
+	    isString = __webpack_require__(668);
 	
 	/**
 	 * Creates an array of index keys for `object` values of arrays,
@@ -71162,7 +69501,7 @@
 
 
 /***/ },
-/* 678 */
+/* 663 */
 /***/ function(module, exports) {
 
 	/**
@@ -71188,10 +69527,10 @@
 
 
 /***/ },
-/* 679 */
+/* 664 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var isArrayLikeObject = __webpack_require__(680);
+	var isArrayLikeObject = __webpack_require__(665);
 	
 	/** `Object#toString` result references. */
 	var argsTag = '[object Arguments]';
@@ -71237,11 +69576,11 @@
 
 
 /***/ },
-/* 680 */
+/* 665 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var isArrayLike = __webpack_require__(661),
-	    isObjectLike = __webpack_require__(681);
+	var isArrayLike = __webpack_require__(646),
+	    isObjectLike = __webpack_require__(666);
 	
 	/**
 	 * This method is like `_.isArrayLike` except that it also checks if `value`
@@ -71274,7 +69613,7 @@
 
 
 /***/ },
-/* 681 */
+/* 666 */
 /***/ function(module, exports) {
 
 	/**
@@ -71308,7 +69647,7 @@
 
 
 /***/ },
-/* 682 */
+/* 667 */
 /***/ function(module, exports) {
 
 	/**
@@ -71340,11 +69679,11 @@
 
 
 /***/ },
-/* 683 */
+/* 668 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var isArray = __webpack_require__(682),
-	    isObjectLike = __webpack_require__(681);
+	var isArray = __webpack_require__(667),
+	    isObjectLike = __webpack_require__(666);
 	
 	/** `Object#toString` result references. */
 	var stringTag = '[object String]';
@@ -71383,7 +69722,7 @@
 
 
 /***/ },
-/* 684 */
+/* 669 */
 /***/ function(module, exports) {
 
 	/** Used for built-in method references. */
@@ -71407,7 +69746,7 @@
 
 
 /***/ },
-/* 685 */
+/* 670 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -71448,7 +69787,7 @@
 	module.exports = exports["default"];
 
 /***/ },
-/* 686 */
+/* 671 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -71459,11 +69798,11 @@
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 	
-	var _lodashUnion = __webpack_require__(687);
+	var _lodashUnion = __webpack_require__(672);
 	
 	var _lodashUnion2 = _interopRequireDefault(_lodashUnion);
 	
-	var _lodashWithout = __webpack_require__(724);
+	var _lodashWithout = __webpack_require__(709);
 	
 	var _lodashWithout2 = _interopRequireDefault(_lodashWithout);
 	
@@ -71505,12 +69844,12 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 687 */
+/* 672 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var baseFlatten = __webpack_require__(688),
-	    baseUniq = __webpack_require__(690),
-	    rest = __webpack_require__(668);
+	var baseFlatten = __webpack_require__(673),
+	    baseUniq = __webpack_require__(675),
+	    rest = __webpack_require__(653);
 	
 	/**
 	 * Creates an array of unique values, in order, from all given arrays using
@@ -71535,13 +69874,13 @@
 
 
 /***/ },
-/* 688 */
+/* 673 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var arrayPush = __webpack_require__(689),
-	    isArguments = __webpack_require__(679),
-	    isArray = __webpack_require__(682),
-	    isArrayLikeObject = __webpack_require__(680);
+	var arrayPush = __webpack_require__(674),
+	    isArguments = __webpack_require__(664),
+	    isArray = __webpack_require__(667),
+	    isArrayLikeObject = __webpack_require__(665);
 	
 	/**
 	 * The base implementation of `_.flatten` with support for restricting flattening.
@@ -71580,7 +69919,7 @@
 
 
 /***/ },
-/* 689 */
+/* 674 */
 /***/ function(module, exports) {
 
 	/**
@@ -71606,15 +69945,15 @@
 
 
 /***/ },
-/* 690 */
+/* 675 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var SetCache = __webpack_require__(691),
-	    arrayIncludes = __webpack_require__(715),
-	    arrayIncludesWith = __webpack_require__(718),
-	    cacheHas = __webpack_require__(719),
-	    createSet = __webpack_require__(720),
-	    setToArray = __webpack_require__(723);
+	var SetCache = __webpack_require__(676),
+	    arrayIncludes = __webpack_require__(700),
+	    arrayIncludesWith = __webpack_require__(703),
+	    cacheHas = __webpack_require__(704),
+	    createSet = __webpack_require__(705),
+	    setToArray = __webpack_require__(708);
 	
 	/** Used as the size to enable large array optimizations. */
 	var LARGE_ARRAY_SIZE = 200;
@@ -71683,11 +70022,11 @@
 
 
 /***/ },
-/* 691 */
+/* 676 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var MapCache = __webpack_require__(692),
-	    cachePush = __webpack_require__(714);
+	var MapCache = __webpack_require__(677),
+	    cachePush = __webpack_require__(699);
 	
 	/**
 	 *
@@ -71714,14 +70053,14 @@
 
 
 /***/ },
-/* 692 */
+/* 677 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var mapClear = __webpack_require__(693),
-	    mapDelete = __webpack_require__(700),
-	    mapGet = __webpack_require__(706),
-	    mapHas = __webpack_require__(709),
-	    mapSet = __webpack_require__(711);
+	var mapClear = __webpack_require__(678),
+	    mapDelete = __webpack_require__(685),
+	    mapGet = __webpack_require__(691),
+	    mapHas = __webpack_require__(694),
+	    mapSet = __webpack_require__(696);
 	
 	/**
 	 * Creates a map cache object to store key-value pairs.
@@ -71752,11 +70091,11 @@
 
 
 /***/ },
-/* 693 */
+/* 678 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Hash = __webpack_require__(694),
-	    Map = __webpack_require__(699);
+	var Hash = __webpack_require__(679),
+	    Map = __webpack_require__(684);
 	
 	/**
 	 * Removes all key-value entries from the map.
@@ -71777,10 +70116,10 @@
 
 
 /***/ },
-/* 694 */
+/* 679 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var nativeCreate = __webpack_require__(695);
+	var nativeCreate = __webpack_require__(680);
 	
 	/** Used for built-in method references. */
 	var objectProto = Object.prototype;
@@ -71801,10 +70140,10 @@
 
 
 /***/ },
-/* 695 */
+/* 680 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var getNative = __webpack_require__(696);
+	var getNative = __webpack_require__(681);
 	
 	/* Built-in method references that are verified to be native. */
 	var nativeCreate = getNative(Object, 'create');
@@ -71813,10 +70152,10 @@
 
 
 /***/ },
-/* 696 */
+/* 681 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var isNative = __webpack_require__(697);
+	var isNative = __webpack_require__(682);
 	
 	/**
 	 * Gets the native function at `key` of `object`.
@@ -71835,12 +70174,12 @@
 
 
 /***/ },
-/* 697 */
+/* 682 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var isFunction = __webpack_require__(664),
-	    isHostObject = __webpack_require__(698),
-	    isObjectLike = __webpack_require__(681);
+	var isFunction = __webpack_require__(649),
+	    isHostObject = __webpack_require__(683),
+	    isObjectLike = __webpack_require__(666);
 	
 	/** Used to match `RegExp` [syntax characters](http://ecma-international.org/ecma-262/6.0/#sec-patterns). */
 	var reRegExpChar = /[\\^$.*+?()[\]{}|]/g;
@@ -71894,7 +70233,7 @@
 
 
 /***/ },
-/* 698 */
+/* 683 */
 /***/ function(module, exports) {
 
 	/**
@@ -71920,11 +70259,11 @@
 
 
 /***/ },
-/* 699 */
+/* 684 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var getNative = __webpack_require__(696),
-	    root = __webpack_require__(674);
+	var getNative = __webpack_require__(681),
+	    root = __webpack_require__(659);
 	
 	/* Built-in method references that are verified to be native. */
 	var Map = getNative(root, 'Map');
@@ -71933,13 +70272,13 @@
 
 
 /***/ },
-/* 700 */
+/* 685 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Map = __webpack_require__(699),
-	    assocDelete = __webpack_require__(701),
-	    hashDelete = __webpack_require__(703),
-	    isKeyable = __webpack_require__(705);
+	var Map = __webpack_require__(684),
+	    assocDelete = __webpack_require__(686),
+	    hashDelete = __webpack_require__(688),
+	    isKeyable = __webpack_require__(690);
 	
 	/**
 	 * Removes `key` and its value from the map.
@@ -71962,10 +70301,10 @@
 
 
 /***/ },
-/* 701 */
+/* 686 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var assocIndexOf = __webpack_require__(702);
+	var assocIndexOf = __webpack_require__(687);
 	
 	/** Used for built-in method references. */
 	var arrayProto = Array.prototype;
@@ -71999,10 +70338,10 @@
 
 
 /***/ },
-/* 702 */
+/* 687 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var eq = __webpack_require__(655);
+	var eq = __webpack_require__(640);
 	
 	/**
 	 * Gets the index at which the first occurrence of `key` is found in `array`
@@ -72027,10 +70366,10 @@
 
 
 /***/ },
-/* 703 */
+/* 688 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var hashHas = __webpack_require__(704);
+	var hashHas = __webpack_require__(689);
 	
 	/**
 	 * Removes `key` and its value from the hash.
@@ -72048,10 +70387,10 @@
 
 
 /***/ },
-/* 704 */
+/* 689 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var nativeCreate = __webpack_require__(695);
+	var nativeCreate = __webpack_require__(680);
 	
 	/** Used for built-in method references. */
 	var objectProto = Object.prototype;
@@ -72075,7 +70414,7 @@
 
 
 /***/ },
-/* 705 */
+/* 690 */
 /***/ function(module, exports) {
 
 	/**
@@ -72095,13 +70434,13 @@
 
 
 /***/ },
-/* 706 */
+/* 691 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Map = __webpack_require__(699),
-	    assocGet = __webpack_require__(707),
-	    hashGet = __webpack_require__(708),
-	    isKeyable = __webpack_require__(705);
+	var Map = __webpack_require__(684),
+	    assocGet = __webpack_require__(692),
+	    hashGet = __webpack_require__(693),
+	    isKeyable = __webpack_require__(690);
 	
 	/**
 	 * Gets the map value for `key`.
@@ -72124,10 +70463,10 @@
 
 
 /***/ },
-/* 707 */
+/* 692 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var assocIndexOf = __webpack_require__(702);
+	var assocIndexOf = __webpack_require__(687);
 	
 	/**
 	 * Gets the associative array value for `key`.
@@ -72146,10 +70485,10 @@
 
 
 /***/ },
-/* 708 */
+/* 693 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var nativeCreate = __webpack_require__(695);
+	var nativeCreate = __webpack_require__(680);
 	
 	/** Used to stand-in for `undefined` hash values. */
 	var HASH_UNDEFINED = '__lodash_hash_undefined__';
@@ -72180,13 +70519,13 @@
 
 
 /***/ },
-/* 709 */
+/* 694 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Map = __webpack_require__(699),
-	    assocHas = __webpack_require__(710),
-	    hashHas = __webpack_require__(704),
-	    isKeyable = __webpack_require__(705);
+	var Map = __webpack_require__(684),
+	    assocHas = __webpack_require__(695),
+	    hashHas = __webpack_require__(689),
+	    isKeyable = __webpack_require__(690);
 	
 	/**
 	 * Checks if a map value for `key` exists.
@@ -72209,10 +70548,10 @@
 
 
 /***/ },
-/* 710 */
+/* 695 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var assocIndexOf = __webpack_require__(702);
+	var assocIndexOf = __webpack_require__(687);
 	
 	/**
 	 * Checks if an associative array value for `key` exists.
@@ -72230,13 +70569,13 @@
 
 
 /***/ },
-/* 711 */
+/* 696 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Map = __webpack_require__(699),
-	    assocSet = __webpack_require__(712),
-	    hashSet = __webpack_require__(713),
-	    isKeyable = __webpack_require__(705);
+	var Map = __webpack_require__(684),
+	    assocSet = __webpack_require__(697),
+	    hashSet = __webpack_require__(698),
+	    isKeyable = __webpack_require__(690);
 	
 	/**
 	 * Sets the map `key` to `value`.
@@ -72264,10 +70603,10 @@
 
 
 /***/ },
-/* 712 */
+/* 697 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var assocIndexOf = __webpack_require__(702);
+	var assocIndexOf = __webpack_require__(687);
 	
 	/**
 	 * Sets the associative array `key` to `value`.
@@ -72290,10 +70629,10 @@
 
 
 /***/ },
-/* 713 */
+/* 698 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var nativeCreate = __webpack_require__(695);
+	var nativeCreate = __webpack_require__(680);
 	
 	/** Used to stand-in for `undefined` hash values. */
 	var HASH_UNDEFINED = '__lodash_hash_undefined__';
@@ -72314,10 +70653,10 @@
 
 
 /***/ },
-/* 714 */
+/* 699 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var isKeyable = __webpack_require__(705);
+	var isKeyable = __webpack_require__(690);
 	
 	/** Used to stand-in for `undefined` hash values. */
 	var HASH_UNDEFINED = '__lodash_hash_undefined__';
@@ -72347,10 +70686,10 @@
 
 
 /***/ },
-/* 715 */
+/* 700 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var baseIndexOf = __webpack_require__(716);
+	var baseIndexOf = __webpack_require__(701);
 	
 	/**
 	 * A specialized version of `_.includes` for arrays without support for
@@ -72369,10 +70708,10 @@
 
 
 /***/ },
-/* 716 */
+/* 701 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var indexOfNaN = __webpack_require__(717);
+	var indexOfNaN = __webpack_require__(702);
 	
 	/**
 	 * The base implementation of `_.indexOf` without `fromIndex` bounds checks.
@@ -72402,7 +70741,7 @@
 
 
 /***/ },
-/* 717 */
+/* 702 */
 /***/ function(module, exports) {
 
 	/**
@@ -72431,7 +70770,7 @@
 
 
 /***/ },
-/* 718 */
+/* 703 */
 /***/ function(module, exports) {
 
 	/**
@@ -72459,10 +70798,10 @@
 
 
 /***/ },
-/* 719 */
+/* 704 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var isKeyable = __webpack_require__(705);
+	var isKeyable = __webpack_require__(690);
 	
 	/** Used to stand-in for `undefined` hash values. */
 	var HASH_UNDEFINED = '__lodash_hash_undefined__';
@@ -72490,11 +70829,11 @@
 
 
 /***/ },
-/* 720 */
+/* 705 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Set = __webpack_require__(721),
-	    noop = __webpack_require__(722);
+	var Set = __webpack_require__(706),
+	    noop = __webpack_require__(707);
 	
 	/**
 	 * Creates a set of `values`.
@@ -72511,11 +70850,11 @@
 
 
 /***/ },
-/* 721 */
+/* 706 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var getNative = __webpack_require__(696),
-	    root = __webpack_require__(674);
+	var getNative = __webpack_require__(681),
+	    root = __webpack_require__(659);
 	
 	/* Built-in method references that are verified to be native. */
 	var Set = getNative(root, 'Set');
@@ -72524,7 +70863,7 @@
 
 
 /***/ },
-/* 722 */
+/* 707 */
 /***/ function(module, exports) {
 
 	/**
@@ -72549,7 +70888,7 @@
 
 
 /***/ },
-/* 723 */
+/* 708 */
 /***/ function(module, exports) {
 
 	/**
@@ -72573,12 +70912,12 @@
 
 
 /***/ },
-/* 724 */
+/* 709 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var baseDifference = __webpack_require__(725),
-	    isArrayLikeObject = __webpack_require__(680),
-	    rest = __webpack_require__(668);
+	var baseDifference = __webpack_require__(710),
+	    isArrayLikeObject = __webpack_require__(665),
+	    rest = __webpack_require__(653);
 	
 	/**
 	 * Creates an array excluding all given values using
@@ -72606,15 +70945,15 @@
 
 
 /***/ },
-/* 725 */
+/* 710 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var SetCache = __webpack_require__(691),
-	    arrayIncludes = __webpack_require__(715),
-	    arrayIncludesWith = __webpack_require__(718),
-	    arrayMap = __webpack_require__(726),
-	    baseUnary = __webpack_require__(727),
-	    cacheHas = __webpack_require__(719);
+	var SetCache = __webpack_require__(676),
+	    arrayIncludes = __webpack_require__(700),
+	    arrayIncludesWith = __webpack_require__(703),
+	    arrayMap = __webpack_require__(711),
+	    baseUnary = __webpack_require__(712),
+	    cacheHas = __webpack_require__(704);
 	
 	/** Used as the size to enable large array optimizations. */
 	var LARGE_ARRAY_SIZE = 200;
@@ -72678,7 +71017,7 @@
 
 
 /***/ },
-/* 726 */
+/* 711 */
 /***/ function(module, exports) {
 
 	/**
@@ -72705,7 +71044,7 @@
 
 
 /***/ },
-/* 727 */
+/* 712 */
 /***/ function(module, exports) {
 
 	/**
@@ -72725,7 +71064,7 @@
 
 
 /***/ },
-/* 728 */
+/* 713 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -72734,7 +71073,7 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 	
-	var _lodashMemoize = __webpack_require__(729);
+	var _lodashMemoize = __webpack_require__(714);
 	
 	var _lodashMemoize2 = _interopRequireDefault(_lodashMemoize);
 	
@@ -72750,10 +71089,10 @@
 	exports.isSafari = isSafari;
 
 /***/ },
-/* 729 */
+/* 714 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var MapCache = __webpack_require__(692);
+	var MapCache = __webpack_require__(677);
 	
 	/** Used as the `TypeError` message for "Functions" methods. */
 	var FUNC_ERROR_TEXT = 'Expected a function';
@@ -72827,7 +71166,7 @@
 
 
 /***/ },
-/* 730 */
+/* 715 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -72839,9 +71178,9 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 	
-	var _BrowserDetector = __webpack_require__(728);
+	var _BrowserDetector = __webpack_require__(713);
 	
-	var _MonotonicInterpolant = __webpack_require__(731);
+	var _MonotonicInterpolant = __webpack_require__(716);
 	
 	var _MonotonicInterpolant2 = _interopRequireDefault(_MonotonicInterpolant);
 	
@@ -72927,7 +71266,7 @@
 	}
 
 /***/ },
-/* 731 */
+/* 716 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -73044,7 +71383,7 @@
 	module.exports = exports["default"];
 
 /***/ },
-/* 732 */
+/* 717 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -73062,7 +71401,7 @@
 	
 	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 	
-	var _NativeTypes = __webpack_require__(733);
+	var _NativeTypes = __webpack_require__(718);
 	
 	var NativeTypes = _interopRequireWildcard(_NativeTypes);
 	
@@ -73152,7 +71491,7 @@
 	}
 
 /***/ },
-/* 733 */
+/* 718 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -73166,7 +71505,7 @@
 	exports.TEXT = TEXT;
 
 /***/ },
-/* 734 */
+/* 719 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -73187,7 +71526,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 735 */
+/* 720 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -73210,29 +71549,29 @@
 	
 	var _reactAutobind2 = _interopRequireDefault(_reactAutobind);
 	
-	var _reactTreeview = __webpack_require__(736);
+	var _reactTreeview = __webpack_require__(721);
 	
 	var _reactTreeview2 = _interopRequireDefault(_reactTreeview);
 	
 	var _reactBootstrap = __webpack_require__(261);
 	
-	var _Dimension = __webpack_require__(737);
+	var _Dimension = __webpack_require__(722);
 	
 	var _Dimension2 = _interopRequireDefault(_Dimension);
 	
-	var _Measure = __webpack_require__(740);
+	var _Measure = __webpack_require__(725);
 	
 	var _Measure2 = _interopRequireDefault(_Measure);
 	
-	var _CubesStore = __webpack_require__(741);
+	var _CubesStore = __webpack_require__(726);
 	
 	var _CubesStore2 = _interopRequireDefault(_CubesStore);
 	
-	var _SelectedDimensionsStore = __webpack_require__(745);
+	var _SelectedDimensionsStore = __webpack_require__(730);
 	
 	var _SelectedDimensionsStore2 = _interopRequireDefault(_SelectedDimensionsStore);
 	
-	var _SelectedMeasuresStore = __webpack_require__(750);
+	var _SelectedMeasuresStore = __webpack_require__(735);
 	
 	var _SelectedMeasuresStore2 = _interopRequireDefault(_SelectedMeasuresStore);
 	
@@ -73511,7 +71850,7 @@
 	exports.default = CubeSelector;
 
 /***/ },
-/* 736 */
+/* 721 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -73600,7 +71939,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 737 */
+/* 722 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -73615,9 +71954,9 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _Constants = __webpack_require__(738);
+	var _Constants = __webpack_require__(723);
 	
-	var _reactDnd = __webpack_require__(535);
+	var _reactDnd = __webpack_require__(520);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -73727,12 +72066,12 @@
 	exports.default = (0, _reactDnd.DragSource)(_Constants.DropTypes.DIMENSION, dimensionSource, collect)(Dimension);
 
 /***/ },
-/* 738 */
+/* 723 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _keymirror = __webpack_require__(739);
+	var _keymirror = __webpack_require__(724);
 	
 	var _keymirror2 = _interopRequireDefault(_keymirror);
 	
@@ -73778,7 +72117,7 @@
 	});
 
 /***/ },
-/* 739 */
+/* 724 */
 /***/ function(module, exports) {
 
 	/**
@@ -73837,7 +72176,7 @@
 
 
 /***/ },
-/* 740 */
+/* 725 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -73852,9 +72191,9 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _Constants = __webpack_require__(738);
+	var _Constants = __webpack_require__(723);
 	
-	var _reactDnd = __webpack_require__(535);
+	var _reactDnd = __webpack_require__(520);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -73964,7 +72303,7 @@
 	exports.default = (0, _reactDnd.DragSource)(_Constants.DropTypes.MEASURE, measureSource, collect)(Measure);
 
 /***/ },
-/* 741 */
+/* 726 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -73979,9 +72318,9 @@
 	
 	var _reactAutobind2 = _interopRequireDefault(_reactAutobind);
 	
-	var _events = __webpack_require__(742);
+	var _events = __webpack_require__(727);
 	
-	var _CubesCollection = __webpack_require__(743);
+	var _CubesCollection = __webpack_require__(728);
 	
 	var _CubesCollection2 = _interopRequireDefault(_CubesCollection);
 	
@@ -74064,7 +72403,7 @@
 	exports.default = CubesStore;
 
 /***/ },
-/* 742 */
+/* 727 */
 /***/ function(module, exports) {
 
 	// Copyright Joyent, Inc. and other Node contributors.
@@ -74368,7 +72707,7 @@
 
 
 /***/ },
-/* 743 */
+/* 728 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -74383,7 +72722,7 @@
 	
 	var _backbone2 = _interopRequireDefault(_backbone);
 	
-	var _CubeModel = __webpack_require__(744);
+	var _CubeModel = __webpack_require__(729);
 	
 	var _CubeModel2 = _interopRequireDefault(_CubeModel);
 	
@@ -74434,7 +72773,7 @@
 	exports.default = CubesCollection;
 
 /***/ },
-/* 744 */
+/* 729 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -74493,7 +72832,7 @@
 	exports.default = CubeModel;
 
 /***/ },
-/* 745 */
+/* 730 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -74512,13 +72851,13 @@
 	
 	var _reactAutobind2 = _interopRequireDefault(_reactAutobind);
 	
-	var _events = __webpack_require__(742);
+	var _events = __webpack_require__(727);
 	
-	var _AppDispatcher = __webpack_require__(746);
+	var _AppDispatcher = __webpack_require__(731);
 	
 	var _AppDispatcher2 = _interopRequireDefault(_AppDispatcher);
 	
-	var _Constants = __webpack_require__(738);
+	var _Constants = __webpack_require__(723);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -74615,7 +72954,7 @@
 	exports.default = SelectedDimensionsStore;
 
 /***/ },
-/* 746 */
+/* 731 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -74624,7 +72963,7 @@
 	  value: true
 	});
 	
-	var _flux = __webpack_require__(747);
+	var _flux = __webpack_require__(732);
 	
 	var AppDispatcher = new _flux.Dispatcher(); /*
 	                                             *   Copyright 2016 OSBI Ltd
@@ -74645,7 +72984,7 @@
 	exports.default = AppDispatcher;
 
 /***/ },
-/* 747 */
+/* 732 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -74657,11 +72996,11 @@
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 */
 	
-	module.exports.Dispatcher = __webpack_require__(748);
+	module.exports.Dispatcher = __webpack_require__(733);
 
 
 /***/ },
-/* 748 */
+/* 733 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -74683,7 +73022,7 @@
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 	
-	var invariant = __webpack_require__(749);
+	var invariant = __webpack_require__(734);
 	
 	var _prefix = 'ID_';
 	
@@ -74898,7 +73237,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ },
-/* 749 */
+/* 734 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -74953,7 +73292,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ },
-/* 750 */
+/* 735 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -74972,13 +73311,13 @@
 	
 	var _reactAutobind2 = _interopRequireDefault(_reactAutobind);
 	
-	var _events = __webpack_require__(742);
+	var _events = __webpack_require__(727);
 	
-	var _AppDispatcher = __webpack_require__(746);
+	var _AppDispatcher = __webpack_require__(731);
 	
 	var _AppDispatcher2 = _interopRequireDefault(_AppDispatcher);
 	
-	var _Constants = __webpack_require__(738);
+	var _Constants = __webpack_require__(723);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -75075,7 +73414,7 @@
 	exports.default = SelectedMeasuresStore;
 
 /***/ },
-/* 751 */
+/* 736 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -75094,7 +73433,7 @@
 	
 	var _reactAutobind2 = _interopRequireDefault(_reactAutobind);
 	
-	var _reactDnd = __webpack_require__(535);
+	var _reactDnd = __webpack_require__(520);
 	
 	var _reactBootstrap = __webpack_require__(261);
 	
@@ -75102,15 +73441,15 @@
 	
 	var _underscore2 = _interopRequireDefault(_underscore);
 	
-	var _AppDispatcher = __webpack_require__(746);
+	var _AppDispatcher = __webpack_require__(731);
 	
 	var _AppDispatcher2 = _interopRequireDefault(_AppDispatcher);
 	
-	var _SelectedDimensionsStore = __webpack_require__(745);
+	var _SelectedDimensionsStore = __webpack_require__(730);
 	
 	var _SelectedDimensionsStore2 = _interopRequireDefault(_SelectedDimensionsStore);
 	
-	var _Constants = __webpack_require__(738);
+	var _Constants = __webpack_require__(723);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -75332,7 +73671,7 @@
 	exports.default = (0, _reactDnd.DropTarget)(_Constants.DropTypes.DIMENSION, dimensionsTarget, collect)(DimensionsList);
 
 /***/ },
-/* 752 */
+/* 737 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -75351,7 +73690,7 @@
 	
 	var _reactAutobind2 = _interopRequireDefault(_reactAutobind);
 	
-	var _reactDnd = __webpack_require__(535);
+	var _reactDnd = __webpack_require__(520);
 	
 	var _reactBootstrap = __webpack_require__(261);
 	
@@ -75359,15 +73698,15 @@
 	
 	var _underscore2 = _interopRequireDefault(_underscore);
 	
-	var _AppDispatcher = __webpack_require__(746);
+	var _AppDispatcher = __webpack_require__(731);
 	
 	var _AppDispatcher2 = _interopRequireDefault(_AppDispatcher);
 	
-	var _SelectedMeasuresStore = __webpack_require__(750);
+	var _SelectedMeasuresStore = __webpack_require__(735);
 	
 	var _SelectedMeasuresStore2 = _interopRequireDefault(_SelectedMeasuresStore);
 	
-	var _Constants = __webpack_require__(738);
+	var _Constants = __webpack_require__(723);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -75589,7 +73928,7 @@
 	exports.default = (0, _reactDnd.DropTarget)(_Constants.DropTypes.MEASURE, measuresTarget, collect)(MeasuresList);
 
 /***/ },
-/* 753 */
+/* 738 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -75614,11 +73953,11 @@
 	
 	var _reactBootstrap = __webpack_require__(261);
 	
-	var _SelectedDimensionsStore = __webpack_require__(745);
+	var _SelectedDimensionsStore = __webpack_require__(730);
 	
 	var _SelectedDimensionsStore2 = _interopRequireDefault(_SelectedDimensionsStore);
 	
-	var _SelectedMeasuresStore = __webpack_require__(750);
+	var _SelectedMeasuresStore = __webpack_require__(735);
 	
 	var _SelectedMeasuresStore2 = _interopRequireDefault(_SelectedMeasuresStore);
 	
@@ -75826,7 +74165,7 @@
 	exports.default = ReportPreview;
 
 /***/ },
-/* 754 */
+/* 739 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -75889,22 +74228,22 @@
 	exports.default = NotFound;
 
 /***/ },
-/* 755 */
+/* 740 */
 /***/ function(module, exports) {
 
 	module.exports = "<!--  \n  Copyright 2016 OSBI Ltd\n\n  Licensed under the Apache License, Version 2.0 (the \"License\");\n  you may not use this file except in compliance with the License.\n  You may obtain a copy of the License at\n\n      http://www.apache.org/licenses/LICENSE-2.0\n\n  Unless required by applicable law or agreed to in writing, software\n  distributed under the License is distributed on an \"AS IS\" BASIS,\n  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n  See the License for the specific language governing permissions and\n  limitations under the License.\n-->\n\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <title>Saiku - Next Generation Open Source Analytics</title>\n\n  <!-- Meta -->\n  <meta charset=\"UTF-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n\n  <!-- Favicon -->\n  <link rel=\"shortcut icon\" href=\"dist/assets/images/favicon.ico\">\n\n  <!-- CSS -->\n  <link rel=\"stylesheet\" href=\"dist/assets/css/bootstrap.min.css\">\n  <link rel=\"stylesheet\" href=\"dist/assets/css/font-awesome.min.css\">\n  <link rel=\"stylesheet\" href=\"dist/saiku/saiku.css\">\n\n  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->\n  <!--[if lt IE 9]>\n    <script src=\"dist/assets/js/html5shiv.js\"></script>\n    <script src=\"dist/assets/js/respond.min.js\"></script>\n  <![endif]-->\n</head>\n<body>\n  <div id=\"app\"></div>\n\n  <!-- JS -->\n  <script src=\"dist/assets/js/jquery.min.js\"></script>\n  <script src=\"dist/assets/js/bootstrap.min.js\"></script>\n  <script src=\"dist/saiku/saiku.js\"></script>\n</body>\n</html>";
 
 /***/ },
-/* 756 */
+/* 741 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(757);
+	var content = __webpack_require__(742);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(759)(content, {});
+	var update = __webpack_require__(744)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -75921,10 +74260,10 @@
 	}
 
 /***/ },
-/* 757 */
+/* 742 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(758)();
+	exports = module.exports = __webpack_require__(743)();
 	// imports
 	exports.push([module.id, "@import url(https://fonts.googleapis.com/css?family=Noto+Sans:400,700);", ""]);
 	exports.push([module.id, "@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700,300);", ""]);
@@ -75936,7 +74275,7 @@
 
 
 /***/ },
-/* 758 */
+/* 743 */
 /***/ function(module, exports) {
 
 	/*
@@ -75992,7 +74331,7 @@
 
 
 /***/ },
-/* 759 */
+/* 744 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <base data-ice="baseUrl" href="../../../">
-  <title data-ice="title">js/collections/SidebarCollection.js | API Document</title>
+  <title data-ice="title">js/views/Workspace.jsx | API Document</title>
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
   <script src="script/prettify/prettify.js"></script>
@@ -72,7 +72,7 @@
 </div>
 </nav>
 
-<div class="content" data-ice="content"><h1 data-ice="title">js/collections/SidebarCollection.js</h1>
+<div class="content" data-ice="content"><h1 data-ice="title">js/views/Workspace.jsx</h1>
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">/*
  *   Copyright 2016 OSBI Ltd
  *
@@ -89,22 +89,62 @@
  *   limitations under the License.
  */
 
-import Backbone from &apos;backbone&apos;;
-import SidebarModel from &apos;../models/SidebarModel&apos;;
+import React from &apos;react&apos;;
+import autoBind from &apos;react-autobind&apos;;
+import Wrapper from &apos;../components/saiku/Wrapper&apos;;
+import Content from &apos;../components/saiku/Content&apos;;
+import MenuBar from &apos;../components/saiku/MenuBar&apos;;
+import Sidebar from &apos;../components/saiku/Sidebar&apos;;
+import Tabs from &apos;../components/saiku/Tabs&apos;;
 
-class SidebarCollection extends Backbone.Collection {
-  constructor(options) {
-    super(options);
+class Workspace extends React.Component {
+  constructor(props) {
+    super(props);
 
-    this.model = SidebarModel;
+    this.state = {
+      isOpenSidebar: true,
+      tabs: [],
+      selectedTab: null
+    };
+
+    autoBind(this, &apos;openSidebar&apos;);
   }
 
-  url() {
-    return &apos;http://localhost:9999/sidebar&apos;;
+  openSidebar() {
+    if (this.state.isOpenSidebar) {
+      this.setState({
+        isOpenSidebar: false
+      });
+    }
+    else {
+      this.setState({
+        isOpenSidebar: true
+      });
+    }
+  }
+
+  render() {
+    return (
+      &lt;Wrapper isOpenSidebar={this.state.isOpenSidebar}&gt;
+        &lt;MenuBar openSidebar={this.openSidebar} /&gt;
+        &lt;Sidebar /&gt;
+        &lt;Content page&gt;
+          &lt;Tabs createContent={this.createContent} /&gt;
+        &lt;/Content&gt;
+      &lt;/Wrapper&gt;
+    );
+  }
+
+  createContent() {
+    return (
+      &lt;Content&gt;
+        &lt;h1&gt;Workspace&lt;/h1&gt;
+      &lt;/Content&gt;
+    );
   }
 }
 
-export default SidebarCollection;
+export default Workspace;
 </code></pre>
 
 </div>

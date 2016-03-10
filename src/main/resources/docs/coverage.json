@@ -1,6 +1,6 @@
 {
-  "coverage": "9.92%",
-  "expectCount": 131,
+  "coverage": "9.48%",
+  "expectCount": 137,
   "actualCount": 13,
   "files": {
     "js/utils/Base64.js": {
@@ -303,6 +303,18 @@
         53,
         66,
         44
+      ]
+    },
+    "js/views/Workspace.jsx": {
+      "expectCount": 6,
+      "actualCount": 0,
+      "undocumentLines": [
+        25,
+        26,
+        63,
+        38,
+        51,
+        29
       ]
     },
     "js/components/saiku/Wrapper.jsx": {
