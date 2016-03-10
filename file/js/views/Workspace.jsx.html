@@ -91,26 +91,11 @@
 
 import React from &apos;react&apos;;
 import autoBind from &apos;react-autobind&apos;;
-import {
-  Row,
-  Col,
-  Navbar,
-  Nav,
-  NavItem,
-  Table
-} from &apos;react-bootstrap&apos;;
-import { AutoAffix } from &apos;react-overlays&apos;;
-import Wrapper from &apos;./Wrapper&apos;;
-import Content from &apos;./Content&apos;;
-import MenuBar from &apos;./MenuBar&apos;;
-import Sidebar from &apos;./Sidebar&apos;;
-import SidebarOlap from &apos;./SidebarOlap&apos;;
-import SidebarReporting from &apos;./SidebarReporting&apos;;
-import Toolbar from &apos;./Toolbar&apos;;
-import ToolbarReporting from &apos;./ToolbarReporting&apos;;
-import Tabs from &apos;./Tabs&apos;;
-import Portlet from &apos;./Portlet&apos;;
-import Icon from &apos;./Icon&apos;;
+import Wrapper from &apos;../components/saiku/Wrapper&apos;;
+import Content from &apos;../components/saiku/Content&apos;;
+import MenuBar from &apos;../components/saiku/MenuBar&apos;;
+import Sidebar from &apos;../components/saiku/Sidebar&apos;;
+import Tabs from &apos;../components/saiku/Tabs&apos;;
 
 class Workspace extends React.Component {
   constructor(props) {
@@ -150,140 +135,10 @@ class Workspace extends React.Component {
     );
   }
 
-  // createContent() {
-  //   return (
-  //     &lt;Content&gt;
-  //       &lt;Toolbar /&gt;
-  //       &lt;Row&gt;
-  //         &lt;Col md={3}&gt;
-  //           &lt;SidebarOlap /&gt;
-  //         &lt;/Col&gt;
-  //         &lt;div className=&quot;m-t-10&quot;&gt;
-  //           &lt;Col md={3}&gt;
-  //             &lt;AutoAffix viewportOffsetTop={70}&gt;
-  //               &lt;div&gt;
-  //                 &lt;Portlet title=&quot;Measures&quot; /&gt;
-  //                 &lt;Portlet title=&quot;Columns&quot; /&gt;
-  //                 &lt;Portlet title=&quot;Rows&quot; /&gt;
-  //               &lt;/div&gt;
-  //             &lt;/AutoAffix&gt;
-  //           &lt;/Col&gt;
-  //           &lt;Col lg={6}&gt;
-  //             &lt;AutoAffix viewportOffsetTop={70}&gt;
-  //               &lt;Table striped bordered condensed hover&gt;
-  //                 &lt;thead&gt;
-  //                   &lt;tr&gt;
-  //                     &lt;th&gt;#&lt;/th&gt;
-  //                     &lt;th&gt;First Name&lt;/th&gt;
-  //                     &lt;th&gt;Last Name&lt;/th&gt;
-  //                     &lt;th&gt;Username&lt;/th&gt;
-  //                   &lt;/tr&gt;
-  //                 &lt;/thead&gt;
-  //                 &lt;tbody&gt;
-  //                   &lt;tr&gt;
-  //                     &lt;td&gt;1&lt;/td&gt;
-  //                     &lt;td&gt;Mark&lt;/td&gt;
-  //                     &lt;td&gt;Otto&lt;/td&gt;
-  //                     &lt;td&gt;@mdo&lt;/td&gt;
-  //                   &lt;/tr&gt;
-  //                   &lt;tr&gt;
-  //                     &lt;td&gt;2&lt;/td&gt;
-  //                     &lt;td&gt;Jacob&lt;/td&gt;
-  //                     &lt;td&gt;Thornton&lt;/td&gt;
-  //                     &lt;td&gt;@fat&lt;/td&gt;
-  //                   &lt;/tr&gt;
-  //                   &lt;tr&gt;
-  //                     &lt;td&gt;3&lt;/td&gt;
-  //                     &lt;td colSpan=&quot;2&quot;&gt;Larry the Bird&lt;/td&gt;
-  //                     &lt;td&gt;@twitter&lt;/td&gt;
-  //                   &lt;/tr&gt;
-  //                 &lt;/tbody&gt;
-  //               &lt;/Table&gt;
-  //             &lt;/AutoAffix&gt;
-  //           &lt;/Col&gt;
-  //         &lt;/div&gt;
-  //       &lt;/Row&gt;
-  //     &lt;/Content&gt;
-  //   );
-  // }
-
   createContent() {
     return (
       &lt;Content&gt;
-        &lt;ToolbarReporting /&gt;
-        &lt;Row&gt;
-          &lt;Col md={3}&gt;
-            &lt;SidebarReporting /&gt;
-          &lt;/Col&gt;
-          &lt;div className=&quot;m-t-10&quot;&gt;
-            &lt;Col md={3}&gt;
-              &lt;AutoAffix viewportOffsetTop={70}&gt;
-                &lt;div&gt;
-                  &lt;Portlet title=&quot;Select&quot; /&gt;
-                  &lt;Portlet title=&quot;Filter&quot; /&gt;
-                  &lt;Portlet title=&quot;Sort&quot; /&gt;
-                &lt;/div&gt;
-              &lt;/AutoAffix&gt;
-            &lt;/Col&gt;
-            &lt;Col lg={6}&gt;
-              &lt;AutoAffix viewportOffsetTop={70}&gt;
-                &lt;div className=&quot;content-box&quot;&gt;
-                  &lt;Navbar className=&quot;border-toolbar&quot;&gt;
-                    &lt;Nav&gt;
-                      &lt;NavItem eventKey={1} href=&quot;#&quot;&gt;
-                        &lt;Icon name=&quot;align-left&quot; /&gt;
-                      &lt;/NavItem&gt;
-                      &lt;NavItem eventKey={2} href=&quot;#&quot;&gt;
-                        &lt;Icon name=&quot;align-justify&quot; /&gt;
-                      &lt;/NavItem&gt;
-                      &lt;NavItem eventKey={3} href=&quot;#&quot;&gt;
-                        &lt;Icon name=&quot;align-right&quot; /&gt;
-                      &lt;/NavItem&gt;
-                      &lt;NavItem eventKey={4} href=&quot;#&quot;&gt;
-                        &lt;Icon name=&quot;bold&quot; /&gt;
-                      &lt;/NavItem&gt;
-                      &lt;NavItem eventKey={5} href=&quot;#&quot;&gt;
-                        &lt;Icon name=&quot;italic&quot; /&gt;
-                      &lt;/NavItem&gt;
-                      &lt;NavItem eventKey={5} href=&quot;#&quot;&gt;
-                        &lt;Icon name=&quot;underline&quot; /&gt;
-                      &lt;/NavItem&gt;
-                    &lt;/Nav&gt;
-                  &lt;/Navbar&gt;
-                  &lt;Table striped bordered condensed hover&gt;
-                    &lt;thead&gt;
-                      &lt;tr&gt;
-                        &lt;th&gt;#&lt;/th&gt;
-                        &lt;th&gt;First Name&lt;/th&gt;
-                        &lt;th&gt;Last Name&lt;/th&gt;
-                        &lt;th&gt;Username&lt;/th&gt;
-                      &lt;/tr&gt;
-                    &lt;/thead&gt;
-                    &lt;tbody&gt;
-                      &lt;tr&gt;
-                        &lt;td&gt;1&lt;/td&gt;
-                        &lt;td&gt;Mark&lt;/td&gt;
-                        &lt;td&gt;Otto&lt;/td&gt;
-                        &lt;td&gt;@mdo&lt;/td&gt;
-                      &lt;/tr&gt;
-                      &lt;tr&gt;
-                        &lt;td&gt;2&lt;/td&gt;
-                        &lt;td&gt;Jacob&lt;/td&gt;
-                        &lt;td&gt;Thornton&lt;/td&gt;
-                        &lt;td&gt;@fat&lt;/td&gt;
-                      &lt;/tr&gt;
-                      &lt;tr&gt;
-                        &lt;td&gt;3&lt;/td&gt;
-                        &lt;td colSpan=&quot;2&quot;&gt;Larry the Bird&lt;/td&gt;
-                        &lt;td&gt;@twitter&lt;/td&gt;
-                      &lt;/tr&gt;
-                    &lt;/tbody&gt;
-                  &lt;/Table&gt;
-                &lt;/div&gt;
-              &lt;/AutoAffix&gt;
-            &lt;/Col&gt;
-          &lt;/div&gt;
-        &lt;/Row&gt;
+        &lt;h1&gt;Workspace&lt;/h1&gt;
       &lt;/Content&gt;
     );
   }

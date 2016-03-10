@@ -10,7 +10,7 @@
     "access": null,
     "description": null,
     "lineNumber": 17,
-    "content": "/*\n *   Copyright 2016 OSBI Ltd\n *\n *   Licensed under the Apache License, Version 2.0 (the \"License\");\n *   you may not use this file except in compliance with the License.\n *   You may obtain a copy of the License at\n *\n *       http://www.apache.org/licenses/LICENSE-2.0\n *\n *   Unless required by applicable law or agreed to in writing, software\n *   distributed under the License is distributed on an \"AS IS\" BASIS,\n *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n *   See the License for the specific language governing permissions and\n *   limitations under the License.\n */\n\nimport React from 'react';\nimport ReactDOM from 'react-dom';\nimport { Router, Route } from 'react-router';\nimport { createHistory } from 'history';\nimport Login from './components/saiku/Login';\nimport LockScreen from './components/saiku/LockScreen';\nimport Workspace from './components/saiku/Workspace';\nimport QueryDesigner from './components/saiku/query_designer';\nimport NotFound from './components/saiku/NotFound';\n\n// webpack loaders\nimport '../../index.html';\nimport '../../dist/saiku/saiku.css';\n\n/**\n * React router component allows you to define routes in React application.\n * @see https://github.com/reactjs/react-router\n */\nvar routes = (\n  <Router history={createHistory()}>\n    <Route path=\"/\" component={Login} />\n    <Route path=\"/workspace/\" component={Workspace} />\n    <Route path=\"/query_designer/\" component={QueryDesigner} />\n    <Route path=\"/lockscreen/\" component={LockScreen} />\n    <Route path=\"*\" component={NotFound} />\n  </Router>\n);\n\n// The primary API for rendering into the DOM.\nReactDOM.render(routes, document.querySelector('#app'));\n"
+    "content": "/*\n *   Copyright 2016 OSBI Ltd\n *\n *   Licensed under the Apache License, Version 2.0 (the \"License\");\n *   you may not use this file except in compliance with the License.\n *   You may obtain a copy of the License at\n *\n *       http://www.apache.org/licenses/LICENSE-2.0\n *\n *   Unless required by applicable law or agreed to in writing, software\n *   distributed under the License is distributed on an \"AS IS\" BASIS,\n *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n *   See the License for the specific language governing permissions and\n *   limitations under the License.\n */\n\nimport React from 'react';\nimport ReactDOM from 'react-dom';\nimport { Router, Route } from 'react-router';\nimport { createHistory } from 'history';\nimport Login from './views/Login';\nimport LockScreen from './views/LockScreen';\nimport Workspace from './views/Workspace';\nimport QueryDesigner from './components/saiku/query_designer';\nimport NotFound from './components/saiku/NotFound';\n\n// webpack loaders\nimport '../../index.html';\nimport '../../dist/saiku/saiku.css';\n\n/**\n * React router component allows you to define routes in React application.\n * @see https://github.com/reactjs/react-router\n */\nvar routes = (\n  <Router history={createHistory()}>\n    <Route path=\"/\" component={Login} />\n    <Route path=\"/workspace/\" component={Workspace} />\n    <Route path=\"/query_designer/\" component={QueryDesigner} />\n    <Route path=\"/lockscreen/\" component={LockScreen} />\n    <Route path=\"*\" component={NotFound} />\n  </Router>\n);\n\n// The primary API for rendering into the DOM.\nReactDOM.render(routes, document.querySelector('#app'));\n"
   },
   {
     "__docId__": 1,
@@ -5375,7 +5375,7 @@
     "access": null,
     "description": null,
     "lineNumber": 17,
-    "content": "/*\n *   Copyright 2016 OSBI Ltd\n *\n *   Licensed under the Apache License, Version 2.0 (the \"License\");\n *   you may not use this file except in compliance with the License.\n *   You may obtain a copy of the License at\n *\n *       http://www.apache.org/licenses/LICENSE-2.0\n *\n *   Unless required by applicable law or agreed to in writing, software\n *   distributed under the License is distributed on an \"AS IS\" BASIS,\n *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n *   See the License for the specific language governing permissions and\n *   limitations under the License.\n */\n\nimport React from 'react';\nimport autoBind from 'react-autobind';\nimport validation from 'react-validation-mixin';\nimport strategy from 'react-validatorjs-strategy';\nimport {\n  Row,\n  Col,\n  Input,\n  Button\n} from 'react-bootstrap';\nimport FormGroup from '../bootstrap/FormGroup';\nimport Clearfix from '../bootstrap/Clearfix';\nimport Wrapper from './Wrapper';\n\nclass LockScreen extends React.Component {\n  constructor(props) {\n    super(props);\n\n    this.validatorTypes = strategy.createSchema({\n      password: 'required'\n    });\n    autoBind(this, 'getValidatorData', 'renderHelpText', 'getClasses',\n      'onSubmitLogin');\n  }\n\n  getValidatorData() {\n    return {\n      password: this.refs.password.getValue()\n    };\n  }\n\n  renderHelpText(message) {\n    return (\n      <span className=\"help-block\">{message}</span>\n    );\n  }\n\n  getClasses(field) {\n    return !this.props.isValid(field) ? 'has-error' : '';\n  }\n\n  onSubmitLogin(event) {\n    event.preventDefault();\n\n    let onValidate = (error) => {\n      if (!error) {\n        this.props.history.pushState(null, '/workspace/');\n      }\n    };\n\n    this.props.validate(onValidate);\n  }\n\n  render() {\n    return (\n      <div>\n        <div className=\"bg-page\"></div>\n        <Clearfix />\n\n        <Wrapper page>\n          <div className=\"content-box\">\n            <div className=\"panel-heading\">\n              <Col xs={3}>\n                <img\n                  src=\"../dist/assets/images/saiku/logo-small.png\"\n                  width=\"40\"\n                  height=\"40\"\n                />\n              </Col>\n              <Col xs={9}>\n                <h4 className=\"text-left\">\n                  Sign In to <strong>Saiku Analytics</strong>\n                </h4>\n              </Col>\n              <Clearfix />\n            </div>\n            <div className=\"panel-body\">\n              <form\n                className=\"text-center\"\n                onSubmit={this.onSubmitLogin}\n                role=\"form\"\n              >\n                <div className=\"user-thumb\">\n                  <img\n                    src=\"../dist/assets/images/users/user2.jpg\"\n                    className=\"img-responsive img-circle img-thumbnail\"\n                  />\n                </div>\n                <FormGroup>\n                  <h3>Tom Barber</h3>\n                  <p className=\"text-muted\">\n                    Enter your password to access the Saiku Analytics.\n                  </p>\n                  <div className={this.getClasses('password')}>\n                    <div className=\"input-group m-t-30\">\n                      <Input\n                        type=\"password\"\n                        ref=\"password\"\n                        placeholder=\"Password\"\n                        onBlur={this.props.handleValidation('password')}\n                        standalone\n                      />\n                      <span className=\"input-group-btn\">\n                        <Button\n                          type=\"submit\"\n                          className=\"w-sm\"\n                          block\n                        >\n                          Unlock\n                        </Button>\n                      </span>\n                    </div>\n                    {this.renderHelpText(\n                      this.props.getValidationMessages('password')\n                    )}\n                  </div>\n                </FormGroup>\n                <FormGroup>\n                  <Col xs={12} className=\"text-right\">\n                    <a href=\"#\">Login with another account</a>\n                  </Col>\n                </FormGroup>\n              </form>\n            </div>\n          </div>\n          <Row>\n            <Col sm={12} className=\"text-center\">\n              <p>Saiku-4.0-SNAPSHOT</p>\n            </Col>\n          </Row>\n        </Wrapper>\n      </div>\n    );\n  }\n}\n\nLockScreen.propTypes = {\n  history: React.PropTypes.object,\n  errors: React.PropTypes.object,\n  validate: React.PropTypes.func,\n  isValid: React.PropTypes.func,\n  handleValidation: React.PropTypes.func,\n  getValidationMessages: React.PropTypes.func,\n  clearValidations: React.PropTypes.func\n};\n\nexport default validation(strategy)(LockScreen);\n"
+    "content": "/*\n *   Copyright 2016 OSBI Ltd\n *\n *   Licensed under the Apache License, Version 2.0 (the \"License\");\n *   you may not use this file except in compliance with the License.\n *   You may obtain a copy of the License at\n *\n *       http://www.apache.org/licenses/LICENSE-2.0\n *\n *   Unless required by applicable law or agreed to in writing, software\n *   distributed under the License is distributed on an \"AS IS\" BASIS,\n *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n *   See the License for the specific language governing permissions and\n *   limitations under the License.\n */\n\nimport React from 'react';\nimport autoBind from 'react-autobind';\nimport validation from 'react-validation-mixin';\nimport strategy from 'react-validatorjs-strategy';\nimport {\n  Row,\n  Col,\n  Input,\n  Button\n} from 'react-bootstrap';\nimport FormGroup from '../components/bootstrap/FormGroup';\nimport Clearfix from '../components/bootstrap/Clearfix';\nimport Wrapper from '../components/saiku/Wrapper';\n\n/**\n * Class LockScreen\n *\n * @class Login\n * @extends React.Component\n */\nclass LockScreen extends React.Component {\n  constructor(props) {\n    super(props);\n\n    this.validatorTypes = strategy.createSchema({\n      password: 'required'\n    });\n\n    autoBind(this, 'getValidatorData', 'renderHelpText', 'getClasses',\n      'onSubmitLogin');\n  }\n\n  /**\n   * Method that defines the data to validate your schema.\n   *\n   * @method getValidatorData\n   * @return {Object} An object with username and password\n   */\n  getValidatorData() {\n    return {\n      password: this.refs.password.getValue()\n    };\n  }\n\n  /**\n   * Helper method that show a message.\n   *\n   * @method renderHelpText\n   * @param  {String} message - Text to be displayed on span tag\n   * @return {HTMLElement}      A block of help text that breaks\n   *                            into a new line\n   */\n  renderHelpText(message) {\n    return (\n      <span className=\"help-block\">{message}</span>\n    );\n  }\n\n  /**\n   * Method for get the field name the HTML element.\n   *\n   * @method getClasses\n   * @param  {String} field - Field name the HTML element\n   * @return {String}         Validation states\n   */\n  getClasses(field) {\n    return !this.props.isValid(field) ? 'has-error' : '';\n  }\n\n  /**\n   * Method called when the Login button is pressed.\n   *\n   * @method onSubmitLogin\n   * @param  {Object} event - The Event interface represents any\n   *                          event of the DOM\n   */\n  onSubmitLogin(event) {\n    event.preventDefault();\n\n    let onValidate = (error) => {\n      if (!error) {\n        this.props.history.pushState(null, '/workspace/');\n      }\n    };\n\n    this.props.validate(onValidate);\n  }\n\n  render() {\n    return (\n      <div>\n        <div className=\"bg-page\"></div>\n        <Clearfix />\n\n        <Wrapper page>\n          <div className=\"content-box\">\n            <div className=\"panel-heading\">\n              <Col xs={3}>\n                <img\n                  src=\"../dist/assets/images/saiku/logo-small.png\"\n                  width=\"40\"\n                  height=\"40\"\n                />\n              </Col>\n              <Col xs={9}>\n                <h4 className=\"text-left\">\n                  Sign In to <strong>Saiku Analytics</strong>\n                </h4>\n              </Col>\n              <Clearfix />\n            </div>\n            <div className=\"panel-body\">\n              <form\n                className=\"text-center\"\n                onSubmit={this.onSubmitLogin}\n                role=\"form\"\n              >\n                <div className=\"user-thumb\">\n                  <img\n                    src=\"../dist/assets/images/users/user2.jpg\"\n                    className=\"img-responsive img-circle img-thumbnail\"\n                  />\n                </div>\n                <FormGroup>\n                  <h3>Tom Barber</h3>\n                  <p className=\"text-muted\">\n                    Enter your password to access the Saiku Analytics.\n                  </p>\n                  <div className={this.getClasses('password')}>\n                    <div className=\"input-group m-t-30\">\n                      <Input\n                        type=\"password\"\n                        ref=\"password\"\n                        placeholder=\"Password\"\n                        onBlur={this.props.handleValidation('password')}\n                        standalone\n                      />\n                      <span className=\"input-group-btn\">\n                        <Button\n                          type=\"submit\"\n                          className=\"w-sm\"\n                          block\n                        >\n                          Unlock\n                        </Button>\n                      </span>\n                    </div>\n                    {this.renderHelpText(\n                      this.props.getValidationMessages('password')\n                    )}\n                  </div>\n                </FormGroup>\n                <FormGroup>\n                  <Col xs={12} className=\"text-right\">\n                    <a href=\"#\">Login with another account</a>\n                  </Col>\n                </FormGroup>\n              </form>\n            </div>\n          </div>\n          <Row>\n            <Col sm={12} className=\"text-center\">\n              <p>Saiku-4.0-SNAPSHOT</p>\n            </Col>\n          </Row>\n        </Wrapper>\n      </div>\n    );\n  }\n}\n\n// Exports validators that can be used to make sure the data is valid.\nLockScreen.propTypes = {\n  history: React.PropTypes.object,\n  errors: React.PropTypes.object,\n  validate: React.PropTypes.func,\n  isValid: React.PropTypes.func,\n  handleValidation: React.PropTypes.func,\n  getValidationMessages: React.PropTypes.func,\n  clearValidations: React.PropTypes.func\n};\n\n// Wrapped component with the validation mixin and supporting strategy.\nexport default validation(strategy)(LockScreen);\n"
   },
   {
     "__docId__": 264,
@@ -5389,12 +5389,17 @@
     "export": false,
     "importPath": "meteorite-core-ui/js/views/LockScreen.jsx",
     "importStyle": null,
-    "description": null,
-    "lineNumber": 31,
-    "undocument": true,
+    "description": "Class LockScreen",
+    "lineNumber": 37,
+    "unknown": [
+      {
+        "tagName": "@class",
+        "tagValue": "Login"
+      }
+    ],
     "interface": false,
     "extends": [
-      "react~React.Component"
+      "*"
     ]
   },
   {
@@ -5407,7 +5412,7 @@
     "longname": "js/views/LockScreen.jsx~LockScreen#constructor",
     "access": null,
     "description": null,
-    "lineNumber": 32,
+    "lineNumber": 38,
     "undocument": true,
     "params": [
       {
@@ -5429,7 +5434,7 @@
     "longname": "js/views/LockScreen.jsx~LockScreen#validatorTypes",
     "access": null,
     "description": null,
-    "lineNumber": 35,
+    "lineNumber": 41,
     "undocument": true,
     "type": {
       "types": [
@@ -5446,14 +5451,22 @@
     "memberof": "js/views/LockScreen.jsx~LockScreen",
     "longname": "js/views/LockScreen.jsx~LockScreen#getValidatorData",
     "access": null,
-    "description": null,
-    "lineNumber": 42,
-    "undocument": true,
+    "description": "Method that defines the data to validate your schema.",
+    "lineNumber": 55,
+    "unknown": [
+      {
+        "tagName": "@method",
+        "tagValue": "getValidatorData"
+      }
+    ],
     "params": [],
     "return": {
+      "nullable": null,
       "types": [
-        "*"
-      ]
+        "Object"
+      ],
+      "spread": false,
+      "description": "An object with username and password"
     },
     "generator": false
   },
@@ -5466,21 +5479,33 @@
     "memberof": "js/views/LockScreen.jsx~LockScreen",
     "longname": "js/views/LockScreen.jsx~LockScreen#renderHelpText",
     "access": null,
-    "description": null,
-    "lineNumber": 48,
-    "undocument": true,
+    "description": "Helper method that show a message.",
+    "lineNumber": 69,
+    "unknown": [
+      {
+        "tagName": "@method",
+        "tagValue": "renderHelpText"
+      }
+    ],
     "params": [
       {
-        "name": "message",
+        "nullable": null,
         "types": [
-          "*"
-        ]
+          "String"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "message",
+        "description": "Text to be displayed on span tag"
       }
     ],
     "return": {
+      "nullable": null,
       "types": [
-        "*"
-      ]
+        "HTMLElement"
+      ],
+      "spread": false,
+      "description": "A block of help text that breaks\n                           into a new line"
     },
     "generator": false
   },
@@ -5493,21 +5518,33 @@
     "memberof": "js/views/LockScreen.jsx~LockScreen",
     "longname": "js/views/LockScreen.jsx~LockScreen#getClasses",
     "access": null,
-    "description": null,
-    "lineNumber": 54,
-    "undocument": true,
+    "description": "Method for get the field name the HTML element.",
+    "lineNumber": 82,
+    "unknown": [
+      {
+        "tagName": "@method",
+        "tagValue": "getClasses"
+      }
+    ],
     "params": [
       {
-        "name": "field",
+        "nullable": null,
         "types": [
-          "*"
-        ]
+          "String"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "field",
+        "description": "Field name the HTML element"
       }
     ],
     "return": {
+      "nullable": null,
       "types": [
-        "*"
-      ]
+        "String"
+      ],
+      "spread": false,
+      "description": "Validation states"
     },
     "generator": false
   },
@@ -5520,15 +5557,24 @@
     "memberof": "js/views/LockScreen.jsx~LockScreen",
     "longname": "js/views/LockScreen.jsx~LockScreen#onSubmitLogin",
     "access": null,
-    "description": null,
-    "lineNumber": 58,
-    "undocument": true,
+    "description": "Method called when the Login button is pressed.",
+    "lineNumber": 93,
+    "unknown": [
+      {
+        "tagName": "@method",
+        "tagValue": "onSubmitLogin"
+      }
+    ],
     "params": [
       {
-        "name": "event",
+        "nullable": null,
         "types": [
-          "*"
-        ]
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "event",
+        "description": "The Event interface represents any\n                         event of the DOM"
       }
     ],
     "generator": false
@@ -5543,7 +5589,7 @@
     "longname": "js/views/LockScreen.jsx~LockScreen#render",
     "access": null,
     "description": null,
-    "lineNumber": 70,
+    "lineNumber": 105,
     "undocument": true,
     "params": [],
     "return": {
@@ -5564,7 +5610,7 @@
     "access": null,
     "description": null,
     "lineNumber": 17,
-    "content": "/*\n *   Copyright 2016 OSBI Ltd\n *\n *   Licensed under the Apache License, Version 2.0 (the \"License\");\n *   you may not use this file except in compliance with the License.\n *   You may obtain a copy of the License at\n *\n *       http://www.apache.org/licenses/LICENSE-2.0\n *\n *   Unless required by applicable law or agreed to in writing, software\n *   distributed under the License is distributed on an \"AS IS\" BASIS,\n *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n *   See the License for the specific language governing permissions and\n *   limitations under the License.\n */\n\nimport React from 'react';\nimport autoBind from 'react-autobind';\nimport { History } from 'react-router';\nimport reactMixin from 'react-mixin';\nimport validation from 'react-validation-mixin';\nimport strategy from 'react-validatorjs-strategy';\nimport Session from '../../models/Session';\nimport {\n  Row,\n  Col,\n  Input,\n  Button\n} from 'react-bootstrap';\nimport FormGroup from '../bootstrap/FormGroup';\nimport Clearfix from '../bootstrap/Clearfix';\nimport Wrapper from './Wrapper';\n\n/**\n * Class Login\n *\n * @class Login\n * @extends React.Component\n */\nclass Login extends React.Component {\n  constructor(props) {\n    super(props);\n\n    this.validatorTypes = strategy.createSchema({\n      username: 'required',\n      password: 'required'\n    });\n    autoBind(this, 'getValidatorData', 'renderHelpText', 'getClasses',\n      'onSubmitLogin');\n    this.session = new Session();\n  }\n\n  /**\n   * Method that defines the data to validate your schema.\n   *\n   * @method getValidatorData\n   * @return {Object} An object with username and password \n   */\n  getValidatorData() {\n    return {\n      username: this.refs.username.getValue(),\n      password: this.refs.password.getValue()\n    };\n  }\n\n  /**\n   * Helper method that show a message.\n   *\n   * @method renderHelpText\n   * @param  {String} message - Text to be displayed on span tag\n   * @return {HTMLElement}      A block of help text that breaks\n   *                            into a new line\n   */\n  renderHelpText(message) {\n    return (\n      <span className=\"help-block\">{message}</span>\n    );\n  }\n\n  /**\n   * Method for get the field name the HTML element.\n   *\n   * @method getClasses\n   * @param  {String} field - Field name the HTML element\n   * @return {String}         Validation states\n   */\n  getClasses(field) {\n    return !this.props.isValid(field) ? 'has-error' : '';\n  }\n\n  /**\n   * Method called when the Login button is pressed.\n   *\n   * @method onSubmitLogin\n   * @param  {Object} event - The Event interface represents any\n   *                          event of the DOM\n   */\n  onSubmitLogin(event) {\n    event.preventDefault();\n\n    let credentials = {\n      username: this.refs.username.getValue(),\n      password: this.refs.password.getValue()\n    };\n    let onValidate = (error) => {\n      if (!error) {\n        this.session.login(credentials, this);\n      }\n    };\n\n    this.props.validate(onValidate);\n  }\n\n  render() {\n    return (\n      <div>\n        <div className=\"bg-page\"></div>\n        <Clearfix />\n\n        <Wrapper page>\n          <div className=\"content-box\">\n            <div className=\"panel-heading\">\n              <Col xs={3}>\n                <img\n                  src=\"dist/assets/images/saiku/logo-small.png\"\n                  width=\"40\"\n                  height=\"40\"\n                />\n              </Col>\n              <Col xs={9}>\n                <h4 className=\"text-left\">\n                  Sign In to <strong>Saiku Analytics</strong>\n                </h4>\n              </Col>\n              <Clearfix />\n            </div>\n            <div className=\"panel-body\">\n              <form\n                className=\"form-horizontal m-t-20\"\n                ref=\"loginForm\"\n                onSubmit={this.onSubmitLogin}\n                role=\"form\"\n              >\n                <FormGroup>\n                  <Col xs={12}>\n                    <div className={this.getClasses('username')}>\n                      <Input\n                        type=\"text\"\n                        ref=\"username\"\n                        placeholder=\"Username\"\n                        onBlur={this.props.handleValidation('username')}\n                        standalone\n                      />\n                      {this.renderHelpText(\n                        this.props.getValidationMessages('username')\n                      )}\n                    </div>\n                  </Col>\n                </FormGroup>\n                <FormGroup>\n                  <Col xs={12}>\n                    <div className={this.getClasses('password')}>\n                      <Input\n                        type=\"password\"\n                        ref=\"password\"\n                        placeholder=\"Password\"\n                        onBlur={this.props.handleValidation('password')}\n                        standalone\n                      />\n                      {this.renderHelpText(\n                        this.props.getValidationMessages('password')\n                      )}\n                    </div>\n                  </Col>\n                </FormGroup>\n                <FormGroup>\n                  <Col xs={6}>\n                    <Input\n                      type=\"checkbox\"\n                      label=\"Remember me\"\n                      labelClassName=\"checkbox-primary\"\n                      standalone\n                    />\n                  </Col>\n                  <Col xs={6} className=\"text-right\">\n                    <div className=\"checkbox\">\n                      <a href=\"#\">Evaluation Login</a>\n                    </div>\n                  </Col>\n                </FormGroup>\n                <FormGroup className=\"text-center m-t-40\">\n                  <Col xs={12}>\n                    <Button\n                      type=\"submit\"\n                      className=\"text-uppercase\"\n                      block\n                    >\n                      Login\n                    </Button>\n                  </Col>\n                </FormGroup>\n              </form>\n            </div>\n          </div>\n          <Row>\n            <Col sm={12} className=\"text-center\">\n              <p>Saiku-4.0-SNAPSHOT</p>\n            </Col>\n          </Row>\n        </Wrapper>\n      </div>\n    );\n  }\n}\n\n/**\n * Wrapped components will receive the following props\n * that serve as the API when validating.\n */\nLogin.propTypes = {\n  errors: React.PropTypes.object,\n  validate: React.PropTypes.func,\n  isValid: React.PropTypes.func,\n  handleValidation: React.PropTypes.func,\n  getValidationMessages: React.PropTypes.func,\n  clearValidations: React.PropTypes.func\n};\n\nreactMixin.onClass(Login, History);\n\n// Wrapped component with the validation mixin and supporting strategy.\nexport default validation(strategy)(Login);\n"
+    "content": "/*\n *   Copyright 2016 OSBI Ltd\n *\n *   Licensed under the Apache License, Version 2.0 (the \"License\");\n *   you may not use this file except in compliance with the License.\n *   You may obtain a copy of the License at\n *\n *       http://www.apache.org/licenses/LICENSE-2.0\n *\n *   Unless required by applicable law or agreed to in writing, software\n *   distributed under the License is distributed on an \"AS IS\" BASIS,\n *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n *   See the License for the specific language governing permissions and\n *   limitations under the License.\n */\n\nimport React from 'react';\nimport autoBind from 'react-autobind';\nimport { History } from 'react-router';\nimport reactMixin from 'react-mixin';\nimport validation from 'react-validation-mixin';\nimport strategy from 'react-validatorjs-strategy';\nimport Session from '../models/Session';\nimport {\n  Row,\n  Col,\n  Input,\n  Button\n} from 'react-bootstrap';\nimport FormGroup from '../components/bootstrap/FormGroup';\nimport Clearfix from '../components/bootstrap/Clearfix';\nimport Wrapper from '../components/saiku/Wrapper';\n\n/**\n * Class Login\n *\n * @class Login\n * @extends React.Component\n */\nclass Login extends React.Component {\n  constructor(props) {\n    super(props);\n\n    this.validatorTypes = strategy.createSchema({\n      username: 'required',\n      password: 'required'\n    });\n    this.session = new Session();\n\n    autoBind(this, 'getValidatorData', 'renderHelpText', 'getClasses',\n      'onSubmitLogin');\n  }\n\n  /**\n   * Method that defines the data to validate your schema.\n   *\n   * @method getValidatorData\n   * @return {Object} An object with username and password\n   */\n  getValidatorData() {\n    return {\n      username: this.refs.username.getValue(),\n      password: this.refs.password.getValue()\n    };\n  }\n\n  /**\n   * Helper method that show a message.\n   *\n   * @method renderHelpText\n   * @param  {String} message - Text to be displayed on span tag\n   * @return {HTMLElement}      A block of help text that breaks\n   *                            into a new line\n   */\n  renderHelpText(message) {\n    return (\n      <span className=\"help-block\">{message}</span>\n    );\n  }\n\n  /**\n   * Method for get the field name the HTML element.\n   *\n   * @method getClasses\n   * @param  {String} field - Field name the HTML element\n   * @return {String}         Validation states\n   */\n  getClasses(field) {\n    return !this.props.isValid(field) ? 'has-error' : '';\n  }\n\n  /**\n   * Method called when the Login button is pressed.\n   *\n   * @method onSubmitLogin\n   * @param  {Object} event - The Event interface represents any\n   *                          event of the DOM\n   */\n  onSubmitLogin(event) {\n    event.preventDefault();\n\n    let credentials = {\n      username: this.refs.username.getValue(),\n      password: this.refs.password.getValue()\n    };\n    let onValidate = (error) => {\n      if (!error) {\n        this.session.login(credentials, this);\n      }\n    };\n\n    this.props.validate(onValidate);\n  }\n\n  render() {\n    return (\n      <div>\n        <div className=\"bg-page\"></div>\n        <Clearfix />\n\n        <Wrapper page>\n          <div className=\"content-box\">\n            <div className=\"panel-heading\">\n              <Col xs={3}>\n                <img\n                  src=\"dist/assets/images/saiku/logo-small.png\"\n                  width=\"40\"\n                  height=\"40\"\n                />\n              </Col>\n              <Col xs={9}>\n                <h4 className=\"text-left\">\n                  Sign In to <strong>Saiku Analytics</strong>\n                </h4>\n              </Col>\n              <Clearfix />\n            </div>\n            <div className=\"panel-body\">\n              <form\n                className=\"form-horizontal m-t-20\"\n                ref=\"loginForm\"\n                onSubmit={this.onSubmitLogin}\n                role=\"form\"\n              >\n                <FormGroup>\n                  <Col xs={12}>\n                    <div className={this.getClasses('username')}>\n                      <Input\n                        type=\"text\"\n                        ref=\"username\"\n                        placeholder=\"Username\"\n                        onBlur={this.props.handleValidation('username')}\n                        standalone\n                      />\n                      {this.renderHelpText(\n                        this.props.getValidationMessages('username')\n                      )}\n                    </div>\n                  </Col>\n                </FormGroup>\n                <FormGroup>\n                  <Col xs={12}>\n                    <div className={this.getClasses('password')}>\n                      <Input\n                        type=\"password\"\n                        ref=\"password\"\n                        placeholder=\"Password\"\n                        onBlur={this.props.handleValidation('password')}\n                        standalone\n                      />\n                      {this.renderHelpText(\n                        this.props.getValidationMessages('password')\n                      )}\n                    </div>\n                  </Col>\n                </FormGroup>\n                <FormGroup>\n                  <Col xs={6}>\n                    <Input\n                      type=\"checkbox\"\n                      label=\"Remember me\"\n                      labelClassName=\"checkbox-primary\"\n                      standalone\n                    />\n                  </Col>\n                  <Col xs={6} className=\"text-right\">\n                    <div className=\"checkbox\">\n                      <a href=\"#\">Evaluation Login</a>\n                    </div>\n                  </Col>\n                </FormGroup>\n                <FormGroup className=\"text-center m-t-40\">\n                  <Col xs={12}>\n                    <Button\n                      type=\"submit\"\n                      className=\"text-uppercase\"\n                      block\n                    >\n                      Login\n                    </Button>\n                  </Col>\n                </FormGroup>\n              </form>\n            </div>\n          </div>\n          <Row>\n            <Col sm={12} className=\"text-center\">\n              <p>Saiku-4.0-SNAPSHOT</p>\n            </Col>\n          </Row>\n        </Wrapper>\n      </div>\n    );\n  }\n}\n\n// Exports validators that can be used to make sure the data is valid.\nLogin.propTypes = {\n  errors: React.PropTypes.object,\n  validate: React.PropTypes.func,\n  isValid: React.PropTypes.func,\n  handleValidation: React.PropTypes.func,\n  getValidationMessages: React.PropTypes.func,\n  clearValidations: React.PropTypes.func\n};\n\nreactMixin.onClass(Login, History);\n\n// Wrapped component with the validation mixin and supporting strategy.\nexport default validation(strategy)(Login);\n"
   },
   {
     "__docId__": 273,
@@ -5641,7 +5687,7 @@
     "longname": "js/views/Login.jsx~Login#session",
     "access": null,
     "description": null,
-    "lineNumber": 50,
+    "lineNumber": 48,
     "undocument": true,
     "type": {
       "types": [
@@ -5659,7 +5705,7 @@
     "longname": "js/views/Login.jsx~Login#getValidatorData",
     "access": null,
     "description": "Method that defines the data to validate your schema.",
-    "lineNumber": 59,
+    "lineNumber": 60,
     "unknown": [
       {
         "tagName": "@method",
@@ -5687,7 +5733,7 @@
     "longname": "js/views/Login.jsx~Login#renderHelpText",
     "access": null,
     "description": "Helper method that show a message.",
-    "lineNumber": 74,
+    "lineNumber": 75,
     "unknown": [
       {
         "tagName": "@method",
@@ -5726,7 +5772,7 @@
     "longname": "js/views/Login.jsx~Login#getClasses",
     "access": null,
     "description": "Method for get the field name the HTML element.",
-    "lineNumber": 87,
+    "lineNumber": 88,
     "unknown": [
       {
         "tagName": "@method",
@@ -5765,7 +5811,7 @@
     "longname": "js/views/Login.jsx~Login#onSubmitLogin",
     "access": null,
     "description": "Method called when the Login button is pressed.",
-    "lineNumber": 98,
+    "lineNumber": 99,
     "unknown": [
       {
         "tagName": "@method",
@@ -5796,7 +5842,7 @@
     "longname": "js/views/Login.jsx~Login#render",
     "access": null,
     "description": null,
-    "lineNumber": 114,
+    "lineNumber": 115,
     "undocument": true,
     "params": [],
     "return": {
@@ -5817,7 +5863,7 @@
     "access": null,
     "description": null,
     "lineNumber": 17,
-    "content": "/*\n *   Copyright 2016 OSBI Ltd\n *\n *   Licensed under the Apache License, Version 2.0 (the \"License\");\n *   you may not use this file except in compliance with the License.\n *   You may obtain a copy of the License at\n *\n *       http://www.apache.org/licenses/LICENSE-2.0\n *\n *   Unless required by applicable law or agreed to in writing, software\n *   distributed under the License is distributed on an \"AS IS\" BASIS,\n *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n *   See the License for the specific language governing permissions and\n *   limitations under the License.\n */\n\nimport React from 'react';\nimport autoBind from 'react-autobind';\nimport {\n  Row,\n  Col,\n  Navbar,\n  Nav,\n  NavItem,\n  Table\n} from 'react-bootstrap';\nimport { AutoAffix } from 'react-overlays';\nimport Wrapper from './Wrapper';\nimport Content from './Content';\nimport MenuBar from './MenuBar';\nimport Sidebar from './Sidebar';\nimport SidebarOlap from './SidebarOlap';\nimport SidebarReporting from './SidebarReporting';\nimport Toolbar from './Toolbar';\nimport ToolbarReporting from './ToolbarReporting';\nimport Tabs from './Tabs';\nimport Portlet from './Portlet';\nimport Icon from './Icon';\n\nclass Workspace extends React.Component {\n  constructor(props) {\n    super(props);\n\n    this.state = {\n      isOpenSidebar: true,\n      tabs: [],\n      selectedTab: null\n    };\n\n    autoBind(this, 'openSidebar');\n  }\n\n  openSidebar() {\n    if (this.state.isOpenSidebar) {\n      this.setState({\n        isOpenSidebar: false\n      });\n    }\n    else {\n      this.setState({\n        isOpenSidebar: true\n      });\n    }\n  }\n\n  render() {\n    return (\n      <Wrapper isOpenSidebar={this.state.isOpenSidebar}>\n        <MenuBar openSidebar={this.openSidebar} />\n        <Sidebar />\n        <Content page>\n          <Tabs createContent={this.createContent} />\n        </Content>\n      </Wrapper>\n    );\n  }\n\n  // createContent() {\n  //   return (\n  //     <Content>\n  //       <Toolbar />\n  //       <Row>\n  //         <Col md={3}>\n  //           <SidebarOlap />\n  //         </Col>\n  //         <div className=\"m-t-10\">\n  //           <Col md={3}>\n  //             <AutoAffix viewportOffsetTop={70}>\n  //               <div>\n  //                 <Portlet title=\"Measures\" />\n  //                 <Portlet title=\"Columns\" />\n  //                 <Portlet title=\"Rows\" />\n  //               </div>\n  //             </AutoAffix>\n  //           </Col>\n  //           <Col lg={6}>\n  //             <AutoAffix viewportOffsetTop={70}>\n  //               <Table striped bordered condensed hover>\n  //                 <thead>\n  //                   <tr>\n  //                     <th>#</th>\n  //                     <th>First Name</th>\n  //                     <th>Last Name</th>\n  //                     <th>Username</th>\n  //                   </tr>\n  //                 </thead>\n  //                 <tbody>\n  //                   <tr>\n  //                     <td>1</td>\n  //                     <td>Mark</td>\n  //                     <td>Otto</td>\n  //                     <td>@mdo</td>\n  //                   </tr>\n  //                   <tr>\n  //                     <td>2</td>\n  //                     <td>Jacob</td>\n  //                     <td>Thornton</td>\n  //                     <td>@fat</td>\n  //                   </tr>\n  //                   <tr>\n  //                     <td>3</td>\n  //                     <td colSpan=\"2\">Larry the Bird</td>\n  //                     <td>@twitter</td>\n  //                   </tr>\n  //                 </tbody>\n  //               </Table>\n  //             </AutoAffix>\n  //           </Col>\n  //         </div>\n  //       </Row>\n  //     </Content>\n  //   );\n  // }\n\n  createContent() {\n    return (\n      <Content>\n        <ToolbarReporting />\n        <Row>\n          <Col md={3}>\n            <SidebarReporting />\n          </Col>\n          <div className=\"m-t-10\">\n            <Col md={3}>\n              <AutoAffix viewportOffsetTop={70}>\n                <div>\n                  <Portlet title=\"Select\" />\n                  <Portlet title=\"Filter\" />\n                  <Portlet title=\"Sort\" />\n                </div>\n              </AutoAffix>\n            </Col>\n            <Col lg={6}>\n              <AutoAffix viewportOffsetTop={70}>\n                <div className=\"content-box\">\n                  <Navbar className=\"border-toolbar\">\n                    <Nav>\n                      <NavItem eventKey={1} href=\"#\">\n                        <Icon name=\"align-left\" />\n                      </NavItem>\n                      <NavItem eventKey={2} href=\"#\">\n                        <Icon name=\"align-justify\" />\n                      </NavItem>\n                      <NavItem eventKey={3} href=\"#\">\n                        <Icon name=\"align-right\" />\n                      </NavItem>\n                      <NavItem eventKey={4} href=\"#\">\n                        <Icon name=\"bold\" />\n                      </NavItem>\n                      <NavItem eventKey={5} href=\"#\">\n                        <Icon name=\"italic\" />\n                      </NavItem>\n                      <NavItem eventKey={5} href=\"#\">\n                        <Icon name=\"underline\" />\n                      </NavItem>\n                    </Nav>\n                  </Navbar>\n                  <Table striped bordered condensed hover>\n                    <thead>\n                      <tr>\n                        <th>#</th>\n                        <th>First Name</th>\n                        <th>Last Name</th>\n                        <th>Username</th>\n                      </tr>\n                    </thead>\n                    <tbody>\n                      <tr>\n                        <td>1</td>\n                        <td>Mark</td>\n                        <td>Otto</td>\n                        <td>@mdo</td>\n                      </tr>\n                      <tr>\n                        <td>2</td>\n                        <td>Jacob</td>\n                        <td>Thornton</td>\n                        <td>@fat</td>\n                      </tr>\n                      <tr>\n                        <td>3</td>\n                        <td colSpan=\"2\">Larry the Bird</td>\n                        <td>@twitter</td>\n                      </tr>\n                    </tbody>\n                  </Table>\n                </div>\n              </AutoAffix>\n            </Col>\n          </div>\n        </Row>\n      </Content>\n    );\n  }\n}\n\nexport default Workspace;\n"
+    "content": "/*\n *   Copyright 2016 OSBI Ltd\n *\n *   Licensed under the Apache License, Version 2.0 (the \"License\");\n *   you may not use this file except in compliance with the License.\n *   You may obtain a copy of the License at\n *\n *       http://www.apache.org/licenses/LICENSE-2.0\n *\n *   Unless required by applicable law or agreed to in writing, software\n *   distributed under the License is distributed on an \"AS IS\" BASIS,\n *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n *   See the License for the specific language governing permissions and\n *   limitations under the License.\n */\n\nimport React from 'react';\nimport autoBind from 'react-autobind';\nimport Wrapper from '../components/saiku/Wrapper';\nimport Content from '../components/saiku/Content';\nimport MenuBar from '../components/saiku/MenuBar';\nimport Sidebar from '../components/saiku/Sidebar';\nimport Tabs from '../components/saiku/Tabs';\n\nclass Workspace extends React.Component {\n  constructor(props) {\n    super(props);\n\n    this.state = {\n      isOpenSidebar: true,\n      tabs: [],\n      selectedTab: null\n    };\n\n    autoBind(this, 'openSidebar');\n  }\n\n  openSidebar() {\n    if (this.state.isOpenSidebar) {\n      this.setState({\n        isOpenSidebar: false\n      });\n    }\n    else {\n      this.setState({\n        isOpenSidebar: true\n      });\n    }\n  }\n\n  render() {\n    return (\n      <Wrapper isOpenSidebar={this.state.isOpenSidebar}>\n        <MenuBar openSidebar={this.openSidebar} />\n        <Sidebar />\n        <Content page>\n          <Tabs createContent={this.createContent} />\n        </Content>\n      </Wrapper>\n    );\n  }\n\n  createContent() {\n    return (\n      <Content>\n        <h1>Workspace</h1>\n      </Content>\n    );\n  }\n}\n\nexport default Workspace;\n"
   },
   {
     "__docId__": 283,
@@ -5832,7 +5878,7 @@
     "importPath": "meteorite-core-ui/js/views/Workspace.jsx",
     "importStyle": "Workspace",
     "description": null,
-    "lineNumber": 40,
+    "lineNumber": 25,
     "undocument": true,
     "interface": false,
     "extends": [
@@ -5849,7 +5895,7 @@
     "longname": "js/views/Workspace.jsx~Workspace#constructor",
     "access": null,
     "description": null,
-    "lineNumber": 41,
+    "lineNumber": 26,
     "undocument": true,
     "params": [
       {
@@ -5871,7 +5917,7 @@
     "longname": "js/views/Workspace.jsx~Workspace#state",
     "access": null,
     "description": null,
-    "lineNumber": 44,
+    "lineNumber": 29,
     "undocument": true,
     "type": {
       "types": [
@@ -5889,7 +5935,7 @@
     "longname": "js/views/Workspace.jsx~Workspace#openSidebar",
     "access": null,
     "description": null,
-    "lineNumber": 53,
+    "lineNumber": 38,
     "undocument": true,
     "params": [],
     "generator": false
@@ -5904,7 +5950,7 @@
     "longname": "js/views/Workspace.jsx~Workspace#render",
     "access": null,
     "description": null,
-    "lineNumber": 66,
+    "lineNumber": 51,
     "undocument": true,
     "params": [],
     "return": {
@@ -5924,7 +5970,7 @@
     "longname": "js/views/Workspace.jsx~Workspace#createContent",
     "access": null,
     "description": null,
-    "lineNumber": 135,
+    "lineNumber": 63,
     "undocument": true,
     "params": [],
     "return": {
