@@ -42,7 +42,7 @@ class Workspace extends React.Component {
     super(props);
 
     this.state = {
-      isOpenSidebar: false,
+      isOpenSidebar: true,
       tabs: [],
       selectedTab: null
     };

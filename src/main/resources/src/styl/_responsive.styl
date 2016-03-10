@@ -40,6 +40,12 @@
         left auto
         background white
         box-shadow 0 2px 5px 0 rgba(0, 0, 0, 0.26)
+        
+  .wrapper
+    &.enlarged
+      .side-menu
+        &.left
+          margin-left -75px
     
 @media (max-width 480px)
   .side-menu
@@ -54,3 +60,13 @@
     
   .content-page
     margin-left 70px
+    
+  .wrapper
+    &.forced
+      .side-menu
+        &.left
+          box-shadow 0 12px 12px rgba(0, 0, 0, 0.1)
+    &.enlarged
+      .side-menu
+        &.left
+          box-shadow 0 1px 1px rgba(0, 0, 0, 0.1) !important
