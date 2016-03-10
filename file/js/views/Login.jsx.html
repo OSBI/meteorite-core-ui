@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <base data-ice="baseUrl" href="../../../">
-  <title data-ice="title">js/collections/SidebarCollection.js | API Document</title>
+  <title data-ice="title">js/views/Login.jsx | API Document</title>
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
   <script src="script/prettify/prettify.js"></script>
@@ -72,7 +72,7 @@
 </div>
 </nav>
 
-<div class="content" data-ice="content"><h1 data-ice="title">js/collections/SidebarCollection.js</h1>
+<div class="content" data-ice="content"><h1 data-ice="title">js/views/Login.jsx</h1>
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">/*
  *   Copyright 2016 OSBI Ltd
  *
@@ -89,22 +89,222 @@
  *   limitations under the License.
  */
 
-import Backbone from &apos;backbone&apos;;
-import SidebarModel from &apos;../models/SidebarModel&apos;;
+import React from &apos;react&apos;;
+import autoBind from &apos;react-autobind&apos;;
+import { History } from &apos;react-router&apos;;
+import reactMixin from &apos;react-mixin&apos;;
+import validation from &apos;react-validation-mixin&apos;;
+import strategy from &apos;react-validatorjs-strategy&apos;;
+import Session from &apos;../../models/Session&apos;;
+import {
+  Row,
+  Col,
+  Input,
+  Button
+} from &apos;react-bootstrap&apos;;
+import FormGroup from &apos;../bootstrap/FormGroup&apos;;
+import Clearfix from &apos;../bootstrap/Clearfix&apos;;
+import Wrapper from &apos;./Wrapper&apos;;
 
-class SidebarCollection extends Backbone.Collection {
-  constructor(options) {
-    super(options);
+/**
+ * Class Login
+ *
+ * @class Login
+ * @extends React.Component
+ */
+class Login extends React.Component {
+  constructor(props) {
+    super(props);
 
-    this.model = SidebarModel;
+    this.validatorTypes = strategy.createSchema({
+      username: &apos;required&apos;,
+      password: &apos;required&apos;
+    });
+    autoBind(this, &apos;getValidatorData&apos;, &apos;renderHelpText&apos;, &apos;getClasses&apos;,
+      &apos;onSubmitLogin&apos;);
+    this.session = new Session();
   }
 
-  url() {
-    return &apos;http://localhost:9999/sidebar&apos;;
+  /**
+   * Method that defines the data to validate your schema.
+   *
+   * @method getValidatorData
+   * @return {Object} An object with username and password 
+   */
+  getValidatorData() {
+    return {
+      username: this.refs.username.getValue(),
+      password: this.refs.password.getValue()
+    };
+  }
+
+  /**
+   * Helper method that show a message.
+   *
+   * @method renderHelpText
+   * @param  {String} message - Text to be displayed on span tag
+   * @return {HTMLElement}      A block of help text that breaks
+   *                            into a new line
+   */
+  renderHelpText(message) {
+    return (
+      &lt;span className=&quot;help-block&quot;&gt;{message}&lt;/span&gt;
+    );
+  }
+
+  /**
+   * Method for get the field name the HTML element.
+   *
+   * @method getClasses
+   * @param  {String} field - Field name the HTML element
+   * @return {String}         Validation states
+   */
+  getClasses(field) {
+    return !this.props.isValid(field) ? &apos;has-error&apos; : &apos;&apos;;
+  }
+
+  /**
+   * Method called when the Login button is pressed.
+   *
+   * @method onSubmitLogin
+   * @param  {Object} event - The Event interface represents any
+   *                          event of the DOM
+   */
+  onSubmitLogin(event) {
+    event.preventDefault();
+
+    let credentials = {
+      username: this.refs.username.getValue(),
+      password: this.refs.password.getValue()
+    };
+    let onValidate = (error) =&gt; {
+      if (!error) {
+        this.session.login(credentials, this);
+      }
+    };
+
+    this.props.validate(onValidate);
+  }
+
+  render() {
+    return (
+      &lt;div&gt;
+        &lt;div className=&quot;bg-page&quot;&gt;&lt;/div&gt;
+        &lt;Clearfix /&gt;
+
+        &lt;Wrapper page&gt;
+          &lt;div className=&quot;content-box&quot;&gt;
+            &lt;div className=&quot;panel-heading&quot;&gt;
+              &lt;Col xs={3}&gt;
+                &lt;img
+                  src=&quot;dist/assets/images/saiku/logo-small.png&quot;
+                  width=&quot;40&quot;
+                  height=&quot;40&quot;
+                /&gt;
+              &lt;/Col&gt;
+              &lt;Col xs={9}&gt;
+                &lt;h4 className=&quot;text-left&quot;&gt;
+                  Sign In to &lt;strong&gt;Saiku Analytics&lt;/strong&gt;
+                &lt;/h4&gt;
+              &lt;/Col&gt;
+              &lt;Clearfix /&gt;
+            &lt;/div&gt;
+            &lt;div className=&quot;panel-body&quot;&gt;
+              &lt;form
+                className=&quot;form-horizontal m-t-20&quot;
+                ref=&quot;loginForm&quot;
+                onSubmit={this.onSubmitLogin}
+                role=&quot;form&quot;
+              &gt;
+                &lt;FormGroup&gt;
+                  &lt;Col xs={12}&gt;
+                    &lt;div className={this.getClasses(&apos;username&apos;)}&gt;
+                      &lt;Input
+                        type=&quot;text&quot;
+                        ref=&quot;username&quot;
+                        placeholder=&quot;Username&quot;
+                        onBlur={this.props.handleValidation(&apos;username&apos;)}
+                        standalone
+                      /&gt;
+                      {this.renderHelpText(
+                        this.props.getValidationMessages(&apos;username&apos;)
+                      )}
+                    &lt;/div&gt;
+                  &lt;/Col&gt;
+                &lt;/FormGroup&gt;
+                &lt;FormGroup&gt;
+                  &lt;Col xs={12}&gt;
+                    &lt;div className={this.getClasses(&apos;password&apos;)}&gt;
+                      &lt;Input
+                        type=&quot;password&quot;
+                        ref=&quot;password&quot;
+                        placeholder=&quot;Password&quot;
+                        onBlur={this.props.handleValidation(&apos;password&apos;)}
+                        standalone
+                      /&gt;
+                      {this.renderHelpText(
+                        this.props.getValidationMessages(&apos;password&apos;)
+                      )}
+                    &lt;/div&gt;
+                  &lt;/Col&gt;
+                &lt;/FormGroup&gt;
+                &lt;FormGroup&gt;
+                  &lt;Col xs={6}&gt;
+                    &lt;Input
+                      type=&quot;checkbox&quot;
+                      label=&quot;Remember me&quot;
+                      labelClassName=&quot;checkbox-primary&quot;
+                      standalone
+                    /&gt;
+                  &lt;/Col&gt;
+                  &lt;Col xs={6} className=&quot;text-right&quot;&gt;
+                    &lt;div className=&quot;checkbox&quot;&gt;
+                      &lt;a href=&quot;#&quot;&gt;Evaluation Login&lt;/a&gt;
+                    &lt;/div&gt;
+                  &lt;/Col&gt;
+                &lt;/FormGroup&gt;
+                &lt;FormGroup className=&quot;text-center m-t-40&quot;&gt;
+                  &lt;Col xs={12}&gt;
+                    &lt;Button
+                      type=&quot;submit&quot;
+                      className=&quot;text-uppercase&quot;
+                      block
+                    &gt;
+                      Login
+                    &lt;/Button&gt;
+                  &lt;/Col&gt;
+                &lt;/FormGroup&gt;
+              &lt;/form&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;Row&gt;
+            &lt;Col sm={12} className=&quot;text-center&quot;&gt;
+              &lt;p&gt;Saiku-4.0-SNAPSHOT&lt;/p&gt;
+            &lt;/Col&gt;
+          &lt;/Row&gt;
+        &lt;/Wrapper&gt;
+      &lt;/div&gt;
+    );
   }
 }
 
-export default SidebarCollection;
+/**
+ * Wrapped components will receive the following props
+ * that serve as the API when validating.
+ */
+Login.propTypes = {
+  errors: React.PropTypes.object,
+  validate: React.PropTypes.func,
+  isValid: React.PropTypes.func,
+  handleValidation: React.PropTypes.func,
+  getValidationMessages: React.PropTypes.func,
+  clearValidations: React.PropTypes.func
+};
+
+reactMixin.onClass(Login, History);
+
+// Wrapped component with the validation mixin and supporting strategy.
+export default validation(strategy)(Login);
 </code></pre>
 
 </div>
