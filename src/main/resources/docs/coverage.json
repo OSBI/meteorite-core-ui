@@ -1,7 +1,7 @@
 {
-  "coverage": "9.48%",
-  "expectCount": 137,
-  "actualCount": 13,
+  "coverage": "10.52%",
+  "expectCount": 133,
+  "actualCount": 14,
   "files": {
     "js/utils/Base64.js": {
       "expectCount": 1,
@@ -81,17 +81,24 @@
         21
       ]
     },
+    "js/components/saiku/Logo.jsx": {
+      "expectCount": 2,
+      "actualCount": 1,
+      "undocumentLines": [
+        32
+      ]
+    },
     "js/components/saiku/MenuBar.jsx": {
       "expectCount": 7,
       "actualCount": 0,
       "undocumentLines": [
-        35,
-        49,
         36,
-        61,
-        104,
-        66,
-        39
+        50,
+        37,
+        62,
+        105,
+        67,
+        40
       ]
     },
     "js/collections/MenubarCollection.js": {
@@ -245,17 +252,6 @@
         36
       ]
     },
-    "js/components/saiku/Toolbar.jsx": {
-      "expectCount": 5,
-      "actualCount": 0,
-      "undocumentLines": [
-        32,
-        45,
-        33,
-        79,
-        36
-      ]
-    },
     "js/components/saiku/Sidebar.jsx": {
       "expectCount": 5,
       "actualCount": 0,
@@ -265,6 +261,17 @@
         25,
         62,
         28
+      ]
+    },
+    "js/components/saiku/Toolbar.jsx": {
+      "expectCount": 5,
+      "actualCount": 0,
+      "undocumentLines": [
+        32,
+        45,
+        33,
+        79,
+        36
       ]
     },
     "js/collections/ToolbarCollection.js": {
@@ -293,25 +300,13 @@
         25
       ]
     },
-    "js/components/saiku/Workspace.jsx": {
-      "expectCount": 6,
-      "actualCount": 0,
-      "undocumentLines": [
-        40,
-        41,
-        135,
-        53,
-        66,
-        44
-      ]
-    },
     "js/views/Workspace.jsx": {
       "expectCount": 6,
       "actualCount": 0,
       "undocumentLines": [
         25,
         26,
-        63,
+        66,
         38,
         51,
         29

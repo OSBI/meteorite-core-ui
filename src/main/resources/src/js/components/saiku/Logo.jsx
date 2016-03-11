@@ -16,6 +16,18 @@
 
 import React from 'react';
 
+/**
+ * Saiku <Logo /> component. This component should display a image the Company.
+ *
+ * @class Logo
+ * @extends React.Component
+ * @example
+ * <Logo
+ *   source="dist/assets/images/saiku/logo-small.svg"
+ *   width={40}
+ *   height={40}
+ * />
+ */
 class Logo extends React.Component {
   render() {
     let source = this.props.source;

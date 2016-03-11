@@ -94,7 +94,7 @@
 	var routes = _react2.default.createElement(
 	  _reactRouter.Router,
 	  { history: (0, _history.createHistory)() },
-	  _react2.default.createElement(_reactRouter.Route, { path: '/', component: _Login2.default }),
+	  _react2.default.createElement(_reactRouter.Route, { path: '/', component: _Workspace2.default }),
 	  _react2.default.createElement(_reactRouter.Route, { path: '/workspace/', component: _Workspace2.default }),
 	  _react2.default.createElement(_reactRouter.Route, { path: '/query_designer/', component: _query_designer2.default }),
 	  _react2.default.createElement(_reactRouter.Route, { path: '/lockscreen/', component: _LockScreen2.default }),
@@ -60102,6 +60102,19 @@
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   limitations under the License.
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
 	
+	/**
+	 * Saiku <Logo /> component. This component should display a image the Company.
+	 *
+	 * @class Logo
+	 * @extends React.Component
+	 * @example
+	 * <Logo
+	 *   source="dist/assets/images/saiku/logo-small.svg"
+	 *   width={40}
+	 *   height={40}
+	 * />
+	 */
+	
 	var Logo = function (_React$Component) {
 	  _inherits(Logo, _React$Component);
 	
@@ -61548,7 +61561,7 @@
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
 	
 	/**
-	 * Saiku <Tabs/> component. It requires a createContent function, it is
+	 * Saiku <Tabs /> component. It requires a createContent function, it is
 	 * responsible for populate the tab content, whenever the '+' button is pressed.
 	 * @example
 	 * function myContent() {
@@ -61831,7 +61844,7 @@
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
 	
 	/**
-	 * This is the <Tab/> component. A tab should display its content if currently
+	 * This is the <Tab /> component. A tab should display its content if currently
 	 * selected. A tab must contain a tabKey and children.
 	 * @example
 	 * <Tab tabKey={2}>

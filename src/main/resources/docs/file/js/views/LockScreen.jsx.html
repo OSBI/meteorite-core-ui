@@ -40,6 +40,7 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/js/components/bootstrap/FormGroup.jsx~FormGroup.html">FormGroup</a></span></span></li>
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">components/saiku</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/js/components/saiku/Content.jsx~Content.html">Content</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/js/components/saiku/Icon.jsx~Icon.html">Icon</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/js/components/saiku/Logo.jsx~Logo.html">Logo</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/js/components/saiku/MenuBar.jsx~MenuBar.html">MenuBar</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/js/components/saiku/NotFound.jsx~NotFound.html">NotFound</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/js/components/saiku/Portlet.jsx~Portlet.html">Portlet</a></span></span></li>
@@ -50,7 +51,6 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/js/components/saiku/Tabs.jsx~Tabs.html">Tabs</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/js/components/saiku/Toolbar.jsx~Toolbar.html">Toolbar</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/js/components/saiku/ToolbarReporting.jsx~ToolbarReporting.html">ToolbarReporting</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/js/components/saiku/Workspace.jsx~Workspace.html">Workspace</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/js/components/saiku/Wrapper.jsx~Wrapper.html">Wrapper</a></span></span></li>
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">components/saiku/query_designer/components</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/js/components/saiku/query_designer/components/CubeSelector.jsx~CubeSelector.html">CubeSelector</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/js/components/saiku/query_designer/components/ReportPreview.jsx~ReportPreview.html">ReportPreview</a></span></span></li>
@@ -102,11 +102,12 @@ import {
 import FormGroup from &apos;../components/bootstrap/FormGroup&apos;;
 import Clearfix from &apos;../components/bootstrap/Clearfix&apos;;
 import Wrapper from &apos;../components/saiku/Wrapper&apos;;
+import Logo from &apos;../components/saiku/Logo&apos;;
 
 /**
  * Class LockScreen
  *
- * @class Login
+ * @class LockScreen
  * @extends React.Component
  */
 class LockScreen extends React.Component {
@@ -187,10 +188,10 @@ class LockScreen extends React.Component {
           &lt;div className=&quot;content-box&quot;&gt;
             &lt;div className=&quot;panel-heading&quot;&gt;
               &lt;Col xs={3}&gt;
-                &lt;img
-                  src=&quot;../dist/assets/images/saiku/logo-small.png&quot;
-                  width=&quot;40&quot;
-                  height=&quot;40&quot;
+                &lt;Logo
+                  source=&quot;../dist/assets/images/saiku/logo-small.svg&quot;
+                  width={40}
+                  height={40}
                 /&gt;
               &lt;/Col&gt;
               &lt;Col xs={9}&gt;
@@ -260,7 +261,7 @@ class LockScreen extends React.Component {
   }
 }
 
-// Exports validators that can be used to make sure the data is valid.
+// Validators that can be used to make sure the data is valid.
 LockScreen.propTypes = {
   history: React.PropTypes.object,
   errors: React.PropTypes.object,

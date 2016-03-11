@@ -1058,8 +1058,8 @@
                 "type": "JSXIdentifier",
                 "name": "Router",
                 "range": [
-                  1533,
-                  1539
+                  1537,
+                  1543
                 ],
                 "loc": {
                   "start": {
@@ -1073,8 +1073,8 @@
                 }
               },
               "range": [
-                1531,
-                1540
+                1535,
+                1544
               ],
               "loc": {
                 "start": {
@@ -1209,10 +1209,10 @@
                         "type": "JSXExpressionContainer",
                         "expression": {
                           "type": "Identifier",
-                          "name": "Login",
+                          "name": "Workspace",
                           "range": [
                             1299,
-                            1304
+                            1308
                           ],
                           "loc": {
                             "start": {
@@ -1221,13 +1221,13 @@
                             },
                             "end": {
                               "line": 37,
-                              "column": 36
+                              "column": 40
                             }
                           }
                         },
                         "range": [
                           1298,
-                          1305
+                          1309
                         ],
                         "loc": {
                           "start": {
@@ -1236,13 +1236,13 @@
                           },
                           "end": {
                             "line": 37,
-                            "column": 37
+                            "column": 41
                           }
                         }
                       },
                       "range": [
                         1288,
-                        1305
+                        1309
                       ],
                       "loc": {
                         "start": {
@@ -1251,14 +1251,14 @@
                         },
                         "end": {
                           "line": 37,
-                          "column": 37
+                          "column": 41
                         }
                       }
                     }
                   ],
                   "range": [
                     1272,
-                    1308
+                    1312
                   ],
                   "loc": {
                     "start": {
@@ -1267,7 +1267,7 @@
                     },
                     "end": {
                       "line": 37,
-                      "column": 40
+                      "column": 44
                     }
                   }
                 },
@@ -1275,7 +1275,7 @@
                 "children": [],
                 "range": [
                   1272,
-                  1308
+                  1312
                 ],
                 "loc": {
                   "start": {
@@ -1284,7 +1284,7 @@
                   },
                   "end": {
                     "line": 37,
-                    "column": 40
+                    "column": 44
                   }
                 }
               },
@@ -1293,13 +1293,13 @@
                 "value": "\n    ",
                 "raw": "\n    ",
                 "range": [
-                  1308,
-                  1313
+                  1312,
+                  1317
                 ],
                 "loc": {
                   "start": {
                     "line": 37,
-                    "column": 40
+                    "column": 44
                   },
                   "end": {
                     "line": 38,
@@ -1315,8 +1315,8 @@
                     "type": "JSXIdentifier",
                     "name": "Route",
                     "range": [
-                      1314,
-                      1319
+                      1318,
+                      1323
                     ],
                     "loc": {
                       "start": {
@@ -1337,8 +1337,8 @@
                         "type": "JSXIdentifier",
                         "name": "path",
                         "range": [
-                          1320,
-                          1324
+                          1324,
+                          1328
                         ],
                         "loc": {
                           "start": {
@@ -1356,8 +1356,8 @@
                         "value": "/workspace/",
                         "raw": "\"/workspace/\"",
                         "range": [
-                          1325,
-                          1338
+                          1329,
+                          1342
                         ],
                         "loc": {
                           "start": {
@@ -1371,8 +1371,8 @@
                         }
                       },
                       "range": [
-                        1320,
-                        1338
+                        1324,
+                        1342
                       ],
                       "loc": {
                         "start": {
@@ -1391,8 +1391,8 @@
                         "type": "JSXIdentifier",
                         "name": "component",
                         "range": [
-                          1339,
-                          1348
+                          1343,
+                          1352
                         ],
                         "loc": {
                           "start": {
@@ -1411,8 +1411,8 @@
                           "type": "Identifier",
                           "name": "Workspace",
                           "range": [
-                            1350,
-                            1359
+                            1354,
+                            1363
                           ],
                           "loc": {
                             "start": {
@@ -1426,8 +1426,8 @@
                           }
                         },
                         "range": [
-                          1349,
-                          1360
+                          1353,
+                          1364
                         ],
                         "loc": {
                           "start": {
@@ -1441,8 +1441,8 @@
                         }
                       },
                       "range": [
-                        1339,
-                        1360
+                        1343,
+                        1364
                       ],
                       "loc": {
                         "start": {
@@ -1457,8 +1457,8 @@
                     }
                   ],
                   "range": [
-                    1313,
-                    1363
+                    1317,
+                    1367
                   ],
                   "loc": {
                     "start": {
@@ -1474,8 +1474,8 @@
                 "closingElement": null,
                 "children": [],
                 "range": [
-                  1313,
-                  1363
+                  1317,
+                  1367
                 ],
                 "loc": {
                   "start": {
@@ -1493,8 +1493,8 @@
                 "value": "\n    ",
                 "raw": "\n    ",
                 "range": [
-                  1363,
-                  1368
+                  1367,
+                  1372
                 ],
                 "loc": {
                   "start": {
@@ -1515,8 +1515,8 @@
                     "type": "JSXIdentifier",
                     "name": "Route",
                     "range": [
-                      1369,
-                      1374
+                      1373,
+                      1378
                     ],
                     "loc": {
                       "start": {
@@ -1537,8 +1537,8 @@
                         "type": "JSXIdentifier",
                         "name": "path",
                         "range": [
-                          1375,
-                          1379
+                          1379,
+                          1383
                         ],
                         "loc": {
                           "start": {
@@ -1556,8 +1556,8 @@
                         "value": "/query_designer/",
                         "raw": "\"/query_designer/\"",
                         "range": [
-                          1380,
-                          1398
+                          1384,
+                          1402
                         ],
                         "loc": {
                           "start": {
@@ -1571,8 +1571,8 @@
                         }
                       },
                       "range": [
-                        1375,
-                        1398
+                        1379,
+                        1402
                       ],
                       "loc": {
                         "start": {
@@ -1591,8 +1591,8 @@
                         "type": "JSXIdentifier",
                         "name": "component",
                         "range": [
-                          1399,
-                          1408
+                          1403,
+                          1412
                         ],
                         "loc": {
                           "start": {
@@ -1611,8 +1611,8 @@
                           "type": "Identifier",
                           "name": "QueryDesigner",
                           "range": [
-                            1410,
-                            1423
+                            1414,
+                            1427
                           ],
                           "loc": {
                             "start": {
@@ -1626,8 +1626,8 @@
                           }
                         },
                         "range": [
-                          1409,
-                          1424
+                          1413,
+                          1428
                         ],
                         "loc": {
                           "start": {
@@ -1641,8 +1641,8 @@
                         }
                       },
                       "range": [
-                        1399,
-                        1424
+                        1403,
+                        1428
                       ],
                       "loc": {
                         "start": {
@@ -1657,8 +1657,8 @@
                     }
                   ],
                   "range": [
-                    1368,
-                    1427
+                    1372,
+                    1431
                   ],
                   "loc": {
                     "start": {
@@ -1674,8 +1674,8 @@
                 "closingElement": null,
                 "children": [],
                 "range": [
-                  1368,
-                  1427
+                  1372,
+                  1431
                 ],
                 "loc": {
                   "start": {
@@ -1693,8 +1693,8 @@
                 "value": "\n    ",
                 "raw": "\n    ",
                 "range": [
-                  1427,
-                  1432
+                  1431,
+                  1436
                 ],
                 "loc": {
                   "start": {
@@ -1715,8 +1715,8 @@
                     "type": "JSXIdentifier",
                     "name": "Route",
                     "range": [
-                      1433,
-                      1438
+                      1437,
+                      1442
                     ],
                     "loc": {
                       "start": {
@@ -1737,8 +1737,8 @@
                         "type": "JSXIdentifier",
                         "name": "path",
                         "range": [
-                          1439,
-                          1443
+                          1443,
+                          1447
                         ],
                         "loc": {
                           "start": {
@@ -1756,8 +1756,8 @@
                         "value": "/lockscreen/",
                         "raw": "\"/lockscreen/\"",
                         "range": [
-                          1444,
-                          1458
+                          1448,
+                          1462
                         ],
                         "loc": {
                           "start": {
@@ -1771,8 +1771,8 @@
                         }
                       },
                       "range": [
-                        1439,
-                        1458
+                        1443,
+                        1462
                       ],
                       "loc": {
                         "start": {
@@ -1791,8 +1791,8 @@
                         "type": "JSXIdentifier",
                         "name": "component",
                         "range": [
-                          1459,
-                          1468
+                          1463,
+                          1472
                         ],
                         "loc": {
                           "start": {
@@ -1811,8 +1811,8 @@
                           "type": "Identifier",
                           "name": "LockScreen",
                           "range": [
-                            1470,
-                            1480
+                            1474,
+                            1484
                           ],
                           "loc": {
                             "start": {
@@ -1826,8 +1826,8 @@
                           }
                         },
                         "range": [
-                          1469,
-                          1481
+                          1473,
+                          1485
                         ],
                         "loc": {
                           "start": {
@@ -1841,8 +1841,8 @@
                         }
                       },
                       "range": [
-                        1459,
-                        1481
+                        1463,
+                        1485
                       ],
                       "loc": {
                         "start": {
@@ -1857,8 +1857,8 @@
                     }
                   ],
                   "range": [
-                    1432,
-                    1484
+                    1436,
+                    1488
                   ],
                   "loc": {
                     "start": {
@@ -1874,8 +1874,8 @@
                 "closingElement": null,
                 "children": [],
                 "range": [
-                  1432,
-                  1484
+                  1436,
+                  1488
                 ],
                 "loc": {
                   "start": {
@@ -1893,8 +1893,8 @@
                 "value": "\n    ",
                 "raw": "\n    ",
                 "range": [
-                  1484,
-                  1489
+                  1488,
+                  1493
                 ],
                 "loc": {
                   "start": {
@@ -1915,8 +1915,8 @@
                     "type": "JSXIdentifier",
                     "name": "Route",
                     "range": [
-                      1490,
-                      1495
+                      1494,
+                      1499
                     ],
                     "loc": {
                       "start": {
@@ -1937,8 +1937,8 @@
                         "type": "JSXIdentifier",
                         "name": "path",
                         "range": [
-                          1496,
-                          1500
+                          1500,
+                          1504
                         ],
                         "loc": {
                           "start": {
@@ -1956,8 +1956,8 @@
                         "value": "*",
                         "raw": "\"*\"",
                         "range": [
-                          1501,
-                          1504
+                          1505,
+                          1508
                         ],
                         "loc": {
                           "start": {
@@ -1971,8 +1971,8 @@
                         }
                       },
                       "range": [
-                        1496,
-                        1504
+                        1500,
+                        1508
                       ],
                       "loc": {
                         "start": {
@@ -1991,8 +1991,8 @@
                         "type": "JSXIdentifier",
                         "name": "component",
                         "range": [
-                          1505,
-                          1514
+                          1509,
+                          1518
                         ],
                         "loc": {
                           "start": {
@@ -2011,8 +2011,8 @@
                           "type": "Identifier",
                           "name": "NotFound",
                           "range": [
-                            1516,
-                            1524
+                            1520,
+                            1528
                           ],
                           "loc": {
                             "start": {
@@ -2026,8 +2026,8 @@
                           }
                         },
                         "range": [
-                          1515,
-                          1525
+                          1519,
+                          1529
                         ],
                         "loc": {
                           "start": {
@@ -2041,8 +2041,8 @@
                         }
                       },
                       "range": [
-                        1505,
-                        1525
+                        1509,
+                        1529
                       ],
                       "loc": {
                         "start": {
@@ -2057,8 +2057,8 @@
                     }
                   ],
                   "range": [
-                    1489,
-                    1528
+                    1493,
+                    1532
                   ],
                   "loc": {
                     "start": {
@@ -2074,8 +2074,8 @@
                 "closingElement": null,
                 "children": [],
                 "range": [
-                  1489,
-                  1528
+                  1493,
+                  1532
                 ],
                 "loc": {
                   "start": {
@@ -2093,8 +2093,8 @@
                 "value": "\n  ",
                 "raw": "\n  ",
                 "range": [
-                  1528,
-                  1531
+                  1532,
+                  1535
                 ],
                 "loc": {
                   "start": {
@@ -2110,7 +2110,7 @@
             ],
             "range": [
               1233,
-              1540
+              1544
             ],
             "loc": {
               "start": {
@@ -2125,7 +2125,7 @@
           },
           "range": [
             1220,
-            1542
+            1546
           ],
           "loc": {
             "start": {
@@ -2142,7 +2142,7 @@
       "kind": "var",
       "range": [
         1216,
-        1543
+        1547
       ],
       "loc": {
         "start": {
@@ -2179,8 +2179,8 @@
           "type": "Line",
           "value": " The primary API for rendering into the DOM.",
           "range": [
-            1545,
-            1591
+            1549,
+            1595
           ],
           "loc": {
             "start": {
@@ -2206,8 +2206,8 @@
             "type": "Identifier",
             "name": "ReactDOM",
             "range": [
-              1592,
-              1600
+              1596,
+              1604
             ],
             "loc": {
               "start": {
@@ -2224,8 +2224,8 @@
             "type": "Identifier",
             "name": "render",
             "range": [
-              1601,
-              1607
+              1605,
+              1611
             ],
             "loc": {
               "start": {
@@ -2239,8 +2239,8 @@
             }
           },
           "range": [
-            1592,
-            1607
+            1596,
+            1611
           ],
           "loc": {
             "start": {
@@ -2258,8 +2258,8 @@
             "type": "Identifier",
             "name": "routes",
             "range": [
-              1608,
-              1614
+              1612,
+              1618
             ],
             "loc": {
               "start": {
@@ -2281,8 +2281,8 @@
                 "type": "Identifier",
                 "name": "document",
                 "range": [
-                  1616,
-                  1624
+                  1620,
+                  1628
                 ],
                 "loc": {
                   "start": {
@@ -2299,8 +2299,8 @@
                 "type": "Identifier",
                 "name": "querySelector",
                 "range": [
-                  1625,
-                  1638
+                  1629,
+                  1642
                 ],
                 "loc": {
                   "start": {
@@ -2314,8 +2314,8 @@
                 }
               },
               "range": [
-                1616,
-                1638
+                1620,
+                1642
               ],
               "loc": {
                 "start": {
@@ -2334,8 +2334,8 @@
                 "value": "#app",
                 "raw": "'#app'",
                 "range": [
-                  1639,
-                  1645
+                  1643,
+                  1649
                 ],
                 "loc": {
                   "start": {
@@ -2350,8 +2350,8 @@
               }
             ],
             "range": [
-              1616,
-              1646
+              1620,
+              1650
             ],
             "loc": {
               "start": {
@@ -2366,8 +2366,8 @@
           }
         ],
         "range": [
-          1592,
-          1647
+          1596,
+          1651
         ],
         "loc": {
           "start": {
@@ -2381,8 +2381,8 @@
         }
       },
       "range": [
-        1592,
-        1648
+        1596,
+        1652
       ],
       "loc": {
         "start": {
@@ -2399,8 +2399,8 @@
           "type": "Line",
           "value": " The primary API for rendering into the DOM.",
           "range": [
-            1545,
-            1591
+            1549,
+            1595
           ],
           "loc": {
             "start": {
@@ -2419,7 +2419,7 @@
   "sourceType": "module",
   "range": [
     613,
-    1648
+    1652
   ],
   "loc": {
     "start": {
@@ -2490,8 +2490,8 @@
       "type": "Line",
       "value": " The primary API for rendering into the DOM.",
       "range": [
-        1545,
-        1591
+        1549,
+        1595
       ],
       "loc": {
         "start": {

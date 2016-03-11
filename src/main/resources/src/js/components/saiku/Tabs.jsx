@@ -20,7 +20,7 @@ import _ from 'underscore';
 import Tab from './Tab';
 
 /**
- * Saiku <Tabs/> component. It requires a createContent function, it is
+ * Saiku <Tabs /> component. It requires a createContent function, it is
  * responsible for populate the tab content, whenever the '+' button is pressed.
  * @example
  * function myContent() {

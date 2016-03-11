@@ -17,7 +17,7 @@
 import React from 'react';
 
 /**
- * This is the <Tab/> component. A tab should display its content if currently
+ * This is the <Tab /> component. A tab should display its content if currently
  * selected. A tab must contain a tabKey and children.
  * @example
  * <Tab tabKey={2}>
