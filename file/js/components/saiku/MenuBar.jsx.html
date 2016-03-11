@@ -40,6 +40,7 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/js/components/bootstrap/FormGroup.jsx~FormGroup.html">FormGroup</a></span></span></li>
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">components/saiku</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/js/components/saiku/Content.jsx~Content.html">Content</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/js/components/saiku/Icon.jsx~Icon.html">Icon</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/js/components/saiku/Logo.jsx~Logo.html">Logo</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/js/components/saiku/MenuBar.jsx~MenuBar.html">MenuBar</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/js/components/saiku/NotFound.jsx~NotFound.html">NotFound</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/js/components/saiku/Portlet.jsx~Portlet.html">Portlet</a></span></span></li>
@@ -50,7 +51,6 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/js/components/saiku/Tabs.jsx~Tabs.html">Tabs</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/js/components/saiku/Toolbar.jsx~Toolbar.html">Toolbar</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/js/components/saiku/ToolbarReporting.jsx~ToolbarReporting.html">ToolbarReporting</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/js/components/saiku/Workspace.jsx~Workspace.html">Workspace</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/js/components/saiku/Wrapper.jsx~Wrapper.html">Wrapper</a></span></span></li>
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">components/saiku/query_designer/components</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/js/components/saiku/query_designer/components/CubeSelector.jsx~CubeSelector.html">CubeSelector</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/js/components/saiku/query_designer/components/ReportPreview.jsx~ReportPreview.html">ReportPreview</a></span></span></li>
@@ -105,6 +105,7 @@ import {
 } from &apos;react-bootstrap&apos;;
 import Clearfix from &apos;../bootstrap/Clearfix&apos;;
 import Icon from &apos;./Icon&apos;;
+import Logo from &apos;./Logo&apos;;
 import MenubarCollection from &apos;../../collections/MenubarCollection&apos;;
 
 class MenuBar extends React.Component {
@@ -185,10 +186,10 @@ class MenuBar extends React.Component {
         &lt;div className=&quot;topbar-left&quot;&gt;
           &lt;div className=&quot;text-center&quot;&gt;
             &lt;a href=&quot;#&quot; className=&quot;logo&quot;&gt;
-              &lt;img
-                src=&quot;../dist/assets/images/saiku/logo-small.png&quot;
-                width=&quot;40&quot;
-                height=&quot;40&quot;
+              &lt;Logo
+                sourceSmall=&quot;../dist/assets/images/saiku/logo-small.svg&quot;
+                sourceBig=&quot;../dist/assets/images/saiku/logo-big.svg&quot;
+                isOpenSidebar={this.props.isOpenSidebar}
               /&gt;
             &lt;/a&gt;
           &lt;/div&gt;
@@ -268,7 +269,8 @@ class MenuBar extends React.Component {
 }
 
 MenuBar.propTypes = {
-  openSidebar: React.PropTypes.func.isRequired
+  openSidebar: React.PropTypes.func.isRequired,
+  isOpenSidebar: React.PropTypes.bool
 };
 
 reactMixin.onClass(MenuBar, History);

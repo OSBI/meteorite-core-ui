@@ -60,6 +60,12 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
+    "meteorite-core-ui/js/components/saiku/logo.jsx~logo",
+    "class/js/components/saiku/Logo.jsx~Logo.html",
+    "<span>Logo</span> <span class=\"search-result-import-path\">meteorite-core-ui/js/components/saiku/Logo.jsx</span>",
+    "class"
+  ],
+  [
     "meteorite-core-ui/js/components/saiku/menubar.jsx~menubar",
     "class/js/components/saiku/MenuBar.jsx~MenuBar.html",
     "<span>MenuBar</span> <span class=\"search-result-import-path\">meteorite-core-ui/js/components/saiku/MenuBar.jsx</span>",
@@ -195,12 +201,6 @@ window.esdocSearchIndex = [
     "meteorite-core-ui/js/components/saiku/toolbarreporting.jsx~toolbarreporting",
     "class/js/components/saiku/ToolbarReporting.jsx~ToolbarReporting.html",
     "<span>ToolbarReporting</span> <span class=\"search-result-import-path\">meteorite-core-ui/js/components/saiku/ToolbarReporting.jsx</span>",
-    "class"
-  ],
-  [
-    "meteorite-core-ui/js/components/saiku/workspace.jsx~workspace",
-    "class/js/components/saiku/Workspace.jsx~Workspace.html",
-    "<span>Workspace</span> <span class=\"search-result-import-path\">meteorite-core-ui/js/components/saiku/Workspace.jsx</span>",
     "class"
   ],
   [
@@ -702,16 +702,16 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
-    "js/components/saiku/lockscreen.jsx",
-    "file/js/components/saiku/LockScreen.jsx.html",
-    "js/components/saiku/LockScreen.jsx",
+    "js/components/saiku/logo.jsx",
+    "file/js/components/saiku/Logo.jsx.html",
+    "js/components/saiku/Logo.jsx",
     "file"
   ],
   [
-    "js/components/saiku/login.jsx",
-    "file/js/components/saiku/Login.jsx.html",
-    "js/components/saiku/Login.jsx",
-    "file"
+    "js/components/saiku/logo.jsx~logo#render",
+    "class/js/components/saiku/Logo.jsx~Logo.html#instance-method-render",
+    "js/components/saiku/Logo.jsx~Logo#render",
+    "method"
   ],
   [
     "js/components/saiku/menubar.jsx",
@@ -952,42 +952,6 @@ window.esdocSearchIndex = [
     "class/js/components/saiku/ToolbarReporting.jsx~ToolbarReporting.html#instance-method-render",
     "js/components/saiku/ToolbarReporting.jsx~ToolbarReporting#render",
     "method"
-  ],
-  [
-    "js/components/saiku/workspace.jsx",
-    "file/js/components/saiku/Workspace.jsx.html",
-    "js/components/saiku/Workspace.jsx",
-    "file"
-  ],
-  [
-    "js/components/saiku/workspace.jsx~workspace#constructor",
-    "class/js/components/saiku/Workspace.jsx~Workspace.html#instance-constructor-constructor",
-    "js/components/saiku/Workspace.jsx~Workspace#constructor",
-    "method"
-  ],
-  [
-    "js/components/saiku/workspace.jsx~workspace#createcontent",
-    "class/js/components/saiku/Workspace.jsx~Workspace.html#instance-method-createContent",
-    "js/components/saiku/Workspace.jsx~Workspace#createContent",
-    "method"
-  ],
-  [
-    "js/components/saiku/workspace.jsx~workspace#opensidebar",
-    "class/js/components/saiku/Workspace.jsx~Workspace.html#instance-method-openSidebar",
-    "js/components/saiku/Workspace.jsx~Workspace#openSidebar",
-    "method"
-  ],
-  [
-    "js/components/saiku/workspace.jsx~workspace#render",
-    "class/js/components/saiku/Workspace.jsx~Workspace.html#instance-method-render",
-    "js/components/saiku/Workspace.jsx~Workspace#render",
-    "method"
-  ],
-  [
-    "js/components/saiku/workspace.jsx~workspace#state",
-    "class/js/components/saiku/Workspace.jsx~Workspace.html#instance-member-state",
-    "js/components/saiku/Workspace.jsx~Workspace#state",
-    "member"
   ],
   [
     "js/components/saiku/wrapper.jsx",
