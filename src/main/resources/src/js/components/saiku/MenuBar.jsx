@@ -30,6 +30,7 @@ import {
 } from 'react-bootstrap';
 import Clearfix from '../bootstrap/Clearfix';
 import Icon from './Icon';
+import Logo from './Logo';
 import MenubarCollection from '../../collections/MenubarCollection';
 
 class MenuBar extends React.Component {
@@ -110,10 +111,10 @@ class MenuBar extends React.Component {
         <div className="topbar-left">
           <div className="text-center">
             <a href="#" className="logo">
-              <img
-                src="../dist/assets/images/saiku/logo-small.png"
-                width="40"
-                height="40"
+              <Logo
+                sourceSmall="../dist/assets/images/saiku/logo-small.svg"
+                sourceBig="../dist/assets/images/saiku/logo-big.svg"
+                isOpenSidebar={this.props.isOpenSidebar}
               />
             </a>
           </div>
@@ -193,7 +194,8 @@ class MenuBar extends React.Component {
 }
 
 MenuBar.propTypes = {
-  openSidebar: React.PropTypes.func.isRequired
+  openSidebar: React.PropTypes.func.isRequired,
+  isOpenSidebar: React.PropTypes.bool
 };
 
 reactMixin.onClass(MenuBar, History);

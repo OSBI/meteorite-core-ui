@@ -27,7 +27,7 @@ class Workspace extends React.Component {
     super(props);
 
     this.state = {
-      isOpenSidebar: true,
+      isOpenSidebar: false,
       tabs: [],
       selectedTab: null
     };
@@ -51,7 +51,10 @@ class Workspace extends React.Component {
   render() {
     return (
       <Wrapper isOpenSidebar={this.state.isOpenSidebar}>
-        <MenuBar openSidebar={this.openSidebar} />
+        <MenuBar
+          openSidebar={this.openSidebar}
+          isOpenSidebar={this.state.isOpenSidebar}
+        />
         <Sidebar />
         <Content page>
           <Tabs createContent={this.createContent} />

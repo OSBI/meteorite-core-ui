@@ -27,11 +27,12 @@ import {
 import FormGroup from '../components/bootstrap/FormGroup';
 import Clearfix from '../components/bootstrap/Clearfix';
 import Wrapper from '../components/saiku/Wrapper';
+import Logo from '../components/saiku/Logo';
 
 /**
  * Class LockScreen
  *
- * @class Login
+ * @class LockScreen
  * @extends React.Component
  */
 class LockScreen extends React.Component {
@@ -112,10 +113,10 @@ class LockScreen extends React.Component {
           <div className="content-box">
             <div className="panel-heading">
               <Col xs={3}>
-                <img
-                  src="../dist/assets/images/saiku/logo-small.png"
-                  width="40"
-                  height="40"
+                <Logo
+                  source="../dist/assets/images/saiku/logo-small.svg"
+                  width={40}
+                  height={40}
                 />
               </Col>
               <Col xs={9}>
@@ -185,7 +186,7 @@ class LockScreen extends React.Component {
   }
 }
 
-// Exports validators that can be used to make sure the data is valid.
+// Validators that can be used to make sure the data is valid.
 LockScreen.propTypes = {
   history: React.PropTypes.object,
   errors: React.PropTypes.object,

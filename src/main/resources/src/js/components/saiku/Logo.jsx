@@ -15,38 +15,44 @@
  */
 
 import React from 'react';
-import classNames from 'classnames';
 
-class Wrapper extends React.Component {
+class Logo extends React.Component {
   render() {
-    let className = this.props.page ? 'wrapper-page' : 'wrapper';
+    let source = this.props.source;
+    let width = this.props.width;
+    let height = this.props.height;
 
     if (this.props.isOpenSidebar) {
-      className = this.props.page ? 'wrapper-page' : 'wrapper';
+      source = source || this.props.sourceBig;
+      width = width || 180;
+      height = height || 30;
     }
     else {
-      className = classNames(className, 'enlarged forced');
+      source = source || this.props.sourceSmall;
+      width = width || 40;
+      height = height || 40;
     }
 
     return (
-      <div
+      <img
         {...this.props}
-        className={classNames(className, this.props.className)}>
-        {this.props.children}
-      </div>
+        className={this.props.className}
+        src={source}
+        width={width}
+        height={height}
+      />
     );
   }
 }
 
-Wrapper.propTypes = {
+Logo.propTypes = {
   className: React.PropTypes.string,
-  children: React.PropTypes.node.isRequired,
-  page: React.PropTypes.bool,
+  source: React.PropTypes.string,
+  sourceSmall: React.PropTypes.string,
+  sourceBig: React.PropTypes.string,
+  width: React.PropTypes.number,
+  height: React.PropTypes.number,
   isOpenSidebar: React.PropTypes.bool
 };
 
-Wrapper.defaultProps = {
-  page: false
-};
-
-export default Wrapper;
+export default Logo;
