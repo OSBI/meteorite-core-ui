@@ -11937,26 +11937,6 @@
             }
           }
         }
-      ],
-      "trailingComments": [
-        {
-          "type": "Line",
-          "value": " Validators that can be used to make sure the data is valid.",
-          "range": [
-            6372,
-            6434
-          ],
-          "loc": {
-            "start": {
-              "line": 218,
-              "column": 0
-            },
-            "end": {
-              "line": 218,
-              "column": 62
-            }
-          }
-        }
       ]
     },
     {
@@ -11971,16 +11951,16 @@
             "type": "Identifier",
             "name": "Login",
             "range": [
-              6435,
-              6440
+              6372,
+              6377
             ],
             "loc": {
               "start": {
-                "line": 219,
+                "line": 218,
                 "column": 0
               },
               "end": {
-                "line": 219,
+                "line": 218,
                 "column": 5
               }
             }
@@ -11989,31 +11969,31 @@
             "type": "Identifier",
             "name": "propTypes",
             "range": [
-              6441,
-              6450
+              6378,
+              6387
             ],
             "loc": {
               "start": {
-                "line": 219,
+                "line": 218,
                 "column": 6
               },
               "end": {
-                "line": 219,
+                "line": 218,
                 "column": 15
               }
             }
           },
           "range": [
-            6435,
-            6450
+            6372,
+            6387
           ],
           "loc": {
             "start": {
-              "line": 219,
+              "line": 218,
               "column": 0
             },
             "end": {
-              "line": 219,
+              "line": 218,
               "column": 15
             }
           }
@@ -12027,16 +12007,16 @@
                 "type": "Identifier",
                 "name": "errors",
                 "range": [
-                  6457,
-                  6463
+                  6394,
+                  6400
                 ],
                 "loc": {
                   "start": {
-                    "line": 220,
+                    "line": 219,
                     "column": 2
                   },
                   "end": {
-                    "line": 220,
+                    "line": 219,
                     "column": 8
                   }
                 }
@@ -12051,16 +12031,16 @@
                     "type": "Identifier",
                     "name": "React",
                     "range": [
-                      6465,
-                      6470
+                      6402,
+                      6407
                     ],
                     "loc": {
                       "start": {
-                        "line": 220,
+                        "line": 219,
                         "column": 10
                       },
                       "end": {
-                        "line": 220,
+                        "line": 219,
                         "column": 15
                       }
                     }
@@ -12069,31 +12049,31 @@
                     "type": "Identifier",
                     "name": "PropTypes",
                     "range": [
-                      6471,
-                      6480
+                      6408,
+                      6417
                     ],
                     "loc": {
                       "start": {
-                        "line": 220,
+                        "line": 219,
                         "column": 16
                       },
                       "end": {
-                        "line": 220,
+                        "line": 219,
                         "column": 25
                       }
                     }
                   },
                   "range": [
-                    6465,
-                    6480
+                    6402,
+                    6417
                   ],
                   "loc": {
                     "start": {
-                      "line": 220,
+                      "line": 219,
                       "column": 10
                     },
                     "end": {
-                      "line": 220,
+                      "line": 219,
                       "column": 25
                     }
                   }
@@ -12102,31 +12082,31 @@
                   "type": "Identifier",
                   "name": "object",
                   "range": [
-                    6481,
-                    6487
+                    6418,
+                    6424
                   ],
                   "loc": {
                     "start": {
-                      "line": 220,
+                      "line": 219,
                       "column": 26
                     },
                     "end": {
-                      "line": 220,
+                      "line": 219,
                       "column": 32
                     }
                   }
                 },
                 "range": [
-                  6465,
-                  6487
+                  6402,
+                  6424
                 ],
                 "loc": {
                   "start": {
-                    "line": 220,
+                    "line": 219,
                     "column": 10
                   },
                   "end": {
-                    "line": 220,
+                    "line": 219,
                     "column": 32
                   }
                 }
@@ -12136,16 +12116,16 @@
               "shorthand": false,
               "computed": false,
               "range": [
-                6457,
-                6487
+                6394,
+                6424
               ],
               "loc": {
                 "start": {
-                  "line": 220,
+                  "line": 219,
                   "column": 2
                 },
                 "end": {
-                  "line": 220,
+                  "line": 219,
                   "column": 32
                 }
               }
@@ -12156,16 +12136,16 @@
                 "type": "Identifier",
                 "name": "validate",
                 "range": [
-                  6491,
-                  6499
+                  6428,
+                  6436
                 ],
                 "loc": {
                   "start": {
-                    "line": 221,
+                    "line": 220,
                     "column": 2
                   },
                   "end": {
-                    "line": 221,
+                    "line": 220,
                     "column": 10
                   }
                 }
@@ -12180,16 +12160,16 @@
                     "type": "Identifier",
                     "name": "React",
                     "range": [
-                      6501,
-                      6506
+                      6438,
+                      6443
                     ],
                     "loc": {
                       "start": {
-                        "line": 221,
+                        "line": 220,
                         "column": 12
                       },
                       "end": {
-                        "line": 221,
+                        "line": 220,
                         "column": 17
                       }
                     }
@@ -12198,31 +12178,31 @@
                     "type": "Identifier",
                     "name": "PropTypes",
                     "range": [
-                      6507,
-                      6516
+                      6444,
+                      6453
                     ],
                     "loc": {
                       "start": {
-                        "line": 221,
+                        "line": 220,
                         "column": 18
                       },
                       "end": {
-                        "line": 221,
+                        "line": 220,
                         "column": 27
                       }
                     }
                   },
                   "range": [
-                    6501,
-                    6516
+                    6438,
+                    6453
                   ],
                   "loc": {
                     "start": {
-                      "line": 221,
+                      "line": 220,
                       "column": 12
                     },
                     "end": {
-                      "line": 221,
+                      "line": 220,
                       "column": 27
                     }
                   }
@@ -12231,31 +12211,31 @@
                   "type": "Identifier",
                   "name": "func",
                   "range": [
-                    6517,
-                    6521
+                    6454,
+                    6458
                   ],
                   "loc": {
                     "start": {
-                      "line": 221,
+                      "line": 220,
                       "column": 28
                     },
                     "end": {
-                      "line": 221,
+                      "line": 220,
                       "column": 32
                     }
                   }
                 },
                 "range": [
-                  6501,
-                  6521
+                  6438,
+                  6458
                 ],
                 "loc": {
                   "start": {
-                    "line": 221,
+                    "line": 220,
                     "column": 12
                   },
                   "end": {
-                    "line": 221,
+                    "line": 220,
                     "column": 32
                   }
                 }
@@ -12265,16 +12245,16 @@
               "shorthand": false,
               "computed": false,
               "range": [
-                6491,
-                6521
+                6428,
+                6458
               ],
               "loc": {
                 "start": {
-                  "line": 221,
+                  "line": 220,
                   "column": 2
                 },
                 "end": {
-                  "line": 221,
+                  "line": 220,
                   "column": 32
                 }
               }
@@ -12285,16 +12265,16 @@
                 "type": "Identifier",
                 "name": "isValid",
                 "range": [
-                  6525,
-                  6532
+                  6462,
+                  6469
                 ],
                 "loc": {
                   "start": {
-                    "line": 222,
+                    "line": 221,
                     "column": 2
                   },
                   "end": {
-                    "line": 222,
+                    "line": 221,
                     "column": 9
                   }
                 }
@@ -12309,16 +12289,16 @@
                     "type": "Identifier",
                     "name": "React",
                     "range": [
-                      6534,
-                      6539
+                      6471,
+                      6476
                     ],
                     "loc": {
                       "start": {
-                        "line": 222,
+                        "line": 221,
                         "column": 11
                       },
                       "end": {
-                        "line": 222,
+                        "line": 221,
                         "column": 16
                       }
                     }
@@ -12327,31 +12307,31 @@
                     "type": "Identifier",
                     "name": "PropTypes",
                     "range": [
-                      6540,
-                      6549
+                      6477,
+                      6486
                     ],
                     "loc": {
                       "start": {
-                        "line": 222,
+                        "line": 221,
                         "column": 17
                       },
                       "end": {
-                        "line": 222,
+                        "line": 221,
                         "column": 26
                       }
                     }
                   },
                   "range": [
-                    6534,
-                    6549
+                    6471,
+                    6486
                   ],
                   "loc": {
                     "start": {
-                      "line": 222,
+                      "line": 221,
                       "column": 11
                     },
                     "end": {
-                      "line": 222,
+                      "line": 221,
                       "column": 26
                     }
                   }
@@ -12360,31 +12340,31 @@
                   "type": "Identifier",
                   "name": "func",
                   "range": [
-                    6550,
-                    6554
+                    6487,
+                    6491
                   ],
                   "loc": {
                     "start": {
-                      "line": 222,
+                      "line": 221,
                       "column": 27
                     },
                     "end": {
-                      "line": 222,
+                      "line": 221,
                       "column": 31
                     }
                   }
                 },
                 "range": [
-                  6534,
-                  6554
+                  6471,
+                  6491
                 ],
                 "loc": {
                   "start": {
-                    "line": 222,
+                    "line": 221,
                     "column": 11
                   },
                   "end": {
-                    "line": 222,
+                    "line": 221,
                     "column": 31
                   }
                 }
@@ -12394,16 +12374,16 @@
               "shorthand": false,
               "computed": false,
               "range": [
-                6525,
-                6554
+                6462,
+                6491
               ],
               "loc": {
                 "start": {
-                  "line": 222,
+                  "line": 221,
                   "column": 2
                 },
                 "end": {
-                  "line": 222,
+                  "line": 221,
                   "column": 31
                 }
               }
@@ -12414,16 +12394,16 @@
                 "type": "Identifier",
                 "name": "handleValidation",
                 "range": [
-                  6558,
-                  6574
+                  6495,
+                  6511
                 ],
                 "loc": {
                   "start": {
-                    "line": 223,
+                    "line": 222,
                     "column": 2
                   },
                   "end": {
-                    "line": 223,
+                    "line": 222,
                     "column": 18
                   }
                 }
@@ -12438,16 +12418,16 @@
                     "type": "Identifier",
                     "name": "React",
                     "range": [
-                      6576,
-                      6581
+                      6513,
+                      6518
                     ],
                     "loc": {
                       "start": {
-                        "line": 223,
+                        "line": 222,
                         "column": 20
                       },
                       "end": {
-                        "line": 223,
+                        "line": 222,
                         "column": 25
                       }
                     }
@@ -12456,31 +12436,31 @@
                     "type": "Identifier",
                     "name": "PropTypes",
                     "range": [
-                      6582,
-                      6591
+                      6519,
+                      6528
                     ],
                     "loc": {
                       "start": {
-                        "line": 223,
+                        "line": 222,
                         "column": 26
                       },
                       "end": {
-                        "line": 223,
+                        "line": 222,
                         "column": 35
                       }
                     }
                   },
                   "range": [
-                    6576,
-                    6591
+                    6513,
+                    6528
                   ],
                   "loc": {
                     "start": {
-                      "line": 223,
+                      "line": 222,
                       "column": 20
                     },
                     "end": {
-                      "line": 223,
+                      "line": 222,
                       "column": 35
                     }
                   }
@@ -12489,31 +12469,31 @@
                   "type": "Identifier",
                   "name": "func",
                   "range": [
-                    6592,
-                    6596
+                    6529,
+                    6533
                   ],
                   "loc": {
                     "start": {
-                      "line": 223,
+                      "line": 222,
                       "column": 36
                     },
                     "end": {
-                      "line": 223,
+                      "line": 222,
                       "column": 40
                     }
                   }
                 },
                 "range": [
-                  6576,
-                  6596
+                  6513,
+                  6533
                 ],
                 "loc": {
                   "start": {
-                    "line": 223,
+                    "line": 222,
                     "column": 20
                   },
                   "end": {
-                    "line": 223,
+                    "line": 222,
                     "column": 40
                   }
                 }
@@ -12523,16 +12503,16 @@
               "shorthand": false,
               "computed": false,
               "range": [
-                6558,
-                6596
+                6495,
+                6533
               ],
               "loc": {
                 "start": {
-                  "line": 223,
+                  "line": 222,
                   "column": 2
                 },
                 "end": {
-                  "line": 223,
+                  "line": 222,
                   "column": 40
                 }
               }
@@ -12543,16 +12523,16 @@
                 "type": "Identifier",
                 "name": "getValidationMessages",
                 "range": [
-                  6600,
-                  6621
+                  6537,
+                  6558
                 ],
                 "loc": {
                   "start": {
-                    "line": 224,
+                    "line": 223,
                     "column": 2
                   },
                   "end": {
-                    "line": 224,
+                    "line": 223,
                     "column": 23
                   }
                 }
@@ -12567,16 +12547,16 @@
                     "type": "Identifier",
                     "name": "React",
                     "range": [
-                      6623,
-                      6628
+                      6560,
+                      6565
                     ],
                     "loc": {
                       "start": {
-                        "line": 224,
+                        "line": 223,
                         "column": 25
                       },
                       "end": {
-                        "line": 224,
+                        "line": 223,
                         "column": 30
                       }
                     }
@@ -12585,31 +12565,31 @@
                     "type": "Identifier",
                     "name": "PropTypes",
                     "range": [
-                      6629,
-                      6638
+                      6566,
+                      6575
                     ],
                     "loc": {
                       "start": {
-                        "line": 224,
+                        "line": 223,
                         "column": 31
                       },
                       "end": {
-                        "line": 224,
+                        "line": 223,
                         "column": 40
                       }
                     }
                   },
                   "range": [
-                    6623,
-                    6638
+                    6560,
+                    6575
                   ],
                   "loc": {
                     "start": {
-                      "line": 224,
+                      "line": 223,
                       "column": 25
                     },
                     "end": {
-                      "line": 224,
+                      "line": 223,
                       "column": 40
                     }
                   }
@@ -12618,31 +12598,31 @@
                   "type": "Identifier",
                   "name": "func",
                   "range": [
-                    6639,
-                    6643
+                    6576,
+                    6580
                   ],
                   "loc": {
                     "start": {
-                      "line": 224,
+                      "line": 223,
                       "column": 41
                     },
                     "end": {
-                      "line": 224,
+                      "line": 223,
                       "column": 45
                     }
                   }
                 },
                 "range": [
-                  6623,
-                  6643
+                  6560,
+                  6580
                 ],
                 "loc": {
                   "start": {
-                    "line": 224,
+                    "line": 223,
                     "column": 25
                   },
                   "end": {
-                    "line": 224,
+                    "line": 223,
                     "column": 45
                   }
                 }
@@ -12652,16 +12632,16 @@
               "shorthand": false,
               "computed": false,
               "range": [
-                6600,
-                6643
+                6537,
+                6580
               ],
               "loc": {
                 "start": {
-                  "line": 224,
+                  "line": 223,
                   "column": 2
                 },
                 "end": {
-                  "line": 224,
+                  "line": 223,
                   "column": 45
                 }
               }
@@ -12672,16 +12652,16 @@
                 "type": "Identifier",
                 "name": "clearValidations",
                 "range": [
-                  6647,
-                  6663
+                  6584,
+                  6600
                 ],
                 "loc": {
                   "start": {
-                    "line": 225,
+                    "line": 224,
                     "column": 2
                   },
                   "end": {
-                    "line": 225,
+                    "line": 224,
                     "column": 18
                   }
                 }
@@ -12696,16 +12676,16 @@
                     "type": "Identifier",
                     "name": "React",
                     "range": [
-                      6665,
-                      6670
+                      6602,
+                      6607
                     ],
                     "loc": {
                       "start": {
-                        "line": 225,
+                        "line": 224,
                         "column": 20
                       },
                       "end": {
-                        "line": 225,
+                        "line": 224,
                         "column": 25
                       }
                     }
@@ -12714,31 +12694,31 @@
                     "type": "Identifier",
                     "name": "PropTypes",
                     "range": [
-                      6671,
-                      6680
+                      6608,
+                      6617
                     ],
                     "loc": {
                       "start": {
-                        "line": 225,
+                        "line": 224,
                         "column": 26
                       },
                       "end": {
-                        "line": 225,
+                        "line": 224,
                         "column": 35
                       }
                     }
                   },
                   "range": [
-                    6665,
-                    6680
+                    6602,
+                    6617
                   ],
                   "loc": {
                     "start": {
-                      "line": 225,
+                      "line": 224,
                       "column": 20
                     },
                     "end": {
-                      "line": 225,
+                      "line": 224,
                       "column": 35
                     }
                   }
@@ -12747,31 +12727,31 @@
                   "type": "Identifier",
                   "name": "func",
                   "range": [
-                    6681,
-                    6685
+                    6618,
+                    6622
                   ],
                   "loc": {
                     "start": {
-                      "line": 225,
+                      "line": 224,
                       "column": 36
                     },
                     "end": {
-                      "line": 225,
+                      "line": 224,
                       "column": 40
                     }
                   }
                 },
                 "range": [
-                  6665,
-                  6685
+                  6602,
+                  6622
                 ],
                 "loc": {
                   "start": {
-                    "line": 225,
+                    "line": 224,
                     "column": 20
                   },
                   "end": {
-                    "line": 225,
+                    "line": 224,
                     "column": 40
                   }
                 }
@@ -12781,85 +12761,65 @@
               "shorthand": false,
               "computed": false,
               "range": [
-                6647,
-                6685
+                6584,
+                6622
               ],
               "loc": {
                 "start": {
-                  "line": 225,
+                  "line": 224,
                   "column": 2
                 },
                 "end": {
-                  "line": 225,
+                  "line": 224,
                   "column": 40
                 }
               }
             }
           ],
           "range": [
-            6453,
-            6687
+            6390,
+            6624
           ],
           "loc": {
             "start": {
-              "line": 219,
+              "line": 218,
               "column": 18
             },
             "end": {
-              "line": 226,
+              "line": 225,
               "column": 1
             }
           }
         },
         "range": [
-          6435,
-          6687
+          6372,
+          6624
         ],
         "loc": {
           "start": {
-            "line": 219,
+            "line": 218,
             "column": 0
           },
           "end": {
-            "line": 226,
+            "line": 225,
             "column": 1
           }
         }
       },
       "range": [
-        6435,
-        6688
+        6372,
+        6625
       ],
       "loc": {
         "start": {
-          "line": 219,
+          "line": 218,
           "column": 0
         },
         "end": {
-          "line": 226,
+          "line": 225,
           "column": 2
         }
-      },
-      "leadingComments": [
-        {
-          "type": "Line",
-          "value": " Validators that can be used to make sure the data is valid.",
-          "range": [
-            6372,
-            6434
-          ],
-          "loc": {
-            "start": {
-              "line": 218,
-              "column": 0
-            },
-            "end": {
-              "line": 218,
-              "column": 62
-            }
-          }
-        }
-      ]
+      }
     },
     {
       "type": "ExpressionStatement",
@@ -12872,16 +12832,16 @@
             "type": "Identifier",
             "name": "reactMixin",
             "range": [
-              6690,
-              6700
+              6627,
+              6637
             ],
             "loc": {
               "start": {
-                "line": 228,
+                "line": 227,
                 "column": 0
               },
               "end": {
-                "line": 228,
+                "line": 227,
                 "column": 10
               }
             }
@@ -12890,31 +12850,31 @@
             "type": "Identifier",
             "name": "onClass",
             "range": [
-              6701,
-              6708
+              6638,
+              6645
             ],
             "loc": {
               "start": {
-                "line": 228,
+                "line": 227,
                 "column": 11
               },
               "end": {
-                "line": 228,
+                "line": 227,
                 "column": 18
               }
             }
           },
           "range": [
-            6690,
-            6708
+            6627,
+            6645
           ],
           "loc": {
             "start": {
-              "line": 228,
+              "line": 227,
               "column": 0
             },
             "end": {
-              "line": 228,
+              "line": 227,
               "column": 18
             }
           }
@@ -12924,16 +12884,16 @@
             "type": "Identifier",
             "name": "Login",
             "range": [
-              6709,
-              6714
+              6646,
+              6651
             ],
             "loc": {
               "start": {
-                "line": 228,
+                "line": 227,
                 "column": 19
               },
               "end": {
-                "line": 228,
+                "line": 227,
                 "column": 24
               }
             }
@@ -12942,47 +12902,47 @@
             "type": "Identifier",
             "name": "History",
             "range": [
-              6716,
-              6723
+              6653,
+              6660
             ],
             "loc": {
               "start": {
-                "line": 228,
+                "line": 227,
                 "column": 26
               },
               "end": {
-                "line": 228,
+                "line": 227,
                 "column": 33
               }
             }
           }
         ],
         "range": [
-          6690,
-          6724
+          6627,
+          6661
         ],
         "loc": {
           "start": {
-            "line": 228,
+            "line": 227,
             "column": 0
           },
           "end": {
-            "line": 228,
+            "line": 227,
             "column": 34
           }
         }
       },
       "range": [
-        6690,
-        6725
+        6627,
+        6662
       ],
       "loc": {
         "start": {
-          "line": 228,
+          "line": 227,
           "column": 0
         },
         "end": {
-          "line": 228,
+          "line": 227,
           "column": 35
         }
       },
@@ -12991,16 +12951,16 @@
           "type": "Line",
           "value": " Wrapped component with the validation mixin and supporting strategy.",
           "range": [
-            6727,
-            6798
+            6664,
+            6735
           ],
           "loc": {
             "start": {
-              "line": 230,
+              "line": 229,
               "column": 0
             },
             "end": {
-              "line": 230,
+              "line": 229,
               "column": 71
             }
           }
@@ -13017,16 +12977,16 @@
             "type": "Identifier",
             "name": "validation",
             "range": [
-              6814,
-              6824
+              6751,
+              6761
             ],
             "loc": {
               "start": {
-                "line": 231,
+                "line": 230,
                 "column": 15
               },
               "end": {
-                "line": 231,
+                "line": 230,
                 "column": 25
               }
             }
@@ -13036,32 +12996,32 @@
               "type": "Identifier",
               "name": "strategy",
               "range": [
-                6825,
-                6833
+                6762,
+                6770
               ],
               "loc": {
                 "start": {
-                  "line": 231,
+                  "line": 230,
                   "column": 26
                 },
                 "end": {
-                  "line": 231,
+                  "line": 230,
                   "column": 34
                 }
               }
             }
           ],
           "range": [
-            6814,
-            6834
+            6751,
+            6771
           ],
           "loc": {
             "start": {
-              "line": 231,
+              "line": 230,
               "column": 15
             },
             "end": {
-              "line": 231,
+              "line": 230,
               "column": 35
             }
           }
@@ -13071,32 +13031,32 @@
             "type": "Identifier",
             "name": "Login",
             "range": [
-              6835,
-              6840
+              6772,
+              6777
             ],
             "loc": {
               "start": {
-                "line": 231,
+                "line": 230,
                 "column": 36
               },
               "end": {
-                "line": 231,
+                "line": 230,
                 "column": 41
               }
             }
           }
         ],
         "range": [
-          6814,
-          6841
+          6751,
+          6778
         ],
         "loc": {
           "start": {
-            "line": 231,
+            "line": 230,
             "column": 15
           },
           "end": {
-            "line": 231,
+            "line": 230,
             "column": 42
           }
         },
@@ -13105,16 +13065,16 @@
             "type": "Line",
             "value": " Wrapped component with the validation mixin and supporting strategy.",
             "range": [
-              6727,
-              6798
+              6664,
+              6735
             ],
             "loc": {
               "start": {
-                "line": 230,
+                "line": 229,
                 "column": 0
               },
               "end": {
-                "line": 230,
+                "line": 229,
                 "column": 71
               }
             }
@@ -13123,16 +13083,16 @@
         "trailingComments": []
       },
       "range": [
-        6799,
-        6842
+        6736,
+        6779
       ],
       "loc": {
         "start": {
-          "line": 231,
+          "line": 230,
           "column": 0
         },
         "end": {
-          "line": 231,
+          "line": 230,
           "column": 43
         }
       },
@@ -13141,16 +13101,16 @@
           "type": "Line",
           "value": " Wrapped component with the validation mixin and supporting strategy.",
           "range": [
-            6727,
-            6798
+            6664,
+            6735
           ],
           "loc": {
             "start": {
-              "line": 230,
+              "line": 229,
               "column": 0
             },
             "end": {
-              "line": 230,
+              "line": 229,
               "column": 71
             }
           }
@@ -13161,7 +13121,7 @@
   "sourceType": "module",
   "range": [
     613,
-    6842
+    6779
   ],
   "loc": {
     "start": {
@@ -13169,7 +13129,7 @@
       "column": 0
     },
     "end": {
-      "line": 231,
+      "line": 230,
       "column": 43
     }
   },
@@ -13284,36 +13244,18 @@
     },
     {
       "type": "Line",
-      "value": " Validators that can be used to make sure the data is valid.",
-      "range": [
-        6372,
-        6434
-      ],
-      "loc": {
-        "start": {
-          "line": 218,
-          "column": 0
-        },
-        "end": {
-          "line": 218,
-          "column": 62
-        }
-      }
-    },
-    {
-      "type": "Line",
       "value": " Wrapped component with the validation mixin and supporting strategy.",
       "range": [
-        6727,
-        6798
+        6664,
+        6735
       ],
       "loc": {
         "start": {
-          "line": 230,
+          "line": 229,
           "column": 0
         },
         "end": {
-          "line": 230,
+          "line": 229,
           "column": 71
         }
       }
