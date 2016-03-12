@@ -15,17 +15,15 @@
  */
 
 import React from 'react';
+import _ from 'underscore';
 import classNames from 'classnames';
 
 class Wrapper extends React.Component {
   render() {
     let className = this.props.page ? 'wrapper-page' : 'wrapper';
 
-    if (this.props.isOpenSidebar) {
-      className = this.props.page ? 'wrapper-page' : 'wrapper';
-    }
-    else {
-      className = classNames(className, 'enlarged forced');
+    if (_.has(this.props, 'isOpenSidebar') && !this.props.isOpenSidebar) {
+      className = classNames(className, 'smaller forced');
     }
 
     return (

@@ -45,26 +45,37 @@ describe('Wrapper', () => {
     assert.equal(ReactDOM.findDOMNode(component).className, 'wrapper-page');
   });
 
-  it('Should have "enlarged forced" class names ' +
-      'if props is `isOpenSidebar`', () => {
+  it('Should have "wrapper" class names if props ' +
+      'is `isOpenSidebar` equals the true', () => {
 
     let component = ReactTestUtils.renderIntoDocument(
       <Wrapper isOpenSidebar>Wrapper content</Wrapper>
     );
-    let instanceClassName = ReactDOM.findDOMNode(component).className;
+    let componentClassName = ReactDOM.findDOMNode(component).className;
 
-    assert.ok(instanceClassName.match(/\bwrapper\b/));
-    assert.ok(instanceClassName.match(/\benlarged\b/));
-    assert.ok(instanceClassName.match(/\bforced\b/));
+    assert.ok(componentClassName.match(/\bwrapper\b/));
+  });
+
+  it('Should have "smaller forced" class names ' +
+      'if props is `isOpenSidebar` equals the false', () => {
+
+    let component = ReactTestUtils.renderIntoDocument(
+      <Wrapper isOpenSidebar={false}>Wrapper content</Wrapper>
+    );
+    let componentClassName = ReactDOM.findDOMNode(component).className;
+
+    assert.ok(componentClassName.match(/\bwrapper\b/));
+    assert.ok(componentClassName.match(/\bsmaller\b/));
+    assert.ok(componentClassName.match(/\bforced\b/));
   });
 
   it('Should merge additional classes', () => {
     let component = ReactTestUtils.renderIntoDocument(
       <Wrapper className="foo">Wrapper content</Wrapper>
     );
-    let instanceClassName = ReactDOM.findDOMNode(component).className;
+    let componentClassName = ReactDOM.findDOMNode(component).className;
 
-    assert.ok(instanceClassName.match(/\bwrapper\b/));
-    assert.ok(instanceClassName.match(/\bfoo\b/));
+    assert.ok(componentClassName.match(/\bwrapper\b/));
+    assert.ok(componentClassName.match(/\bfoo\b/));
   });
 });

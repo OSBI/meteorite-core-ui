@@ -743,55 +743,55 @@ textarea.form-control {
   text-align: center;
   vertical-align: middle;
 }
-.wrapper.enlarged .sidebar-menu ul ul {
+.wrapper.smaller .sidebar-menu ul ul {
   z-index: 9999;
   margin-top: -5px;
   padding-top: 5px;
   border: 2px solid #f4f8fb;
   background: #fff;
 }
-.wrapper.enlarged .side-menu.left {
+.wrapper.smaller .side-menu.left {
   z-index: 5;
   width: 70px;
 }
-.wrapper.enlarged .side-menu.left .sidebar-menu > ul > li > a {
+.wrapper.smaller .side-menu.left .sidebar-menu > ul > li > a {
   padding: 15px 20px;
 }
-.wrapper.enlarged .side-menu.left .sidebar-menu > ul > li > a:hover {
+.wrapper.smaller .side-menu.left .sidebar-menu > ul > li > a:hover {
   background: #f4f8fb !important;
 }
-.wrapper.enlarged .side-menu.left .sidebar-menu > ul > li > a:active {
+.wrapper.smaller .side-menu.left .sidebar-menu > ul > li > a:active {
   background: #f4f8fb !important;
 }
-.wrapper.enlarged .side-menu.left .sidebar-menu > ul > li > a:focus {
+.wrapper.smaller .side-menu.left .sidebar-menu > ul > li > a:focus {
   background: #f4f8fb !important;
 }
-.wrapper.enlarged .side-menu.left .sidebar-menu > ul > li > a i {
+.wrapper.smaller .side-menu.left .sidebar-menu > ul > li > a i {
   margin-right: 20px !important;
   font-size: 20px;
 }
-.wrapper.enlarged .side-menu.left .sidebar-menu ul > li {
+.wrapper.smaller .side-menu.left .sidebar-menu ul > li {
   position: relative;
   white-space: nowrap;
 }
-.wrapper.enlarged .side-menu.left .sidebar-menu ul > li:hover > a {
+.wrapper.smaller .side-menu.left .sidebar-menu ul > li:hover > a {
   position: relative;
   width: 260px;
   color: #5fbeaa;
   border-color: #5fbeaa;
   background: #f4f8fb;
 }
-.wrapper.enlarged .side-menu.left .sidebar-menu ul > li:hover a span {
+.wrapper.smaller .side-menu.left .sidebar-menu ul > li:hover a span {
   display: inline;
 }
-.wrapper.enlarged .side-menu.left .sidebar-menu ul > li > a span {
+.wrapper.smaller .side-menu.left .sidebar-menu ul > li > a span {
   display: none;
   padding-left: 10px;
 }
-.wrapper.enlarged .content-page {
+.wrapper.smaller .content-page {
   margin-left: 70px;
 }
-.wrapper.enlarged .topbar .topbar-left {
+.wrapper.smaller .topbar .topbar-left {
   width: 70px !important;
 }
 /* =========================================================================
@@ -940,7 +940,7 @@ textarea.form-control {
     background: #fff;
     box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
   }
-  .wrapper.enlarged .side-menu.left {
+  .wrapper.smaller .side-menu.left {
     margin-left: -75px;
   }
 }
@@ -962,7 +962,7 @@ textarea.form-control {
   .wrapper.forced .side-menu.left {
     box-shadow: 0 12px 12px rgba(0,0,0,.1);
   }
-  .wrapper.enlarged .side-menu.left {
+  .wrapper.smaller .side-menu.left {
     box-shadow: 0 1px 1px rgba(0,0,0,.1) !important;
   }
 }
