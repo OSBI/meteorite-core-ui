@@ -215,7 +215,6 @@ class Login extends React.Component {
   }
 }
 
-// Validators that can be used to make sure the data is valid.
 Login.propTypes = {
   errors: React.PropTypes.object,
   validate: React.PropTypes.func,
