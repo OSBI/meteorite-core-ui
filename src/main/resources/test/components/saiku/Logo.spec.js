@@ -18,40 +18,32 @@ import React from 'react';
 import ReactTestUtils from 'react/lib/ReactTestUtils';
 import ReactDOM from 'react-dom';
 
-import Content from '../../../src/js/components/saiku/Content';
+import Logo from '../../../src/js/components/saiku/Logo';
 
-describe('Content', () => {
-  it('uses "div" by default', () => {
+describe('Logo', () => {
+  it('uses "img" by default', () => {
     let component = ReactTestUtils.renderIntoDocument(
-      <Content>Content here</Content>
+      <Logo
+        source="../../../src/images/saiku/logo-small.svg"
+        width={40}
+        height={40}
+      />
     );
 
-    assert.equal(ReactDOM.findDOMNode(component).nodeName, 'DIV');
+    assert.equal(ReactDOM.findDOMNode(component).nodeName, 'IMG');
   });
 
-  it('has "content" class by default', () => {
+  it('Should accept additional classes', () => {
     let component = ReactTestUtils.renderIntoDocument(
-      <Content>Content here</Content>
-    );
-
-    assert.equal(ReactDOM.findDOMNode(component).className, 'content');
-  });
-
-  it('Should have "content-page" class name if props is `page`', () => {
-    let component = ReactTestUtils.renderIntoDocument(
-      <Content page>Content here</Content>
-    );
-
-    assert.equal(ReactDOM.findDOMNode(component).className, 'content-page');
-  });
-
-  it('Should merge additional classes', () => {
-    let component = ReactTestUtils.renderIntoDocument(
-      <Content className="foo">Content here</Content>
+      <Logo
+        className="foo"
+        source="../../../src/images/saiku/logo-small.svg"
+        width={40}
+        height={40}
+      />
     );
     let instanceClassName = ReactDOM.findDOMNode(component).className;
 
-    assert.ok(instanceClassName.match(/\bcontent\b/));
     assert.ok(instanceClassName.match(/\bfoo\b/));
   });
 });
