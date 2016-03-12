@@ -17,10 +17,9 @@
 import React from 'react';
 
 /**
- * Saiku <Logo /> component. This component should display a image the Company.
+ * Saiku <Logo /> component.
+ * This component should display a image the company.
  *
- * @class Logo
- * @extends React.Component
  * @example
  * <Logo
  *   source="dist/assets/images/saiku/logo-small.svg"
@@ -29,6 +28,15 @@ import React from 'react';
  * />
  */
 class Logo extends React.Component {
+
+  /**
+   * React components implement the `render()` method that takes input data and
+   * returns what to display. This method uses an XML-like syntax called JSX.
+   * Input data that is passed into the component can be accessed by `render()`
+   * via this.props.
+   *
+   * @return {HTMLElement|Node|String} An image the company.
+   */
   render() {
     let source = this.props.source;
     let width = this.props.width;

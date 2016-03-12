@@ -1,7 +1,7 @@
 {
-  "coverage": "10.52%",
+  "coverage": "11.27%",
   "expectCount": 133,
-  "actualCount": 14,
+  "actualCount": 15,
   "files": {
     "js/utils/Base64.js": {
       "expectCount": 1,
@@ -83,10 +83,8 @@
     },
     "js/components/saiku/Logo.jsx": {
       "expectCount": 2,
-      "actualCount": 1,
-      "undocumentLines": [
-        32
-      ]
+      "actualCount": 2,
+      "undocumentLines": []
     },
     "js/components/saiku/MenuBar.jsx": {
       "expectCount": 7,
