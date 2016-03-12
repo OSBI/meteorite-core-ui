@@ -21,10 +21,10 @@ import ReactDOM from 'react-dom';
 import Logo from '../../../src/js/components/saiku/Logo';
 
 describe('Logo', () => {
-  it('uses "img" by default', () => {
+  it('should be an image', () => {
     let component = ReactTestUtils.renderIntoDocument(
       <Logo
-        source="../../../src/images/saiku/logo-small.svg"
+        source="logo.svg"
         width={40}
         height={40}
       />
@@ -37,13 +37,42 @@ describe('Logo', () => {
     let component = ReactTestUtils.renderIntoDocument(
       <Logo
         className="foo"
-        source="../../../src/images/saiku/logo-small.svg"
+        source="logo.svg"
         width={40}
         height={40}
       />
     );
-    let instanceClassName = ReactDOM.findDOMNode(component).className;
+    let componentClassName = ReactDOM.findDOMNode(component).className;
 
-    assert.ok(instanceClassName.match(/\bfoo\b/));
+    assert.ok(componentClassName.match(/\bfoo\b/));
+  });
+
+  it('Should provide src and alt prop', () => {
+    let component = ReactTestUtils.renderIntoDocument(
+      <Logo
+        source="logo.svg"
+        width={40}
+        height={40}
+        alt="this is alt"
+      />
+    );
+    let image = ReactDOM.findDOMNode(component);
+
+    assert.equal(image.getAttribute('src'), 'logo.svg');
+    assert.equal(image.getAttribute('alt'), 'this is alt');
+  });
+
+  it('Should provide width and height prop', () => {
+    let component = ReactTestUtils.renderIntoDocument(
+      <Logo
+        source="logo.svg"
+        width={40}
+        height={40}
+      />
+    );
+    let image = ReactDOM.findDOMNode(component);
+
+    assert.equal(image.getAttribute('width'), 40);
+    assert.equal(image.getAttribute('height'), 40);
   });
 });
