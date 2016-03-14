@@ -68,7 +68,7 @@ gulp.task('html5shiv', function() {
 
 // Call Respond
 gulp.task('respond', function() {
-  gulp.src(paths.source.bowerDir + '/Respond/dest/respond.min.js')
+  gulp.src(paths.source.bowerDir + '/respond/dest/respond.min.js')
     .pipe(plumber())
     .pipe(gulp.dest(paths.build.js));
 });
