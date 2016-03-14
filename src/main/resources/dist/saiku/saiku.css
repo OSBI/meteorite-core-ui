@@ -15,6 +15,26 @@
  */
 @import url("https://fonts.googleapis.com/css?family=Noto+Sans:400,700");
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700,300");
+/*
+ * IE10 viewport hack for Surface/desktop Windows 8 bug
+ * Copyright 2014-2015 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ */
+@-webkit-viewport {
+  width: device-width;
+}
+@-moz-viewport {
+  width: device-width;
+}
+@-ms-viewport {
+  width: device-width;
+}
+@-o-viewport {
+  width: device-width;
+}
+@viewport {
+  width: device-width;
+}
 /* =========================================================================
    CORE
    ========================================================================= */
@@ -914,26 +934,6 @@ textarea.form-control {
    ========================================================================= */
 .query-designer .drop-panel button {
   margin: 2px;
-}
-/*
- * IE10 viewport hack for Surface/desktop Windows 8 bug
- * Copyright 2014-2015 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
- */
-@-webkit-viewport {
-  width: device-width;
-}
-@-moz-viewport {
-  width: device-width;
-}
-@-ms-viewport {
-  width: device-width;
-}
-@-o-viewport {
-  width: device-width;
-}
-@viewport {
-  width: device-width;
 }
 /* =========================================================================
    RESPONSIVE
