@@ -11,9 +11,10 @@
 5. [Support](#support)
   - [Browser](#browser)
   - [Server](#server)
-6. [Contributing](#contributing)
-7. [History](#history)
-8. [License](#license)
+6. [Team](#team)
+7. [Contributing](#contributing)
+8. [History](#history)
+9. [License](#license)
 
 ## Setup
 
