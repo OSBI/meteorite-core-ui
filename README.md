@@ -93,6 +93,7 @@ Documentation [Meteorite Core UI](http://osbi.github.io/meteorite-core-ui/).
 - `gulp`: Initialize stylus and watch for changes;
 - `gulp bower-install`: Move dependencies to folder `dist/assets/`;
 - `gulp deploy-pages`: Deploy documentation files to `github` on branch gh-pages;
+- `gulp imagemin`: Compress image files;
 - `gulp stylus`: Compile stylus files;
 - `gulp watch`: Call for watch files.
 

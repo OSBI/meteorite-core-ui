@@ -74,7 +74,7 @@ var config = {
         loader: 'style-loader!css-loader!postcss-loader'
       },
       {
-        test: /\.(png|jpg)$/,
+        test: /\.(png|jpg|svg)$/,
         loader: 'file-loader?name=[path][name].[ext]?[hash]'
       },
       {

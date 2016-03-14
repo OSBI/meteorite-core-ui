@@ -20,6 +20,7 @@ module.exports = {
   source: {
     bowerDir: './bower_components',
     react: ['./src/js/saiku/**/*.js', './src/js/saiku/**/*.jsx'],
+    img: './src/images/**/*',
     styl: {
       all: './src/styl/**/*',
       folder: './src/styl/'
@@ -34,7 +35,7 @@ module.exports = {
     app: './dist/saiku',
     css: './dist/assets/css',
     fonts: './dist/assets/fonts',
-    img: './dist/assets/img',
+    img: './dist/assets/images',
     js: './dist/assets/js'
   },
 
