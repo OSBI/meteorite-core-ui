@@ -60935,9 +60935,9 @@
 	                    'data-toggle': 'dropdown',
 	                    'aria-expanded': 'true'
 	                  },
-	                  _react2.default.createElement('img', {
+	                  _react2.default.createElement(_reactBootstrap.Image, {
 	                    src: '../dist/assets/images/users/user2.jpg',
-	                    className: 'img-circle'
+	                    circle: true
 	                  })
 	                ),
 	                _react2.default.createElement(

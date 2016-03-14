@@ -26,7 +26,8 @@ import {
   Nav,
   NavDropdown,
   MenuItem,
-  Badge
+  Badge,
+  Image
 } from 'react-bootstrap';
 import Clearfix from '../bootstrap/Clearfix';
 import Icon from './Icon';
@@ -154,9 +155,9 @@ class MenuBar extends React.Component {
                   data-toggle="dropdown"
                   aria-expanded="true"
                 >
-                  <img
+                  <Image
                     src="../dist/assets/images/users/user2.jpg"
-                    className="img-circle"
+                    circle
                   />
                 </a>
                 <ul
