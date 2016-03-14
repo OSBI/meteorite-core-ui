@@ -105,13 +105,21 @@ We do care about it.
 
 ![Chrome](https://raw.github.com/alrra/browser-logos/master/chrome/chrome_48x48.png) | ![Firefox](https://raw.github.com/alrra/browser-logos/master/firefox/firefox_48x48.png) | ![IE](https://raw.github.com/alrra/browser-logos/master/internet-explorer/internet-explorer_48x48.png) | ![Opera](https://raw.github.com/alrra/browser-logos/master/opera/opera_48x48.png) | ![Safari](https://raw.github.com/alrra/browser-logos/master/safari/safari_48x48.png) | ![Edge](https://raw.githubusercontent.com/alrra/browser-logos/master/edge/edge_48x48.png) | **Android** | **iOS** | **Windows Phone** |
 :---: | :---: | :---: | :---: | :---: |  :---: | :---: | :---: | :---: |
-Latest ✔ | Latest ✔ | 11+ ✔ | Latest ✔ | 8.0+ ✔ | Latest ✔ | 4.4+ ✔ | 7+ ✔ | 8+ ✔ |
+Latest ✔ | Latest ✔ | Latest ✔ | Latest ✔ | Latest ✔ | Latest ✔ | 4.4+ ✔ | 7+ ✔ | 8+ ✔ |
 
 ### Server
 
 <a href="https://nodejs.org"><img height=48 src="https://raw.githubusercontent.com/caiogondim/javascript-server-side-logos/master/node.js/standard/454x128.png"></a> |
 --- |
 0.10+ ✔ |
+
+## Team
+
+[Meteorite Core UI](http://www.meteorite.bi/) is maintained by these people and a bunch of awesome [contributors](https://github.com/OSBI/meteorite-core-ui/graphs/contributors).
+
+[![Tom Barber](https://avatars0.githubusercontent.com/u/103544?v=2&s=70)](https://github.com/buggtb) | [![Breno Polanski](https://avatars1.githubusercontent.com/u/1894191?v=2&s=70)](https://github.com/brenopolanski) | [![Bruno Catão](https://avatars2.githubusercontent.com/u/785116?v=3&s=70)](https://github.com/brunogamacatao)
+:---: | :---: | :---: | :---: | :---: | :---: | :---: |
+[Tom Barber](https://github.com/buggtb) | [Breno Polanski](https://github.com/brenopolanski) | [Bruno Catão](https://github.com/brunogamacatao) |
 
 ## Contributing
 

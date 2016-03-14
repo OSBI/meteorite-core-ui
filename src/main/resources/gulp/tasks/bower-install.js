@@ -1,4 +1,4 @@
-/*
+/**
  *   Copyright 2016 OSBI Ltd
  *
  *   Licensed under the Apache License, Version 2.0 (the "License");
@@ -22,11 +22,13 @@ var plumber = require('gulp-plumber');
 var bower   = require('gulp-bower');
 var paths   = require('../paths');
 
+// Call Bower
 gulp.task('bower', function() {
   return bower()
     .pipe(gulp.dest(paths.source.bowerDir));
 });
 
+// Call Font Awesome
 gulp.task('fontAwesome', function() {
   gulp.src(paths.source.bowerDir + '/font-awesome/css/font-awesome.min.css')
     .pipe(plumber())
@@ -36,12 +38,14 @@ gulp.task('fontAwesome', function() {
     .pipe(gulp.dest(paths.build.fonts));
 });
 
+// Call jQuery
 gulp.task('jquery', function() {
   gulp.src(paths.source.bowerDir + '/jquery/dist/jquery.min.js')
     .pipe(plumber())
     .pipe(gulp.dest(paths.build.js));
 });
 
+// Call Bootstrap
 gulp.task('bootstrap', function() {
   gulp.src([paths.source.bowerDir + '/bootstrap/dist/css/bootstrap-theme.min.css',
         paths.source.bowerDir + '/bootstrap/dist/css/bootstrap.min.css'])
@@ -55,12 +59,14 @@ gulp.task('bootstrap', function() {
     .pipe(gulp.dest(paths.build.js));
 });
 
+// Call HTML5Shiv
 gulp.task('html5shiv', function() {
   gulp.src(paths.source.bowerDir + '/html5shiv/dist/html5shiv.min.js')
     .pipe(plumber())
     .pipe(gulp.dest(paths.build.js));
 });
 
+// Call Respond
 gulp.task('respond', function() {
   gulp.src(paths.source.bowerDir + '/Respond/dest/respond.min.js')
     .pipe(plumber())

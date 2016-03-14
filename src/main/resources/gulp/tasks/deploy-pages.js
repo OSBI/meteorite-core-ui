@@ -1,4 +1,4 @@
-/*
+/**
  *   Copyright 2016 OSBI Ltd
  *
  *   Licensed under the Apache License, Version 2.0 (the "License");
@@ -21,7 +21,7 @@ var gulp    = require('gulp');
 var ghPages = require('gulp-gh-pages');
 var paths   = require('../paths');
 
-// Deploy to GitHub
+// Deploy to GitHub pages
 module.exports = gulp.task('deploy-pages', function() {
   return gulp.src(paths.deploy.pages)
     .pipe(ghPages());
