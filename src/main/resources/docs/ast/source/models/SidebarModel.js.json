@@ -10,8 +10,8 @@
             "type": "Identifier",
             "name": "Backbone",
             "range": [
-              620,
-              628
+              621,
+              629
             ],
             "loc": {
               "start": {
@@ -25,8 +25,8 @@
             }
           },
           "range": [
-            620,
-            628
+            621,
+            629
           ],
           "loc": {
             "start": {
@@ -45,8 +45,8 @@
         "value": "backbone",
         "raw": "'backbone'",
         "range": [
-          634,
-          644
+          635,
+          645
         ],
         "loc": {
           "start": {
@@ -60,8 +60,8 @@
         }
       },
       "range": [
-        613,
-        645
+        614,
+        646
       ],
       "loc": {
         "start": {
@@ -76,10 +76,10 @@
       "leadingComments": [
         {
           "type": "Block",
-          "value": "\n *   Copyright 2016 OSBI Ltd\n *\n *   Licensed under the Apache License, Version 2.0 (the \"License\");\n *   you may not use this file except in compliance with the License.\n *   You may obtain a copy of the License at\n *\n *       http://www.apache.org/licenses/LICENSE-2.0\n *\n *   Unless required by applicable law or agreed to in writing, software\n *   distributed under the License is distributed on an \"AS IS\" BASIS,\n *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n *   See the License for the specific language governing permissions and\n *   limitations under the License.\n ",
+          "value": "*\n *   Copyright 2016 OSBI Ltd\n *\n *   Licensed under the Apache License, Version 2.0 (the \"License\");\n *   you may not use this file except in compliance with the License.\n *   You may obtain a copy of the License at\n *\n *       http://www.apache.org/licenses/LICENSE-2.0\n *\n *   Unless required by applicable law or agreed to in writing, software\n *   distributed under the License is distributed on an \"AS IS\" BASIS,\n *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n *   See the License for the specific language governing permissions and\n *   limitations under the License.\n ",
           "range": [
             0,
-            611
+            612
           ],
           "loc": {
             "start": {
@@ -100,8 +100,8 @@
         "type": "Identifier",
         "name": "SidebarModel",
         "range": [
-          653,
-          665
+          654,
+          666
         ],
         "loc": {
           "start": {
@@ -121,8 +121,8 @@
           "type": "Identifier",
           "name": "Backbone",
           "range": [
-            674,
-            682
+            675,
+            683
           ],
           "loc": {
             "start": {
@@ -139,8 +139,8 @@
           "type": "Identifier",
           "name": "Model",
           "range": [
-            683,
-            688
+            684,
+            689
           ],
           "loc": {
             "start": {
@@ -154,8 +154,8 @@
           }
         },
         "range": [
-          674,
-          688
+          675,
+          689
         ],
         "loc": {
           "start": {
@@ -177,8 +177,8 @@
               "type": "Identifier",
               "name": "getItem",
               "range": [
-                693,
-                700
+                694,
+                701
               ],
               "loc": {
                 "start": {
@@ -208,8 +208,8 @@
                         "object": {
                           "type": "ThisExpression",
                           "range": [
-                            716,
-                            720
+                            717,
+                            721
                           ],
                           "loc": {
                             "start": {
@@ -226,8 +226,8 @@
                           "type": "Identifier",
                           "name": "get",
                           "range": [
-                            721,
-                            724
+                            722,
+                            725
                           ],
                           "loc": {
                             "start": {
@@ -241,8 +241,8 @@
                           }
                         },
                         "range": [
-                          716,
-                          724
+                          717,
+                          725
                         ],
                         "loc": {
                           "start": {
@@ -261,8 +261,8 @@
                           "value": "item",
                           "raw": "'item'",
                           "range": [
-                            725,
-                            731
+                            726,
+                            732
                           ],
                           "loc": {
                             "start": {
@@ -277,8 +277,8 @@
                         }
                       ],
                       "range": [
-                        716,
-                        732
+                        717,
+                        733
                       ],
                       "loc": {
                         "start": {
@@ -292,8 +292,8 @@
                       }
                     },
                     "range": [
-                      709,
-                      733
+                      710,
+                      734
                     ],
                     "loc": {
                       "start": {
@@ -308,8 +308,8 @@
                   }
                 ],
                 "range": [
-                  703,
-                  737
+                  704,
+                  738
                 ],
                 "loc": {
                   "start": {
@@ -325,8 +325,8 @@
               "generator": false,
               "expression": false,
               "range": [
-                700,
-                737
+                701,
+                738
               ],
               "loc": {
                 "start": {
@@ -342,8 +342,8 @@
             "kind": "method",
             "computed": false,
             "range": [
-              693,
-              737
+              694,
+              738
             ],
             "loc": {
               "start": {
@@ -359,8 +359,8 @@
           }
         ],
         "range": [
-          689,
-          739
+          690,
+          740
         ],
         "loc": {
           "start": {
@@ -374,8 +374,8 @@
         }
       },
       "range": [
-        647,
-        739
+        648,
+        740
       ],
       "loc": {
         "start": {
@@ -397,8 +397,8 @@
         "type": "Identifier",
         "name": "SidebarModel",
         "range": [
-          756,
-          768
+          757,
+          769
         ],
         "loc": {
           "start": {
@@ -412,8 +412,8 @@
         }
       },
       "range": [
-        741,
-        769
+        742,
+        770
       ],
       "loc": {
         "start": {
@@ -437,8 +437,8 @@
           "type": "Identifier",
           "name": "SidebarModel",
           "range": [
-            653,
-            665
+            654,
+            666
           ],
           "loc": {
             "start": {
@@ -458,8 +458,8 @@
             "type": "Identifier",
             "name": "Backbone",
             "range": [
-              674,
-              682
+              675,
+              683
             ],
             "loc": {
               "start": {
@@ -476,8 +476,8 @@
             "type": "Identifier",
             "name": "Model",
             "range": [
-              683,
-              688
+              684,
+              689
             ],
             "loc": {
               "start": {
@@ -491,8 +491,8 @@
             }
           },
           "range": [
-            674,
-            688
+            675,
+            689
           ],
           "loc": {
             "start": {
@@ -514,8 +514,8 @@
                 "type": "Identifier",
                 "name": "getItem",
                 "range": [
-                  693,
-                  700
+                  694,
+                  701
                 ],
                 "loc": {
                   "start": {
@@ -545,8 +545,8 @@
                           "object": {
                             "type": "ThisExpression",
                             "range": [
-                              716,
-                              720
+                              717,
+                              721
                             ],
                             "loc": {
                               "start": {
@@ -563,8 +563,8 @@
                             "type": "Identifier",
                             "name": "get",
                             "range": [
-                              721,
-                              724
+                              722,
+                              725
                             ],
                             "loc": {
                               "start": {
@@ -578,8 +578,8 @@
                             }
                           },
                           "range": [
-                            716,
-                            724
+                            717,
+                            725
                           ],
                           "loc": {
                             "start": {
@@ -598,8 +598,8 @@
                             "value": "item",
                             "raw": "'item'",
                             "range": [
-                              725,
-                              731
+                              726,
+                              732
                             ],
                             "loc": {
                               "start": {
@@ -614,8 +614,8 @@
                           }
                         ],
                         "range": [
-                          716,
-                          732
+                          717,
+                          733
                         ],
                         "loc": {
                           "start": {
@@ -629,8 +629,8 @@
                         }
                       },
                       "range": [
-                        709,
-                        733
+                        710,
+                        734
                       ],
                       "loc": {
                         "start": {
@@ -645,8 +645,8 @@
                     }
                   ],
                   "range": [
-                    703,
-                    737
+                    704,
+                    738
                   ],
                   "loc": {
                     "start": {
@@ -662,8 +662,8 @@
                 "generator": false,
                 "expression": false,
                 "range": [
-                  700,
-                  737
+                  701,
+                  738
                 ],
                 "loc": {
                   "start": {
@@ -679,8 +679,8 @@
               "kind": "method",
               "computed": false,
               "range": [
-                693,
-                737
+                694,
+                738
               ],
               "loc": {
                 "start": {
@@ -696,8 +696,8 @@
             }
           ],
           "range": [
-            689,
-            739
+            690,
+            740
           ],
           "loc": {
             "start": {
@@ -711,8 +711,8 @@
           }
         },
         "range": [
-          647,
-          739
+          648,
+          740
         ],
         "loc": {
           "start": {
@@ -729,8 +729,8 @@
         "trailingComments": []
       },
       "range": [
-        741,
-        769
+        742,
+        770
       ],
       "loc": {
         "start": {
@@ -747,8 +747,8 @@
   ],
   "sourceType": "module",
   "range": [
-    613,
-    769
+    614,
+    770
   ],
   "loc": {
     "start": {
@@ -763,10 +763,10 @@
   "comments": [
     {
       "type": "Block",
-      "value": "\n *   Copyright 2016 OSBI Ltd\n *\n *   Licensed under the Apache License, Version 2.0 (the \"License\");\n *   you may not use this file except in compliance with the License.\n *   You may obtain a copy of the License at\n *\n *       http://www.apache.org/licenses/LICENSE-2.0\n *\n *   Unless required by applicable law or agreed to in writing, software\n *   distributed under the License is distributed on an \"AS IS\" BASIS,\n *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n *   See the License for the specific language governing permissions and\n *   limitations under the License.\n ",
+      "value": "*\n *   Copyright 2016 OSBI Ltd\n *\n *   Licensed under the Apache License, Version 2.0 (the \"License\");\n *   you may not use this file except in compliance with the License.\n *   You may obtain a copy of the License at\n *\n *       http://www.apache.org/licenses/LICENSE-2.0\n *\n *   Unless required by applicable law or agreed to in writing, software\n *   distributed under the License is distributed on an \"AS IS\" BASIS,\n *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n *   See the License for the specific language governing permissions and\n *   limitations under the License.\n ",
       "range": [
         0,
-        611
+        612
       ],
       "loc": {
         "start": {

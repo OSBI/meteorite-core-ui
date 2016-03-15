@@ -22,7 +22,7 @@ import React from 'react';
  *
  * @example
  * <Logo
- *   source="dist/assets/images/saiku/logo-small.svg"
+ *   src="dist/assets/images/saiku/logo-small.svg"
  *   width={40}
  *   height={40}
  * />
@@ -38,17 +38,17 @@ class Logo extends React.Component {
    * @return {HTMLElement|Node|String} An image the company.
    */
   render() {
-    let source = this.props.source;
+    let source = this.props.src;
     let width = this.props.width;
     let height = this.props.height;
 
     if (this.props.isOpenSidebar) {
-      source = source || this.props.sourceBig;
+      source = source || this.props.srcBig;
       width = width || 180;
       height = height || 30;
     }
     else {
-      source = source || this.props.sourceSmall;
+      source = source || this.props.srcSmall;
       width = width || 40;
       height = height || 40;
     }
@@ -67,9 +67,9 @@ class Logo extends React.Component {
 
 Logo.propTypes = {
   className: React.PropTypes.string,
-  source: React.PropTypes.string,
-  sourceSmall: React.PropTypes.string,
-  sourceBig: React.PropTypes.string,
+  src: React.PropTypes.string,
+  srcSmall: React.PropTypes.string,
+  srcBig: React.PropTypes.string,
   width: React.PropTypes.number,
   height: React.PropTypes.number,
   isOpenSidebar: React.PropTypes.bool

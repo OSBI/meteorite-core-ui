@@ -83,6 +83,7 @@ Documentation [Meteorite Core UI](http://osbi.github.io/meteorite-core-ui/).
 ## Usage
 
 - Run `npm run build` to build the project;
+- Run `npm run clean` Clean `resources` folder;
 - Run `npm run dev` to build the project, start watching files and run the local server;
 - Run `npm run docs` to generate the documentation the code;
 - Run `npm run server` to run the mock server NodeJS;

@@ -33,10 +33,10 @@ describe('Icon', () => {
     let component = ReactTestUtils.renderIntoDocument(
       <Icon name="home" />
     );
-    let instanceClassName = ReactDOM.findDOMNode(component).className;
+    let componentClassName = ReactDOM.findDOMNode(component).className;
 
-    assert.ok(instanceClassName.match(/\bfa\b/));
-    assert.ok(instanceClassName.match(/\bfa-home\b/));
+    assert.ok(componentClassName.match(/\bfa\b/));
+    assert.ok(componentClassName.match(/\bfa-home\b/));
   });
 
   it('Should have "fa fa-home fa-fw" class names ' +
@@ -45,11 +45,11 @@ describe('Icon', () => {
     let component = ReactTestUtils.renderIntoDocument(
       <Icon name="home" fixed />
     );
-    let instanceClassName = ReactDOM.findDOMNode(component).className;
+    let componentClassName = ReactDOM.findDOMNode(component).className;
 
-    assert.ok(instanceClassName.match(/\bfa\b/));
-    assert.ok(instanceClassName.match(/\bfa-home\b/));
-    assert.ok(instanceClassName.match(/\bfa-fw\b/));
+    assert.ok(componentClassName.match(/\bfa\b/));
+    assert.ok(componentClassName.match(/\bfa-home\b/));
+    assert.ok(componentClassName.match(/\bfa-fw\b/));
   });
 
   it('Should have "fa fa-home fa-spin" class names ' +
@@ -58,11 +58,11 @@ describe('Icon', () => {
     let component = ReactTestUtils.renderIntoDocument(
       <Icon name="home" spin />
     );
-    let instanceClassName = ReactDOM.findDOMNode(component).className;
+    let componentClassName = ReactDOM.findDOMNode(component).className;
 
-    assert.ok(instanceClassName.match(/\bfa\b/));
-    assert.ok(instanceClassName.match(/\bfa-home\b/));
-    assert.ok(instanceClassName.match(/\bfa-spin\b/));
+    assert.ok(componentClassName.match(/\bfa\b/));
+    assert.ok(componentClassName.match(/\bfa-home\b/));
+    assert.ok(componentClassName.match(/\bfa-spin\b/));
   });
 
   it('Should have "fa fa-home fa-pulse" class names ' +
@@ -71,11 +71,11 @@ describe('Icon', () => {
     let component = ReactTestUtils.renderIntoDocument(
       <Icon name="home" pulse />
     );
-    let instanceClassName = ReactDOM.findDOMNode(component).className;
+    let componentClassName = ReactDOM.findDOMNode(component).className;
 
-    assert.ok(instanceClassName.match(/\bfa\b/));
-    assert.ok(instanceClassName.match(/\bfa-home\b/));
-    assert.ok(instanceClassName.match(/\bfa-pulse\b/));
+    assert.ok(componentClassName.match(/\bfa\b/));
+    assert.ok(componentClassName.match(/\bfa-home\b/));
+    assert.ok(componentClassName.match(/\bfa-pulse\b/));
   });
 
   it('Should have "fa fa-home fa-5x" class names ' +
@@ -84,11 +84,11 @@ describe('Icon', () => {
     let component = ReactTestUtils.renderIntoDocument(
       <Icon name="home" size="5x" />
     );
-    let instanceClassName = ReactDOM.findDOMNode(component).className;
+    let componentClassName = ReactDOM.findDOMNode(component).className;
 
-    assert.ok(instanceClassName.match(/\bfa\b/));
-    assert.ok(instanceClassName.match(/\bfa-home\b/));
-    assert.ok(instanceClassName.match(/\bfa-5x\b/));
+    assert.ok(componentClassName.match(/\bfa\b/));
+    assert.ok(componentClassName.match(/\bfa-home\b/));
+    assert.ok(componentClassName.match(/\bfa-5x\b/));
   });
 
   it('Should have "fa fa-home fa-rotate-90" class names ' +
@@ -97,11 +97,11 @@ describe('Icon', () => {
     let component = ReactTestUtils.renderIntoDocument(
       <Icon name="home" rotate="90" />
     );
-    let instanceClassName = ReactDOM.findDOMNode(component).className;
+    let componentClassName = ReactDOM.findDOMNode(component).className;
 
-    assert.ok(instanceClassName.match(/\bfa\b/));
-    assert.ok(instanceClassName.match(/\bfa-home\b/));
-    assert.ok(instanceClassName.match(/\bfa-rotate-90\b/));
+    assert.ok(componentClassName.match(/\bfa\b/));
+    assert.ok(componentClassName.match(/\bfa-home\b/));
+    assert.ok(componentClassName.match(/\bfa-rotate-90\b/));
   });
 
   it('Should have "fa fa-home fa-flip-vertical" class names ' +
@@ -110,21 +110,21 @@ describe('Icon', () => {
     let component = ReactTestUtils.renderIntoDocument(
       <Icon name="home" flip="vertical" />
     );
-    let instanceClassName = ReactDOM.findDOMNode(component).className;
+    let componentClassName = ReactDOM.findDOMNode(component).className;
 
-    assert.ok(instanceClassName.match(/\bfa\b/));
-    assert.ok(instanceClassName.match(/\bfa-home\b/));
-    assert.ok(instanceClassName.match(/\bfa-flip-vertical\b/));
+    assert.ok(componentClassName.match(/\bfa\b/));
+    assert.ok(componentClassName.match(/\bfa-home\b/));
+    assert.ok(componentClassName.match(/\bfa-flip-vertical\b/));
   });
 
   it('Should merge additional classes', () => {
     let component = ReactTestUtils.renderIntoDocument(
       <Icon name="home" className="foo" />
     );
-    let instanceClassName = ReactDOM.findDOMNode(component).className;
+    let componentClassName = ReactDOM.findDOMNode(component).className;
 
-    assert.ok(instanceClassName.match(/\bfa\b/));
-    assert.ok(instanceClassName.match(/\bfa-home\b/));
-    assert.ok(instanceClassName.match(/\bfoo\b/));
+    assert.ok(componentClassName.match(/\bfa\b/));
+    assert.ok(componentClassName.match(/\bfa-home\b/));
+    assert.ok(componentClassName.match(/\bfoo\b/));
   });
 });

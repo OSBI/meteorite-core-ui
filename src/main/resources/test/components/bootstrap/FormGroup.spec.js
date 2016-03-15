@@ -41,9 +41,9 @@ describe('FormGroup', () => {
     let component = ReactTestUtils.renderIntoDocument(
       <FormGroup className="foo">FormGroup content</FormGroup>
     );
-    let instanceClassName = ReactDOM.findDOMNode(component).className;
+    let componentClassName = ReactDOM.findDOMNode(component).className;
 
-    assert.ok(instanceClassName.match(/\bform-group\b/));
-    assert.ok(instanceClassName.match(/\bfoo\b/));
+    assert.ok(componentClassName.match(/\bform-group\b/));
+    assert.ok(componentClassName.match(/\bfoo\b/));
   });
 });

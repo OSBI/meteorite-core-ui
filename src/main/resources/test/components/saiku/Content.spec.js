@@ -49,9 +49,9 @@ describe('Content', () => {
     let component = ReactTestUtils.renderIntoDocument(
       <Content className="foo">Content here</Content>
     );
-    let instanceClassName = ReactDOM.findDOMNode(component).className;
+    let componentClassName = ReactDOM.findDOMNode(component).className;
 
-    assert.ok(instanceClassName.match(/\bcontent\b/));
-    assert.ok(instanceClassName.match(/\bfoo\b/));
+    assert.ok(componentClassName.match(/\bcontent\b/));
+    assert.ok(componentClassName.match(/\bfoo\b/));
   });
 });

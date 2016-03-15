@@ -42,7 +42,7 @@
       border 1px solid $lightdark-alt
       border-radius 3px
       outline none !important
-      background white
+      background $white
       content ""
       transition 0.3s ease-in-out
     &::after
@@ -74,7 +74,7 @@
         content "\f00c"
     &:disabled + span
       &::before
-        background #eee
+        background $light
         cursor not-allowed
       
 .checkbox-primary
@@ -83,4 +83,4 @@
       border-color $primary
       background $primary
     &::after
-      color white
+      color $white

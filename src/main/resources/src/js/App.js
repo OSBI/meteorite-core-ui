@@ -21,7 +21,7 @@ import { createHistory } from 'history';
 import Login from './views/Login';
 import LockScreen from './views/LockScreen';
 import Workspace from './views/Workspace';
-import QueryDesigner from './components/saiku/query_designer';
+import QueryDesigner from './components/saiku/QueryDesigner';
 import NotFound from './components/saiku/NotFound';
 
 // webpack loaders

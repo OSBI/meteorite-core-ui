@@ -113,8 +113,8 @@ class MenuBar extends React.Component {
           <div className="text-center">
             <a href="#" className="logo">
               <Logo
-                sourceSmall="../dist/assets/images/saiku/logo-small.svg"
-                sourceBig="../dist/assets/images/saiku/logo-big.svg"
+                srcSmall="../dist/assets/images/saiku/logo-small.svg"
+                srcBig="../dist/assets/images/saiku/logo-big.svg"
                 isOpenSidebar={this.props.isOpenSidebar}
               />
             </a>

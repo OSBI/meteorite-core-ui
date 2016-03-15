@@ -22,7 +22,8 @@ import {
   Row,
   Col,
   Input,
-  Button
+  Button,
+  Image
 } from 'react-bootstrap';
 import FormGroup from '../components/bootstrap/FormGroup';
 import Clearfix from '../components/bootstrap/Clearfix';
@@ -30,10 +31,8 @@ import Wrapper from '../components/saiku/Wrapper';
 import Logo from '../components/saiku/Logo';
 
 /**
- * Class LockScreen
- *
- * @class LockScreen
- * @extends React.Component
+ * The Lock Screen is used to create the form in which user will enter your
+ * password to gain access in application.
  */
 class LockScreen extends React.Component {
   constructor(props) {
@@ -50,8 +49,7 @@ class LockScreen extends React.Component {
   /**
    * Method that defines the data to validate your schema.
    *
-   * @method getValidatorData
-   * @return {Object} An object with username and password
+   * @return {Object} An object with username and password.
    */
   getValidatorData() {
     return {
@@ -62,10 +60,9 @@ class LockScreen extends React.Component {
   /**
    * Helper method that show a message.
    *
-   * @method renderHelpText
-   * @param  {String} message - Text to be displayed on span tag
-   * @return {HTMLElement}      A block of help text that breaks
-   *                            into a new line
+   * @param  {String} message - Text to be displayed on span tag.
+   * @return {HTMLElement|Node|String} A block of help text that breaks
+   *                                   into a new line.
    */
   renderHelpText(message) {
     return (
@@ -76,9 +73,8 @@ class LockScreen extends React.Component {
   /**
    * Method for get the field name the HTML element.
    *
-   * @method getClasses
-   * @param  {String} field - Field name the HTML element
-   * @return {String}         Validation states
+   * @param  {String} field - Field name the HTML element.
+   * @return {String}         Validation states.
    */
   getClasses(field) {
     return !this.props.isValid(field) ? 'has-error' : '';
@@ -87,9 +83,8 @@ class LockScreen extends React.Component {
   /**
    * Method called when the Login button is pressed.
    *
-   * @method onSubmitLogin
-   * @param  {Object} event - The Event interface represents any
-   *                          event of the DOM
+   * @param {Object} event - The Event interface represents any
+   *                         event of the DOM.
    */
   onSubmitLogin(event) {
     event.preventDefault();
@@ -103,6 +98,14 @@ class LockScreen extends React.Component {
     this.props.validate(onValidate);
   }
 
+  /**
+   * React components implement the `render()` method that takes input data and
+   * returns what to display. This method uses an XML-like syntax called JSX.
+   * Input data that is passed into the component can be accessed by `render()`
+   * via this.props.
+   *
+   * @return {HTMLElement|Node|String} An image the company.
+   */
   render() {
     return (
       <div>
@@ -114,7 +117,7 @@ class LockScreen extends React.Component {
             <div className="panel-heading">
               <Col xs={3}>
                 <Logo
-                  source="../dist/assets/images/saiku/logo-small.svg"
+                  src="../dist/assets/images/saiku/logo-small.svg"
                   width={40}
                   height={40}
                 />
@@ -133,9 +136,11 @@ class LockScreen extends React.Component {
                 role="form"
               >
                 <div className="user-thumb">
-                  <img
+                  <Image
                     src="../dist/assets/images/users/user2.jpg"
-                    className="img-responsive img-circle img-thumbnail"
+                    responsive
+                    circle
+                    thumbnail
                   />
                 </div>
                 <FormGroup>

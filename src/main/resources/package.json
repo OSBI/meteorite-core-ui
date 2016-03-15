@@ -29,6 +29,7 @@
   "main": "server.js",
   "scripts": {
     "build": "WEBPACK_ENV=build ./node_modules/.bin/webpack",
+    "clean": "rm -r node_modules; rm -r bower_components; rm -r .publish; rm -r npm-debug.log",
     "dev": "WEBPACK_ENV=dev ./node_modules/.bin/webpack --watch --inline",
     "docs": "esdoc -c esdoc.json && gulp deploy-pages",
     "server": "node server.js",

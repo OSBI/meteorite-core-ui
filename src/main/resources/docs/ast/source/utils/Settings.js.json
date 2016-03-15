@@ -10,8 +10,8 @@
             "type": "Identifier",
             "name": "Settings",
             "range": [
-              619,
-              627
+              620,
+              628
             ],
             "loc": {
               "start": {
@@ -33,8 +33,8 @@
                   "type": "Identifier",
                   "name": "KARAF_WEBAPP",
                   "range": [
-                    634,
-                    646
+                    635,
+                    647
                   ],
                   "loc": {
                     "start": {
@@ -52,8 +52,8 @@
                   "value": "/cxf",
                   "raw": "'/cxf'",
                   "range": [
-                    648,
-                    654
+                    649,
+                    655
                   ],
                   "loc": {
                     "start": {
@@ -71,8 +71,8 @@
                 "shorthand": false,
                 "computed": false,
                 "range": [
-                  634,
-                  654
+                  635,
+                  655
                 ],
                 "loc": {
                   "start": {
@@ -91,8 +91,8 @@
                   "type": "Identifier",
                   "name": "REST_MOUNT_POINT",
                   "range": [
-                    658,
-                    674
+                    659,
+                    675
                   ],
                   "loc": {
                     "start": {
@@ -110,8 +110,8 @@
                   "value": "/rest/core/",
                   "raw": "'/rest/core/'",
                   "range": [
-                    676,
-                    689
+                    677,
+                    690
                   ],
                   "loc": {
                     "start": {
@@ -129,8 +129,8 @@
                 "shorthand": false,
                 "computed": false,
                 "range": [
-                  658,
-                  689
+                  659,
+                  690
                 ],
                 "loc": {
                   "start": {
@@ -149,8 +149,8 @@
                   "type": "Identifier",
                   "name": "ERROR_TOLERANCE",
                   "range": [
-                    693,
-                    708
+                    694,
+                    709
                   ],
                   "loc": {
                     "start": {
@@ -168,8 +168,8 @@
                   "value": 3,
                   "raw": "3",
                   "range": [
-                    710,
-                    711
+                    711,
+                    712
                   ],
                   "loc": {
                     "start": {
@@ -187,8 +187,8 @@
                 "shorthand": false,
                 "computed": false,
                 "range": [
-                  693,
-                  711
+                  694,
+                  712
                 ],
                 "loc": {
                   "start": {
@@ -203,8 +203,8 @@
               }
             ],
             "range": [
-              630,
-              713
+              631,
+              714
             ],
             "loc": {
               "start": {
@@ -218,8 +218,8 @@
             }
           },
           "range": [
-            619,
-            713
+            620,
+            714
           ],
           "loc": {
             "start": {
@@ -235,8 +235,8 @@
       ],
       "kind": "const",
       "range": [
-        613,
-        714
+        614,
+        715
       ],
       "loc": {
         "start": {
@@ -264,8 +264,8 @@
             "type": "Identifier",
             "name": "Settings",
             "range": [
-              716,
-              724
+              717,
+              725
             ],
             "loc": {
               "start": {
@@ -282,8 +282,8 @@
             "type": "Identifier",
             "name": "REST_URL",
             "range": [
-              725,
-              733
+              726,
+              734
             ],
             "loc": {
               "start": {
@@ -297,8 +297,8 @@
             }
           },
           "range": [
-            716,
-            733
+            717,
+            734
           ],
           "loc": {
             "start": {
@@ -321,8 +321,8 @@
               "type": "Identifier",
               "name": "Settings",
               "range": [
-                736,
-                744
+                737,
+                745
               ],
               "loc": {
                 "start": {
@@ -339,8 +339,8 @@
               "type": "Identifier",
               "name": "KARAF_WEBAPP",
               "range": [
-                745,
-                757
+                746,
+                758
               ],
               "loc": {
                 "start": {
@@ -354,8 +354,8 @@
               }
             },
             "range": [
-              736,
-              757
+              737,
+              758
             ],
             "loc": {
               "start": {
@@ -375,8 +375,8 @@
               "type": "Identifier",
               "name": "Settings",
               "range": [
-                760,
-                768
+                761,
+                769
               ],
               "loc": {
                 "start": {
@@ -393,8 +393,8 @@
               "type": "Identifier",
               "name": "REST_MOUNT_POINT",
               "range": [
-                769,
-                785
+                770,
+                786
               ],
               "loc": {
                 "start": {
@@ -408,8 +408,8 @@
               }
             },
             "range": [
-              760,
-              785
+              761,
+              786
             ],
             "loc": {
               "start": {
@@ -423,8 +423,8 @@
             }
           },
           "range": [
-            736,
-            785
+            737,
+            786
           ],
           "loc": {
             "start": {
@@ -438,8 +438,8 @@
           }
         },
         "range": [
-          716,
-          785
+          717,
+          786
         ],
         "loc": {
           "start": {
@@ -453,8 +453,8 @@
         }
       },
       "range": [
-        716,
-        786
+        717,
+        787
       ],
       "loc": {
         "start": {
@@ -473,8 +473,8 @@
         "type": "Identifier",
         "name": "Settings",
         "range": [
-          803,
-          811
+          804,
+          812
         ],
         "loc": {
           "start": {
@@ -488,8 +488,8 @@
         }
       },
       "range": [
-        788,
-        812
+        789,
+        813
       ],
       "loc": {
         "start": {
@@ -516,8 +516,8 @@
               "type": "Identifier",
               "name": "Settings",
               "range": [
-                619,
-                627
+                620,
+                628
               ],
               "loc": {
                 "start": {
@@ -539,8 +539,8 @@
                     "type": "Identifier",
                     "name": "KARAF_WEBAPP",
                     "range": [
-                      634,
-                      646
+                      635,
+                      647
                     ],
                     "loc": {
                       "start": {
@@ -558,8 +558,8 @@
                     "value": "/cxf",
                     "raw": "'/cxf'",
                     "range": [
-                      648,
-                      654
+                      649,
+                      655
                     ],
                     "loc": {
                       "start": {
@@ -577,8 +577,8 @@
                   "shorthand": false,
                   "computed": false,
                   "range": [
-                    634,
-                    654
+                    635,
+                    655
                   ],
                   "loc": {
                     "start": {
@@ -597,8 +597,8 @@
                     "type": "Identifier",
                     "name": "REST_MOUNT_POINT",
                     "range": [
-                      658,
-                      674
+                      659,
+                      675
                     ],
                     "loc": {
                       "start": {
@@ -616,8 +616,8 @@
                     "value": "/rest/core/",
                     "raw": "'/rest/core/'",
                     "range": [
-                      676,
-                      689
+                      677,
+                      690
                     ],
                     "loc": {
                       "start": {
@@ -635,8 +635,8 @@
                   "shorthand": false,
                   "computed": false,
                   "range": [
-                    658,
-                    689
+                    659,
+                    690
                   ],
                   "loc": {
                     "start": {
@@ -655,8 +655,8 @@
                     "type": "Identifier",
                     "name": "ERROR_TOLERANCE",
                     "range": [
-                      693,
-                      708
+                      694,
+                      709
                     ],
                     "loc": {
                       "start": {
@@ -674,8 +674,8 @@
                     "value": 3,
                     "raw": "3",
                     "range": [
-                      710,
-                      711
+                      711,
+                      712
                     ],
                     "loc": {
                       "start": {
@@ -693,8 +693,8 @@
                   "shorthand": false,
                   "computed": false,
                   "range": [
-                    693,
-                    711
+                    694,
+                    712
                   ],
                   "loc": {
                     "start": {
@@ -709,8 +709,8 @@
                 }
               ],
               "range": [
-                630,
-                713
+                631,
+                714
               ],
               "loc": {
                 "start": {
@@ -724,8 +724,8 @@
               }
             },
             "range": [
-              619,
-              713
+              620,
+              714
             ],
             "loc": {
               "start": {
@@ -741,8 +741,8 @@
         ],
         "kind": "const",
         "range": [
-          613,
-          714
+          614,
+          715
         ],
         "loc": {
           "start": {
@@ -757,10 +757,10 @@
         "leadingComments": [
           {
             "type": "Block",
-            "value": "\n *   Copyright 2016 OSBI Ltd\n *\n *   Licensed under the Apache License, Version 2.0 (the \"License\");\n *   you may not use this file except in compliance with the License.\n *   You may obtain a copy of the License at\n *\n *       http://www.apache.org/licenses/LICENSE-2.0\n *\n *   Unless required by applicable law or agreed to in writing, software\n *   distributed under the License is distributed on an \"AS IS\" BASIS,\n *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n *   See the License for the specific language governing permissions and\n *   limitations under the License.\n ",
+            "value": "*\n *   Copyright 2016 OSBI Ltd\n *\n *   Licensed under the Apache License, Version 2.0 (the \"License\");\n *   you may not use this file except in compliance with the License.\n *   You may obtain a copy of the License at\n *\n *       http://www.apache.org/licenses/LICENSE-2.0\n *\n *   Unless required by applicable law or agreed to in writing, software\n *   distributed under the License is distributed on an \"AS IS\" BASIS,\n *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n *   See the License for the specific language governing permissions and\n *   limitations under the License.\n ",
             "range": [
               0,
-              611
+              612
             ],
             "loc": {
               "start": {
@@ -777,8 +777,8 @@
         "trailingComments": []
       },
       "range": [
-        788,
-        812
+        789,
+        813
       ],
       "loc": {
         "start": {
@@ -794,8 +794,8 @@
   ],
   "sourceType": "module",
   "range": [
-    613,
-    812
+    614,
+    813
   ],
   "loc": {
     "start": {
@@ -810,10 +810,10 @@
   "comments": [
     {
       "type": "Block",
-      "value": "\n *   Copyright 2016 OSBI Ltd\n *\n *   Licensed under the Apache License, Version 2.0 (the \"License\");\n *   you may not use this file except in compliance with the License.\n *   You may obtain a copy of the License at\n *\n *       http://www.apache.org/licenses/LICENSE-2.0\n *\n *   Unless required by applicable law or agreed to in writing, software\n *   distributed under the License is distributed on an \"AS IS\" BASIS,\n *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n *   See the License for the specific language governing permissions and\n *   limitations under the License.\n ",
+      "value": "*\n *   Copyright 2016 OSBI Ltd\n *\n *   Licensed under the Apache License, Version 2.0 (the \"License\");\n *   you may not use this file except in compliance with the License.\n *   You may obtain a copy of the License at\n *\n *       http://www.apache.org/licenses/LICENSE-2.0\n *\n *   Unless required by applicable law or agreed to in writing, software\n *   distributed under the License is distributed on an \"AS IS\" BASIS,\n *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n *   See the License for the specific language governing permissions and\n *   limitations under the License.\n ",
       "range": [
         0,
-        611
+        612
       ],
       "loc": {
         "start": {

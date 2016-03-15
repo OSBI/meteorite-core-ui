@@ -24,7 +24,7 @@ describe('Logo', () => {
   it('should be an image', () => {
     let component = ReactTestUtils.renderIntoDocument(
       <Logo
-        source="logo.svg"
+        src="logo.png"
         width={40}
         height={40}
       />
@@ -37,7 +37,7 @@ describe('Logo', () => {
     let component = ReactTestUtils.renderIntoDocument(
       <Logo
         className="foo"
-        source="logo.svg"
+        src="logo.png"
         width={40}
         height={40}
       />
@@ -50,7 +50,7 @@ describe('Logo', () => {
   it('Should provide src and alt prop', () => {
     let component = ReactTestUtils.renderIntoDocument(
       <Logo
-        source="logo.svg"
+        src="logo.png"
         width={40}
         height={40}
         alt="this is alt"
@@ -58,14 +58,14 @@ describe('Logo', () => {
     );
     let image = ReactDOM.findDOMNode(component);
 
-    assert.equal(image.getAttribute('src'), 'logo.svg');
+    assert.equal(image.getAttribute('src'), 'logo.png');
     assert.equal(image.getAttribute('alt'), 'this is alt');
   });
 
   it('Should provide width and height prop', () => {
     let component = ReactTestUtils.renderIntoDocument(
       <Logo
-        source="logo.svg"
+        src="logo.png"
         width={40}
         height={40}
       />
@@ -74,5 +74,18 @@ describe('Logo', () => {
 
     assert.equal(image.getAttribute('width'), 40);
     assert.equal(image.getAttribute('height'), 40);
+  });
+
+  it('Should provide width and height prop', () => {
+    let component = ReactTestUtils.renderIntoDocument(
+      <Logo
+        srcSmall="logo-small.png"
+        srcBig="logo-big.png"
+        isOpenSidebar
+      />
+    );
+    let image = ReactDOM.findDOMNode(component);
+
+    assert.equal(image.getAttribute('src'), 'logo-big.png');
   });
 });

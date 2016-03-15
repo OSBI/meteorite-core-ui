@@ -10,8 +10,8 @@
             "type": "Identifier",
             "name": "React",
             "range": [
-              620,
-              625
+              621,
+              626
             ],
             "loc": {
               "start": {
@@ -25,8 +25,8 @@
             }
           },
           "range": [
-            620,
-            625
+            621,
+            626
           ],
           "loc": {
             "start": {
@@ -45,8 +45,8 @@
         "value": "react",
         "raw": "'react'",
         "range": [
-          631,
-          638
+          632,
+          639
         ],
         "loc": {
           "start": {
@@ -60,8 +60,8 @@
         }
       },
       "range": [
-        613,
-        639
+        614,
+        640
       ],
       "loc": {
         "start": {
@@ -76,10 +76,10 @@
       "leadingComments": [
         {
           "type": "Block",
-          "value": "\n *   Copyright 2016 OSBI Ltd\n *\n *   Licensed under the Apache License, Version 2.0 (the \"License\");\n *   you may not use this file except in compliance with the License.\n *   You may obtain a copy of the License at\n *\n *       http://www.apache.org/licenses/LICENSE-2.0\n *\n *   Unless required by applicable law or agreed to in writing, software\n *   distributed under the License is distributed on an \"AS IS\" BASIS,\n *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n *   See the License for the specific language governing permissions and\n *   limitations under the License.\n ",
+          "value": "*\n *   Copyright 2016 OSBI Ltd\n *\n *   Licensed under the Apache License, Version 2.0 (the \"License\");\n *   you may not use this file except in compliance with the License.\n *   You may obtain a copy of the License at\n *\n *       http://www.apache.org/licenses/LICENSE-2.0\n *\n *   Unless required by applicable law or agreed to in writing, software\n *   distributed under the License is distributed on an \"AS IS\" BASIS,\n *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n *   See the License for the specific language governing permissions and\n *   limitations under the License.\n ",
           "range": [
             0,
-            611
+            612
           ],
           "loc": {
             "start": {
@@ -103,8 +103,8 @@
             "type": "Identifier",
             "name": "ReactDOM",
             "range": [
-              647,
-              655
+              648,
+              656
             ],
             "loc": {
               "start": {
@@ -118,8 +118,8 @@
             }
           },
           "range": [
-            647,
-            655
+            648,
+            656
           ],
           "loc": {
             "start": {
@@ -138,8 +138,8 @@
         "value": "react-dom",
         "raw": "'react-dom'",
         "range": [
-          661,
-          672
+          662,
+          673
         ],
         "loc": {
           "start": {
@@ -153,8 +153,8 @@
         }
       },
       "range": [
-        640,
-        673
+        641,
+        674
       ],
       "loc": {
         "start": {
@@ -176,8 +176,8 @@
             "type": "Identifier",
             "name": "Router",
             "range": [
-              683,
-              689
+              684,
+              690
             ],
             "loc": {
               "start": {
@@ -194,8 +194,8 @@
             "type": "Identifier",
             "name": "Router",
             "range": [
-              683,
-              689
+              684,
+              690
             ],
             "loc": {
               "start": {
@@ -209,8 +209,8 @@
             }
           },
           "range": [
-            683,
-            689
+            684,
+            690
           ],
           "loc": {
             "start": {
@@ -229,8 +229,8 @@
             "type": "Identifier",
             "name": "Route",
             "range": [
-              691,
-              696
+              692,
+              697
             ],
             "loc": {
               "start": {
@@ -247,8 +247,8 @@
             "type": "Identifier",
             "name": "Route",
             "range": [
-              691,
-              696
+              692,
+              697
             ],
             "loc": {
               "start": {
@@ -262,8 +262,8 @@
             }
           },
           "range": [
-            691,
-            696
+            692,
+            697
           ],
           "loc": {
             "start": {
@@ -282,8 +282,8 @@
         "value": "react-router",
         "raw": "'react-router'",
         "range": [
-          704,
-          718
+          705,
+          719
         ],
         "loc": {
           "start": {
@@ -297,8 +297,8 @@
         }
       },
       "range": [
-        674,
-        719
+        675,
+        720
       ],
       "loc": {
         "start": {
@@ -320,8 +320,8 @@
             "type": "Identifier",
             "name": "createHistory",
             "range": [
-              729,
-              742
+              730,
+              743
             ],
             "loc": {
               "start": {
@@ -338,8 +338,8 @@
             "type": "Identifier",
             "name": "createHistory",
             "range": [
-              729,
-              742
+              730,
+              743
             ],
             "loc": {
               "start": {
@@ -353,8 +353,8 @@
             }
           },
           "range": [
-            729,
-            742
+            730,
+            743
           ],
           "loc": {
             "start": {
@@ -373,8 +373,8 @@
         "value": "history",
         "raw": "'history'",
         "range": [
-          750,
-          759
+          751,
+          760
         ],
         "loc": {
           "start": {
@@ -388,8 +388,8 @@
         }
       },
       "range": [
-        720,
-        760
+        721,
+        761
       ],
       "loc": {
         "start": {
@@ -411,8 +411,8 @@
             "type": "Identifier",
             "name": "Login",
             "range": [
-              768,
-              773
+              769,
+              774
             ],
             "loc": {
               "start": {
@@ -426,8 +426,8 @@
             }
           },
           "range": [
-            768,
-            773
+            769,
+            774
           ],
           "loc": {
             "start": {
@@ -446,8 +446,8 @@
         "value": "./views/Login",
         "raw": "'./views/Login'",
         "range": [
-          779,
-          794
+          780,
+          795
         ],
         "loc": {
           "start": {
@@ -461,8 +461,8 @@
         }
       },
       "range": [
-        761,
-        795
+        762,
+        796
       ],
       "loc": {
         "start": {
@@ -484,8 +484,8 @@
             "type": "Identifier",
             "name": "LockScreen",
             "range": [
-              803,
-              813
+              804,
+              814
             ],
             "loc": {
               "start": {
@@ -499,8 +499,8 @@
             }
           },
           "range": [
-            803,
-            813
+            804,
+            814
           ],
           "loc": {
             "start": {
@@ -519,8 +519,8 @@
         "value": "./views/LockScreen",
         "raw": "'./views/LockScreen'",
         "range": [
-          819,
-          839
+          820,
+          840
         ],
         "loc": {
           "start": {
@@ -534,8 +534,8 @@
         }
       },
       "range": [
-        796,
-        840
+        797,
+        841
       ],
       "loc": {
         "start": {
@@ -557,8 +557,8 @@
             "type": "Identifier",
             "name": "Workspace",
             "range": [
-              848,
-              857
+              849,
+              858
             ],
             "loc": {
               "start": {
@@ -572,8 +572,8 @@
             }
           },
           "range": [
-            848,
-            857
+            849,
+            858
           ],
           "loc": {
             "start": {
@@ -592,8 +592,8 @@
         "value": "./views/Workspace",
         "raw": "'./views/Workspace'",
         "range": [
-          863,
-          882
+          864,
+          883
         ],
         "loc": {
           "start": {
@@ -607,8 +607,8 @@
         }
       },
       "range": [
-        841,
-        883
+        842,
+        884
       ],
       "loc": {
         "start": {
@@ -630,8 +630,8 @@
             "type": "Identifier",
             "name": "QueryDesigner",
             "range": [
-              891,
-              904
+              892,
+              905
             ],
             "loc": {
               "start": {
@@ -645,8 +645,8 @@
             }
           },
           "range": [
-            891,
-            904
+            892,
+            905
           ],
           "loc": {
             "start": {
@@ -662,10 +662,10 @@
       ],
       "source": {
         "type": "Literal",
-        "value": "./components/saiku/query_designer",
-        "raw": "'./components/saiku/query_designer'",
+        "value": "./components/saiku/QueryDesigner",
+        "raw": "'./components/saiku/QueryDesigner'",
         "range": [
-          910,
+          911,
           945
         ],
         "loc": {
@@ -675,12 +675,12 @@
           },
           "end": {
             "line": 24,
-            "column": 61
+            "column": 60
           }
         }
       },
       "range": [
-        884,
+        885,
         946
       ],
       "loc": {
@@ -690,7 +690,7 @@
         },
         "end": {
           "line": 24,
-          "column": 62
+          "column": 61
         }
       }
     },
@@ -1058,8 +1058,8 @@
                 "type": "JSXIdentifier",
                 "name": "Router",
                 "range": [
-                  1537,
-                  1543
+                  1533,
+                  1539
                 ],
                 "loc": {
                   "start": {
@@ -1073,8 +1073,8 @@
                 }
               },
               "range": [
-                1535,
-                1544
+                1531,
+                1540
               ],
               "loc": {
                 "start": {
@@ -1209,10 +1209,10 @@
                         "type": "JSXExpressionContainer",
                         "expression": {
                           "type": "Identifier",
-                          "name": "Workspace",
+                          "name": "Login",
                           "range": [
                             1299,
-                            1308
+                            1304
                           ],
                           "loc": {
                             "start": {
@@ -1221,13 +1221,13 @@
                             },
                             "end": {
                               "line": 37,
-                              "column": 40
+                              "column": 36
                             }
                           }
                         },
                         "range": [
                           1298,
-                          1309
+                          1305
                         ],
                         "loc": {
                           "start": {
@@ -1236,13 +1236,13 @@
                           },
                           "end": {
                             "line": 37,
-                            "column": 41
+                            "column": 37
                           }
                         }
                       },
                       "range": [
                         1288,
-                        1309
+                        1305
                       ],
                       "loc": {
                         "start": {
@@ -1251,14 +1251,14 @@
                         },
                         "end": {
                           "line": 37,
-                          "column": 41
+                          "column": 37
                         }
                       }
                     }
                   ],
                   "range": [
                     1272,
-                    1312
+                    1308
                   ],
                   "loc": {
                     "start": {
@@ -1267,7 +1267,7 @@
                     },
                     "end": {
                       "line": 37,
-                      "column": 44
+                      "column": 40
                     }
                   }
                 },
@@ -1275,7 +1275,7 @@
                 "children": [],
                 "range": [
                   1272,
-                  1312
+                  1308
                 ],
                 "loc": {
                   "start": {
@@ -1284,7 +1284,7 @@
                   },
                   "end": {
                     "line": 37,
-                    "column": 44
+                    "column": 40
                   }
                 }
               },
@@ -1293,13 +1293,13 @@
                 "value": "\n    ",
                 "raw": "\n    ",
                 "range": [
-                  1312,
-                  1317
+                  1308,
+                  1313
                 ],
                 "loc": {
                   "start": {
                     "line": 37,
-                    "column": 44
+                    "column": 40
                   },
                   "end": {
                     "line": 38,
@@ -1315,8 +1315,8 @@
                     "type": "JSXIdentifier",
                     "name": "Route",
                     "range": [
-                      1318,
-                      1323
+                      1314,
+                      1319
                     ],
                     "loc": {
                       "start": {
@@ -1337,8 +1337,8 @@
                         "type": "JSXIdentifier",
                         "name": "path",
                         "range": [
-                          1324,
-                          1328
+                          1320,
+                          1324
                         ],
                         "loc": {
                           "start": {
@@ -1356,8 +1356,8 @@
                         "value": "/workspace/",
                         "raw": "\"/workspace/\"",
                         "range": [
-                          1329,
-                          1342
+                          1325,
+                          1338
                         ],
                         "loc": {
                           "start": {
@@ -1371,8 +1371,8 @@
                         }
                       },
                       "range": [
-                        1324,
-                        1342
+                        1320,
+                        1338
                       ],
                       "loc": {
                         "start": {
@@ -1391,8 +1391,8 @@
                         "type": "JSXIdentifier",
                         "name": "component",
                         "range": [
-                          1343,
-                          1352
+                          1339,
+                          1348
                         ],
                         "loc": {
                           "start": {
@@ -1411,8 +1411,8 @@
                           "type": "Identifier",
                           "name": "Workspace",
                           "range": [
-                            1354,
-                            1363
+                            1350,
+                            1359
                           ],
                           "loc": {
                             "start": {
@@ -1426,8 +1426,8 @@
                           }
                         },
                         "range": [
-                          1353,
-                          1364
+                          1349,
+                          1360
                         ],
                         "loc": {
                           "start": {
@@ -1441,8 +1441,8 @@
                         }
                       },
                       "range": [
-                        1343,
-                        1364
+                        1339,
+                        1360
                       ],
                       "loc": {
                         "start": {
@@ -1457,8 +1457,8 @@
                     }
                   ],
                   "range": [
-                    1317,
-                    1367
+                    1313,
+                    1363
                   ],
                   "loc": {
                     "start": {
@@ -1474,8 +1474,8 @@
                 "closingElement": null,
                 "children": [],
                 "range": [
-                  1317,
-                  1367
+                  1313,
+                  1363
                 ],
                 "loc": {
                   "start": {
@@ -1493,8 +1493,8 @@
                 "value": "\n    ",
                 "raw": "\n    ",
                 "range": [
-                  1367,
-                  1372
+                  1363,
+                  1368
                 ],
                 "loc": {
                   "start": {
@@ -1515,8 +1515,8 @@
                     "type": "JSXIdentifier",
                     "name": "Route",
                     "range": [
-                      1373,
-                      1378
+                      1369,
+                      1374
                     ],
                     "loc": {
                       "start": {
@@ -1537,8 +1537,8 @@
                         "type": "JSXIdentifier",
                         "name": "path",
                         "range": [
-                          1379,
-                          1383
+                          1375,
+                          1379
                         ],
                         "loc": {
                           "start": {
@@ -1556,8 +1556,8 @@
                         "value": "/query_designer/",
                         "raw": "\"/query_designer/\"",
                         "range": [
-                          1384,
-                          1402
+                          1380,
+                          1398
                         ],
                         "loc": {
                           "start": {
@@ -1571,8 +1571,8 @@
                         }
                       },
                       "range": [
-                        1379,
-                        1402
+                        1375,
+                        1398
                       ],
                       "loc": {
                         "start": {
@@ -1591,8 +1591,8 @@
                         "type": "JSXIdentifier",
                         "name": "component",
                         "range": [
-                          1403,
-                          1412
+                          1399,
+                          1408
                         ],
                         "loc": {
                           "start": {
@@ -1611,8 +1611,8 @@
                           "type": "Identifier",
                           "name": "QueryDesigner",
                           "range": [
-                            1414,
-                            1427
+                            1410,
+                            1423
                           ],
                           "loc": {
                             "start": {
@@ -1626,8 +1626,8 @@
                           }
                         },
                         "range": [
-                          1413,
-                          1428
+                          1409,
+                          1424
                         ],
                         "loc": {
                           "start": {
@@ -1641,8 +1641,8 @@
                         }
                       },
                       "range": [
-                        1403,
-                        1428
+                        1399,
+                        1424
                       ],
                       "loc": {
                         "start": {
@@ -1657,8 +1657,8 @@
                     }
                   ],
                   "range": [
-                    1372,
-                    1431
+                    1368,
+                    1427
                   ],
                   "loc": {
                     "start": {
@@ -1674,8 +1674,8 @@
                 "closingElement": null,
                 "children": [],
                 "range": [
-                  1372,
-                  1431
+                  1368,
+                  1427
                 ],
                 "loc": {
                   "start": {
@@ -1693,8 +1693,8 @@
                 "value": "\n    ",
                 "raw": "\n    ",
                 "range": [
-                  1431,
-                  1436
+                  1427,
+                  1432
                 ],
                 "loc": {
                   "start": {
@@ -1715,8 +1715,8 @@
                     "type": "JSXIdentifier",
                     "name": "Route",
                     "range": [
-                      1437,
-                      1442
+                      1433,
+                      1438
                     ],
                     "loc": {
                       "start": {
@@ -1737,8 +1737,8 @@
                         "type": "JSXIdentifier",
                         "name": "path",
                         "range": [
-                          1443,
-                          1447
+                          1439,
+                          1443
                         ],
                         "loc": {
                           "start": {
@@ -1756,8 +1756,8 @@
                         "value": "/lockscreen/",
                         "raw": "\"/lockscreen/\"",
                         "range": [
-                          1448,
-                          1462
+                          1444,
+                          1458
                         ],
                         "loc": {
                           "start": {
@@ -1771,8 +1771,8 @@
                         }
                       },
                       "range": [
-                        1443,
-                        1462
+                        1439,
+                        1458
                       ],
                       "loc": {
                         "start": {
@@ -1791,8 +1791,8 @@
                         "type": "JSXIdentifier",
                         "name": "component",
                         "range": [
-                          1463,
-                          1472
+                          1459,
+                          1468
                         ],
                         "loc": {
                           "start": {
@@ -1811,8 +1811,8 @@
                           "type": "Identifier",
                           "name": "LockScreen",
                           "range": [
-                            1474,
-                            1484
+                            1470,
+                            1480
                           ],
                           "loc": {
                             "start": {
@@ -1826,8 +1826,8 @@
                           }
                         },
                         "range": [
-                          1473,
-                          1485
+                          1469,
+                          1481
                         ],
                         "loc": {
                           "start": {
@@ -1841,8 +1841,8 @@
                         }
                       },
                       "range": [
-                        1463,
-                        1485
+                        1459,
+                        1481
                       ],
                       "loc": {
                         "start": {
@@ -1857,8 +1857,8 @@
                     }
                   ],
                   "range": [
-                    1436,
-                    1488
+                    1432,
+                    1484
                   ],
                   "loc": {
                     "start": {
@@ -1874,8 +1874,8 @@
                 "closingElement": null,
                 "children": [],
                 "range": [
-                  1436,
-                  1488
+                  1432,
+                  1484
                 ],
                 "loc": {
                   "start": {
@@ -1893,8 +1893,8 @@
                 "value": "\n    ",
                 "raw": "\n    ",
                 "range": [
-                  1488,
-                  1493
+                  1484,
+                  1489
                 ],
                 "loc": {
                   "start": {
@@ -1915,8 +1915,8 @@
                     "type": "JSXIdentifier",
                     "name": "Route",
                     "range": [
-                      1494,
-                      1499
+                      1490,
+                      1495
                     ],
                     "loc": {
                       "start": {
@@ -1937,8 +1937,8 @@
                         "type": "JSXIdentifier",
                         "name": "path",
                         "range": [
-                          1500,
-                          1504
+                          1496,
+                          1500
                         ],
                         "loc": {
                           "start": {
@@ -1956,8 +1956,8 @@
                         "value": "*",
                         "raw": "\"*\"",
                         "range": [
-                          1505,
-                          1508
+                          1501,
+                          1504
                         ],
                         "loc": {
                           "start": {
@@ -1971,8 +1971,8 @@
                         }
                       },
                       "range": [
-                        1500,
-                        1508
+                        1496,
+                        1504
                       ],
                       "loc": {
                         "start": {
@@ -1991,8 +1991,8 @@
                         "type": "JSXIdentifier",
                         "name": "component",
                         "range": [
-                          1509,
-                          1518
+                          1505,
+                          1514
                         ],
                         "loc": {
                           "start": {
@@ -2011,8 +2011,8 @@
                           "type": "Identifier",
                           "name": "NotFound",
                           "range": [
-                            1520,
-                            1528
+                            1516,
+                            1524
                           ],
                           "loc": {
                             "start": {
@@ -2026,8 +2026,8 @@
                           }
                         },
                         "range": [
-                          1519,
-                          1529
+                          1515,
+                          1525
                         ],
                         "loc": {
                           "start": {
@@ -2041,8 +2041,8 @@
                         }
                       },
                       "range": [
-                        1509,
-                        1529
+                        1505,
+                        1525
                       ],
                       "loc": {
                         "start": {
@@ -2057,8 +2057,8 @@
                     }
                   ],
                   "range": [
-                    1493,
-                    1532
+                    1489,
+                    1528
                   ],
                   "loc": {
                     "start": {
@@ -2074,8 +2074,8 @@
                 "closingElement": null,
                 "children": [],
                 "range": [
-                  1493,
-                  1532
+                  1489,
+                  1528
                 ],
                 "loc": {
                   "start": {
@@ -2093,8 +2093,8 @@
                 "value": "\n  ",
                 "raw": "\n  ",
                 "range": [
-                  1532,
-                  1535
+                  1528,
+                  1531
                 ],
                 "loc": {
                   "start": {
@@ -2110,7 +2110,7 @@
             ],
             "range": [
               1233,
-              1544
+              1540
             ],
             "loc": {
               "start": {
@@ -2125,7 +2125,7 @@
           },
           "range": [
             1220,
-            1546
+            1542
           ],
           "loc": {
             "start": {
@@ -2142,7 +2142,7 @@
       "kind": "var",
       "range": [
         1216,
-        1547
+        1543
       ],
       "loc": {
         "start": {
@@ -2179,8 +2179,8 @@
           "type": "Line",
           "value": " The primary API for rendering into the DOM.",
           "range": [
-            1549,
-            1595
+            1545,
+            1591
           ],
           "loc": {
             "start": {
@@ -2206,8 +2206,8 @@
             "type": "Identifier",
             "name": "ReactDOM",
             "range": [
-              1596,
-              1604
+              1592,
+              1600
             ],
             "loc": {
               "start": {
@@ -2224,8 +2224,8 @@
             "type": "Identifier",
             "name": "render",
             "range": [
-              1605,
-              1611
+              1601,
+              1607
             ],
             "loc": {
               "start": {
@@ -2239,8 +2239,8 @@
             }
           },
           "range": [
-            1596,
-            1611
+            1592,
+            1607
           ],
           "loc": {
             "start": {
@@ -2258,8 +2258,8 @@
             "type": "Identifier",
             "name": "routes",
             "range": [
-              1612,
-              1618
+              1608,
+              1614
             ],
             "loc": {
               "start": {
@@ -2281,8 +2281,8 @@
                 "type": "Identifier",
                 "name": "document",
                 "range": [
-                  1620,
-                  1628
+                  1616,
+                  1624
                 ],
                 "loc": {
                   "start": {
@@ -2299,8 +2299,8 @@
                 "type": "Identifier",
                 "name": "querySelector",
                 "range": [
-                  1629,
-                  1642
+                  1625,
+                  1638
                 ],
                 "loc": {
                   "start": {
@@ -2314,8 +2314,8 @@
                 }
               },
               "range": [
-                1620,
-                1642
+                1616,
+                1638
               ],
               "loc": {
                 "start": {
@@ -2334,8 +2334,8 @@
                 "value": "#app",
                 "raw": "'#app'",
                 "range": [
-                  1643,
-                  1649
+                  1639,
+                  1645
                 ],
                 "loc": {
                   "start": {
@@ -2350,8 +2350,8 @@
               }
             ],
             "range": [
-              1620,
-              1650
+              1616,
+              1646
             ],
             "loc": {
               "start": {
@@ -2366,8 +2366,8 @@
           }
         ],
         "range": [
-          1596,
-          1651
+          1592,
+          1647
         ],
         "loc": {
           "start": {
@@ -2381,8 +2381,8 @@
         }
       },
       "range": [
-        1596,
-        1652
+        1592,
+        1648
       ],
       "loc": {
         "start": {
@@ -2399,8 +2399,8 @@
           "type": "Line",
           "value": " The primary API for rendering into the DOM.",
           "range": [
-            1549,
-            1595
+            1545,
+            1591
           ],
           "loc": {
             "start": {
@@ -2418,8 +2418,8 @@
   ],
   "sourceType": "module",
   "range": [
-    613,
-    1652
+    614,
+    1648
   ],
   "loc": {
     "start": {
@@ -2434,10 +2434,10 @@
   "comments": [
     {
       "type": "Block",
-      "value": "\n *   Copyright 2016 OSBI Ltd\n *\n *   Licensed under the Apache License, Version 2.0 (the \"License\");\n *   you may not use this file except in compliance with the License.\n *   You may obtain a copy of the License at\n *\n *       http://www.apache.org/licenses/LICENSE-2.0\n *\n *   Unless required by applicable law or agreed to in writing, software\n *   distributed under the License is distributed on an \"AS IS\" BASIS,\n *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n *   See the License for the specific language governing permissions and\n *   limitations under the License.\n ",
+      "value": "*\n *   Copyright 2016 OSBI Ltd\n *\n *   Licensed under the Apache License, Version 2.0 (the \"License\");\n *   you may not use this file except in compliance with the License.\n *   You may obtain a copy of the License at\n *\n *       http://www.apache.org/licenses/LICENSE-2.0\n *\n *   Unless required by applicable law or agreed to in writing, software\n *   distributed under the License is distributed on an \"AS IS\" BASIS,\n *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n *   See the License for the specific language governing permissions and\n *   limitations under the License.\n ",
       "range": [
         0,
-        611
+        612
       ],
       "loc": {
         "start": {
@@ -2490,8 +2490,8 @@
       "type": "Line",
       "value": " The primary API for rendering into the DOM.",
       "range": [
-        1549,
-        1595
+        1545,
+        1591
       ],
       "loc": {
         "start": {

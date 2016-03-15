@@ -41,9 +41,9 @@ describe('Clearfix', () => {
     let component = ReactTestUtils.renderIntoDocument(
       <Clearfix className="foo" />
     );
-    let instanceClassName = ReactDOM.findDOMNode(component).className;
+    let componentClassName = ReactDOM.findDOMNode(component).className;
 
-    assert.ok(instanceClassName.match(/\bclearfix\b/));
-    assert.ok(instanceClassName.match(/\bfoo\b/));
+    assert.ok(componentClassName.match(/\bclearfix\b/));
+    assert.ok(componentClassName.match(/\bfoo\b/));
   });
 });

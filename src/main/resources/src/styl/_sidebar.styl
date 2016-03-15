@@ -26,7 +26,7 @@
   &.left
     position absolute
     top 60px
-    background white
+    background $white
     box-shadow 0 1px 1px rgba(0, 0, 0, 0.1)
 
 .fixed-left
@@ -72,8 +72,8 @@
         display block
         margin 4px 0
         padding 12px 20px
-        color #36404a
-        border-left 3px solid white
+        color $dark
+        border-left 3px solid $white
         &:hover
           color #5fbeaa
           text-decoration none
@@ -102,8 +102,8 @@
           z-index 9999
           margin-top -5px
           padding-top 5px
-          border 2px solid #f4f8fb
-          background white
+          border 2px solid $lightdark
+          background $white
     .side-menu
       &.left
         z-index 5
@@ -114,11 +114,11 @@
               > a
                 padding 15px 20px
                 &:hover
-                  background #f4f8fb !important
+                  background $lightdark !important
                 &:active
-                  background #f4f8fb !important
+                  background $lightdark !important
                 &:focus
-                  background #f4f8fb !important
+                  background $lightdark !important
                 i
                   margin-right 20px !important
                   font-size 20px
@@ -132,7 +132,7 @@
                   width 260px
                   color #5fbeaa
                   border-color #5fbeaa
-                  background #f4f8fb
+                  background $lightdark
                 a
                   span
                     display inline

@@ -38,8 +38,8 @@ describe('Tab', () => {
 
   it('Should use "tab-content" class on tab div', () => {
     let component = createUnselectedTab();
-    let instanceClassName = ReactDOM.findDOMNode(component).className;
+    let componentClassName = ReactDOM.findDOMNode(component).className;
 
-    assert.ok(instanceClassName.match(/\btab-content\b/));
+    assert.ok(componentClassName.match(/\btab-content\b/));
   });
 });

@@ -312,7 +312,7 @@ a:focus {
   height: 88px;
 }
 .debug {
-  border: 3px solid #000 !important;
+  border: 1px solid #000 !important;
 }
 /* =========================================================================
    BOOTSTRAP CUSTOM
@@ -815,16 +815,6 @@ textarea.form-control {
   width: 70px !important;
 }
 /* =========================================================================
-   SIDEBAR OLAP
-   ========================================================================= */
-.sidebar-olap .panel-body {
-  min-height: 300px;
-  max-height: 300px;
-}
-.border-toolbar {
-  border: 1px solid #ccc !important;
-}
-/* =========================================================================
    TOOLBAR
    ========================================================================= */
 .toolbar .navbar-header {
@@ -848,51 +838,6 @@ textarea.form-control {
 }
 .nav-tabs li a[role=tab] .close {
   padding: 10px 0 0 10px;
-}
-/* =========================================================================
-   PORTLET
-   ========================================================================= */
-.portlet {
-  margin-bottom: 20px;
-  border: 1px solid rgba(54,64,74,.05);
-  border-radius: 5px;
-  background: #fff;
-  background-clip: padding-box;
-}
-.portlet .portlet-heading {
-  padding: 12px 20px;
-  color: #fff;
-  border-radius: 3px 3px 0 0;
-  background-clip: padding-box;
-}
-.portlet .portlet-heading .portlet-title {
-  float: left;
-  margin-top: 0;
-  margin-bottom: 0;
-  font-size: 15px;
-  font-weight: 600;
-  letter-spacing: .03em;
-}
-.portlet .portlet-heading .portlet-widgets {
-  position: relative;
-  display: inline-block;
-  float: right;
-  padding-left: 15px;
-  font-size: 15px;
-  line-height: 30px;
-  text-align: right;
-}
-.portlet .portlet-heading .portlet-widgets .divider {
-  margin: 0 5px;
-}
-.portlet .portlet-heading a {
-  color: #999;
-}
-.portlet .portlet-body {
-  padding: 15px;
-  border-bottom-right-radius: 5px;
-  border-bottom-left-radius: 5px;
-  background: #fff;
 }
 /* =========================================================================
    TREE
