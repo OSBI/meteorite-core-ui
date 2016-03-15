@@ -10,8 +10,8 @@
             "type": "Identifier",
             "name": "Backbone",
             "range": [
-              620,
-              628
+              621,
+              629
             ],
             "loc": {
               "start": {
@@ -25,8 +25,8 @@
             }
           },
           "range": [
-            620,
-            628
+            621,
+            629
           ],
           "loc": {
             "start": {
@@ -45,8 +45,8 @@
         "value": "backbone",
         "raw": "'backbone'",
         "range": [
-          634,
-          644
+          635,
+          645
         ],
         "loc": {
           "start": {
@@ -60,8 +60,8 @@
         }
       },
       "range": [
-        613,
-        645
+        614,
+        646
       ],
       "loc": {
         "start": {
@@ -76,10 +76,10 @@
       "leadingComments": [
         {
           "type": "Block",
-          "value": "\n *   Copyright 2016 OSBI Ltd\n *\n *   Licensed under the Apache License, Version 2.0 (the \"License\");\n *   you may not use this file except in compliance with the License.\n *   You may obtain a copy of the License at\n *\n *       http://www.apache.org/licenses/LICENSE-2.0\n *\n *   Unless required by applicable law or agreed to in writing, software\n *   distributed under the License is distributed on an \"AS IS\" BASIS,\n *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n *   See the License for the specific language governing permissions and\n *   limitations under the License.\n ",
+          "value": "*\n *   Copyright 2016 OSBI Ltd\n *\n *   Licensed under the Apache License, Version 2.0 (the \"License\");\n *   you may not use this file except in compliance with the License.\n *   You may obtain a copy of the License at\n *\n *       http://www.apache.org/licenses/LICENSE-2.0\n *\n *   Unless required by applicable law or agreed to in writing, software\n *   distributed under the License is distributed on an \"AS IS\" BASIS,\n *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n *   See the License for the specific language governing permissions and\n *   limitations under the License.\n ",
           "range": [
             0,
-            611
+            612
           ],
           "loc": {
             "start": {
@@ -100,8 +100,8 @@
         "type": "Identifier",
         "name": "CubeModel",
         "range": [
-          653,
-          662
+          654,
+          663
         ],
         "loc": {
           "start": {
@@ -121,8 +121,8 @@
           "type": "Identifier",
           "name": "Backbone",
           "range": [
-            671,
-            679
+            672,
+            680
           ],
           "loc": {
             "start": {
@@ -139,8 +139,8 @@
           "type": "Identifier",
           "name": "Model",
           "range": [
-            680,
-            685
+            681,
+            686
           ],
           "loc": {
             "start": {
@@ -154,8 +154,8 @@
           }
         },
         "range": [
-          671,
-          685
+          672,
+          686
         ],
         "loc": {
           "start": {
@@ -177,8 +177,8 @@
               "type": "Identifier",
               "name": "getCubes",
               "range": [
-                690,
-                698
+                691,
+                699
               ],
               "loc": {
                 "start": {
@@ -208,8 +208,8 @@
                         "object": {
                           "type": "ThisExpression",
                           "range": [
-                            714,
-                            718
+                            715,
+                            719
                           ],
                           "loc": {
                             "start": {
@@ -226,8 +226,8 @@
                           "type": "Identifier",
                           "name": "get",
                           "range": [
-                            719,
-                            722
+                            720,
+                            723
                           ],
                           "loc": {
                             "start": {
@@ -241,8 +241,8 @@
                           }
                         },
                         "range": [
-                          714,
-                          722
+                          715,
+                          723
                         ],
                         "loc": {
                           "start": {
@@ -261,8 +261,8 @@
                           "value": "cubes",
                           "raw": "'cubes'",
                           "range": [
-                            723,
-                            730
+                            724,
+                            731
                           ],
                           "loc": {
                             "start": {
@@ -277,8 +277,8 @@
                         }
                       ],
                       "range": [
-                        714,
-                        731
+                        715,
+                        732
                       ],
                       "loc": {
                         "start": {
@@ -292,8 +292,8 @@
                       }
                     },
                     "range": [
-                      707,
-                      732
+                      708,
+                      733
                     ],
                     "loc": {
                       "start": {
@@ -308,8 +308,8 @@
                   }
                 ],
                 "range": [
-                  701,
-                  736
+                  702,
+                  737
                 ],
                 "loc": {
                   "start": {
@@ -325,8 +325,8 @@
               "generator": false,
               "expression": false,
               "range": [
-                698,
-                736
+                699,
+                737
               ],
               "loc": {
                 "start": {
@@ -342,8 +342,8 @@
             "kind": "method",
             "computed": false,
             "range": [
-              690,
-              736
+              691,
+              737
             ],
             "loc": {
               "start": {
@@ -359,8 +359,8 @@
           }
         ],
         "range": [
-          686,
-          738
+          687,
+          739
         ],
         "loc": {
           "start": {
@@ -374,8 +374,8 @@
         }
       },
       "range": [
-        647,
-        738
+        648,
+        739
       ],
       "loc": {
         "start": {
@@ -397,8 +397,8 @@
         "type": "Identifier",
         "name": "CubeModel",
         "range": [
-          755,
-          764
+          756,
+          765
         ],
         "loc": {
           "start": {
@@ -412,8 +412,8 @@
         }
       },
       "range": [
-        740,
-        765
+        741,
+        766
       ],
       "loc": {
         "start": {
@@ -437,8 +437,8 @@
           "type": "Identifier",
           "name": "CubeModel",
           "range": [
-            653,
-            662
+            654,
+            663
           ],
           "loc": {
             "start": {
@@ -458,8 +458,8 @@
             "type": "Identifier",
             "name": "Backbone",
             "range": [
-              671,
-              679
+              672,
+              680
             ],
             "loc": {
               "start": {
@@ -476,8 +476,8 @@
             "type": "Identifier",
             "name": "Model",
             "range": [
-              680,
-              685
+              681,
+              686
             ],
             "loc": {
               "start": {
@@ -491,8 +491,8 @@
             }
           },
           "range": [
-            671,
-            685
+            672,
+            686
           ],
           "loc": {
             "start": {
@@ -514,8 +514,8 @@
                 "type": "Identifier",
                 "name": "getCubes",
                 "range": [
-                  690,
-                  698
+                  691,
+                  699
                 ],
                 "loc": {
                   "start": {
@@ -545,8 +545,8 @@
                           "object": {
                             "type": "ThisExpression",
                             "range": [
-                              714,
-                              718
+                              715,
+                              719
                             ],
                             "loc": {
                               "start": {
@@ -563,8 +563,8 @@
                             "type": "Identifier",
                             "name": "get",
                             "range": [
-                              719,
-                              722
+                              720,
+                              723
                             ],
                             "loc": {
                               "start": {
@@ -578,8 +578,8 @@
                             }
                           },
                           "range": [
-                            714,
-                            722
+                            715,
+                            723
                           ],
                           "loc": {
                             "start": {
@@ -598,8 +598,8 @@
                             "value": "cubes",
                             "raw": "'cubes'",
                             "range": [
-                              723,
-                              730
+                              724,
+                              731
                             ],
                             "loc": {
                               "start": {
@@ -614,8 +614,8 @@
                           }
                         ],
                         "range": [
-                          714,
-                          731
+                          715,
+                          732
                         ],
                         "loc": {
                           "start": {
@@ -629,8 +629,8 @@
                         }
                       },
                       "range": [
-                        707,
-                        732
+                        708,
+                        733
                       ],
                       "loc": {
                         "start": {
@@ -645,8 +645,8 @@
                     }
                   ],
                   "range": [
-                    701,
-                    736
+                    702,
+                    737
                   ],
                   "loc": {
                     "start": {
@@ -662,8 +662,8 @@
                 "generator": false,
                 "expression": false,
                 "range": [
-                  698,
-                  736
+                  699,
+                  737
                 ],
                 "loc": {
                   "start": {
@@ -679,8 +679,8 @@
               "kind": "method",
               "computed": false,
               "range": [
-                690,
-                736
+                691,
+                737
               ],
               "loc": {
                 "start": {
@@ -696,8 +696,8 @@
             }
           ],
           "range": [
-            686,
-            738
+            687,
+            739
           ],
           "loc": {
             "start": {
@@ -711,8 +711,8 @@
           }
         },
         "range": [
-          647,
-          738
+          648,
+          739
         ],
         "loc": {
           "start": {
@@ -729,8 +729,8 @@
         "trailingComments": []
       },
       "range": [
-        740,
-        765
+        741,
+        766
       ],
       "loc": {
         "start": {
@@ -747,8 +747,8 @@
   ],
   "sourceType": "module",
   "range": [
-    613,
-    765
+    614,
+    766
   ],
   "loc": {
     "start": {
@@ -763,10 +763,10 @@
   "comments": [
     {
       "type": "Block",
-      "value": "\n *   Copyright 2016 OSBI Ltd\n *\n *   Licensed under the Apache License, Version 2.0 (the \"License\");\n *   you may not use this file except in compliance with the License.\n *   You may obtain a copy of the License at\n *\n *       http://www.apache.org/licenses/LICENSE-2.0\n *\n *   Unless required by applicable law or agreed to in writing, software\n *   distributed under the License is distributed on an \"AS IS\" BASIS,\n *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n *   See the License for the specific language governing permissions and\n *   limitations under the License.\n ",
+      "value": "*\n *   Copyright 2016 OSBI Ltd\n *\n *   Licensed under the Apache License, Version 2.0 (the \"License\");\n *   you may not use this file except in compliance with the License.\n *   You may obtain a copy of the License at\n *\n *       http://www.apache.org/licenses/LICENSE-2.0\n *\n *   Unless required by applicable law or agreed to in writing, software\n *   distributed under the License is distributed on an \"AS IS\" BASIS,\n *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n *   See the License for the specific language governing permissions and\n *   limitations under the License.\n ",
       "range": [
         0,
-        611
+        612
       ],
       "loc": {
         "start": {

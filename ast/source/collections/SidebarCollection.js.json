@@ -10,8 +10,8 @@
             "type": "Identifier",
             "name": "Backbone",
             "range": [
-              620,
-              628
+              621,
+              629
             ],
             "loc": {
               "start": {
@@ -25,8 +25,8 @@
             }
           },
           "range": [
-            620,
-            628
+            621,
+            629
           ],
           "loc": {
             "start": {
@@ -45,8 +45,8 @@
         "value": "backbone",
         "raw": "'backbone'",
         "range": [
-          634,
-          644
+          635,
+          645
         ],
         "loc": {
           "start": {
@@ -60,8 +60,8 @@
         }
       },
       "range": [
-        613,
-        645
+        614,
+        646
       ],
       "loc": {
         "start": {
@@ -76,10 +76,10 @@
       "leadingComments": [
         {
           "type": "Block",
-          "value": "\n *   Copyright 2016 OSBI Ltd\n *\n *   Licensed under the Apache License, Version 2.0 (the \"License\");\n *   you may not use this file except in compliance with the License.\n *   You may obtain a copy of the License at\n *\n *       http://www.apache.org/licenses/LICENSE-2.0\n *\n *   Unless required by applicable law or agreed to in writing, software\n *   distributed under the License is distributed on an \"AS IS\" BASIS,\n *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n *   See the License for the specific language governing permissions and\n *   limitations under the License.\n ",
+          "value": "*\n *   Copyright 2016 OSBI Ltd\n *\n *   Licensed under the Apache License, Version 2.0 (the \"License\");\n *   you may not use this file except in compliance with the License.\n *   You may obtain a copy of the License at\n *\n *       http://www.apache.org/licenses/LICENSE-2.0\n *\n *   Unless required by applicable law or agreed to in writing, software\n *   distributed under the License is distributed on an \"AS IS\" BASIS,\n *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n *   See the License for the specific language governing permissions and\n *   limitations under the License.\n ",
           "range": [
             0,
-            611
+            612
           ],
           "loc": {
             "start": {
@@ -103,8 +103,8 @@
             "type": "Identifier",
             "name": "SidebarModel",
             "range": [
-              653,
-              665
+              654,
+              666
             ],
             "loc": {
               "start": {
@@ -118,8 +118,8 @@
             }
           },
           "range": [
-            653,
-            665
+            654,
+            666
           ],
           "loc": {
             "start": {
@@ -138,8 +138,8 @@
         "value": "../models/SidebarModel",
         "raw": "'../models/SidebarModel'",
         "range": [
-          671,
-          695
+          672,
+          696
         ],
         "loc": {
           "start": {
@@ -153,8 +153,8 @@
         }
       },
       "range": [
-        646,
-        696
+        647,
+        697
       ],
       "loc": {
         "start": {
@@ -173,8 +173,8 @@
         "type": "Identifier",
         "name": "SidebarCollection",
         "range": [
-          704,
-          721
+          705,
+          722
         ],
         "loc": {
           "start": {
@@ -194,8 +194,8 @@
           "type": "Identifier",
           "name": "Backbone",
           "range": [
-            730,
-            738
+            731,
+            739
           ],
           "loc": {
             "start": {
@@ -212,8 +212,8 @@
           "type": "Identifier",
           "name": "Collection",
           "range": [
-            739,
-            749
+            740,
+            750
           ],
           "loc": {
             "start": {
@@ -227,8 +227,8 @@
           }
         },
         "range": [
-          730,
-          749
+          731,
+          750
         ],
         "loc": {
           "start": {
@@ -250,8 +250,8 @@
               "type": "Identifier",
               "name": "constructor",
               "range": [
-                754,
-                765
+                755,
+                766
               ],
               "loc": {
                 "start": {
@@ -272,8 +272,8 @@
                   "type": "Identifier",
                   "name": "options",
                   "range": [
-                    766,
-                    773
+                    767,
+                    774
                   ],
                   "loc": {
                     "start": {
@@ -297,8 +297,8 @@
                       "callee": {
                         "type": "Super",
                         "range": [
-                          781,
-                          786
+                          782,
+                          787
                         ],
                         "loc": {
                           "start": {
@@ -316,8 +316,8 @@
                           "type": "Identifier",
                           "name": "options",
                           "range": [
-                            787,
-                            794
+                            788,
+                            795
                           ],
                           "loc": {
                             "start": {
@@ -332,8 +332,8 @@
                         }
                       ],
                       "range": [
-                        781,
-                        795
+                        782,
+                        796
                       ],
                       "loc": {
                         "start": {
@@ -347,8 +347,8 @@
                       }
                     },
                     "range": [
-                      781,
-                      796
+                      782,
+                      797
                     ],
                     "loc": {
                       "start": {
@@ -372,8 +372,8 @@
                         "object": {
                           "type": "ThisExpression",
                           "range": [
-                            802,
-                            806
+                            803,
+                            807
                           ],
                           "loc": {
                             "start": {
@@ -390,8 +390,8 @@
                           "type": "Identifier",
                           "name": "model",
                           "range": [
-                            807,
-                            812
+                            808,
+                            813
                           ],
                           "loc": {
                             "start": {
@@ -405,8 +405,8 @@
                           }
                         },
                         "range": [
-                          802,
-                          812
+                          803,
+                          813
                         ],
                         "loc": {
                           "start": {
@@ -423,8 +423,8 @@
                         "type": "Identifier",
                         "name": "SidebarModel",
                         "range": [
-                          815,
-                          827
+                          816,
+                          828
                         ],
                         "loc": {
                           "start": {
@@ -438,8 +438,8 @@
                         }
                       },
                       "range": [
-                        802,
-                        827
+                        803,
+                        828
                       ],
                       "loc": {
                         "start": {
@@ -453,8 +453,8 @@
                       }
                     },
                     "range": [
-                      802,
-                      828
+                      803,
+                      829
                     ],
                     "loc": {
                       "start": {
@@ -469,8 +469,8 @@
                   }
                 ],
                 "range": [
-                  775,
-                  832
+                  776,
+                  833
                 ],
                 "loc": {
                   "start": {
@@ -486,8 +486,8 @@
               "generator": false,
               "expression": false,
               "range": [
-                765,
-                832
+                766,
+                833
               ],
               "loc": {
                 "start": {
@@ -503,8 +503,8 @@
             "kind": "constructor",
             "computed": false,
             "range": [
-              754,
-              832
+              755,
+              833
             ],
             "loc": {
               "start": {
@@ -524,8 +524,8 @@
               "type": "Identifier",
               "name": "url",
               "range": [
-                836,
-                839
+                837,
+                840
               ],
               "loc": {
                 "start": {
@@ -552,8 +552,8 @@
                       "value": "http://localhost:9999/sidebar",
                       "raw": "'http://localhost:9999/sidebar'",
                       "range": [
-                        855,
-                        886
+                        856,
+                        887
                       ],
                       "loc": {
                         "start": {
@@ -567,8 +567,8 @@
                       }
                     },
                     "range": [
-                      848,
-                      887
+                      849,
+                      888
                     ],
                     "loc": {
                       "start": {
@@ -583,8 +583,8 @@
                   }
                 ],
                 "range": [
-                  842,
-                  891
+                  843,
+                  892
                 ],
                 "loc": {
                   "start": {
@@ -600,8 +600,8 @@
               "generator": false,
               "expression": false,
               "range": [
-                839,
-                891
+                840,
+                892
               ],
               "loc": {
                 "start": {
@@ -617,8 +617,8 @@
             "kind": "method",
             "computed": false,
             "range": [
-              836,
-              891
+              837,
+              892
             ],
             "loc": {
               "start": {
@@ -634,8 +634,8 @@
           }
         ],
         "range": [
-          750,
-          893
+          751,
+          894
         ],
         "loc": {
           "start": {
@@ -649,8 +649,8 @@
         }
       },
       "range": [
-        698,
-        893
+        699,
+        894
       ],
       "loc": {
         "start": {
@@ -672,8 +672,8 @@
         "type": "Identifier",
         "name": "SidebarCollection",
         "range": [
-          910,
-          927
+          911,
+          928
         ],
         "loc": {
           "start": {
@@ -687,8 +687,8 @@
         }
       },
       "range": [
-        895,
-        928
+        896,
+        929
       ],
       "loc": {
         "start": {
@@ -712,8 +712,8 @@
           "type": "Identifier",
           "name": "SidebarCollection",
           "range": [
-            704,
-            721
+            705,
+            722
           ],
           "loc": {
             "start": {
@@ -733,8 +733,8 @@
             "type": "Identifier",
             "name": "Backbone",
             "range": [
-              730,
-              738
+              731,
+              739
             ],
             "loc": {
               "start": {
@@ -751,8 +751,8 @@
             "type": "Identifier",
             "name": "Collection",
             "range": [
-              739,
-              749
+              740,
+              750
             ],
             "loc": {
               "start": {
@@ -766,8 +766,8 @@
             }
           },
           "range": [
-            730,
-            749
+            731,
+            750
           ],
           "loc": {
             "start": {
@@ -789,8 +789,8 @@
                 "type": "Identifier",
                 "name": "constructor",
                 "range": [
-                  754,
-                  765
+                  755,
+                  766
                 ],
                 "loc": {
                   "start": {
@@ -811,8 +811,8 @@
                     "type": "Identifier",
                     "name": "options",
                     "range": [
-                      766,
-                      773
+                      767,
+                      774
                     ],
                     "loc": {
                       "start": {
@@ -836,8 +836,8 @@
                         "callee": {
                           "type": "Super",
                           "range": [
-                            781,
-                            786
+                            782,
+                            787
                           ],
                           "loc": {
                             "start": {
@@ -855,8 +855,8 @@
                             "type": "Identifier",
                             "name": "options",
                             "range": [
-                              787,
-                              794
+                              788,
+                              795
                             ],
                             "loc": {
                               "start": {
@@ -871,8 +871,8 @@
                           }
                         ],
                         "range": [
-                          781,
-                          795
+                          782,
+                          796
                         ],
                         "loc": {
                           "start": {
@@ -886,8 +886,8 @@
                         }
                       },
                       "range": [
-                        781,
-                        796
+                        782,
+                        797
                       ],
                       "loc": {
                         "start": {
@@ -911,8 +911,8 @@
                           "object": {
                             "type": "ThisExpression",
                             "range": [
-                              802,
-                              806
+                              803,
+                              807
                             ],
                             "loc": {
                               "start": {
@@ -929,8 +929,8 @@
                             "type": "Identifier",
                             "name": "model",
                             "range": [
-                              807,
-                              812
+                              808,
+                              813
                             ],
                             "loc": {
                               "start": {
@@ -944,8 +944,8 @@
                             }
                           },
                           "range": [
-                            802,
-                            812
+                            803,
+                            813
                           ],
                           "loc": {
                             "start": {
@@ -962,8 +962,8 @@
                           "type": "Identifier",
                           "name": "SidebarModel",
                           "range": [
-                            815,
-                            827
+                            816,
+                            828
                           ],
                           "loc": {
                             "start": {
@@ -977,8 +977,8 @@
                           }
                         },
                         "range": [
-                          802,
-                          827
+                          803,
+                          828
                         ],
                         "loc": {
                           "start": {
@@ -992,8 +992,8 @@
                         }
                       },
                       "range": [
-                        802,
-                        828
+                        803,
+                        829
                       ],
                       "loc": {
                         "start": {
@@ -1008,8 +1008,8 @@
                     }
                   ],
                   "range": [
-                    775,
-                    832
+                    776,
+                    833
                   ],
                   "loc": {
                     "start": {
@@ -1025,8 +1025,8 @@
                 "generator": false,
                 "expression": false,
                 "range": [
-                  765,
-                  832
+                  766,
+                  833
                 ],
                 "loc": {
                   "start": {
@@ -1042,8 +1042,8 @@
               "kind": "constructor",
               "computed": false,
               "range": [
-                754,
-                832
+                755,
+                833
               ],
               "loc": {
                 "start": {
@@ -1063,8 +1063,8 @@
                 "type": "Identifier",
                 "name": "url",
                 "range": [
-                  836,
-                  839
+                  837,
+                  840
                 ],
                 "loc": {
                   "start": {
@@ -1091,8 +1091,8 @@
                         "value": "http://localhost:9999/sidebar",
                         "raw": "'http://localhost:9999/sidebar'",
                         "range": [
-                          855,
-                          886
+                          856,
+                          887
                         ],
                         "loc": {
                           "start": {
@@ -1106,8 +1106,8 @@
                         }
                       },
                       "range": [
-                        848,
-                        887
+                        849,
+                        888
                       ],
                       "loc": {
                         "start": {
@@ -1122,8 +1122,8 @@
                     }
                   ],
                   "range": [
-                    842,
-                    891
+                    843,
+                    892
                   ],
                   "loc": {
                     "start": {
@@ -1139,8 +1139,8 @@
                 "generator": false,
                 "expression": false,
                 "range": [
-                  839,
-                  891
+                  840,
+                  892
                 ],
                 "loc": {
                   "start": {
@@ -1156,8 +1156,8 @@
               "kind": "method",
               "computed": false,
               "range": [
-                836,
-                891
+                837,
+                892
               ],
               "loc": {
                 "start": {
@@ -1173,8 +1173,8 @@
             }
           ],
           "range": [
-            750,
-            893
+            751,
+            894
           ],
           "loc": {
             "start": {
@@ -1188,8 +1188,8 @@
           }
         },
         "range": [
-          698,
-          893
+          699,
+          894
         ],
         "loc": {
           "start": {
@@ -1206,8 +1206,8 @@
         "trailingComments": []
       },
       "range": [
-        895,
-        928
+        896,
+        929
       ],
       "loc": {
         "start": {
@@ -1224,8 +1224,8 @@
   ],
   "sourceType": "module",
   "range": [
-    613,
-    928
+    614,
+    929
   ],
   "loc": {
     "start": {
@@ -1240,10 +1240,10 @@
   "comments": [
     {
       "type": "Block",
-      "value": "\n *   Copyright 2016 OSBI Ltd\n *\n *   Licensed under the Apache License, Version 2.0 (the \"License\");\n *   you may not use this file except in compliance with the License.\n *   You may obtain a copy of the License at\n *\n *       http://www.apache.org/licenses/LICENSE-2.0\n *\n *   Unless required by applicable law or agreed to in writing, software\n *   distributed under the License is distributed on an \"AS IS\" BASIS,\n *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n *   See the License for the specific language governing permissions and\n *   limitations under the License.\n ",
+      "value": "*\n *   Copyright 2016 OSBI Ltd\n *\n *   Licensed under the Apache License, Version 2.0 (the \"License\");\n *   you may not use this file except in compliance with the License.\n *   You may obtain a copy of the License at\n *\n *       http://www.apache.org/licenses/LICENSE-2.0\n *\n *   Unless required by applicable law or agreed to in writing, software\n *   distributed under the License is distributed on an \"AS IS\" BASIS,\n *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n *   See the License for the specific language governing permissions and\n *   limitations under the License.\n ",
       "range": [
         0,
-        611
+        612
       ],
       "loc": {
         "start": {

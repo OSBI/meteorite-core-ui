@@ -10,8 +10,8 @@
             "type": "Identifier",
             "name": "Dispatcher",
             "range": [
-              623,
-              633
+              624,
+              634
             ],
             "loc": {
               "start": {
@@ -28,8 +28,8 @@
             "type": "Identifier",
             "name": "Dispatcher",
             "range": [
-              623,
-              633
+              624,
+              634
             ],
             "loc": {
               "start": {
@@ -43,8 +43,8 @@
             }
           },
           "range": [
-            623,
-            633
+            624,
+            634
           ],
           "loc": {
             "start": {
@@ -63,8 +63,8 @@
         "value": "flux",
         "raw": "'flux'",
         "range": [
-          641,
-          647
+          642,
+          648
         ],
         "loc": {
           "start": {
@@ -78,8 +78,8 @@
         }
       },
       "range": [
-        614,
-        648
+        615,
+        649
       ],
       "loc": {
         "start": {
@@ -94,10 +94,10 @@
       "leadingComments": [
         {
           "type": "Block",
-          "value": "\n *   Copyright 2016 OSBI Ltd\n *\n *   Licensed under the Apache License, Version 2.0 (the \"License\");\n *   you may not use this file except in compliance with the License.\n *   You may obtain a copy of the License at\n *\n *       http://www.apache.org/licenses/LICENSE-2.0\n *\n *   Unless required by pagelicable law or agreed to in writing, software\n *   distributed under the License is distributed on an \"AS IS\" BASIS,\n *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n *   See the License for the specific language governing permissions and\n *   limitations under the License.\n ",
+          "value": "*\n *   Copyright 2016 OSBI Ltd\n *\n *   Licensed under the Apache License, Version 2.0 (the \"License\");\n *   you may not use this file except in compliance with the License.\n *   You may obtain a copy of the License at\n *\n *       http://www.apache.org/licenses/LICENSE-2.0\n *\n *   Unless required by pagelicable law or agreed to in writing, software\n *   distributed under the License is distributed on an \"AS IS\" BASIS,\n *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n *   See the License for the specific language governing permissions and\n *   limitations under the License.\n ",
           "range": [
             0,
-            612
+            613
           ],
           "loc": {
             "start": {
@@ -121,8 +121,8 @@
             "type": "Identifier",
             "name": "AppDispatcher",
             "range": [
-              654,
-              667
+              655,
+              668
             ],
             "loc": {
               "start": {
@@ -141,8 +141,8 @@
               "type": "Identifier",
               "name": "Dispatcher",
               "range": [
-                674,
-                684
+                675,
+                685
               ],
               "loc": {
                 "start": {
@@ -157,8 +157,8 @@
             },
             "arguments": [],
             "range": [
-              670,
-              686
+              671,
+              687
             ],
             "loc": {
               "start": {
@@ -172,8 +172,8 @@
             }
           },
           "range": [
-            654,
-            686
+            655,
+            687
           ],
           "loc": {
             "start": {
@@ -189,8 +189,8 @@
       ],
       "kind": "let",
       "range": [
-        650,
-        687
+        651,
+        688
       ],
       "loc": {
         "start": {
@@ -212,8 +212,8 @@
         "type": "Identifier",
         "name": "AppDispatcher",
         "range": [
-          704,
-          717
+          705,
+          718
         ],
         "loc": {
           "start": {
@@ -229,8 +229,8 @@
         "trailingComments": []
       },
       "range": [
-        689,
-        718
+        690,
+        719
       ],
       "loc": {
         "start": {
@@ -246,8 +246,8 @@
   ],
   "sourceType": "module",
   "range": [
-    614,
-    718
+    615,
+    719
   ],
   "loc": {
     "start": {
@@ -262,10 +262,10 @@
   "comments": [
     {
       "type": "Block",
-      "value": "\n *   Copyright 2016 OSBI Ltd\n *\n *   Licensed under the Apache License, Version 2.0 (the \"License\");\n *   you may not use this file except in compliance with the License.\n *   You may obtain a copy of the License at\n *\n *       http://www.apache.org/licenses/LICENSE-2.0\n *\n *   Unless required by pagelicable law or agreed to in writing, software\n *   distributed under the License is distributed on an \"AS IS\" BASIS,\n *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n *   See the License for the specific language governing permissions and\n *   limitations under the License.\n ",
+      "value": "*\n *   Copyright 2016 OSBI Ltd\n *\n *   Licensed under the Apache License, Version 2.0 (the \"License\");\n *   you may not use this file except in compliance with the License.\n *   You may obtain a copy of the License at\n *\n *       http://www.apache.org/licenses/LICENSE-2.0\n *\n *   Unless required by pagelicable law or agreed to in writing, software\n *   distributed under the License is distributed on an \"AS IS\" BASIS,\n *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n *   See the License for the specific language governing permissions and\n *   limitations under the License.\n ",
       "range": [
         0,
-        612
+        613
       ],
       "loc": {
         "start": {

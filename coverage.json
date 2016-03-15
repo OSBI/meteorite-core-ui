@@ -1,14 +1,12 @@
 {
-  "coverage": "11.27%",
-  "expectCount": 133,
-  "actualCount": 15,
+  "coverage": "13.82%",
+  "expectCount": 123,
+  "actualCount": 17,
   "files": {
     "js/utils/Base64.js": {
       "expectCount": 1,
-      "actualCount": 0,
-      "undocumentLines": [
-        17
-      ]
+      "actualCount": 1,
+      "undocumentLines": []
     },
     "js/components/bootstrap/Clearfix.jsx": {
       "expectCount": 2,
@@ -34,7 +32,7 @@
         20
       ]
     },
-    "js/components/saiku/query_designer/components/CubeSelector.jsx": {
+    "js/components/saiku/QueryDesigner/components/CubeSelector.jsx": {
       "expectCount": 6,
       "actualCount": 5,
       "undocumentLines": [
@@ -51,7 +49,7 @@
         27
       ]
     },
-    "js/components/saiku/query_designer/stores/CubesStore.js": {
+    "js/components/saiku/QueryDesigner/stores/CubesStore.js": {
       "expectCount": 8,
       "actualCount": 0,
       "undocumentLines": [
@@ -90,13 +88,13 @@
       "expectCount": 7,
       "actualCount": 0,
       "undocumentLines": [
-        36,
-        50,
         37,
-        62,
-        105,
-        67,
-        40
+        51,
+        38,
+        63,
+        106,
+        68,
+        41
       ]
     },
     "js/collections/MenubarCollection.js": {
@@ -125,15 +123,7 @@
         20
       ]
     },
-    "js/components/saiku/Portlet.jsx": {
-      "expectCount": 2,
-      "actualCount": 0,
-      "undocumentLines": [
-        21,
-        22
-      ]
-    },
-    "js/components/saiku/query_designer/components/ReportPreview.jsx": {
+    "js/components/saiku/QueryDesigner/components/ReportPreview.jsx": {
       "expectCount": 6,
       "actualCount": 3,
       "undocumentLines": [
@@ -142,7 +132,7 @@
         34
       ]
     },
-    "js/components/saiku/query_designer/stores/SelectedDimensionsStore.js": {
+    "js/components/saiku/QueryDesigner/stores/SelectedDimensionsStore.js": {
       "expectCount": 12,
       "actualCount": 0,
       "undocumentLines": [
@@ -160,7 +150,7 @@
         28
       ]
     },
-    "js/components/saiku/query_designer/stores/SelectedMeasuresStore.js": {
+    "js/components/saiku/QueryDesigner/stores/SelectedMeasuresStore.js": {
       "expectCount": 12,
       "actualCount": 0,
       "undocumentLines": [
@@ -191,10 +181,8 @@
     },
     "js/utils/Settings.js": {
       "expectCount": 1,
-      "actualCount": 0,
-      "undocumentLines": [
-        17
-      ]
+      "actualCount": 1,
+      "undocumentLines": []
     },
     "js/collections/SidebarCollection.js": {
       "expectCount": 4,
@@ -212,24 +200,6 @@
       "undocumentLines": [
         19,
         20
-      ]
-    },
-    "js/components/saiku/SidebarOlap.jsx": {
-      "expectCount": 2,
-      "actualCount": 0,
-      "undocumentLines": [
-        23,
-        24
-      ]
-    },
-    "js/components/saiku/SidebarReporting.jsx": {
-      "expectCount": 4,
-      "actualCount": 0,
-      "undocumentLines": [
-        29,
-        73,
-        57,
-        30
       ]
     },
     "js/components/saiku/Tab.jsx": {
@@ -250,17 +220,6 @@
         36
       ]
     },
-    "js/components/saiku/Sidebar.jsx": {
-      "expectCount": 5,
-      "actualCount": 0,
-      "undocumentLines": [
-        24,
-        37,
-        25,
-        62,
-        28
-      ]
-    },
     "js/components/saiku/Toolbar.jsx": {
       "expectCount": 5,
       "actualCount": 0,
@@ -270,6 +229,17 @@
         33,
         79,
         36
+      ]
+    },
+    "js/components/saiku/Sidebar.jsx": {
+      "expectCount": 5,
+      "actualCount": 0,
+      "undocumentLines": [
+        24,
+        37,
+        25,
+        62,
+        28
       ]
     },
     "js/collections/ToolbarCollection.js": {
@@ -290,14 +260,6 @@
         20
       ]
     },
-    "js/components/saiku/ToolbarReporting.jsx": {
-      "expectCount": 2,
-      "actualCount": 0,
-      "undocumentLines": [
-        24,
-        25
-      ]
-    },
     "js/views/Workspace.jsx": {
       "expectCount": 6,
       "actualCount": 0,
@@ -314,8 +276,8 @@
       "expectCount": 2,
       "actualCount": 0,
       "undocumentLines": [
-        20,
-        21
+        21,
+        22
       ]
     }
   }
