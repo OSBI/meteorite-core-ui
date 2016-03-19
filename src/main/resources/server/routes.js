@@ -14,6 +14,7 @@
  *   limitations under the License.
  */
 
+var path        = require('path');
 var jsonfile    = require('jsonfile');
 var fileMenuBar = './src/js/components/saiku/data/MenuBar.json';
 var fileSidebar = './src/js/components/saiku/data/Sidebar.json';
@@ -31,6 +32,7 @@ var appRouter = function(app) {
         '<li><a href="/sidebar">Sidebar</a></li>' +
         '<li><a href="/toolbar">Toolbar</a></li>' +
         '<li><a href="/cubes">Cubes</a></li>' +
+        '<li><a href="/report/filename">Pentaho Report</a></li>' +
       '</ul>'
     );
   });
@@ -70,6 +72,11 @@ var appRouter = function(app) {
   app.get('/cubes', function(req, res) {
     dataMock = jsonfile.readFileSync(fileCubes);
     return res.send(dataMock);
+  });
+
+  app.get('/report/:filename', function(req, res) {
+    var file  = '/../src/js/components/saiku/data/Report.html';
+    res.sendFile(path.join(__dirname + file));
   });
 };
 
